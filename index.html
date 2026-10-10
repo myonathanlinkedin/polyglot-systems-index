@@ -1,0 +1,1458 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mateus Yonathan | AI-Native Full-Stack Engineer & Polyglot Systems Lab</title>
+  
+  <!-- Google Search Console Verification -->
+  <meta name="google-site-verification" content="NM0F9uWcNiY6V4IvRUzU9hyzaRPMXMHg-I56GK0I7_I" />
+
+  <!-- Favicons & Touch Icons for Google Search Result Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="https://myonathanlinkedin.github.io/assets/avatar.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="https://myonathanlinkedin.github.io/assets/avatar.png" />
+  <link rel="shortcut icon" type="image/png" href="https://myonathanlinkedin.github.io/assets/avatar.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://myonathanlinkedin.github.io/assets/avatar.png" />
+  <link rel="apple-touch-icon-precomposed" href="https://myonathanlinkedin.github.io/assets/avatar.png" />
+
+  <!-- SEO & Search Engine Optimization -->
+  <meta name="description" content="Mateus Yonathan — AI-Native Full-Stack Engineer. Reference implementations of standard-library algorithms and data structures across 14 programming languages." />
+  <meta name="keywords" content="Mateus Yonathan, AI-Native Full-Stack Engineer, Systems Programming, Polyglot Systems, Algorithms, Data Structures, Rust, C++20, Go, Zig, C#, Java, Python" />
+  <meta name="author" content="Mateus Yonathan" />
+  <meta name="thumbnail" content="https://myonathanlinkedin.github.io/assets/avatar.png" />
+  <meta itemprop="image" content="https://myonathanlinkedin.github.io/assets/avatar.png" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <link rel="canonical" href="https://myonathanlinkedin.github.io/" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="profile" />
+  <meta property="og:url" content="https://myonathanlinkedin.github.io/" />
+  <meta property="og:title" content="Mateus Yonathan | AI-Native Full-Stack Engineer" />
+  <meta property="og:description" content="Reference implementations of standard-library algorithms and data structures across 14 programming languages." />
+  <meta property="og:image" content="https://myonathanlinkedin.github.io/assets/avatar.png" />
+  <meta property="og:image:width" content="400" />
+  <meta property="og:image:height" content="400" />
+  <meta property="og:image:alt" content="Mateus Yonathan Avatar" />
+  
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://myonathanlinkedin.github.io/" />
+  <meta name="twitter:title" content="Mateus Yonathan | AI-Native Full-Stack Engineer" />
+  <meta name="twitter:description" content="Reference implementations of standard-library algorithms and data structures across 14 programming languages." />
+  <meta name="twitter:image" content="https://myonathanlinkedin.github.io/assets/avatar.png" />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  
+  <!-- JSON-LD Structured Data for Google Rich Snippets -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Mateus Yonathan",
+      "alternateName": "Siyoyo",
+      "image": "https://myonathanlinkedin.github.io/assets/avatar.png",
+      "jobTitle": "AI-Native Full-Stack Engineer",
+      "url": "https://myonathanlinkedin.github.io/",
+      "sameAs": [
+        "https://linkedin.com/in/siyoyo",
+        "https://github.com/myonathanlinkedin",
+        "https://orcid.org/0009-0008-5999-7366",
+        "https://researchgate.net/profile/Mateus-Yonathan",
+        "https://ssrn.com/author=7774866"
+      ],
+      "knowsAbout": [
+        "AI-Native Full-Stack Engineering", "Systems Programming", "Rust", "Go", "C++20", 
+        "Distributed Systems", "Cloud Platforms", "Algorithms & Data Structures"
+      ]
+    }
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg-primary: #0a0d14;
+      --bg-secondary: #111622;
+      --bg-card: rgba(22, 27, 34, 0.75);
+      --border-color: rgba(255, 255, 255, 0.1);
+      --border-glow: rgba(56, 189, 248, 0.25);
+      --accent-blue: #38bdf8;
+      --accent-cyan: #00d8ff;
+      --accent-purple: #c084fc;
+      --accent-green: #4ade80;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'Fira Code', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      background: var(--bg-primary);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      min-height: 100vh;
+      width: 100%;
+      max-width: 100vw;
+      overflow-x: clip;
+      position: relative;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 85% 65%, rgba(192, 132, 252, 0.08) 0%, transparent 40%);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 0 14px;
+      }
+    }
+
+    /* Header & Navigation */
+    header {
+      background: rgba(10, 13, 20, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 12px 0;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .nav-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 700;
+      font-size: 1.05rem;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .nav-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 2px solid var(--accent-blue);
+      object-fit: cover;
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+      flex-shrink: 0;
+    }
+
+    .logo-badge {
+      background: linear-gradient(135deg, #0284c7, #9333ea);
+      color: #fff;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      font-family: var(--font-mono);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 12px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      background: var(--bg-secondary);
+      white-space: nowrap;
+      box-sizing: border-box;
+    }
+
+    .nav-btn:hover {
+      border-color: var(--accent-blue);
+      background: rgba(56, 189, 248, 0.1);
+      transform: translateY(-1px);
+    }
+
+    .nav-btn.primary {
+      background: linear-gradient(135deg, #0284c7, #2563eb);
+      border: none;
+      color: #fff;
+    }
+
+    .nav-btn.primary:hover {
+      box-shadow: 0 0 15px rgba(37, 99, 235, 0.4);
+    }
+
+    @media (max-width: 880px) {
+      header {
+        padding: 10px 0;
+      }
+      .nav-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+      .nav-links {
+        justify-content: center;
+        gap: 6px;
+        width: 100%;
+      }
+      .nav-btn {
+        padding: 5px 9px;
+        font-size: 0.75rem;
+      }
+      .logo {
+        font-size: 0.95rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-wrapper {
+        gap: 8px;
+      }
+      .logo {
+        gap: 8px;
+        font-size: 0.9rem;
+      }
+      .nav-avatar {
+        width: 28px;
+        height: 28px;
+      }
+      .logo-badge {
+        font-size: 0.65rem;
+        padding: 2px 6px;
+      }
+      .nav-links {
+        gap: 5px;
+      }
+      .nav-btn {
+        padding: 4px 8px;
+        font-size: 0.72rem;
+        gap: 4px;
+      }
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 48px 0 36px;
+      text-align: center;
+    }
+
+    .hero-avatar-wrap {
+      margin: 0 auto 16px;
+      display: inline-block;
+      position: relative;
+    }
+
+    .hero-avatar-ring {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      padding: 3.5px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+      box-shadow: 0 0 25px rgba(56, 189, 248, 0.35), 0 0 50px rgba(192, 132, 252, 0.2);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-avatar-ring:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 0 35px rgba(56, 189, 248, 0.55), 0 0 70px rgba(192, 132, 252, 0.35);
+    }
+
+    .hero-avatar-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: var(--bg-primary);
+      padding: 3px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-avatar {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-avatar-status {
+      position: absolute;
+      bottom: 4px;
+      right: 4px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #10b981;
+      border: 3.5px solid #090d16;
+      box-shadow: 0 0 10px #10b981;
+      animation: status-glow 2s infinite ease-in-out;
+    }
+
+    @keyframes status-glow {
+      0%, 100% { box-shadow: 0 0 8px #10b981; }
+      50% { box-shadow: 0 0 16px #10b981; transform: scale(1.15); }
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--accent-blue);
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-family: var(--font-mono);
+      margin-bottom: 16px;
+      letter-spacing: 0.5px;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.9rem, 5vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      word-break: break-word;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(0.95rem, 3vw, 1.2rem);
+      font-weight: 600;
+      color: #93c5fd;
+      margin-bottom: 12px;
+      word-break: break-word;
+    }
+
+    .hero-typewriter {
+      font-family: var(--font-mono);
+      font-size: clamp(0.85rem, 2.5vw, 1.05rem);
+      color: var(--accent-cyan);
+      margin-bottom: 20px;
+      min-height: 28px;
+      word-break: break-word;
+    }
+
+    .hero-bio {
+      max-width: 800px;
+      margin: 0 auto 24px;
+      color: var(--text-muted);
+      font-size: clamp(0.88rem, 2.2vw, 1.02rem);
+      line-height: 1.6;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+
+    .hero-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .hero-btn-icon {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    .hero-btn.primary-glow {
+      background: linear-gradient(135deg, #0284c7, #2563eb);
+      color: #ffffff;
+      border: 1px solid rgba(56, 189, 248, 0.5);
+      box-shadow: 0 0 20px rgba(37, 99, 235, 0.4);
+    }
+
+    .hero-btn.primary-glow:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 30px rgba(56, 189, 248, 0.7);
+    }
+
+    .hero-btn.linkedin-btn {
+      background: #0077b5;
+      color: #ffffff;
+      border: 1px solid rgba(0, 119, 181, 0.6);
+      box-shadow: 0 0 15px rgba(0, 119, 181, 0.3);
+    }
+
+    .hero-btn.linkedin-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 25px rgba(0, 119, 181, 0.5);
+    }
+
+    .hero-btn.secondary {
+      background: rgba(30, 41, 59, 0.8);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+    }
+
+    .hero-btn.secondary:hover {
+      background: rgba(56, 189, 248, 0.1);
+      border-color: var(--accent-blue);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding: 28px 0 20px;
+      }
+      .hero-avatar-ring {
+        width: 100px;
+        height: 100px;
+      }
+      .hero-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+      }
+      .hero-btn {
+        width: 100%;
+        max-width: 320px;
+        justify-content: center;
+      }
+    }
+
+    /* Stat Cards */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 48px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 18px 12px;
+      text-align: center;
+      transition: all 0.2s ease;
+      box-sizing: border-box;
+      width: 100%;
+    }
+
+    .stat-card:hover {
+      border-color: var(--border-glow);
+      transform: translateY(-2px);
+    }
+
+    .stat-num {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--accent-blue);
+      font-family: var(--font-mono);
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 4px;
+    }
+
+    @media (max-width: 768px) {
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        margin-bottom: 36px;
+      }
+      .stat-card {
+        padding: 14px 8px;
+      }
+      .stat-num {
+        font-size: 1.45rem;
+      }
+      .stat-label {
+        font-size: 0.72rem;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+    }
+
+    /* 4 Pillars Section */
+    .section-title {
+      font-size: clamp(1.3rem, 4vw, 1.75rem);
+      font-weight: 700;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      word-break: break-word;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 52px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .pillar-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 20px;
+      position: relative;
+      transition: all 0.2s ease;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .pillar-card:hover {
+      border-color: var(--accent-blue);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .pillar-icon {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+    }
+
+    .pillar-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #fff;
+    }
+
+    .pillar-text {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 768px) {
+      .pillars-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-bottom: 36px;
+      }
+      .pillar-card {
+        padding: 16px;
+      }
+    }
+
+    /* Search & Filter Hub */
+    .search-hub {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 52px;
+    }
+
+    .search-bar-wrap {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .search-input {
+      width: 100%;
+      background: #0f141f;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 12px 16px;
+      color: #fff;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      transition: all 0.2s;
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+    }
+
+    .filter-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 20px;
+    }
+
+    .filter-chip {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .filter-chip[data-lang="papers"] {
+      border-color: rgba(16, 185, 129, 0.5);
+      color: #10b981;
+      font-weight: 700;
+    }
+
+    .filter-chip:hover, .filter-chip.active {
+      background: var(--accent-blue) !important;
+      color: #0a0d14 !important;
+      font-weight: 700 !important;
+      border-color: var(--accent-blue) !important;
+    }
+
+    @media (max-width: 640px) {
+      .search-hub {
+        padding: 18px 12px;
+        border-radius: 12px;
+        margin-bottom: 36px;
+      }
+      .filter-chip {
+        padding: 4px 10px;
+        font-size: 0.75rem;
+      }
+    }
+
+    /* Modules List */
+    .modules-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      min-height: 260px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .module-item {
+      background: #0f141f;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
+      transition: all 0.2s;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .module-item:hover {
+      border-color: var(--accent-blue);
+      transform: translateY(-2px);
+    }
+
+    .module-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .module-topic {
+      font-weight: 600;
+      font-size: 0.92rem;
+      color: #fff;
+      word-break: break-word;
+    }
+
+    .module-tags {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .lang-badge {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      padding: 2px 7px;
+      border-radius: 4px;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--accent-blue);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .tag-paper {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: #10b981;
+      background: rgba(16, 185, 129, 0.12);
+      padding: 2px 7px;
+      border-radius: 4px;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      flex-shrink: 0;
+      user-select: none;
+    }
+
+    .module-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .code-link {
+      color: var(--accent-cyan);
+      text-decoration: none;
+      font-family: var(--font-mono);
+      font-weight: 500;
+    }
+
+    .code-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Pagination Bar */
+    .pagination-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-color);
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .pagination-info {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+
+    .pagination-info strong {
+      color: #f8fafc;
+    }
+
+    .pagination-controls {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .page-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 38px;
+      height: 38px;
+      padding: 0 10px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-family: var(--font-mono);
+      font-weight: 600;
+      background: var(--bg-card);
+      color: var(--text-muted);
+      border: 1px solid var(--border-color);
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      user-select: none;
+    }
+
+    .page-btn:hover:not(:disabled):not(.active) {
+      border-color: var(--accent-blue);
+      color: #f8fafc;
+      background: rgba(56, 189, 248, 0.1);
+      transform: translateY(-1px);
+    }
+
+    .page-btn.active {
+      background: linear-gradient(135deg, #0284c7, #2563eb);
+      color: #ffffff;
+      border-color: rgba(56, 189, 248, 0.5);
+      box-shadow: 0 0 12px rgba(37, 99, 235, 0.4);
+    }
+
+    .page-btn:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .page-ellipsis {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 38px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      .modules-list {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+      .module-footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .page-btn {
+        min-width: 34px;
+        height: 34px;
+        padding: 0 8px;
+        font-size: 0.8rem;
+      }
+    }
+
+    /* Repositories Fleet Grid */
+    .repos-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 56px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .repo-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 18px;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .repo-card:hover {
+      border-color: var(--accent-blue);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .repo-top {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .repo-name {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--accent-blue);
+      word-break: break-word;
+    }
+
+    .repo-tagline {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+
+    @media (max-width: 768px) {
+      .repos-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-bottom: 40px;
+      }
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 32px 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: var(--accent-blue);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <div class="container nav-wrapper">
+      <a href="https://github.com/myonathanlinkedin" class="logo">
+        <img src="assets/avatar.png" alt="Mateus Yonathan" class="nav-avatar" onerror="this.src='https://avatars.githubusercontent.com/u/207759852?v=4'" />
+        <span>⚡ Mateus Yonathan</span>
+        <span class="logo-badge">SYSTEMS LAB</span>
+      </a>
+      <div class="nav-links">
+        <a href="https://economic-analysis-three.vercel.app/?lang=en" class="nav-btn primary" target="_blank" rel="noopener" style="background: linear-gradient(135deg, rgba(56, 189, 248, 0.25) 0%, rgba(139, 92, 246, 0.25) 100%); border-color: rgba(56, 189, 248, 0.6); color: #38bdf8; font-weight: 700;">
+          <span>📊 Macro Economic App ↗</span>
+        </a>
+        <a href="https://github.com/myonathanlinkedin/mini-papers" class="nav-btn" target="_blank" rel="noopener">
+          <span>📄 Papers</span>
+        </a>
+        <a href="https://orcid.org/0009-0008-5999-7366" class="nav-btn" target="_blank" rel="noopener">
+          <span>ORCID</span>
+        </a>
+        <a href="https://researchgate.net/profile/Mateus-Yonathan" class="nav-btn" target="_blank" rel="noopener">
+          <span>ResearchGate</span>
+        </a>
+        <a href="https://ssrn.com/author=7774866" class="nav-btn" target="_blank" rel="noopener">
+          <span>SSRN</span>
+        </a>
+        <a href="https://linkedin.com/in/siyoyo" class="nav-btn" target="_blank" rel="noopener">
+          <span>LinkedIn</span>
+        </a>
+        <a href="https://github.com/myonathanlinkedin" class="nav-btn primary" target="_blank" rel="noopener">
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="container">
+    <section class="hero">
+      <div class="hero-avatar-wrap">
+        <div class="hero-avatar-ring">
+          <div class="hero-avatar-inner">
+            <img src="assets/avatar.png" alt="Mateus Yonathan" class="hero-avatar" onerror="this.src='https://avatars.githubusercontent.com/u/207759852?v=4'" />
+          </div>
+          <div class="hero-avatar-status" title="Active"></div>
+        </div>
+      </div>
+      <div>
+        <div class="hero-tag">POLYGLOT SYSTEMS LAB</div>
+      </div>
+      <h1>Mateus Yonathan</h1>
+      <div class="hero-subtitle">AI-Native Full-Stack Engineer • Polyglot Systems & Cloud Engineering</div>
+      <div class="hero-typewriter" id="typewriter"></div>
+      <p class="hero-bio">
+        A curated reference library of standard-library algorithms, data structures, and computational primitives across 14 programming languages with automated test assertions.
+      </p>
+
+      <!-- Hero Call-To-Action Action Buttons -->
+      <div class="hero-actions">
+        <a href="https://economic-analysis-three.vercel.app/?lang=en" target="_blank" rel="noopener" class="hero-btn" style="background: linear-gradient(135deg, #0284c7 0%, #7c3aed 100%); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.25); box-shadow: 0 0 20px rgba(56, 189, 248, 0.35);">
+          <span>📊 Macro Economic Intelligence App ↗</span>
+        </a>
+        <a href="https://github.com/myonathanlinkedin" target="_blank" rel="noopener" class="hero-btn primary-glow">
+          <svg class="hero-btn-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          <span>GitHub Profile ↗</span>
+        </a>
+        <a href="https://linkedin.com/in/siyoyo" target="_blank" rel="noopener" class="hero-btn linkedin-btn">
+          <svg class="hero-btn-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          <span>LinkedIn ↗</span>
+        </a>
+        <a href="#catalog" class="hero-btn secondary">
+          <span>Browse Algorithms ↓</span>
+        </a>
+      </div>
+
+      <!-- Stat Badges -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-num">337+</div>
+          <div class="stat-label">Algorithmic Modules</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">14</div>
+          <div class="stat-label">Programming Languages</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" style="color: #10b981;">1</div>
+          <div class="stat-label">Published Papers</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Compiler Verified</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Flagship Web Platform Showcase -->
+    <section style="margin: 16px 0 36px 0; background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.85) 100%); border: 1px solid rgba(56, 189, 248, 0.35); border-radius: 16px; padding: 24px 28px; box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4), 0 0 24px rgba(56, 189, 248, 0.12);">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+        <div style="max-width: 720px;">
+          <div style="display: inline-flex; align-items: center; gap: 8px; font-size: 0.72rem; font-weight: 800; color: #38bdf8; background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.3); padding: 3px 10px; border-radius: 9999px; text-transform: uppercase; margin-bottom: 10px;">
+            <span style="width: 7px; height: 7px; border-radius: 50%; background: #10b981; box-shadow: 0 0 6px #10b981;"></span>
+            LIVE PRODUCTION SYSTEM
+          </div>
+          <h2 style="font-size: 1.35rem; font-weight: 800; color: #f8fafc; margin-bottom: 8px; letter-spacing: -0.02em;">
+            🌐 Macro Economic Analysis & AI Market Intelligence
+          </h2>
+          <p style="font-size: 0.88rem; color: #cbd5e1; line-height: 1.5;">
+            Interactive macroeconomic platform featuring global liquidity tracking, rate trajectory modeling, signal radar, and valuation stress-testing framework.
+          </p>
+        </div>
+        <div>
+          <a href="https://economic-analysis-three.vercel.app/?lang=en" target="_blank" rel="noopener" class="hero-btn primary-glow" style="padding: 12px 24px; font-size: 0.9rem; font-weight: 700; background: linear-gradient(135deg, #0284c7 0%, #7c3aed 100%); border: 1px solid rgba(255, 255, 255, 0.25);">
+            <span>Launch Live App ↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 Pillars Section -->
+    <section>
+      <h2 class="section-title">🏛️ Core Engineering Principles</h2>
+      <p class="section-desc">Key architectural standards followed across all reference implementations:</p>
+
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-icon">🛡️</div>
+          <div class="pillar-title">Native Toolchain Verification</div>
+          <div class="pillar-text">
+            100% compiled and validated using native compiler toolchains (<code>rustc</code>, <code>g++20</code>, <code>swiftc</code>, <code>javac</code>, <code>kotlinc</code>, <code>dotnet</code>, <code>zig</code>) with assertion suites.
+          </div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">🌐</div>
+          <div class="pillar-title">14 Specialized Repositories</div>
+          <div class="pillar-text">
+            Modular organization across systems languages, concurrency runtimes, enterprise platforms, and computational mathematics.
+          </div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">📦</div>
+          <div class="pillar-title">Standard Library Only</div>
+          <div class="pillar-text">
+            Zero third-party packages. Every algorithm is built from scratch using pure standard library constructs for portability and clarity.
+          </div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">🔄</div>
+          <div class="pillar-title">Automated Verification</div>
+          <div class="pillar-text">
+            Continuous testing pipelines that validate syntax, build cleanliness, and execution correctness before deployment.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Live Searchable Catalog -->
+    <section class="search-hub" id="catalog">
+      <h2 class="section-title">🔍 Algorithmic Reference Catalog</h2>
+      <p class="section-desc">Search through 337+ implementations across 14 languages & 1 published papers:</p>
+
+      <div class="search-bar-wrap">
+        <input type="text" id="searchInput" class="search-input" placeholder="Search algorithms & papers (e.g. Raft, Ring Buffer, Graph, AVL, Span, FFT)..." />
+      </div>
+
+      <div class="filter-chips" id="filterChips">
+        <button class="filter-chip active" data-lang="all">All Languages</button>
+        <button class="filter-chip" data-lang="papers">📄 Papers (1)</button>
+        <button class="filter-chip" data-lang="rust">Rust</button>
+        <button class="filter-chip" data-lang="go">Go</button>
+        <button class="filter-chip" data-lang="cpp">C++20</button>
+        <button class="filter-chip" data-lang="c">C11</button>
+        <button class="filter-chip" data-lang="zig">Zig</button>
+        <button class="filter-chip" data-lang="csharp">C# (.NET)</button>
+        <button class="filter-chip" data-lang="swift">Swift</button>
+        <button class="filter-chip" data-lang="kotlin">Kotlin</button>
+        <button class="filter-chip" data-lang="java">Java 21</button>
+        <button class="filter-chip" data-lang="python">Python</button>
+        <button class="filter-chip" data-lang="typescript">TypeScript</button>
+        <button class="filter-chip" data-lang="haskell">Haskell</button>
+      </div>
+
+      <div class="modules-list" id="modulesList">
+        <!-- Rendered dynamically by JS -->
+      </div>
+
+      <div class="pagination-wrap" id="paginationWrap" style="display: none;">
+        <div class="pagination-info" id="paginationInfo"></div>
+        <div class="pagination-controls" id="paginationControls"></div>
+      </div>
+    </section>
+
+    <!-- 14 Spoke Ecosystems Grid -->
+    <section>
+      <h2 class="section-title">🏛️ 14 Specialized Open-Source Repositories</h2>
+      <p class="section-desc">Direct links to public domain-specific spoke repositories with full source code and unit test suites:</p>
+      
+      <div class="repos-grid" id="reposGrid">
+        <!-- Rendered dynamically by JS -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>Polyglot Systems Lab • Maintained by <a href="https://github.com/myonathanlinkedin">Mateus Yonathan (@myonathanlinkedin)</a></p>
+      <p style="margin-top: 8px; font-size: 0.8rem; color: #64748b;">Reference Implementations across 14 Programming Languages • 1 Published Papers</p>
+    </div>
+  </footer>
+
+  <script>
+    const allModules = [{"topic": "Picking fair football teams twice: one algorithm in TypeScript and Swift, same answer", "language": "TypeScript", "category": "🧠 Computational AI & Math Engines", "folder": "typescript", "spoke_repo": "typescript-design-patterns", "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261010_211111_picking_fair_football_teams_tw", "source_file": "main.ts", "timestamp": "2026-10-10T21:11:11.501426+00:00", "has_paper": false}, {"topic": "Red-Black Tree with Deterministic Balance Assertions", "language": "Kotlin", "category": "🧠 Computational AI & Math Engines", "folder": "kotlin", "spoke_repo": "kotlin-systems-core", "source_link": "https://github.com/myonathanlinkedin/kotlin-systems-core/tree/main/algorithms/20261010_210258_red-black_tree_with_determinis", "source_file": "main.kt", "timestamp": "2026-10-10T21:02:58.167987+00:00", "has_paper": false}, {"topic": "Conjugate Gradient Linear System Solver", "language": "Python", "category": "🧠 Computational AI & Math Engines", "folder": "python", "spoke_repo": "python-advanced-lab", "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261010_210614_conjugate_gradient_linear_syst", "source_file": "main.py", "timestamp": "2026-10-10T21:06:14.503860+00:00", "has_paper": false}, {"topic": "Gossip Protocol Node Failure Detector", "language": "Go", "category": "🌐 Distributed Systems & Consensus", "folder": "go", "spoke_repo": "go-concurrency-lab", "source_link": "https://github.com/myonathanlinkedin/go-concurrency-lab/tree/main/algorithms/20261010_210845_gossip_protocol_node_failure_d", "source_file": "main.go", "timestamp": "2026-10-10T21:08:45.934894+00:00", "has_paper": false}, {"topic": "Thread-Safe Bounded Blocking Queue with Condition Variables", "language": "Zig", "category": "⚡ Low-Latency & Memory Systems", "folder": "zig", "spoke_repo": "zig-systems-lab", "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261010_190703_thread-safe_bounded_blocking_q", "source_file": "main.zig", "timestamp": "2026-10-10T19:07:03.834591+00:00", "has_paper": false}, {"topic": "Thread-Safe Bounded Blocking Queue with Condition Variables", "language": "Zig", "category": "⚡ Low-Latency & Memory Systems", "folder": "zig", "spoke_repo": "zig-systems-lab", "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261010_200223_thread-safe_bounded_blocking_q", "source_file": "main.zig", "timestamp": "2026-10-10T20:02:23.301358+00:00", "has_paper": false}, {"topic": "Gossip Protocol Node Failure Detector", "language": "C#", "category": "🌐 Distributed Systems & Consensus", "folder": "csharp", "spoke_repo": "csharp-enterprise-lab", "source_link": "https://github.com/myonathanlinkedin/csharp-enterprise-lab/tree/main/algorithms/20261010_184006_gossip_protocol_node_failure_d", "source_file": "main.cs", "timestamp": "2026-10-10T18:40:06.409164+00:00", "has_paper": false}, {"topic": "Raft Consensus Protocol Leader Election State Engine", "language": "Java", "category": "🌐 Distributed Systems & Consensus", "folder": "java", "spoke_repo": "java-enterprise-patterns", "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261010_190211_raft_consensus_protocol_leader", "source_file": "main.java", "timestamp": "2026-10-10T19:02:11.669345+00:00", "has_paper": false}, {"topic": "Trie Prefix Tree for Auto-Completion with Frequency Ranking", "language": "Ruby", "category": "🧠 Computational AI & Math Engines", "folder": "ruby", "spoke_repo": "ruby-algorithms-lab", "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261010_190936_trie_prefix_tree_for_auto-comp", "source_file": "main.rb", "timestamp": "2026-10-10T19:09:36.591060+00:00", "has_paper": false}, {"topic": "Part 1: Introducing Filters and Probabilistic Searching", "language": "Swift", "category": "🧠 Computational AI & Math Engines", "folder": "swift", "spoke_repo": "swift-systems-lab", "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261010_190442_part_1__introducing_filters_an", "source_file": "main.swift", "timestamp": "2026-10-10T19:04:42.629293+00:00", "has_paper": false}, {"topic": "Treap Randomized Binary Search Tree with Heap Priorities", "language": "Swift", "category": "🧠 Computational AI & Math Engines", "folder": "swift", "spoke_repo": "swift-systems-lab", "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261010_200443_treap_randomized_binary_search", "source_file": "main.swift", "timestamp": "2026-10-10T20:04:43.750154+00:00", "has_paper": false}, {"topic": "Custom Buddy Memory Allocation System", "language": "Haskell", "category": "⚡ Low-Latency & Memory Systems", "folder": "haskell", "spoke_repo": "haskell-functional-core", "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261010_183307_custom_buddy_memory_allocation", "source_file": "main.hs", "timestamp": "2026-10-10T18:33:07.711371+00:00", "has_paper": false}, {"topic": "CYK Parsing Algorithm for Context-Free Grammars", "language": "Zig", "category": "🧠 Computational AI & Math Engines", "folder": "zig", "spoke_repo": "zig-systems-lab", "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261010_183043_cyk_parsing_algorithm_for_cont", "source_file": "main.zig", "timestamp": "2026-10-10T18:30:43.962270+00:00", "has_paper": false}, {"topic": "B-Tree Multiway Balanced Search Tree Node Splitter", "language": "C++", "category": "🧠 Computational AI & Math Engines", "folder": "cpp", "spoke_repo": "cpp-systems-core", "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261010_182824_b-tree_multiway_balanced_searc", "source_file": "main.cpp", "timestamp": "2026-10-10T18:28:24.177661+00:00", "has_paper": false}, {"topic": "Vector Clock Distributed Event Ordering Mechanism", "language": "C#", "category": "🌐 Distributed Systems & Consensus", "folder": "csharp", "spoke_repo": "csharp-enterprise-lab", "source_link": "https://github.com/myonathanlinkedin/csharp-enterprise-lab/tree/main/algorithms/20261010_174822_vector_clock_distributed_event", "source_file": "main.cs", "timestamp": "2026-10-10T17:48:22.386310+00:00", "has_paper": false}, {"topic": "I Wrote a JSON Parser From Scratch", "language": "TypeScript", "category": "🧠 Computational AI & Math Engines", "folder": "typescript", "spoke_repo": "typescript-design-patterns", "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261010_180205_i_wrote_a_json_parser_from_scr", "source_file": "main.ts", "timestamp": "2026-10-10T18:02:05.669129+00:00", "has_paper": false}, {"topic": "Hopcroft-Karp Bipartite Matching Algorithm", "language": "Zig", "category": "🧠 Computational AI & Math Engines", "folder": "zig", "spoke_repo": "zig-systems-lab", "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261010_090710_hopcroft-karp_bipartite_matchi", "source_file": "main.zig", "timestamp": "2026-10-10T09:07:10.478539+00:00", "has_paper": false}, {"topic": "Kruskal Minimum Spanning Tree with Disjoint-Set Union", "language": "Zig", "category": "🧠 Computational AI & Math Engines", "folder": "zig", "spoke_repo": "zig-systems-lab", "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261010_120930_kruskal_minimum_spanning_tree", "source_file": "main.zig", "timestamp": "2026-10-10T12:09:30.149693+00:00", "has_paper": false}, {"topic": "Thread-Safe Bounded Blocking Queue with Condition Variables", "language": "Zig", "category": "⚡ Low-Latency & Memory Systems", "folder": "zig", "spoke_repo": "zig-systems-lab", "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261009_145755_thread-safe_bounded_blocking_q", "source_file": "main.zig", "timestamp": "2026-10-09T14:57:55.080266+00:00", "has_paper": false}, {"topic": "Cuckoo Filter High-Efficiency Deletion Structure", "language": "Zig", "category": "🧠 Computational AI & Math Engines", "folder": "zig", "spoke_repo": "zig-systems-lab", "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261009_155439_cuckoo_filter_high-efficiency", "source_file": "main.zig", "timestamp": "2026-10-09T15:54:39.410613+00:00", "has_paper": false}, {"topic": "Singular Value Decomposition (SVD) for Low-Rank Approximation", "language": "Zig", "category": "🧠 Computational AI & Math Engines", "folder": "zig", "spoke_repo": "zig-systems-lab", "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261009_161558_singular_value_decomposition", "source_file": "main.zig", "timestamp": "2026-10-09T16:15:58.360579+00:00", "has_paper": false}, {"topic": "Least Recently Used (LRU) Cache with Doubly Linked List", "language": "TypeScript", "category": "⚡ Low-Latency & Memory Systems", "folder": "typescript", "spoke_repo": "typescript-design-patterns", "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261010_070529_least_recently_used__lru__cach", "source_file": "main.ts", "timestamp": "2026-10-10T07:05:29.452262+00:00", "has_paper": false}, {"topic": "Least Recently Used (LRU) Cache with Doubly Linked List", "language": "TypeScript", "category": "⚡ Low-Latency & Memory Systems", "folder": "typescript", "spoke_repo": "typescript-design-patterns", "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261010_170557_least_recently_used__lru__cach", "source_file": "main.ts", "timestamp": "2026-10-10T17:05:57.151238+00:00", "has_paper": false}, {"topic": "Zero-Copy Byte Packet Ring Buffer Dispatcher", "language": "Zig", "category": "⚡ Low-Latency & Memory Systems", "folder": "zig", "spoke_repo": "zig-systems-lab", "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261009_134655_zero-copy_byte_packet_ring_buf", "source_file": "main.zig", "timestamp": "2026-10-09T13:46:55.211598+00:00", "has_paper": false}, {"topic": "Least Recently Used (LRU) Cache with Doubly Linked List", "language": "TypeScript", "category": "⚡ Low-Latency & Memory Systems", "folder": "typescript", "spoke_repo": "typescript-design-patterns", "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261009_145321_least_recently_used__lru__cach", "source_file": "main.ts", "timestamp": "2026-10-09T14:53:21.212420+00:00", "has_paper": false}, {"topic": "Adding Go s defer to the TypeScript Compiler", "language": "TypeScript", "category": "🧠 Computational AI & Math Engines", "folder": "typescript", "spoke_repo": "typescript-design-patterns", "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261010_060203_adding_go_s_defer_to_the_types", "source_file": "main.ts", "timestamp": "2026-10-10T06:02:03.832890+00:00", "has_paper": false}, {"topic": "Finite State Machine Tokenizer and Lexical Parser", "language": "TypeScript", "category": "🧠 Computational AI & Math Engines", "folder": "typescript", "spoke_repo": "typescript-design-patterns", "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261009_143215_finite_state_machine_tokenizer", "source_file": "main.ts", "timestamp": "2026-10-09T14:32:15.775830+00:00", "has_paper": false}, {"topic": "Aho-Corasick Multi-Pattern String Searching Automaton", "language": "Swift", "category": "⚡ Low-Latency & Memory Systems", "folder": "swift", "spoke_repo": "swift-systems-lab", "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261010_131303_aho-corasick_multi-pattern_str", "source_file": "main.swift", "timestamp": "2026-10-10T13:13:03.283372+00:00", "has_paper": false}, {"topic": "Finite State Machine Tokenizer and Lexical Parser", "language": "TypeScript", "category": "🧠 Computational AI & Math Engines", "folder": "typescript", "spoke_repo": "typescript-design-patterns", "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261009_140224_finite_state_machine_tokenizer", "source_file": "main.ts", "timestamp": "2026-10-09T14:02:24.436896+00:00", "has_paper": false}, {"topic": "Finite State Machine Tokenizer and Lexical Parser", "language": "TypeScript", "category": "🧠 Computational AI & Math Engines", "folder": "typescript", "spoke_repo": "typescript-design-patterns", "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261009_141651_finite_state_machine_tokenizer", "source_file": "main.ts", "timestamp": "2026-10-09T14:16:51.775690+00:00", "has_paper": false}, {"topic": "Finite State Machine Tokenizer and Lexical Parser", "language": "TypeScript", "category": "🧠 Computational AI & Math Engines", "folder": "typescript", "spoke_repo": "typescript-design-patterns", "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261009_141953_finite_state_machine_tokenizer", "source_file": "main.ts", "timestamp": "2026-10-09T14:19:53.962361+00:00", "has_paper": false}, {"topic": "Tarjan Strongly Connected Components Search in Directed Graphs", "language": "Swift", "category": "🧠 Computational AI & Math Engines", "folder": "swift", "spoke_repo": "swift-systems-lab", "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261010_010444_tarjan_strongly_connected_comp", "source_file": "main.swift", "timestamp": "2026-10-10T01:04:44.296254+00:00", "has_paper": false}, {"topic": "Aho-Corasick Multi-Pattern String Searching Automaton", "language": "Swift", "category": "⚡ Low-Latency & Memory Systems", "folder": "swift", "spoke_repo": "swift-systems-lab", "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261010_010647_aho-corasick_multi-pattern_str", "source_file": "main.swift", "timestamp": "2026-10-10T01:06:47.688650+00:00", "has_paper": false}, {"topic": "B-Tree Multiway Balanced Search Tree Node Splitter", "language": "Swift", "category": "🧠 Computational AI & Math Engines", "folder": "swift", "spoke_repo": "swift-systems-lab", "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261010_100213_b-tree_multiway_balanced_searc", "source_file": "main.swift", "timestamp": "2026-10-10T10:02:13.481504+00:00", "has_paper": false}, {"topic": "Treap Randomized Binary Search Tree with Heap Priorities", "language": "Swift", "category": "🧠 Computational AI & Math Engines", "folder": "swift", "spoke_repo": "swift-systems-lab", "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261009_152244_treap_randomized_binary_search", "source_file": "main.swift", "timestamp": "2026-10-09T15:22:44.629748+00:00", "has_paper": false}, {"topic": "Tarjan Strongly Connected Components Search in Directed Graphs", "language": "Swift", "category": "🧠 Computational AI & Math Engines", "folder": "swift", "spoke_repo": "swift-systems-lab", "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261009_191302_tarjan_strongly_connected_comp", "source_file": "main.swift", "timestamp": "2026-10-09T19:13:02.662276+00:00", "has_paper": false}, {"topic": "Aho-Corasick Multi-Pattern String Searching Automaton", "language": "Swift", "category": "⚡ Low-Latency & Memory Systems", "folder": "swift", "spoke_repo": "swift-systems-lab", "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261009_230203_aho-corasick_multi-pattern_str", "source_file": "main.swift", "timestamp": "2026-10-09T23:02:03.286486+00:00", "has_paper": false}, {"topic": "Treap Randomized Binary Search Tree with Heap Priorities", "language": "Swift", "category": "🧠 Computational AI & Math Engines", "folder": "swift", "spoke_repo": "swift-systems-lab", "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261010_000217_treap_randomized_binary_search", "source_file": "main.swift", "timestamp": "2026-10-10T00:02:17.553727+00:00", "has_paper": false}, {"topic": "Aho-Corasick Multi-Pattern String Searching Automaton", "language": "Rust", "category": "⚡ Low-Latency & Memory Systems", "folder": "rust", "spoke_repo": "rust-algorithms", "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261010_090212_aho-corasick_multi-pattern_str", "source_file": "main.rs", "timestamp": "2026-10-10T09:02:12.656163+00:00", "has_paper": false}, {"topic": "I Built a Spell Checker to Watch an Algorithm Think", "language": "Rust", "category": "🧠 Computational AI & Math Engines", "folder": "rust", "spoke_repo": "rust-algorithms", "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261010_170210_i_built_a_spell_checker_to_wat", "source_file": "main.rs", "timestamp": "2026-10-10T17:02:10.969020+00:00", "has_paper": false}, {"topic": "Aho-Corasick Multi-Pattern String Searching Automaton", "language": "Swift", "category": "⚡ Low-Latency & Memory Systems", "folder": "swift", "spoke_repo": "swift-systems-lab", "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261009_134122_aho-corasick_multi-pattern_str", "source_file": "main.swift", "timestamp": "2026-10-09T13:41:22.157052+00:00", "has_paper": false}, {"topic": "Treap Randomized Binary Search Tree with Heap Priorities", "language": "Swift", "category": "🧠 Computational AI & Math Engines", "folder": "swift", "spoke_repo": "swift-systems-lab", "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261009_150543_treap_randomized_binary_search", "source_file": "main.swift", "timestamp": "2026-10-09T15:05:43.382182+00:00", "has_paper": false}, {"topic": "Kruskal Minimum Spanning Tree with Disjoint-Set Union", "language": "Ruby", "category": "🧠 Computational AI & Math Engines", "folder": "ruby", "spoke_repo": "ruby-algorithms-lab", "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261010_140157_kruskal_minimum_spanning_tree", "source_file": "main.rb", "timestamp": "2026-10-10T14:01:57.419469+00:00", "has_paper": false}, {"topic": "Bit-Parallel Levenshtein Distance Matrix Engine", "language": "Rust", "category": "🧠 Computational AI & Math Engines", "folder": "rust", "spoke_repo": "rust-algorithms", "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261009_143857_bit-parallel_levenshtein_dista", "source_file": "main.rs", "timestamp": "2026-10-09T14:38:57.073095+00:00", "has_paper": false}, {"topic": "Trie Prefix Tree for Auto-Completion with Frequency Ranking", "language": "Rust", "category": "🧠 Computational AI & Math Engines", "folder": "rust", "spoke_repo": "rust-algorithms", "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261009_154215_trie_prefix_tree_for_auto-comp", "source_file": "main.rs", "timestamp": "2026-10-09T15:42:15.504250+00:00", "has_paper": false}, {"topic": "Singular Value Decomposition (SVD) for Low-Rank Approximation", "language": "Rust", "category": "🧠 Computational AI & Math Engines", "folder": "rust", "spoke_repo": "rust-algorithms", "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261009_162110_singular_value_decomposition", "source_file": "main.rs", "timestamp": "2026-10-09T16:21:10.192713+00:00", "has_paper": false}, {"topic": "Suffix Automaton for Linear-Time Substring Indexing", "language": "Rust", "category": "⚡ Low-Latency & Memory Systems", "folder": "rust", "spoke_repo": "rust-algorithms", "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261010_040158_suffix_automaton_for_linear-ti", "source_file": "main.rs", "timestamp": "2026-10-10T04:01:58.906101+00:00", "has_paper": false}, {"topic": "Count-Min Sketch Heavy Hitters Frequency Estimator", "language": "Ruby", "category": "🧠 Computational AI & Math Engines", "folder": "ruby", "spoke_repo": "ruby-algorithms-lab", "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261009_150245_count-min_sketch_heavy_hitters", "source_file": "main.rb", "timestamp": "2026-10-09T15:02:45.222597+00:00", "has_paper": false}, {"topic": "Suffix Automaton for Linear-Time Substring Indexing", "language": "Ruby", "category": "⚡ Low-Latency & Memory Systems", "folder": "ruby", "spoke_repo": "ruby-algorithms-lab", "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261009_160158_suffix_automaton_for_linear-ti", "source_file": "main.rb", "timestamp": "2026-10-09T16:01:58.498523+00:00", "has_paper": false}, {"topic": "Training Text-to-Image Models Without a VAE", "language": "Ruby", "category": "🧠 Computational AI & Math Engines", "folder": "ruby", "spoke_repo": "ruby-algorithms-lab", "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261009_210226_training_text-to-image_models", "source_file": "main.rb", "timestamp": "2026-10-09T21:02:26.722706+00:00", "has_paper": false}, {"topic": "Copy-on-Write Vector Memory Buffer Management", "language": "Ruby", "category": "⚡ Low-Latency & Memory Systems", "folder": "ruby", "spoke_repo": "ruby-algorithms-lab", "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261010_110206_copy-on-write_vector_memory_bu", "source_file": "main.rb", "timestamp": "2026-10-10T11:02:06.483421+00:00", "has_paper": false}, {"topic": "Conjugate Gradient Linear System Solver", "language": "Python", "category": "🧠 Computational AI & Math Engines", "folder": "python", "spoke_repo": "python-advanced-lab", "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261010_070229_conjugate_gradient_linear_syst", "source_file": "main.py", "timestamp": "2026-10-10T07:02:29.928328+00:00", "has_paper": false}, {"topic": "R-Tree Spatial Index for Multidimensional Bounding Boxes", "language": "Python", "category": "🧠 Computational AI & Math Engines", "folder": "python", "spoke_repo": "python-advanced-lab", "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261010_080200_r-tree_spatial_index_for_multi", "source_file": "main.py", "timestamp": "2026-10-10T08:02:00.426185+00:00", "has_paper": false}, {"topic": "Copy-on-Write Vector Memory Buffer Management", "language": "Ruby", "category": "⚡ Low-Latency & Memory Systems", "folder": "ruby", "spoke_repo": "ruby-algorithms-lab", "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261009_140551_copy-on-write_vector_memory_bu", "source_file": "main.rb", "timestamp": "2026-10-09T14:05:51.255318+00:00", "has_paper": false}, {"topic": "Safe Optimistic Lock Coupling", "language": "Ruby", "category": "⚡ Low-Latency & Memory Systems", "folder": "ruby", "spoke_repo": "ruby-algorithms-lab", "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261009_140826_safe_optimistic_lock_coupling", "source_file": "main.rb", "timestamp": "2026-10-09T14:08:26.781465+00:00", "has_paper": false}, {"topic": "K-D Tree Spatial Partitioning and Nearest Neighbor Search", "language": "Python", "category": "🧠 Computational AI & Math Engines", "folder": "python", "spoke_repo": "python-advanced-lab", "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261009_152717_k-d_tree_spatial_partitioning", "source_file": "main.py", "timestamp": "2026-10-09T15:27:17.631110+00:00", "has_paper": false}, {"topic": "K-D Tree Spatial Partitioning and Nearest Neighbor Search", "language": "Python", "category": "🧠 Computational AI & Math Engines", "folder": "python", "spoke_repo": "python-advanced-lab", "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261009_200247_k-d_tree_spatial_partitioning", "source_file": "main.py", "timestamp": "2026-10-09T20:02:47.159909+00:00", "has_paper": false}, {"topic": "Conjugate Gradient Linear System Solver", "language": "Python", "category": "🧠 Computational AI & Math Engines", "folder": "python", "spoke_repo": "python-advanced-lab", "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261009_221022_conjugate_gradient_linear_syst", "source_file": "main.py", "timestamp": "2026-10-09T22:10:22.068157+00:00", "has_paper": false}, {"topic": "Two-Phase Commit Protocol Coordinator and Participant State Machine", "language": "PHP", "category": "🌐 Distributed Systems & Consensus", "folder": "php", "spoke_repo": "php-backend-core", "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261009_230517_two-phase_commit_protocol_coor", "source_file": "main.php", "timestamp": "2026-10-09T23:05:17.707320+00:00", "has_paper": false}, {"topic": "The Lightbulb Computer: Reimagining Spatial & Ambient Computing with Projectors", "language": "PHP", "category": "🧠 Computational AI & Math Engines", "folder": "php", "spoke_repo": "php-backend-core", "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261010_120208_the_lightbulb_computer__reimag", "source_file": "main.php", "timestamp": "2026-10-10T12:02:08.230762+00:00", "has_paper": false}, {"topic": "Bytecode Virtual Machine with Stack Evaluation Engine", "language": "PHP", "category": "🧠 Computational AI & Math Engines", "folder": "php", "spoke_repo": "php-backend-core", "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261010_150519_bytecode_virtual_machine_with", "source_file": "main.php", "timestamp": "2026-10-10T15:05:19.636892+00:00", "has_paper": false}, {"topic": "R-Tree Spatial Index for Multidimensional Bounding Boxes", "language": "Python", "category": "🧠 Computational AI & Math Engines", "folder": "python", "spoke_repo": "python-advanced-lab", "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261009_144647_r-tree_spatial_index_for_multi", "source_file": "main.py", "timestamp": "2026-10-09T14:46:47.535802+00:00", "has_paper": false}, {"topic": "Bloom Filter with MurmurHash3 Hash Functions", "language": "PHP", "category": "🌐 Distributed Systems & Consensus", "folder": "php", "spoke_repo": "php-backend-core", "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261009_141203_bloom_filter_with_murmurhash3", "source_file": "core.php", "timestamp": "2026-10-09T14:12:03.629263+00:00", "has_paper": false}, {"topic": "Custom Buddy Memory Allocation System", "language": "PHP", "category": "⚡ Low-Latency & Memory Systems", "folder": "php", "spoke_repo": "php-backend-core", "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261009_143433_custom_buddy_memory_allocation", "source_file": "main.php", "timestamp": "2026-10-09T14:34:33.675018+00:00", "has_paper": false}, {"topic": "Self-Balancing AVL Tree with Full Rotation Engine", "language": "PHP", "category": "🧠 Computational AI & Math Engines", "folder": "php", "spoke_repo": "php-backend-core", "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261009_153527_self-balancing_avl_tree_with_f", "source_file": "main.php", "timestamp": "2026-10-09T15:35:27.152674+00:00", "has_paper": false}, {"topic": "Red-Black Tree with Deterministic Balance Assertions", "language": "PHP", "category": "🧠 Computational AI & Math Engines", "folder": "php", "spoke_repo": "php-backend-core", "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261009_153745_red-black_tree_with_determinis", "source_file": "main.php", "timestamp": "2026-10-09T15:37:45.223301+00:00", "has_paper": false}, {"topic": "Red-Black Tree with Deterministic Balance Assertions", "language": "Kotlin", "category": "🧠 Computational AI & Math Engines", "folder": "kotlin", "spoke_repo": "kotlin-systems-core", "source_link": "https://github.com/myonathanlinkedin/kotlin-systems-core/tree/main/algorithms/20261009_161300_red-black_tree_with_determinis", "source_file": "main.kt", "timestamp": "2026-10-09T16:13:00.638827+00:00", "has_paper": false}, {"topic": "Two-Phase Commit Protocol Coordinator and Participant State Machine", "language": "Kotlin", "category": "🌐 Distributed Systems & Consensus", "folder": "kotlin", "spoke_repo": "kotlin-systems-core", "source_link": "https://github.com/myonathanlinkedin/kotlin-systems-core/tree/main/algorithms/20261010_020230_two-phase_commit_protocol_coor", "source_file": "main.kt", "timestamp": "2026-10-10T02:02:30.242106+00:00", "has_paper": false}, {"topic": "Hopcroft-Karp Bipartite Matching Algorithm", "language": "Kotlin", "category": "🧠 Computational AI & Math Engines", "folder": "kotlin", "spoke_repo": "kotlin-systems-core", "source_link": "https://github.com/myonathanlinkedin/kotlin-systems-core/tree/main/algorithms/20261010_110542_hopcroft-karp_bipartite_matchi", "source_file": "main.kt", "timestamp": "2026-10-10T11:05:42.430674+00:00", "has_paper": false}, {"topic": "Two-Phase Commit Protocol Coordinator and Participant State Machine", "language": "Kotlin", "category": "🌐 Distributed Systems & Consensus", "folder": "kotlin", "spoke_repo": "kotlin-systems-core", "source_link": "https://github.com/myonathanlinkedin/kotlin-systems-core/tree/main/algorithms/20261010_150234_two-phase_commit_protocol_coor", "source_file": "main.kt", "timestamp": "2026-10-10T15:02:34.238527+00:00", "has_paper": false}, {"topic": "CYK Parsing Algorithm for Context-Free Grammars", "language": "Kotlin", "category": "🧠 Computational AI & Math Engines", "folder": "kotlin", "spoke_repo": "kotlin-systems-core", "source_link": "https://github.com/myonathanlinkedin/kotlin-systems-core/tree/main/algorithms/20261009_141438_cyk_parsing_algorithm_for_cont", "source_file": "main.kt", "timestamp": "2026-10-09T14:14:38.034067+00:00", "has_paper": false}, {"topic": "Red-Black Tree with Deterministic Balance Assertions", "language": "Kotlin", "category": "🧠 Computational AI & Math Engines", "folder": "kotlin", "spoke_repo": "kotlin-systems-core", "source_link": "https://github.com/myonathanlinkedin/kotlin-systems-core/tree/main/algorithms/20261009_143636_red-black_tree_with_determinis", "source_file": "main.kt", "timestamp": "2026-10-09T14:36:36.173682+00:00", "has_paper": false}, {"topic": "Two-Phase Commit Protocol Coordinator and Participant State Machine", "language": "Kotlin", "category": "🌐 Distributed Systems & Consensus", "folder": "kotlin", "spoke_repo": "kotlin-systems-core", "source_link": "https://github.com/myonathanlinkedin/kotlin-systems-core/tree/main/algorithms/20261009_153200_two-phase_commit_protocol_coor", "source_file": "main.kt", "timestamp": "2026-10-09T15:32:00.950633+00:00", "has_paper": false}, {"topic": "LMAX Disruptor Ring Buffer Pattern", "language": "Java", "category": "⚡ Low-Latency & Memory Systems", "folder": "java", "spoke_repo": "java-enterprise-patterns", "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261010_130756_lmax_disruptor_ring_buffer_pat", "source_file": "main.java", "timestamp": "2026-10-10T13:07:56.814220+00:00", "has_paper": false}, {"topic": "LMAX Disruptor Ring Buffer Pattern", "language": "Java", "category": "⚡ Low-Latency & Memory Systems", "folder": "java", "spoke_repo": "java-enterprise-patterns", "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261010_120720_lmax_disruptor_ring_buffer_pat", "source_file": "main.java", "timestamp": "2026-10-10T12:07:20.747492+00:00", "has_paper": false}, {"topic": "Lamport Logical Timestamp Synchronization Engine", "language": "Java", "category": "🧠 Computational AI & Math Engines", "folder": "java", "spoke_repo": "java-enterprise-patterns", "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261009_161843_lamport_logical_timestamp_sync", "source_file": "main.java", "timestamp": "2026-10-09T16:18:43.313763+00:00", "has_paper": false}, {"topic": "Vector Clock Distributed Event Ordering Mechanism", "language": "Java", "category": "🌐 Distributed Systems & Consensus", "folder": "java", "spoke_repo": "java-enterprise-patterns", "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261009_230721_vector_clock_distributed_event", "source_file": "main.java", "timestamp": "2026-10-09T23:07:21.853920+00:00", "has_paper": false}, {"topic": "Actor Model Concurrency Engine with Mailbox Processing", "language": "Java", "category": "🌐 Distributed Systems & Consensus", "folder": "java", "spoke_repo": "java-enterprise-patterns", "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261010_030454_actor_model_concurrency_engine", "source_file": "main.java", "timestamp": "2026-10-10T03:04:54.393630+00:00", "has_paper": false}, {"topic": "Simulated Annealing Optimization for Combinatorial Graphs", "language": "Haskell", "category": "🧠 Computational AI & Math Engines", "folder": "haskell", "spoke_repo": "haskell-functional-core", "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261009_180203_simulated_annealing_optimizati", "source_file": "main.hs", "timestamp": "2026-10-09T18:02:03.979798+00:00", "has_paper": false}, {"topic": "Self-Balancing AVL Tree with Full Rotation Engine", "language": "Haskell", "category": "🧠 Computational AI & Math Engines", "folder": "haskell", "spoke_repo": "haskell-functional-core", "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261010_130438_self-balancing_avl_tree_with_f", "source_file": "main.hs", "timestamp": "2026-10-10T13:04:38.749123+00:00", "has_paper": false}, {"topic": "Red-Black Tree with Deterministic Balance Assertions", "language": "Java", "category": "🧠 Computational AI & Math Engines", "folder": "java", "spoke_repo": "java-enterprise-patterns", "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261009_145051_red-black_tree_with_determinis", "source_file": "main.java", "timestamp": "2026-10-09T14:50:51.242673+00:00", "has_paper": false}, {"topic": "A* Heuristic Pathfinding with Dynamic Obstacle Cost", "language": "Java", "category": "🧠 Computational AI & Math Engines", "folder": "java", "spoke_repo": "java-enterprise-patterns", "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261009_154710_a__heuristic_pathfinding_with", "source_file": "main.java", "timestamp": "2026-10-09T15:47:10.971776+00:00", "has_paper": false}, {"topic": "Dijkstra Shortest Path with Fibonacci Heap Priority Queue", "language": "Haskell", "category": "⚡ Low-Latency & Memory Systems", "folder": "haskell", "spoke_repo": "haskell-functional-core", "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261009_142706_dijkstra_shortest_path_with_fi", "source_file": "main.hs", "timestamp": "2026-10-09T14:27:06.098251+00:00", "has_paper": false}, {"topic": "Hopcroft-Karp Bipartite Matching Algorithm", "language": "Haskell", "category": "🧠 Computational AI & Math Engines", "folder": "haskell", "spoke_repo": "haskell-functional-core", "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261009_150032_hopcroft-karp_bipartite_matchi", "source_file": "main.hs", "timestamp": "2026-10-09T15:00:32.608079+00:00", "has_paper": false}, {"topic": "Merkle Tree Verification and Proof Generator", "language": "Haskell", "category": "🧠 Computational AI & Math Engines", "folder": "haskell", "spoke_repo": "haskell-functional-core", "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261009_155700_merkle_tree_verification_and_p", "source_file": "main.hs", "timestamp": "2026-10-09T15:57:00.112221+00:00", "has_paper": false}, {"topic": "Merkle Tree Verification and Proof Generator", "language": "Haskell", "category": "🧠 Computational AI & Math Engines", "folder": "haskell", "spoke_repo": "haskell-functional-core", "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261009_170221_merkle_tree_verification_and_p", "source_file": "main.hs", "timestamp": "2026-10-09T17:02:21.478826+00:00", "has_paper": false}, {"topic": "Gossip Protocol Node Failure Detector", "language": "Go", "category": "🌐 Distributed Systems & Consensus", "folder": "go", "spoke_repo": "go-concurrency-lab", "source_link": "https://github.com/myonathanlinkedin/go-concurrency-lab/tree/main/algorithms/20261010_030228_gossip_protocol_node_failure_d", "source_file": "main.go", "timestamp": "2026-10-10T03:02:28.578036+00:00", "has_paper": false}, {"topic": "Vector Clock Distributed Event Ordering Mechanism", "language": "Go", "category": "🌐 Distributed Systems & Consensus", "folder": "go", "spoke_repo": "go-concurrency-lab", "source_link": "https://github.com/myonathanlinkedin/go-concurrency-lab/tree/main/algorithms/20261010_090434_vector_clock_distributed_event", "source_file": "main.go", "timestamp": "2026-10-10T09:04:34.977784+00:00", "has_paper": false}, {"topic": "Distributed Consistent Hashing Router with Virtual Nodes", "language": "Go", "category": "🌐 Distributed Systems & Consensus", "folder": "go", "spoke_repo": "go-concurrency-lab", "source_link": "https://github.com/myonathanlinkedin/go-concurrency-lab/tree/main/algorithms/20261010_130206_distributed_consistent_hashing", "source_file": "main.go", "timestamp": "2026-10-10T13:02:06.449750+00:00", "has_paper": false}, {"topic": "Huffman Coding Lossless Compression and Decompression", "language": "Haskell", "category": "🧠 Computational AI & Math Engines", "folder": "haskell", "spoke_repo": "haskell-functional-core", "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261009_133857_huffman_coding_lossless_compre", "source_file": "main.hs", "timestamp": "2026-10-09T13:38:57.044867+00:00", "has_paper": false}, {"topic": "Lamport Logical Timestamp Synchronization Engine", "language": "Go", "category": "🧠 Computational AI & Math Engines", "folder": "go", "spoke_repo": "go-concurrency-lab", "source_link": "https://github.com/myonathanlinkedin/go-concurrency-lab/tree/main/algorithms/20261009_154930_lamport_logical_timestamp_sync", "source_file": "main.go", "timestamp": "2026-10-09T15:49:30.565404+00:00", "has_paper": false}, {"topic": "Sliding Window Rate Limiter with Distributed Token Bucket", "language": "Go", "category": "🌐 Distributed Systems & Consensus", "folder": "go", "spoke_repo": "go-concurrency-lab", "source_link": "https://github.com/myonathanlinkedin/go-concurrency-lab/tree/main/algorithms/20261009_155148_sliding_window_rate_limiter_wi", "source_file": "main.go", "timestamp": "2026-10-09T15:51:48.145337+00:00", "has_paper": false}, {"topic": "Vector Clock Distributed Event Ordering Mechanism", "language": "Go", "category": "🌐 Distributed Systems & Consensus", "folder": "go", "spoke_repo": "go-concurrency-lab", "source_link": "https://github.com/myonathanlinkedin/go-concurrency-lab/tree/main/algorithms/20261009_210539_vector_clock_distributed_event", "source_file": "main.go", "timestamp": "2026-10-09T21:05:39.180957+00:00", "has_paper": false}, {"topic": "Gossip Protocol Node Failure Detector", "language": "C#", "category": "🌐 Distributed Systems & Consensus", "folder": "csharp", "spoke_repo": "csharp-enterprise-lab", "source_link": "https://github.com/myonathanlinkedin/csharp-enterprise-lab/tree/main/algorithms/20261010_030712_gossip_protocol_node_failure_d", "source_file": "main.cs", "timestamp": "2026-10-10T03:07:12.282274+00:00", "has_paper": false}, {"topic": "Distributed Consistent Hashing Router with Virtual Nodes", "language": "C#", "category": "🌐 Distributed Systems & Consensus", "folder": "csharp", "spoke_repo": "csharp-enterprise-lab", "source_link": "https://github.com/myonathanlinkedin/csharp-enterprise-lab/tree/main/algorithms/20261010_050434_distributed_consistent_hashing", "source_file": "main.cs", "timestamp": "2026-10-10T05:04:34.310311+00:00", "has_paper": false}, {"topic": "Distributed Consistent Hashing Router with Virtual Nodes", "language": "Go", "category": "🌐 Distributed Systems & Consensus", "folder": "go", "spoke_repo": "go-concurrency-lab", "source_link": "https://github.com/myonathanlinkedin/go-concurrency-lab/tree/main/algorithms/20261009_142158_distributed_consistent_hashing", "source_file": "main.go", "timestamp": "2026-10-09T14:21:58.205075+00:00", "has_paper": false}, {"topic": "Gossip Protocol Node Failure Detector", "language": "C#", "category": "🌐 Distributed Systems & Consensus", "folder": "csharp", "spoke_repo": "csharp-enterprise-lab", "source_link": "https://github.com/myonathanlinkedin/csharp-enterprise-lab/tree/main/algorithms/20261009_135944_gossip_protocol_node_failure_d", "source_file": "main.cs", "timestamp": "2026-10-09T13:59:44.441589+00:00", "has_paper": false}, {"topic": "Lamport Logical Timestamp Synchronization Engine", "language": "C#", "category": "🧠 Computational AI & Math Engines", "folder": "csharp", "spoke_repo": "csharp-enterprise-lab", "source_link": "https://github.com/myonathanlinkedin/csharp-enterprise-lab/tree/main/algorithms/20261009_150806_lamport_logical_timestamp_sync", "source_file": "main.cs", "timestamp": "2026-10-09T15:08:06.087160+00:00", "has_paper": false}, {"topic": "HyperLogLog Cardinality Estimation Algorithm", "language": "C#", "category": "🧠 Computational AI & Math Engines", "folder": "csharp", "spoke_repo": "csharp-enterprise-lab", "source_link": "https://github.com/myonathanlinkedin/csharp-enterprise-lab/tree/main/algorithms/20261009_160718_hyperloglog_cardinality_estima", "source_file": "main.cs", "timestamp": "2026-10-09T16:07:18.251426+00:00", "has_paper": false}, {"topic": "Kruskal Minimum Spanning Tree with Disjoint-Set Union", "language": "C#", "category": "🧠 Computational AI & Math Engines", "folder": "csharp", "spoke_repo": "csharp-enterprise-lab", "source_link": "https://github.com/myonathanlinkedin/csharp-enterprise-lab/tree/main/algorithms/20261009_160939_kruskal_minimum_spanning_tree", "source_file": "main.cs", "timestamp": "2026-10-09T16:09:39.984066+00:00", "has_paper": false}, {"topic": "Cache-Oblivious Matrix Transposition Algorithm", "language": "C++", "category": "⚡ Low-Latency & Memory Systems", "folder": "cpp", "spoke_repo": "cpp-systems-core", "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261010_050240_cache-oblivious_matrix_transpo", "source_file": "main.cpp", "timestamp": "2026-10-10T05:02:40.906803+00:00", "has_paper": false}, {"topic": "B-Tree Multiway Balanced Search Tree Node Splitter", "language": "C++", "category": "🧠 Computational AI & Math Engines", "folder": "cpp", "spoke_repo": "cpp-systems-core", "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261010_131050_b-tree_multiway_balanced_searc", "source_file": "main.cpp", "timestamp": "2026-10-10T13:10:50.002251+00:00", "has_paper": false}, {"topic": "B-Tree Multiway Balanced Search Tree Node Splitter", "language": "C++", "category": "🧠 Computational AI & Math Engines", "folder": "cpp", "spoke_repo": "cpp-systems-core", "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261009_134428_b-tree_multiway_balanced_searc", "source_file": "main.cpp", "timestamp": "2026-10-09T13:44:28.005861+00:00", "has_paper": false}, {"topic": "Two-Phase Commit Protocol Coordinator and Participant State Machine", "language": "C++", "category": "🌐 Distributed Systems & Consensus", "folder": "cpp", "spoke_repo": "cpp-systems-core", "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261009_170555_two-phase_commit_protocol_coor", "source_file": "main.cpp", "timestamp": "2026-10-09T17:05:55.459745+00:00", "has_paper": false}, {"topic": "Cache-Oblivious Matrix Transposition Algorithm", "language": "C++", "category": "⚡ Low-Latency & Memory Systems", "folder": "cpp", "spoke_repo": "cpp-systems-core", "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261010_010238_cache-oblivious_matrix_transpo", "source_file": "main.cpp", "timestamp": "2026-10-10T01:02:38.316238+00:00", "has_paper": false}, {"topic": "The Lightbulb Computer: Reimagining Spatial & Ambient Computing with Projectors", "language": "C", "category": "🧠 Computational AI & Math Engines", "folder": "c", "spoke_repo": "c-lowlevel-systems", "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261010_120516_the_lightbulb_computer__reimag", "source_file": "main.c", "timestamp": "2026-10-10T12:05:16.705648+00:00", "has_paper": false}, {"topic": "Memory Pool Block Allocator with Free List", "language": "C", "category": "⚡ Low-Latency & Memory Systems", "folder": "c", "spoke_repo": "c-lowlevel-systems", "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261010_160203_memory_pool_block_allocator_wi", "source_file": "main.c", "timestamp": "2026-10-10T16:02:03.502790+00:00", "has_paper": false}, {"topic": "Communication Between the Compiler, the Build System, and Beyond", "language": "C", "category": "🧠 Computational AI & Math Engines", "folder": "c", "spoke_repo": "c-lowlevel-systems", "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261010_050648_communication_between_the_comp", "source_file": "main.c", "timestamp": "2026-10-10T05:06:48.547428+00:00", "has_paper": false}, {"topic": "Huffman Coding Lossless Compression and Decompression", "language": "C", "category": "🧠 Computational AI & Math Engines", "folder": "c", "spoke_repo": "c-lowlevel-systems", "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261009_144123_huffman_coding_lossless_compre", "source_file": "main.c", "timestamp": "2026-10-09T14:41:23.010446+00:00", "has_paper": false}, {"topic": "Bytecode Virtual Machine with Stack Evaluation Engine", "language": "C", "category": "🧠 Computational AI & Math Engines", "folder": "c", "spoke_repo": "c-lowlevel-systems", "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261009_144334_bytecode_virtual_machine_with", "source_file": "main.c", "timestamp": "2026-10-09T14:43:34.229214+00:00", "has_paper": false}, {"topic": "Huffman Coding Lossless Compression and Decompression", "language": "C", "category": "🧠 Computational AI & Math Engines", "folder": "c", "spoke_repo": "c-lowlevel-systems", "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261009_162352_huffman_coding_lossless_compre", "source_file": "main.c", "timestamp": "2026-10-09T16:23:52.027568+00:00", "has_paper": false}, {"topic": "Vector Clock Distributed Event Ordering Mechanism", "language": "Java", "category": "🌐 Distributed Systems & Consensus", "folder": "java", "spoke_repo": "java-enterprise-patterns", "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261009_133554_vector_clock_distributed_event", "source_file": "main.java", "timestamp": "2026-10-09T13:35:54.505947+00:00", "has_paper": false}, {"topic": "Lock-Free Concurrent Ring Buffer Data Structure", "language": "Zig", "category": "⚡ Low-Latency & Memory Systems", "folder": "zig", "spoke_repo": "zig-systems-lab", "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261009_124500_lock-free_concurrent_ring_buff", "source_file": "main.zig", "timestamp": "2026-10-09T12:45:00.106086+00:00", "has_paper": false}, {"topic": "Self-Balancing AVL Tree with Full Rotation Engine", "language": "TypeScript", "category": "🧠 Computational AI & Math Engines", "folder": "typescript", "spoke_repo": "typescript-design-patterns", "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261009_125014_self-balancing_avl_tree_with_f", "source_file": "main.ts", "timestamp": "2026-10-09T12:50:14.609770+00:00", "has_paper": false}, {"topic": "A minimal kernel in Swift, running in QEMU", "language": "Swift", "category": "🧠 Computational AI & Math Engines", "folder": "swift", "spoke_repo": "swift-systems-lab", "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261009_133208_a_minimal_kernel_in_swift__run", "source_file": "main.swift", "timestamp": "2026-10-09T13:32:08.767178+00:00", "has_paper": false}, {"topic": "Thread-Safe Bounded Blocking Queue with Condition Variables", "language": "Rust", "category": "⚡ Low-Latency & Memory Systems", "folder": "rust", "spoke_repo": "rust-algorithms", "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261009_132221_thread-safe_bounded_blocking_q", "source_file": "main.rs", "timestamp": "2026-10-09T13:22:21.087358+00:00", "has_paper": false}, {"topic": "Tarjan Strongly Connected Components Search in Directed Graphs", "language": "Swift", "category": "🧠 Computational AI & Math Engines", "folder": "swift", "spoke_repo": "swift-systems-lab", "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261009_125224_tarjan_strongly_connected_comp", "source_file": "main.swift", "timestamp": "2026-10-09T12:52:24.484954+00:00", "has_paper": false}, {"topic": "Fast Fourier Transform (Cooley-Tukey Radix-2) Signal Processing", "language": "Python", "category": "🧠 Computational AI & Math Engines", "folder": "python", "spoke_repo": "python-advanced-lab", "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261009_132923_fast_fourier_transform__cooley", "source_file": "main.py", "timestamp": "2026-10-09T13:29:23.233676+00:00", "has_paper": false}, {"topic": "Conjugate Gradient Linear System Solver", "language": "Python", "category": "🧠 Computational AI & Math Engines", "folder": "python", "spoke_repo": "python-advanced-lab", "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261009_125501_conjugate_gradient_linear_syst", "source_file": "main.py", "timestamp": "2026-10-09T12:55:01.889510+00:00", "has_paper": false}, {"topic": "HyperLogLog Cardinality Estimation Algorithm", "language": "Java", "category": "🧠 Computational AI & Math Engines", "folder": "java", "spoke_repo": "java-enterprise-patterns", "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261009_130207_hyperloglog_cardinality_estima", "source_file": "main.java", "timestamp": "2026-10-09T13:02:07.523060+00:00", "has_paper": false}, {"topic": "Distributed Consistent Hashing Router with Virtual Nodes", "language": "C#", "category": "🌐 Distributed Systems & Consensus", "folder": "csharp", "spoke_repo": "csharp-enterprise-lab", "source_link": "https://github.com/myonathanlinkedin/csharp-enterprise-lab/tree/main/algorithms/20261009_132654_distributed_consistent_hashing", "source_file": "main.cs", "timestamp": "2026-10-09T13:26:54.579234+00:00", "has_paper": false}, {"topic": "Sentinel: The Command Plane", "language": "Rust", "category": "🧠 Computational AI & Math Engines", "folder": "rust", "spoke_repo": "rust-algorithms", "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261009_112030_sentinel__the_command_plane", "source_file": "main.rs", "timestamp": "2026-10-09T11:20:30.216935+00:00", "has_paper": false}, {"topic": "Safe Optimistic Lock Coupling", "language": "C", "category": "⚡ Low-Latency & Memory Systems", "folder": "c", "spoke_repo": "c-lowlevel-systems", "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261009_120450_safe_optimistic_lock_coupling", "source_file": "main.c", "timestamp": "2026-10-09T12:04:50.093822+00:00", "has_paper": false}, {"topic": "Once: Cache CLI Commands", "language": "C", "category": "⚡ Low-Latency & Memory Systems", "folder": "c", "spoke_repo": "c-lowlevel-systems", "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261009_120205_once__cache_cli_commands", "source_file": "main.c", "timestamp": "2026-10-09T12:02:05.586052+00:00", "has_paper": false}, {"topic": "I built a free system design course where your architecture has to survive simulated", "language": "Swift", "category": "🧠 Computational AI & Math Engines", "folder": "swift", "spoke_repo": "swift-systems-lab", "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261009_100502_i_built_a_free_system_design_c", "source_file": "main.swift", "timestamp": "2026-10-09T10:05:02.389316+00:00", "has_paper": false}, {"topic": "Faster Planar Graph Algorithms for Connectivity Problems via Meanders", "language": "TypeScript", "category": "🧠 Computational AI & Math Engines", "folder": "typescript", "spoke_repo": "typescript-design-patterns", "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261009_080431_faster_planar_graph_algorithms", "source_file": "main.ts", "timestamp": "2026-10-09T08:04:31.170608+00:00", "has_paper": false}, {"topic": "Coupling Independence Implies Zero-Freeness", "language": "Swift", "category": "⚡ Low-Latency & Memory Systems", "folder": "swift", "spoke_repo": "swift-systems-lab", "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261009_070206_coupling_independence_implies", "source_file": "main.swift", "timestamp": "2026-10-09T07:02:06.540408+00:00", "has_paper": false}, {"topic": "The Geometry of Hierarchical Navigation: Accuracy and Query Cost for Point Process...", "language": "Rust", "category": "🧠 Computational AI & Math Engines", "folder": "rust", "spoke_repo": "rust-algorithms", "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261009_080226_the_geometry_of_hierarchical_n", "source_file": "main.rs", "timestamp": "2026-10-09T08:02:26.021498+00:00", "has_paper": false}, {"topic": "Stimulate TRIE data structure", "language": "Kotlin", "category": "🧠 Computational AI & Math Engines", "folder": "kotlin", "spoke_repo": "kotlin-systems-core", "source_link": "https://github.com/myonathanlinkedin/kotlin-systems-core/tree/main/algorithms/20261009_110215_stimulate_trie_data_structure", "source_file": "main.kt", "timestamp": "2026-10-09T11:02:15.016534+00:00", "has_paper": false}, {"topic": "Escaping Degeneracy by Following Shadow Edges", "language": "PHP", "category": "🧠 Computational AI & Math Engines", "folder": "php", "spoke_repo": "php-backend-core", "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261009_100250_escaping_degeneracy_by_followi", "source_file": "types.php", "timestamp": "2026-10-09T10:02:50.726774+00:00", "has_paper": false}, {"topic": "Fast Fourier Transform (Cooley-Tukey Radix-2) Signal Processing", "language": "Python", "category": "🧠 Computational AI & Math Engines", "folder": "python", "spoke_repo": "python-advanced-lab", "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261009_070513_fast_fourier_transform__cooley", "source_file": "main.py", "timestamp": "2026-10-09T07:05:13.165834+00:00", "has_paper": false}, {"topic": "Conjugate Gradient Linear System Solver", "language": "Python", "category": "🧠 Computational AI & Math Engines", "folder": "python", "spoke_repo": "python-advanced-lab", "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261009_110515_conjugate_gradient_linear_syst", "source_file": "main.py", "timestamp": "2026-10-09T11:05:15.409429+00:00", "has_paper": false}, {"topic": "Capturing a Moving Target on Star Graphs by Two Communicating Mobile Agents", "language": "Ruby", "category": "⚡ Low-Latency & Memory Systems", "folder": "ruby", "spoke_repo": "ruby-algorithms-lab", "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261009_090206_capturing_a_moving_target_on_s", "source_file": "main.rb", "timestamp": "2026-10-09T09:02:06.455091+00:00", "has_paper": false}, {"topic": "Vector Clock Distributed Event Ordering Mechanism", "language": "Java", "category": "🌐 Distributed Systems & Consensus", "folder": "java", "spoke_repo": "java-enterprise-patterns", "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261009_060229_vector_clock_distributed_event", "source_file": "main.java", "timestamp": "2026-10-09T06:02:29.292835+00:00", "has_paper": false}, {"topic": "Deterministic Approximation of the Total Variation Distance Between Spin Systems", "language": "Kotlin", "category": "🧠 Computational AI & Math Engines", "folder": "kotlin", "spoke_repo": "kotlin-systems-core", "source_link": "https://github.com/myonathanlinkedin/kotlin-systems-core/tree/main/algorithms/20261009_053853_deterministic_approximation_of", "source_file": "main.kt", "timestamp": "2026-10-09T05:38:53.945382+00:00", "has_paper": false}, {"topic": "An ETH-based quasipolynomial lower bound for Dualization", "language": "C#", "category": "🧠 Computational AI & Math Engines", "folder": "csharp", "spoke_repo": "csharp-enterprise-lab", "source_link": "https://github.com/myonathanlinkedin/csharp-enterprise-lab/tree/main/algorithms/20261009_052249_an_eth-based_quasipolynomial_l", "source_file": "main.cs", "timestamp": "2026-10-09T05:22:49.406657+00:00", "has_paper": false}, {"topic": "Parallel Edge Ranking of Trees", "language": "C#", "category": "🧠 Computational AI & Math Engines", "folder": "csharp", "spoke_repo": "csharp-enterprise-lab", "source_link": "https://github.com/myonathanlinkedin/csharp-enterprise-lab/tree/main/algorithms/20261009_052506_parallel_edge_ranking_of_trees", "source_file": "main.cs", "timestamp": "2026-10-09T05:25:06.493650+00:00", "has_paper": false}, {"topic": "Quantitative Verification of Infinite-State Networks", "language": "Java", "category": "🧠 Computational AI & Math Engines", "folder": "java", "spoke_repo": "java-enterprise-patterns", "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261009_045702_quantitative_verification_of_i", "source_file": "main.java", "timestamp": "2026-10-09T04:57:02.989341+00:00", "has_paper": false}, {"topic": "Improved Approximations for Vehicle Routing with Nonuniform Speeds", "language": "PHP", "category": "🧠 Computational AI & Math Engines", "folder": "php", "spoke_repo": "php-backend-core", "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261009_050221_improved_approximations_for_ve", "source_file": "main.php", "timestamp": "2026-10-09T05:02:21.708269+00:00", "has_paper": false}, {"topic": "Efficient Recovery of Latent Coordinate Structure from Sparse Observations of the", "language": "Ruby", "category": "🧠 Computational AI & Math Engines", "folder": "ruby", "spoke_repo": "ruby-algorithms-lab", "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261009_050712_efficient_recovery_of_latent_c", "source_file": "main.rb", "timestamp": "2026-10-09T05:07:12.315092+00:00", "has_paper": false}, {"topic": "A* Heuristic Pathfinding with Dynamic Obstacle Cost", "language": "Swift", "category": "🧠 Computational AI & Math Engines", "folder": "swift", "spoke_repo": "swift-systems-lab", "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261009_044729_a__heuristic_pathfinding_with", "source_file": "main.swift", "timestamp": "2026-10-09T04:47:29.635126+00:00", "has_paper": false}, {"topic": "RustDNS: Writing a Recursive DNS Resolver in Rust, Byte by Byte", "language": "Rust", "category": "🧠 Computational AI & Math Engines", "folder": "rust", "spoke_repo": "rust-algorithms", "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261009_044036_rustdns__writing_a_recursive_d", "source_file": "main.rs", "timestamp": "2026-10-09T04:40:36.338357+00:00", "has_paper": false}, {"topic": "Efficient Heuristics and Machine Learning Approach for Fault Characterization in", "language": "Python", "category": "🧠 Computational AI & Math Engines", "folder": "python", "spoke_repo": "python-advanced-lab", "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261008_210159_efficient_heuristics_and_machi", "source_file": "main.py", "timestamp": "2026-10-08T21:01:59.163185+00:00", "has_paper": false}, {"topic": "Conjugate Gradient Linear System Solver", "language": "Python", "category": "🧠 Computational AI & Math Engines", "folder": "python", "spoke_repo": "python-advanced-lab", "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261009_010554_conjugate_gradient_linear_syst", "source_file": "main.py", "timestamp": "2026-10-09T01:05:54.277077+00:00", "has_paper": false}, {"topic": "Agent Memory as Source Code: A DSL for Neurons, Synapses and a Hash-Chained Ledger", "language": "Ruby", "category": "⚡ Low-Latency & Memory Systems", "folder": "ruby", "spoke_repo": "ruby-algorithms-lab", "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261008_190212_agent_memory_as_source_code__a", "source_file": "main.rb", "timestamp": "2026-10-08T19:02:12.515222+00:00", "has_paper": false}, {"topic": "The history of the Hetzner Cloud network stack", "language": "Ruby", "category": "🧠 Computational AI & Math Engines", "folder": "ruby", "spoke_repo": "ruby-algorithms-lab", "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261008_200211_the_history_of_the_hetzner_clo", "source_file": "main.rb", "timestamp": "2026-10-08T20:02:11.064118+00:00", "has_paper": false}, {"topic": "Building a Client-Side DAG Runtime with Kahn s Algorithm", "language": "Ruby", "category": "🧠 Computational AI & Math Engines", "folder": "ruby", "spoke_repo": "ruby-algorithms-lab", "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261009_000729_building_a_client-side_dag_run", "source_file": "main.rb", "timestamp": "2026-10-09T00:07:29.391085+00:00", "has_paper": false}, {"topic": "Custom Buddy Memory Allocation System", "language": "Ruby", "category": "⚡ Low-Latency & Memory Systems", "folder": "ruby", "spoke_repo": "ruby-algorithms-lab", "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261009_030526_custom_buddy_memory_allocation", "source_file": "main.rb", "timestamp": "2026-10-09T03:05:26.988614+00:00", "has_paper": false}, {"topic": "On the Cyclic Assumption of the Cow-Path Search Algorithm", "language": "Rust", "category": "🧠 Computational AI & Math Engines", "folder": "rust", "spoke_repo": "rust-algorithms", "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261008_140651_on_the_cyclic_assumption_of_th", "source_file": "main.rs", "timestamp": "2026-10-08T14:06:51.844041+00:00", "has_paper": false}, {"topic": "Sub-1-Bit LLM Compression via Latent Factorization", "language": "Rust", "category": "🌐 Distributed Systems & Consensus", "folder": "rust", "spoke_repo": "rust-algorithms", "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261008_190751_sub-1-bit_llm_compression_via", "source_file": "main.rs", "timestamp": "2026-10-08T19:07:51.158739+00:00", "has_paper": false}, {"topic": "Copy-on-Write Vector Memory Buffer Management", "language": "Swift", "category": "⚡ Low-Latency & Memory Systems", "folder": "swift", "spoke_repo": "swift-systems-lab", "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261008_171013_copy-on-write_vector_memory_bu", "source_file": "main.swift", "timestamp": "2026-10-08T17:10:13.002569+00:00", "has_paper": false}, {"topic": "Fast Almost-Uniform Sampling of Random k-SAT Solutions", "language": "TypeScript", "category": "🧠 Computational AI & Math Engines", "folder": "typescript", "spoke_repo": "typescript-design-patterns", "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261008_150756_fast_almost-uniform_sampling_o", "source_file": "main.ts", "timestamp": "2026-10-08T15:07:56.622452+00:00", "has_paper": false}, {"topic": "Red-Black Tree with Deterministic Balance Assertions", "language": "TypeScript", "category": "🧠 Computational AI & Math Engines", "folder": "typescript", "spoke_repo": "typescript-design-patterns", "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261008_170225_red-black_tree_with_determinis", "source_file": "main.ts", "timestamp": "2026-10-08T17:02:25.698407+00:00", "has_paper": false}, {"topic": "Safe Optimistic Lock Coupling", "language": "TypeScript", "category": "⚡ Low-Latency & Memory Systems", "folder": "typescript", "spoke_repo": "typescript-design-patterns", "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261009_020204_safe_optimistic_lock_coupling", "source_file": "main.ts", "timestamp": "2026-10-09T02:02:04.358236+00:00", "has_paper": false}, {"topic": "Least Recently Used (LRU) Cache with Doubly Linked List", "language": "TypeScript", "category": "⚡ Low-Latency & Memory Systems", "folder": "typescript", "spoke_repo": "typescript-design-patterns", "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261009_040428_least_recently_used__lru__cach", "source_file": "main.ts", "timestamp": "2026-10-09T04:04:28.675016+00:00", "has_paper": false}, {"topic": "Ep0: Starting Nusku, a continuous profiler for Linux, built in Zig, no shortcuts", "language": "Zig", "category": "🧠 Computational AI & Math Engines", "folder": "zig", "spoke_repo": "zig-systems-lab", "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261008_160225_ep0__starting_nusku__a_continu", "source_file": "main.zig", "timestamp": "2026-10-08T16:02:25.984252+00:00", "has_paper": false}, {"topic": "LMAX Disruptor Ring Buffer Pattern", "language": "C#", "category": "⚡ Low-Latency & Memory Systems", "folder": "csharp", "spoke_repo": "csharp-enterprise-lab", "source_link": "https://github.com/myonathanlinkedin/csharp-enterprise-lab/tree/main/algorithms/20261008_140309_lmax_disruptor_ring_buffer_pat", "source_file": "main.cs", "timestamp": "2026-10-08T14:03:09.865920+00:00", "has_paper": false}, {"topic": "Bulletproof Idempotency in Distributed Payment Systems: Beyond the Client Header", "language": "C#", "category": "🌐 Distributed Systems & Consensus", "folder": "csharp", "spoke_repo": "csharp-enterprise-lab", "source_link": "https://github.com/myonathanlinkedin/csharp-enterprise-lab/tree/main/algorithms/20261008_140915_bulletproof_idempotency_in_dis", "source_file": "main.cs", "timestamp": "2026-10-08T14:09:15.752196+00:00", "has_paper": false}, {"topic": "New Contraction Bounds for Multidimensional Asymptotic Consensus in Dynamic Networks", "language": "C#", "category": "🌐 Distributed Systems & Consensus", "folder": "csharp", "spoke_repo": "csharp-enterprise-lab", "source_link": "https://github.com/myonathanlinkedin/csharp-enterprise-lab/tree/main/algorithms/20261009_030210_new_contraction_bounds_for_mul", "source_file": "main.cs", "timestamp": "2026-10-09T03:02:10.282735+00:00", "has_paper": false}, {"topic": "Conflict-free Replicated Data Type (CRDT) PN-Counter", "language": "Java", "category": "🌐 Distributed Systems & Consensus", "folder": "java", "spoke_repo": "java-enterprise-patterns", "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261008_150313_conflict-free_replicated_data", "source_file": "main.java", "timestamp": "2026-10-08T15:03:13.604049+00:00", "has_paper": false}, {"topic": "LOCAA: An Agentic System for Automated Lossy Compressor Tuning", "language": "Kotlin", "category": "🧠 Computational AI & Math Engines", "folder": "kotlin", "spoke_repo": "kotlin-systems-core", "source_link": "https://github.com/myonathanlinkedin/kotlin-systems-core/tree/main/algorithms/20261008_171318_locaa__an_agentic_system_for_a", "source_file": "main.kt", "timestamp": "2026-10-08T17:13:18.933509+00:00", "has_paper": false}, {"topic": "A Terminal Protocol for Program Status (OSC 7501)", "language": "Kotlin", "category": "🧠 Computational AI & Math Engines", "folder": "kotlin", "spoke_repo": "kotlin-systems-core", "source_link": "https://github.com/myonathanlinkedin/kotlin-systems-core/tree/main/algorithms/20261008_230300_a_terminal_protocol_for_progra", "source_file": "main.kt", "timestamp": "2026-10-08T23:03:00.905909+00:00", "has_paper": false}, {"topic": "Truly Sub-3ⁿ Min-Sum Subset Convolution and Join Ordering", "language": "Kotlin", "category": "⚡ Low-Latency & Memory Systems", "folder": "kotlin", "spoke_repo": "kotlin-systems-core", "source_link": "https://github.com/myonathanlinkedin/kotlin-systems-core/tree/main/algorithms/20261009_000437_truly_sub-3n_min-sum_subset_co", "source_file": "types.kt", "timestamp": "2026-10-09T00:04:37.138800+00:00", "has_paper": false}, {"topic": "The Deutsch-Jozsa Algorithm Explained: Quantum Complexity & Qiskit", "language": "Kotlin", "category": "🧠 Computational AI & Math Engines", "folder": "kotlin", "spoke_repo": "kotlin-systems-core", "source_link": "https://github.com/myonathanlinkedin/kotlin-systems-core/tree/main/algorithms/20261009_030735_the_deutsch-jozsa_algorithm_ex", "source_file": "main.kt", "timestamp": "2026-10-09T03:07:35.400156+00:00", "has_paper": false}, {"topic": "52 Possibilities. 5 Cards. No Guessing. Here’s the Algorithm.", "language": "PHP", "category": "🧠 Computational AI & Math Engines", "folder": "php", "spoke_repo": "php-backend-core", "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261008_150536_52_possibilities__5_cards__no", "source_file": "main.php", "timestamp": "2026-10-08T15:05:36.015977+00:00", "has_paper": false}, {"topic": "Color Coding for the Sherrington-Kirkpatrick Model", "language": "PHP", "category": "⚡ Low-Latency & Memory Systems", "folder": "php", "spoke_repo": "php-backend-core", "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261008_191045_color_coding_for_the_sherringt", "source_file": "main.php", "timestamp": "2026-10-08T19:10:45.173815+00:00", "has_paper": false}, {"topic": "Min-Plus Convolution Lower Bounds via a Higher-Order BSG Theorem", "language": "PHP", "category": "🧠 Computational AI & Math Engines", "folder": "php", "spoke_repo": "php-backend-core", "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261008_230539_min-plus_convolution_lower_bou", "source_file": "main.php", "timestamp": "2026-10-08T23:05:39.803473+00:00", "has_paper": false}, {"topic": "Hopcroft-Karp Bipartite Matching Algorithm", "language": "PHP", "category": "🧠 Computational AI & Math Engines", "folder": "php", "spoke_repo": "php-backend-core", "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261009_010208_hopcroft-karp_bipartite_matchi", "source_file": "main.php", "timestamp": "2026-10-09T01:02:08.704181+00:00", "has_paper": false}, {"topic": "A Refined Analysis for Matroid Secretary with Submodular Objectives", "language": "PHP", "category": "🧠 Computational AI & Math Engines", "folder": "php", "spoke_repo": "php-backend-core", "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261009_040216_a_refined_analysis_for_matroid", "source_file": "main.php", "timestamp": "2026-10-09T04:02:16.281343+00:00", "has_paper": false}, {"topic": "Attention via Black-Box Vector Search", "language": "C++", "category": "🧠 Computational AI & Math Engines", "folder": "cpp", "spoke_repo": "cpp-systems-core", "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261009_000212_attention_via_black-box_vector", "source_file": "types.hpp", "timestamp": "2026-10-09T00:02:12.702780+00:00", "has_paper": false}, {"topic": "Polynomial Kernels for Interval Completion", "language": "C", "category": "🧠 Computational AI & Math Engines", "folder": "c", "spoke_repo": "c-lowlevel-systems", "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261008_210449_polynomial_kernels_for_interva", "source_file": "main.c", "timestamp": "2026-10-08T21:04:49.939549+00:00", "has_paper": false}, {"topic": "rat s minimal register allocator", "language": "Zig", "category": "⚡ Low-Latency & Memory Systems", "folder": "zig", "spoke_repo": "zig-systems-lab", "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261008_134847_rat_s_minimal_register_allocat", "source_file": "main.zig", "timestamp": "2026-10-08T13:48:47.774793+00:00", "has_paper": false}, {"topic": "The Cache Stampede Problem: Why a Popular Cache Key Can Take Down Your Backend", "language": "Ruby", "category": "⚡ Low-Latency & Memory Systems", "folder": "ruby", "spoke_repo": "ruby-algorithms-lab", "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261008_135507_the_cache_stampede_problem__wh", "source_file": "main.rb", "timestamp": "2026-10-08T13:55:07.855464+00:00", "has_paper": false}, {"topic": "Rectangular matrix multiplication from shared-leg entropy", "language": "Python", "category": "🧠 Computational AI & Math Engines", "folder": "python", "spoke_repo": "python-advanced-lab", "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261008_135118_rectangular_matrix_multiplicat", "source_file": "main.py", "timestamp": "2026-10-08T13:51:18.574044+00:00", "has_paper": false}, {"topic": "Vector Clock Distributed Event Ordering Mechanism", "language": "Java", "category": "🌐 Distributed Systems & Consensus", "folder": "java", "spoke_repo": "java-enterprise-patterns", "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261008_134609_vector_clock_distributed_event", "source_file": "main.java", "timestamp": "2026-10-08T13:46:09.786364+00:00", "has_paper": false}, {"topic": "The Multiple Unicast Conjecture is False", "language": "TypeScript", "category": "🧠 Computational AI & Math Engines", "folder": "typescript", "spoke_repo": "typescript-design-patterns", "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261008_131259_the_multiple_unicast_conjectur", "source_file": "main.ts", "timestamp": "2026-10-08T13:12:59.624561+00:00", "has_paper": false}, {"topic": "What Actually Happens During Garbage Collection: Tri-Color Marking, Write Barriers...", "language": "TypeScript", "category": "⚡ Low-Latency & Memory Systems", "folder": "typescript", "spoke_repo": "typescript-design-patterns", "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261008_130653_what_actually_happens_during_g", "source_file": "main.ts", "timestamp": "2026-10-08T13:06:53.488640+00:00", "has_paper": false}, {"topic": "How Dijkstra s Algorithm Finds the Fastest Route", "language": "TypeScript", "category": "🧠 Computational AI & Math Engines", "folder": "typescript", "spoke_repo": "typescript-design-patterns", "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261008_130432_how_dijkstra_s_algorithm_finds", "source_file": "main.ts", "timestamp": "2026-10-08T13:04:32.474981+00:00", "has_paper": false}, {"topic": "Reimplementing a Trie Reminded Me How Autocomplete Actually Works", "language": "TypeScript", "category": "🧠 Computational AI & Math Engines", "folder": "typescript", "spoke_repo": "typescript-design-patterns", "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261008_124308_reimplementing_a_trie_reminded", "source_file": "main.ts", "timestamp": "2026-10-08T12:43:08.575594+00:00", "has_paper": false}, {"topic": "Subset Sum via Partial Match", "language": "PHP", "category": "🧠 Computational AI & Math Engines", "folder": "php", "spoke_repo": "php-backend-core", "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261008_130220_subset_sum_via_partial_match", "source_file": "main.php", "timestamp": "2026-10-08T13:02:20.760506+00:00", "has_paper": false}, {"topic": "Symmetric Submodular Minimization from Comparisons", "language": "Rust", "category": "🧠 Computational AI & Math Engines", "folder": "rust", "spoke_repo": "rust-algorithms", "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261008_121353_symmetric_submodular_minimizat", "source_file": "main.rs", "timestamp": "2026-10-08T12:13:53.042459+00:00", "has_paper": false}, {"topic": "Conflict-free Replicated Data Type (CRDT) PN-Counter", "language": "Java", "category": "🌐 Distributed Systems & Consensus", "folder": "java", "spoke_repo": "java-enterprise-patterns", "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261008_120235_conflict-free_replicated_data", "source_file": "main.java", "timestamp": "2026-10-08T12:02:35.701753+00:00", "has_paper": false}, {"topic": "Etcd - Distributed reliable key-value store for the most critical data of a distri...", "language": "C#", "category": "🌐 Distributed Systems & Consensus", "folder": "csharp", "spoke_repo": "csharp-enterprise-lab", "source_link": "https://github.com/myonathanlinkedin/csharp-enterprise-lab/tree/main/algorithms/20261008_120529_etcd_-_distributed_reliable_ke", "source_file": "main.cs", "timestamp": "2026-10-08T12:05:29.443271+00:00", "has_paper": false}, {"topic": "Bytecode Virtual Machine with Stack Evaluation Engine", "language": "Kotlin", "category": "🧠 Computational AI & Math Engines", "folder": "kotlin", "spoke_repo": "kotlin-systems-core", "source_link": "https://github.com/myonathanlinkedin/kotlin-systems-core/tree/main/algorithms/20261008_094841_bytecode_virtual_machine_with", "source_file": "main.kt", "timestamp": "2026-10-08T09:48:41.054811+00:00", "has_paper": false}, {"topic": "Merkle Tree Verification and Proof Generator", "language": "Haskell", "category": "🧠 Computational AI & Math Engines", "folder": "haskell", "spoke_repo": "haskell-functional-core", "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261008_091228_merkle_tree_verification_and_p", "source_file": "main.hs", "timestamp": "2026-10-08T09:12:28.808788+00:00", "has_paper": false}, {"topic": "Pratt Top-Down Operator Precedence Expression Parser", "language": "TypeScript", "category": "🧠 Computational AI & Math Engines", "folder": "typescript", "spoke_repo": "typescript-design-patterns", "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261007_230835_pratt_top-down_operator_preced", "source_file": "main.ts", "timestamp": "2026-10-07T23:08:35.580157+00:00", "has_paper": false}, {"topic": "Runge-Kutta 4th Order Numerical ODE Integrator", "language": "Ruby", "category": "🧠 Computational AI & Math Engines", "folder": "ruby", "spoke_repo": "ruby-algorithms-lab", "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261007_221117_runge-kutta_4th_order_numerica", "source_file": "main.rb", "timestamp": "2026-10-07T22:11:17.119967+00:00", "has_paper": false}, {"topic": "R-Tree Spatial Index for Multidimensional Bounding Boxes", "language": "Python", "category": "🧠 Computational AI & Math Engines", "folder": "python", "spoke_repo": "python-advanced-lab", "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261008_040512_r-tree_spatial_index_for_multi", "source_file": "main.py", "timestamp": "2026-10-08T04:05:12.440361+00:00", "has_paper": false}, {"topic": "R-Tree Spatial Index for Multidimensional Bounding Boxes", "language": "Python", "category": "🧠 Computational AI & Math Engines", "folder": "python", "spoke_repo": "python-advanced-lab", "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261007_231111_r-tree_spatial_index_for_multi", "source_file": "main.py", "timestamp": "2026-10-07T23:11:11.147393+00:00", "has_paper": false}, {"topic": "Count-Min Sketch Heavy Hitters Frequency Estimator", "language": "PHP", "category": "🧠 Computational AI & Math Engines", "folder": "php", "spoke_repo": "php-backend-core", "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261008_020518_count-min_sketch_heavy_hitters", "source_file": "main.php", "timestamp": "2026-10-08T02:05:18.261179+00:00", "has_paper": false}, {"topic": "Bytecode Virtual Machine with Stack Evaluation Engine", "language": "Kotlin", "category": "🧠 Computational AI & Math Engines", "folder": "kotlin", "spoke_repo": "kotlin-systems-core", "source_link": "https://github.com/myonathanlinkedin/kotlin-systems-core/tree/main/algorithms/20261008_020230_bytecode_virtual_machine_with", "source_file": "main.kt", "timestamp": "2026-10-08T02:02:30.425860+00:00", "has_paper": false}, {"topic": "Vector Clock Distributed Event Ordering Mechanism", "language": "Go", "category": "🌐 Distributed Systems & Consensus", "folder": "go", "spoke_repo": "go-concurrency-lab", "source_link": "https://github.com/myonathanlinkedin/go-concurrency-lab/tree/main/algorithms/20261008_000237_vector_clock_distributed_event", "source_file": "main.go", "timestamp": "2026-10-08T00:02:37.678938+00:00", "has_paper": false}, {"topic": "Actor Model Concurrency Engine with Mailbox Processing", "language": "C#", "category": "🌐 Distributed Systems & Consensus", "folder": "csharp", "spoke_repo": "csharp-enterprise-lab", "source_link": "https://github.com/myonathanlinkedin/csharp-enterprise-lab/tree/main/algorithms/20261008_040737_actor_model_concurrency_engine", "source_file": "main.cs", "timestamp": "2026-10-08T04:07:37.807578+00:00", "has_paper": false}, {"topic": "Lock-Free Concurrent Ring Buffer Data Structure", "language": "C", "category": "⚡ Low-Latency & Memory Systems", "folder": "c", "spoke_repo": "c-lowlevel-systems", "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261007_220235_lock-free_concurrent_ring_buff", "source_file": "main.c", "timestamp": "2026-10-07T22:02:35.806512+00:00", "has_paper": true}, {"topic": "Cache-Oblivious Matrix Transposition Algorithm", "language": "Python", "category": "⚡ Low-Latency & Memory Systems", "folder": "python", "spoke_repo": "python-advanced-lab", "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261007_135001_cache-oblivious_matrix_transpo", "source_file": "core.py", "timestamp": "2026-10-07T13:50:01.524638+00:00", "has_paper": false}, {"topic": "Lamport Logical Timestamp Synchronization Engine", "language": "Kotlin", "category": "🧠 Computational AI & Math Engines", "folder": "kotlin", "spoke_repo": "kotlin-systems-core", "source_link": "https://github.com/myonathanlinkedin/kotlin-systems-core/tree/main/algorithms/20261007_132037_lamport_logical_timestamp_sync", "source_file": "main.kt", "timestamp": "2026-10-07T13:20:37.627350+00:00", "has_paper": false}, {"topic": "Runge-Kutta 4th Order Numerical ODE Integrator", "language": "Ruby", "category": "🧠 Computational AI & Math Engines", "folder": "ruby", "spoke_repo": "ruby-algorithms-lab", "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261007_130614_runge-kutta_4th_order_numerica", "source_file": "main.rb", "timestamp": "2026-10-07T13:06:14.463851+00:00", "has_paper": false}, {"topic": "Lamport Logical Timestamp Synchronization Engine", "language": "Java", "category": "🧠 Computational AI & Math Engines", "folder": "java", "spoke_repo": "java-enterprise-patterns", "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261007_130011_lamport_logical_timestamp_sync", "source_file": "main.java", "timestamp": "2026-10-07T13:00:11.837694+00:00", "has_paper": false}, {"topic": "Cache-Oblivious Matrix Transposition Algorithm", "language": "Python", "category": "⚡ Low-Latency & Memory Systems", "folder": "python", "spoke_repo": "python-advanced-lab", "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261007_120127_cache-oblivious_matrix_transpo", "source_file": "main.py", "timestamp": "2026-10-07T12:01:27.111432+00:00", "has_paper": false}, {"topic": "Tarjan Strongly Connected Components Search in Directed Graphs", "language": "Swift", "category": "🧠 Computational AI & Math Engines", "folder": "swift", "spoke_repo": "swift-systems-lab", "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261007_120934_tarjan_strongly_connected_comp", "source_file": "main.swift", "timestamp": "2026-10-07T12:09:34.441505+00:00", "has_paper": false}, {"topic": "Simulated Annealing Optimization for Combinatorial Graphs", "language": "Haskell", "category": "🧠 Computational AI & Math Engines", "folder": "haskell", "spoke_repo": "haskell-functional-core", "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261007_120431_simulated_annealing_optimizati", "source_file": "main.hs", "timestamp": "2026-10-07T12:04:31.362450+00:00", "has_paper": false}, {"topic": "Cuckoo Filter High-Efficiency Deletion Structure", "language": "Kotlin", "category": "🧠 Computational AI & Math Engines", "folder": "kotlin", "spoke_repo": "kotlin-systems-core", "source_link": "https://github.com/myonathanlinkedin/kotlin-systems-core/tree/main/algorithms/20261007_120652_cuckoo_filter_high-efficiency", "source_file": "main.kt", "timestamp": "2026-10-07T12:06:52.998534+00:00", "has_paper": false}, {"topic": "CYK Parsing Algorithm for Context-Free Grammars", "language": "C++", "category": "🧠 Computational AI & Math Engines", "folder": "cpp", "spoke_repo": "cpp-systems-core", "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261007_115844_cyk_parsing_algorithm_for_cont", "source_file": "types.hpp", "timestamp": "2026-10-07T11:58:44.178832+00:00", "has_paper": false}, {"topic": "Gossip Protocol Node Failure Detector", "language": "C#", "category": "🌐 Distributed Systems & Consensus", "folder": "csharp", "spoke_repo": "csharp-enterprise-lab", "source_link": "https://github.com/myonathanlinkedin/csharp-enterprise-lab/tree/main/algorithms/20261007_115311_gossip_protocol_node_failure_d", "source_file": "main.cs", "timestamp": "2026-10-07T11:53:11.352870+00:00", "has_paper": false}, {"topic": "Skip List Probabilistic Search and Insertion Engine", "language": "Swift", "category": "🧠 Computational AI & Math Engines", "folder": "swift", "spoke_repo": "swift-systems-lab", "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261007_114040_skip_list_probabilistic_search", "source_file": "main.swift", "timestamp": "2026-10-07T11:40:40.391224+00:00", "has_paper": false}, {"topic": "K-D Tree Spatial Partitioning and Nearest Neighbor Search", "language": "Python", "category": "🧠 Computational AI & Math Engines", "folder": "python", "spoke_repo": "python-advanced-lab", "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261007_110737_k-d_tree_spatial_partitioning", "source_file": "main.py", "timestamp": "2026-10-07T11:07:37.552852+00:00", "has_paper": false}, {"topic": "Skip List Probabilistic Search and Insertion Engine", "language": "Swift", "category": "🧠 Computational AI & Math Engines", "folder": "swift", "spoke_repo": "swift-systems-lab", "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261007_105936_skip_list_probabilistic_search", "source_file": "main.swift", "timestamp": "2026-10-07T10:59:36.773722+00:00", "has_paper": false}, {"topic": "Suffix Automaton for Linear-Time Substring Indexing", "language": "Go", "category": "⚡ Low-Latency & Memory Systems", "folder": "go", "spoke_repo": "go-concurrency-lab", "source_link": "https://github.com/myonathanlinkedin/go-concurrency-lab/tree/main/algorithms/20261007_110506_suffix_automaton_for_linear-ti", "source_file": "main.go", "timestamp": "2026-10-07T11:05:06.753165+00:00", "has_paper": false}, {"topic": "Suffix Automaton for Linear-Time Substring Indexing", "language": "Haskell", "category": "⚡ Low-Latency & Memory Systems", "folder": "haskell", "spoke_repo": "haskell-functional-core", "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261007_110147_suffix_automaton_for_linear-ti", "source_file": "main.hs", "timestamp": "2026-10-07T11:01:47.927193+00:00", "has_paper": false}, {"topic": "Thread-Safe Bounded Blocking Queue with Condition Variables", "language": "Zig", "category": "⚡ Low-Latency & Memory Systems", "folder": "zig", "spoke_repo": "zig-systems-lab", "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261007_104115_thread-safe_bounded_blocking_q", "source_file": "core.zig", "timestamp": "2026-10-07T10:41:15.377051+00:00", "has_paper": false}, {"topic": "Trie Prefix Tree for Auto-Completion with Frequency Ranking", "language": "C++", "category": "🧠 Computational AI & Math Engines", "folder": "cpp", "spoke_repo": "cpp-systems-core", "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261007_104401_trie_prefix_tree_for_auto-comp", "source_file": "main.cpp", "timestamp": "2026-10-07T10:44:01.832067+00:00", "has_paper": false}, {"topic": "HyperLogLog Cardinality Estimation Algorithm", "language": "C", "category": "🧠 Computational AI & Math Engines", "folder": "c", "spoke_repo": "c-lowlevel-systems", "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261007_094004_hyperloglog_cardinality_estima", "source_file": "main.c", "timestamp": "2026-10-07T09:40:04.353541+00:00", "has_paper": false}, {"topic": "Two-Phase Commit Protocol Coordinator and Participant State Machine", "language": "PHP", "category": "🌐 Distributed Systems & Consensus", "folder": "php", "spoke_repo": "php-backend-core", "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261007_070520_two-phase_commit_protocol_coor", "source_file": "main.php", "timestamp": "2026-10-07T07:05:20.287017+00:00", "has_paper": false}, {"topic": "Bit-Parallel Levenshtein Distance Matrix Engine", "language": "Python", "category": "🧠 Computational AI & Math Engines", "folder": "python", "spoke_repo": "python-advanced-lab", "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261007_060303_bit-parallel_levenshtein_dista", "source_file": "main.py", "timestamp": "2026-10-07T06:03:03.727169+00:00", "has_paper": false}, {"topic": "LSM-Tree MemTable and SSTable Flush Compaction Engine", "language": "Ruby", "category": "🌐 Distributed Systems & Consensus", "folder": "ruby", "spoke_repo": "ruby-algorithms-lab", "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261007_060032_lsm-tree_memtable_and_sstable", "source_file": "main.rb", "timestamp": "2026-10-07T06:00:32.280058+00:00", "has_paper": false}, {"topic": "Vector Clock Distributed Event Ordering Mechanism", "language": "C#", "category": "🌐 Distributed Systems & Consensus", "folder": "csharp", "spoke_repo": "csharp-enterprise-lab", "source_link": "https://github.com/myonathanlinkedin/csharp-enterprise-lab/tree/main/algorithms/20261007_042927_vector_clock_distributed_event", "source_file": "main.cs", "timestamp": "2026-10-07T04:29:27.054285+00:00", "has_paper": false}, {"topic": "B-Tree Multiway Balanced Search Tree Node Splitter", "language": "Swift", "category": "🧠 Computational AI & Math Engines", "folder": "swift", "spoke_repo": "swift-systems-lab", "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261007_040512_b-tree_multiway_balanced_searc", "source_file": "types.swift", "timestamp": "2026-10-07T04:05:12.674510+00:00", "has_paper": false}, {"topic": "Count-Min Sketch Heavy Hitters Frequency Estimator", "language": "C++", "category": "🧠 Computational AI & Math Engines", "folder": "cpp", "spoke_repo": "cpp-systems-core", "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261007_040234_count-min_sketch_heavy_hitters", "source_file": "main.cpp", "timestamp": "2026-10-07T04:02:34.146134+00:00", "has_paper": false}, {"topic": "Fast Fourier Transform (Cooley-Tukey Radix-2) Signal Processing", "language": "Python", "category": "🧠 Computational AI & Math Engines", "folder": "python", "spoke_repo": "python-advanced-lab", "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261007_030210_fast_fourier_transform__cooley", "source_file": "main.py", "timestamp": "2026-10-07T03:02:10.767914+00:00", "has_paper": false}, {"topic": "Gossip Protocol Node Failure Detector", "language": "Go", "category": "🌐 Distributed Systems & Consensus", "folder": "go", "spoke_repo": "go-concurrency-lab", "source_link": "https://github.com/myonathanlinkedin/go-concurrency-lab/tree/main/algorithms/20261007_030438_gossip_protocol_node_failure_d", "source_file": "main.go", "timestamp": "2026-10-07T03:04:38.313643+00:00", "has_paper": false}, {"topic": "Thread-Safe Bounded Blocking Queue with Condition Variables", "language": "Zig", "category": "⚡ Low-Latency & Memory Systems", "folder": "zig", "spoke_repo": "zig-systems-lab", "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261006_233605_thread-safe_bounded_blocking_q", "source_file": "main.zig", "timestamp": "2026-10-06T23:36:05.466326+00:00", "has_paper": false}, {"topic": "Count-Min Sketch Heavy Hitters Frequency Estimator", "language": "Swift", "category": "🧠 Computational AI & Math Engines", "folder": "swift", "spoke_repo": "swift-systems-lab", "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261007_003207_count-min_sketch_heavy_hitters", "source_file": "main.swift", "timestamp": "2026-10-07T00:32:07.926490+00:00", "has_paper": false}, {"topic": "Custom Buddy Memory Allocation System", "language": "C++", "category": "⚡ Low-Latency & Memory Systems", "folder": "cpp", "spoke_repo": "cpp-systems-core", "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261006_230256_custom_buddy_memory_allocation", "source_file": "main.cpp", "timestamp": "2026-10-06T23:02:56.584861+00:00", "has_paper": false}, {"topic": "LMAX Disruptor Ring Buffer Pattern", "language": "C#", "category": "⚡ Low-Latency & Memory Systems", "folder": "csharp", "spoke_repo": "csharp-enterprise-lab", "source_link": "https://github.com/myonathanlinkedin/csharp-enterprise-lab/tree/main/algorithms/20261006_193950_lmax_disruptor_ring_buffer_pat", "source_file": "main.cs", "timestamp": "2026-10-06T19:39:50.425694+00:00", "has_paper": false}, {"topic": "Bytecode Virtual Machine with Stack Evaluation Engine", "language": "Haskell", "category": "🧠 Computational AI & Math Engines", "folder": "haskell", "spoke_repo": "haskell-functional-core", "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261006_194225_bytecode_virtual_machine_with", "source_file": "main.hs", "timestamp": "2026-10-06T19:42:25.207438+00:00", "has_paper": false}, {"topic": "Sliding Window Rate Limiter with Distributed Token Bucket", "language": "Java", "category": "🌐 Distributed Systems & Consensus", "folder": "java", "spoke_repo": "java-enterprise-patterns", "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261006_190104_sliding_window_rate_limiter_wi", "source_file": "main.java", "timestamp": "2026-10-06T19:01:04.833341+00:00", "has_paper": false}, {"topic": "Lock-Free Concurrent Ring Buffer Data Structure", "language": "Zig", "category": "⚡ Low-Latency & Memory Systems", "folder": "zig", "spoke_repo": "zig-systems-lab", "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261006_185333_lock-free_concurrent_ring_buff", "source_file": "main.zig", "timestamp": "2026-10-06T18:53:33.343685+00:00", "has_paper": false}, {"topic": "Huffman Coding Lossless Compression and Decompression", "language": "Go", "category": "🧠 Computational AI & Math Engines", "folder": "go", "spoke_repo": "go-concurrency-lab", "source_link": "https://github.com/myonathanlinkedin/go-concurrency-lab/tree/main/algorithms/20261006_184811_huffman_coding_lossless_compre", "source_file": "main.go", "timestamp": "2026-10-06T18:48:11.938077+00:00", "has_paper": false}, {"topic": "Singular Value Decomposition (SVD) for Low-Rank Approximation", "language": "C", "category": "🧠 Computational AI & Math Engines", "folder": "c", "spoke_repo": "c-lowlevel-systems", "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261006_185052_singular_value_decomposition", "source_file": "types.h", "timestamp": "2026-10-06T18:50:52.478836+00:00", "has_paper": false}, {"topic": "Copy-on-Write Vector Memory Buffer Management", "language": "Zig", "category": "⚡ Low-Latency & Memory Systems", "folder": "zig", "spoke_repo": "zig-systems-lab", "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261006_181856_copy-on-write_vector_memory_bu", "source_file": "main.zig", "timestamp": "2026-10-06T18:18:56.770302+00:00", "has_paper": false}, {"topic": "Aho-Corasick Multi-Pattern String Searching Automaton", "language": "Swift", "category": "⚡ Low-Latency & Memory Systems", "folder": "swift", "spoke_repo": "swift-systems-lab", "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261006_181634_aho-corasick_multi-pattern_str", "source_file": "main.swift", "timestamp": "2026-10-06T18:16:34.639073+00:00", "has_paper": false}, {"topic": "R-Tree Spatial Index for Multidimensional Bounding Boxes", "language": "Python", "category": "🧠 Computational AI & Math Engines", "folder": "python", "spoke_repo": "python-advanced-lab", "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261006_181359_r-tree_spatial_index_for_multi", "source_file": "main.py", "timestamp": "2026-10-06T18:13:59.654873+00:00", "has_paper": false}, {"topic": "R-Tree Spatial Index for Multidimensional Bounding Boxes", "language": "Python", "category": "🧠 Computational AI & Math Engines", "folder": "python", "spoke_repo": "python-advanced-lab", "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261006_180608_r-tree_spatial_index_for_multi", "source_file": "main.py", "timestamp": "2026-10-06T18:06:08.504888+00:00", "has_paper": false}, {"topic": "Simulated Annealing Optimization for Combinatorial Graphs", "language": "Haskell", "category": "🧠 Computational AI & Math Engines", "folder": "haskell", "spoke_repo": "haskell-functional-core", "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261006_180042_simulated_annealing_optimizati", "source_file": "main.hs", "timestamp": "2026-10-06T18:00:42.343615+00:00", "has_paper": false}, {"topic": "Huffman Coding Lossless Compression and Decompression", "language": "C", "category": "🧠 Computational AI & Math Engines", "folder": "c", "spoke_repo": "c-lowlevel-systems", "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261006_180334_huffman_coding_lossless_compre", "source_file": "main.c", "timestamp": "2026-10-06T18:03:34.891827+00:00", "has_paper": false}, {"topic": "Bit-Parallel Levenshtein Distance Matrix Engine", "language": "Python", "category": "🧠 Computational AI & Math Engines", "folder": "python", "spoke_repo": "python-advanced-lab", "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261006_173937_bit-parallel_levenshtein_dista", "source_file": "main.py", "timestamp": "2026-10-06T17:39:37.167396+00:00", "has_paper": false}, {"topic": "Fast Fourier Transform (Cooley-Tukey Radix-2) Signal Processing", "language": "Python", "category": "🧠 Computational AI & Math Engines", "folder": "python", "spoke_repo": "python-advanced-lab", "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261006_173435_fast_fourier_transform__cooley", "source_file": "main.py", "timestamp": "2026-10-06T17:34:35.442895+00:00", "has_paper": false}, {"topic": "Vector Clock Distributed Event Ordering Mechanism", "language": "Go", "category": "🌐 Distributed Systems & Consensus", "folder": "go", "spoke_repo": "go-concurrency-lab", "source_link": "https://github.com/myonathanlinkedin/go-concurrency-lab/tree/main/algorithms/20261006_173204_vector_clock_distributed_event", "source_file": "main.go", "timestamp": "2026-10-06T17:32:04.092346+00:00", "has_paper": false}, {"topic": "LMAX Disruptor Ring Buffer Pattern", "language": "Java", "category": "⚡ Low-Latency & Memory Systems", "folder": "java", "spoke_repo": "java-enterprise-patterns", "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261006_171615_lmax_disruptor_ring_buffer_pat", "source_file": "main.java", "timestamp": "2026-10-06T17:16:15.220627+00:00", "has_paper": false}, {"topic": "Count-Min Sketch Heavy Hitters Frequency Estimator", "language": "PHP", "category": "🧠 Computational AI & Math Engines", "folder": "php", "spoke_repo": "php-backend-core", "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261006_171114_count-min_sketch_heavy_hitters", "source_file": "main.php", "timestamp": "2026-10-06T17:11:14.979154+00:00", "has_paper": false}, {"topic": "Tarjan Strongly Connected Components Search in Directed Graphs", "language": "Swift", "category": "🧠 Computational AI & Math Engines", "folder": "swift", "spoke_repo": "swift-systems-lab", "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261006_165411_tarjan_strongly_connected_comp", "source_file": "main.swift", "timestamp": "2026-10-06T16:54:11.102726+00:00", "has_paper": false}, {"topic": "Bytecode Virtual Machine with Stack Evaluation Engine", "language": "Ruby", "category": "🧠 Computational AI & Math Engines", "folder": "ruby", "spoke_repo": "ruby-algorithms-lab", "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261006_165715_bytecode_virtual_machine_with", "source_file": "main.rb", "timestamp": "2026-10-06T16:57:15.781103+00:00", "has_paper": false}, {"topic": "Topological Sort with Cycle Detection in Directed Graphs", "language": "PHP", "category": "🧠 Computational AI & Math Engines", "folder": "php", "spoke_repo": "php-backend-core", "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261006_164926_topological_sort_with_cycle_de", "source_file": "main.php", "timestamp": "2026-10-06T16:49:26.223451+00:00", "has_paper": false}, {"topic": "Runge-Kutta 4th Order Numerical ODE Integrator", "language": "C", "category": "🧠 Computational AI & Math Engines", "folder": "c", "spoke_repo": "c-lowlevel-systems", "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261006_165147_runge-kutta_4th_order_numerica", "source_file": "main.c", "timestamp": "2026-10-06T16:51:47.798417+00:00", "has_paper": false}, {"topic": "Count-Min Sketch Heavy Hitters Frequency Estimator", "language": "Kotlin", "category": "🧠 Computational AI & Math Engines", "folder": "kotlin", "spoke_repo": "kotlin-systems-core", "source_link": "https://github.com/myonathanlinkedin/kotlin-systems-core/tree/main/algorithms/20261006_163150_count-min_sketch_heavy_hitters", "source_file": "main.kt", "timestamp": "2026-10-06T16:31:50.293367+00:00", "has_paper": false}, {"topic": "Gossip Protocol Node Failure Detector", "language": "C#", "category": "🌐 Distributed Systems & Consensus", "folder": "csharp", "spoke_repo": "csharp-enterprise-lab", "source_link": "https://github.com/myonathanlinkedin/csharp-enterprise-lab/tree/main/algorithms/20261006_161424_gossip_protocol_node_failure_d", "source_file": "main.cs", "timestamp": "2026-10-06T16:14:24.964042+00:00", "has_paper": false}, {"topic": "Skip List Probabilistic Search and Insertion Engine", "language": "C++", "category": "🧠 Computational AI & Math Engines", "folder": "cpp", "spoke_repo": "cpp-systems-core", "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261006_161200_skip_list_probabilistic_search", "source_file": "types.hpp", "timestamp": "2026-10-06T16:12:00.247514+00:00", "has_paper": false}, {"topic": "Actor Model Concurrency Engine with Mailbox Processing", "language": "Java", "category": "🌐 Distributed Systems & Consensus", "folder": "java", "spoke_repo": "java-enterprise-patterns", "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261006_155149_actor_model_concurrency_engine", "source_file": "main.java", "timestamp": "2026-10-06T15:51:49.541815+00:00", "has_paper": false}, {"topic": "Fast Fourier Transform (Cooley-Tukey Radix-2) Signal Processing", "language": "Python", "category": "🧠 Computational AI & Math Engines", "folder": "python", "spoke_repo": "python-advanced-lab", "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261006_142608_fast_fourier_transform__cooley", "source_file": "main.py", "timestamp": "2026-10-06T14:26:08.030009+00:00", "has_paper": false}, {"topic": "CYK Parsing Algorithm for Context-Free Grammars", "language": "C#", "category": "🧠 Computational AI & Math Engines", "folder": "csharp", "spoke_repo": "csharp-enterprise-lab", "source_link": "https://github.com/myonathanlinkedin/csharp-enterprise-lab/tree/main/algorithms/20261006_150240_cyk_parsing_algorithm_for_cont", "source_file": "main.cs", "timestamp": "2026-10-06T15:02:40.458293+00:00", "has_paper": false}, {"topic": "Thread-Safe Bounded Blocking Queue with Condition Variables", "language": "C++", "category": "⚡ Low-Latency & Memory Systems", "folder": "cpp", "spoke_repo": "cpp-systems-core", "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261006_153242_thread-safe_bounded_blocking_q", "source_file": "main.cpp", "timestamp": "2026-10-06T15:32:42.707538+00:00", "has_paper": false}, {"topic": "Thread-Safe Bounded Blocking Queue with Condition Variables", "language": "C++", "category": "⚡ Low-Latency & Memory Systems", "folder": "cpp", "spoke_repo": "cpp-systems-core", "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261006_150619_thread-safe_bounded_blocking_q", "source_file": "main.cpp", "timestamp": "2026-10-06T15:06:19.870276+00:00", "has_paper": false}, {"topic": "Count-Min Sketch Heavy Hitters Frequency Estimator", "language": "Ruby", "category": "🧠 Computational AI & Math Engines", "folder": "ruby", "spoke_repo": "ruby-algorithms-lab", "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261006_140521_count-min_sketch_heavy_hitters", "source_file": "main.rb", "timestamp": "2026-10-06T14:05:21.769784+00:00", "has_paper": false}, {"topic": "Cache-Oblivious Matrix Transposition Algorithm", "language": "Python", "category": "⚡ Low-Latency & Memory Systems", "folder": "python", "spoke_repo": "python-advanced-lab", "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261006_123442_cache-oblivious_matrix_transpo", "source_file": "main.py", "timestamp": "2026-10-06T12:34:42.032482+00:00", "has_paper": false}, {"topic": "Custom Buddy Memory Allocation System", "language": "PHP", "category": "⚡ Low-Latency & Memory Systems", "folder": "php", "spoke_repo": "php-backend-core", "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261006_120312_custom_buddy_memory_allocation", "source_file": "main.php", "timestamp": "2026-10-06T12:03:12.932054+00:00", "has_paper": false}, {"topic": "Suffix Automaton for Linear-Time Substring Indexing", "language": "Kotlin", "category": "⚡ Low-Latency & Memory Systems", "folder": "kotlin", "spoke_repo": "kotlin-systems-core", "source_link": "https://github.com/myonathanlinkedin/kotlin-systems-core/tree/main/algorithms/20261006_123217_suffix_automaton_for_linear-ti", "source_file": "main.kt", "timestamp": "2026-10-06T12:32:17.335579+00:00", "has_paper": false}, {"topic": "Singular Value Decomposition (SVD) for Low-Rank Approximation", "language": "Java", "category": "🧠 Computational AI & Math Engines", "folder": "java", "spoke_repo": "java-enterprise-patterns", "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261006_133240_singular_value_decomposition", "source_file": "core.java", "timestamp": "2026-10-06T13:32:40.973766+00:00", "has_paper": false}, {"topic": "LSM-Tree MemTable and SSTable Flush Compaction Engine", "language": "Go", "category": "🌐 Distributed Systems & Consensus", "folder": "go", "spoke_repo": "go-concurrency-lab", "source_link": "https://github.com/myonathanlinkedin/go-concurrency-lab/tree/main/algorithms/20261006_130226_lsm-tree_memtable_and_sstable", "source_file": "main.go", "timestamp": "2026-10-06T13:02:26.648434+00:00", "has_paper": false}, {"topic": "Memory Pool Block Allocator with Free List", "language": "C", "category": "⚡ Low-Latency & Memory Systems", "folder": "c", "spoke_repo": "c-lowlevel-systems", "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261006_120526_memory_pool_block_allocator_wi", "source_file": "main.c", "timestamp": "2026-10-06T12:05:26.800370+00:00", "has_paper": false}, {"topic": "Lamport Logical Timestamp Synchronization Engine", "language": "C", "category": "🧠 Computational AI & Math Engines", "folder": "c", "spoke_repo": "c-lowlevel-systems", "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261006_111517_lamport_logical_timestamp_sync", "source_file": "main.c", "timestamp": "2026-10-06T11:15:17.366531+00:00", "has_paper": false}, {"topic": "Skip List Probabilistic Search and Insertion Engine", "language": "Swift", "category": "🧠 Computational AI & Math Engines", "folder": "swift", "spoke_repo": "swift-systems-lab", "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261006_105641_skip_list_probabilistic_search", "source_file": "main.swift", "timestamp": "2026-10-06T10:56:41.950142+00:00", "has_paper": false}, {"topic": "Trie Prefix Tree for Auto-Completion with Frequency Ranking", "language": "Swift", "category": "🧠 Computational AI & Math Engines", "folder": "swift", "spoke_repo": "swift-systems-lab", "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261006_105234_trie_prefix_tree_for_auto-comp", "source_file": "main.swift", "timestamp": "2026-10-06T10:52:34.790454+00:00", "has_paper": false}, {"topic": "Merkle Tree Verification and Proof Generator", "language": "Haskell", "category": "🧠 Computational AI & Math Engines", "folder": "haskell", "spoke_repo": "haskell-functional-core", "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261006_103057_merkle_tree_verification_and_p", "source_file": "main.hs", "timestamp": "2026-10-06T10:30:57.898458+00:00", "has_paper": false}, {"topic": "Huffman Coding Lossless Compression and Decompression", "language": "Zig", "category": "🧠 Computational AI & Math Engines", "folder": "zig", "spoke_repo": "zig-systems-lab", "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261006_101807_huffman_coding_lossless_compre", "source_file": "main.zig", "timestamp": "2026-10-06T10:18:07.936473+00:00", "has_paper": false}, {"topic": "B-Tree Multiway Balanced Search Tree Node Splitter", "language": "C++", "category": "🧠 Computational AI & Math Engines", "folder": "cpp", "spoke_repo": "cpp-systems-core", "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261006_102026_b-tree_multiway_balanced_searc", "source_file": "main.cpp", "timestamp": "2026-10-06T10:20:26.842655+00:00", "has_paper": false}, {"topic": "Cuckoo Filter High-Efficiency Deletion Structure", "language": "C++", "category": "🧠 Computational AI & Math Engines", "folder": "cpp", "spoke_repo": "cpp-systems-core", "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261006_101513_cuckoo_filter_high-efficiency", "source_file": "main.cpp", "timestamp": "2026-10-06T10:15:13.803717+00:00", "has_paper": false}, {"topic": "Sliding Window Rate Limiter with Distributed Token Bucket", "language": "Go", "category": "🌐 Distributed Systems & Consensus", "folder": "go", "spoke_repo": "go-concurrency-lab", "source_link": "https://github.com/myonathanlinkedin/go-concurrency-lab/tree/main/algorithms/20261006_100939_sliding_window_rate_limiter_wi", "source_file": "main.go", "timestamp": "2026-10-06T10:09:39.945167+00:00", "has_paper": false}, {"topic": "Raft Consensus Protocol Leader Election State Engine", "language": "C#", "category": "🌐 Distributed Systems & Consensus", "folder": "csharp", "spoke_repo": "csharp-enterprise-lab", "source_link": "https://github.com/myonathanlinkedin/csharp-enterprise-lab/tree/main/algorithms/20261006_101207_raft_consensus_protocol_leader", "source_file": "main.cs", "timestamp": "2026-10-06T10:12:07.561944+00:00", "has_paper": false}, {"topic": "B-Tree Multiway Balanced Search Tree Node Splitter", "language": "Rust", "category": "🧠 Computational AI & Math Engines", "folder": "rust", "spoke_repo": "rust-algorithms", "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261006_100210_b-tree_multiway_balanced_searc", "source_file": "main.rs", "timestamp": "2026-10-06T10:02:10.757625+00:00", "has_paper": false}, {"topic": "Runge-Kutta 4th Order Numerical ODE Integrator", "language": "Kotlin", "category": "🧠 Computational AI & Math Engines", "folder": "kotlin", "spoke_repo": "kotlin-systems-core", "source_link": "https://github.com/myonathanlinkedin/kotlin-systems-core/tree/main/algorithms/20261006_095831_runge-kutta_4th_order_numerica", "source_file": "main.kt", "timestamp": "2026-10-06T09:58:31.355925+00:00", "has_paper": false}, {"topic": "Simulated Annealing Optimization for Combinatorial Graphs", "language": "Haskell", "category": "🧠 Computational AI & Math Engines", "folder": "haskell", "spoke_repo": "haskell-functional-core", "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261006_100446_simulated_annealing_optimizati", "source_file": "main.hs", "timestamp": "2026-10-06T10:04:46.763451+00:00", "has_paper": false}, {"topic": "R-Tree Spatial Index for Multidimensional Bounding Boxes", "language": "Python", "category": "🧠 Computational AI & Math Engines", "folder": "python", "spoke_repo": "python-advanced-lab", "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261006_093205_r-tree_spatial_index_for_multi", "source_file": "main.py", "timestamp": "2026-10-06T09:32:05.238837+00:00", "has_paper": false}, {"topic": "Pratt Top-Down Operator Precedence Expression Parser", "language": "TypeScript", "category": "🧠 Computational AI & Math Engines", "folder": "typescript", "spoke_repo": "typescript-design-patterns", "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261006_092408_pratt_top-down_operator_preced", "source_file": "main.ts", "timestamp": "2026-10-06T09:24:08.109148+00:00", "has_paper": false}, {"topic": "Custom Buddy Memory Allocation System", "language": "Swift", "category": "⚡ Low-Latency & Memory Systems", "folder": "swift", "spoke_repo": "swift-systems-lab", "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261006_091534_custom_buddy_memory_allocation", "source_file": "types.swift", "timestamp": "2026-10-06T09:15:34.913380+00:00", "has_paper": false}, {"topic": "Tarjan Strongly Connected Components Search in Directed Graphs", "language": "C++", "category": "🧠 Computational AI & Math Engines", "folder": "cpp", "spoke_repo": "cpp-systems-core", "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261006_091226_tarjan_strongly_connected_comp", "source_file": "main.cpp", "timestamp": "2026-10-06T09:12:26.659705+00:00", "has_paper": false}, {"topic": "Sliding Window Rate Limiter with Distributed Token Bucket", "language": "Java", "category": "🌐 Distributed Systems & Consensus", "folder": "java", "spoke_repo": "java-enterprise-patterns", "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261006_083241_sliding_window_rate_limiter_wi", "source_file": "main.java", "timestamp": "2026-10-06T08:32:41.491812+00:00", "has_paper": false}, {"topic": "Simulated Annealing Optimization for Combinatorial Graphs", "language": "Haskell", "category": "🧠 Computational AI & Math Engines", "folder": "haskell", "spoke_repo": "haskell-functional-core", "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261006_081301_simulated_annealing_optimizati", "source_file": "main.hs", "timestamp": "2026-10-06T08:13:01.794164+00:00", "has_paper": false}, {"topic": "Simulated Annealing Optimization for Combinatorial Graphs", "language": "Haskell", "category": "🧠 Computational AI & Math Engines", "folder": "haskell", "spoke_repo": "haskell-functional-core", "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261006_075540_simulated_annealing_optimizati", "source_file": "main.hs", "timestamp": "2026-10-06T07:55:40.979782+00:00", "has_paper": false}, {"topic": "Pratt Top-Down Operator Precedence Expression Parser", "language": "TypeScript", "category": "🧠 Computational AI & Math Engines", "folder": "typescript", "spoke_repo": "typescript-design-patterns", "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261006_074754_pratt_top-down_operator_preced", "source_file": "main.ts", "timestamp": "2026-10-06T07:47:54.372852+00:00", "has_paper": false}, {"topic": "Hybrid Classical State Optimization and Matrix Acceleration Engine", "language": "Zig", "category": "🧠 Computational AI & Math Engines", "folder": "zig", "spoke_repo": "zig-systems-lab", "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261006_043033_hybrid_classical-quantum_solut", "source_file": "main.zig", "timestamp": "2026-10-06T04:30:33.306894+00:00", "has_paper": false}, {"topic": "Bounded Space Random Walks and Graph Connectivity Engine", "language": "Zig", "category": "🧠 Computational AI & Math Engines", "folder": "zig", "spoke_repo": "zig-systems-lab", "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261006_053101_approximating_random_walks_in", "source_file": "core.zig", "timestamp": "2026-10-06T05:31:01.398163+00:00", "has_paper": false}, {"topic": "Robust Streaming Buffer Management and Replenishment Bounds", "language": "Rust", "category": "⚡ Low-Latency & Memory Systems", "folder": "rust", "spoke_repo": "rust-algorithms", "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261006_040213_random_order_in_quantum_stream", "source_file": "main.rs", "timestamp": "2026-10-06T04:02:13.695966+00:00", "has_paper": false}, {"topic": "Type-Safe Matrix Transformation and Reduction Engine", "language": "TypeScript", "category": "🧠 Computational AI & Math Engines", "folder": "typescript", "spoke_repo": "typescript-design-patterns", "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261006_043233_implementing_the_destiny_matri", "source_file": "main.ts", "timestamp": "2026-10-06T04:32:33.033649+00:00", "has_paper": false}, {"topic": "Tiled GPU Matrix Computation and Memory Kernel Model", "language": "Rust", "category": "⚡ Low-Latency & Memory Systems", "folder": "rust", "spoke_repo": "rust-algorithms", "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261006_024659_syclkittens__a_tile_programmin", "source_file": "main.rs", "timestamp": "2026-10-06T02:46:59.557404+00:00", "has_paper": false}, {"topic": "Lossless Streaming Compression and Retrieval Engine", "language": "PHP", "category": "🧠 Computational AI & Math Engines", "folder": "php", "spoke_repo": "php-backend-core", "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261006_052811_optimal_compression_with_quant", "source_file": "main.php", "timestamp": "2026-10-06T05:28:11.126581+00:00", "has_paper": false}, {"topic": "Principal Component Analysis with Linear-Time Matrix Decompositions", "language": "C", "category": "🧠 Computational AI & Math Engines", "folder": "c", "spoke_repo": "c-lowlevel-systems", "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261006_032154_quantum_1-pca_with_pauli_measu", "source_file": "main.c", "timestamp": "2026-10-06T03:21:54.850731+00:00", "has_paper": false}, {"topic": "R-Tree Spatial Index for Multidimensional Bounding Boxes", "language": "Python", "category": "🧠 Computational AI & Math Engines", "folder": "python", "spoke_repo": "python-advanced-lab", "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261006_071956_r-tree_spatial_index_for_multi", "source_file": "main.py", "timestamp": "2026-10-06T07:19:56.059399+00:00", "has_paper": false}, {"topic": "Thread-Safe Bounded Blocking Queue with Condition Variables", "language": "Zig", "category": "⚡ Low-Latency & Memory Systems", "folder": "zig", "spoke_repo": "zig-systems-lab", "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261006_054052_thread-safe_bounded_blocking_q", "source_file": "main.zig", "timestamp": "2026-10-06T05:40:52.788193+00:00", "has_paper": false}, {"topic": "Vector Clock Distributed Event Ordering Mechanism", "language": "Go", "category": "🌐 Distributed Systems & Consensus", "folder": "go", "spoke_repo": "go-concurrency-lab", "source_link": "https://github.com/myonathanlinkedin/go-concurrency-lab/tree/main/algorithms/20261006_054334_vector_clock_distributed_event", "source_file": "main.go", "timestamp": "2026-10-06T05:43:34.151759+00:00", "has_paper": false}, {"topic": "Cuckoo Filter High-Efficiency Deletion Structure", "language": "Zig", "category": "🧠 Computational AI & Math Engines", "folder": "zig", "spoke_repo": "zig-systems-lab", "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261006_003450_cuckoo_filter_high-efficiency", "source_file": "main.zig", "timestamp": "2026-10-06T00:34:50.585182+00:00", "has_paper": false}, {"topic": "Lamport Logical Timestamp Synchronization Engine", "language": "Haskell", "category": "🧠 Computational AI & Math Engines", "folder": "haskell", "spoke_repo": "haskell-functional-core", "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261006_003706_lamport_logical_timestamp_sync", "source_file": "main.hs", "timestamp": "2026-10-06T00:37:06.384503+00:00", "has_paper": false}, {"topic": "Cuckoo Filter High-Efficiency Deletion Structure", "language": "Zig", "category": "🧠 Computational AI & Math Engines", "folder": "zig", "spoke_repo": "zig-systems-lab", "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261006_003207_cuckoo_filter_high-efficiency", "source_file": "main.zig", "timestamp": "2026-10-06T00:32:07.443720+00:00", "has_paper": false}, {"topic": "Treap Randomized Binary Search Tree with Heap Priorities", "language": "Go", "category": "🧠 Computational AI & Math Engines", "folder": "go", "spoke_repo": "go-concurrency-lab", "source_link": "https://github.com/myonathanlinkedin/go-concurrency-lab/tree/main/algorithms/20261006_002156_treap_randomized_binary_search", "source_file": "main.go", "timestamp": "2026-10-06T00:21:56.543123+00:00", "has_paper": false}, {"topic": "CYK Parsing Algorithm for Context-Free Grammars", "language": "C++", "category": "🧠 Computational AI & Math Engines", "folder": "cpp", "spoke_repo": "cpp-systems-core", "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261006_002420_cyk_parsing_algorithm_for_cont", "source_file": "main.cpp", "timestamp": "2026-10-06T00:24:20.766747+00:00", "has_paper": false}, {"topic": "Trie Prefix Tree for Auto-Completion with Frequency Ranking", "language": "Go", "category": "🧠 Computational AI & Math Engines", "folder": "go", "spoke_repo": "go-concurrency-lab", "source_link": "https://github.com/myonathanlinkedin/go-concurrency-lab/tree/main/algorithms/20261006_001921_trie_prefix_tree_for_auto-comp", "source_file": "main.go", "timestamp": "2026-10-06T00:19:21.048621+00:00", "has_paper": false}, {"topic": "Count-Min Sketch Heavy Hitters Frequency Estimator", "language": "C", "category": "🧠 Computational AI & Math Engines", "folder": "c", "spoke_repo": "c-lowlevel-systems", "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261006_001716_count-min_sketch_heavy_hitters", "source_file": "main.c", "timestamp": "2026-10-06T00:17:16.278057+00:00", "has_paper": false}, {"topic": "Runge-Kutta 4th Order Numerical ODE Integrator", "language": "Rust", "category": "🧠 Computational AI & Math Engines", "folder": "rust", "spoke_repo": "rust-algorithms", "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261006_000822_runge-kutta_4th_order_numerica", "source_file": "main.rs", "timestamp": "2026-10-06T00:08:22.220328+00:00", "has_paper": false}, {"topic": "Pratt Top-Down Operator Precedence Expression Parser", "language": "TypeScript", "category": "🧠 Computational AI & Math Engines", "folder": "typescript", "spoke_repo": "typescript-design-patterns", "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261005_221714_pratt_top-down_operator_preced", "source_file": "main.ts", "timestamp": "2026-10-05T22:17:14.874468+00:00", "has_paper": false}, {"topic": "Singular Value Decomposition (SVD) for Low-Rank Approximation", "language": "Rust", "category": "🧠 Computational AI & Math Engines", "folder": "rust", "spoke_repo": "rust-algorithms", "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261005_212553_singular_value_decomposition", "source_file": "main.rs", "timestamp": "2026-10-05T21:25:53.689200+00:00", "has_paper": false}, {"topic": "LMAX Disruptor Ring Buffer Pattern", "language": "Java", "category": "⚡ Low-Latency & Memory Systems", "folder": "java", "spoke_repo": "java-enterprise-patterns", "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261005_223212_lmax_disruptor_ring_buffer_pat", "source_file": "main.java", "timestamp": "2026-10-05T22:32:12.694695+00:00", "has_paper": false}, {"topic": "Custom Buddy Memory Allocation System", "language": "C", "category": "⚡ Low-Latency & Memory Systems", "folder": "c", "spoke_repo": "c-lowlevel-systems", "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261005_224659_custom_buddy_memory_allocation", "source_file": "main.c", "timestamp": "2026-10-05T22:46:59.147132+00:00", "has_paper": false}, {"topic": "Cache-Oblivious Matrix Transposition Algorithm", "language": "Python", "category": "⚡ Low-Latency & Memory Systems", "folder": "python", "spoke_repo": "python-advanced-lab", "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261005_191546_cache-oblivious_matrix_transpo", "source_file": "main.py", "timestamp": "2026-10-05T19:15:46.219716+00:00", "has_paper": false}, {"topic": "Kruskal Minimum Spanning Tree with Disjoint-Set Union", "language": "Ruby", "category": "🧠 Computational AI & Math Engines", "folder": "ruby", "spoke_repo": "ruby-algorithms-lab", "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261005_190734_kruskal_minimum_spanning_tree", "source_file": "main.rb", "timestamp": "2026-10-05T19:07:34.890778+00:00", "has_paper": false}, {"topic": "Suffix Automaton for Linear-Time Substring Indexing", "language": "Haskell", "category": "⚡ Low-Latency & Memory Systems", "folder": "haskell", "spoke_repo": "haskell-functional-core", "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261005_190225_suffix_automaton_for_linear-ti", "source_file": "main.hs", "timestamp": "2026-10-05T19:02:25.441574+00:00", "has_paper": false}, {"topic": "Bytecode Virtual Machine with Stack Evaluation Engine", "language": "Kotlin", "category": "🧠 Computational AI & Math Engines", "folder": "kotlin", "spoke_repo": "kotlin-systems-core", "source_link": "https://github.com/myonathanlinkedin/kotlin-systems-core/tree/main/algorithms/20261005_185439_bytecode_virtual_machine_with", "source_file": "main.kt", "timestamp": "2026-10-05T18:54:39.199933+00:00", "has_paper": false}, {"topic": "Gossip Protocol Node Failure Detector", "language": "Java", "category": "🌐 Distributed Systems & Consensus", "folder": "java", "spoke_repo": "java-enterprise-patterns", "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261005_181652_gossip_protocol_node_failure_d", "source_file": "main.java", "timestamp": "2026-10-05T18:16:52.702622+00:00", "has_paper": false}, {"topic": "Merkle Tree Verification and Proof Generator", "language": "Haskell", "category": "🧠 Computational AI & Math Engines", "folder": "haskell", "spoke_repo": "haskell-functional-core", "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261005_113241_merkle_tree_verification_and_p", "source_file": "main.hs", "timestamp": "2026-10-05T11:32:41.022003+00:00", "has_paper": false}, {"topic": "Topological Sort with Cycle Detection in Directed Graphs", "language": "C#", "category": "🧠 Computational AI & Math Engines", "folder": "csharp", "spoke_repo": "csharp-enterprise-lab", "source_link": "https://github.com/myonathanlinkedin/csharp-enterprise-lab/tree/main/algorithms/20261005_095052_topological_sort_with_cycle_de", "source_file": "main.cs", "timestamp": "2026-10-05T09:50:52.247616+00:00", "has_paper": false}, {"topic": "Merkle Tree Verification and Proof Generator", "language": "Python", "category": "🧠 Computational AI & Math Engines", "folder": "python", "spoke_repo": "python-advanced-lab", "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261005_073713_merkle_tree_verification_and_p", "source_file": "main.py", "timestamp": "2026-10-05T07:37:13.382984+00:00", "has_paper": false}, {"topic": "Distributed Consistent Hashing Router with Virtual Nodes", "language": "Go", "category": "🌐 Distributed Systems & Consensus", "folder": "go", "spoke_repo": "go-concurrency-lab", "source_link": "https://github.com/myonathanlinkedin/go-concurrency-lab/tree/main/algorithms/20261005_072523_distributed_consistent_hashing", "source_file": "main.go", "timestamp": "2026-10-05T07:25:23.931463+00:00", "has_paper": false}, {"topic": "Simulated Annealing Optimization for Combinatorial Graphs", "language": "Haskell", "category": "🧠 Computational AI & Math Engines", "folder": "haskell", "spoke_repo": "haskell-functional-core", "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261005_072349_simulated_annealing_optimizati", "source_file": "main.hs", "timestamp": "2026-10-05T07:23:49.406405+00:00", "has_paper": false}, {"topic": "Copy-on-Write Vector Memory Buffer Management", "language": "C", "category": "⚡ Low-Latency & Memory Systems", "folder": "c", "spoke_repo": "c-lowlevel-systems", "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261005_070031_copy-on-write_vector_memory_bu", "source_file": "main.c", "timestamp": "2026-10-05T07:00:31.082369+00:00", "has_paper": false}, {"topic": "Raft Consensus Protocol Leader Election State Engine", "language": "C++", "category": "🌐 Distributed Systems & Consensus", "folder": "cpp", "spoke_repo": "cpp-systems-core", "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261005_065642_raft_consensus_protocol_leader", "source_file": "main.cpp", "timestamp": "2026-10-05T06:56:42.252397+00:00", "has_paper": false}, {"topic": "Thread-Safe Bounded Blocking Queue with Condition Variables", "language": "Go", "category": "⚡ Low-Latency & Memory Systems", "folder": "go", "spoke_repo": "go-concurrency-lab", "source_link": "https://github.com/myonathanlinkedin/go-concurrency-lab/tree/main/algorithms/20261005_065446_thread-safe_bounded_blocking_q", "source_file": "main.go", "timestamp": "2026-10-05T06:54:46.526937+00:00", "has_paper": false}, {"topic": "Vector Clock Distributed Event Ordering Mechanism", "language": "C++", "category": "🌐 Distributed Systems & Consensus", "folder": "cpp", "spoke_repo": "cpp-systems-core", "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261005_064258_vector_clock_distributed_event", "source_file": "main.cpp", "timestamp": "2026-10-05T06:42:58.919879+00:00", "has_paper": false}, {"topic": "Actor Model Concurrency Engine with Mailbox Processing", "language": "Go", "category": "🌐 Distributed Systems & Consensus", "folder": "go", "spoke_repo": "go-concurrency-lab", "source_link": "https://github.com/myonathanlinkedin/go-concurrency-lab/tree/main/algorithms/20261005_063939_actor_model_concurrency_engine", "source_file": "main.go", "timestamp": "2026-10-05T06:39:39.370164+00:00", "has_paper": false}, {"topic": "Zero-Copy Byte Packet Ring Buffer Dispatcher", "language": "Zig", "category": "⚡ Low-Latency & Memory Systems", "folder": "zig", "spoke_repo": "zig-systems-lab", "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261005_063147_zero-copy_byte_packet_ring_buf", "source_file": "main.zig", "timestamp": "2026-10-05T06:31:47.738075+00:00", "has_paper": false}, {"topic": "Huffman Coding Lossless Compression and Decompression", "language": "C", "category": "🧠 Computational AI & Math Engines", "folder": "c", "spoke_repo": "c-lowlevel-systems", "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261005_062926_huffman_coding_lossless_compre", "source_file": "main.c", "timestamp": "2026-10-05T06:29:26.599747+00:00", "has_paper": false}, {"topic": "Topological Sort with Cycle Detection in Directed Graphs", "language": "C++", "category": "🧠 Computational AI & Math Engines", "folder": "cpp", "spoke_repo": "cpp-systems-core", "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261005_062654_topological_sort_with_cycle_de", "source_file": "main.cpp", "timestamp": "2026-10-05T06:26:54.481909+00:00", "has_paper": false}, {"topic": "Topological Sort with Cycle Detection in Directed Graphs", "language": "Rust", "category": "🧠 Computational AI & Math Engines", "folder": "rust", "spoke_repo": "rust-algorithms", "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261005_062758_topological_sort_with_cycle_de", "source_file": "main.rs", "timestamp": "2026-10-05T06:27:58.306261+00:00", "has_paper": false}, {"topic": "Two-Phase Commit Protocol Coordinator and Participant State Machine", "language": "Ruby", "category": "🌐 Distributed Systems & Consensus", "folder": "ruby", "spoke_repo": "ruby-algorithms-lab", "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261005_062427_two-phase_commit_protocol_coor", "source_file": "main.rb", "timestamp": "2026-10-05T06:24:27.116491+00:00", "has_paper": false}, {"topic": "Skip List Probabilistic Search and Insertion Engine", "language": "Python", "category": "🧠 Computational AI & Math Engines", "folder": "python", "spoke_repo": "python-advanced-lab", "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261005_062534_skip_list_probabilistic_search", "source_file": "main.py", "timestamp": "2026-10-05T06:25:34.099362+00:00", "has_paper": false}, {"topic": "Bit-Parallel Levenshtein Distance Matrix Engine", "language": "Go", "category": "🧠 Computational AI & Math Engines", "folder": "go", "spoke_repo": "go-concurrency-lab", "source_link": "https://github.com/myonathanlinkedin/go-concurrency-lab/tree/main/algorithms/20261005_062007_bit-parallel_levenshtein_dista", "source_file": "main.go", "timestamp": "2026-10-05T06:20:07.603680+00:00", "has_paper": false}, {"topic": "Red-Black Tree with Deterministic Balance Assertions", "language": "Rust", "category": "🧠 Computational AI & Math Engines", "folder": "rust", "spoke_repo": "rust-algorithms", "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261005_061704_red-black_tree_with_determinis", "source_file": "main.rs", "timestamp": "2026-10-05T06:17:04.288384+00:00", "has_paper": false}, {"topic": "Aho-Corasick Multi-Pattern String Searching Automaton", "language": "Python", "category": "⚡ Low-Latency & Memory Systems", "folder": "python", "spoke_repo": "python-advanced-lab", "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261005_061601_aho-corasick_multi-pattern_str", "source_file": "main.py", "timestamp": "2026-10-05T06:16:01.817018+00:00", "has_paper": false}, {"topic": "HyperLogLog Cardinality Estimation Algorithm", "language": "Java", "category": "🧠 Computational AI & Math Engines", "folder": "java", "spoke_repo": "java-enterprise-patterns", "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261005_061410_hyperloglog_cardinality_estima", "source_file": "main.java", "timestamp": "2026-10-05T06:14:10.135674+00:00", "has_paper": false}, {"topic": "Dijkstra Shortest Path with Fibonacci Heap Priority Queue", "language": "C++", "category": "⚡ Low-Latency & Memory Systems", "folder": "cpp", "spoke_repo": "cpp-systems-core", "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261005_061225_dijkstra_shortest_path_with_fi", "source_file": "main.cpp", "timestamp": "2026-10-05T06:12:25.022102+00:00", "has_paper": false}, {"topic": "Sliding Window Rate Limiter with Distributed Token Bucket", "language": "Go", "category": "🌐 Distributed Systems & Consensus", "folder": "go", "spoke_repo": "go-concurrency-lab", "source_link": "https://github.com/myonathanlinkedin/go-concurrency-lab/tree/main/algorithms/20261005_060040_sliding_window_rate_limiter_wi", "source_file": "main.go", "timestamp": "2026-10-05T06:00:40.805305+00:00", "has_paper": false}, {"topic": "B-Tree Multiway Balanced Search Tree Node Splitter", "language": "Rust", "category": "🧠 Computational AI & Math Engines", "folder": "rust", "spoke_repo": "rust-algorithms", "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261005_055651_b-tree_multiway_balanced_searc", "source_file": "main.rs", "timestamp": "2026-10-05T05:56:51.540680+00:00", "has_paper": false}, {"topic": "Memory Pool Block Allocator with Free List", "language": "Zig", "category": "⚡ Low-Latency & Memory Systems", "folder": "zig", "spoke_repo": "zig-systems-lab", "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261005_054920_memory_pool_block_allocator_wi", "source_file": "main.zig", "timestamp": "2026-10-05T05:49:20.413758+00:00", "has_paper": false}, {"topic": "Self-Balancing AVL Tree with Full Rotation Engine", "language": "C++", "category": "🧠 Computational AI & Math Engines", "folder": "cpp", "spoke_repo": "cpp-systems-core", "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261005_054315_self-balancing_avl_tree_with_f", "source_file": "main.cpp", "timestamp": "2026-10-05T05:43:15.516853+00:00", "has_paper": false}, {"topic": "Bloom Filter with MurmurHash3 Hash Functions", "language": "Go", "category": "🌐 Distributed Systems & Consensus", "folder": "go", "spoke_repo": "go-concurrency-lab", "source_link": "https://github.com/myonathanlinkedin/go-concurrency-lab/tree/main/algorithms/20261005_054036_bloom_filter_with_murmurhash3", "source_file": "main.go", "timestamp": "2026-10-05T05:40:36.425598+00:00", "has_paper": false}, {"topic": "LSM-Tree MemTable and SSTable Flush Compaction Engine", "language": "Rust", "category": "🌐 Distributed Systems & Consensus", "folder": "rust", "spoke_repo": "rust-algorithms", "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261005_053754_lsm-tree_memtable_and_sstable", "source_file": "main.rs", "timestamp": "2026-10-05T05:37:54.951640+00:00", "has_paper": false}, {"topic": "Lock-Free Concurrent Ring Buffer Data Structure", "language": "C", "category": "⚡ Low-Latency & Memory Systems", "folder": "c", "spoke_repo": "c-lowlevel-systems", "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261005_052905_lock-free_concurrent_ring_buff", "source_file": "main.c", "timestamp": "2026-10-05T05:29:05.587681+00:00", "has_paper": true}, {"topic": "Finite State Machine Tokenizer and Lexical Parser", "language": "Python", "category": "🧠 Computational AI & Math Engines", "folder": "python", "spoke_repo": "python-advanced-lab", "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261005_052201_finite_state_machine_tokenizer", "source_file": "main.py", "timestamp": "2026-10-05T05:22:01.190630+00:00", "has_paper": false}, {"topic": "K-D Tree Spatial Partitioning and Nearest Neighbor Search", "language": "Python", "category": "🧠 Computational AI & Math Engines", "folder": "python", "spoke_repo": "python-advanced-lab", "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261005_045942_k-d_tree_spatial_partitioning", "source_file": "main.py", "timestamp": "2026-10-05T04:59:42.867194+00:00", "has_paper": false}, {"topic": "Fast Fourier Transform (Cooley-Tukey Radix-2) Signal Processing", "language": "Haskell", "category": "🧠 Computational AI & Math Engines", "folder": "haskell", "spoke_repo": "haskell-functional-core", "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261005_045828_fast_fourier_transform__cooley", "source_file": "main.hs", "timestamp": "2026-10-05T04:58:28.975279+00:00", "has_paper": false}];
+    const allSpokes = [{"key": "rust", "repo_name": "rust-algorithms", "title": "Rust High-Performance & Systems Engineering Lab", "emoji": "🦀", "tagline": "Production-grade algorithms, zero-cost abstractions, and memory-safe concurrency primitives.", "topics": ["algorithms", "rust", "systems-programming", "data-structures", "zero-cost-abstractions"], "url": "https://github.com/myonathanlinkedin/rust-algorithms"}, {"key": "go", "repo_name": "go-concurrency-lab", "title": "Go Distributed & High-Concurrency Systems Lab", "emoji": "🐹", "tagline": "Scalable distributed patterns, channel architectures, worker pools, and lock-free algorithms.", "topics": ["golang", "concurrency", "distributed-systems", "algorithms", "goroutines"], "url": "https://github.com/myonathanlinkedin/go-concurrency-lab"}, {"key": "python", "repo_name": "python-advanced-lab", "title": "Python Advanced Data Structures & Algorithm Lab", "emoji": "🐍", "tagline": "Modern typed algorithmic modules, spatial indexes, dynamic programming, and system primitives.", "topics": ["python", "algorithms", "data-structures", "clean-code", "dynamic-programming"], "url": "https://github.com/myonathanlinkedin/python-advanced-lab"}, {"key": "cpp", "repo_name": "cpp-systems-core", "title": "C++ High-Performance Systems & Modern Algorithms Core", "emoji": "⚡", "tagline": "Modern C++20 low-latency data structures, SIMD optimizations, and cache-coherent algorithms.", "topics": ["cpp", "performance", "low-level", "algorithms", "memory-management"], "url": "https://github.com/myonathanlinkedin/cpp-systems-core"}, {"key": "typescript", "repo_name": "typescript-design-patterns", "title": "TypeScript Enterprise Patterns & Functional Architectures", "emoji": "📘", "tagline": "Strictly typed architectural patterns, reactive streaming algorithms, and robust domain primitives.", "topics": ["typescript", "design-patterns", "architecture", "clean-code", "domain-driven-design"], "url": "https://github.com/myonathanlinkedin/typescript-design-patterns"}, {"key": "java", "repo_name": "java-enterprise-patterns", "title": "Java High-Throughput & Enterprise Algorithms Lab", "emoji": "☕", "tagline": "Production concurrency structures, non-blocking queues, and enterprise design implementations.", "topics": ["java", "enterprise", "concurrency", "algorithms", "design-patterns"], "url": "https://github.com/myonathanlinkedin/java-enterprise-patterns"}, {"key": "c", "repo_name": "c-lowlevel-systems", "title": "C Systems Programming & Memory Engineering Lab", "emoji": "🔧", "tagline": "POSIX primitives, custom memory allocators, bit-manipulation, and high-performance kernel structures.", "topics": ["c", "systems-programming", "memory-management", "embedded", "algorithms"], "url": "https://github.com/myonathanlinkedin/c-lowlevel-systems"}, {"key": "zig", "repo_name": "zig-systems-lab", "title": "Zig Systems Engineering & Comptime Algorithms Lab", "emoji": "⚡", "tagline": "Explicit memory control, compile-time metaprogramming, and robust low-overhead algorithms.", "topics": ["zig", "systems-programming", "comptime", "algorithms", "safety"], "url": "https://github.com/myonathanlinkedin/zig-systems-lab"}, {"key": "haskell", "repo_name": "haskell-functional-core", "title": "Haskell Pure Functional & Algebraic Algorithms Core", "emoji": "λ", "tagline": "Mathematically verified functional structures, monadic architectures, and combinatorial algorithms.", "topics": ["haskell", "functional-programming", "algorithms", "mathematics", "monads"], "url": "https://github.com/myonathanlinkedin/haskell-functional-core"}, {"key": "ruby", "repo_name": "ruby-algorithms-lab", "title": "Ruby Idiomatic & Metaprogramming Algorithms Lab", "emoji": "💎", "tagline": "Elegant object-oriented abstractions, domain-specific engines, and functional algorithm implementations.", "topics": ["ruby", "algorithms", "dsl", "metaprogramming", "clean-code"], "url": "https://github.com/myonathanlinkedin/ruby-algorithms-lab"}, {"key": "csharp", "repo_name": "csharp-enterprise-lab", "title": "C# High-Throughput & Enterprise Cloud Systems Lab", "emoji": "🔷", "tagline": "Modern .NET 8/9 cloud primitives, Span<T> zero-allocation pipelines, and enterprise architectures.", "topics": ["csharp", "dotnet", "enterprise", "systems-programming", "algorithms"], "url": "https://github.com/myonathanlinkedin/csharp-enterprise-lab"}, {"key": "kotlin", "repo_name": "kotlin-systems-core", "title": "Kotlin Advanced Concurrency & Multiplatform Systems Core", "emoji": "🟣", "tagline": "Structured concurrency with coroutines, algebraic data modeling, and clean reactive architectures.", "topics": ["kotlin", "coroutines", "kmp", "algorithms", "systems-programming"], "url": "https://github.com/myonathanlinkedin/kotlin-systems-core"}, {"key": "swift", "repo_name": "swift-systems-lab", "title": "Swift Native Concurrency & Systems Architecture Lab", "emoji": "🕊️", "tagline": "Strict actor concurrency, memory-safe ARC primitives, and high-performance server architectures.", "topics": ["swift", "concurrency", "apple-systems", "algorithms", "systems-programming"], "url": "https://github.com/myonathanlinkedin/swift-systems-lab"}, {"key": "php", "repo_name": "php-backend-core", "title": "PHP Modern Backend & Scalable Algorithmic Core", "emoji": "🐘", "tagline": "Strictly typed PHP 8.3 asynchronous fibers, JIT-optimized structures, and robust API primitives.", "topics": ["php", "modern-php", "backend", "algorithms", "design-patterns"], "url": "https://github.com/myonathanlinkedin/php-backend-core"}];
+    const allPapers = [{"id": "2026-10-08_lock_free_concurrent_ring_buffer_da", "title": "Architectural Formalization and Performance Bounds of Lock-Free Concurrent Ring Bu...", "topic": "Lock-Free Concurrent Ring Buffer Data Structure", "language": "C", "published_at": "2026-10-09", "paper_folder": "2026-10-08_lock_free_concurrent_ring_buffer_da", "paper_url": "https://github.com/myonathanlinkedin/mini-papers/tree/main/papers/2026-10-08_lock_free_concurrent_ring_buffer_da", "pdf_url": "https://raw.githubusercontent.com/myonathanlinkedin/mini-papers/main/papers/2026-10-08_lock_free_concurrent_ring_buffer_da/2026-10-08_lock_free_concurrent_ring_buffer_da.pdf", "preview_url": "https://raw.githubusercontent.com/myonathanlinkedin/mini-papers/main/papers/2026-10-08_lock_free_concurrent_ring_buffer_da/debug_pages/page_1.png"}];
+
+    let activeModules = allModules;
+    let activePapers = allPapers;
+    let activeSpokes = allSpokes;
+
+    // Asynchronous loader: fetches directly from static files
+    async function loadDataFromFiles() {
+      try {
+        const [modRes, papRes, spkRes] = await Promise.all([
+          fetch("data/modules.json"),
+          fetch("data/papers.json"),
+          fetch("data/spokes.json")
+        ]);
+        if (modRes.ok && papRes.ok && spkRes.ok) {
+          activeModules = await modRes.json();
+          activePapers = await papRes.json();
+          activeSpokes = await spkRes.json();
+          renderSpokes();
+          renderModules();
+        }
+      } catch (err) {
+        // Graceful fallback to embedded data on offline or restricted environments
+      }
+    }
+
+    // Typewriter effect
+    const phrases = [
+      "AI-Native Full-Stack Engineering & Cloud Platforms",
+      "Systems Programming (Rust, C++, Go, Zig, C#)",
+      "Algorithms & Data Structures Reference Lab",
+      "Pure Standard-Library Implementations",
+      "Compiler-Verified Clean Reference Implementations"
+    ];
+    let phraseIdx = 0;
+    let charIdx = 0;
+    let isDeleting = false;
+    const typewriterEl = document.getElementById("typewriter");
+
+    function typeLoop() {
+      const current = phrases[phraseIdx];
+      if (isDeleting) {
+        typewriterEl.textContent = current.substring(0, charIdx - 1);
+        charIdx--;
+      } else {
+        typewriterEl.textContent = current.substring(0, charIdx + 1);
+        charIdx++;
+      }
+
+      let speed = isDeleting ? 30 : 60;
+      if (!isDeleting && charIdx === current.length) {
+        speed = 2000;
+        isDeleting = true;
+      } else if (isDeleting && charIdx === 0) {
+        isDeleting = false;
+        phraseIdx = (phraseIdx + 1) % phrases.length;
+        speed = 400;
+      }
+      setTimeout(typeLoop, speed);
+    }
+    typeLoop();
+
+    // Render Spoke Repositories
+    const reposGrid = document.getElementById("reposGrid");
+    function renderSpokes() {
+      if (!reposGrid) return;
+      reposGrid.innerHTML = "";
+      activeSpokes.forEach(spoke => {
+        const card = document.createElement("a");
+        card.className = "repo-card";
+        card.href = spoke.url;
+        card.target = "_blank";
+        card.rel = "noopener";
+        card.innerHTML = `
+          <div>
+            <div class="repo-top">
+              <span style="font-size: 1.4rem;">${spoke.emoji}</span>
+              <span class="repo-name">${spoke.repo_name}</span>
+            </div>
+            <div class="repo-tagline">${spoke.tagline}</div>
+          </div>
+          <div style="font-size: 0.8rem; color: var(--accent-cyan); font-family: var(--font-mono);">
+            View Repository →
+          </div>
+        `;
+        reposGrid.appendChild(card);
+      });
+    }
+
+    // Render Modules & Papers List with Strict Page Slicing (zero DOM bloat)
+    const modulesList = document.getElementById("modulesList");
+    const searchInput = document.getElementById("searchInput");
+    const paginationWrap = document.getElementById("paginationWrap");
+    const paginationInfo = document.getElementById("paginationInfo");
+    const paginationControls = document.getElementById("paginationControls");
+
+    const PAGE_SIZE = 12;
+    let currentPage = 1;
+    let activeLang = "all";
+
+    function renderModules() {
+      const query = searchInput.value.toLowerCase().trim();
+      modulesList.innerHTML = "";
+
+      let items = [];
+      const isPaperMode = (activeLang === "papers");
+
+      if (isPaperMode) {
+        items = activePapers.filter(p => {
+          return !query || (p.title && p.title.toLowerCase().includes(query)) || (p.topic && p.topic.toLowerCase().includes(query)) || (p.language && p.language.toLowerCase().includes(query));
+        });
+      } else {
+        items = activeModules.filter(m => {
+          const matchQuery = !query || (m.topic && m.topic.toLowerCase().includes(query)) || (m.language && m.language.toLowerCase().includes(query)) || (m.category && m.category.toLowerCase().includes(query));
+          const matchLang = activeLang === "all" || (m.folder && m.folder.toLowerCase() === activeLang.toLowerCase());
+          return matchQuery && matchLang;
+        });
+      }
+
+      const totalItems = items.length;
+      const totalPages = Math.max(1, Math.ceil(totalItems / PAGE_SIZE));
+
+      if (currentPage > totalPages) {
+        currentPage = 1;
+      }
+
+      if (totalItems === 0) {
+        modulesList.innerHTML = isPaperMode
+          ? '<div style="color: var(--text-muted); text-align: center; grid-column: 1/-1; padding: 48px;">No matching papers found.</div>'
+          : '<div style="color: var(--text-muted); text-align: center; grid-column: 1/-1; padding: 48px;">No matching algorithms found. Try a different search query.</div>';
+        if (paginationWrap) paginationWrap.style.display = "none";
+        return;
+      }
+
+      // Slice strictly for active page — NEVER render all items to DOM
+      const startIndex = (currentPage - 1) * PAGE_SIZE;
+      const endIndex = Math.min(startIndex + PAGE_SIZE, totalItems);
+      const pageSlice = items.slice(startIndex, endIndex);
+
+      pageSlice.forEach(item => {
+        const div = document.createElement("div");
+        div.className = "module-item";
+        if (isPaperMode) {
+          div.style.borderColor = "rgba(16, 185, 129, 0.4)";
+          div.innerHTML = `
+            <div>
+              <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 8px; flex-wrap: wrap;">
+                <span class="tag-paper" style="border-radius: 9999px; padding: 2px 8px;">
+                  📄 Paper
+                </span>
+                <span class="lang-badge">${item.language}</span>
+                <span style="font-size: 0.72rem; color: #94a3b8; font-family: var(--font-mono);">${item.published_at}</span>
+              </div>
+              <div class="module-header">
+                <span class="module-topic" style="font-size: 0.95rem; color: #f8fafc;">${item.title}</span>
+              </div>
+              <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 6px;">
+                Topic: ${item.topic}
+              </div>
+            </div>
+            <div class="module-footer" style="margin-top: 14px; gap: 8px; flex-wrap: wrap;">
+              <a href="${item.paper_url}" target="_blank" rel="noopener" class="code-link" style="color: #10b981; font-weight: 600;">
+                📄 Read Paper (GitHub) ↗
+              </a>
+              <a href="https://github.com/myonathanlinkedin/mini-papers" target="_blank" rel="noopener" class="code-link">
+                🏛️ Journal Repo ↗
+              </a>
+            </div>
+          `;
+        } else {
+          const paperBadge = item.has_paper ? '<span class="tag-paper">📄 Paper</span>' : '';
+          div.innerHTML = `
+            <div>
+              <div class="module-header">
+                <span class="module-topic">${item.topic}</span>
+                <div class="module-tags">
+                  <span class="lang-badge">${item.language}</span>
+                  ${paperBadge}
+                </div>
+              </div>
+              <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">
+                ${item.category}
+              </div>
+            </div>
+            <div class="module-footer">
+              <span>Repository: <b>${item.spoke_repo}</b></span>
+              <a href="${item.source_link}" target="_blank" rel="noopener" class="code-link">View Source ↗</a>
+            </div>
+          `;
+        }
+        modulesList.appendChild(div);
+      });
+
+      renderPaginationControls(startIndex, endIndex, totalItems, totalPages);
+    }
+
+    function renderPaginationControls(startIndex, endIndex, totalItems, totalPages) {
+      if (!paginationWrap || !paginationInfo || !paginationControls) return;
+
+      if (totalPages <= 1) {
+        paginationWrap.style.display = "flex";
+        paginationInfo.innerHTML = `Showing <strong>${totalItems}</strong> of <strong>${totalItems}</strong> items`;
+        paginationControls.innerHTML = "";
+        return;
+      }
+
+      paginationWrap.style.display = "flex";
+      paginationInfo.innerHTML = `Showing <strong>${startIndex + 1}–${endIndex}</strong> of <strong>${totalItems}</strong> items (Page <strong>${currentPage}</strong> of <strong>${totalPages}</strong>)`;
+
+      let buttonsHtml = '';
+
+      buttonsHtml += `<button class="page-btn" ${currentPage === 1 ? 'disabled' : ''} onclick="changePage(${currentPage - 1})" title="Previous Page">← Prev</button>`;
+
+      const pages = getPageRange(currentPage, totalPages);
+      pages.forEach(p => {
+        if (p === '...') {
+          buttonsHtml += `<span class="page-ellipsis">…</span>`;
+        } else {
+          const activeClass = (p === currentPage) ? 'active' : '';
+          buttonsHtml += `<button class="page-btn ${activeClass}" onclick="changePage(${p})">${p}</button>`;
+        }
+      });
+
+      buttonsHtml += `<button class="page-btn" ${currentPage === totalPages ? 'disabled' : ''} onclick="changePage(${currentPage + 1})" title="Next Page">Next →</button>`;
+
+      paginationControls.innerHTML = buttonsHtml;
+    }
+
+    function getPageRange(current, total) {
+      if (total <= 7) {
+        return Array.from({length: total}, (_, i) => i + 1);
+      }
+      if (current <= 4) {
+        return [1, 2, 3, 4, 5, '...', total];
+      }
+      if (current >= total - 3) {
+        return [1, '...', total - 4, total - 3, total - 2, total - 1, total];
+      }
+      return [1, '...', current - 1, current, current + 1, '...', total];
+    }
+
+    window.changePage = function(targetPage) {
+      currentPage = targetPage;
+      renderModules();
+      const catalogEl = document.getElementById("catalog");
+      if (catalogEl) {
+        catalogEl.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    };
+
+    renderSpokes();
+    renderModules();
+    loadDataFromFiles();
+
+    searchInput.addEventListener("input", () => {
+      currentPage = 1;
+      renderModules();
+    });
+
+    document.querySelectorAll(".filter-chip").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".filter-chip").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        activeLang = btn.dataset.lang;
+        currentPage = 1;
+        renderModules();
+      });
+    });
+  </script>
+</body>
+</html>
