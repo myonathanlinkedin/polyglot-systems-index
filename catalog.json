@@ -1,14 +1,14 @@
 [
   {
-    "topic": "Runge-Kutta 4th Order Numerical ODE Integrator",
-    "language": "Ruby",
-    "folder": "ruby",
+    "topic": "CYK Parsing Algorithm for Context-Free Grammars",
+    "language": "C#",
+    "folder": "csharp",
     "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "ruby-algorithms-lab",
-    "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261017_190114_runge-kutta_4th_order_numerica",
-    "source_file": "main.rb",
-    "timestamp": "2026-10-17T19:01:14.843658+00:00",
-    "dir_name": "20261017_190114_runge-kutta_4th_order_numerica"
+    "spoke_repo": "csharp-enterprise-lab",
+    "source_link": "https://github.com/myonathanlinkedin/csharp-enterprise-lab/tree/main/algorithms/20261017_210129_cyk_parsing_algorithm_for_cont",
+    "source_file": "main.cs",
+    "timestamp": "2026-10-17T21:01:29.159600+00:00",
+    "dir_name": "20261017_210129_cyk_parsing_algorithm_for_cont"
   },
   {
     "topic": "CYK Parsing Algorithm for Context-Free Grammars",
@@ -1428,6 +1428,17 @@
     "source_file": "main.rs",
     "timestamp": "2026-10-05T05:37:54.951640+00:00",
     "dir_name": "20261005_053754_lsm-tree_memtable_and_sstable"
+  },
+  {
+    "topic": "Runge-Kutta 4th Order Numerical ODE Integrator",
+    "language": "Ruby",
+    "folder": "ruby",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "ruby-algorithms-lab",
+    "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261017_190114_runge-kutta_4th_order_numerica",
+    "source_file": "main.rb",
+    "timestamp": "2026-10-17T19:01:14.843658+00:00",
+    "dir_name": "20261017_190114_runge-kutta_4th_order_numerica"
   },
   {
     "topic": "Self-Balancing AVL Tree with Aether-Spinor",
