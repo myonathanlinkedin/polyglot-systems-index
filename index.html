@@ -67,7 +67,7 @@
   <meta name="twitter:label2" content="Systems Catalog" />
   <meta name="twitter:data2" content="444+ Modules • 14 Languages" />
   <meta property="article:published_time" content="2026-01-01T00:00:00Z" />
-  <meta property="article:modified_time" content="2026-10-17T18:47:49.113915+00:00" />
+  <meta property="article:modified_time" content="2026-10-17T18:55:56.059666+00:00" />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -99,7 +99,7 @@
         "url": "https://myonathanlinkedin.github.io/",
         "name": "Mateus Yonathan | AI-Native Full-Stack Engineer & Polyglot Systems Lab",
         "dateCreated": "2026-01-01T00:00:00+00:00",
-        "dateModified": "2026-10-17T18:47:49.113915+00:00",
+        "dateModified": "2026-10-17T18:55:56.059666+00:00",
         "isPartOf": {
           "@id": "https://myonathanlinkedin.github.io/#website"
         },
@@ -728,13 +728,14 @@
 
     /* 4 Pillars Section */
     .section-title {
-      font-size: clamp(1.4rem, 3.8vw, 1.95rem);
+      font-size: clamp(1.3rem, 3.8vw, 1.95rem);
       font-weight: 800;
       letter-spacing: -0.035em;
       margin-bottom: 8px;
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
-      gap: 12px;
+      gap: 10px 14px;
       color: #f8fafc;
       word-break: break-word;
     }
@@ -762,6 +763,8 @@
       border-radius: 9999px;
       box-shadow: 0 0 12px rgba(16, 185, 129, 0.2);
       vertical-align: middle;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .pulse-dot {
@@ -907,14 +910,43 @@
     }
 
     @media (max-width: 640px) {
+      .section-title {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 8px !important;
+      }
+      .live-update-pill {
+        font-size: 0.68rem !important;
+        padding: 3px 9px !important;
+        white-space: nowrap !important;
+      }
       .search-hub {
-        padding: 10px 6px;
-        border-radius: 10px;
+        padding: 14px 12px;
+        border-radius: 12px;
         margin-bottom: 28px;
       }
       .filter-chip {
         padding: 4px 10px;
         font-size: 0.75rem;
+      }
+      .paper-card {
+        padding: 16px !important;
+        gap: 14px !important;
+      }
+      .paper-title {
+        font-size: 1.05rem !important;
+      }
+      .paper-abstract-box {
+        padding: 10px 12px !important;
+        font-size: 0.82rem !important;
+        line-height: 1.5 !important;
+      }
+      .paper-actions {
+        gap: 8px !important;
+      }
+      .btn-read-pdf, .btn-mini-papers {
+        font-size: 0.78rem !important;
+        padding: 7px 12px !important;
       }
     }
 
@@ -1660,28 +1692,42 @@
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       z-index: 10;
       box-sizing: border-box;
+      gap: 12px;
     }
 
     .lightbox-zoom-bar {
       display: flex;
       align-items: center;
       gap: 8px;
+      flex-wrap: nowrap;
     }
 
     .lightbox-tool-btn {
       background: rgba(255, 255, 255, 0.08);
       border: 1px solid rgba(255, 255, 255, 0.18);
       color: #f8fafc;
-      padding: 5px 12px;
-      border-radius: 6px;
+      padding: 6px 14px;
+      border-radius: 8px;
       font-size: 0.82rem;
       font-weight: 600;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 4px;
+      justify-content: center;
+      gap: 6px;
       transition: all 0.2s ease;
       user-select: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .lightbox-tool-btn .tool-icon {
+      font-size: 0.85rem;
+      line-height: 1;
+    }
+
+    .lightbox-tool-btn .tool-text {
+      white-space: nowrap;
     }
 
     .lightbox-tool-btn:hover {
@@ -1692,11 +1738,13 @@
 
     .lightbox-zoom-label {
       font-family: var(--font-mono);
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       font-weight: 700;
       color: #38bdf8;
-      min-width: 48px;
+      min-width: 44px;
       text-align: center;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .lightbox-close {
@@ -1704,8 +1752,8 @@
       border: 1px solid rgba(255, 255, 255, 0.2);
       color: #ffffff;
       font-size: 1.3rem;
-      width: 32px;
-      height: 32px;
+      width: 34px;
+      height: 34px;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -1713,6 +1761,7 @@
       cursor: pointer;
       transition: all 0.2s ease;
       line-height: 1;
+      flex-shrink: 0;
     }
 
     .lightbox-close:hover {
@@ -1756,6 +1805,50 @@
       box-sizing: border-box;
       border-top: 1px solid rgba(255, 255, 255, 0.08);
       font-family: var(--font-sans);
+    }
+
+    @media (max-width: 640px) {
+      .lightbox-modal {
+        max-width: 96vw;
+        max-height: 94vh;
+        border-radius: 10px;
+      }
+      .lightbox-viewport {
+        width: 96vw;
+        height: 76vh;
+      }
+      .lightbox-toolbar {
+        padding: 8px 10px;
+        gap: 6px;
+      }
+      .lightbox-zoom-bar {
+        gap: 5px;
+      }
+      .lightbox-tool-btn {
+        padding: 5px 8px;
+        min-width: 32px;
+        height: 32px;
+        font-size: 0.85rem;
+      }
+      .lightbox-tool-btn .tool-text {
+        display: none !important;
+      }
+      .lightbox-tool-btn .tool-icon {
+        font-size: 0.95rem;
+      }
+      .lightbox-zoom-label {
+        min-width: 36px;
+        font-size: 0.75rem;
+      }
+      .lightbox-close {
+        width: 32px;
+        height: 32px;
+        font-size: 1.15rem;
+      }
+      .lightbox-caption {
+        padding: 8px 12px;
+        font-size: 0.78rem;
+      }
     }
   
   </style>
@@ -1977,12 +2070,18 @@
     <div class="lightbox-modal" onclick="event.stopPropagation()">
       <div class="lightbox-toolbar">
         <div class="lightbox-zoom-bar">
-          <button class="lightbox-tool-btn" onclick="zoomLightbox(0.25)" title="Zoom In (+)">➕ Zoom In</button>
+          <button class="lightbox-tool-btn" onclick="zoomLightbox(0.25)" title="Zoom In (+)" aria-label="Zoom In">
+            <span class="tool-icon">➕</span><span class="tool-text">Zoom In</span>
+          </button>
           <span id="lightboxZoomLevel" class="lightbox-zoom-label">100%</span>
-          <button class="lightbox-tool-btn" onclick="zoomLightbox(-0.25)" title="Zoom Out (-)">➖ Zoom Out</button>
-          <button class="lightbox-tool-btn" onclick="resetLightboxZoom()" title="Reset Zoom">↺ 100%</button>
+          <button class="lightbox-tool-btn" onclick="zoomLightbox(-0.25)" title="Zoom Out (-)" aria-label="Zoom Out">
+            <span class="tool-icon">➖</span><span class="tool-text">Zoom Out</span>
+          </button>
+          <button class="lightbox-tool-btn" onclick="resetLightboxZoom()" title="Reset Zoom (100%)" aria-label="Reset Zoom">
+            <span class="tool-icon">↺</span><span class="tool-text">100%</span>
+          </button>
         </div>
-        <button class="lightbox-close" onclick="closeLightbox(event)" title="Close (Esc)">&times;</button>
+        <button class="lightbox-close" onclick="closeLightbox(event)" title="Close (Esc)" aria-label="Close Lightbox">&times;</button>
       </div>
       <div class="lightbox-viewport" id="lightboxViewport" onwheel="handleLightboxWheel(event)">
         <img id="lightboxImg" src="" alt="Full Paper Preview" class="lightbox-img" draggable="false" />
@@ -1996,7 +2095,7 @@
     <div class="container">
       <p>Polyglot Systems Lab • Maintained by <a href="https://github.com/myonathanlinkedin">Mateus Yonathan (@myonathanlinkedin)</a></p>
       <p style="margin-top: 8px; font-size: 0.8rem; color: #64748b;">Reference Implementations across 14 Programming Languages • 53 Published Papers</p>
-      <p style="margin-top: 6px; font-size: 0.78rem; color: #94a3b8;">📅 Terakhir Disinkronkan: <strong style="color: #cbd5e1;">18 October 2026, 01:47 WIB</strong> (Waktu Indonesia Barat) • Diperbarui Tiap Hari Secara Otomatis</p>
+      <p style="margin-top: 6px; font-size: 0.78rem; color: #94a3b8;">📅 Terakhir Disinkronkan: <strong style="color: #cbd5e1;">18 October 2026, 01:55 WIB</strong> (Waktu Indonesia Barat) • Diperbarui Tiap Hari Secara Otomatis</p>
     </div>
   </footer>
 
