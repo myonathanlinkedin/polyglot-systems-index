@@ -1,14 +1,14 @@
 [
   {
-    "topic": "Safe Optimistic Lock Coupling",
-    "language": "PHP",
-    "folder": "php",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "php-backend-core",
-    "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261023_210210_safe_optimistic_lock_coupling",
-    "source_file": "main.php",
-    "timestamp": "2026-10-23T21:02:10.145825+00:00",
-    "dir_name": "20261023_210210_safe_optimistic_lock_coupling"
+    "topic": "Peak-Aware One-Way Trading: Competitive and Learning-Augmented Algorithms for Energy",
+    "language": "C++",
+    "folder": "cpp",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "cpp-systems-core",
+    "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261023_230245_peak-aware_one-way_trading__co",
+    "source_file": "main.cpp",
+    "timestamp": "2026-10-23T23:02:45.760911+00:00",
+    "dir_name": "20261023_230245_peak-aware_one-way_trading__co"
   },
   {
     "topic": "Memory Pool Block Allocator with Free List",
@@ -1428,6 +1428,17 @@
     "source_file": "main.py",
     "timestamp": "2026-10-05T05:22:01.190630+00:00",
     "dir_name": "20261005_052201_finite_state_machine_tokenizer"
+  },
+  {
+    "topic": "Safe Optimistic Lock Coupling",
+    "language": "PHP",
+    "folder": "php",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "php-backend-core",
+    "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261023_210210_safe_optimistic_lock_coupling",
+    "source_file": "main.php",
+    "timestamp": "2026-10-23T21:02:10.145825+00:00",
+    "dir_name": "20261023_210210_safe_optimistic_lock_coupling"
   },
   {
     "topic": "Hopcroft-Karp Bipartite Matching Algorithm",
