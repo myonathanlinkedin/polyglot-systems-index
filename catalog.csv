@@ -1,5 +1,5 @@
 Index,Topic,Language,Domain Category,Spoke Repository,Source File,Timestamp UTC
-001,Cuckoo Filter High-Efficiency Deletion Structure,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main.rb,2026-10-23T17:01:32.010455+00:00
+001,Red-Black Tree with Deterministic Balance Assertions,Kotlin,🧠 Computational AI & Math Engines,kotlin-systems-core,main.kt,2026-10-23T19:01:36.400780+00:00
 002,Memory Pool Block Allocator with Free List,Zig,⚡ Low-Latency & Memory Systems,zig-systems-lab,main.zig,2026-10-22T11:02:03.457187+00:00
 003,How Chronos-Kernel Handles a fork When the Parent Has Gigabytes of Memory,Zig,⚡ Low-Latency & Memory Systems,zig-systems-lab,main.zig,2026-10-20T19:01:51.997323+00:00
 004,Treap Randomized Binary Search Tree with Heap Priorities,Zig,🧠 Computational AI & Math Engines,zig-systems-lab,main.zig,2026-10-20T03:02:42.391639+00:00
@@ -87,80 +87,80 @@ Index,Topic,Language,Domain Category,Spoke Repository,Source File,Timestamp UTC
 086,Topological Sort with Cycle Detection in Directed Graphs,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main.rs,2026-10-05T06:27:58.306261+00:00
 087,Red-Black Tree with Deterministic Balance Assertions,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main.rs,2026-10-05T06:17:04.288384+00:00
 088,LSM-Tree MemTable and SSTable Flush Compaction Engine,Rust,🌐 Distributed Systems & Consensus,rust-algorithms,main.rs,2026-10-05T05:37:54.951640+00:00
-089,Why Windows 11 still ships with Windows 95 s memory manager hidden inside it,Ruby,⚡ Low-Latency & Memory Systems,ruby-algorithms-lab,types.rb,2026-10-22T01:01:38.772156+00:00
-090,Suffix Automaton for Linear-Time Substring Indexing,Ruby,⚡ Low-Latency & Memory Systems,ruby-algorithms-lab,main.rb,2026-10-21T07:01:25.177690+00:00
-091,HyperLogLog Cardinality Estimation Algorithm,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main.rb,2026-10-20T05:01:40.635240+00:00
-092,Free Pascal compiler now supports dynamic packages,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main.rb,2026-10-19T13:01:40.304776+00:00
-093,Runge-Kutta 4th Order Numerical ODE Integrator,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main.rb,2026-10-17T19:01:14.843658+00:00
-094,Self-Balancing AVL Tree with Aether-Spinor,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main.rb,2026-10-16T15:01:27.211668+00:00
-095,Compiler Instruction Pipeline Optimization Engine,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main.rb,2026-10-13T23:01:05.112354+00:00
-096,BFS has one line people get wrong: where you mark a node visited,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main.rb,2026-10-12T13:41:51.277831+00:00
-097,Directed Acyclic Graph Workflow Orchestration Engine,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main.rb,2026-10-11T13:37:23.908187+00:00
-098,Gradient Boosted Decision Tree Regression Engine,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main.rb,2026-10-11T10:17:39.263829+00:00
-099,Dijkstra Shortest Path with Fibonacci Heap Priority Queue,Ruby,⚡ Low-Latency & Memory Systems,ruby-algorithms-lab,main.rb,2026-10-11T05:02:16.719598+00:00
-100,Topological Sort with Cycle Detection in Directed Graphs,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main.rb,2026-10-10T23:07:57.273590+00:00
-101,Trie Prefix Tree for Auto-Completion with Frequency Ranking,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main.rb,2026-10-10T19:09:36.591060+00:00
-102,Kruskal Minimum Spanning Tree with Disjoint-Set Union,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main.rb,2026-10-10T14:01:57.419469+00:00
-103,Copy-on-Write Vector Memory Buffer Management,Ruby,⚡ Low-Latency & Memory Systems,ruby-algorithms-lab,main.rb,2026-10-10T11:02:06.483421+00:00
-104,Count-Min Sketch Heavy Hitters Frequency Estimator,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main.rb,2026-10-09T15:02:45.222597+00:00
-105,Safe Optimistic Lock Coupling,Ruby,⚡ Low-Latency & Memory Systems,ruby-algorithms-lab,main.rb,2026-10-09T14:08:26.781465+00:00
-106,Capturing a Moving Target on Star Graphs by Two Communicating Mobile Agents,Ruby,⚡ Low-Latency & Memory Systems,ruby-algorithms-lab,main.rb,2026-10-09T09:02:06.455091+00:00
-107,Custom Buddy Memory Allocation System,Ruby,⚡ Low-Latency & Memory Systems,ruby-algorithms-lab,main.rb,2026-10-09T03:05:26.988614+00:00
-108,Client-Side Directed Acyclic Graph Task Runner,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main.rb,2026-10-09T00:07:29.391085+00:00
-109,"Agent Memory as Source Code: A DSL for Neurons, Synapses and a Hash-Chained Ledger",Ruby,⚡ Low-Latency & Memory Systems,ruby-algorithms-lab,main.rb,2026-10-08T19:02:12.515222+00:00
-110,The Cache Stampede Problem: Why a Popular Cache Key Can Take Down Your Backend,Ruby,⚡ Low-Latency & Memory Systems,ruby-algorithms-lab,main.rb,2026-10-08T13:55:07.855464+00:00
-111,LSM-Tree MemTable and SSTable Flush Compaction Engine,Ruby,🌐 Distributed Systems & Consensus,ruby-algorithms-lab,main.rb,2026-10-07T06:00:32.280058+00:00
-112,Bytecode Virtual Machine with Stack Evaluation Engine,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main.rb,2026-10-06T16:57:15.781103+00:00
-113,Two-Phase Commit Protocol Coordinator and Participant State Machine,Ruby,🌐 Distributed Systems & Consensus,ruby-algorithms-lab,main.rb,2026-10-05T06:24:27.116491+00:00
-114,Conjugate Gradient Linear System Solver,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main.py,2026-10-21T17:01:37.892377+00:00
-115,K-D Tree Spatial Partitioning and Nearest Neighbor Search,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main.py,2026-10-19T05:01:20.388519+00:00
-116,"One parser, two bugs, many routers: Exploiting Broadcom Aether-Flux across eCos, Linux",Python,🧠 Computational AI & Math Engines,python-advanced-lab,main.py,2026-10-18T23:01:30.404379+00:00
-117,Cache-Oblivious Matrix Transposition Algorithm,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main.py,2026-10-18T01:01:15.478299+00:00
-118,R-Tree Spatial Index for Multidimensional Bounding Boxes,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main.py,2026-10-17T23:01:27.808930+00:00
-119,Fast Fourier Transform (Cooley-Tukey Radix-2) Signal Processing,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main.py,2026-10-17T03:01:31.928560+00:00
-120,Near-Optimal Parallel M-Matrix Scaling,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main.py,2026-10-16T09:01:45.850321+00:00
-121,Faster Fourier Transforms,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main.py,2026-10-13T13:01:11.328744+00:00
-122,Columnar Matrix Storage and Vector Indexing Engine,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main.py,2026-10-11T10:07:48.075274+00:00
-123,The Matrix of Tree Traversals: Recursive vs Iterative,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main.py,2026-10-11T07:05:22.317417+00:00
-124,Rectangular matrix multiplication from shared-leg entropy,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main.py,2026-10-08T13:51:18.574044+00:00
-125,Bit-Parallel Levenshtein Distance Matrix Engine,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main.py,2026-10-07T06:03:03.727169+00:00
-126,Merkle Tree Verification and Proof Generator,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main.py,2026-10-05T07:37:13.382984+00:00
-127,Skip List Probabilistic Search and Insertion Engine,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main.py,2026-10-05T06:25:34.099362+00:00
-128,Aho-Corasick Multi-Pattern String Searching Automaton,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main.py,2026-10-05T06:16:01.817018+00:00
-129,Finite State Machine Tokenizer and Lexical Parser,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main.py,2026-10-05T05:22:01.190630+00:00
-130,Hopcroft-Karp Bipartite Matching Algorithm,PHP,🧠 Computational AI & Math Engines,php-backend-core,main.php,2026-10-22T17:01:28.801907+00:00
-131,A page looks innocent: the algorithms behind a typeset page,PHP,🧠 Computational AI & Math Engines,php-backend-core,main.php,2026-10-21T15:02:13.404855+00:00
-132,Huffman Coding Lossless Compression and Decompression,PHP,🧠 Computational AI & Math Engines,php-backend-core,main.php,2026-10-20T17:01:28.959915+00:00
-133,"Lambda Destination Chains vs. SQS Fanout: Event Routing Topology, Retry Semantics, and",PHP,🧠 Computational AI & Math Engines,php-backend-core,main.php,2026-10-19T03:01:21.832269+00:00
-134,A* Heuristic Pathfinding with Dynamic Obstacle Cost,PHP,🧠 Computational AI & Math Engines,php-backend-core,main.php,2026-10-18T09:01:29.392888+00:00
-135,You could have invented transformers from memory,PHP,⚡ Low-Latency & Memory Systems,php-backend-core,main.php,2026-10-16T21:01:30.652919+00:00
-136,"Designing a Notification System: Queues, Retries, Rate Limiting & Scale",PHP,⚡ Low-Latency & Memory Systems,php-backend-core,main.php,2026-10-16T03:01:30.782585+00:00
-137,Self-Balancing AVL Tree with Full Rotation Engine,PHP,🧠 Computational AI & Math Engines,php-backend-core,main.php,2026-10-15T05:48:50.467510+00:00
-138,Red-Black Tree with Deterministic Balance Assertions,PHP,🧠 Computational AI & Math Engines,php-backend-core,main.php,2026-10-11T11:28:43.618585+00:00
-139,"Ruvector - RuVector provides High Performance, Real-Time decisions and agent memory",PHP,⚡ Low-Latency & Memory Systems,php-backend-core,main.php,2026-10-11T10:02:27.448266+00:00
-140,Lamport Logical Timestamp Synchronization Engine,PHP,🧠 Computational AI & Math Engines,php-backend-core,main.php,2026-10-11T09:45:16.289539+00:00
-141,CYK Parsing Algorithm for Context-Free Grammars,PHP,🧠 Computational AI & Math Engines,php-backend-core,main.php,2026-10-11T05:04:55.794878+00:00
-142,Safe Optimistic Lock Coupling,PHP,⚡ Low-Latency & Memory Systems,php-backend-core,main.php,2026-10-11T01:32:01.865268+00:00
-143,Suffix Automaton for Linear-Time Substring Indexing,PHP,⚡ Low-Latency & Memory Systems,php-backend-core,main.php,2026-10-11T00:02:15.797134+00:00
-144,Bytecode Virtual Machine with Stack Evaluation Engine,PHP,🧠 Computational AI & Math Engines,php-backend-core,main.php,2026-10-10T15:05:19.636892+00:00
-145,Two-Phase Commit Protocol Coordinator and Participant State Machine,PHP,🌐 Distributed Systems & Consensus,php-backend-core,main.php,2026-10-09T23:05:17.707320+00:00
-146,Custom Buddy Memory Allocation System,PHP,⚡ Low-Latency & Memory Systems,php-backend-core,main.php,2026-10-09T14:34:33.675018+00:00
-147,Bloom Filter with MurmurHash3 Hash Functions,PHP,🌐 Distributed Systems & Consensus,php-backend-core,core.php,2026-10-09T14:12:03.629263+00:00
-148,Improved Approximations for Vehicle Routing with Nonuniform Speeds,PHP,🧠 Computational AI & Math Engines,php-backend-core,main.php,2026-10-09T05:02:21.708269+00:00
-149,52 Possibilities. 5 Cards. No Guessing. Here’s the Algorithm.,PHP,🧠 Computational AI & Math Engines,php-backend-core,main.php,2026-10-08T15:05:36.015977+00:00
-150,Count-Min Sketch Heavy Hitters Frequency Estimator,PHP,🧠 Computational AI & Math Engines,php-backend-core,main.php,2026-10-08T02:05:18.261179+00:00
-151,Topological Sort with Cycle Detection in Directed Graphs,PHP,🧠 Computational AI & Math Engines,php-backend-core,main.php,2026-10-06T16:49:26.223451+00:00
-152,Lossless Streaming Compression and Retrieval Engine,PHP,🧠 Computational AI & Math Engines,php-backend-core,main.php,2026-10-06T05:28:11.126581+00:00
-153,Bytecode Virtual Machine with Stack Evaluation Engine,Kotlin,🧠 Computational AI & Math Engines,kotlin-systems-core,main.kt,2026-10-22T15:01:24.828978+00:00
-154,LSM-Tree MemTable and SSTable Flush Compaction Engine,Kotlin,🌐 Distributed Systems & Consensus,kotlin-systems-core,main.kt,2026-10-21T13:01:24.711377+00:00
-155,CYK Parsing Algorithm for Context-Free Grammars,Kotlin,🧠 Computational AI & Math Engines,kotlin-systems-core,main.kt,2026-10-20T15:01:38.013180+00:00
-156,"Peak-Memory Schedules You Can Trust: Exact Realization, Certified Optimality, and the",Kotlin,⚡ Low-Latency & Memory Systems,kotlin-systems-core,main.kt,2026-10-19T15:01:35.311011+00:00
-157,Custom Buddy Memory Allocation System,Kotlin,⚡ Low-Latency & Memory Systems,kotlin-systems-core,main.kt,2026-10-18T03:01:23.420073+00:00
-158,"A story of WiFi secrets, UART lockdowns and a damaged flash memory chip",Kotlin,⚡ Low-Latency & Memory Systems,kotlin-systems-core,main.kt,2026-10-16T17:01:32.793373+00:00
-159,Count-Min Sketch Heavy Hitters Frequency Estimator,Kotlin,🧠 Computational AI & Math Engines,kotlin-systems-core,main.kt,2026-10-16T05:01:24.016097+00:00
-160,Why your topological sort gives a different answer on every run,Kotlin,🧠 Computational AI & Math Engines,kotlin-systems-core,main.kt,2026-10-15T05:01:11.588270+00:00
-161,Runge-Kutta 4th Order Numerical ODE Integrator,Kotlin,🧠 Computational AI & Math Engines,kotlin-systems-core,main.kt,2026-10-10T23:58:49.381323+00:00
-162,Red-Black Tree with Deterministic Balance Assertions,Kotlin,🧠 Computational AI & Math Engines,kotlin-systems-core,main.kt,2026-10-10T21:02:58.167987+00:00
+089,Cuckoo Filter High-Efficiency Deletion Structure,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main.rb,2026-10-23T17:01:32.010455+00:00
+090,Why Windows 11 still ships with Windows 95 s memory manager hidden inside it,Ruby,⚡ Low-Latency & Memory Systems,ruby-algorithms-lab,types.rb,2026-10-22T01:01:38.772156+00:00
+091,Suffix Automaton for Linear-Time Substring Indexing,Ruby,⚡ Low-Latency & Memory Systems,ruby-algorithms-lab,main.rb,2026-10-21T07:01:25.177690+00:00
+092,HyperLogLog Cardinality Estimation Algorithm,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main.rb,2026-10-20T05:01:40.635240+00:00
+093,Free Pascal compiler now supports dynamic packages,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main.rb,2026-10-19T13:01:40.304776+00:00
+094,Runge-Kutta 4th Order Numerical ODE Integrator,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main.rb,2026-10-17T19:01:14.843658+00:00
+095,Self-Balancing AVL Tree with Aether-Spinor,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main.rb,2026-10-16T15:01:27.211668+00:00
+096,Compiler Instruction Pipeline Optimization Engine,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main.rb,2026-10-13T23:01:05.112354+00:00
+097,BFS has one line people get wrong: where you mark a node visited,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main.rb,2026-10-12T13:41:51.277831+00:00
+098,Directed Acyclic Graph Workflow Orchestration Engine,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main.rb,2026-10-11T13:37:23.908187+00:00
+099,Gradient Boosted Decision Tree Regression Engine,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main.rb,2026-10-11T10:17:39.263829+00:00
+100,Dijkstra Shortest Path with Fibonacci Heap Priority Queue,Ruby,⚡ Low-Latency & Memory Systems,ruby-algorithms-lab,main.rb,2026-10-11T05:02:16.719598+00:00
+101,Topological Sort with Cycle Detection in Directed Graphs,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main.rb,2026-10-10T23:07:57.273590+00:00
+102,Trie Prefix Tree for Auto-Completion with Frequency Ranking,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main.rb,2026-10-10T19:09:36.591060+00:00
+103,Kruskal Minimum Spanning Tree with Disjoint-Set Union,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main.rb,2026-10-10T14:01:57.419469+00:00
+104,Copy-on-Write Vector Memory Buffer Management,Ruby,⚡ Low-Latency & Memory Systems,ruby-algorithms-lab,main.rb,2026-10-10T11:02:06.483421+00:00
+105,Count-Min Sketch Heavy Hitters Frequency Estimator,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main.rb,2026-10-09T15:02:45.222597+00:00
+106,Safe Optimistic Lock Coupling,Ruby,⚡ Low-Latency & Memory Systems,ruby-algorithms-lab,main.rb,2026-10-09T14:08:26.781465+00:00
+107,Capturing a Moving Target on Star Graphs by Two Communicating Mobile Agents,Ruby,⚡ Low-Latency & Memory Systems,ruby-algorithms-lab,main.rb,2026-10-09T09:02:06.455091+00:00
+108,Custom Buddy Memory Allocation System,Ruby,⚡ Low-Latency & Memory Systems,ruby-algorithms-lab,main.rb,2026-10-09T03:05:26.988614+00:00
+109,Client-Side Directed Acyclic Graph Task Runner,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main.rb,2026-10-09T00:07:29.391085+00:00
+110,"Agent Memory as Source Code: A DSL for Neurons, Synapses and a Hash-Chained Ledger",Ruby,⚡ Low-Latency & Memory Systems,ruby-algorithms-lab,main.rb,2026-10-08T19:02:12.515222+00:00
+111,The Cache Stampede Problem: Why a Popular Cache Key Can Take Down Your Backend,Ruby,⚡ Low-Latency & Memory Systems,ruby-algorithms-lab,main.rb,2026-10-08T13:55:07.855464+00:00
+112,LSM-Tree MemTable and SSTable Flush Compaction Engine,Ruby,🌐 Distributed Systems & Consensus,ruby-algorithms-lab,main.rb,2026-10-07T06:00:32.280058+00:00
+113,Bytecode Virtual Machine with Stack Evaluation Engine,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main.rb,2026-10-06T16:57:15.781103+00:00
+114,Two-Phase Commit Protocol Coordinator and Participant State Machine,Ruby,🌐 Distributed Systems & Consensus,ruby-algorithms-lab,main.rb,2026-10-05T06:24:27.116491+00:00
+115,Conjugate Gradient Linear System Solver,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main.py,2026-10-21T17:01:37.892377+00:00
+116,K-D Tree Spatial Partitioning and Nearest Neighbor Search,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main.py,2026-10-19T05:01:20.388519+00:00
+117,"One parser, two bugs, many routers: Exploiting Broadcom Aether-Flux across eCos, Linux",Python,🧠 Computational AI & Math Engines,python-advanced-lab,main.py,2026-10-18T23:01:30.404379+00:00
+118,Cache-Oblivious Matrix Transposition Algorithm,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main.py,2026-10-18T01:01:15.478299+00:00
+119,R-Tree Spatial Index for Multidimensional Bounding Boxes,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main.py,2026-10-17T23:01:27.808930+00:00
+120,Fast Fourier Transform (Cooley-Tukey Radix-2) Signal Processing,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main.py,2026-10-17T03:01:31.928560+00:00
+121,Near-Optimal Parallel M-Matrix Scaling,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main.py,2026-10-16T09:01:45.850321+00:00
+122,Faster Fourier Transforms,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main.py,2026-10-13T13:01:11.328744+00:00
+123,Columnar Matrix Storage and Vector Indexing Engine,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main.py,2026-10-11T10:07:48.075274+00:00
+124,The Matrix of Tree Traversals: Recursive vs Iterative,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main.py,2026-10-11T07:05:22.317417+00:00
+125,Rectangular matrix multiplication from shared-leg entropy,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main.py,2026-10-08T13:51:18.574044+00:00
+126,Bit-Parallel Levenshtein Distance Matrix Engine,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main.py,2026-10-07T06:03:03.727169+00:00
+127,Merkle Tree Verification and Proof Generator,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main.py,2026-10-05T07:37:13.382984+00:00
+128,Skip List Probabilistic Search and Insertion Engine,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main.py,2026-10-05T06:25:34.099362+00:00
+129,Aho-Corasick Multi-Pattern String Searching Automaton,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main.py,2026-10-05T06:16:01.817018+00:00
+130,Finite State Machine Tokenizer and Lexical Parser,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main.py,2026-10-05T05:22:01.190630+00:00
+131,Hopcroft-Karp Bipartite Matching Algorithm,PHP,🧠 Computational AI & Math Engines,php-backend-core,main.php,2026-10-22T17:01:28.801907+00:00
+132,A page looks innocent: the algorithms behind a typeset page,PHP,🧠 Computational AI & Math Engines,php-backend-core,main.php,2026-10-21T15:02:13.404855+00:00
+133,Huffman Coding Lossless Compression and Decompression,PHP,🧠 Computational AI & Math Engines,php-backend-core,main.php,2026-10-20T17:01:28.959915+00:00
+134,"Lambda Destination Chains vs. SQS Fanout: Event Routing Topology, Retry Semantics, and",PHP,🧠 Computational AI & Math Engines,php-backend-core,main.php,2026-10-19T03:01:21.832269+00:00
+135,A* Heuristic Pathfinding with Dynamic Obstacle Cost,PHP,🧠 Computational AI & Math Engines,php-backend-core,main.php,2026-10-18T09:01:29.392888+00:00
+136,You could have invented transformers from memory,PHP,⚡ Low-Latency & Memory Systems,php-backend-core,main.php,2026-10-16T21:01:30.652919+00:00
+137,"Designing a Notification System: Queues, Retries, Rate Limiting & Scale",PHP,⚡ Low-Latency & Memory Systems,php-backend-core,main.php,2026-10-16T03:01:30.782585+00:00
+138,Self-Balancing AVL Tree with Full Rotation Engine,PHP,🧠 Computational AI & Math Engines,php-backend-core,main.php,2026-10-15T05:48:50.467510+00:00
+139,Red-Black Tree with Deterministic Balance Assertions,PHP,🧠 Computational AI & Math Engines,php-backend-core,main.php,2026-10-11T11:28:43.618585+00:00
+140,"Ruvector - RuVector provides High Performance, Real-Time decisions and agent memory",PHP,⚡ Low-Latency & Memory Systems,php-backend-core,main.php,2026-10-11T10:02:27.448266+00:00
+141,Lamport Logical Timestamp Synchronization Engine,PHP,🧠 Computational AI & Math Engines,php-backend-core,main.php,2026-10-11T09:45:16.289539+00:00
+142,CYK Parsing Algorithm for Context-Free Grammars,PHP,🧠 Computational AI & Math Engines,php-backend-core,main.php,2026-10-11T05:04:55.794878+00:00
+143,Safe Optimistic Lock Coupling,PHP,⚡ Low-Latency & Memory Systems,php-backend-core,main.php,2026-10-11T01:32:01.865268+00:00
+144,Suffix Automaton for Linear-Time Substring Indexing,PHP,⚡ Low-Latency & Memory Systems,php-backend-core,main.php,2026-10-11T00:02:15.797134+00:00
+145,Bytecode Virtual Machine with Stack Evaluation Engine,PHP,🧠 Computational AI & Math Engines,php-backend-core,main.php,2026-10-10T15:05:19.636892+00:00
+146,Two-Phase Commit Protocol Coordinator and Participant State Machine,PHP,🌐 Distributed Systems & Consensus,php-backend-core,main.php,2026-10-09T23:05:17.707320+00:00
+147,Custom Buddy Memory Allocation System,PHP,⚡ Low-Latency & Memory Systems,php-backend-core,main.php,2026-10-09T14:34:33.675018+00:00
+148,Bloom Filter with MurmurHash3 Hash Functions,PHP,🌐 Distributed Systems & Consensus,php-backend-core,core.php,2026-10-09T14:12:03.629263+00:00
+149,Improved Approximations for Vehicle Routing with Nonuniform Speeds,PHP,🧠 Computational AI & Math Engines,php-backend-core,main.php,2026-10-09T05:02:21.708269+00:00
+150,52 Possibilities. 5 Cards. No Guessing. Here’s the Algorithm.,PHP,🧠 Computational AI & Math Engines,php-backend-core,main.php,2026-10-08T15:05:36.015977+00:00
+151,Count-Min Sketch Heavy Hitters Frequency Estimator,PHP,🧠 Computational AI & Math Engines,php-backend-core,main.php,2026-10-08T02:05:18.261179+00:00
+152,Topological Sort with Cycle Detection in Directed Graphs,PHP,🧠 Computational AI & Math Engines,php-backend-core,main.php,2026-10-06T16:49:26.223451+00:00
+153,Lossless Streaming Compression and Retrieval Engine,PHP,🧠 Computational AI & Math Engines,php-backend-core,main.php,2026-10-06T05:28:11.126581+00:00
+154,Bytecode Virtual Machine with Stack Evaluation Engine,Kotlin,🧠 Computational AI & Math Engines,kotlin-systems-core,main.kt,2026-10-22T15:01:24.828978+00:00
+155,LSM-Tree MemTable and SSTable Flush Compaction Engine,Kotlin,🌐 Distributed Systems & Consensus,kotlin-systems-core,main.kt,2026-10-21T13:01:24.711377+00:00
+156,CYK Parsing Algorithm for Context-Free Grammars,Kotlin,🧠 Computational AI & Math Engines,kotlin-systems-core,main.kt,2026-10-20T15:01:38.013180+00:00
+157,"Peak-Memory Schedules You Can Trust: Exact Realization, Certified Optimality, and the",Kotlin,⚡ Low-Latency & Memory Systems,kotlin-systems-core,main.kt,2026-10-19T15:01:35.311011+00:00
+158,Custom Buddy Memory Allocation System,Kotlin,⚡ Low-Latency & Memory Systems,kotlin-systems-core,main.kt,2026-10-18T03:01:23.420073+00:00
+159,"A story of WiFi secrets, UART lockdowns and a damaged flash memory chip",Kotlin,⚡ Low-Latency & Memory Systems,kotlin-systems-core,main.kt,2026-10-16T17:01:32.793373+00:00
+160,Count-Min Sketch Heavy Hitters Frequency Estimator,Kotlin,🧠 Computational AI & Math Engines,kotlin-systems-core,main.kt,2026-10-16T05:01:24.016097+00:00
+161,Why your topological sort gives a different answer on every run,Kotlin,🧠 Computational AI & Math Engines,kotlin-systems-core,main.kt,2026-10-15T05:01:11.588270+00:00
+162,Runge-Kutta 4th Order Numerical ODE Integrator,Kotlin,🧠 Computational AI & Math Engines,kotlin-systems-core,main.kt,2026-10-10T23:58:49.381323+00:00
 163,Two-Phase Commit Protocol Coordinator and Participant State Machine,Kotlin,🌐 Distributed Systems & Consensus,kotlin-systems-core,main.kt,2026-10-10T15:02:34.238527+00:00
 164,Hopcroft-Karp Bipartite Matching Algorithm,Kotlin,🧠 Computational AI & Math Engines,kotlin-systems-core,main.kt,2026-10-10T11:05:42.430674+00:00
 165,Stimulate TRIE data structure,Kotlin,🧠 Computational AI & Math Engines,kotlin-systems-core,main.kt,2026-10-09T11:02:15.016534+00:00

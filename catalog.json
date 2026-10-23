@@ -1,14 +1,14 @@
 [
   {
-    "topic": "Cuckoo Filter High-Efficiency Deletion Structure",
-    "language": "Ruby",
-    "folder": "ruby",
+    "topic": "Red-Black Tree with Deterministic Balance Assertions",
+    "language": "Kotlin",
+    "folder": "kotlin",
     "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "ruby-algorithms-lab",
-    "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261023_170132_cuckoo_filter_high-efficiency",
-    "source_file": "main.rb",
-    "timestamp": "2026-10-23T17:01:32.010455+00:00",
-    "dir_name": "20261023_170132_cuckoo_filter_high-efficiency"
+    "spoke_repo": "kotlin-systems-core",
+    "source_link": "https://github.com/myonathanlinkedin/kotlin-systems-core/tree/main/algorithms/20261023_190136_red-black_tree_with_determinis",
+    "source_file": "main.kt",
+    "timestamp": "2026-10-23T19:01:36.400780+00:00",
+    "dir_name": "20261023_190136_red-black_tree_with_determinis"
   },
   {
     "topic": "Memory Pool Block Allocator with Free List",
@@ -968,6 +968,17 @@
     "dir_name": "20261005_053754_lsm-tree_memtable_and_sstable"
   },
   {
+    "topic": "Cuckoo Filter High-Efficiency Deletion Structure",
+    "language": "Ruby",
+    "folder": "ruby",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "ruby-algorithms-lab",
+    "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261023_170132_cuckoo_filter_high-efficiency",
+    "source_file": "main.rb",
+    "timestamp": "2026-10-23T17:01:32.010455+00:00",
+    "dir_name": "20261023_170132_cuckoo_filter_high-efficiency"
+  },
+  {
     "topic": "Why Windows 11 still ships with Windows 95 s memory manager hidden inside it",
     "language": "Ruby",
     "folder": "ruby",
@@ -1769,17 +1780,6 @@
     "source_file": "main.kt",
     "timestamp": "2026-10-10T23:58:49.381323+00:00",
     "dir_name": "20261010_235849_runge-kutta_4th_order_numerica"
-  },
-  {
-    "topic": "Red-Black Tree with Deterministic Balance Assertions",
-    "language": "Kotlin",
-    "folder": "kotlin",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "kotlin-systems-core",
-    "source_link": "https://github.com/myonathanlinkedin/kotlin-systems-core/tree/main/algorithms/20261010_210258_red-black_tree_with_determinis",
-    "source_file": "main.kt",
-    "timestamp": "2026-10-10T21:02:58.167987+00:00",
-    "dir_name": "20261010_210258_red-black_tree_with_determinis"
   },
   {
     "topic": "Two-Phase Commit Protocol Coordinator and Participant State Machine",
