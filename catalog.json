@@ -1,14 +1,14 @@
 [
   {
-    "topic": "Red-Black Tree with Deterministic Balance Assertions",
-    "language": "Kotlin",
-    "folder": "kotlin",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "kotlin-systems-core",
-    "source_link": "https://github.com/myonathanlinkedin/kotlin-systems-core/tree/main/algorithms/20261023_190136_red-black_tree_with_determinis",
-    "source_file": "main.kt",
-    "timestamp": "2026-10-23T19:01:36.400780+00:00",
-    "dir_name": "20261023_190136_red-black_tree_with_determinis"
+    "topic": "Safe Optimistic Lock Coupling",
+    "language": "PHP",
+    "folder": "php",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "php-backend-core",
+    "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261023_210210_safe_optimistic_lock_coupling",
+    "source_file": "main.php",
+    "timestamp": "2026-10-23T21:02:10.145825+00:00",
+    "dir_name": "20261023_210210_safe_optimistic_lock_coupling"
   },
   {
     "topic": "Memory Pool Block Allocator with Free List",
@@ -1562,17 +1562,6 @@
     "dir_name": "20261011_050455_cyk_parsing_algorithm_for_cont"
   },
   {
-    "topic": "Safe Optimistic Lock Coupling",
-    "language": "PHP",
-    "folder": "php",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "php-backend-core",
-    "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261011_013201_safe_optimistic_lock_coupling",
-    "source_file": "main.php",
-    "timestamp": "2026-10-11T01:32:01.865268+00:00",
-    "dir_name": "20261011_013201_safe_optimistic_lock_coupling"
-  },
-  {
     "topic": "Suffix Automaton for Linear-Time Substring Indexing",
     "language": "PHP",
     "folder": "php",
@@ -1681,6 +1670,17 @@
     "source_file": "main.php",
     "timestamp": "2026-10-06T05:28:11.126581+00:00",
     "dir_name": "20261006_052811_optimal_compression_with_quant"
+  },
+  {
+    "topic": "Red-Black Tree with Deterministic Balance Assertions",
+    "language": "Kotlin",
+    "folder": "kotlin",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "kotlin-systems-core",
+    "source_link": "https://github.com/myonathanlinkedin/kotlin-systems-core/tree/main/algorithms/20261023_190136_red-black_tree_with_determinis",
+    "source_file": "main.kt",
+    "timestamp": "2026-10-23T19:01:36.400780+00:00",
+    "dir_name": "20261023_190136_red-black_tree_with_determinis"
   },
   {
     "topic": "Bytecode Virtual Machine with Stack Evaluation Engine",
