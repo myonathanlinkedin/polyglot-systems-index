@@ -1,14 +1,14 @@
 [
   {
-    "topic": "Animating Algorithms in SwiftUI: A Step-Recorder Pattern for Visualising Sorts, Searches",
-    "language": "Swift",
-    "folder": "swift",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "swift-systems-lab",
-    "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261024_090127_animating_algorithms_in_swiftu",
-    "source_file": "main.swift",
-    "timestamp": "2026-10-24T09:01:27.782727+00:00",
-    "dir_name": "20261024_090127_animating_algorithms_in_swiftu"
+    "topic": "Retries Are a Distributed Systems Bug Waiting to Happen: Designing Idempotent APIs",
+    "language": "Go",
+    "folder": "go",
+    "category": "\ud83c\udf10 Distributed Systems & Consensus",
+    "spoke_repo": "go-concurrency-lab",
+    "source_link": "https://github.com/myonathanlinkedin/go-concurrency-lab/tree/main/algorithms/20261024_110150_retries_are_a_distributed_syst",
+    "source_file": "main.go",
+    "timestamp": "2026-10-24T11:01:50.042687+00:00",
+    "dir_name": "20261024_110150_retries_are_a_distributed_syst"
   },
   {
     "topic": "Lock-Free Concurrent Ring Buffer Data Structure",
@@ -471,6 +471,17 @@
     "source_file": "main.ts",
     "timestamp": "2026-10-06T04:32:33.033649+00:00",
     "dir_name": "20261006_043233_coordinate_matrix_transformation_grid"
+  },
+  {
+    "topic": "Animating Algorithms in SwiftUI: A Step-Recorder Pattern for Visualising Sorts, Searches",
+    "language": "Swift",
+    "folder": "swift",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "swift-systems-lab",
+    "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261024_090127_animating_algorithms_in_swiftu",
+    "source_file": "main.swift",
+    "timestamp": "2026-10-24T09:01:27.782727+00:00",
+    "dir_name": "20261024_090127_animating_algorithms_in_swiftu"
   },
   {
     "topic": "Bytecode Virtual Machine with Stack Evaluation Engine",
