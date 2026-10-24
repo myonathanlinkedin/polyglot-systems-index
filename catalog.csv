@@ -1,5 +1,5 @@
 Index,Topic,Language,Domain Category,Spoke Repository,Source File,Timestamp UTC
-001,Simulated Annealing Optimization for Combinatorial Graphs,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main.hs,2026-10-24T17:01:34.509422+00:00
+001,Custom Buddy Memory Allocation System,C++,⚡ Low-Latency & Memory Systems,cpp-systems-core,main.cpp,2026-10-24T19:02:10.234647+00:00
 002,Lock-Free Concurrent Ring Buffer Data Structure,Zig,⚡ Low-Latency & Memory Systems,zig-systems-lab,main.zig,2026-10-24T03:01:26.901756+00:00
 003,Memory Pool Block Allocator with Free List,Zig,⚡ Low-Latency & Memory Systems,zig-systems-lab,main.zig,2026-10-22T11:02:03.457187+00:00
 004,How Chronos-Kernel Handles a fork When the Parent Has Gigabytes of Memory,Zig,⚡ Low-Latency & Memory Systems,zig-systems-lab,main.zig,2026-10-20T19:01:51.997323+00:00
@@ -190,66 +190,66 @@ Index,Topic,Language,Domain Category,Spoke Repository,Source File,Timestamp UTC
 189,Red-Black Tree with Deterministic Balance Assertions,Java,🧠 Computational AI & Math Engines,java-enterprise-patterns,main.java,2026-10-09T14:50:51.242673+00:00
 190,Sliding Window Rate Limiter with Distributed Token Bucket,Java,🌐 Distributed Systems & Consensus,java-enterprise-patterns,main.java,2026-10-06T19:01:04.833341+00:00
 191,Singular Value Decomposition (SVD) for Low-Rank Approximation,Java,🧠 Computational AI & Math Engines,java-enterprise-patterns,core.java,2026-10-06T13:32:40.973766+00:00
-192,Incremental Computation Graphs,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main.hs,2026-10-24T07:01:28.819974+00:00
-193,Cuckoo Filter High-Efficiency Deletion Structure,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main.hs,2026-10-23T07:01:29.412222+00:00
-194,Lamport Logical Timestamp Synchronization Engine,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main.hs,2026-10-22T09:01:29.528953+00:00
-195,HyperLogLog Cardinality Estimation Algorithm,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main.hs,2026-10-15T19:01:20.693925+00:00
-196,Compression and Concatenation on the Web,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,core.hs,2026-10-11T13:02:29.470146+00:00
-197,Huffman Coding Lossless Compression and Decompression,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main.hs,2026-10-11T08:05:38.703852+00:00
-198,Merkle Tree Verification and Proof Generator,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main.hs,2026-10-11T01:41:27.906104+00:00
-199,Safe Optimistic Lock Coupling,Haskell,⚡ Low-Latency & Memory Systems,haskell-functional-core,main.hs,2026-10-11T01:06:16.814009+00:00
-200,Hopcroft-Karp Bipartite Matching Algorithm,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main.hs,2026-10-10T23:05:17.727333+00:00
-201,Custom Buddy Memory Allocation System,Haskell,⚡ Low-Latency & Memory Systems,haskell-functional-core,main.hs,2026-10-10T18:33:07.711371+00:00
-202,Self-Balancing AVL Tree with Full Rotation Engine,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main.hs,2026-10-10T13:04:38.749123+00:00
-203,Dijkstra Shortest Path with Fibonacci Heap Priority Queue,Haskell,⚡ Low-Latency & Memory Systems,haskell-functional-core,main.hs,2026-10-09T14:27:06.098251+00:00
-204,Suffix Automaton for Linear-Time Substring Indexing,Haskell,⚡ Low-Latency & Memory Systems,haskell-functional-core,main.hs,2026-10-07T11:01:47.927193+00:00
-205,Bytecode Virtual Machine with Stack Evaluation Engine,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main.hs,2026-10-06T19:42:25.207438+00:00
-206,Fast Fourier Transform (Cooley-Tukey Radix-2) Signal Processing,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main.hs,2026-10-05T04:58:28.975279+00:00
-207,Retries Are a Distributed Systems Bug Waiting to Happen: Designing Idempotent APIs,Go,🌐 Distributed Systems & Consensus,go-concurrency-lab,main.go,2026-10-24T11:01:50.042687+00:00
-208,Distributed Consistent Hashing Router with Virtual Nodes,Go,🌐 Distributed Systems & Consensus,go-concurrency-lab,main.go,2026-10-23T01:02:25.732359+00:00
-209,LSM-Tree MemTable and SSTable Flush Compaction Engine,Go,🌐 Distributed Systems & Consensus,go-concurrency-lab,main.go,2026-10-22T23:02:31.502975+00:00
-210,The compiler was supposed to end programming too,Go,🧠 Computational AI & Math Engines,go-concurrency-lab,main.go,2026-10-21T19:01:54.565857+00:00
-211,Two-Phase Commit Protocol Coordinator and Participant State Machine,Go,🌐 Distributed Systems & Consensus,go-concurrency-lab,main.go,2026-10-20T21:02:12.025291+00:00
-212,Raft Consensus Protocol Leader Election State Engine,Go,🌐 Distributed Systems & Consensus,go-concurrency-lab,main.go,2026-10-19T11:01:25.756316+00:00
-213,Red-Black Tree with Deterministic Balance Assertions,Go,🧠 Computational AI & Math Engines,go-concurrency-lab,main.go,2026-10-17T09:01:17.479416+00:00
-214,Sliding Window Rate Limiter with Distributed Token Bucket,Go,🌐 Distributed Systems & Consensus,go-concurrency-lab,main.go,2026-10-15T09:01:29.642527+00:00
-215,Compiler bootstrapping depends on more than you might think,Go,🧠 Computational AI & Math Engines,go-concurrency-lab,main.go,2026-10-14T11:01:36.662241+00:00
-216,Gossip Protocol Node Failure Detector,Go,🌐 Distributed Systems & Consensus,go-concurrency-lab,main.go,2026-10-13T05:01:11.860767+00:00
-217,CAP Theorem Distributed Consistency and Partitioning Engine,Go,🌐 Distributed Systems & Consensus,go-concurrency-lab,main.go,2026-10-11T12:01:58.447946+00:00
-218,Vector Clock Distributed Event Ordering Mechanism,Go,🌐 Distributed Systems & Consensus,go-concurrency-lab,main.go,2026-10-11T01:56:28.226488+00:00
-219,Lamport Logical Timestamp Synchronization Engine,Go,🧠 Computational AI & Math Engines,go-concurrency-lab,main.go,2026-10-09T15:49:30.565404+00:00
-220,Suffix Automaton for Linear-Time Substring Indexing,Go,⚡ Low-Latency & Memory Systems,go-concurrency-lab,main.go,2026-10-07T11:05:06.753165+00:00
-221,Huffman Coding Lossless Compression and Decompression,Go,🧠 Computational AI & Math Engines,go-concurrency-lab,main.go,2026-10-06T18:48:11.938077+00:00
-222,Treap Randomized Binary Search Tree with Heap Priorities,Go,🧠 Computational AI & Math Engines,go-concurrency-lab,main.go,2026-10-06T00:21:56.543123+00:00
-223,Trie Prefix Tree for Auto-Completion with Frequency Ranking,Go,🧠 Computational AI & Math Engines,go-concurrency-lab,main.go,2026-10-06T00:19:21.048621+00:00
-224,Thread-Safe Bounded Blocking Queue with Condition Variables,Go,⚡ Low-Latency & Memory Systems,go-concurrency-lab,main.go,2026-10-05T06:54:46.526937+00:00
-225,Actor Model Concurrency Engine with Mailbox Processing,Go,🌐 Distributed Systems & Consensus,go-concurrency-lab,main.go,2026-10-05T06:39:39.370164+00:00
-226,Bit-Parallel Levenshtein Distance Matrix Engine,Go,🧠 Computational AI & Math Engines,go-concurrency-lab,main.go,2026-10-05T06:20:07.603680+00:00
-227,Bloom Filter with MurmurHash3 Hash Functions,Go,🌐 Distributed Systems & Consensus,go-concurrency-lab,main.go,2026-10-05T05:40:36.425598+00:00
-228,Sliding Window Rate Limiter with Distributed Token Bucket,C#,🌐 Distributed Systems & Consensus,csharp-enterprise-lab,main.cs,2026-10-23T05:01:22.665018+00:00
-229,Using a lookup-table to correct an approximation,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main.cs,2026-10-22T13:01:19.810597+00:00
-230,Raft Consensus Protocol Leader Election State Engine,C#,🌐 Distributed Systems & Consensus,csharp-enterprise-lab,main.cs,2026-10-21T11:01:36.997114+00:00
-231,Count-Min Sketch Heavy Hitters Frequency Estimator,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main.cs,2026-10-20T07:01:38.147039+00:00
-232,CYK Parsing Algorithm for Context-Free Grammars,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main.cs,2026-10-17T21:01:29.159600+00:00
-233,"Distributed Task Scheduler System Design: Jobs, Retries, Leases, and Failures",C#,🌐 Distributed Systems & Consensus,csharp-enterprise-lab,main.cs,2026-10-15T17:01:18.535218+00:00
-234,How I reverse engineered a commercial spatial audio effect,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main.cs,2026-10-11T17:01:08.104843+00:00
-235,Distributed Consistent Hashing Router with Virtual Nodes,C#,🌐 Distributed Systems & Consensus,csharp-enterprise-lab,main.cs,2026-10-11T11:24:13.443473+00:00
-236,Gossip Protocol Node Failure Detector,C#,🌐 Distributed Systems & Consensus,csharp-enterprise-lab,main.cs,2026-10-11T09:32:39.687734+00:00
-237,"Git Bug - Distributed, offline-first bug tracker integrated in git",C#,🌐 Distributed Systems & Consensus,csharp-enterprise-lab,main.cs,2026-10-11T09:05:20.416772+00:00
-238,LMAX Disruptor Ring Buffer Pattern,C#,⚡ Low-Latency & Memory Systems,csharp-enterprise-lab,main.cs,2026-10-11T03:02:33.259007+00:00
-239,Conflict-free Replicated Data Type (CRDT) PN-Counter,C#,🌐 Distributed Systems & Consensus,csharp-enterprise-lab,main.cs,2026-10-10T22:52:26.268362+00:00
-240,Vector Clock Distributed Event Ordering Mechanism,C#,🌐 Distributed Systems & Consensus,csharp-enterprise-lab,main.cs,2026-10-10T17:48:22.386310+00:00
-241,Kruskal Minimum Spanning Tree with Disjoint-Set Union,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main.cs,2026-10-09T16:09:39.984066+00:00
-242,HyperLogLog Cardinality Estimation Algorithm,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main.cs,2026-10-09T16:07:18.251426+00:00
-243,Lamport Logical Timestamp Synchronization Engine,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main.cs,2026-10-09T15:08:06.087160+00:00
-244,Parallel Edge Ranking of Trees,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main.cs,2026-10-09T05:25:06.493650+00:00
-245,New Contraction Bounds for Multidimensional Asymptotic Consensus in Dynamic Networks,C#,🌐 Distributed Systems & Consensus,csharp-enterprise-lab,main.cs,2026-10-09T03:02:10.282735+00:00
-246,Bulletproof Idempotency in Distributed Payment Systems: Beyond the Client Header,C#,🌐 Distributed Systems & Consensus,csharp-enterprise-lab,main.cs,2026-10-08T14:09:15.752196+00:00
-247,Etcd - Distributed reliable key-value store for the most critical data of a distributed,C#,🌐 Distributed Systems & Consensus,csharp-enterprise-lab,main.cs,2026-10-08T12:05:29.443271+00:00
-248,Actor Model Concurrency Engine with Mailbox Processing,C#,🌐 Distributed Systems & Consensus,csharp-enterprise-lab,main.cs,2026-10-08T04:07:37.807578+00:00
-249,Topological Sort with Cycle Detection in Directed Graphs,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main.cs,2026-10-05T09:50:52.247616+00:00
-250,Peak-Aware One-Way Trading: Competitive and Learning-Augmented Algorithms for Energy,C++,🧠 Computational AI & Math Engines,cpp-systems-core,main.cpp,2026-10-23T23:02:45.760911+00:00
-251,Custom Buddy Memory Allocation System,C++,⚡ Low-Latency & Memory Systems,cpp-systems-core,main.cpp,2026-10-23T03:01:25.849934+00:00
+192,Simulated Annealing Optimization for Combinatorial Graphs,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main.hs,2026-10-24T17:01:34.509422+00:00
+193,Incremental Computation Graphs,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main.hs,2026-10-24T07:01:28.819974+00:00
+194,Cuckoo Filter High-Efficiency Deletion Structure,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main.hs,2026-10-23T07:01:29.412222+00:00
+195,Lamport Logical Timestamp Synchronization Engine,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main.hs,2026-10-22T09:01:29.528953+00:00
+196,HyperLogLog Cardinality Estimation Algorithm,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main.hs,2026-10-15T19:01:20.693925+00:00
+197,Compression and Concatenation on the Web,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,core.hs,2026-10-11T13:02:29.470146+00:00
+198,Huffman Coding Lossless Compression and Decompression,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main.hs,2026-10-11T08:05:38.703852+00:00
+199,Merkle Tree Verification and Proof Generator,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main.hs,2026-10-11T01:41:27.906104+00:00
+200,Safe Optimistic Lock Coupling,Haskell,⚡ Low-Latency & Memory Systems,haskell-functional-core,main.hs,2026-10-11T01:06:16.814009+00:00
+201,Hopcroft-Karp Bipartite Matching Algorithm,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main.hs,2026-10-10T23:05:17.727333+00:00
+202,Custom Buddy Memory Allocation System,Haskell,⚡ Low-Latency & Memory Systems,haskell-functional-core,main.hs,2026-10-10T18:33:07.711371+00:00
+203,Self-Balancing AVL Tree with Full Rotation Engine,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main.hs,2026-10-10T13:04:38.749123+00:00
+204,Dijkstra Shortest Path with Fibonacci Heap Priority Queue,Haskell,⚡ Low-Latency & Memory Systems,haskell-functional-core,main.hs,2026-10-09T14:27:06.098251+00:00
+205,Suffix Automaton for Linear-Time Substring Indexing,Haskell,⚡ Low-Latency & Memory Systems,haskell-functional-core,main.hs,2026-10-07T11:01:47.927193+00:00
+206,Bytecode Virtual Machine with Stack Evaluation Engine,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main.hs,2026-10-06T19:42:25.207438+00:00
+207,Fast Fourier Transform (Cooley-Tukey Radix-2) Signal Processing,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main.hs,2026-10-05T04:58:28.975279+00:00
+208,Retries Are a Distributed Systems Bug Waiting to Happen: Designing Idempotent APIs,Go,🌐 Distributed Systems & Consensus,go-concurrency-lab,main.go,2026-10-24T11:01:50.042687+00:00
+209,Distributed Consistent Hashing Router with Virtual Nodes,Go,🌐 Distributed Systems & Consensus,go-concurrency-lab,main.go,2026-10-23T01:02:25.732359+00:00
+210,LSM-Tree MemTable and SSTable Flush Compaction Engine,Go,🌐 Distributed Systems & Consensus,go-concurrency-lab,main.go,2026-10-22T23:02:31.502975+00:00
+211,The compiler was supposed to end programming too,Go,🧠 Computational AI & Math Engines,go-concurrency-lab,main.go,2026-10-21T19:01:54.565857+00:00
+212,Two-Phase Commit Protocol Coordinator and Participant State Machine,Go,🌐 Distributed Systems & Consensus,go-concurrency-lab,main.go,2026-10-20T21:02:12.025291+00:00
+213,Raft Consensus Protocol Leader Election State Engine,Go,🌐 Distributed Systems & Consensus,go-concurrency-lab,main.go,2026-10-19T11:01:25.756316+00:00
+214,Red-Black Tree with Deterministic Balance Assertions,Go,🧠 Computational AI & Math Engines,go-concurrency-lab,main.go,2026-10-17T09:01:17.479416+00:00
+215,Sliding Window Rate Limiter with Distributed Token Bucket,Go,🌐 Distributed Systems & Consensus,go-concurrency-lab,main.go,2026-10-15T09:01:29.642527+00:00
+216,Compiler bootstrapping depends on more than you might think,Go,🧠 Computational AI & Math Engines,go-concurrency-lab,main.go,2026-10-14T11:01:36.662241+00:00
+217,Gossip Protocol Node Failure Detector,Go,🌐 Distributed Systems & Consensus,go-concurrency-lab,main.go,2026-10-13T05:01:11.860767+00:00
+218,CAP Theorem Distributed Consistency and Partitioning Engine,Go,🌐 Distributed Systems & Consensus,go-concurrency-lab,main.go,2026-10-11T12:01:58.447946+00:00
+219,Vector Clock Distributed Event Ordering Mechanism,Go,🌐 Distributed Systems & Consensus,go-concurrency-lab,main.go,2026-10-11T01:56:28.226488+00:00
+220,Lamport Logical Timestamp Synchronization Engine,Go,🧠 Computational AI & Math Engines,go-concurrency-lab,main.go,2026-10-09T15:49:30.565404+00:00
+221,Suffix Automaton for Linear-Time Substring Indexing,Go,⚡ Low-Latency & Memory Systems,go-concurrency-lab,main.go,2026-10-07T11:05:06.753165+00:00
+222,Huffman Coding Lossless Compression and Decompression,Go,🧠 Computational AI & Math Engines,go-concurrency-lab,main.go,2026-10-06T18:48:11.938077+00:00
+223,Treap Randomized Binary Search Tree with Heap Priorities,Go,🧠 Computational AI & Math Engines,go-concurrency-lab,main.go,2026-10-06T00:21:56.543123+00:00
+224,Trie Prefix Tree for Auto-Completion with Frequency Ranking,Go,🧠 Computational AI & Math Engines,go-concurrency-lab,main.go,2026-10-06T00:19:21.048621+00:00
+225,Thread-Safe Bounded Blocking Queue with Condition Variables,Go,⚡ Low-Latency & Memory Systems,go-concurrency-lab,main.go,2026-10-05T06:54:46.526937+00:00
+226,Actor Model Concurrency Engine with Mailbox Processing,Go,🌐 Distributed Systems & Consensus,go-concurrency-lab,main.go,2026-10-05T06:39:39.370164+00:00
+227,Bit-Parallel Levenshtein Distance Matrix Engine,Go,🧠 Computational AI & Math Engines,go-concurrency-lab,main.go,2026-10-05T06:20:07.603680+00:00
+228,Bloom Filter with MurmurHash3 Hash Functions,Go,🌐 Distributed Systems & Consensus,go-concurrency-lab,main.go,2026-10-05T05:40:36.425598+00:00
+229,Sliding Window Rate Limiter with Distributed Token Bucket,C#,🌐 Distributed Systems & Consensus,csharp-enterprise-lab,main.cs,2026-10-23T05:01:22.665018+00:00
+230,Using a lookup-table to correct an approximation,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main.cs,2026-10-22T13:01:19.810597+00:00
+231,Raft Consensus Protocol Leader Election State Engine,C#,🌐 Distributed Systems & Consensus,csharp-enterprise-lab,main.cs,2026-10-21T11:01:36.997114+00:00
+232,Count-Min Sketch Heavy Hitters Frequency Estimator,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main.cs,2026-10-20T07:01:38.147039+00:00
+233,CYK Parsing Algorithm for Context-Free Grammars,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main.cs,2026-10-17T21:01:29.159600+00:00
+234,"Distributed Task Scheduler System Design: Jobs, Retries, Leases, and Failures",C#,🌐 Distributed Systems & Consensus,csharp-enterprise-lab,main.cs,2026-10-15T17:01:18.535218+00:00
+235,How I reverse engineered a commercial spatial audio effect,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main.cs,2026-10-11T17:01:08.104843+00:00
+236,Distributed Consistent Hashing Router with Virtual Nodes,C#,🌐 Distributed Systems & Consensus,csharp-enterprise-lab,main.cs,2026-10-11T11:24:13.443473+00:00
+237,Gossip Protocol Node Failure Detector,C#,🌐 Distributed Systems & Consensus,csharp-enterprise-lab,main.cs,2026-10-11T09:32:39.687734+00:00
+238,"Git Bug - Distributed, offline-first bug tracker integrated in git",C#,🌐 Distributed Systems & Consensus,csharp-enterprise-lab,main.cs,2026-10-11T09:05:20.416772+00:00
+239,LMAX Disruptor Ring Buffer Pattern,C#,⚡ Low-Latency & Memory Systems,csharp-enterprise-lab,main.cs,2026-10-11T03:02:33.259007+00:00
+240,Conflict-free Replicated Data Type (CRDT) PN-Counter,C#,🌐 Distributed Systems & Consensus,csharp-enterprise-lab,main.cs,2026-10-10T22:52:26.268362+00:00
+241,Vector Clock Distributed Event Ordering Mechanism,C#,🌐 Distributed Systems & Consensus,csharp-enterprise-lab,main.cs,2026-10-10T17:48:22.386310+00:00
+242,Kruskal Minimum Spanning Tree with Disjoint-Set Union,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main.cs,2026-10-09T16:09:39.984066+00:00
+243,HyperLogLog Cardinality Estimation Algorithm,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main.cs,2026-10-09T16:07:18.251426+00:00
+244,Lamport Logical Timestamp Synchronization Engine,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main.cs,2026-10-09T15:08:06.087160+00:00
+245,Parallel Edge Ranking of Trees,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main.cs,2026-10-09T05:25:06.493650+00:00
+246,New Contraction Bounds for Multidimensional Asymptotic Consensus in Dynamic Networks,C#,🌐 Distributed Systems & Consensus,csharp-enterprise-lab,main.cs,2026-10-09T03:02:10.282735+00:00
+247,Bulletproof Idempotency in Distributed Payment Systems: Beyond the Client Header,C#,🌐 Distributed Systems & Consensus,csharp-enterprise-lab,main.cs,2026-10-08T14:09:15.752196+00:00
+248,Etcd - Distributed reliable key-value store for the most critical data of a distributed,C#,🌐 Distributed Systems & Consensus,csharp-enterprise-lab,main.cs,2026-10-08T12:05:29.443271+00:00
+249,Actor Model Concurrency Engine with Mailbox Processing,C#,🌐 Distributed Systems & Consensus,csharp-enterprise-lab,main.cs,2026-10-08T04:07:37.807578+00:00
+250,Topological Sort with Cycle Detection in Directed Graphs,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main.cs,2026-10-05T09:50:52.247616+00:00
+251,Peak-Aware One-Way Trading: Competitive and Learning-Augmented Algorithms for Energy,C++,🧠 Computational AI & Math Engines,cpp-systems-core,main.cpp,2026-10-23T23:02:45.760911+00:00
 252,Your hash table runs at 0.9. Its probe budget binds at 0.277. The load factor is not the,C++,🌐 Distributed Systems & Consensus,cpp-systems-core,main.cpp,2026-10-21T09:02:02.650408+00:00
 253,HyperLogLog Cardinality Estimation Algorithm,C++,🧠 Computational AI & Math Engines,cpp-systems-core,main.cpp,2026-10-21T01:01:23.052859+00:00
 254,Lamport Logical Timestamp Synchronization Engine,C++,🧠 Computational AI & Math Engines,cpp-systems-core,main.cpp,2026-10-19T17:01:31.091687+00:00

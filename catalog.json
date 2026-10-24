@@ -1,14 +1,14 @@
 [
   {
-    "topic": "Simulated Annealing Optimization for Combinatorial Graphs",
-    "language": "Haskell",
-    "folder": "haskell",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "haskell-functional-core",
-    "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261024_170134_simulated_annealing_optimizati",
-    "source_file": "main.hs",
-    "timestamp": "2026-10-24T17:01:34.509422+00:00",
-    "dir_name": "20261024_170134_simulated_annealing_optimizati"
+    "topic": "Custom Buddy Memory Allocation System",
+    "language": "C++",
+    "folder": "cpp",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "cpp-systems-core",
+    "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261024_190210_custom_buddy_memory_allocation",
+    "source_file": "main.cpp",
+    "timestamp": "2026-10-24T19:02:10.234647+00:00",
+    "dir_name": "20261024_190210_custom_buddy_memory_allocation"
   },
   {
     "topic": "Lock-Free Concurrent Ring Buffer Data Structure",
@@ -2101,6 +2101,17 @@
     "dir_name": "20261006_133240_singular_value_decomposition"
   },
   {
+    "topic": "Simulated Annealing Optimization for Combinatorial Graphs",
+    "language": "Haskell",
+    "folder": "haskell",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "haskell-functional-core",
+    "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261024_170134_simulated_annealing_optimizati",
+    "source_file": "main.hs",
+    "timestamp": "2026-10-24T17:01:34.509422+00:00",
+    "dir_name": "20261024_170134_simulated_annealing_optimizati"
+  },
+  {
     "topic": "Incremental Computation Graphs",
     "language": "Haskell",
     "folder": "haskell",
@@ -2748,17 +2759,6 @@
     "source_file": "main.cpp",
     "timestamp": "2026-10-23T23:02:45.760911+00:00",
     "dir_name": "20261023_230245_peak-aware_one-way_trading__co"
-  },
-  {
-    "topic": "Custom Buddy Memory Allocation System",
-    "language": "C++",
-    "folder": "cpp",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "cpp-systems-core",
-    "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261023_030125_custom_buddy_memory_allocation",
-    "source_file": "main.cpp",
-    "timestamp": "2026-10-23T03:01:25.849934+00:00",
-    "dir_name": "20261023_030125_custom_buddy_memory_allocation"
   },
   {
     "topic": "Your hash table runs at 0.9. Its probe budget binds at 0.277. The load factor is not the",
