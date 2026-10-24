@@ -1,14 +1,14 @@
 [
   {
-    "topic": "Dijkstra Shortest Path with Fibonacci Heap Priority Queue",
-    "language": "PHP",
-    "folder": "php",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "php-backend-core",
-    "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261024_210250_dijkstra_shortest_path_with_fi",
-    "source_file": "main.php",
-    "timestamp": "2026-10-24T21:02:50.199565+00:00",
-    "dir_name": "20261024_210250_dijkstra_shortest_path_with_fi"
+    "topic": "ForkTrace: following a food outbreak back through a graph",
+    "language": "C#",
+    "folder": "csharp",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "csharp-enterprise-lab",
+    "source_link": "https://github.com/myonathanlinkedin/csharp-enterprise-lab/tree/main/algorithms/20261024_230130_forktrace__following_a_food_ou",
+    "source_file": "main.cs",
+    "timestamp": "2026-10-24T23:01:30.442608+00:00",
+    "dir_name": "20261024_230130_forktrace__following_a_food_ou"
   },
   {
     "topic": "Lock-Free Concurrent Ring Buffer Data Structure",
@@ -1461,6 +1461,17 @@
     "source_file": "main.py",
     "timestamp": "2026-10-05T05:22:01.190630+00:00",
     "dir_name": "20261005_052201_finite_state_machine_tokenizer"
+  },
+  {
+    "topic": "Dijkstra Shortest Path with Fibonacci Heap Priority Queue",
+    "language": "PHP",
+    "folder": "php",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "php-backend-core",
+    "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261024_210250_dijkstra_shortest_path_with_fi",
+    "source_file": "main.php",
+    "timestamp": "2026-10-24T21:02:50.199565+00:00",
+    "dir_name": "20261024_210250_dijkstra_shortest_path_with_fi"
   },
   {
     "topic": "Safe Optimistic Lock Coupling",
