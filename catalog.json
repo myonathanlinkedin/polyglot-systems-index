@@ -1,14 +1,14 @@
 [
   {
-    "topic": "Peak-Aware One-Way Trading: Competitive and Learning-Augmented Algorithms for Energy",
-    "language": "C++",
-    "folder": "cpp",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "cpp-systems-core",
-    "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261023_230245_peak-aware_one-way_trading__co",
-    "source_file": "main.cpp",
-    "timestamp": "2026-10-23T23:02:45.760911+00:00",
-    "dir_name": "20261023_230245_peak-aware_one-way_trading__co"
+    "topic": "Raft Consensus Protocol Leader Election State Engine",
+    "language": "Java",
+    "folder": "java",
+    "category": "\ud83c\udf10 Distributed Systems & Consensus",
+    "spoke_repo": "java-enterprise-patterns",
+    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261024_010144_raft_consensus_protocol_leader",
+    "source_file": "main.java",
+    "timestamp": "2026-10-24T01:01:44.781150+00:00",
+    "dir_name": "20261024_010144_raft_consensus_protocol_leader"
   },
   {
     "topic": "Memory Pool Block Allocator with Free List",
@@ -1958,17 +1958,6 @@
     "dir_name": "20261015_054626_gossip_protocol_node_failure_d"
   },
   {
-    "topic": "Raft Consensus Protocol Leader Election State Engine",
-    "language": "Java",
-    "folder": "java",
-    "category": "\ud83c\udf10 Distributed Systems & Consensus",
-    "spoke_repo": "java-enterprise-patterns",
-    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261011_150530_raft_consensus_protocol_leader",
-    "source_file": "main.java",
-    "timestamp": "2026-10-11T15:05:30.241513+00:00",
-    "dir_name": "20261011_150530_raft_consensus_protocol_leader"
-  },
-  {
     "topic": "Java - All Algorithms implemented in Java",
     "language": "Java",
     "folder": "java",
@@ -2682,6 +2671,17 @@
     "source_file": "main.cs",
     "timestamp": "2026-10-05T09:50:52.247616+00:00",
     "dir_name": "20261005_095052_topological_sort_with_cycle_de"
+  },
+  {
+    "topic": "Peak-Aware One-Way Trading: Competitive and Learning-Augmented Algorithms for Energy",
+    "language": "C++",
+    "folder": "cpp",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "cpp-systems-core",
+    "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261023_230245_peak-aware_one-way_trading__co",
+    "source_file": "main.cpp",
+    "timestamp": "2026-10-23T23:02:45.760911+00:00",
+    "dir_name": "20261023_230245_peak-aware_one-way_trading__co"
   },
   {
     "topic": "Custom Buddy Memory Allocation System",
