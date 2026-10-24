@@ -1,14 +1,14 @@
 [
   {
-    "topic": "Google illegally cut down 250K trees in Finland for data center",
-    "language": "Kotlin",
-    "folder": "kotlin",
+    "topic": "Simulated Annealing Optimization for Combinatorial Graphs",
+    "language": "Haskell",
+    "folder": "haskell",
     "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "kotlin-systems-core",
-    "source_link": "https://github.com/myonathanlinkedin/kotlin-systems-core/tree/main/algorithms/20261024_150207_google_illegally_cut_down_250k",
-    "source_file": "main.kt",
-    "timestamp": "2026-10-24T15:02:07.049206+00:00",
-    "dir_name": "20261024_150207_google_illegally_cut_down_250k"
+    "spoke_repo": "haskell-functional-core",
+    "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261024_170134_simulated_annealing_optimizati",
+    "source_file": "main.hs",
+    "timestamp": "2026-10-24T17:01:34.509422+00:00",
+    "dir_name": "20261024_170134_simulated_annealing_optimizati"
   },
   {
     "topic": "Lock-Free Concurrent Ring Buffer Data Structure",
@@ -1716,6 +1716,17 @@
     "dir_name": "20261006_052811_optimal_compression_with_quant"
   },
   {
+    "topic": "Google illegally cut down 250K trees in Finland for data center",
+    "language": "Kotlin",
+    "folder": "kotlin",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "kotlin-systems-core",
+    "source_link": "https://github.com/myonathanlinkedin/kotlin-systems-core/tree/main/algorithms/20261024_150207_google_illegally_cut_down_250k",
+    "source_file": "main.kt",
+    "timestamp": "2026-10-24T15:02:07.049206+00:00",
+    "dir_name": "20261024_150207_google_illegally_cut_down_250k"
+  },
+  {
     "topic": "Red-Black Tree with Deterministic Balance Assertions",
     "language": "Kotlin",
     "folder": "kotlin",
@@ -2121,17 +2132,6 @@
     "source_file": "main.hs",
     "timestamp": "2026-10-22T09:01:29.528953+00:00",
     "dir_name": "20261022_090129_lamport_logical_timestamp_sync"
-  },
-  {
-    "topic": "Simulated Annealing Optimization for Combinatorial Graphs",
-    "language": "Haskell",
-    "folder": "haskell",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "haskell-functional-core",
-    "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261019_230129_simulated_annealing_optimizati",
-    "source_file": "main.hs",
-    "timestamp": "2026-10-19T23:01:29.976583+00:00",
-    "dir_name": "20261019_230129_simulated_annealing_optimizati"
   },
   {
     "topic": "HyperLogLog Cardinality Estimation Algorithm",
