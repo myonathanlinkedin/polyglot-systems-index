@@ -1,14 +1,14 @@
 [
   {
-    "topic": "Incremental Computation Graphs",
-    "language": "Haskell",
-    "folder": "haskell",
+    "topic": "Animating Algorithms in SwiftUI: A Step-Recorder Pattern for Visualising Sorts, Searches",
+    "language": "Swift",
+    "folder": "swift",
     "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "haskell-functional-core",
-    "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261024_070128_incremental_computation_graphs",
-    "source_file": "main.hs",
-    "timestamp": "2026-10-24T07:01:28.819974+00:00",
-    "dir_name": "20261024_070128_incremental_computation_graphs"
+    "spoke_repo": "swift-systems-lab",
+    "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261024_090127_animating_algorithms_in_swiftu",
+    "source_file": "main.swift",
+    "timestamp": "2026-10-24T09:01:27.782727+00:00",
+    "dir_name": "20261024_090127_animating_algorithms_in_swiftu"
   },
   {
     "topic": "Lock-Free Concurrent Ring Buffer Data Structure",
@@ -2066,6 +2066,17 @@
     "source_file": "core.java",
     "timestamp": "2026-10-06T13:32:40.973766+00:00",
     "dir_name": "20261006_133240_singular_value_decomposition"
+  },
+  {
+    "topic": "Incremental Computation Graphs",
+    "language": "Haskell",
+    "folder": "haskell",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "haskell-functional-core",
+    "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261024_070128_incremental_computation_graphs",
+    "source_file": "main.hs",
+    "timestamp": "2026-10-24T07:01:28.819974+00:00",
+    "dir_name": "20261024_070128_incremental_computation_graphs"
   },
   {
     "topic": "Cuckoo Filter High-Efficiency Deletion Structure",
