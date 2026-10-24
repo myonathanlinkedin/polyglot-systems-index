@@ -1,14 +1,14 @@
 [
   {
-    "topic": "Raft Consensus Protocol Leader Election State Engine",
-    "language": "Java",
-    "folder": "java",
-    "category": "\ud83c\udf10 Distributed Systems & Consensus",
-    "spoke_repo": "java-enterprise-patterns",
-    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261024_010144_raft_consensus_protocol_leader",
-    "source_file": "main.java",
-    "timestamp": "2026-10-24T01:01:44.781150+00:00",
-    "dir_name": "20261024_010144_raft_consensus_protocol_leader"
+    "topic": "Lock-Free Concurrent Ring Buffer Data Structure",
+    "language": "Zig",
+    "folder": "zig",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "zig-systems-lab",
+    "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261024_030126_lock-free_concurrent_ring_buff",
+    "source_file": "main.zig",
+    "timestamp": "2026-10-24T03:01:26.901756+00:00",
+    "dir_name": "20261024_030126_lock-free_concurrent_ring_buff"
   },
   {
     "topic": "Memory Pool Block Allocator with Free List",
@@ -196,17 +196,6 @@
     "source_file": "main.zig",
     "timestamp": "2026-10-09T13:46:55.211598+00:00",
     "dir_name": "20261009_134655_zero-copy_byte_packet_ring_buf"
-  },
-  {
-    "topic": "Lock-Free Concurrent Ring Buffer Data Structure",
-    "language": "Zig",
-    "folder": "zig",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "zig-systems-lab",
-    "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261009_124500_lock-free_concurrent_ring_buff",
-    "source_file": "main.zig",
-    "timestamp": "2026-10-09T12:45:00.106086+00:00",
-    "dir_name": "20261009_124500_lock-free_concurrent_ring_buff"
   },
   {
     "topic": "Linear Scan Register Allocation Algorithm",
@@ -1890,6 +1879,17 @@
     "source_file": "main.kt",
     "timestamp": "2026-10-06T12:32:17.335579+00:00",
     "dir_name": "20261006_123217_suffix_automaton_for_linear-ti"
+  },
+  {
+    "topic": "Raft Consensus Protocol Leader Election State Engine",
+    "language": "Java",
+    "folder": "java",
+    "category": "\ud83c\udf10 Distributed Systems & Consensus",
+    "spoke_repo": "java-enterprise-patterns",
+    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261024_010144_raft_consensus_protocol_leader",
+    "source_file": "main.java",
+    "timestamp": "2026-10-24T01:01:44.781150+00:00",
+    "dir_name": "20261024_010144_raft_consensus_protocol_leader"
   },
   {
     "topic": "HyperLogLog Cardinality Estimation Algorithm",
