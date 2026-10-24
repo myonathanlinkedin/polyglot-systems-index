@@ -1,14 +1,14 @@
 [
   {
-    "topic": "The Self-Healing Code Thesis: Compilers, AI, and the Next 10 Years of Software",
-    "language": "Ruby",
-    "folder": "ruby",
+    "topic": "Google illegally cut down 250K trees in Finland for data center",
+    "language": "Kotlin",
+    "folder": "kotlin",
     "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "ruby-algorithms-lab",
-    "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261024_130133_the_self-healing_code_thesis",
-    "source_file": "main.rb",
-    "timestamp": "2026-10-24T13:01:33.363530+00:00",
-    "dir_name": "20261024_130133_the_self-healing_code_thesis"
+    "spoke_repo": "kotlin-systems-core",
+    "source_link": "https://github.com/myonathanlinkedin/kotlin-systems-core/tree/main/algorithms/20261024_150207_google_illegally_cut_down_250k",
+    "source_file": "main.kt",
+    "timestamp": "2026-10-24T15:02:07.049206+00:00",
+    "dir_name": "20261024_150207_google_illegally_cut_down_250k"
   },
   {
     "topic": "Lock-Free Concurrent Ring Buffer Data Structure",
@@ -988,6 +988,17 @@
     "source_file": "main.rs",
     "timestamp": "2026-10-05T05:37:54.951640+00:00",
     "dir_name": "20261005_053754_lsm-tree_memtable_and_sstable"
+  },
+  {
+    "topic": "The Self-Healing Code Thesis: Compilers, AI, and the Next 10 Years of Software",
+    "language": "Ruby",
+    "folder": "ruby",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "ruby-algorithms-lab",
+    "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261024_130133_the_self-healing_code_thesis",
+    "source_file": "main.rb",
+    "timestamp": "2026-10-24T13:01:33.363530+00:00",
+    "dir_name": "20261024_130133_the_self-healing_code_thesis"
   },
   {
     "topic": "Cuckoo Filter High-Efficiency Deletion Structure",
