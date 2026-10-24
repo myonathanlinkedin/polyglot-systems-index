@@ -1,14 +1,14 @@
 [
   {
-    "topic": "Retries Are a Distributed Systems Bug Waiting to Happen: Designing Idempotent APIs",
-    "language": "Go",
-    "folder": "go",
-    "category": "\ud83c\udf10 Distributed Systems & Consensus",
-    "spoke_repo": "go-concurrency-lab",
-    "source_link": "https://github.com/myonathanlinkedin/go-concurrency-lab/tree/main/algorithms/20261024_110150_retries_are_a_distributed_syst",
-    "source_file": "main.go",
-    "timestamp": "2026-10-24T11:01:50.042687+00:00",
-    "dir_name": "20261024_110150_retries_are_a_distributed_syst"
+    "topic": "The Self-Healing Code Thesis: Compilers, AI, and the Next 10 Years of Software",
+    "language": "Ruby",
+    "folder": "ruby",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "ruby-algorithms-lab",
+    "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261024_130133_the_self-healing_code_thesis",
+    "source_file": "main.rb",
+    "timestamp": "2026-10-24T13:01:33.363530+00:00",
+    "dir_name": "20261024_130133_the_self-healing_code_thesis"
   },
   {
     "topic": "Lock-Free Concurrent Ring Buffer Data Structure",
@@ -2253,6 +2253,17 @@
     "source_file": "main.hs",
     "timestamp": "2026-10-05T04:58:28.975279+00:00",
     "dir_name": "20261005_045828_fast_fourier_transform__cooley"
+  },
+  {
+    "topic": "Retries Are a Distributed Systems Bug Waiting to Happen: Designing Idempotent APIs",
+    "language": "Go",
+    "folder": "go",
+    "category": "\ud83c\udf10 Distributed Systems & Consensus",
+    "spoke_repo": "go-concurrency-lab",
+    "source_link": "https://github.com/myonathanlinkedin/go-concurrency-lab/tree/main/algorithms/20261024_110150_retries_are_a_distributed_syst",
+    "source_file": "main.go",
+    "timestamp": "2026-10-24T11:01:50.042687+00:00",
+    "dir_name": "20261024_110150_retries_are_a_distributed_syst"
   },
   {
     "topic": "Distributed Consistent Hashing Router with Virtual Nodes",
