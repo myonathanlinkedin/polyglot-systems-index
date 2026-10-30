@@ -211,6 +211,7 @@
       box-shadow: 0 8px 22px rgba(15, 23, 42, 0.35);
       pointer-events: auto; cursor: pointer; white-space: normal;
       line-height: 1.32; text-align: left;
+      contain: layout style; will-change: transform; backface-visibility: hidden;
       transition: border-color 0.16s ease, box-shadow 0.16s ease;
     }
 
@@ -918,7 +919,7 @@ function buildWallSignTexture() {
 
   ctx.fillStyle = '#fbbf24';
   ctx.font = 'bold 24px system-ui, -apple-system, sans-serif';
-  ctx.fillText('🐎  Motto: "Work like a Horse/Kerja bagai kuda & Work Smart"', mX + 22, mY + 44);
+  ctx.fillText('🐎  Motto: "Work like a Horse/Kerja bagai Kuda & Work Smart"', mX + 22, mY + 44);
 
   ctx.fillStyle = '#fef08a';
   ctx.font = 'bold 22px system-ui, -apple-system, sans-serif';
@@ -927,10 +928,10 @@ function buildWallSignTexture() {
   // SECTION 2: 4-SHIFT LIVE ROSTER (x: 935 to 2260) - SOLVES USER REQUEST
   // "masukkan nama2 orang yang kerja saat ini current shift & next shift jadi orang tahu bahwa ini bukan random"
   const shifts = [
-    { id: 1, name: 'Morning', hours: '06:00 - 12:00 WIB', team: ['Bima Vance', 'Dr. Clara W.', 'Kevin Pratama', 'Dewi Lestari'] },
-    { id: 2, name: 'Afternoon', hours: '12:00 - 18:00 WIB', team: ['Marcus Pratama', 'Elena Kusuma', 'Sarah Oktavia', 'Fajar Nugraha'] },
-    { id: 3, name: 'Evening', hours: '18:00 - 00:00 WIB', team: ['Nadia Miller', 'Aris Munandar', 'Citra Anggraini', 'Dimas Setiawan'] },
-    { id: 4, name: 'Graveyard', hours: '00:00 - 06:00 WIB', team: ['Hendro Wibowo', 'Rina Handayani', 'Bagus Prakoso', 'Maya Safitri'] }
+    { id: 1, name: 'Morning', hours: '06:00 - 12:00 WIB', team: ['Bima Vance', 'Dr. Clara Wijaya', 'Marcus Pratama', 'Elena Kusuma', 'Nadia Miller'] },
+    { id: 2, name: 'Afternoon', hours: '12:00 - 18:00 WIB', team: ['Arthur Nugraha', 'Dr. Sarah Oktavia', 'Kevin Setiawan', 'Chloe Lestari', 'Audrey Wibisono'] },
+    { id: 3, name: 'Evening', hours: '18:00 - 00:00 WIB', team: ['Aris Hamilton', 'Dr. Citra Beaumont', 'David Siregar', 'Grace Pangestu', 'Stella Gunawan'] },
+    { id: 4, name: 'Graveyard', hours: '00:00 - 06:00 WIB', team: ['Lucas Wibowo', 'Dr. Hannah Handayani', 'Brandon Prakoso', 'Maya Safitri', 'Fiona Saputri'] }
   ];
 
   // Dynamic WIB calculation (UTC+7)
@@ -960,9 +961,11 @@ function buildWallSignTexture() {
   // Active Engineer Names
   ctx.fillStyle = '#ffffff';
   ctx.font = 'bold 22px system-ui, -apple-system, sans-serif';
-  ctx.fillText('👤 ' + curShift.team[0] + '   •   👤 ' + curShift.team[1], cAX + 24, cAY + 95);
+  ctx.font = 'bold 20px system-ui, -apple-system, sans-serif';
+  ctx.fillText('👤 ' + curShift.team[0] + '   •   👤 ' + curShift.team[1], cAX + 24, cAY + 93);
   ctx.fillStyle = '#e2e8f0';
-  ctx.fillText('👤 ' + curShift.team[2] + '   •   👤 ' + curShift.team[3], cAX + 24, cAY + 138);
+  ctx.font = 'bold 17px system-ui, -apple-system, sans-serif';
+  ctx.fillText('👤 ' + curShift.team[2] + '   •   👤 ' + curShift.team[3] + (curShift.team[4] ? '   •   👤 ' + curShift.team[4] : ''), cAX + 24, cAY + 137);
 
   // Verification status
   drawBox(ctx, cAX + 16, cAY + 168, cAW - 32, 40, 8, 'rgba(15, 23, 42, 0.70)', '#059669', 1.5);
@@ -983,9 +986,11 @@ function buildWallSignTexture() {
   // Standby Engineer Names
   ctx.fillStyle = '#ffffff';
   ctx.font = 'bold 22px system-ui, -apple-system, sans-serif';
-  ctx.fillText('⏳ ' + nextShift.team[0] + '   •   ⏳ ' + nextShift.team[1], cBX + 24, cBY + 95);
+  ctx.font = 'bold 20px system-ui, -apple-system, sans-serif';
+  ctx.fillText('⏳ ' + nextShift.team[0] + '   •   ⏳ ' + nextShift.team[1], cBX + 24, cBY + 93);
   ctx.fillStyle = '#cbd5e1';
-  ctx.fillText('⏳ ' + nextShift.team[2] + '   •   ⏳ ' + nextShift.team[3], cBX + 24, cBY + 138);
+  ctx.font = 'bold 17px system-ui, -apple-system, sans-serif';
+  ctx.fillText('⏳ ' + nextShift.team[2] + '   •   ⏳ ' + nextShift.team[3] + (nextShift.team[4] ? '   •   ⏳ ' + nextShift.team[4] : ''), cBX + 24, cBY + 137);
 
   // Verification status
   drawBox(ctx, cBX + 16, cBY + 168, cBW - 32, 40, 8, 'rgba(15, 23, 42, 0.70)', '#0284c7', 1.5);
@@ -3128,6 +3133,8 @@ class SpeechBubbleProjector {
         textEl: el.querySelector('.bubble-text'),
         defaultText: w.speech_bubble,
         chatCollapsed: false,
+        w: 220,
+        h: 52,
         worldPos: new THREE.Vector3(z.avatar_position[0], 2.52, z.avatar_position[2]),
       };
       if (toggleBtn) {
@@ -3136,6 +3143,10 @@ class SpeechBubbleProjector {
           itemObj.chatCollapsed = !itemObj.chatCollapsed;
           el.classList.toggle('chat-collapsed', itemObj.chatCollapsed);
           toggleBtn.textContent = itemObj.chatCollapsed ? '💬 Show' : '💬 Hide';
+          requestAnimationFrame(() => {
+            itemObj.w = itemObj.el.offsetWidth || (window.innerWidth <= 900 ? 170 : 220);
+            itemObj.h = itemObj.el.offsetHeight || (window.innerWidth <= 900 ? 36 : 42);
+          });
         });
       }
       el.addEventListener('click', (e) => {
@@ -3146,6 +3157,10 @@ class SpeechBubbleProjector {
       this.containerEl.appendChild(el);
       this.items.push(itemObj);
       this.itemsById[w.id] = itemObj;
+      requestAnimationFrame(() => {
+        itemObj.w = itemObj.el.offsetWidth || (window.innerWidth <= 900 ? 170 : 220);
+        itemObj.h = itemObj.el.offsetHeight || (window.innerWidth <= 900 ? 46 : 52);
+      });
     }
   }
 
@@ -3153,13 +3168,23 @@ class SpeechBubbleProjector {
     const item = this.itemsById[workerId];
     if (!item) return;
     item.worldPos.set(x, y, z);
-    if (item.activityEl && activityLabel) {
+    let textChanged = false;
+    if (item.activityEl && activityLabel && item.activityEl.textContent !== activityLabel) {
       item.activityEl.textContent = activityLabel;
+      textChanged = true;
     }
-    if (item.textEl) {
-      item.textEl.textContent = speechText || item.defaultText;
+    const newText = speechText || item.defaultText;
+    if (item.textEl && item.textEl.textContent !== newText) {
+      item.textEl.textContent = newText;
+      textChanged = true;
     }
     item.el.classList.toggle('talking', Boolean(isTalking));
+    if (textChanged) {
+      requestAnimationFrame(() => {
+        item.w = item.el.offsetWidth || (window.innerWidth <= 900 ? 170 : 220);
+        item.h = item.el.offsetHeight || (window.innerWidth <= 900 ? 46 : 52);
+      });
+    }
   }
 
   update(camera, selectedWorkerId) {
@@ -3182,8 +3207,7 @@ class SpeechBubbleProjector {
       this._projVec.copy(item.worldPos).project(camera);
       item.sx = (this._projVec.x * halfW) + halfW;
       item.sy = -(this._projVec.y * halfH) + halfH;
-      item.w = item.el.offsetWidth || (isMobile ? 170 : 260);
-      item.h = item.el.offsetHeight || (isMobile ? 46 : 56);
+      // Zero Layout Thrashing: Uses cached w & h rather than triggering forced synchronous reflow
       const halfBw = item.w * 0.5;
       item.sx = Math.max(minLeft + halfBw, Math.min(maxRight - halfBw, item.sx));
       item.sy = Math.max(topSafe + item.h, Math.min(winH - botSafe, item.sy));
@@ -3342,6 +3366,9 @@ class LabBossaAudioEngine {
     this.stepTimer = null;
     this.stepIndex = 0;
     this.trackIndex = 0;
+    this.nextStepTime = 0;
+    this.scheduleAheadTime = 0.35; // 350ms ahead lookahead buffer prevents mobile underruns
+    this.lookaheadIntervalMs = 30; // run scheduler every 30ms
 
     this.tracks = [
       {
@@ -3431,7 +3458,12 @@ class LabBossaAudioEngine {
     const AudioCtx = window.AudioContext || window.webkitAudioContext;
     if (!AudioCtx) return;
 
-    this.ctx = new AudioCtx();
+    // Mobile Best Practice: 'playback' latency hint enlarges hardware ring buffer
+    // prevents audio starvation & crackling during DOM popups/layout spikes
+    const isMobile = (window.innerWidth <= 900) || /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    this.ctx = new AudioCtx({
+      latencyHint: isMobile ? 'playback' : 'interactive',
+    });
     this.masterGain = this.ctx.createGain();
     this.masterGain.gain.value = 0.28;
 
@@ -3463,32 +3495,31 @@ class LabBossaAudioEngine {
     this.masterGain.connect(this.ctx.destination);
   }
 
-  _playPianoOrRhodes(midi, durationSec, volume = 0.14, isRhodes = false) {
+  _playPianoOrRhodes(midi, when, durationSec, volume = 0.14, isRhodes = false) {
     if (!this.ctx || !this.isPlaying) return;
-    const now = this.ctx.currentTime;
     const freq = this._midiToFreq(midi);
 
     const osc1 = this.ctx.createOscillator();
     const osc2 = this.ctx.createOscillator();
     osc1.type = isRhodes ? 'sine' : 'triangle';
     osc2.type = 'sine';
-    osc1.frequency.setValueAtTime(freq, now);
-    osc2.frequency.setValueAtTime(freq * (isRhodes ? 2.0 : 3.0), now);
-    osc2.detune.setValueAtTime(isRhodes ? 4 : -3, now);
+    osc1.frequency.setValueAtTime(freq, when);
+    osc2.frequency.setValueAtTime(freq * (isRhodes ? 2.0 : 3.0), when);
+    osc2.detune.setValueAtTime(isRhodes ? 4 : -3, when);
 
     const filter = this.ctx.createBiquadFilter();
     filter.type = 'lowpass';
-    filter.frequency.setValueAtTime(freq * 4.5, now);
-    filter.frequency.exponentialRampToValueAtTime(freq * 1.4, now + durationSec);
+    filter.frequency.setValueAtTime(freq * 4.5, when);
+    filter.frequency.exponentialRampToValueAtTime(Math.max(20, freq * 1.4), when + durationSec);
 
     const env = this.ctx.createGain();
     const g2 = this.ctx.createGain();
     g2.gain.value = isRhodes ? 0.18 : 0.08;
 
-    env.gain.setValueAtTime(0.0001, now);
-    env.gain.linearRampToValueAtTime(volume, now + 0.018);
-    env.gain.exponentialRampToValueAtTime(volume * 0.42, now + 0.18);
-    env.gain.exponentialRampToValueAtTime(0.0001, now + durationSec);
+    env.gain.setValueAtTime(0.0001, when);
+    env.gain.linearRampToValueAtTime(volume, when + 0.018);
+    env.gain.exponentialRampToValueAtTime(volume * 0.42, when + 0.18);
+    env.gain.exponentialRampToValueAtTime(0.0001, when + durationSec);
 
     osc1.connect(filter);
     osc2.connect(g2);
@@ -3497,33 +3528,32 @@ class LabBossaAudioEngine {
     env.connect(this.masterGain);
     env.connect(this.reverbInput);
 
-    osc1.start(now);
-    osc2.start(now);
-    osc1.stop(now + durationSec + 0.04);
-    osc2.stop(now + durationSec + 0.04);
+    osc1.start(when);
+    osc2.start(when);
+    osc1.stop(when + durationSec + 0.04);
+    osc2.stop(when + durationSec + 0.04);
   }
 
-  _playVibraphoneOrMarimba(midi, durationSec, volume = 0.12, isMarimba = false) {
+  _playVibraphoneOrMarimba(midi, when, durationSec, volume = 0.12, isMarimba = false) {
     if (!this.ctx || !this.isPlaying) return;
-    const now = this.ctx.currentTime;
     const freq = this._midiToFreq(midi);
 
     const oscFund = this.ctx.createOscillator();
     const oscHarm = this.ctx.createOscillator();
     oscFund.type = 'sine';
     oscHarm.type = 'sine';
-    oscFund.frequency.setValueAtTime(freq, now);
+    oscFund.frequency.setValueAtTime(freq, when);
     // Vibraphone/Marimba characteristic 4th harmonic overtone
-    oscHarm.frequency.setValueAtTime(freq * 4.0, now);
+    oscHarm.frequency.setValueAtTime(freq * 4.0, when);
 
     const harmEnv = this.ctx.createGain();
-    harmEnv.gain.setValueAtTime(volume * (isMarimba ? 0.25 : 0.15), now);
-    harmEnv.gain.exponentialRampToValueAtTime(0.0001, now + (isMarimba ? 0.09 : 0.22));
+    harmEnv.gain.setValueAtTime(volume * (isMarimba ? 0.25 : 0.15), when);
+    harmEnv.gain.exponentialRampToValueAtTime(0.0001, when + (isMarimba ? 0.09 : 0.22));
 
     const mainEnv = this.ctx.createGain();
-    mainEnv.gain.setValueAtTime(0.0001, now);
-    mainEnv.gain.linearRampToValueAtTime(volume, now + 0.01);
-    mainEnv.gain.exponentialRampToValueAtTime(0.0001, now + durationSec);
+    mainEnv.gain.setValueAtTime(0.0001, when);
+    mainEnv.gain.linearRampToValueAtTime(volume, when + 0.01);
+    mainEnv.gain.exponentialRampToValueAtTime(0.0001, when + durationSec);
 
     oscFund.connect(mainEnv);
     oscHarm.connect(harmEnv);
@@ -3531,61 +3561,59 @@ class LabBossaAudioEngine {
     mainEnv.connect(this.masterGain);
     mainEnv.connect(this.reverbInput);
 
-    oscFund.start(now);
-    oscHarm.start(now);
-    oscFund.stop(now + durationSec + 0.04);
-    oscHarm.stop(now + durationSec + 0.04);
+    oscFund.start(when);
+    oscHarm.start(when);
+    oscFund.stop(when + durationSec + 0.04);
+    oscHarm.stop(when + durationSec + 0.04);
   }
 
-  _playUprightBass(midi, durationSec, volume = 0.20) {
+  _playUprightBass(midi, when, durationSec, volume = 0.20) {
     if (!this.ctx || !this.isPlaying) return;
-    const now = this.ctx.currentTime;
     const freq = this._midiToFreq(midi);
 
     const osc = this.ctx.createOscillator();
     osc.type = 'triangle';
-    osc.frequency.setValueAtTime(freq, now);
+    osc.frequency.setValueAtTime(freq, when);
 
     const filter = this.ctx.createBiquadFilter();
     filter.type = 'lowpass';
-    filter.frequency.setValueAtTime(520, now);
-    filter.frequency.exponentialRampToValueAtTime(190, now + durationSec * 0.8);
+    filter.frequency.setValueAtTime(520, when);
+    filter.frequency.exponentialRampToValueAtTime(Math.max(20, 190), when + durationSec * 0.8);
 
     const env = this.ctx.createGain();
-    env.gain.setValueAtTime(0.0001, now);
-    env.gain.linearRampToValueAtTime(volume, now + 0.02);
-    env.gain.exponentialRampToValueAtTime(0.0001, now + durationSec);
+    env.gain.setValueAtTime(0.0001, when);
+    env.gain.linearRampToValueAtTime(volume, when + 0.02);
+    env.gain.exponentialRampToValueAtTime(0.0001, when + durationSec);
 
     osc.connect(filter);
     filter.connect(env);
     env.connect(this.masterGain);
 
-    osc.start(now);
-    osc.stop(now + durationSec + 0.03);
+    osc.start(when);
+    osc.stop(when + durationSec + 0.03);
   }
 
-  _playSoftBrushedShaker(accent = false) {
+  _playSoftBrushedShaker(when, accent = false) {
     if (!this.ctx || !this.isPlaying) return;
-    const now = this.ctx.currentTime;
     const osc = this.ctx.createOscillator();
     osc.type = 'triangle';
-    osc.frequency.setValueAtTime(accent ? 820 : 1240, now);
-    osc.frequency.exponentialRampToValueAtTime(320, now + 0.035);
+    osc.frequency.setValueAtTime(accent ? 820 : 1240, when);
+    osc.frequency.exponentialRampToValueAtTime(Math.max(20, 320), when + 0.035);
 
     const env = this.ctx.createGain();
-    env.gain.setValueAtTime(accent ? 0.032 : 0.016, now);
-    env.gain.exponentialRampToValueAtTime(0.0001, now + 0.04);
+    env.gain.setValueAtTime(accent ? 0.032 : 0.016, when);
+    env.gain.exponentialRampToValueAtTime(0.0001, when + 0.04);
 
     osc.connect(env);
     env.connect(this.masterGain);
-    osc.start(now);
-    osc.stop(now + 0.045);
+    osc.start(when);
+    osc.stop(when + 0.045);
   }
 
-  _tickStep() {
-    if (!this.isPlaying || !this.ctx) return;
+  // Lookahead Step Scheduler: Queues notes into Web Audio clock ahead of time
+  // Immune to main-thread UI layout reflows and DOM popup events
+  _scheduleStepAt(s, when) {
     const track = this.tracks[this.trackIndex];
-    const s = this.stepIndex;
     const barStep = s % 16;
     const chordIdx = Math.floor(s / 16) % track.chords.length;
     const chord = track.chords[chordIdx];
@@ -3596,7 +3624,7 @@ class LabBossaAudioEngine {
     // 1. Warm Bossa Upright Bass pattern (beats 1, 2-and, 3, 4-and)
     if (barStep === 0 || barStep === 6 || barStep === 8 || barStep === 14) {
       const bNote = (barStep === 6 || barStep === 14) ? bassNote + 7 : bassNote;
-      this._playUprightBass(bNote, 0.55, 0.19);
+      this._playUprightBass(bNote, when, 0.55, 0.19);
     }
 
     // 2. Syncopated Bossa-Jazz Studio Chord Comping & Arpeggios
@@ -3604,28 +3632,37 @@ class LabBossaAudioEngine {
       for (let i = 0; i < chord.length; i++) {
         // Gentle harp/piano roll stagger via chord note selection
         if (barStep === 0 || (i % 2 === barStep % 2)) {
-          this._playPianoOrRhodes(chord[i], 0.85, 0.065, isRhodes);
+          this._playPianoOrRhodes(chord[i], when, 0.85, 0.065, isRhodes);
         }
       }
     } else if (barStep % 2 === 0) {
       // Flowing Studio inner piano arpeggio
       const arpNote = chord[(barStep / 2) % chord.length] + 12;
-      this._playPianoOrRhodes(arpNote, 0.45, 0.055, isRhodes);
+      this._playPianoOrRhodes(arpNote, when, 0.45, 0.055, isRhodes);
     }
 
     // 3. Cheerful Vibraphone / Marimba Lead Melody
     if (barStep % 2 === 0 || barStep === 7 || barStep === 15) {
       const melIdx = (Math.floor(s / 2) + chordIdx * 2) % track.melody.length;
       const melNote = track.melody[melIdx];
-      this._playVibraphoneOrMarimba(melNote, isMarimba ? 0.55 : 0.95, 0.095, isMarimba);
+      this._playVibraphoneOrMarimba(melNote, when, isMarimba ? 0.55 : 0.95, 0.095, isMarimba);
     }
 
     // 4. Subtle Bossa-Nova brushed pulse
     if (barStep % 4 === 0 || barStep === 3 || barStep === 11) {
-      this._playSoftBrushedShaker(barStep === 3 || barStep === 11);
+      this._playSoftBrushedShaker(when, barStep === 3 || barStep === 11);
     }
+  }
 
-    this.stepIndex += 1;
+  _runScheduler() {
+    if (!this.isPlaying || !this.ctx) return;
+    const track = this.tracks[this.trackIndex];
+    const stepDuration = (60.0 / track.bpm) / 4.0;
+    while (this.nextStepTime < this.ctx.currentTime + this.scheduleAheadTime) {
+      this._scheduleStepAt(this.stepIndex, this.nextStepTime);
+      this.nextStepTime += stepDuration;
+      this.stepIndex += 1;
+    }
   }
 
   start() {
@@ -3634,18 +3671,22 @@ class LabBossaAudioEngine {
     if (this.ctx.state === 'suspended') {
       this.ctx.resume().catch(() => {});
     }
+    if (this.masterGain) {
+      this.masterGain.gain.cancelScheduledValues(this.ctx.currentTime);
+      this.masterGain.gain.setValueAtTime(0.0001, this.ctx.currentTime);
+      this.masterGain.gain.setTargetAtTime(0.28, this.ctx.currentTime, 0.05);
+    }
     if (this.isPlaying) return;
     this.isPlaying = true;
+    this.nextStepTime = this.ctx.currentTime + 0.05;
     this._scheduleLoop();
     this._updateButtons();
   }
 
   _scheduleLoop() {
     if (this.stepTimer) clearInterval(this.stepTimer);
-    const track = this.tracks[this.trackIndex];
-    const stepMs = Math.round((60000 / track.bpm) / 4);
-    this._tickStep();
-    this.stepTimer = setInterval(() => this._tickStep(), stepMs);
+    this._runScheduler();
+    this.stepTimer = setInterval(() => this._runScheduler(), this.lookaheadIntervalMs);
   }
 
   stop() {
@@ -3653,6 +3694,9 @@ class LabBossaAudioEngine {
     if (this.stepTimer) {
       clearInterval(this.stepTimer);
       this.stepTimer = null;
+    }
+    if (this.masterGain && this.ctx) {
+      this.masterGain.gain.setTargetAtTime(0.0001, this.ctx.currentTime, 0.02);
     }
     this._updateButtons();
   }
@@ -3670,6 +3714,9 @@ class LabBossaAudioEngine {
   nextTrack() {
     this.trackIndex = (this.trackIndex + 1) % this.tracks.length;
     this.stepIndex = 0;
+    if (this.ctx) {
+      this.nextStepTime = this.ctx.currentTime + 0.05;
+    }
     if (!this.isPlaying) {
       this.userMuted = false;
       this.start();
@@ -4231,38 +4278,40 @@ class LabBossaAudioEngine {
       const workers = payload.workers || [];
 
       // Apply factual 4-shift rotation to active workers and discussions based strictly on local WIB time
+      // 100% strict gender-avatar alignment and English-Indonesian hybrid naming:
+      // worker_kernel: Male | worker_research: Female (Dr.) | worker_hardware: Male | worker_release: Female | worker_lounge: Female
       const shiftRosters = [
         // Shift 1: Pagi (06:00 - 12:00 WIB)
         {
           worker_kernel: { name: 'Bima Vance', role: 'Principal Systems Architect' },
           worker_research: { name: 'Dr. Clara Wijaya', role: 'Principal Research Scientist' },
-          worker_hardware: { name: 'Kevin Pratama', role: 'Hardware & Systems Optimization Lead' },
-          worker_release: { name: 'Dewi Lestari', role: 'Open-Source Portfolio Lead' },
-          worker_lounge: { name: 'Rizky Ramadhan', role: 'Research Strategy & Collaboration Lead' },
+          worker_hardware: { name: 'Marcus Pratama', role: 'Hardware & Systems Optimization Lead' },
+          worker_release: { name: 'Elena Kusuma', role: 'Open-Source Portfolio Lead' },
+          worker_lounge: { name: 'Nadia Miller', role: 'Research Strategy & Collaboration Lead' },
         },
         // Shift 2: Siang (12:00 - 18:00 WIB)
         {
-          worker_kernel: { name: 'Fajar Nugraha', role: 'Principal Systems Architect' },
-          worker_research: { name: 'Sarah Oktavia', role: 'Principal Research Scientist' },
-          worker_hardware: { name: 'Marcus Pratama', role: 'Algorithmic Quality & Complexity Lead' },
-          worker_release: { name: 'Elena Kusuma', role: 'Open-Source Portfolio Lead' },
-          worker_lounge: { name: 'Aditya Wibisono', role: 'Research Strategy & Collaboration Lead' },
+          worker_kernel: { name: 'Arthur Nugraha', role: 'Principal Systems Architect' },
+          worker_research: { name: 'Dr. Sarah Oktavia', role: 'Principal Research Scientist' },
+          worker_hardware: { name: 'Kevin Setiawan', role: 'Algorithmic Quality & Complexity Lead' },
+          worker_release: { name: 'Chloe Lestari', role: 'Open-Source Portfolio Lead' },
+          worker_lounge: { name: 'Audrey Wibisono', role: 'Research Strategy & Collaboration Lead' },
         },
         // Shift 3: Malam (18:00 - 00:00 WIB)
         {
-          worker_kernel: { name: 'Aris Munandar', role: 'Principal Systems Architect' },
-          worker_research: { name: 'Citra Anggraini', role: 'Principal Research Scientist' },
-          worker_hardware: { name: 'Dimas Setiawan', role: 'Algorithmic Quality & Complexity Lead' },
-          worker_release: { name: 'Tariq Hidayat', role: 'Open-Source Portfolio Lead' },
-          worker_lounge: { name: 'Nadia Miller', role: 'Research Strategy & Collaboration Lead' },
+          worker_kernel: { name: 'Aris Hamilton', role: 'Principal Systems Architect' },
+          worker_research: { name: 'Dr. Citra Beaumont', role: 'Principal Research Scientist' },
+          worker_hardware: { name: 'David Siregar', role: 'Algorithmic Quality & Complexity Lead' },
+          worker_release: { name: 'Grace Pangestu', role: 'Open-Source Portfolio Lead' },
+          worker_lounge: { name: 'Stella Gunawan', role: 'Research Strategy & Collaboration Lead' },
         },
         // Shift 4: Dini Hari (00:00 - 06:00 WIB)
         {
-          worker_kernel: { name: 'Hendro Wibowo', role: 'Principal Systems Architect' },
-          worker_research: { name: 'Rina Handayani', role: 'Principal Research Scientist' },
-          worker_hardware: { name: 'Bagus Prakoso', role: 'Algorithmic Quality & Complexity Lead' },
+          worker_kernel: { name: 'Lucas Wibowo', role: 'Principal Systems Architect' },
+          worker_research: { name: 'Dr. Hannah Handayani', role: 'Principal Research Scientist' },
+          worker_hardware: { name: 'Brandon Prakoso', role: 'Algorithmic Quality & Complexity Lead' },
           worker_release: { name: 'Maya Safitri', role: 'Open-Source Portfolio Lead' },
-          worker_lounge: { name: 'Ilham Saputra', role: 'Research Strategy & Collaboration Lead' },
+          worker_lounge: { name: 'Fiona Saputri', role: 'Research Strategy & Collaboration Lead' },
         },
       ];
 
@@ -4292,7 +4341,8 @@ class LabBossaAudioEngine {
       const nameReplacements = {};
       for (const [wid, defName] of Object.entries(defaultNames)) {
         if (activeRoster[wid]) {
-          nameReplacements[defName] = activeRoster[wid].name.split(' ')[0];
+          const cleanName = activeRoster[wid].name.replace(/^Dr[.][ ]*/, '');
+          nameReplacements[defName] = cleanName.split(' ')[0];
         }
       }
       if (payload.daily_discussions) {
