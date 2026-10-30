@@ -1,14 +1,14 @@
 [
   {
-    "topic": "Lamport Logical Timestamp Synchronization Engine",
+    "topic": "Conjugate Gradient Linear System Solver",
     "language": "Python",
     "folder": "python",
     "category": "\ud83e\udde0 Computational AI & Math Engines",
     "spoke_repo": "python-advanced-lab",
-    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261030_170117_lamport_logical_timestamp_sync",
+    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261030_190125_conjugate_gradient_linear_syst",
     "source_file": "main.py",
-    "timestamp": "2026-10-30T17:01:17.086739+00:00",
-    "dir_name": "20261030_170117_lamport_logical_timestamp_sync"
+    "timestamp": "2026-10-30T19:01:25.170705+00:00",
+    "dir_name": "20261030_190125_conjugate_gradient_linear_syst"
   },
   {
     "topic": "LSM-Tree MemTable and SSTable Flush Compaction Engine",
@@ -1551,6 +1551,17 @@
     "dir_name": "20261005_062427_two-phase_commit_protocol_coor"
   },
   {
+    "topic": "Lamport Logical Timestamp Synchronization Engine",
+    "language": "Python",
+    "folder": "python",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "python-advanced-lab",
+    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261030_170117_lamport_logical_timestamp_sync",
+    "source_file": "main.py",
+    "timestamp": "2026-10-30T17:01:17.086739+00:00",
+    "dir_name": "20261030_170117_lamport_logical_timestamp_sync"
+  },
+  {
     "topic": "Suffix Automaton for Linear-Time Substring Indexing",
     "language": "Python",
     "folder": "python",
@@ -2044,17 +2055,6 @@
     "source_file": "main.py",
     "timestamp": "2026-10-25T07:01:57.060322+00:00",
     "dir_name": "20261025_070157_k-d_tree_spatial_partitioning"
-  },
-  {
-    "topic": "Conjugate Gradient Linear System Solver",
-    "language": "Python",
-    "folder": "python",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "python-advanced-lab",
-    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261021_170137_conjugate_gradient_linear_syst",
-    "source_file": "main.py",
-    "timestamp": "2026-10-21T17:01:37.892377+00:00",
-    "dir_name": "20261021_170137_conjugate_gradient_linear_syst"
   },
   {
     "topic": "One parser, two bugs, many routers: Exploiting Broadcom Aether-Flux across eCos, Linux",
