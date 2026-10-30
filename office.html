@@ -50,83 +50,62 @@
       box-shadow: 0 10px 34px rgba(0, 0, 0, 0.48), inset 0 1px 0 rgba(255, 255, 255, 0.08);
     }
 
-    /* 7.1 Topbar Navigation (Never clips brand title on desktop or mobile) */
-    #hud-topbar {
-      position: fixed; top: 10px; left: 12px; right: 12px; min-height: 48px;
-      z-index: 30; display: flex; align-items: center; justify-content: space-between;
-      padding: 6px 12px; gap: 8px; flex-wrap: wrap;
+    /* 7.1 Top HUD Container (Mirrors 7.2 Bottom HUD Architecture Exactly) */
+    #hud-top-container {
+      position: fixed; top: 10px; left: 14px; right: 14px; z-index: 30;
+      display: flex; flex-direction: column; align-items: center; gap: 6px; pointer-events: none;
     }
 
-    #hud-topbar.collapsed { display: none !important; }
+    #hud-top-container.collapsed { display: none !important; }
     #btn-restore-topbar.visible { display: inline-flex !important; }
 
-    .topbar-left {
-      display: flex; align-items: center; gap: 8px; flex-wrap: wrap; min-width: 0;
+    #hud-top-ticker {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 5px 14px; border-radius: 999px;
+      font-family: var(--font-mono); font-size: 0.70rem; color: #e2e8f0;
+      max-width: min(960px, calc(100vw - 20px));
+      pointer-events: auto; white-space: nowrap; overflow: hidden;
     }
 
-    .panel-toggles {
-      display: flex; align-items: center; gap: 5px; flex-shrink: 0;
+    #hud-top-ticker .brand-pulse-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #10b981; box-shadow: 0 0 8px #10b981; flex-shrink: 0;
     }
 
-    .brand-cluster {
-      display: flex; align-items: center; gap: 6px; min-width: 0;
+    #hud-top-ticker .brand-title {
+      font-family: var(--font-mono); font-weight: 800; color: #ffffff;
     }
 
-    .brand-pulse-dot {
-      width: 9px; height: 9px; border-radius: 50%;
-      background: #10b981; box-shadow: 0 0 10px #10b981; flex-shrink: 0;
+    .ticker-sep {
+      color: rgba(148, 163, 184, 0.4); font-size: 0.65rem;
     }
 
-    .brand-title {
-      font-family: var(--font-mono); font-size: 0.72rem; font-weight: 800;
-      letter-spacing: 0.02em; color: #ffffff; white-space: nowrap;
+    #hud-top-ticker strong { color: var(--accent-cyan); }
+    #hud-top-ticker #stat-visitors { color: #38bdf8; font-weight: 700; }
+    #hud-top-ticker #stat-shift { color: #34d399; font-weight: 700; }
+
+    #hud-topbar {
+      display: flex; align-items: center; justify-content: center;
+      flex-wrap: wrap; gap: 5px; padding: 6px 10px;
+      max-width: min(980px, calc(100vw - 20px)); pointer-events: auto;
     }
 
-    .brand-tag {
-      display: inline-flex; align-items: center; gap: 4px;
-      padding: 3px 8px; border-radius: 999px;
-      font-family: var(--font-mono); font-size: 0.62rem; font-weight: 700;
-      background: rgba(16, 185, 129, 0.18); border: 1px solid rgba(16, 185, 129, 0.48);
-      color: #34d399; white-space: nowrap; flex-shrink: 0;
-    }
-
-    @media (max-width: 1680px) { .brand-tag { display: none; } }
-    @media (max-width: 1460px) { .telemetry-pills { display: none !important; } }
-
-    .telemetry-pills {
-      display: flex; align-items: center; gap: 5px; flex-wrap: nowrap; flex-shrink: 0;
-    }
-
-    .telemetry-pill {
-      display: inline-flex; align-items: center; gap: 4px;
-      padding: 4px 8px; border-radius: 8px;
-      font-family: var(--font-mono); font-size: 0.67rem; color: var(--text-secondary);
-      background: rgba(15, 23, 42, 0.72); border: 1px solid rgba(148, 163, 184, 0.18);
-      white-space: nowrap;
-    }
-
-    .telemetry-pill strong { color: var(--accent-cyan); }
-
-    .topbar-actions {
-      display: flex; align-items: center; gap: 5px; flex-wrap: wrap; flex-shrink: 0;
-    }
-
-    .hud-btn {
+    .top-btn {
       display: inline-flex; align-items: center; justify-content: center;
-      gap: 4px; height: 30px; padding: 0 7px; border-radius: 8px;
-      font-family: var(--font-sans); font-size: 0.68rem; font-weight: 600;
+      gap: 4px; padding: 6px 9px; border-radius: 8px;
+      font-family: var(--font-mono); font-size: 0.69rem; font-weight: 600;
       color: #e2e8f0; background: rgba(15, 23, 42, 0.78);
-      border: 1px solid rgba(148, 163, 184, 0.24);
-      cursor: pointer; text-decoration: none; transition: all 0.16s ease;
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      cursor: pointer; text-decoration: none; transition: all 0.15s ease;
       white-space: nowrap; flex-shrink: 0;
     }
 
-    .hud-btn:hover, .hud-btn.active {
+    .top-btn:hover, .top-btn.active {
       background: rgba(16, 185, 129, 0.24); border-color: rgba(52, 211, 153, 0.65);
-      color: #ffffff; box-shadow: 0 0 12px rgba(16, 185, 129, 0.28);
+      color: #ffffff; box-shadow: 0 0 10px rgba(16, 185, 129, 0.28);
     }
 
-    .hud-btn.primary {
+    .top-btn.primary {
       background: linear-gradient(135deg, rgba(88, 28, 135, 0.72), rgba(14, 116, 144, 0.78));
       border-color: rgba(168, 85, 247, 0.5); color: #ffffff;
     }
@@ -404,30 +383,26 @@
 
     /* 8.3 Responsive Smartphone & Tablet Layout (360px - 900px) */
     @media (max-width: 900px) {
+      #hud-top-container {
+        top: 6px; left: 8px; right: 8px; gap: 5px;
+      }
+      #hud-top-ticker {
+        padding: 5px 10px; font-size: 0.64rem; border-radius: 999px;
+        width: 100%; max-width: min(620px, calc(100vw - 16px));
+        white-space: normal; line-height: 1.35; text-align: center;
+        flex-wrap: wrap; row-gap: 2px; column-gap: 6px;
+      }
+      .mobile-hide-telemetry { display: none !important; }
       #hud-topbar {
-        top: 8px; left: 8px; right: 8px; padding: 7px 10px; gap: 5px;
+        width: 100%; max-width: min(620px, calc(100vw - 16px));
+        gap: 4px; padding: 5px 6px; justify-content: center;
       }
-      .topbar-left {
-        width: 100%; flex-direction: column; align-items: flex-start; gap: 5px;
-      }
-      .brand-cluster {
-        width: 100%; order: -1;
-      }
-      .brand-title {
-        font-size: 0.66rem; white-space: normal; line-height: 1.25; word-break: break-word;
-      }
-      .panel-toggles {
-        width: 100%; flex-wrap: wrap; gap: 4px;
-      }
-      .telemetry-pills { display: none !important; }
+      .top-btn { padding: 5px 7px; font-size: 0.66rem; }
       .btn-text-full { display: none; }
       .btn-text-short { display: inline; }
-      .topbar-actions {
-        width: 100%; flex-wrap: wrap; justify-content: flex-start; gap: 4px;
-      }
-      .hud-btn { height: 28px; padding: 0 7px; font-size: 0.67rem; }
       #hud-left {
-        top: 112px; left: 8px; width: min(280px, calc(100vw - 16px));
+        top: 56px; left: 8px; width: min(290px, calc(100vw - 16px));
+        max-height: calc(100dvh - 110px);
       }
       #desk-drawer {
         top: auto; left: 8px; right: 8px; bottom: 8px;
@@ -467,65 +442,57 @@
   <canvas id="office-canvas" aria-label="3D Autonomous Virtual Office Diorama"></canvas>
   <div id="worker-bubbles" aria-live="polite"></div>
 
-  <!-- 7.1 Topbar Navigation -->
-  <button type="button" id="btn-restore-topbar" class="hud-btn glass-panel" title="Show Top Panel" style="position:fixed;top:10px;left:12px;z-index:55;display:none;padding:0 12px;height:32px;border-color:rgba(52,211,153,0.65);background:rgba(15,23,42,0.92);">▼ Show Top Panel</button>
-  <header id="hud-topbar" class="glass-panel">
-    <div class="topbar-left">
-      <div class="panel-toggles">
-        <button type="button" id="btn-toggle-panel" class="hud-btn active" title="Show/Hide Left Divisions Panel (H)">☰ <span class="btn-text-full">Left</span><span class="btn-text-short">Left</span></button>
-        <button type="button" id="btn-toggle-drawer" class="hud-btn" title="Show/Hide Right Inspector Panel">📋 <span class="btn-text-full">Right</span><span class="btn-text-short">Right</span></button>
-        <button type="button" id="btn-toggle-bottom" class="hud-btn active" title="Show/Hide Bottom Panel &amp; Notification">🎛️ <span class="btn-text-full">Bottom</span><span class="btn-text-short">Bottom</span></button>
-        <button type="button" id="btn-hide-topbar" class="hud-btn" title="Hide Top Panel">▲ <span class="btn-text-full">Hide Top</span><span class="btn-text-short">Top</span></button>
-      </div>
-      <div class="brand-cluster">
-        <span class="brand-pulse-dot" title="24/7 Agentic Autonomous Pipeline Active"></span>
-        <span class="brand-title">MATEUS YONATHAN // AGENTIC AUTONOMOUS LAB</span>
-        <span class="brand-tag">● WE WORK 24 HOURS</span>
-      </div>
+  <!-- 7.1 Top HUD Container (Mirrors 7.2 Bottom HUD Architecture) -->
+  <button type="button" id="btn-restore-topbar" class="top-btn glass-panel" title="Show Top HUD" style="position:fixed;top:10px;left:14px;z-index:55;display:none;padding:0 12px;height:32px;border-color:rgba(52,211,153,0.65);background:rgba(15,23,42,0.92);">▼ Show Top HUD</button>
+  <div id="hud-top-container">
+    <div id="hud-top-ticker" class="glass-panel" title="24/7 Autonomous Lab Telemetry">
+      <span class="brand-pulse-dot" title="24/7 Agentic Autonomous Pipeline Active"></span>
+      <span class="brand-title">MATEUS YONATHAN // LAB</span>
+      <span class="ticker-sep mobile-hide-telemetry">•</span>
+      <span class="mobile-hide-telemetry">Mods: <strong id="stat-modules">411</strong></span>
+      <span class="ticker-sep mobile-hide-telemetry">•</span>
+      <span class="mobile-hide-telemetry">Papers: <strong id="stat-papers">114</strong></span>
+      <span class="ticker-sep">•</span>
+      <span title="Total Real-Time Lab Visitors">👁️ Visitors: <strong id="stat-visitors">1</strong></span>
+      <span class="ticker-sep">•</span>
+      <span id="stat-shift-pill" title="4 Rotating Shifts (6h each = 24h) with Biometric Fingerprint Attendance">🕒 <strong id="stat-shift">Shift 4: Overnight (00:00-06:00 WIB)</strong></span>
+      <span class="ticker-sep mobile-hide-telemetry">•</span>
+      <span class="mobile-hide-telemetry">FPS: <strong id="stat-fps">60</strong></span>
     </div>
 
-    <div class="telemetry-pills">
-      <span class="telemetry-pill">Modules: <strong id="stat-modules">411</strong></span>
-      <span class="telemetry-pill">Papers: <strong id="stat-papers">114</strong></span>
-      <span class="telemetry-pill" title="4 Rotating Shifts (6h each = 24h) with Biometric Fingerprint Attendance">🕒 <strong id="stat-shift">Shift 3/4 (18:00-00:00 WIB)</strong> • 🟢 Fingerprint Verified</span>
-      <span class="telemetry-pill">FPS: <strong id="stat-fps">60</strong></span>
-    </div>
-
-    <div class="topbar-actions">
-      <button type="button" id="btn-office-music" class="hud-btn" title="Toggle Studio Bossa-Jazz Soundtrack">
+    <nav id="hud-topbar" class="glass-panel" aria-label="Navigation &amp; Controls">
+      <button type="button" id="btn-toggle-panel" class="top-btn active" title="Show/Hide Left Divisions Panel (H)">☰ <span class="btn-text-full">Left</span><span class="btn-text-short">Left</span></button>
+      <button type="button" id="btn-toggle-drawer" class="top-btn" title="Show/Hide Right Inspector Panel">📋 <span class="btn-text-full">Right</span><span class="btn-text-short">Right</span></button>
+      <button type="button" id="btn-toggle-bottom" class="top-btn active" title="Show/Hide Bottom Camera Dock">🎛️ <span class="btn-text-full">Bottom</span><span class="btn-text-short">Bottom</span></button>
+      <button type="button" id="btn-office-music" class="top-btn" title="Toggle Studio Soundtrack">
         <span class="btn-text-full">🎵 Music: OFF</span>
         <span class="btn-text-short">🎵 OFF</span>
       </button>
-      <button type="button" id="btn-office-track" class="hud-btn" title="Switch Studio Soundtrack">
+      <button type="button" id="btn-office-track" class="top-btn" title="Switch Studio Soundtrack">
         <span class="btn-text-full">⏭ Studio Piano</span>
         <span class="btn-text-short">⏭</span>
       </button>
-      <button type="button" id="btn-office-theme" class="hud-btn active" title="Toggle Bright White / Night Mode">
-        <span class="btn-text-full">☀️ Bright White</span>
+      <button type="button" id="btn-office-theme" class="top-btn active" title="Toggle Bright White / Night Mode">
+        <span class="btn-text-full">☀️ White</span>
         <span class="btn-text-short">☀️</span>
       </button>
-      <a href="constellation.html" class="hud-btn primary" title="Open 3D Celestial Constellation Graph">
-        <span class="btn-text-full">🌌 Constellation ↗</span>
+      <a href="constellation.html" class="top-btn primary" title="Open 3D Celestial Constellation Graph">
+        <span class="btn-text-full">🌌 Graph ↗</span>
         <span class="btn-text-short">🌌 Graph</span>
       </a>
-      <a href="index.html" class="hud-btn" title="Back to Main Catalog">
-        <span class="btn-text-full">📚 Catalog ↗</span>
-        <span class="btn-text-short">⬅ Catalog</span>
+      <a href="index.html" class="top-btn" title="Back to Main Catalog">
+        <span class="btn-text-full">📚 Catalog</span>
+        <span class="btn-text-short">📚 Catalog</span>
       </a>
-      <a href="https://github.com/myonathanlinkedin" target="_blank" rel="noopener" class="hud-btn" title="GitHub Profile">
+      <a href="https://github.com/myonathanlinkedin" target="_blank" rel="noopener" class="top-btn" title="GitHub Profile">
         <span class="btn-text-full">GitHub ↗</span>
         <span class="btn-text-short">GH ↗</span>
       </a>
-      <button type="button" id="btn-fullscreen" class="hud-btn" title="Toggle Fullscreen">
-        <span class="btn-text-full">⛶</span>
-        <span class="btn-text-short">⛶</span>
-      </button>
-      <button type="button" id="btn-help-office" class="hud-btn" title="What Is This? Visitor Guide">
-        <span class="btn-text-full">❓ Guide</span>
-        <span class="btn-text-short">❓</span>
-      </button>
-    </div>
-  </header>
+      <button type="button" id="btn-fullscreen" class="top-btn" title="Toggle Fullscreen">⛶</button>
+      <button type="button" id="btn-help-office" class="top-btn" title="Visitor Guide">❓ <span class="btn-text-full">Guide</span></button>
+      <button type="button" id="btn-hide-topbar" class="top-btn" title="Hide Top HUD">✕ Hide</button>
+    </nav>
+  </div>
 
   <div id="office-help-modal" role="dialog" aria-modal="true" aria-label="Visitor Guide - Agentic Autonomous Lab">
     <div class="glass-panel office-help-card">
@@ -554,6 +521,10 @@
     <div class="panel-header">
       <span class="panel-title">24/7 Lab Divisions (5)</span>
       <button type="button" id="btn-close-panel" class="panel-close" title="Hide Panel (H)">✕</button>
+    </div>
+    <div class="hud-left-meta" style="display:flex;align-items:center;justify-content:space-between;padding:8px 10px;margin-bottom:12px;border-radius:10px;background:rgba(2,6,23,0.72);border:1px solid rgba(148,163,184,0.18);font-family:var(--font-mono);font-size:0.72rem;">
+      <div>👁️ Visitors: <strong class="stat-visitors-val" style="color:#38bdf8;">1</strong></div>
+      <div>🕒 <strong class="stat-shift-val" style="color:#34d399;">Shift 4: Overnight</strong></div>
     </div>
     <div id="zone-selector-list" class="zone-list"></div>
     <div class="panel-header" style="margin-top:6px;">
@@ -929,9 +900,9 @@ function buildWallSignTexture() {
   // "masukkan nama2 orang yang kerja saat ini current shift & next shift jadi orang tahu bahwa ini bukan random"
   const shifts = [
     { id: 1, name: 'Morning', hours: '06:00 - 12:00 WIB', team: ['Bima Vance', 'Dr. Clara Wijaya', 'Marcus Pratama', 'Elena Kusuma', 'Nadia Miller'] },
-    { id: 2, name: 'Afternoon', hours: '12:00 - 18:00 WIB', team: ['Arthur Nugraha', 'Dr. Sarah Oktavia', 'Kevin Setiawan', 'Chloe Lestari', 'Audrey Wibisono'] },
+    { id: 2, name: 'Afternoon', hours: '12:00 - 18:00 WIB', team: ['Arthur Nugraha', 'Sarah Oktavia, Ph.D.', 'Kevin Setiawan', 'Chloe Lestari', 'Audrey Wibisono'] },
     { id: 3, name: 'Evening', hours: '18:00 - 00:00 WIB', team: ['Aris Hamilton', 'Dr. Citra Beaumont', 'David Siregar', 'Grace Pangestu', 'Stella Gunawan'] },
-    { id: 4, name: 'Graveyard', hours: '00:00 - 06:00 WIB', team: ['Lucas Wibowo', 'Dr. Hannah Handayani', 'Brandon Prakoso', 'Maya Safitri', 'Fiona Saputri'] }
+    { id: 4, name: 'Overnight', hours: '00:00 - 06:00 WIB', team: ['Lucas Wibowo', 'Hannah Handayani, Ph.D.', 'Brandon Prakoso', 'Maya Safitri', 'Fiona Saputri'] }
   ];
 
   // Dynamic WIB calculation (UTC+7)
@@ -3360,23 +3331,19 @@ class LabBossaAudioEngine {
     this.trackBtnEl = trackBtnEl;
     this.ctx = null;
     this.masterGain = null;
-    this.reverbNode = null;
     this.isPlaying = false;
     this.userMuted = false;
-    this.stepTimer = null;
-    this.stepIndex = 0;
     this.trackIndex = 0;
-    this.nextStepTime = 0;
-    this.scheduleAheadTime = 0.35; // 350ms ahead lookahead buffer prevents mobile underruns
-    this.lookaheadIntervalMs = 30; // run scheduler every 30ms
+    this.currentSource = null;
+    this.cachedBuffers = [];
+    this.isRendering = false;
+    this.unlocked = false;
 
     this.tracks = [
       {
         name: 'Studio Lounge (Piano & Vibes)',
         shortName: 'Studio Piano',
         bpm: 108,
-        // Warm Major 7th / 9th / 6th studio chord progression (MIDI notes)
-        // Cmaj9 -> Am9 -> Dm9 -> G13 -> Em7 -> A7sus4 -> Fmaj9 -> G6
         chords: [
           [60, 64, 67, 71, 74],
           [57, 60, 64, 67, 71],
@@ -3400,7 +3367,6 @@ class LabBossaAudioEngine {
         name: 'Sunny Bossa Lounge (Rhodes & Bass)',
         shortName: 'Sunny Bossa',
         bpm: 116,
-        // Fmaj9 -> G6 -> Em7 -> Am9 -> Dm9 -> G13 -> Cmaj9 -> C6/9
         chords: [
           [53, 57, 60, 64, 67],
           [55, 59, 62, 64, 69],
@@ -3421,10 +3387,9 @@ class LabBossaAudioEngine {
         style: 'bossa_rhodes',
       },
       {
-        name: 'Cozy Café Marimba & Celesta',
+        name: 'Cozy Cafe Marimba & Celesta',
         shortName: 'Cozy Marimba',
         bpm: 100,
-        // Gmaj9 -> Em9 -> Cmaj9 -> D9sus4 -> Bm7 -> Em7 -> Am9 -> D13
         chords: [
           [55, 59, 62, 66, 69],
           [52, 55, 59, 62, 66],
@@ -3458,75 +3423,212 @@ class LabBossaAudioEngine {
     const AudioCtx = window.AudioContext || window.webkitAudioContext;
     if (!AudioCtx) return;
 
-    // Mobile Best Practice: 'playback' latency hint enlarges hardware ring buffer
-    // prevents audio starvation & crackling during DOM popups/layout spikes
-    const isMobile = (window.innerWidth <= 900) || /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    this.ctx = new AudioCtx({
-      latencyHint: isMobile ? 'playback' : 'interactive',
-    });
+    this.ctx = new AudioCtx({ latencyHint: 'playback' });
     this.masterGain = this.ctx.createGain();
     this.masterGain.gain.value = 0.28;
-
-    // Warm stereo studio delay/reverb network
-    const delayL = this.ctx.createDelay(1.0);
-    const delayR = this.ctx.createDelay(1.0);
-    delayL.delayTime.value = 0.27;
-    delayR.delayTime.value = 0.36;
-
-    const fbGain = this.ctx.createGain();
-    fbGain.gain.value = 0.26;
-
-    const toneFilter = this.ctx.createBiquadFilter();
-    toneFilter.type = 'lowpass';
-    toneFilter.frequency.value = 2600;
-
-    const wetGain = this.ctx.createGain();
-    wetGain.gain.value = 0.25;
-
-    this.reverbInput = this.ctx.createGain();
-    this.reverbInput.connect(delayL);
-    delayL.connect(delayR);
-    delayR.connect(toneFilter);
-    toneFilter.connect(fbGain);
-    fbGain.connect(delayL);
-    toneFilter.connect(wetGain);
-    wetGain.connect(this.masterGain);
-
     this.masterGain.connect(this.ctx.destination);
   }
 
-  _playPianoOrRhodes(midi, when, durationSec, volume = 0.14, isRhodes = false) {
-    if (!this.ctx || !this.isPlaying) return;
-    const freq = this._midiToFreq(midi);
+  _unlockContext() {
+    this._initContext();
+    if (!this.ctx) return;
+    if (this.ctx.state === 'suspended') {
+      this.ctx.resume().catch(() => {});
+    }
+    if (!this.unlocked) {
+      try {
+        const silent = this.ctx.createBuffer(1, 1, 22050);
+        const src = this.ctx.createBufferSource();
+        src.buffer = silent;
+        src.connect(this.ctx.destination);
+        src.start(0);
+        this.unlocked = true;
+      } catch (_) {}
+    }
+  }
 
-    const osc1 = this.ctx.createOscillator();
-    const osc2 = this.ctx.createOscillator();
+  async _renderTrackBuffer(trackIdx) {
+    if (this.cachedBuffers[trackIdx]) return this.cachedBuffers[trackIdx];
+    const track = this.tracks[trackIdx];
+    const sampleRate = (this.ctx && this.ctx.sampleRate) ? this.ctx.sampleRate : 44100;
+    const totalBars = track.chords.length;
+    const totalSteps = totalBars * 16;
+    const stepDuration = (60.0 / track.bpm) / 4.0;
+    const loopDuration = stepDuration * totalSteps;
+    const tailDuration = 1.0;
+    const totalFrames = Math.ceil((loopDuration + tailDuration) * sampleRate);
+
+    const OfflineCtxClass = window.OfflineAudioContext || window.webkitOfflineAudioContext;
+    if (!OfflineCtxClass) return null;
+
+    let offCtx;
+    try {
+      offCtx = new OfflineCtxClass(2, totalFrames, sampleRate);
+    } catch (_) {
+      try {
+        offCtx = new OfflineCtxClass(2, totalFrames, 44100);
+      } catch (e2) {
+        return null;
+      }
+    }
+
+    const delayL = offCtx.createDelay(1.0);
+    const delayR = offCtx.createDelay(1.0);
+    delayL.delayTime.value = 0.27;
+    delayR.delayTime.value = 0.36;
+
+    const fbGain = offCtx.createGain();
+    fbGain.gain.value = 0.24;
+
+    const toneFilter = offCtx.createBiquadFilter();
+    toneFilter.type = 'lowpass';
+    toneFilter.frequency.value = 2400;
+
+    const delayMerger = offCtx.createChannelMerger(2);
+    delayL.connect(toneFilter);
+    delayR.connect(toneFilter);
+    toneFilter.connect(fbGain);
+    fbGain.connect(delayL);
+    fbGain.connect(delayR);
+
+    delayL.connect(delayMerger, 0, 0);
+    delayR.connect(delayMerger, 0, 1);
+
+    const reverbInput = offCtx.createGain();
+    reverbInput.gain.value = 0.35;
+    reverbInput.connect(delayL);
+    reverbInput.connect(delayR);
+
+    const dryGain = offCtx.createGain();
+    dryGain.gain.value = 0.72;
+
+    dryGain.connect(offCtx.destination);
+    delayMerger.connect(offCtx.destination);
+
+    const isRhodes = track.style === 'bossa_rhodes';
+    const isMarimba = track.style === 'marimba_celesta';
+
+    for (let s = 0; s < totalSteps; s++) {
+      const when = s * stepDuration;
+      const bar = Math.floor(s / 16);
+      const barStep = s % 16;
+      const chordIdx = bar % track.chords.length;
+      const chord = track.chords[chordIdx];
+      const bassNote = track.bass[chordIdx];
+
+      if (barStep === 0) {
+        this._renderBass(offCtx, dryGain, bassNote, when, stepDuration * 6.0, 0.42);
+      } else if (barStep === 6 || barStep === 10) {
+        this._renderBass(offCtx, dryGain, bassNote + (barStep === 10 ? 7 : 0), when, stepDuration * 3.5, 0.32);
+      }
+
+      if (isRhodes) {
+        if (barStep === 0 || barStep === 3 || barStep === 6 || barStep === 10 || barStep === 12) {
+          const syncVol = (barStep === 3 || barStep === 10) ? 0.085 : 0.065;
+          for (let c = 0; c < chord.length; c++) {
+            this._renderPiano(offCtx, dryGain, reverbInput, chord[c], when, stepDuration * 3.5, syncVol, true);
+          }
+        }
+      } else if (isMarimba) {
+        if (barStep === 0 || barStep === 4 || barStep === 8 || barStep === 12) {
+          for (let c = 0; c < chord.length; c++) {
+            this._renderPiano(offCtx, dryGain, reverbInput, chord[c], when, stepDuration * 3.8, 0.045, false);
+          }
+        }
+      } else if (barStep % 2 === 0) {
+        const arpNote = chord[(barStep / 2) % chord.length] + 12;
+        this._renderPiano(offCtx, dryGain, reverbInput, arpNote, when, 0.45, 0.055, isRhodes);
+      }
+
+      if (barStep % 2 === 0 || barStep === 7 || barStep === 15) {
+        const melIdx = (Math.floor(s / 2) + chordIdx * 2) % track.melody.length;
+        const melNote = track.melody[melIdx];
+        this._renderLead(offCtx, dryGain, reverbInput, melNote, when, isMarimba ? 0.55 : 0.95, 0.095, isMarimba);
+      }
+
+      if (barStep % 4 === 0 || barStep === 3 || barStep === 11) {
+        this._renderShaker(offCtx, dryGain, when, barStep === 3 || barStep === 11);
+      }
+    }
+
+    let rendered = null;
+    try {
+      const renderPromise = new Promise((resolve, reject) => {
+        offCtx.oncomplete = (e) => resolve(e.renderedBuffer);
+        try {
+          const p = offCtx.startRendering();
+          if (p && typeof p.then === 'function') {
+            p.then(resolve).catch(reject);
+          }
+        } catch (e) {
+          reject(e);
+        }
+      });
+      rendered = await renderPromise;
+    } catch (err) {
+      console.warn('Offline render error:', err);
+      return null;
+    }
+
+    if (!rendered) return null;
+
+    const actualRate = rendered.sampleRate || sampleRate;
+    const loopFrames = Math.floor(loopDuration * actualRate);
+    const targetCtx = this.ctx || offCtx;
+    const finalBuffer = targetCtx.createBuffer(2, loopFrames, actualRate);
+
+    for (let ch = 0; ch < 2; ch++) {
+      const srcData = rendered.getChannelData(ch);
+      const dstData = finalBuffer.getChannelData(ch);
+      const copyLen = Math.min(srcData.length, loopFrames);
+      for (let i = 0; i < copyLen; i++) {
+        dstData[i] = srcData[i];
+      }
+      const remFrames = srcData.length - loopFrames;
+      if (remFrames > 0) {
+        const tailLen = Math.min(remFrames, loopFrames);
+        for (let i = 0; i < tailLen; i++) {
+          dstData[i] += srcData[loopFrames + i];
+        }
+      }
+      const fadeLen = Math.floor(actualRate * 0.015);
+      for (let i = 0; i < fadeLen; i++) {
+        const factor = i / fadeLen;
+        const endSample = dstData[loopFrames - fadeLen + i];
+        dstData[i] = dstData[i] * factor + endSample * (1 - factor);
+      }
+    }
+
+    this.cachedBuffers[trackIdx] = finalBuffer;
+    return finalBuffer;
+  }
+
+  _renderPiano(ctx, dryGain, reverbGain, midi, when, durationSec, volume, isRhodes) {
+    const freq = this._midiToFreq(midi);
+    const osc1 = ctx.createOscillator();
+    const osc2 = ctx.createOscillator();
     osc1.type = isRhodes ? 'sine' : 'triangle';
     osc2.type = 'sine';
     osc1.frequency.setValueAtTime(freq, when);
     osc2.frequency.setValueAtTime(freq * (isRhodes ? 2.0 : 3.0), when);
     osc2.detune.setValueAtTime(isRhodes ? 4 : -3, when);
 
-    const filter = this.ctx.createBiquadFilter();
+    const filter = ctx.createBiquadFilter();
     filter.type = 'lowpass';
     filter.frequency.setValueAtTime(freq * 4.5, when);
-    filter.frequency.exponentialRampToValueAtTime(Math.max(20, freq * 1.4), when + durationSec);
+    filter.frequency.exponentialRampToValueAtTime(Math.max(20, freq * 1.2), when + durationSec);
 
-    const env = this.ctx.createGain();
-    const g2 = this.ctx.createGain();
-    g2.gain.value = isRhodes ? 0.18 : 0.08;
-
+    const env = ctx.createGain();
     env.gain.setValueAtTime(0.0001, when);
-    env.gain.linearRampToValueAtTime(volume, when + 0.018);
-    env.gain.exponentialRampToValueAtTime(volume * 0.42, when + 0.18);
+    env.gain.linearRampToValueAtTime(volume, when + 0.008);
+    env.gain.exponentialRampToValueAtTime(Math.max(0.0001, volume * 0.4), when + 0.12);
     env.gain.exponentialRampToValueAtTime(0.0001, when + durationSec);
 
     osc1.connect(filter);
-    osc2.connect(g2);
-    g2.connect(filter);
+    osc2.connect(filter);
     filter.connect(env);
-    env.connect(this.masterGain);
-    env.connect(this.reverbInput);
+    env.connect(dryGain);
+    env.connect(reverbGain);
 
     osc1.start(when);
     osc2.start(when);
@@ -3534,32 +3636,31 @@ class LabBossaAudioEngine {
     osc2.stop(when + durationSec + 0.04);
   }
 
-  _playVibraphoneOrMarimba(midi, when, durationSec, volume = 0.12, isMarimba = false) {
-    if (!this.ctx || !this.isPlaying) return;
+  _renderLead(ctx, dryGain, reverbGain, midi, when, durationSec, volume, isMarimba) {
     const freq = this._midiToFreq(midi);
-
-    const oscFund = this.ctx.createOscillator();
-    const oscHarm = this.ctx.createOscillator();
-    oscFund.type = 'sine';
+    const oscFund = ctx.createOscillator();
+    const oscHarm = ctx.createOscillator();
+    oscFund.type = isMarimba ? 'sine' : 'sine';
     oscHarm.type = 'sine';
+
     oscFund.frequency.setValueAtTime(freq, when);
-    // Vibraphone/Marimba characteristic 4th harmonic overtone
-    oscHarm.frequency.setValueAtTime(freq * 4.0, when);
+    oscHarm.frequency.setValueAtTime(freq * (isMarimba ? 4.0 : 2.0), when);
 
-    const harmEnv = this.ctx.createGain();
-    harmEnv.gain.setValueAtTime(volume * (isMarimba ? 0.25 : 0.15), when);
-    harmEnv.gain.exponentialRampToValueAtTime(0.0001, when + (isMarimba ? 0.09 : 0.22));
-
-    const mainEnv = this.ctx.createGain();
+    const mainEnv = ctx.createGain();
     mainEnv.gain.setValueAtTime(0.0001, when);
-    mainEnv.gain.linearRampToValueAtTime(volume, when + 0.01);
+    mainEnv.gain.linearRampToValueAtTime(volume, when + 0.004);
     mainEnv.gain.exponentialRampToValueAtTime(0.0001, when + durationSec);
+
+    const harmEnv = ctx.createGain();
+    harmEnv.gain.setValueAtTime(0.0001, when);
+    harmEnv.gain.linearRampToValueAtTime(volume * (isMarimba ? 0.22 : 0.45), when + 0.003);
+    harmEnv.gain.exponentialRampToValueAtTime(0.0001, when + durationSec * (isMarimba ? 0.35 : 0.7));
 
     oscFund.connect(mainEnv);
     oscHarm.connect(harmEnv);
     harmEnv.connect(mainEnv);
-    mainEnv.connect(this.masterGain);
-    mainEnv.connect(this.reverbInput);
+    mainEnv.connect(dryGain);
+    mainEnv.connect(reverbGain);
 
     oscFund.start(when);
     oscHarm.start(when);
@@ -3567,141 +3668,123 @@ class LabBossaAudioEngine {
     oscHarm.stop(when + durationSec + 0.04);
   }
 
-  _playUprightBass(midi, when, durationSec, volume = 0.20) {
-    if (!this.ctx || !this.isPlaying) return;
+  _renderBass(ctx, dryGain, midi, when, durationSec, volume) {
     const freq = this._midiToFreq(midi);
-
-    const osc = this.ctx.createOscillator();
+    const osc = ctx.createOscillator();
     osc.type = 'triangle';
     osc.frequency.setValueAtTime(freq, when);
 
-    const filter = this.ctx.createBiquadFilter();
+    const filter = ctx.createBiquadFilter();
     filter.type = 'lowpass';
     filter.frequency.setValueAtTime(520, when);
     filter.frequency.exponentialRampToValueAtTime(Math.max(20, 190), when + durationSec * 0.8);
 
-    const env = this.ctx.createGain();
+    const env = ctx.createGain();
     env.gain.setValueAtTime(0.0001, when);
     env.gain.linearRampToValueAtTime(volume, when + 0.02);
     env.gain.exponentialRampToValueAtTime(0.0001, when + durationSec);
 
     osc.connect(filter);
     filter.connect(env);
-    env.connect(this.masterGain);
+    env.connect(dryGain);
 
     osc.start(when);
     osc.stop(when + durationSec + 0.03);
   }
 
-  _playSoftBrushedShaker(when, accent = false) {
-    if (!this.ctx || !this.isPlaying) return;
-    const osc = this.ctx.createOscillator();
+  _renderShaker(ctx, dryGain, when, accent) {
+    const osc = ctx.createOscillator();
     osc.type = 'triangle';
     osc.frequency.setValueAtTime(accent ? 820 : 1240, when);
     osc.frequency.exponentialRampToValueAtTime(Math.max(20, 320), when + 0.035);
 
-    const env = this.ctx.createGain();
+    const env = ctx.createGain();
     env.gain.setValueAtTime(accent ? 0.032 : 0.016, when);
     env.gain.exponentialRampToValueAtTime(0.0001, when + 0.04);
 
     osc.connect(env);
-    env.connect(this.masterGain);
+    env.connect(dryGain);
     osc.start(when);
     osc.stop(when + 0.045);
   }
 
-  // Lookahead Step Scheduler: Queues notes into Web Audio clock ahead of time
-  // Immune to main-thread UI layout reflows and DOM popup events
-  _scheduleStepAt(s, when) {
-    const track = this.tracks[this.trackIndex];
-    const barStep = s % 16;
-    const chordIdx = Math.floor(s / 16) % track.chords.length;
-    const chord = track.chords[chordIdx];
-    const bassNote = track.bass[chordIdx];
-    const isRhodes = track.style === 'bossa_rhodes';
-    const isMarimba = track.style === 'marimba_celesta';
-
-    // 1. Warm Bossa Upright Bass pattern (beats 1, 2-and, 3, 4-and)
-    if (barStep === 0 || barStep === 6 || barStep === 8 || barStep === 14) {
-      const bNote = (barStep === 6 || barStep === 14) ? bassNote + 7 : bassNote;
-      this._playUprightBass(bNote, when, 0.55, 0.19);
-    }
-
-    // 2. Syncopated Bossa-Jazz Studio Chord Comping & Arpeggios
-    if (barStep === 0 || barStep === 3 || barStep === 6 || barStep === 10 || barStep === 12) {
-      for (let i = 0; i < chord.length; i++) {
-        // Gentle harp/piano roll stagger via chord note selection
-        if (barStep === 0 || (i % 2 === barStep % 2)) {
-          this._playPianoOrRhodes(chord[i], when, 0.85, 0.065, isRhodes);
-        }
-      }
-    } else if (barStep % 2 === 0) {
-      // Flowing Studio inner piano arpeggio
-      const arpNote = chord[(barStep / 2) % chord.length] + 12;
-      this._playPianoOrRhodes(arpNote, when, 0.45, 0.055, isRhodes);
-    }
-
-    // 3. Cheerful Vibraphone / Marimba Lead Melody
-    if (barStep % 2 === 0 || barStep === 7 || barStep === 15) {
-      const melIdx = (Math.floor(s / 2) + chordIdx * 2) % track.melody.length;
-      const melNote = track.melody[melIdx];
-      this._playVibraphoneOrMarimba(melNote, when, isMarimba ? 0.55 : 0.95, 0.095, isMarimba);
-    }
-
-    // 4. Subtle Bossa-Nova brushed pulse
-    if (barStep % 4 === 0 || barStep === 3 || barStep === 11) {
-      this._playSoftBrushedShaker(when, barStep === 3 || barStep === 11);
-    }
-  }
-
-  _runScheduler() {
+  async _playCurrentBuffer() {
     if (!this.isPlaying || !this.ctx) return;
-    const track = this.tracks[this.trackIndex];
-    const stepDuration = (60.0 / track.bpm) / 4.0;
-    while (this.nextStepTime < this.ctx.currentTime + this.scheduleAheadTime) {
-      this._scheduleStepAt(this.stepIndex, this.nextStepTime);
-      this.nextStepTime += stepDuration;
-      this.stepIndex += 1;
+    let buf = this.cachedBuffers[this.trackIndex];
+    if (!buf) {
+      if (this.isRendering) return;
+      this.isRendering = true;
+      try {
+        buf = await this._renderTrackBuffer(this.trackIndex);
+      } catch (_) {}
+      finally {
+        this.isRendering = false;
+      }
+      if (!this.isPlaying || !buf) return;
+    }
+
+    if (this.currentSource) {
+      try {
+        this.currentSource.stop();
+        this.currentSource.disconnect();
+      } catch (_) {}
+      this.currentSource = null;
+    }
+
+    try {
+      this.currentSource = this.ctx.createBufferSource();
+      this.currentSource.buffer = buf;
+      this.currentSource.loop = true;
+      this.currentSource.connect(this.masterGain);
+      this.currentSource.start(0);
+
+      if (this.masterGain) {
+        const curTime = this.ctx.currentTime || 0;
+        this.masterGain.gain.cancelScheduledValues(curTime);
+        this.masterGain.gain.setValueAtTime(0.001, curTime);
+        this.masterGain.gain.setTargetAtTime(0.28, curTime, 0.05);
+      }
+    } catch (err) {
+      console.warn('Audio start exception:', err);
     }
   }
 
-  start() {
-    this._initContext();
+  async start() {
+    this._unlockContext();
     if (!this.ctx) return;
     if (this.ctx.state === 'suspended') {
-      this.ctx.resume().catch(() => {});
+      try { await this.ctx.resume(); } catch (_) {}
     }
-    if (this.masterGain) {
-      this.masterGain.gain.cancelScheduledValues(this.ctx.currentTime);
-      this.masterGain.gain.setValueAtTime(0.0001, this.ctx.currentTime);
-      this.masterGain.gain.setTargetAtTime(0.28, this.ctx.currentTime, 0.05);
-    }
-    if (this.isPlaying) return;
     this.isPlaying = true;
-    this.nextStepTime = this.ctx.currentTime + 0.05;
-    this._scheduleLoop();
+    this.userMuted = false;
     this._updateButtons();
-  }
-
-  _scheduleLoop() {
-    if (this.stepTimer) clearInterval(this.stepTimer);
-    this._runScheduler();
-    this.stepTimer = setInterval(() => this._runScheduler(), this.lookaheadIntervalMs);
+    await this._playCurrentBuffer();
   }
 
   stop() {
     this.isPlaying = false;
-    if (this.stepTimer) {
-      clearInterval(this.stepTimer);
-      this.stepTimer = null;
-    }
     if (this.masterGain && this.ctx) {
-      this.masterGain.gain.setTargetAtTime(0.0001, this.ctx.currentTime, 0.02);
+      try {
+        const curTime = this.ctx.currentTime || 0;
+        this.masterGain.gain.cancelScheduledValues(curTime);
+        this.masterGain.gain.setValueAtTime(this.masterGain.gain.value, curTime);
+        this.masterGain.gain.setTargetAtTime(0.0001, curTime, 0.03);
+      } catch (_) {}
     }
+    setTimeout(() => {
+      if (this.currentSource && !this.isPlaying) {
+        try {
+          this.currentSource.stop();
+          this.currentSource.disconnect();
+        } catch (_) {}
+        this.currentSource = null;
+      }
+    }, 60);
     this._updateButtons();
   }
 
   toggle() {
+    this._unlockContext();
     if (this.isPlaying) {
       this.userMuted = true;
       this.stop();
@@ -3711,18 +3794,14 @@ class LabBossaAudioEngine {
     }
   }
 
-  nextTrack() {
+  async nextTrack() {
+    this._unlockContext();
     this.trackIndex = (this.trackIndex + 1) % this.tracks.length;
-    this.stepIndex = 0;
-    if (this.ctx) {
-      this.nextStepTime = this.ctx.currentTime + 0.05;
-    }
-    if (!this.isPlaying) {
-      this.userMuted = false;
-      this.start();
+    this._updateButtons();
+    if (this.isPlaying) {
+      await this._playCurrentBuffer();
     } else {
-      this._scheduleLoop();
-      this._updateButtons();
+      this._renderTrackBuffer(this.trackIndex).catch(() => {});
     }
   }
 
@@ -3742,28 +3821,37 @@ class LabBossaAudioEngine {
 
   _bindUi() {
     if (this.toggleBtnEl) {
-      this.toggleBtnEl.addEventListener('click', (e) => {
+      const handleToggle = (e) => {
         e.stopPropagation();
+        this._unlockContext();
         this.toggle();
-      });
+      };
+      this.toggleBtnEl.addEventListener('click', handleToggle);
+      this.toggleBtnEl.addEventListener('touchend', handleToggle, { passive: true });
     }
     if (this.trackBtnEl) {
-      this.trackBtnEl.addEventListener('click', (e) => {
+      const handleTrack = (e) => {
         e.stopPropagation();
+        this._unlockContext();
         this.nextTrack();
-      });
+      };
+      this.trackBtnEl.addEventListener('click', handleTrack);
+      this.trackBtnEl.addEventListener('touchend', handleTrack, { passive: true });
     }
 
-    // Auto-start pleasant studio soundtrack on first user interaction with the office
-    const autoUnlock = () => {
+    const unlockOnInteraction = () => {
+      this._unlockContext();
+      this._renderTrackBuffer(0).catch(() => {});
       if (!this.isPlaying && !this.userMuted) {
-        this.start();
+        this.start().catch(() => {});
       }
-      window.removeEventListener('pointerdown', autoUnlock);
-      window.removeEventListener('keydown', autoUnlock);
+      ['click', 'touchstart', 'touchend', 'pointerdown', 'keydown'].forEach((ev) => {
+        window.removeEventListener(ev, unlockOnInteraction);
+      });
     };
-    window.addEventListener('pointerdown', autoUnlock, { once: true });
-    window.addEventListener('keydown', autoUnlock, { once: true });
+    ['click', 'touchstart', 'touchend', 'pointerdown', 'keydown'].forEach((ev) => {
+      window.addEventListener(ev, unlockOnInteraction, { passive: true });
+    });
     this._updateButtons();
   }
 }
@@ -3799,6 +3887,14 @@ class LabBossaAudioEngine {
         const plumbobHex = worker.plumbob_color || '#10b981';
         const genderLabel = worker.gender === 'female' ? '👩‍🔬 Female Engineer' : '👨‍💻 Male Engineer';
         const stateLabel = '24/7 ACTIVE';
+
+        if (worker.metadata && worker.display_name) {
+          if (worker.id === 'worker_research') worker.metadata['Scientist Name'] = worker.display_name;
+          else if (worker.id === 'worker_kernel') worker.metadata['Architect Name'] = worker.display_name;
+          else if (worker.id === 'worker_hardware') worker.metadata['Lead Reviewer'] = worker.display_name;
+          else if (worker.id === 'worker_release') worker.metadata['Portfolio Lead'] = worker.display_name;
+          else if (worker.id === 'worker_lounge') worker.metadata['Strategy Lead'] = worker.display_name;
+        }
 
         let metaRowsHtml = '';
         const meta = worker.metadata || {};
@@ -4014,7 +4110,7 @@ class LabBossaAudioEngine {
       }
 
       _bindTopbarAndPanelEvents() {
-        const topbarEl = document.getElementById('hud-topbar');
+        const topbarEl = document.getElementById('hud-top-container') || document.getElementById('hud-topbar');
         const btnHideTopbar = document.getElementById('btn-hide-topbar');
         const btnRestoreTopbar = document.getElementById('btn-restore-topbar');
         const leftPanel = document.getElementById('hud-left');
@@ -4267,8 +4363,11 @@ class LabBossaAudioEngine {
         let sNum = 1, sName = 'Morning (06:00-12:00 WIB)';
         if (wibH >= 12 && wibH < 18) { sNum = 2; sName = 'Afternoon (12:00-18:00 WIB)'; }
         else if (wibH >= 18) { sNum = 3; sName = 'Evening (18:00-00:00 WIB)'; }
-        else if (wibH < 6) { sNum = 4; sName = 'Graveyard (00:00-06:00 WIB)'; }
+        else if (wibH < 6) { sNum = 4; sName = 'Overnight (00:00-06:00 WIB)'; }
         if (shiftEl) shiftEl.textContent = `Shift ${sNum}/4: ${sName}`;
+        document.querySelectorAll('.stat-shift-val').forEach((el) => {
+          el.textContent = `Shift ${sNum}: ${sName.split(' ')[0]}`;
+        });
       };
       updateShiftDisplay();
       setInterval(updateShiftDisplay, 60000);
@@ -4292,7 +4391,7 @@ class LabBossaAudioEngine {
         // Shift 2: Siang (12:00 - 18:00 WIB)
         {
           worker_kernel: { name: 'Arthur Nugraha', role: 'Principal Systems Architect' },
-          worker_research: { name: 'Dr. Sarah Oktavia', role: 'Principal Research Scientist' },
+          worker_research: { name: 'Sarah Oktavia, Ph.D.', role: 'Principal Research Scientist' },
           worker_hardware: { name: 'Kevin Setiawan', role: 'Algorithmic Quality & Complexity Lead' },
           worker_release: { name: 'Chloe Lestari', role: 'Open-Source Portfolio Lead' },
           worker_lounge: { name: 'Audrey Wibisono', role: 'Research Strategy & Collaboration Lead' },
@@ -4305,10 +4404,10 @@ class LabBossaAudioEngine {
           worker_release: { name: 'Grace Pangestu', role: 'Open-Source Portfolio Lead' },
           worker_lounge: { name: 'Stella Gunawan', role: 'Research Strategy & Collaboration Lead' },
         },
-        // Shift 4: Dini Hari (00:00 - 06:00 WIB)
+        // Shift 4: Overnight / Dini Hari (00:00 - 06:00 WIB)
         {
           worker_kernel: { name: 'Lucas Wibowo', role: 'Principal Systems Architect' },
-          worker_research: { name: 'Dr. Hannah Handayani', role: 'Principal Research Scientist' },
+          worker_research: { name: 'Hannah Handayani, Ph.D.', role: 'Principal Research Scientist' },
           worker_hardware: { name: 'Brandon Prakoso', role: 'Algorithmic Quality & Complexity Lead' },
           worker_release: { name: 'Maya Safitri', role: 'Open-Source Portfolio Lead' },
           worker_lounge: { name: 'Fiona Saputri', role: 'Research Strategy & Collaboration Lead' },
@@ -4327,6 +4426,13 @@ class LabBossaAudioEngine {
         if (activeRoster[w.id]) {
           w.display_name = activeRoster[w.id].name;
           w.role = activeRoster[w.id].role;
+          if (w.metadata) {
+            if (w.id === 'worker_research') w.metadata['Scientist Name'] = activeRoster[w.id].name;
+            else if (w.id === 'worker_kernel') w.metadata['Architect Name'] = activeRoster[w.id].name;
+            else if (w.id === 'worker_hardware') w.metadata['Lead Reviewer'] = activeRoster[w.id].name;
+            else if (w.id === 'worker_release') w.metadata['Portfolio Lead'] = activeRoster[w.id].name;
+            else if (w.id === 'worker_lounge') w.metadata['Strategy Lead'] = activeRoster[w.id].name;
+          }
         }
       }
 
@@ -4431,6 +4537,60 @@ class LabBossaAudioEngine {
         document.getElementById('btn-office-music'),
         document.getElementById('btn-office-track')
       );
+
+      // Real-time authentic global visitor counter with unique device & session tracking
+      const initVisitorCounter = async () => {
+        const visEls = document.querySelectorAll('#stat-visitors, .stat-visitors-val');
+        if (visEls.length === 0) return;
+
+        const updateElements = (val) => {
+          const formatted = new Intl.NumberFormat('en-US').format(Math.max(1, val));
+          visEls.forEach((el) => { el.textContent = formatted; });
+        };
+
+        // Unique device identification token
+        let deviceToken = localStorage.getItem('lab_device_token');
+        const isNewDevice = !deviceToken;
+        if (isNewDevice) {
+          deviceToken = 'dev_' + Math.random().toString(36).substring(2, 11) + '_' + Date.now().toString(36);
+          localStorage.setItem('lab_device_token', deviceToken);
+        }
+
+        // Session deduplication: each new device session increments global database
+        const sessionCounted = sessionStorage.getItem('lab_session_counted');
+        const shouldHit = isNewDevice || !sessionCounted;
+
+        // Active global counter endpoint
+        const KEY = 'myonathan_agentic_lab_visitors_v2';
+        const endpoint = shouldHit
+          ? `https://countapi.mileshilliard.com/api/v1/hit/${KEY}`
+          : `https://countapi.mileshilliard.com/api/v1/get/${KEY}`;
+
+        try {
+          const controller = new AbortController();
+          const timeoutId = setTimeout(() => controller.abort(), 2500);
+          const r = await fetch(endpoint, {
+            signal: controller.signal,
+            headers: { 'Accept': 'application/json' }
+          });
+          clearTimeout(timeoutId);
+          if (r.ok) {
+            const data = await r.json();
+            const count = typeof data.value === 'number' ? data.value : 0;
+            if (count > 0) {
+              sessionStorage.setItem('lab_session_counted', '1');
+              localStorage.setItem('lab_last_global_count', String(count));
+              updateElements(count);
+              return;
+            }
+          }
+        } catch (_) {
+          // Graceful fallback to last cached count
+          const cached = parseInt(localStorage.getItem('lab_last_global_count') || '1', 10);
+          updateElements(cached);
+        }
+      };
+      setTimeout(initVisitorCounter, 100);
 
       const clock = new THREE.Clock();
       let frameCount = 0;
