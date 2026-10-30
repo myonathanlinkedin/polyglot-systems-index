@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Mateus Yonathan Agentic Autonomous Lab - We Work 24 Hours</title>
-  <meta name="description" content="Interactive 3D Isometric Virtual Office depicting autonomous male and female engineers and research scientists working 24/7 on 409 verified modules and 113 research papers." />
+  <meta name="description" content="Interactive 3D Isometric Virtual Office depicting autonomous male and female engineers and research scientists working 24/7 on 410 verified modules and 113 research papers." />
   <meta name="author" content="Mateus Yonathan" />
   <link rel="canonical" href="https://myonathanlinkedin.github.io/office.html" />
   <link rel="icon" href="https://myonathanlinkedin.github.io/assets/avatar.png" type="image/png" />
@@ -346,9 +346,11 @@
 
     .drawer-btn {
       display: inline-flex; align-items: center; justify-content: center;
-      gap: 6px; padding: 9px 11px; border-radius: 9px;
+      gap: 5px; padding: 10px 8px; border-radius: 9px;
       border: 1px solid rgba(148, 163, 184, 0.22); background: rgba(15, 23, 42, 0.75);
-      color: #e2e8f0; font-size: 0.76rem; font-weight: 600; text-decoration: none; cursor: pointer;
+      color: #e2e8f0; font-size: 0.74rem; font-weight: 600; text-decoration: none; cursor: pointer;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      box-sizing: border-box; text-align: center;
     }
 
     .drawer-btn.primary {
@@ -482,7 +484,7 @@
     </div>
 
     <div class="telemetry-pills">
-      <span class="telemetry-pill">Modules: <strong id="stat-modules">409</strong></span>
+      <span class="telemetry-pill">Modules: <strong id="stat-modules">410</strong></span>
       <span class="telemetry-pill">Papers: <strong id="stat-papers">113</strong></span>
       <span class="telemetry-pill">FPS: <strong id="stat-fps">60</strong></span>
     </div>
@@ -530,7 +532,7 @@
         <button type="button" class="drawer-close" id="btn-close-office-help" title="Close Guide">✕</button>
       </div>
       <div style="font-size:0.82rem;line-height:1.65;color:#cbd5e1;display:grid;gap:9px;margin-top:8px;">
-        <p><strong>What Is This?</strong> Welcome to the interactive 3D exhibition space of the <strong>Mateus Yonathan Agentic Autonomous Lab</strong>. This virtual studio showcases our 24/7 open-source software engineering and academic research publications (409 public modules &amp; 113 Research Papers) in real time.</p>
+        <p><strong>What Is This?</strong> Welcome to the interactive 3D exhibition space of the <strong>Mateus Yonathan Agentic Autonomous Lab</strong>. This virtual studio showcases our 24/7 open-source software engineering and academic research publications (410 public modules &amp; 113 Research Papers) in real time.</p>
         <p><strong>5 Divisions You Can Visit:</strong><br/>
         • <strong>💻 Systems Architecture:</strong> Showcases newly released algorithms and data structures across 14 programming languages.<br/>
         • <strong>📄 Research Paper Wing:</strong> Displays published Research Papers and Mini-Papers with executive summaries and Scholar Preprints.<br/>
@@ -811,43 +813,140 @@ function buildFloorGridTexture(isLight = true) {
 function buildWallSignTexture() {
   const canvas = document.createElement('canvas');
   canvas.width = 2048;
-  canvas.height = 256;
+  canvas.height = 240;
   const ctx = canvas.getContext('2d');
 
-  ctx.fillStyle = '#0f172a';
-  ctx.fillRect(0, 0, 2048, 256);
-  ctx.strokeStyle = '#10b981';
-  ctx.lineWidth = 10;
-  ctx.strokeRect(6, 6, 2036, 244);
+  // 1. Rich Executive Obsidian Gradient Background
+  const bgGrad = ctx.createLinearGradient(0, 0, 2048, 240);
+  bgGrad.addColorStop(0.0, '#070b14');
+  bgGrad.addColorStop(0.4, '#0c1322');
+  bgGrad.addColorStop(0.8, '#0a1728');
+  bgGrad.addColorStop(1.0, '#06131f');
+  ctx.fillStyle = bgGrad;
+  ctx.fillRect(0, 0, 2048, 240);
 
-  // Glowing green live status dot
+  // Subtle tech micro-grid pattern
+  ctx.strokeStyle = 'rgba(255, 255, 255, 0.025)';
+  ctx.lineWidth = 1;
+  for (let x = 40; x < 2048; x += 48) {
+    ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, 240); ctx.stroke();
+  }
+  for (let y = 30; y < 240; y += 40) {
+    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(2048, y); ctx.stroke();
+  }
+
+  // Top edge luminous highlight bevel
+  const topGlow = ctx.createLinearGradient(0, 0, 2048, 0);
+  topGlow.addColorStop(0.0, 'rgba(16, 185, 129, 0.20)');
+  topGlow.addColorStop(0.25, 'rgba(56, 189, 248, 0.95)');
+  topGlow.addColorStop(0.70, 'rgba(168, 85, 247, 0.90)');
+  topGlow.addColorStop(1.0, 'rgba(16, 185, 129, 0.30)');
+  ctx.fillStyle = topGlow;
+  ctx.fillRect(4, 4, 2040, 4);
+
+  // Precision outer border
+  ctx.strokeStyle = 'rgba(56, 189, 248, 0.40)';
+  ctx.lineWidth = 3;
+  ctx.strokeRect(3, 3, 2042, 234);
+
+  // Inner metallic hairline border
+  ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
+  ctx.lineWidth = 1;
+  ctx.strokeRect(9, 9, 2030, 222);
+
+  // Corner mounting hex studs (precision aerospace diorama feel)
+  const corners = [[26, 26], [2022, 26], [26, 214], [2022, 214]];
+  for (let i = 0; i < corners.length; i++) {
+    const cx = corners[i][0];
+    const cy = corners[i][1];
+    ctx.fillStyle = '#64748b';
+    ctx.beginPath(); ctx.arc(cx, cy, 6, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#cbd5e1';
+    ctx.beginPath(); ctx.arc(cx - 1, cy - 1, 3, 0, Math.PI * 2); ctx.fill();
+  }
+
+  // 2. Left & Center Branding Elements
+  // Glowing Pulse Indicator
+  ctx.fillStyle = 'rgba(16, 185, 129, 0.22)';
+  ctx.beginPath(); ctx.arc(68, 56, 18, 0, Math.PI * 2); ctx.fill();
   ctx.fillStyle = '#10b981';
-  ctx.beginPath();
-  ctx.arc(76, 82, 18, 0, Math.PI * 2);
-  ctx.fill();
-
-  // Primary Brand Title with auto-fit
-  const titleText = 'MATEUS YONATHAN // AGENTIC AUTONOMOUS LAB';
-  let titleSize = 56;
+  ctx.beginPath(); ctx.arc(68, 56, 9, 0, Math.PI * 2); ctx.fill();
   ctx.fillStyle = '#ffffff';
-  ctx.font = `bold ${titleSize}px sans-serif`;
-  while (ctx.measureText(titleText).width > (2048 - 200) && titleSize > 24) {
-    titleSize -= 2;
-    ctx.font = `bold ${titleSize}px sans-serif`;
-  }
-  ctx.fillText(titleText, 116, 98);
+  ctx.beginPath(); ctx.arc(66, 54, 3, 0, Math.PI * 2); ctx.fill();
 
-  // Subtitle banner text with auto-fit preventing word truncation
-  const subText = '● WE WORK 24 HOURS NON-STOP • CONTINUOUS CODING, RESEARCH PAPERS & BENCHMARKING';
-  let subSize = 34;
+  // Line 1: Main Brand Title
+  ctx.fillStyle = '#ffffff';
+  ctx.font = '800 38px system-ui, -apple-system, sans-serif';
+  ctx.fillText('MATEUS YONATHAN // AGENTIC AUTONOMOUS LAB', 104, 68);
+
+  // Sub-badge next to title
+  ctx.fillStyle = 'rgba(16, 185, 129, 0.16)';
+  ctx.strokeStyle = 'rgba(52, 211, 153, 0.45)';
+  ctx.lineWidth = 1;
+  const bX = 1120;
+  ctx.beginPath(); ctx.roundRect(bX, 40, 275, 36, 18); ctx.fill(); ctx.stroke();
   ctx.fillStyle = '#34d399';
-  ctx.font = `bold ${subSize}px monospace`;
-  const maxSubWidth = 2048 - 180;
-  while (ctx.measureText(subText).width > maxSubWidth && subSize > 16) {
-    subSize -= 1;
-    ctx.font = `bold ${subSize}px monospace`;
+  ctx.font = '700 16px monospace';
+  ctx.fillText('● LIVE 24/7 PIPELINE', bX + 22, 64);
+
+  // Line 2: Pipeline Operations Subtitle
+  ctx.fillStyle = '#7dd3fc';
+  ctx.font = '600 20px monospace';
+  ctx.fillText('CONTINUOUS CODING  •  PEER-AUDITED RESEARCH PAPERS  •  VERIFIED SYSTEMS BENCHMARKING', 62, 120);
+
+  // Line 3: Guyon Motto in Premium Rounded Glass Pill
+  const pillX = 60, pillY = 150, pillW = 1335, pillH = 58, pillR = 14;
+  ctx.fillStyle = 'rgba(245, 158, 11, 0.10)';
+  ctx.strokeStyle = 'rgba(251, 191, 36, 0.42)';
+  ctx.lineWidth = 1.5;
+  ctx.beginPath(); ctx.roundRect(pillX, pillY, pillW, pillH, pillR); ctx.fill(); ctx.stroke();
+
+  ctx.fillStyle = '#fbbf24';
+  ctx.font = '700 22px system-ui, -apple-system, sans-serif';
+  ctx.fillText('🐎  Motto: Work Like a Horse & Work Smart  |  Kerja Bagai Kuda & Cerdas', pillX + 22, pillY + 37);
+
+  // 3. Right Section: Mission Control HUD Telemetry Cards (Fills the right space!)
+  const divX = 1425;
+  const divGrad = ctx.createLinearGradient(0, 20, 0, 220);
+  divGrad.addColorStop(0, 'rgba(56, 189, 248, 0.05)');
+  divGrad.addColorStop(0.5, 'rgba(56, 189, 248, 0.45)');
+  divGrad.addColorStop(1, 'rgba(56, 189, 248, 0.05)');
+  ctx.strokeStyle = divGrad;
+  ctx.lineWidth = 2;
+  ctx.beginPath(); ctx.moveTo(divX, 24); ctx.lineTo(divX, 216); ctx.stroke();
+
+  const stats = [
+    { num: '409', lbl: 'MODULES', col: '#38bdf8', bg: 'rgba(56, 189, 248, 0.10)', bdr: 'rgba(56, 189, 248, 0.35)' },
+    { num: '112', lbl: 'PAPERS', col: '#c084fc', bg: 'rgba(192, 132, 252, 0.10)', bdr: 'rgba(192, 132, 252, 0.35)' },
+    { num: '14',  lbl: 'LANGS', col: '#34d399', bg: 'rgba(52, 211, 153, 0.10)', bdr: 'rgba(52, 211, 153, 0.35)' }
+  ];
+
+  let startSX = divX + 24;
+  for (let i = 0; i < stats.length; i++) {
+    const st = stats[i];
+    const cardW = 168, cardH = 96, cardY = 32;
+    const cX = startSX + i * (cardW + 14);
+
+    ctx.fillStyle = st.bg;
+    ctx.strokeStyle = st.bdr;
+    ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.roundRect(cX, cardY, cardW, cardH, 10); ctx.fill(); ctx.stroke();
+
+    ctx.fillStyle = st.col;
+    ctx.font = '800 36px system-ui, -apple-system, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(st.num, cX + cardW / 2, cardY + 48);
+
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '700 13px monospace';
+    ctx.fillText(st.lbl, cX + cardW / 2, cardY + 76);
+    ctx.textAlign = 'left';
   }
-  ctx.fillText(subText, 64, 182);
+
+  // Sub telemetry line on bottom right
+  ctx.fillStyle = '#64748b';
+  ctx.font = '600 13px monospace';
+  ctx.fillText('STATUS: 100% AUTONOMOUS • 0 HALLUCINATIONS', divX + 32, 186);
 
   const tex = new THREE.CanvasTexture(canvas);
   tex.colorSpace = THREE.SRGBColorSpace;
@@ -923,11 +1022,24 @@ class CutawayRoomBuilder {
     scene.add(floorMesh);
 
     // Prominent 24/7 Autonomous Lab Wall Banner mounted inside the 3D office (-Z upper header)
-    const signGeo = new THREE.PlaneGeometry(9.6, 1.15);
+    // Sized & positioned strictly beneath room ceiling coping (y=4.46 < 4.60) to prevent top overlap
+    const signGeo = new THREE.PlaneGeometry(8.20, 0.96);
     const signMat = new THREE.MeshBasicMaterial({ map: buildWallSignTexture() });
     const signMesh = new THREE.Mesh(signGeo, signMat);
-    signMesh.position.set(0.0, 4.18, -D / 2 + 0.03);
+    signMesh.position.set(0.0, 3.98, -D / 2 + 0.038);
     scene.add(signMesh);
+
+    // Architectural backing frame and twin suspension rods mounting to ceiling beam
+    const mountParts = [
+      createColoredPart(new THREE.BoxGeometry(8.28, 1.02, 0.04), '#090d16', 0.0, 3.98, -D / 2 + 0.018),
+      createColoredPart(new THREE.CylinderGeometry(0.02, 0.02, 0.18, 12), '#94a3b8', -3.2, 4.55, -D / 2 + 0.025),
+      createColoredPart(new THREE.CylinderGeometry(0.02, 0.02, 0.18, 12), '#94a3b8', 3.2, 4.55, -D / 2 + 0.025),
+    ];
+    const mountMesh = new THREE.Mesh(
+      mergeGeometries(mountParts, false),
+      new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.45, metalness: 0.65 })
+    );
+    scene.add(mountMesh);
 
     // Translucent Sky-Blue Glass Window Panes (merged into 1 draw call)
     const glassParts = [
@@ -1450,15 +1562,46 @@ class OfficeFurnitureBuilder {
     addCyl(0.05, 0.045, 0.10, 12, '#fef3c7', 0.26, 0.49, 1.15);
     addBox(0.32, 0.02, 0.24, '#ffffff', -0.24, 0.45, 1.10, 0, 0.25, 0);
 
-    // CS & Math Reference Bookshelf Library at (7.45, -7.45) and Copy/3D Printer Station at (-7.45, 6.45)
-    addBox(1.35, 2.10, 0.46, '#92400e', 6.45, 1.05, -7.55);
-    for (let s = 0; s < 4; s++) {
-      const sy = 0.38 + s * 0.46;
-      addBox(1.25, 0.04, 0.42, '#b45309', 6.45, sy, -7.53);
-      for (let bk = 0; bk < 7; bk++) {
-        addBox(0.11, 0.32, 0.28, snackPalette[(s + bk) % snackPalette.length], 5.95 + bk * 0.16, sy + 0.18, -7.52);
+    // CS & Math Open-Shelf Reference Library Bookcase at x = 6.45, z = -7.55
+    const bx = 6.45, bz = -7.55;
+    // Outer Walnut Frame (open front facing +Z)
+    addBox(1.48, 2.22, 0.04, '#5c2d12', bx, 1.11, bz - 0.19); // Backboard
+    addBox(0.05, 2.22, 0.42, '#78350f', bx - 0.715, 1.11, bz); // Left side panel
+    addBox(0.05, 2.22, 0.42, '#78350f', bx + 0.715, 1.11, bz); // Right side panel
+    addBox(1.48, 0.06, 0.44, '#78350f', bx, 2.21, bz); // Top crown
+    addBox(1.48, 0.08, 0.44, '#5c2d12', bx, 0.04, bz); // Bottom base
+    // 4 Open Shelves with realistic vertical spacing
+    const shelfYs = [0.46, 0.88, 1.30, 1.72];
+    for (let s = 0; s < shelfYs.length; s++) {
+      const sy = shelfYs[s];
+      addBox(1.38, 0.035, 0.40, '#92400e', bx, sy, bz + 0.01);
+    }
+    // Richly populated colorful books & research volumes across all 5 shelf levels
+    const bookColors = ['#1e3a8a', '#047857', '#b91c1c', '#d97706', '#581c87', '#0284c7', '#0f766e', '#ea580c', '#334155', '#4338ca', '#f8fafc', '#15803d'];
+    const shelfTiers = [0.08, 0.495, 0.915, 1.335, 1.755];
+    for (let tier = 0; tier < shelfTiers.length; tier++) {
+      const baseSy = shelfTiers[tier];
+      const count = 9;
+      for (let b = 0; b < count; b++) {
+        const bHeight = 0.28 + ((b * 3 + tier) % 4) * 0.024;
+        const bDepth = 0.26 + (b % 2) * 0.03;
+        const bThick = 0.08 + (b % 3) * 0.02;
+        const bX = bx - 0.54 + b * 0.126;
+        const col = bookColors[(tier * 4 + b) % bookColors.length];
+        const isTilted = (b === count - 1 && tier % 2 === 1);
+        const rotZ = isTilted ? -0.22 : 0;
+        const yOffset = isTilted ? 0.02 : 0;
+        addBox(bThick, bHeight, bDepth, col, bX, baseSy + bHeight / 2 + yOffset, bz + 0.04, 0, 0, rotZ);
+      }
+      if (tier === 0 || tier === 2) {
+        addBox(0.24, 0.05, 0.28, '#f8fafc', bx + 0.50, baseSy + 0.025, bz + 0.06);
+        addBox(0.22, 0.04, 0.26, '#38bdf8', bx + 0.50, baseSy + 0.065, bz + 0.06, 0, 0.08, 0);
       }
     }
+    // Decorative brass study globe on top shelf
+    addCyl(0.06, 0.08, 0.04, 12, '#94a3b8', bx + 0.52, 1.77, bz + 0.05);
+    addCyl(0.015, 0.015, 0.14, 8, '#d97706', bx + 0.52, 1.84, bz + 0.05);
+    addSphere(0.07, 10, '#0284c7', bx + 0.52, 1.95, bz + 0.05);
     // Office Laser Printer & 3D Printer Station (-7.45, 6.45)
     addBox(0.92, 0.78, 0.68, '#f8fafc', -7.45, 0.39, 6.35);
     addBox(0.68, 0.42, 0.54, '#cbd5e1', -7.45, 0.98, 6.35);
@@ -3404,7 +3547,7 @@ class LabBossaAudioEngine {
         );
         const secondaryLabel = links.repo_url
           ? 'GitHub Repository ↗'
-          : '🌌 Explore in 3D Constellation ↗';
+          : '🌌 3D Constellation ↗';
 
         let paperPreviewHtml = '';
         if (worker.preview_url) {
