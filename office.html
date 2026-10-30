@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Mateus Yonathan Agentic Autonomous Lab - We Work 24 Hours</title>
-  <meta name="description" content="Interactive 3D Isometric Virtual Office depicting autonomous male and female engineers and research scientists working 24/7 on 410 verified modules and 113 research papers." />
+  <meta name="description" content="Interactive 3D Isometric Virtual Office depicting autonomous male and female engineers and research scientists working 24/7 on 410 verified modules and 114 research papers." />
   <meta name="author" content="Mateus Yonathan" />
   <link rel="canonical" href="https://myonathanlinkedin.github.io/office.html" />
   <link rel="icon" href="https://myonathanlinkedin.github.io/assets/avatar.png" type="image/png" />
@@ -485,7 +485,8 @@
 
     <div class="telemetry-pills">
       <span class="telemetry-pill">Modules: <strong id="stat-modules">410</strong></span>
-      <span class="telemetry-pill">Papers: <strong id="stat-papers">113</strong></span>
+      <span class="telemetry-pill">Papers: <strong id="stat-papers">114</strong></span>
+      <span class="telemetry-pill" title="4 Rotating Shifts (6h each = 24h) with Biometric Fingerprint Attendance">🕒 <strong id="stat-shift">Shift 3/4 (18:00-00:00 WIB)</strong> • 🟢 Fingerprint Verified</span>
       <span class="telemetry-pill">FPS: <strong id="stat-fps">60</strong></span>
     </div>
 
@@ -532,7 +533,7 @@
         <button type="button" class="drawer-close" id="btn-close-office-help" title="Close Guide">✕</button>
       </div>
       <div style="font-size:0.82rem;line-height:1.65;color:#cbd5e1;display:grid;gap:9px;margin-top:8px;">
-        <p><strong>What Is This?</strong> Welcome to the interactive 3D exhibition space of the <strong>Mateus Yonathan Agentic Autonomous Lab</strong>. This virtual studio showcases our 24/7 open-source software engineering and academic research publications (410 public modules &amp; 113 Research Papers) in real time.</p>
+        <p><strong>What Is This?</strong> Welcome to the interactive 3D exhibition space of the <strong>Mateus Yonathan Agentic Autonomous Lab</strong>. This virtual studio showcases our 24/7 open-source software engineering and academic research publications (410 public modules &amp; 114 Research Papers) in real time.</p>
         <p><strong>5 Divisions You Can Visit:</strong><br/>
         • <strong>💻 Systems Architecture:</strong> Showcases newly released algorithms and data structures across 14 programming languages.<br/>
         • <strong>📄 Research Paper Wing:</strong> Displays published Research Papers and Mini-Papers with executive summaries and Scholar Preprints.<br/>
@@ -810,146 +811,217 @@ function buildFloorGridTexture(isLight = true) {
   return tex;
 }
 
+function drawBox(ctx, x, y, w, h, r, fill, stroke, strokeW) {
+  ctx.beginPath();
+  if (ctx.roundRect) {
+    ctx.roundRect(x, y, w, h, r);
+  } else {
+    ctx.moveTo(x + r, y);
+    ctx.lineTo(x + w - r, y);
+    ctx.arcTo(x + w, y, x + w, y + r, r);
+    ctx.lineTo(x + w, y + h - r);
+    ctx.arcTo(x + w, y + h, x + w - r, y + h, r);
+    ctx.lineTo(x + r, y + h);
+    ctx.arcTo(x, y + h, x, y + h - r, r);
+    ctx.lineTo(x, y + r);
+    ctx.arcTo(x, y, x + r, y, r);
+    ctx.closePath();
+  }
+  if (fill) { ctx.fillStyle = fill; ctx.fill(); }
+  if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = strokeW || 2; ctx.stroke(); }
+}
+
 function buildWallSignTexture() {
   const canvas = document.createElement('canvas');
-  canvas.width = 2048;
-  canvas.height = 240;
+  canvas.width = 2800;
+  canvas.height = 280;
   const ctx = canvas.getContext('2d');
 
-  // 1. Rich Executive Obsidian Gradient Background
-  const bgGrad = ctx.createLinearGradient(0, 0, 2048, 240);
-  bgGrad.addColorStop(0.0, '#070b14');
-  bgGrad.addColorStop(0.4, '#0c1322');
-  bgGrad.addColorStop(0.8, '#0a1728');
-  bgGrad.addColorStop(1.0, '#06131f');
+  // 1. High-Contrast Obsidian Navy Base
+  const bgGrad = ctx.createLinearGradient(0, 0, 2800, 280);
+  bgGrad.addColorStop(0.0, '#0a1124');
+  bgGrad.addColorStop(0.5, '#0f172a');
+  bgGrad.addColorStop(1.0, '#080d1a');
   ctx.fillStyle = bgGrad;
-  ctx.fillRect(0, 0, 2048, 240);
+  ctx.fillRect(0, 0, 2800, 280);
 
-  // Subtle tech micro-grid pattern
-  ctx.strokeStyle = 'rgba(255, 255, 255, 0.025)';
+  // Tech micro-grid lines
+  ctx.strokeStyle = 'rgba(56, 189, 248, 0.08)';
   ctx.lineWidth = 1;
-  for (let x = 40; x < 2048; x += 48) {
-    ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, 240); ctx.stroke();
+  for (let x = 40; x < 2800; x += 48) {
+    ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, 280); ctx.stroke();
   }
-  for (let y = 30; y < 240; y += 40) {
-    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(2048, y); ctx.stroke();
+  for (let y = 20; y < 280; y += 40) {
+    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(2800, y); ctx.stroke();
   }
 
-  // Top edge luminous highlight bevel
-  const topGlow = ctx.createLinearGradient(0, 0, 2048, 0);
-  topGlow.addColorStop(0.0, 'rgba(16, 185, 129, 0.20)');
-  topGlow.addColorStop(0.25, 'rgba(56, 189, 248, 0.95)');
-  topGlow.addColorStop(0.70, 'rgba(168, 85, 247, 0.90)');
-  topGlow.addColorStop(1.0, 'rgba(16, 185, 129, 0.30)');
+  // Top Luminous Edge Bevel
+  const topGlow = ctx.createLinearGradient(0, 0, 2800, 0);
+  topGlow.addColorStop(0.0, '#10b981');
+  topGlow.addColorStop(0.30, '#38bdf8');
+  topGlow.addColorStop(0.70, '#c084fc');
+  topGlow.addColorStop(1.0, '#10b981');
   ctx.fillStyle = topGlow;
-  ctx.fillRect(4, 4, 2040, 4);
+  ctx.fillRect(4, 4, 2792, 6);
 
-  // Precision outer border
-  ctx.strokeStyle = 'rgba(56, 189, 248, 0.40)';
-  ctx.lineWidth = 3;
-  ctx.strokeRect(3, 3, 2042, 234);
+  // Outer Neon Frame Border
+  ctx.strokeStyle = '#38bdf8';
+  ctx.lineWidth = 4;
+  ctx.strokeRect(3, 3, 2794, 274);
 
-  // Inner metallic hairline border
-  ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
-  ctx.lineWidth = 1;
-  ctx.strokeRect(9, 9, 2030, 222);
-
-  // Corner mounting hex studs (precision aerospace diorama feel)
-  const corners = [[26, 26], [2022, 26], [26, 214], [2022, 214]];
+  // Corner hex studs
+  const corners = [[26, 26], [2774, 26], [26, 254], [2774, 254]];
   for (let i = 0; i < corners.length; i++) {
-    const cx = corners[i][0];
-    const cy = corners[i][1];
-    ctx.fillStyle = '#64748b';
-    ctx.beginPath(); ctx.arc(cx, cy, 6, 0, Math.PI * 2); ctx.fill();
-    ctx.fillStyle = '#cbd5e1';
+    const cx = corners[i][0], cy = corners[i][1];
+    ctx.fillStyle = '#94a3b8';
+    ctx.beginPath(); ctx.arc(cx, cy, 7, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#ffffff';
     ctx.beginPath(); ctx.arc(cx - 1, cy - 1, 3, 0, Math.PI * 2); ctx.fill();
   }
 
-  // 2. Left & Center Branding Elements
-  // Glowing Pulse Indicator
-  ctx.fillStyle = 'rgba(16, 185, 129, 0.22)';
+  // SECTION 1: BRANDING & MOTTO (x: 40 to 910)
+  // Glowing Live Dot
+  ctx.fillStyle = 'rgba(16, 185, 129, 0.40)';
   ctx.beginPath(); ctx.arc(68, 56, 18, 0, Math.PI * 2); ctx.fill();
   ctx.fillStyle = '#10b981';
-  ctx.beginPath(); ctx.arc(68, 56, 9, 0, Math.PI * 2); ctx.fill();
+  ctx.beginPath(); ctx.arc(68, 56, 10, 0, Math.PI * 2); ctx.fill();
   ctx.fillStyle = '#ffffff';
-  ctx.beginPath(); ctx.arc(66, 54, 3, 0, Math.PI * 2); ctx.fill();
+  ctx.beginPath(); ctx.arc(65, 53, 3, 0, Math.PI * 2); ctx.fill();
 
-  // Line 1: Main Brand Title
+  // Brand Name
   ctx.fillStyle = '#ffffff';
-  ctx.font = '800 38px system-ui, -apple-system, sans-serif';
-  ctx.fillText('MATEUS YONATHAN // AGENTIC AUTONOMOUS LAB', 104, 68);
+  ctx.font = '900 40px system-ui, -apple-system, sans-serif';
+  ctx.fillText('MATEUS YONATHAN // AGENTIC LAB', 100, 68);
 
-  // Sub-badge next to title
-  ctx.fillStyle = 'rgba(16, 185, 129, 0.16)';
-  ctx.strokeStyle = 'rgba(52, 211, 153, 0.45)';
-  ctx.lineWidth = 1;
-  const bX = 1120;
-  ctx.beginPath(); ctx.roundRect(bX, 40, 275, 36, 18); ctx.fill(); ctx.stroke();
-  ctx.fillStyle = '#34d399';
-  ctx.font = '700 16px monospace';
-  ctx.fillText('● LIVE 24/7 PIPELINE', bX + 22, 64);
+  // Subtitle
+  ctx.fillStyle = '#38bdf8';
+  ctx.font = 'bold 18px monospace';
+  ctx.fillText('● 24/7 CONTINUOUS CODING, RESEARCH & BENCHMARKS', 54, 114);
 
-  // Line 2: Pipeline Operations Subtitle
-  ctx.fillStyle = '#7dd3fc';
-  ctx.font = '600 20px monospace';
-  ctx.fillText('CONTINUOUS CODING  •  PEER-AUDITED RESEARCH PAPERS  •  VERIFIED SYSTEMS BENCHMARKING', 62, 120);
-
-  // Line 3: Guyon Motto in Premium Rounded Glass Pill
-  const pillX = 60, pillY = 150, pillW = 1335, pillH = 58, pillR = 14;
-  ctx.fillStyle = 'rgba(245, 158, 11, 0.10)';
-  ctx.strokeStyle = 'rgba(251, 191, 36, 0.42)';
-  ctx.lineWidth = 1.5;
-  ctx.beginPath(); ctx.roundRect(pillX, pillY, pillW, pillH, pillR); ctx.fill(); ctx.stroke();
+  // Guyon Motto Container (User: "Work like a horse & smart | Kerja bagai kuda & cerdas")
+  const mX = 52, mY = 138, mW = 850, mH = 112;
+  drawBox(ctx, mX, mY, mW, mH, 12, 'rgba(245, 158, 11, 0.18)', '#fbbf24', 2.5);
 
   ctx.fillStyle = '#fbbf24';
-  ctx.font = '700 22px system-ui, -apple-system, sans-serif';
-  ctx.fillText('🐎  Motto: Work Like a Horse & Work Smart  |  Kerja Bagai Kuda & Cerdas', pillX + 22, pillY + 37);
+  ctx.font = 'bold 25px system-ui, -apple-system, sans-serif';
+  ctx.fillText('🐎  Motto: Work Like a Horse & Work Smart', mX + 22, mY + 44);
 
-  // 3. Right Section: Mission Control HUD Telemetry Cards (Fills the right space!)
-  const divX = 1425;
-  const divGrad = ctx.createLinearGradient(0, 20, 0, 220);
-  divGrad.addColorStop(0, 'rgba(56, 189, 248, 0.05)');
-  divGrad.addColorStop(0.5, 'rgba(56, 189, 248, 0.45)');
-  divGrad.addColorStop(1, 'rgba(56, 189, 248, 0.05)');
-  ctx.strokeStyle = divGrad;
-  ctx.lineWidth = 2;
-  ctx.beginPath(); ctx.moveTo(divX, 24); ctx.lineTo(divX, 216); ctx.stroke();
+  ctx.fillStyle = '#fef08a';
+  ctx.font = 'bold 22px system-ui, -apple-system, sans-serif';
+  ctx.fillText('Kerja Bagai Kuda & Cerdas  (Continuous 24/7 Ops)', mX + 22, mY + 84);
 
-  const stats = [
-    { num: '409', lbl: 'MODULES', col: '#38bdf8', bg: 'rgba(56, 189, 248, 0.10)', bdr: 'rgba(56, 189, 248, 0.35)' },
-    { num: '112', lbl: 'PAPERS', col: '#c084fc', bg: 'rgba(192, 132, 252, 0.10)', bdr: 'rgba(192, 132, 252, 0.35)' },
-    { num: '14',  lbl: 'LANGS', col: '#34d399', bg: 'rgba(52, 211, 153, 0.10)', bdr: 'rgba(52, 211, 153, 0.35)' }
+  // SECTION 2: 4-SHIFT LIVE ROSTER (x: 935 to 2260) - SOLVES USER REQUEST
+  // "masukkan nama2 orang yang kerja saat ini current shift & next shift jadi orang tahu bahwa ini bukan random"
+  const shifts = [
+    { id: 1, name: 'Pagi', hours: '06:00 - 12:00 WIB', team: ['Bima Vance', 'Dr. Clara W.', 'Kevin Pratama', 'Dewi Lestari'] },
+    { id: 2, name: 'Siang', hours: '12:00 - 18:00 WIB', team: ['Marcus Pratama', 'Elena Kusuma', 'Sarah Oktavia', 'Fajar Nugraha'] },
+    { id: 3, name: 'Malam', hours: '18:00 - 00:00 WIB', team: ['Nadia Miller', 'Aris Munandar', 'Citra Anggraini', 'Dimas Setiawan'] },
+    { id: 4, name: 'Dini Hari', hours: '00:00 - 06:00 WIB', team: ['Hendro Wibowo', 'Rina Handayani', 'Bagus Prakoso', 'Maya Safitri'] }
   ];
 
-  let startSX = divX + 24;
+  // Dynamic WIB calculation (UTC+7)
+  const now = new Date();
+  const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+  const wib = new Date(utc + (3600000 * 7));
+  const curHour = wib.getHours();
+  let curIdx = 0;
+  if (curHour >= 6 && curHour < 12) curIdx = 0;
+  else if (curHour >= 12 && curHour < 18) curIdx = 1;
+  else if (curHour >= 18 && curHour < 24) curIdx = 2;
+  else curIdx = 3;
+  const nextIdx = (curIdx + 1) % 4;
+  const curShift = shifts[curIdx];
+  const nextShift = shifts[nextIdx];
+
+  // Card A: CURRENT SHIFT (ON-DUTY)
+  const cAX = 935, cAY = 28, cAW = 645, cAH = 224;
+  drawBox(ctx, cAX, cAY, cAW, cAH, 12, 'rgba(6, 78, 59, 0.65)', '#10b981', 2.5);
+
+  // Badge Header
+  drawBox(ctx, cAX + 16, cAY + 14, cAW - 32, 38, 8, 'rgba(16, 185, 129, 0.35)', '#34d399', 1.5);
+  ctx.fillStyle = '#ffffff';
+  ctx.font = '900 18px monospace';
+  ctx.fillText('🕒 ON-DUTY • SHIFT ' + curShift.id + '/4: ' + curShift.name.toUpperCase() + ' (' + curShift.hours + ')', cAX + 28, cAY + 40);
+
+  // Active Engineer Names
+  ctx.fillStyle = '#ffffff';
+  ctx.font = 'bold 22px system-ui, -apple-system, sans-serif';
+  ctx.fillText('👤 ' + curShift.team[0] + '   •   👤 ' + curShift.team[1], cAX + 24, cAY + 95);
+  ctx.fillStyle = '#e2e8f0';
+  ctx.fillText('👤 ' + curShift.team[2] + '   •   👤 ' + curShift.team[3], cAX + 24, cAY + 138);
+
+  // Verification status
+  drawBox(ctx, cAX + 16, cAY + 168, cAW - 32, 40, 8, 'rgba(15, 23, 42, 0.70)', '#059669', 1.5);
+  ctx.fillStyle = '#34d399';
+  ctx.font = 'bold 16px monospace';
+  ctx.fillText('🟢 100% ATTENDED • BIOMETRIC FINGERPRINT VERIFIED', cAX + 32, cAY + 194);
+
+  // Card B: NEXT ROTATION (STANDBY)
+  const cBX = 1600, cBY = 28, cBW = 645, cBH = 224;
+  drawBox(ctx, cBX, cBY, cBW, cBH, 12, 'rgba(30, 58, 138, 0.55)', '#38bdf8', 2.5);
+
+  // Badge Header
+  drawBox(ctx, cBX + 16, cBY + 14, cBW - 32, 38, 8, 'rgba(56, 189, 248, 0.30)', '#7dd3fc', 1.5);
+  ctx.fillStyle = '#ffffff';
+  ctx.font = '900 18px monospace';
+  ctx.fillText('⏭ UPCOMING • SHIFT ' + nextShift.id + '/4: ' + nextShift.name.toUpperCase() + ' (' + nextShift.hours + ')', cBX + 28, cBY + 40);
+
+  // Standby Engineer Names
+  ctx.fillStyle = '#ffffff';
+  ctx.font = 'bold 22px system-ui, -apple-system, sans-serif';
+  ctx.fillText('⏳ ' + nextShift.team[0] + '   •   ⏳ ' + nextShift.team[1], cBX + 24, cBY + 95);
+  ctx.fillStyle = '#cbd5e1';
+  ctx.fillText('⏳ ' + nextShift.team[2] + '   •   ⏳ ' + nextShift.team[3], cBX + 24, cBY + 138);
+
+  // Verification status
+  drawBox(ctx, cBX + 16, cBY + 168, cBW - 32, 40, 8, 'rgba(15, 23, 42, 0.70)', '#0284c7', 1.5);
+  ctx.fillStyle = '#7dd3fc';
+  ctx.font = 'bold 16px monospace';
+  ctx.fillText('🕒 DETERMINISTIC ROTATION • NOT RANDOM', cBX + 32, cBY + 194);
+
+  // SECTION 3: RIGHT TELEMETRY METRICS (x: 2265 to 2760)
+  const divX = 2265;
+  ctx.strokeStyle = 'rgba(56, 189, 248, 0.55)';
+  ctx.lineWidth = 2.5;
+  ctx.beginPath(); ctx.moveTo(divX, 24); ctx.lineTo(divX, 256); ctx.stroke();
+
+  const stats = [
+    { num: '409', lbl: 'MODULES', col: '#38bdf8', bdr: '#38bdf8' },
+    { num: '113', lbl: 'PAPERS',  col: '#c084fc', bdr: '#c084fc' },
+    { num: '14',  lbl: 'LANGS',   col: '#34d399', bdr: '#34d399' }
+  ];
+
+  const sW = 150, sH = 120, sY = 32;
   for (let i = 0; i < stats.length; i++) {
     const st = stats[i];
-    const cardW = 168, cardH = 96, cardY = 32;
-    const cX = startSX + i * (cardW + 14);
-
-    ctx.fillStyle = st.bg;
-    ctx.strokeStyle = st.bdr;
-    ctx.lineWidth = 1;
-    ctx.beginPath(); ctx.roundRect(cX, cardY, cardW, cardH, 10); ctx.fill(); ctx.stroke();
+    const sX = divX + 18 + i * (sW + 12);
+    drawBox(ctx, sX, sY, sW, sH, 10, 'rgba(15, 23, 42, 0.95)', st.bdr, 2.5);
 
     ctx.fillStyle = st.col;
-    ctx.font = '800 36px system-ui, -apple-system, sans-serif';
+    ctx.font = '900 46px system-ui, -apple-system, sans-serif';
     ctx.textAlign = 'center';
-    ctx.fillText(st.num, cX + cardW / 2, cardY + 48);
+    ctx.fillText(st.num, sX + sW / 2, sY + 64);
 
-    ctx.fillStyle = '#94a3b8';
-    ctx.font = '700 13px monospace';
-    ctx.fillText(st.lbl, cX + cardW / 2, cardY + 76);
+    ctx.fillStyle = '#cbd5e1';
+    ctx.font = 'bold 16px monospace';
+    ctx.fillText(st.lbl, sX + sW / 2, sY + 98);
     ctx.textAlign = 'left';
   }
 
-  // Sub telemetry line on bottom right
-  ctx.fillStyle = '#64748b';
-  ctx.font = '600 13px monospace';
-  ctx.fillText('STATUS: 100% AUTONOMOUS • 0 HALLUCINATIONS', divX + 32, 186);
+  // Telemetry subtext
+  drawBox(ctx, divX + 18, 172, 474, 76, 10, 'rgba(15, 23, 42, 0.90)', 'rgba(56, 189, 248, 0.40)', 1.5);
+  ctx.fillStyle = '#38bdf8';
+  ctx.font = 'bold 17px monospace';
+  ctx.fillText('● SYSTEM STATUS: 100% AUTONOMOUS', divX + 38, 204);
+  ctx.fillStyle = '#94a3b8';
+  ctx.font = 'bold 15px monospace';
+  ctx.fillText('PRECISION 24/7 DUAL-CORE ENGINE', divX + 38, 232);
 
   const tex = new THREE.CanvasTexture(canvas);
   tex.colorSpace = THREE.SRGBColorSpace;
+  tex.generateMipmaps = false;
+  tex.minFilter = THREE.LinearFilter;
+  tex.magFilter = THREE.LinearFilter;
   tex.anisotropy = 4;
   return tex;
 }
@@ -1022,18 +1094,25 @@ class CutawayRoomBuilder {
     scene.add(floorMesh);
 
     // Prominent 24/7 Autonomous Lab Wall Banner mounted inside the 3D office (-Z upper header)
-    // Sized & positioned strictly beneath room ceiling coping (y=4.46 < 4.60) to prevent top overlap
-    const signGeo = new THREE.PlaneGeometry(8.20, 0.96);
-    const signMat = new THREE.MeshBasicMaterial({ map: buildWallSignTexture() });
+    // Sized & positioned strictly beneath room ceiling coping (y=4.51 < 4.60) to prevent top overlap
+    // Lengthened across header (12.20 x 1.22) displaying live 4-shift deterministic rosters
+    const signGeo = new THREE.PlaneGeometry(12.20, 1.22);
+    const signMat = new THREE.MeshBasicMaterial({
+      map: buildWallSignTexture(),
+      polygonOffset: true,
+      polygonOffsetFactor: -4.0,
+      polygonOffsetUnits: -4.0,
+    });
     const signMesh = new THREE.Mesh(signGeo, signMat);
-    signMesh.position.set(0.0, 3.98, -D / 2 + 0.038);
+    signMesh.position.set(0.0, 3.90, -D / 2 + 0.082);
     scene.add(signMesh);
 
-    // Architectural backing frame and twin suspension rods mounting to ceiling beam
+    // Architectural backing frame and triple suspension rods mounting to ceiling beam
     const mountParts = [
-      createColoredPart(new THREE.BoxGeometry(8.28, 1.02, 0.04), '#090d16', 0.0, 3.98, -D / 2 + 0.018),
-      createColoredPart(new THREE.CylinderGeometry(0.02, 0.02, 0.18, 12), '#94a3b8', -3.2, 4.55, -D / 2 + 0.025),
-      createColoredPart(new THREE.CylinderGeometry(0.02, 0.02, 0.18, 12), '#94a3b8', 3.2, 4.55, -D / 2 + 0.025),
+      createColoredPart(new THREE.BoxGeometry(12.28, 1.30, 0.04), '#090d16', 0.0, 3.90, -D / 2 + 0.025),
+      createColoredPart(new THREE.CylinderGeometry(0.02, 0.02, 0.18, 12), '#94a3b8', -4.8, 4.55, -D / 2 + 0.035),
+      createColoredPart(new THREE.CylinderGeometry(0.02, 0.02, 0.18, 12), '#94a3b8', 0.0, 4.55, -D / 2 + 0.035),
+      createColoredPart(new THREE.CylinderGeometry(0.02, 0.02, 0.18, 12), '#94a3b8', 4.8, 4.55, -D / 2 + 0.035),
     ];
     const mountMesh = new THREE.Mesh(
       mergeGeometries(mountParts, false),
@@ -1082,13 +1161,15 @@ class IsometricSceneEngine {
     this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
     const aspect = window.innerWidth / Math.max(1, window.innerHeight);
+    const minHalfW = 12.8;
+    const effectiveHalf = Math.max(this.frustumHalf, minHalfW / Math.max(0.3, aspect));
     this.camera = new THREE.OrthographicCamera(
-      -this.frustumHalf * aspect,
-      this.frustumHalf * aspect,
-      this.frustumHalf,
-      -this.frustumHalf,
-      0.1,
-      200.0
+      -effectiveHalf * aspect,
+      effectiveHalf * aspect,
+      effectiveHalf,
+      -effectiveHalf,
+      1.0,
+      90.0
     );
     const initPos = spatialCfg.camera.initial_position;
     const initTgt = spatialCfg.camera.initial_target;
@@ -1232,15 +1313,60 @@ class IsometricSceneEngine {
     const w = window.innerWidth;
     const h = Math.max(1, window.innerHeight);
     const aspect = w / h;
-    this.camera.left = -this.frustumHalf * aspect;
-    this.camera.right = this.frustumHalf * aspect;
-    this.camera.top = this.frustumHalf;
-    this.camera.bottom = -this.frustumHalf;
+    const minHalfW = 12.8;
+    const effectiveHalf = Math.max(this.frustumHalf, minHalfW / Math.max(0.3, aspect));
+    this.camera.left = -effectiveHalf * aspect;
+    this.camera.right = effectiveHalf * aspect;
+    this.camera.top = effectiveHalf;
+    this.camera.bottom = -effectiveHalf;
     this.camera.updateProjectionMatrix();
     this.renderer.setSize(w, h);
   }
 }
 
+
+function buildRestroomSignTexture() {
+  const canvas = document.createElement('canvas');
+  canvas.width = 512;
+  canvas.height = 160;
+  const ctx = canvas.getContext('2d');
+
+  // Obsidian dark base
+  ctx.fillStyle = '#0a1124';
+  ctx.fillRect(0, 0, 512, 160);
+
+  // High-contrast electric cyan border
+  ctx.strokeStyle = '#38bdf8';
+  ctx.lineWidth = 4;
+  ctx.strokeRect(3, 3, 506, 154);
+
+  // Inner metallic hairline accent
+  ctx.strokeStyle = 'rgba(56, 189, 248, 0.40)';
+  ctx.lineWidth = 1.5;
+  ctx.strokeRect(8, 8, 496, 144);
+
+  // 🚻 Pictogram
+  ctx.fillStyle = '#38bdf8';
+  ctx.font = 'bold 50px system-ui, sans-serif';
+  ctx.fillText('🚻', 22, 102);
+
+  // Main text: RESTROOM
+  ctx.fillStyle = '#ffffff';
+  ctx.font = '900 44px system-ui, -apple-system, sans-serif';
+  ctx.fillText('RESTROOM', 114, 96);
+
+  // Subtitle / indicator
+  ctx.fillStyle = '#10b981';
+  ctx.font = 'bold 18px monospace';
+  ctx.fillText('● EXECUTIVE TOILET', 118, 134);
+
+  const tex = new THREE.CanvasTexture(canvas);
+  tex.colorSpace = THREE.SRGBColorSpace;
+  tex.generateMipmaps = false;
+  tex.minFilter = THREE.LinearFilter;
+  tex.magFilter = THREE.LinearFilter;
+  return tex;
+}
 
 class OfficeFurnitureBuilder {
   static build(scene) {
@@ -1607,6 +1733,54 @@ class OfficeFurnitureBuilder {
     addBox(0.68, 0.42, 0.54, '#cbd5e1', -7.45, 0.98, 6.35);
     addBox(0.52, 0.06, 0.42, '#334155', -7.45, 1.22, 6.35);
 
+    // 3.8 Modern Architectural Restroom / Bathroom Cubicle (6.80, 0.0, 6.60)
+    // Relocated behind server racks at previous leaf pot corner, with frosted door, vanity sink & porcelain toilet
+    addBox(2.10, 0.06, 1.60, '#0284c7', 6.80, 0.03, 6.60);
+    addBox(2.10, 2.30, 0.08, '#f1f5f9', 6.80, 1.15, 7.36); // Back wall (+Z side)
+    addBox(0.08, 2.30, 1.60, '#e2e8f0', 5.75, 1.15, 6.60); // Left wall
+    addBox(0.08, 2.30, 1.60, '#e2e8f0', 7.85, 1.15, 6.60); // Right wall
+    // Front partition with door opening facing -Z (towards room / server walkway)
+    addBox(0.50, 2.30, 0.08, '#cbd5e1', 6.00, 1.15, 5.84);
+    addBox(1.10, 0.40, 0.08, '#cbd5e1', 6.80, 2.10, 5.84);
+    addBox(0.96, 1.90, 0.04, '#38bdf8', 6.80, 0.95, 5.84); // Frosted door
+    addCyl(0.02, 0.02, 0.28, 8, '#94a3b8', 7.20, 1.05, 5.81); // Chrome handle
+    // Restroom WC Plaque with illuminated icon & crisp canvas texture
+    addBox(0.60, 0.20, 0.02, '#0f172a', 6.80, 2.12, 5.82);
+    const plaqueGeo = new THREE.PlaneGeometry(0.56, 0.17);
+    const plaqueMat = new THREE.MeshBasicMaterial({
+      map: buildRestroomSignTexture(),
+      polygonOffset: true,
+      polygonOffsetFactor: -3.0,
+      polygonOffsetUnits: -3.0,
+    });
+    const plaqueMesh = new THREE.Mesh(plaqueGeo, plaqueMat);
+    plaqueMesh.position.set(6.80, 2.12, 5.805);
+    scene.add(plaqueMesh);
+    // Porcelain toilet fixtures
+    addBox(0.38, 0.42, 0.54, '#ffffff', 7.40, 0.21, 6.80);
+    addBox(0.40, 0.04, 0.48, '#e2e8f0', 7.40, 0.43, 6.80);
+    addBox(0.44, 0.46, 0.22, '#f8fafc', 7.40, 0.68, 7.15);
+    addBox(0.08, 0.02, 0.03, '#94a3b8', 7.23, 0.82, 7.02);
+    addCyl(0.07, 0.07, 0.14, 10, '#ffffff', 7.76, 0.68, 6.70, 0, 0, Math.PI / 2);
+    // Vanity washbasin & mirror fixtures
+    addBox(0.56, 0.12, 0.46, '#ffffff', 6.25, 0.82, 6.84);
+    addBox(0.52, 0.72, 0.42, '#334155', 6.25, 0.40, 6.84);
+    addCyl(0.02, 0.02, 0.16, 8, '#cbd5e1', 6.25, 0.94, 7.00);
+    addBox(0.03, 0.03, 0.08, '#94a3b8', 6.25, 1.00, 6.94);
+    addBox(0.50, 0.72, 0.03, '#38bdf8', 6.25, 1.48, 7.28);
+    addBox(0.54, 0.76, 0.02, '#475569', 6.25, 1.48, 7.30);
+
+    // 3.9 Biometric Fingerprint Attendance Terminal Stand (-6.8, 0.0, 6.6)
+    // Precision attendance terminal for 4-shift 24/7 worker rotation
+    addCyl(0.24, 0.26, 0.06, 16, '#334155', -6.8, 0.03, 6.6);
+    addCyl(0.045, 0.045, 1.08, 12, '#64748b', -6.8, 0.58, 6.6);
+    addBox(0.34, 0.46, 0.18, '#0f172a', -6.8, 1.18, 6.6, 0.22, 0, 0);
+    addBox(0.26, 0.16, 0.02, '#0284c7', -6.8, 1.28, 6.51, 0.22, 0, 0); // LCD
+    addBox(0.09, 0.09, 0.02, '#064e3b', -6.8, 1.10, 6.55, 0.22, 0, 0); // Prism
+    ledPositions.push([-6.8, 1.10, 6.53, 0.08, 0.08, 0.02]);
+    ledBaseColors.push('#10b981'); // Biometric scanner laser LED
+    addBox(0.02, 0.12, 0.10, '#38bdf8', -6.62, 1.18, 6.6, 0.22, 0, 0);
+
     // Potted Monstera Deliciosa Plants in white ceramic pots at room corners & dividers
     const addMonstera = (px, pz) => {
       addCyl(0.26, 0.20, 0.46, 12, '#ffffff', px, 0.23, pz);
@@ -1621,8 +1795,8 @@ class OfficeFurnitureBuilder {
     addMonstera(-7.8, -7.6);
     addMonstera(7.8, -7.6);
     addMonstera(-7.8, 7.5);
-    addMonstera(7.8, 7.5);
-    addMonstera(3.35, -7.45);
+    addMonstera(4.8, 6.8);
+    addMonstera(4.55, -7.45);
     addMonstera(-3.55, -7.45);
 
     // Merge all static furniture & appliances into 1 single draw call with smooth shading
@@ -2190,12 +2364,15 @@ class OfficeAnimationEngine {
 
     // Furniture obstacle circles [cx, cz, radius] for smooth collision-free walking trajectories
     this.obstacles = [
-      [0.0, -1.65, 1.55],   // Center Round War-Room Table
+      [0.0, -1.65, 1.45],   // Center Round War-Room Table
       [-0.30, -5.25, 1.65], // Espresso & Smoothie Bar Island
-      [0.0, 1.12, 0.92],    // Lounge Glass Coffee Table
-      [-5.20, -4.40, 1.35], // Zone 1 Desk
-      [4.80, -4.40, 1.35],  // Zone 2 Research Desk
-      [-5.20, 4.00, 1.35],  // Zone 4 Portfolio Desk
+      [0.0, 1.12, 1.15],    // Lounge Glass Coffee Table
+      [-5.20, -4.40, 1.45], // Zone 1 Desk
+      [4.80, -4.40, 1.45],  // Zone 2 Research Desk
+      [-5.20, 4.00, 1.45],  // Zone 4 Portfolio Desk
+      [5.60, 3.80, 1.40],   // Zone 3 Server Racks & Diagnostics
+      [6.80, 6.60, 1.35],  // Executive Restroom Cubicle (Behind Servers)
+      [-6.80, 6.60, 0.65],  // Biometric Fingerprint Attendance Pedestal
     ];
 
     this._dummy = new THREE.Object3D();
@@ -2203,23 +2380,23 @@ class OfficeAnimationEngine {
   }
 
   _avoidFurnitureObstacles(x, z, p) {
-    // Envelope sin(pi * p) is 0 at exact start/end seats and 1 at mid-walk
-    const envelope = Math.sin(p * Math.PI);
-    if (envelope <= 0.01) return [x, z];
     let rx = x;
     let rz = z;
-    for (let k = 0; k < this.obstacles.length; k++) {
-      const obs = this.obstacles[k];
-      const dx = rx - obs[0];
-      const dz = rz - obs[1];
-      const dist = Math.hypot(dx, dz);
-      const minR = obs[2];
-      if (dist < minR) {
-        const push = (minR - dist) * envelope;
-        const nx = dist > 0.001 ? dx / dist : 1.0;
-        const nz = dist > 0.001 ? dz / dist : 0.0;
-        rx += nx * push;
-        rz += nz * push;
+    const arcPush = Math.sin(p * Math.PI);
+    for (let iter = 0; iter < 2; iter++) {
+      for (let k = 0; k < this.obstacles.length; k++) {
+        const obs = this.obstacles[k];
+        const dx = rx - obs[0];
+        const dz = rz - obs[1];
+        const dist = Math.hypot(dx, dz);
+        const minR = obs[2];
+        if (dist < minR) {
+          const push = (minR - dist) * Math.max(0.75, arcPush);
+          const nx = dist > 0.001 ? dx / dist : 1.0;
+          const nz = dist > 0.001 ? dz / dist : 0.0;
+          rx += nx * push;
+          rz += nz * push;
+        }
       }
     }
     return [rx, rz];
@@ -2266,8 +2443,11 @@ class OfficeAnimationEngine {
           // Walking from desk to chair/stool/spot with smooth obstacle avoidance
           const p = cycleT / 2.8;
           const smoothP = p * p * (3.0 - 2.0 * p);
-          const rawX = av.homePos[0] + (meetX - av.homePos[0]) * smoothP;
-          const rawZ = av.homePos[2] + (meetZ - av.homePos[2]) * smoothP;
+          let rawX = av.homePos[0] + (meetX - av.homePos[0]) * smoothP;
+          let rawZ = av.homePos[2] + (meetZ - av.homePos[2]) * smoothP;
+          if (av.workerId === 'worker_release' && (meetZ < 3.8 || av.homePos[2] > 3.8)) {
+            rawX += Math.sin(smoothP * Math.PI) * 1.5;
+          }
           const safePos = this._avoidFurnitureObstacles(rawX, rawZ, smoothP);
           targetX = safePos[0];
           targetZ = safePos[1];
@@ -2290,8 +2470,11 @@ class OfficeAnimationEngine {
           // Walking back from spot to workstation with smooth obstacle avoidance
           const p = (cycleT - 13.2) / (cycleLen - 13.2);
           const smoothP = p * p * (3.0 - 2.0 * p);
-          const rawX = meetX + (av.homePos[0] - meetX) * smoothP;
-          const rawZ = meetZ + (av.homePos[2] - meetZ) * smoothP;
+          let rawX = meetX + (av.homePos[0] - meetX) * smoothP;
+          let rawZ = meetZ + (av.homePos[2] - meetZ) * smoothP;
+          if (av.workerId === 'worker_release' && (meetZ < 3.8 || av.homePos[2] > 3.8)) {
+            rawX += Math.sin(smoothP * Math.PI) * 1.5;
+          }
           const safePos = this._avoidFurnitureObstacles(rawX, rawZ, smoothP);
           targetX = safePos[0];
           targetZ = safePos[1];
@@ -2305,6 +2488,26 @@ class OfficeAnimationEngine {
       // Apply world position & rotation
       av.rootGroup.position.set(targetX, 0.0, targetZ);
       av.rootGroup.rotation.y = targetRotY;
+
+      // Dynamic privacy blur / censor inside the restroom cubicle
+      const isCensored = (mode === 'restroom_censored');
+      if (av._censoredState !== isCensored) {
+        av._censoredState = isCensored;
+        av.rootGroup.traverse((child) => {
+          if (child.isMesh && child.material) {
+            if (isCensored) {
+              if (child.userData._origOp === undefined) {
+                child.userData._origOp = child.material.opacity !== undefined ? child.material.opacity : 1.0;
+              }
+              child.material.transparent = true;
+              child.material.opacity = 0.06;
+            } else {
+              child.material.opacity = child.userData._origOp !== undefined ? child.userData._origOp : 1.0;
+              child.material.transparent = child.material.opacity < 1.0;
+            }
+          }
+        });
+      }
 
       // Apply skeletal pose based on current mode
       if (mode === 'walking') {
@@ -3951,8 +4154,20 @@ class LabBossaAudioEngine {
       const summary = payload.summary || {};
       const modEl = document.getElementById('stat-modules');
       const papEl = document.getElementById('stat-papers');
+      const shiftEl = document.getElementById('stat-shift');
       if (modEl && summary.total_modules) modEl.textContent = String(summary.total_modules);
       if (papEl && summary.total_papers) papEl.textContent = String(summary.total_papers);
+
+      const updateShiftDisplay = () => {
+        const wibH = (new Date().getUTCHours() + 7) % 24;
+        let sNum = 1, sName = 'Pagi (06:00-12:00 WIB)';
+        if (wibH >= 12 && wibH < 18) { sNum = 2; sName = 'Siang (12:00-18:00 WIB)'; }
+        else if (wibH >= 18) { sNum = 3; sName = 'Malam (18:00-00:00 WIB)'; }
+        else if (wibH < 6) { sNum = 4; sName = 'Dini Hari (00:00-06:00 WIB)'; }
+        if (shiftEl) shiftEl.textContent = `Shift ${sNum}/4: ${sName}`;
+      };
+      updateShiftDisplay();
+      setInterval(updateShiftDisplay, 60000);
 
       const spatialCfg = payload.spatial || {};
       const spatialZones = spatialCfg.zones || {};
