@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Mateus Yonathan Agentic Autonomous Lab - We Work 24 Hours</title>
-  <meta name="description" content="Interactive 3D Isometric Virtual Office depicting autonomous male and female engineers and research scientists working 24/7 on 410 verified modules and 114 research papers." />
+  <meta name="description" content="Interactive 3D Isometric Virtual Office depicting autonomous male and female engineers and research scientists working 24/7 on 411 verified modules and 114 research papers." />
   <meta name="author" content="Mateus Yonathan" />
   <link rel="canonical" href="https://myonathanlinkedin.github.io/office.html" />
   <link rel="icon" href="https://myonathanlinkedin.github.io/assets/avatar.png" type="image/png" />
@@ -484,7 +484,7 @@
     </div>
 
     <div class="telemetry-pills">
-      <span class="telemetry-pill">Modules: <strong id="stat-modules">410</strong></span>
+      <span class="telemetry-pill">Modules: <strong id="stat-modules">411</strong></span>
       <span class="telemetry-pill">Papers: <strong id="stat-papers">114</strong></span>
       <span class="telemetry-pill" title="4 Rotating Shifts (6h each = 24h) with Biometric Fingerprint Attendance">🕒 <strong id="stat-shift">Shift 3/4 (18:00-00:00 WIB)</strong> • 🟢 Fingerprint Verified</span>
       <span class="telemetry-pill">FPS: <strong id="stat-fps">60</strong></span>
@@ -533,7 +533,7 @@
         <button type="button" class="drawer-close" id="btn-close-office-help" title="Close Guide">✕</button>
       </div>
       <div style="font-size:0.82rem;line-height:1.65;color:#cbd5e1;display:grid;gap:9px;margin-top:8px;">
-        <p><strong>What Is This?</strong> Welcome to the interactive 3D exhibition space of the <strong>Mateus Yonathan Agentic Autonomous Lab</strong>. This virtual studio showcases our 24/7 open-source software engineering and academic research publications (410 public modules &amp; 114 Research Papers) in real time.</p>
+        <p><strong>What Is This?</strong> Welcome to the interactive 3D exhibition space of the <strong>Mateus Yonathan Agentic Autonomous Lab</strong>. This virtual studio showcases our 24/7 open-source software engineering and academic research publications (411 public modules &amp; 114 Research Papers) in real time.</p>
         <p><strong>5 Divisions You Can Visit:</strong><br/>
         • <strong>💻 Systems Architecture:</strong> Showcases newly released algorithms and data structures across 14 programming languages.<br/>
         • <strong>📄 Research Paper Wing:</strong> Displays published Research Papers and Mini-Papers with executive summaries and Scholar Preprints.<br/>
@@ -558,6 +558,9 @@
     <div class="panel-header" style="margin-top:6px;">
       <span class="panel-title">Display Controls</span>
     </div>
+    <label style="display:flex;align-items:center;gap:8px;font-size:0.75rem;color:#cbd5e1;cursor:pointer;margin-bottom:6px;">
+      <input type="checkbox" id="chk-floor-zones" checked /> Show Floor Zone Boxes
+    </label>
     <label style="display:flex;align-items:center;gap:8px;font-size:0.75rem;color:#cbd5e1;cursor:pointer;margin-bottom:6px;">
       <input type="checkbox" id="chk-bubbles" checked /> Show Live Speech Bubbles
     </label>
@@ -626,7 +629,7 @@ function createColoredPart(geometry, hexColor, x = 0, y = 0, z = 0, rx = 0, ry =
   return nonIndexed;
 }
 
-function buildFloorGridTexture(isLight = true) {
+function buildFloorGridTexture(isLight = true, showRugs = true) {
   const canvas = document.createElement('canvas');
   canvas.width = 1024;
   canvas.height = 1024;
@@ -766,7 +769,7 @@ function buildFloorGridTexture(isLight = true) {
   }
 
   // Department zone accent rugs baked into 1 texture (0 extra draw calls)
-  const drawZoneRug = (wx, wz, w, d, fill, border, labelText) => {
+  const drawZoneRug = (wx, wz, w, d, fill, border, labelText, customTextWx = null, customTextWz = null) => {
     const cx = ((wx + 9) / 18) * 1024;
     const cz = ((wz + 9) / 18) * 1024;
     const pw = (w / 18) * 1024;
@@ -780,29 +783,40 @@ function buildFloorGridTexture(isLight = true) {
     ctx.stroke();
 
     if (labelText) {
+      const tx = customTextWx !== null ? ((customTextWx + 9) / 18) * 1024 : cx;
+      const tz = customTextWz !== null ? ((customTextWz + 9) / 18) * 1024 : (cz + pd / 2 - 14);
       ctx.fillStyle = isLight ? '#0f172a' : '#e2e8f0';
-      ctx.font = 'bold 15px monospace';
+      ctx.font = 'bold 14px monospace';
       ctx.textAlign = 'center';
-      ctx.fillText(labelText, cx, cz + pd / 2 - 12);
+      ctx.textBaseline = 'middle';
+      if (Array.isArray(labelText)) {
+        labelText.forEach((line, idx) => {
+          ctx.fillText(line, tx, tz + (idx - (labelText.length - 1) / 2) * 16);
+        });
+      } else {
+        ctx.fillText(labelText, tx, tz);
+      }
     }
   };
 
-  if (isLight) {
-    drawZoneRug(-5.2, -4.0, 5.2, 4.2, 'rgba(224, 242, 254, 0.90)', 'rgba(2, 132, 199, 0.60)', 'SYSTEMS ARCHITECTURE');
-    drawZoneRug(5.0, -4.0, 5.6, 4.2, 'rgba(243, 232, 255, 0.90)', 'rgba(147, 51, 234, 0.55)', 'RESEARCH PAPER WING');
-    drawZoneRug(5.2, 3.8, 5.0, 4.4, 'rgba(209, 250, 229, 0.90)', 'rgba(5, 150, 105, 0.60)', 'QUALITY & COMPLEXITY');
-    drawZoneRug(-5.2, 4.2, 5.2, 4.2, 'rgba(254, 243, 199, 0.90)', 'rgba(217, 119, 6, 0.60)', 'PUBLIC PORTFOLIO HUB');
-    drawZoneRug(0.0, 2.2, 4.6, 3.8, 'rgba(252, 231, 243, 0.88)', 'rgba(219, 39, 119, 0.52)', 'LOUNGE & WAR ROOM');
-    drawZoneRug(-0.2, -6.2, 6.2, 3.2, 'rgba(254, 226, 226, 0.85)', 'rgba(225, 29, 72, 0.50)', 'KITCHEN, SINK & COFFEE BAR');
-    drawZoneRug(-6.8, -0.3, 2.4, 3.0, 'rgba(254, 249, 195, 0.88)', 'rgba(202, 138, 4, 0.55)', 'SNACK CANTEEN');
-  } else {
-    drawZoneRug(-5.2, -4.0, 5.2, 4.2, 'rgba(14, 116, 144, 0.28)', 'rgba(56, 189, 248, 0.50)', 'SYSTEMS ARCHITECTURE');
-    drawZoneRug(5.0, -4.0, 5.6, 4.2, 'rgba(107, 33, 168, 0.26)', 'rgba(192, 132, 252, 0.50)', 'RESEARCH PAPER WING');
-    drawZoneRug(5.2, 3.8, 5.0, 4.4, 'rgba(6, 95, 70, 0.28)', 'rgba(52, 211, 153, 0.50)', 'QUALITY & COMPLEXITY');
-    drawZoneRug(-5.2, 4.2, 5.2, 4.2, 'rgba(146, 64, 14, 0.24)', 'rgba(251, 191, 36, 0.48)', 'PUBLIC PORTFOLIO HUB');
-    drawZoneRug(0.0, 2.2, 4.6, 3.8, 'rgba(21, 94, 67, 0.28)', 'rgba(244, 114, 182, 0.42)', 'LOUNGE & WAR ROOM');
-    drawZoneRug(-0.2, -6.2, 6.2, 3.2, 'rgba(136, 19, 55, 0.25)', 'rgba(251, 113, 133, 0.45)', 'KITCHEN, SINK & COFFEE BAR');
-    drawZoneRug(-6.8, -0.3, 2.4, 3.0, 'rgba(133, 77, 14, 0.25)', 'rgba(250, 204, 21, 0.45)', 'SNACK CANTEEN');
+  if (showRugs) {
+    if (isLight) {
+      drawZoneRug(-5.2, -4.0, 5.0, 4.2, 'rgba(224, 242, 254, 0.90)', 'rgba(2, 132, 199, 0.60)', 'SYSTEMS ARCHITECTURE', -5.2, -2.05);
+      drawZoneRug(5.0, -4.0, 5.2, 4.2, 'rgba(243, 232, 255, 0.90)', 'rgba(147, 51, 234, 0.55)', 'RESEARCH PAPER WING', 5.0, -2.05);
+      drawZoneRug(5.2, 3.8, 5.0, 4.4, 'rgba(209, 250, 229, 0.90)', 'rgba(5, 150, 105, 0.60)', 'QUALITY & COMPLEXITY', 4.8, 5.80);
+      drawZoneRug(-5.2, 4.2, 5.0, 4.2, 'rgba(254, 243, 199, 0.90)', 'rgba(217, 119, 6, 0.60)', 'PUBLIC PORTFOLIO HUB', -5.2, 6.15);
+      drawZoneRug(0.0, 2.2, 4.4, 3.6, 'rgba(252, 231, 243, 0.88)', 'rgba(219, 39, 119, 0.52)', 'LOUNGE & WAR ROOM', 0.0, 3.85);
+      drawZoneRug(-0.2, -6.1, 4.4, 4.4, 'rgba(254, 226, 226, 0.85)', 'rgba(225, 29, 72, 0.50)', 'KITCHEN, SINK & COFFEE BAR', -0.2, -4.05);
+      drawZoneRug(-6.9, -0.15, 2.4, 3.1, 'rgba(254, 249, 195, 0.88)', 'rgba(202, 138, 4, 0.55)', ['SNACK', 'CANTEEN'], -6.35, 0.35);
+    } else {
+      drawZoneRug(-5.2, -4.0, 5.0, 4.2, 'rgba(14, 116, 144, 0.28)', 'rgba(56, 189, 248, 0.50)', 'SYSTEMS ARCHITECTURE', -5.2, -2.05);
+      drawZoneRug(5.0, -4.0, 5.2, 4.2, 'rgba(107, 33, 168, 0.26)', 'rgba(192, 132, 252, 0.50)', 'RESEARCH PAPER WING', 5.0, -2.05);
+      drawZoneRug(5.2, 3.8, 5.0, 4.4, 'rgba(6, 95, 70, 0.28)', 'rgba(52, 211, 153, 0.50)', 'QUALITY & COMPLEXITY', 4.8, 5.80);
+      drawZoneRug(-5.2, 4.2, 5.0, 4.2, 'rgba(146, 64, 14, 0.24)', 'rgba(251, 191, 36, 0.48)', 'PUBLIC PORTFOLIO HUB', -5.2, 6.15);
+      drawZoneRug(0.0, 2.2, 4.4, 3.6, 'rgba(21, 94, 67, 0.28)', 'rgba(244, 114, 182, 0.42)', 'LOUNGE & WAR ROOM', 0.0, 3.85);
+      drawZoneRug(-0.2, -6.1, 4.4, 4.4, 'rgba(136, 19, 55, 0.25)', 'rgba(251, 113, 133, 0.45)', 'KITCHEN, SINK & COFFEE BAR', -0.2, -4.05);
+      drawZoneRug(-6.9, -0.15, 2.4, 3.1, 'rgba(133, 77, 14, 0.25)', 'rgba(250, 204, 21, 0.45)', ['SNACK', 'CANTEEN'], -6.35, 0.35);
+    }
   }
 
   const tex = new THREE.CanvasTexture(canvas);
@@ -908,15 +922,15 @@ function buildWallSignTexture() {
 
   ctx.fillStyle = '#fef08a';
   ctx.font = 'bold 22px system-ui, -apple-system, sans-serif';
-  ctx.fillText('Kerja Bagai Kuda & Cerdas  (Continuous 24/7 Ops)', mX + 22, mY + 84);
+  ctx.fillText('Autonomous AI Engineering (Continuous 24/7 Ops)', mX + 22, mY + 84);
 
   // SECTION 2: 4-SHIFT LIVE ROSTER (x: 935 to 2260) - SOLVES USER REQUEST
   // "masukkan nama2 orang yang kerja saat ini current shift & next shift jadi orang tahu bahwa ini bukan random"
   const shifts = [
-    { id: 1, name: 'Pagi', hours: '06:00 - 12:00 WIB', team: ['Bima Vance', 'Dr. Clara W.', 'Kevin Pratama', 'Dewi Lestari'] },
-    { id: 2, name: 'Siang', hours: '12:00 - 18:00 WIB', team: ['Marcus Pratama', 'Elena Kusuma', 'Sarah Oktavia', 'Fajar Nugraha'] },
-    { id: 3, name: 'Malam', hours: '18:00 - 00:00 WIB', team: ['Nadia Miller', 'Aris Munandar', 'Citra Anggraini', 'Dimas Setiawan'] },
-    { id: 4, name: 'Dini Hari', hours: '00:00 - 06:00 WIB', team: ['Hendro Wibowo', 'Rina Handayani', 'Bagus Prakoso', 'Maya Safitri'] }
+    { id: 1, name: 'Morning', hours: '06:00 - 12:00 WIB', team: ['Bima Vance', 'Dr. Clara W.', 'Kevin Pratama', 'Dewi Lestari'] },
+    { id: 2, name: 'Afternoon', hours: '12:00 - 18:00 WIB', team: ['Marcus Pratama', 'Elena Kusuma', 'Sarah Oktavia', 'Fajar Nugraha'] },
+    { id: 3, name: 'Evening', hours: '18:00 - 00:00 WIB', team: ['Nadia Miller', 'Aris Munandar', 'Citra Anggraini', 'Dimas Setiawan'] },
+    { id: 4, name: 'Graveyard', hours: '00:00 - 06:00 WIB', team: ['Hendro Wibowo', 'Rina Handayani', 'Bagus Prakoso', 'Maya Safitri'] }
   ];
 
   // Dynamic WIB calculation (UTC+7)
@@ -1181,16 +1195,28 @@ class IsometricSceneEngine {
     this.controls.target.set(initTgt[0], initTgt[1], initTgt[2]);
     this.controls.enableDamping = true;
     this.controls.dampingFactor = 0.08;
+    this.controls.enablePan = true;
+    this.controls.screenSpacePanning = true;
+    this.controls.panSpeed = 1.0;
     this.controls.minZoom = spatialCfg.camera.min_zoom;
     this.controls.maxZoom = spatialCfg.camera.max_zoom;
     this.controls.minPolarAngle = Math.PI * 0.14;
     this.controls.maxPolarAngle = Math.PI * 0.44;
     this.controls.autoRotate = false;
     this.controls.autoRotateSpeed = 0.45;
+    this.controls.mouseButtons = {
+      LEFT: THREE.MOUSE.ROTATE,
+      MIDDLE: THREE.MOUSE.DOLLY,
+      RIGHT: THREE.MOUSE.PAN,
+    };
     this.controls.touches = {
       ONE: THREE.TOUCH.ROTATE,
       TWO: THREE.TOUCH.DOLLY_PAN,
     };
+
+    this.canvas.addEventListener('contextmenu', (e) => e.preventDefault());
+    this.isFloorRugsVisible = true;
+    this.homeTarget = new THREE.Vector3(initTgt[0], initTgt[1], initTgt[2]);
 
     this.desiredZoom = this.camera.zoom;
     this.isWarping = false;
@@ -1206,6 +1232,23 @@ class IsometricSceneEngine {
     this.roomHandles = CutawayRoomBuilder.build(this.scene);
 
     window.addEventListener('resize', () => this.onResize());
+  }
+
+  setFloorRugsVisibility(visible) {
+    this.isFloorRugsVisible = visible;
+    if (this.roomHandles && this.roomHandles.floorMat) {
+      const oldMap = this.roomHandles.floorMat.map;
+      this.roomHandles.floorMat.map = buildFloorGridTexture(this.isLightTheme, this.isFloorRugsVisible);
+      this.roomHandles.floorMat.needsUpdate = true;
+      if (oldMap) oldMap.dispose();
+    }
+  }
+
+  recenter() {
+    this.warpTarget.copy(this.homeTarget);
+    this.warpOffset.set(22.0, 22.0, 22.0);
+    this.desiredZoom = this.cfg.camera.macro_zoom || 0.92;
+    this.isWarping = true;
   }
 
   _setupLighting() {
@@ -1248,7 +1291,7 @@ class IsometricSceneEngine {
     this.dirLight.intensity = this.isLightTheme ? 1.52 : 1.05;
     if (this.roomHandles && this.roomHandles.floorMat) {
       const oldMap = this.roomHandles.floorMat.map;
-      this.roomHandles.floorMat.map = buildFloorGridTexture(this.isLightTheme);
+      this.roomHandles.floorMat.map = buildFloorGridTexture(this.isLightTheme, this.isFloorRugsVisible);
       this.roomHandles.floorMat.needsUpdate = true;
       if (oldMap) oldMap.dispose();
     }
@@ -1733,55 +1776,58 @@ class OfficeFurnitureBuilder {
     addBox(0.68, 0.42, 0.54, '#cbd5e1', -7.45, 0.98, 6.35);
     addBox(0.52, 0.06, 0.42, '#334155', -7.45, 1.22, 6.35);
 
-    // 3.8 Modern Architectural Restroom / Bathroom Cubicle (6.80, 0.0, 6.60)
-    // Relocated behind server racks at previous leaf pot corner, with frosted door, vanity sink & porcelain toilet
-    addBox(2.10, 0.06, 1.60, '#0284c7', 6.80, 0.03, 6.60);
-    addBox(2.10, 2.30, 0.08, '#f1f5f9', 6.80, 1.15, 7.36); // Back wall (+Z side)
-    addBox(0.08, 2.30, 1.60, '#e2e8f0', 5.75, 1.15, 6.60); // Left wall
-    addBox(0.08, 2.30, 1.60, '#e2e8f0', 7.85, 1.15, 6.60); // Right wall
-    // Front partition with door opening facing -Z (towards room / server walkway)
-    addBox(0.50, 2.30, 0.08, '#cbd5e1', 6.00, 1.15, 5.84);
-    addBox(1.10, 0.40, 0.08, '#cbd5e1', 6.80, 2.10, 5.84);
-    addBox(0.96, 1.90, 0.04, '#38bdf8', 6.80, 0.95, 5.84); // Frosted door
-    addCyl(0.02, 0.02, 0.28, 8, '#94a3b8', 7.20, 1.05, 5.81); // Chrome handle
-    // Restroom WC Plaque with illuminated icon & crisp canvas texture
-    addBox(0.60, 0.20, 0.02, '#0f172a', 6.80, 2.12, 5.82);
-    const plaqueGeo = new THREE.PlaneGeometry(0.56, 0.17);
+    // 3.8 Modern Architectural Restroom / Bathroom Cubicle (Door facing WEST into aisle, flush against East wall)
+    // Sits in corner behind server racks with door opening facing West (-X), vanity sink & porcelain toilet
+    addBox(1.60, 0.06, 2.10, '#0284c7', 7.70, 0.03, 7.55); // Floor base
+    addBox(0.08, 2.30, 2.10, '#f1f5f9', 8.46, 1.15, 7.55); // Back wall (+X side against East room border)
+    addBox(1.60, 2.30, 0.08, '#e2e8f0', 7.70, 1.15, 6.54); // North wall (-Z side facing servers)
+    addBox(1.60, 2.30, 0.08, '#e2e8f0', 7.70, 1.15, 8.56); // South wall (+Z side against South border)
+    // Front partition with door opening facing WEST (-X, towards main server walkway)
+    addBox(0.08, 2.30, 0.55, '#cbd5e1', 6.94, 1.15, 6.77); // Front-North side panel
+    addBox(0.08, 2.30, 0.55, '#cbd5e1', 6.94, 1.15, 8.33); // Front-South side panel
+    addBox(0.08, 0.40, 1.00, '#cbd5e1', 6.94, 2.10, 7.55); // Lintel above door
+    addBox(0.04, 1.90, 0.96, '#38bdf8', 6.94, 0.95, 7.55); // Frosted door leaf facing West
+    addCyl(0.02, 0.02, 0.28, 8, '#94a3b8', 6.91, 1.05, 7.20); // Chrome handle
+    // Restroom WC Plaque mounted firmly in FRONT of West wall (x=6.84 < 6.90 lintel outer face)
+    addBox(0.025, 0.22, 0.64, '#0f172a', 6.875, 2.12, 7.55);
+    const plaqueGeo = new THREE.PlaneGeometry(0.58, 0.18);
     const plaqueMat = new THREE.MeshBasicMaterial({
       map: buildRestroomSignTexture(),
+      side: THREE.DoubleSide,
       polygonOffset: true,
-      polygonOffsetFactor: -3.0,
-      polygonOffsetUnits: -3.0,
+      polygonOffsetFactor: -4.0,
+      polygonOffsetUnits: -4.0,
     });
     const plaqueMesh = new THREE.Mesh(plaqueGeo, plaqueMat);
-    plaqueMesh.position.set(6.80, 2.12, 5.805);
+    plaqueMesh.rotation.y = -Math.PI / 2; // Face West into room walkway
+    plaqueMesh.position.set(6.845, 2.12, 7.55);
     scene.add(plaqueMesh);
-    // Porcelain toilet fixtures
-    addBox(0.38, 0.42, 0.54, '#ffffff', 7.40, 0.21, 6.80);
-    addBox(0.40, 0.04, 0.48, '#e2e8f0', 7.40, 0.43, 6.80);
-    addBox(0.44, 0.46, 0.22, '#f8fafc', 7.40, 0.68, 7.15);
-    addBox(0.08, 0.02, 0.03, '#94a3b8', 7.23, 0.82, 7.02);
-    addCyl(0.07, 0.07, 0.14, 10, '#ffffff', 7.76, 0.68, 6.70, 0, 0, Math.PI / 2);
-    // Vanity washbasin & mirror fixtures
-    addBox(0.56, 0.12, 0.46, '#ffffff', 6.25, 0.82, 6.84);
-    addBox(0.52, 0.72, 0.42, '#334155', 6.25, 0.40, 6.84);
-    addCyl(0.02, 0.02, 0.16, 8, '#cbd5e1', 6.25, 0.94, 7.00);
-    addBox(0.03, 0.03, 0.08, '#94a3b8', 6.25, 1.00, 6.94);
-    addBox(0.50, 0.72, 0.03, '#38bdf8', 6.25, 1.48, 7.28);
-    addBox(0.54, 0.76, 0.02, '#475569', 6.25, 1.48, 7.30);
+    // Porcelain toilet fixtures (mounted along East back wall, facing West)
+    addBox(0.54, 0.42, 0.38, '#ffffff', 8.12, 0.21, 7.15);
+    addBox(0.48, 0.04, 0.40, '#e2e8f0', 8.12, 0.43, 7.15);
+    addBox(0.22, 0.46, 0.44, '#f8fafc', 8.36, 0.68, 7.15);
+    addBox(0.03, 0.02, 0.08, '#94a3b8', 8.24, 0.82, 7.15);
+    addCyl(0.07, 0.07, 0.14, 10, '#ffffff', 8.36, 0.68, 6.80, 0, 0, Math.PI / 2);
+    // Vanity washbasin & mirror fixtures (mounted along South interior wall)
+    addBox(0.46, 0.12, 0.56, '#ffffff', 7.85, 0.82, 8.20);
+    addBox(0.42, 0.72, 0.52, '#334155', 7.85, 0.40, 8.20);
+    addCyl(0.02, 0.02, 0.16, 8, '#cbd5e1', 7.85, 0.94, 8.38);
+    addBox(0.03, 0.03, 0.08, '#94a3b8', 7.85, 1.00, 8.32);
+    addBox(0.46, 0.72, 0.03, '#38bdf8', 7.85, 1.48, 8.48);
+    addBox(0.50, 0.76, 0.02, '#475569', 7.85, 1.48, 8.50);
 
-    // 3.9 Biometric Fingerprint Attendance Terminal Stand (-6.8, 0.0, 6.6)
-    // Precision attendance terminal for 4-shift 24/7 worker rotation
-    addCyl(0.24, 0.26, 0.06, 16, '#334155', -6.8, 0.03, 6.6);
-    addCyl(0.045, 0.045, 1.08, 12, '#64748b', -6.8, 0.58, 6.6);
-    addBox(0.34, 0.46, 0.18, '#0f172a', -6.8, 1.18, 6.6, 0.22, 0, 0);
-    addBox(0.26, 0.16, 0.02, '#0284c7', -6.8, 1.28, 6.51, 0.22, 0, 0); // LCD
-    addBox(0.09, 0.09, 0.02, '#064e3b', -6.8, 1.10, 6.55, 0.22, 0, 0); // Prism
-    ledPositions.push([-6.8, 1.10, 6.53, 0.08, 0.08, 0.02]);
+    // 3.9 Biometric Fingerprint Attendance Terminal Stand (flush against West wall: -8.35, 0.0, 7.40)
+    // Precision attendance terminal for 4-shift 24/7 worker rotation moved flush against wall
+    addCyl(0.24, 0.26, 0.06, 16, '#334155', -8.35, 0.03, 7.40);
+    addCyl(0.045, 0.045, 1.08, 12, '#64748b', -8.35, 0.58, 7.40);
+    addBox(0.18, 0.46, 0.34, '#0f172a', -8.35, 1.18, 7.40, 0, 0, -0.22);
+    addBox(0.02, 0.16, 0.26, '#0284c7', -8.26, 1.28, 7.40, 0, 0, -0.22); // LCD facing East
+    addBox(0.02, 0.09, 0.09, '#064e3b', -8.22, 1.10, 7.40, 0, 0, -0.22); // Prism
+    ledPositions.push([-8.20, 1.10, 7.40, 0.02, 0.08, 0.08]);
     ledBaseColors.push('#10b981'); // Biometric scanner laser LED
-    addBox(0.02, 0.12, 0.10, '#38bdf8', -6.62, 1.18, 6.6, 0.22, 0, 0);
+    addBox(0.10, 0.12, 0.02, '#38bdf8', -8.35, 1.18, 7.58, 0, 0, -0.22);
 
-    // Potted Monstera Deliciosa Plants in white ceramic pots at room corners & dividers
+    // Potted Monstera Deliciosa Plants in white ceramic pots at room corners & dividers (flush against borders)
     const addMonstera = (px, pz) => {
       addCyl(0.26, 0.20, 0.46, 12, '#ffffff', px, 0.23, pz);
       addCyl(0.24, 0.24, 0.04, 12, '#422006', px, 0.45, pz);
@@ -1794,8 +1840,8 @@ class OfficeFurnitureBuilder {
     };
     addMonstera(-7.8, -7.6);
     addMonstera(7.8, -7.6);
-    addMonstera(-7.8, 7.5);
-    addMonstera(4.8, 6.8);
+    addMonstera(-8.35, 8.35); // Corner flush with West wall and South border
+    addMonstera(5.40, 8.35); // Flush against South border beside toilet entrance walkway
     addMonstera(4.55, -7.45);
     addMonstera(-3.55, -7.45);
 
@@ -2045,15 +2091,14 @@ class StylizedCharacterFactory {
     blobInstanced.instanceMatrix.needsUpdate = true;
     scene.add(blobInstanced);
 
-    // Floating Octahedron Plumbobs (1 single InstancedMesh draw call for all 5 avatars)
-    const plumbobGeo = new THREE.OctahedronGeometry(0.13, 0);
-    plumbobGeo.scale(0.75, 1.48, 0.75);
+    // Floating Holographic Cyber Status Halo Rings (1 single InstancedMesh draw call for all 5 avatars)
+    const plumbobGeo = new THREE.TorusGeometry(0.14, 0.022, 10, 32);
+    plumbobGeo.rotateX(Math.PI / 2);
     const plumbobMat = new THREE.MeshStandardMaterial({
       color: 0xffffff,
-      roughness: 0.18,
-      metalness: 0.25,
-      emissive: 0x222222,
-      flatShading: true,
+      roughness: 0.20,
+      metalness: 0.85,
+      emissive: 0x333333,
     });
     const plumbobInstanced = new THREE.InstancedMesh(plumbobGeo, plumbobMat, avatars.length);
     for (let i = 0; i < avatars.length; i++) {
@@ -2371,8 +2416,8 @@ class OfficeAnimationEngine {
       [4.80, -4.40, 1.45],  // Zone 2 Research Desk
       [-5.20, 4.00, 1.45],  // Zone 4 Portfolio Desk
       [5.60, 3.80, 1.40],   // Zone 3 Server Racks & Diagnostics
-      [6.80, 6.60, 1.35],  // Executive Restroom Cubicle (Behind Servers)
-      [-6.80, 6.60, 0.65],  // Biometric Fingerprint Attendance Pedestal
+      [7.70, 7.55, 1.25],  // Executive Restroom Cubicle (Flush against East wall)
+      [-8.35, 7.40, 0.50],  // Biometric Fingerprint Attendance Pedestal (Flush against West wall)
     ];
 
     this._dummy = new THREE.Object3D();
@@ -3891,7 +3936,7 @@ class LabBossaAudioEngine {
         if (!zoneId || zoneId === 'ALL') {
           this.selectedZoneId = null;
           this.selectedWorkerId = null;
-          const initTgt = this.cameraCfg.initial_target || [0, 1.1, 0];
+          const initTgt = this.cameraCfg.initial_target || [0, 2.15, 0];
           const macroZoom = this.cameraCfg.macro_zoom || 0.92;
           this.sceneEngine.focusOn(initTgt, macroZoom, true);
           this.drawerCtrl.close();
@@ -3950,6 +3995,7 @@ class LabBossaAudioEngine {
         const hudBottom = document.getElementById('hud-bottom');
         const btnCloseTicker = document.getElementById('btn-close-ticker');
         const btnCloseBottom = document.getElementById('btn-close-bottom');
+        const chkFloorZones = document.getElementById('chk-floor-zones');
         const chkBubbles = document.getElementById('chk-bubbles');
         const chkNotif = document.getElementById('chk-notif');
         const chkBottomDock = document.getElementById('chk-bottom-dock');
@@ -4059,6 +4105,11 @@ class LabBossaAudioEngine {
             }
           });
         }
+        if (chkFloorZones) {
+          chkFloorZones.addEventListener('change', (e) => {
+            this.sceneEngine.setFloorRugsVisibility(e.target.checked);
+          });
+        }
         if (chkBubbles && this.bubblesContainer) {
           chkBubbles.addEventListener('change', (e) => {
             this.bubblesContainer.style.display = e.target.checked ? 'block' : 'none';
@@ -4067,6 +4118,12 @@ class LabBossaAudioEngine {
         if (chkRing) {
           chkRing.addEventListener('change', (e) => {
             this.ringEnabled = Boolean(e.target.checked);
+          });
+        }
+
+        if (this.sceneEngine && this.sceneEngine.canvas) {
+          this.sceneEngine.canvas.addEventListener('dblclick', () => {
+            this.selectZone('ALL');
           });
         }
 
@@ -4160,10 +4217,10 @@ class LabBossaAudioEngine {
 
       const updateShiftDisplay = () => {
         const wibH = (new Date().getUTCHours() + 7) % 24;
-        let sNum = 1, sName = 'Pagi (06:00-12:00 WIB)';
-        if (wibH >= 12 && wibH < 18) { sNum = 2; sName = 'Siang (12:00-18:00 WIB)'; }
-        else if (wibH >= 18) { sNum = 3; sName = 'Malam (18:00-00:00 WIB)'; }
-        else if (wibH < 6) { sNum = 4; sName = 'Dini Hari (00:00-06:00 WIB)'; }
+        let sNum = 1, sName = 'Morning (06:00-12:00 WIB)';
+        if (wibH >= 12 && wibH < 18) { sNum = 2; sName = 'Afternoon (12:00-18:00 WIB)'; }
+        else if (wibH >= 18) { sNum = 3; sName = 'Evening (18:00-00:00 WIB)'; }
+        else if (wibH < 6) { sNum = 4; sName = 'Graveyard (00:00-06:00 WIB)'; }
         if (shiftEl) shiftEl.textContent = `Shift ${sNum}/4: ${sName}`;
       };
       updateShiftDisplay();
@@ -4172,6 +4229,82 @@ class LabBossaAudioEngine {
       const spatialCfg = payload.spatial || {};
       const spatialZones = spatialCfg.zones || {};
       const workers = payload.workers || [];
+
+      // Apply factual 4-shift rotation to active workers and discussions based strictly on local WIB time
+      const shiftRosters = [
+        // Shift 1: Pagi (06:00 - 12:00 WIB)
+        {
+          worker_kernel: { name: 'Bima Vance', role: 'Principal Systems Architect' },
+          worker_research: { name: 'Dr. Clara Wijaya', role: 'Principal Research Scientist' },
+          worker_hardware: { name: 'Kevin Pratama', role: 'Hardware & Systems Optimization Lead' },
+          worker_release: { name: 'Dewi Lestari', role: 'Open-Source Portfolio Lead' },
+          worker_lounge: { name: 'Rizky Ramadhan', role: 'Research Strategy & Collaboration Lead' },
+        },
+        // Shift 2: Siang (12:00 - 18:00 WIB)
+        {
+          worker_kernel: { name: 'Fajar Nugraha', role: 'Principal Systems Architect' },
+          worker_research: { name: 'Sarah Oktavia', role: 'Principal Research Scientist' },
+          worker_hardware: { name: 'Marcus Pratama', role: 'Algorithmic Quality & Complexity Lead' },
+          worker_release: { name: 'Elena Kusuma', role: 'Open-Source Portfolio Lead' },
+          worker_lounge: { name: 'Aditya Wibisono', role: 'Research Strategy & Collaboration Lead' },
+        },
+        // Shift 3: Malam (18:00 - 00:00 WIB)
+        {
+          worker_kernel: { name: 'Aris Munandar', role: 'Principal Systems Architect' },
+          worker_research: { name: 'Citra Anggraini', role: 'Principal Research Scientist' },
+          worker_hardware: { name: 'Dimas Setiawan', role: 'Algorithmic Quality & Complexity Lead' },
+          worker_release: { name: 'Tariq Hidayat', role: 'Open-Source Portfolio Lead' },
+          worker_lounge: { name: 'Nadia Miller', role: 'Research Strategy & Collaboration Lead' },
+        },
+        // Shift 4: Dini Hari (00:00 - 06:00 WIB)
+        {
+          worker_kernel: { name: 'Hendro Wibowo', role: 'Principal Systems Architect' },
+          worker_research: { name: 'Rina Handayani', role: 'Principal Research Scientist' },
+          worker_hardware: { name: 'Bagus Prakoso', role: 'Algorithmic Quality & Complexity Lead' },
+          worker_release: { name: 'Maya Safitri', role: 'Open-Source Portfolio Lead' },
+          worker_lounge: { name: 'Ilham Saputra', role: 'Research Strategy & Collaboration Lead' },
+        },
+      ];
+
+      const wibHour = (new Date().getUTCHours() + 7) % 24;
+      let activeShiftIdx = 0;
+      if (wibHour >= 6 && wibHour < 12) activeShiftIdx = 0;
+      else if (wibHour >= 12 && wibHour < 18) activeShiftIdx = 1;
+      else if (wibHour >= 18) activeShiftIdx = 2; // Shift 3 (Malam)
+      else activeShiftIdx = 3; // Shift 4 (Dini Hari)
+
+      const activeRoster = shiftRosters[activeShiftIdx];
+      for (const w of workers) {
+        if (activeRoster[w.id]) {
+          w.display_name = activeRoster[w.id].name;
+          w.role = activeRoster[w.id].role;
+        }
+      }
+
+      // Synchronize discussion speech names with current shift roster
+      const defaultNames = {
+        worker_kernel: 'Bima',
+        worker_research: 'Clara',
+        worker_hardware: 'Marcus',
+        worker_release: 'Elena',
+        worker_lounge: 'Nadia',
+      };
+      const nameReplacements = {};
+      for (const [wid, defName] of Object.entries(defaultNames)) {
+        if (activeRoster[wid]) {
+          nameReplacements[defName] = activeRoster[wid].name.split(' ')[0];
+        }
+      }
+      if (payload.daily_discussions) {
+        for (const disc of payload.daily_discussions) {
+          for (const [oldN, newN] of Object.entries(nameReplacements)) {
+            if (oldN !== newN) {
+              if (disc.line_a) disc.line_a = disc.line_a.split(oldN).join(newN);
+              if (disc.line_b) disc.line_b = disc.line_b.split(oldN).join(newN);
+            }
+          }
+        }
+      }
       const hwWorker = workers.find((w) => w.id === 'worker_hardware') || {};
 
       const sceneEngine = new IsometricSceneEngine(canvas, spatialCfg);
