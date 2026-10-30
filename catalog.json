@@ -1,14 +1,14 @@
 [
   {
-    "topic": "LSM-Tree MemTable and SSTable Flush Compaction Engine",
+    "topic": "Zero-freeness for Random Regular Graphs up to the Replica Symmetry Breaking Threshold",
     "language": "Python",
     "folder": "python",
-    "category": "\ud83c\udf10 Distributed Systems & Consensus",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
     "spoke_repo": "python-advanced-lab",
-    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261030_210122_lsm-tree_memtable_and_sstable",
+    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261030_230123_zero-freeness_for_random_regul",
     "source_file": "main.py",
-    "timestamp": "2026-10-30T21:01:22.424581+00:00",
-    "dir_name": "20261030_210122_lsm-tree_memtable_and_sstable"
+    "timestamp": "2026-10-30T23:01:23.148822+00:00",
+    "dir_name": "20261030_230123_zero-freeness_for_random_regul"
   },
   {
     "topic": "LSM-Tree MemTable and SSTable Flush Compaction Engine",
@@ -1549,6 +1549,17 @@
     "source_file": "main.rb",
     "timestamp": "2026-10-05T06:24:27.116491+00:00",
     "dir_name": "20261005_062427_two-phase_commit_protocol_coor"
+  },
+  {
+    "topic": "LSM-Tree MemTable and SSTable Flush Compaction Engine",
+    "language": "Python",
+    "folder": "python",
+    "category": "\ud83c\udf10 Distributed Systems & Consensus",
+    "spoke_repo": "python-advanced-lab",
+    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261030_210122_lsm-tree_memtable_and_sstable",
+    "source_file": "main.py",
+    "timestamp": "2026-10-30T21:01:22.424581+00:00",
+    "dir_name": "20261030_210122_lsm-tree_memtable_and_sstable"
   },
   {
     "topic": "Conjugate Gradient Linear System Solver",
