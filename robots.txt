@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+Allow: /papers/
+Allow: /*.html
+Allow: /*.pdf
+Allow: /*.png
+
+User-agent: Googlebot
+Allow: /
+Allow: /papers/
+Allow: /*.html
+Allow: /*.pdf
+
+User-agent: Googlebot-Image
+Allow: /assets/
+Allow: /favicon.ico
+Allow: /*.png
+Allow: /*.ico
+Allow: /*.jpg
+Allow: /*.pdf
+
+Sitemap: https://myonathanlinkedin.github.io/sitemap.xml
