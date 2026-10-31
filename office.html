@@ -45,7 +45,7 @@
       }, true);
     })();
   </script>
-  <meta name="description" content="Interactive 3D Isometric Virtual Office depicting autonomous male and female engineers and research scientists working 24/7 on 416 verified modules and 117 research papers." />
+  <meta name="description" content="Interactive 3D Isometric Virtual Office depicting autonomous male and female engineers and research scientists working 24/7 on 418 verified modules and 117 research papers." />
   <meta name="author" content="Mateus Yonathan" />
   <link rel="canonical" href="https://myonathanlinkedin.github.io/office.html" />
   <link rel="icon" href="https://myonathanlinkedin.github.io/assets/avatar.png" type="image/png" />
@@ -100,26 +100,26 @@
     #hud-top-container.collapsed { display: none !important; }
     #btn-restore-topbar.visible { display: inline-flex !important; }
 
-    /* Top-Right Floating Cinematic Toggle: Show / Hide All Panels */
-    #btn-toggle-all-panels {
+    /* Floating Restore Button: Only visible when all panels are hidden (Cinematic 3D View) */
+    #btn-restore-all-panels {
+      display: none;
       position: fixed;
       top: 10px;
       right: 14px;
       z-index: 1000;
       pointer-events: auto;
-      display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 6px;
-      padding: 0 13px;
+      padding: 0 14px;
       height: 32px;
       border-radius: 999px;
       font-family: var(--font-mono);
       font-size: 0.72rem;
       font-weight: 700;
-      color: #f1f5f9;
-      background: rgba(15, 23, 42, 0.90);
-      border: 1px solid rgba(148, 163, 184, 0.40);
+      color: #34d399;
+      background: rgba(15, 23, 42, 0.92);
+      border: 1px solid rgba(52, 211, 153, 0.65);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.40);
@@ -127,25 +127,29 @@
       user-select: none;
       transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    #btn-toggle-all-panels:hover {
+    #btn-restore-all-panels:hover {
       background: rgba(30, 41, 59, 0.98);
       border-color: #38bdf8;
       color: #38bdf8;
       box-shadow: 0 0 14px rgba(56, 189, 248, 0.45);
       transform: scale(1.03);
     }
-    #btn-toggle-all-panels.panels-hidden {
-      border-color: #34d399;
-      color: #34d399;
-      background: rgba(6, 78, 59, 0.92);
-      box-shadow: 0 0 18px rgba(52, 211, 153, 0.50);
+    body.all-panels-hidden #btn-restore-all-panels {
+      display: inline-flex !important;
     }
     body.all-panels-hidden #hud-top-container,
     body.all-panels-hidden #hud-left,
     body.all-panels-hidden #hud-bottom-container,
-    body.all-panels-hidden #desk-drawer,
+    body.all-panels-hidden #desk-drawer:not(.open),
     body.all-panels-hidden #worker-bubbles {
       display: none !important;
+    }
+    body.all-panels-hidden #desk-drawer.open {
+      display: flex !important;
+      opacity: 1 !important;
+      pointer-events: auto !important;
+      transform: translate3d(0, 0, 0) !important;
+      z-index: 999 !important;
     }
 
     #hud-top-ticker {
@@ -528,10 +532,10 @@
         top: 6px; left: 8px; right: 8px; gap: 5px;
       }
       #hud-top-ticker {
-        padding: 5px 10px; font-size: 0.64rem; border-radius: 999px;
-        width: 100%; max-width: min(620px, calc(100vw - 16px));
-        white-space: normal; line-height: 1.35; text-align: center;
-        flex-wrap: wrap; row-gap: 2px; column-gap: 6px;
+        padding: 4px 10px; font-size: 0.62rem; border-radius: 999px;
+        width: 100%; max-width: none;
+        white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        display: inline-flex; align-items: center; justify-content: center;
       }
       .mobile-hide-telemetry { display: none !important; }
       #hud-topbar {
@@ -568,11 +572,11 @@
       .speech-bubble { max-width: 170px; font-size: 0.61rem; padding: 4px 7px; cursor: pointer; }
       .bubble-activity { max-width: 68px; font-size: 0.53rem; }
       .bubble-toggle-btn { padding: 1px 4px; font-size: 0.53rem; }
-      #btn-toggle-all-panels {
+      #btn-restore-all-panels {
         top: 6px;
         right: 8px;
         height: 28px;
-        padding: 0 9px;
+        padding: 0 10px;
         font-size: 0.65rem;
         gap: 4px;
       }
@@ -592,10 +596,9 @@
   <canvas id="office-canvas" aria-label="3D Autonomous Virtual Office Diorama"></canvas>
   <div id="worker-bubbles" aria-live="polite"></div>
 
-  <!-- Top-Right Floating Cinematic Toggle: Show / Hide All Panels -->
-  <button type="button" id="btn-toggle-all-panels" class="glass-panel" title="Hide All (Cinematic 3D View)" aria-label="Show or Hide All">
-    <span id="btn-all-panels-icon">✕</span>
-    <span id="btn-all-panels-text">Hide All</span>
+  <!-- Floating Restore Button: Only visible when all panels are hidden (Cinematic 3D View) -->
+  <button type="button" id="btn-restore-all-panels" class="glass-panel" title="Show All HUD Panels" aria-label="Show All Panels">
+    <span>👁️</span> <span>Show HUD</span>
   </button>
 
   <!-- 7.1 Top HUD Container (Mirrors 7.2 Bottom HUD Architecture) -->
@@ -605,7 +608,7 @@
       <span class="brand-pulse-dot" title="24/7 Agentic Autonomous Pipeline Active"></span>
       <span class="brand-title">MATEUS YONATHAN // LAB</span>
       <span class="ticker-sep mobile-hide-telemetry">•</span>
-      <span class="mobile-hide-telemetry">Mods: <strong id="stat-modules">416</strong></span>
+      <span class="mobile-hide-telemetry">Mods: <strong id="stat-modules">418</strong></span>
       <span class="ticker-sep mobile-hide-telemetry">•</span>
       <span class="mobile-hide-telemetry">Papers: <strong id="stat-papers">117</strong></span>
       <span class="ticker-sep">•</span>
@@ -646,7 +649,7 @@
       </a>
       <button type="button" id="btn-fullscreen" class="top-btn" title="Toggle Fullscreen">⛶</button>
       <button type="button" id="btn-help-office" class="top-btn" title="Visitor Guide">❓ <span class="btn-text-full">Guide</span></button>
-      <button type="button" id="btn-hide-topbar" class="top-btn" title="Hide Top HUD">✕ Hide</button>
+      <button type="button" id="btn-toggle-all-panels" class="top-btn" title="Hide All Panels (Cinematic 3D View)">✕ <span class="btn-text-full">Hide All</span><span class="btn-text-short">Hide</span></button>
     </nav>
   </div>
 
@@ -657,7 +660,7 @@
         <button type="button" class="drawer-close" id="btn-close-office-help" title="Close Guide">✕</button>
       </div>
       <div style="font-size:0.82rem;line-height:1.65;color:#cbd5e1;display:grid;gap:9px;margin-top:8px;">
-        <p><strong>What Is This?</strong> Welcome to the interactive 3D exhibition space of the <strong>Mateus Yonathan Agentic Autonomous Lab</strong>. This virtual studio showcases our 24/7 open-source software engineering and academic research publications (416 public modules &amp; 117 Research Papers) in real time.</p>
+        <p><strong>What Is This?</strong> Welcome to the interactive 3D exhibition space of the <strong>Mateus Yonathan Agentic Autonomous Lab</strong>. This virtual studio showcases our 24/7 open-source software engineering and academic research publications (418 public modules &amp; 117 Research Papers) in real time.</p>
         <p><strong>5 Divisions You Can Visit:</strong><br/>
         • <strong>💻 Systems Architecture:</strong> Showcases newly released algorithms and data structures across 14 programming languages.<br/>
         • <strong>📄 Research Paper Wing:</strong> Displays published Research Papers and Mini-Papers with executive summaries and Scholar Preprints.<br/>
@@ -1051,21 +1054,21 @@ function buildFloorGridTexture(isLight = true, showRugs = true) {
 
   if (showRugs) {
     if (isLight) {
-      drawZoneRug(-5.2, -4.0, 5.0, 4.2, 'rgba(224, 242, 254, 0.90)', 'rgba(2, 132, 199, 0.60)', 'SYSTEMS ARCHITECTURE', -5.2, -2.05);
-      drawZoneRug(5.0, -4.0, 5.2, 4.2, 'rgba(243, 232, 255, 0.90)', 'rgba(147, 51, 234, 0.55)', 'RESEARCH PAPER WING', 5.0, -2.05);
-      drawZoneRug(5.2, 3.8, 5.0, 4.4, 'rgba(209, 250, 229, 0.90)', 'rgba(5, 150, 105, 0.60)', 'QUALITY & COMPLEXITY', 4.8, 5.80);
-      drawZoneRug(-5.2, 4.2, 5.0, 4.2, 'rgba(254, 243, 199, 0.90)', 'rgba(217, 119, 6, 0.60)', 'PUBLIC PORTFOLIO HUB', -5.2, 6.15);
-      drawZoneRug(0.0, 2.2, 4.4, 3.6, 'rgba(252, 231, 243, 0.88)', 'rgba(219, 39, 119, 0.52)', 'LOUNGE & WAR ROOM', 0.0, 3.85);
-      drawZoneRug(-0.2, -6.1, 4.4, 4.4, 'rgba(254, 226, 226, 0.85)', 'rgba(225, 29, 72, 0.50)', 'KITCHEN, SINK & COFFEE BAR', -0.2, -4.05);
-      drawZoneRug(-6.9, -0.15, 2.4, 3.1, 'rgba(254, 249, 195, 0.88)', 'rgba(202, 138, 4, 0.55)', ['SNACK', 'CANTEEN'], -6.35, 0.35);
+      drawZoneRug(-5.2, -4.0, 5.0, 4.2, 'rgba(224, 242, 254, 0.22)', 'rgba(2, 132, 199, 0.50)', 'SYSTEMS ARCHITECTURE', -5.2, -2.05);
+      drawZoneRug(5.0, -4.0, 5.2, 4.2, 'rgba(243, 232, 255, 0.22)', 'rgba(147, 51, 234, 0.48)', 'RESEARCH PAPER WING', 5.0, -2.05);
+      drawZoneRug(5.2, 3.8, 5.0, 4.4, 'rgba(209, 250, 229, 0.22)', 'rgba(5, 150, 105, 0.50)', 'QUALITY & COMPLEXITY', 4.8, 5.80);
+      drawZoneRug(-5.2, 4.2, 5.0, 4.2, 'rgba(254, 243, 199, 0.22)', 'rgba(217, 119, 6, 0.50)', 'PUBLIC PORTFOLIO HUB', -5.2, 6.15);
+      drawZoneRug(0.0, 2.2, 4.4, 3.6, 'rgba(252, 231, 243, 0.20)', 'rgba(219, 39, 119, 0.45)', 'LOUNGE & WAR ROOM', 0.0, 3.85);
+      drawZoneRug(-0.2, -6.1, 4.4, 4.4, 'rgba(254, 226, 226, 0.18)', 'rgba(225, 29, 72, 0.42)', 'KITCHEN, SINK & COFFEE BAR', -0.2, -4.05);
+      drawZoneRug(-6.9, -0.15, 2.4, 3.1, 'rgba(254, 249, 195, 0.18)', 'rgba(202, 138, 4, 0.45)', ['SNACK', 'CANTEEN'], -6.35, 0.35);
     } else {
-      drawZoneRug(-5.2, -4.0, 5.0, 4.2, 'rgba(14, 116, 144, 0.28)', 'rgba(56, 189, 248, 0.50)', 'SYSTEMS ARCHITECTURE', -5.2, -2.05);
-      drawZoneRug(5.0, -4.0, 5.2, 4.2, 'rgba(107, 33, 168, 0.26)', 'rgba(192, 132, 252, 0.50)', 'RESEARCH PAPER WING', 5.0, -2.05);
-      drawZoneRug(5.2, 3.8, 5.0, 4.4, 'rgba(6, 95, 70, 0.28)', 'rgba(52, 211, 153, 0.50)', 'QUALITY & COMPLEXITY', 4.8, 5.80);
-      drawZoneRug(-5.2, 4.2, 5.0, 4.2, 'rgba(146, 64, 14, 0.24)', 'rgba(251, 191, 36, 0.48)', 'PUBLIC PORTFOLIO HUB', -5.2, 6.15);
-      drawZoneRug(0.0, 2.2, 4.4, 3.6, 'rgba(21, 94, 67, 0.28)', 'rgba(244, 114, 182, 0.42)', 'LOUNGE & WAR ROOM', 0.0, 3.85);
-      drawZoneRug(-0.2, -6.1, 4.4, 4.4, 'rgba(136, 19, 55, 0.25)', 'rgba(251, 113, 133, 0.45)', 'KITCHEN, SINK & COFFEE BAR', -0.2, -4.05);
-      drawZoneRug(-6.9, -0.15, 2.4, 3.1, 'rgba(133, 77, 14, 0.25)', 'rgba(250, 204, 21, 0.45)', ['SNACK', 'CANTEEN'], -6.35, 0.35);
+      drawZoneRug(-5.2, -4.0, 5.0, 4.2, 'rgba(14, 116, 144, 0.16)', 'rgba(56, 189, 248, 0.45)', 'SYSTEMS ARCHITECTURE', -5.2, -2.05);
+      drawZoneRug(5.0, -4.0, 5.2, 4.2, 'rgba(107, 33, 168, 0.15)', 'rgba(192, 132, 252, 0.45)', 'RESEARCH PAPER WING', 5.0, -2.05);
+      drawZoneRug(5.2, 3.8, 5.0, 4.4, 'rgba(6, 95, 70, 0.16)', 'rgba(52, 211, 153, 0.45)', 'QUALITY & COMPLEXITY', 4.8, 5.80);
+      drawZoneRug(-5.2, 4.2, 5.0, 4.2, 'rgba(146, 64, 14, 0.15)', 'rgba(251, 191, 36, 0.42)', 'PUBLIC PORTFOLIO HUB', -5.2, 6.15);
+      drawZoneRug(0.0, 2.2, 4.4, 3.6, 'rgba(21, 94, 67, 0.16)', 'rgba(244, 114, 182, 0.38)', 'LOUNGE & WAR ROOM', 0.0, 3.85);
+      drawZoneRug(-0.2, -6.1, 4.4, 4.4, 'rgba(136, 19, 55, 0.15)', 'rgba(251, 113, 133, 0.40)', 'KITCHEN, SINK & COFFEE BAR', -0.2, -4.05);
+      drawZoneRug(-6.9, -0.15, 2.4, 3.1, 'rgba(133, 77, 14, 0.15)', 'rgba(250, 204, 21, 0.40)', ['SNACK', 'CANTEEN'], -6.35, 0.35);
     }
   }
 
@@ -1295,7 +1298,7 @@ function buildWallSignTexture() {
 }
 
 class CutawayRoomBuilder {
-  static build(scene) {
+  static build(scene, isLight = true) {
     const shellParts = [];
     const W = 18.0;
     const D = 18.0;
@@ -1365,35 +1368,39 @@ class CutawayRoomBuilder {
     shellParts.push(createColoredPart(new THREE.BoxGeometry(6.0, 0.36, 6.2), '#cbd5e1', -4.6, -0.19, 12.1));
     shellParts.push(createColoredPart(new THREE.BoxGeometry(6.16, 0.08, 6.36), '#94a3b8', -4.6, -0.35, 12.1));
     shellParts.push(createColoredPart(new THREE.BoxGeometry(5.8, 0.024, 6.0), '#334155', -4.6, 0.012, 12.1));
-    // Elevated Command Deck Platform (Y = 1.20m, footprint X: -7.4 to -1.8, Z: 10.6 to 15.0)
-    shellParts.push(createColoredPart(new THREE.BoxGeometry(5.6, 1.20, 4.4), '#0f172a', -4.6, 0.60, 12.8));
-    shellParts.push(createColoredPart(new THREE.BoxGeometry(5.64, 0.04, 4.44), '#0284c7', -4.6, 1.21, 12.8));
-    // 6-Step Architectural Staircase ascending from entrance [X: -4.6, Z: 9.3, Y: 0.0] up to elevated deck [X: -4.6, Z: 10.6, Y: 1.20]
-    for (let s = 0; s < 6; s++) {
-      const st = s / 5;
-      const sy = 0.10 + st * 1.10;
+    // Elevated Floor 2 Mezzanine Deck Slab (Y = 2.30m, thickness 0.14m)
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(5.6, 0.14, 4.4), '#0f172a', -4.6, 2.30, 12.8));
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(5.64, 0.04, 4.44), '#0284c7', -4.6, 2.24, 12.8));
+    // 4 Structural Steel Columns supporting Floor 2 above Ground Tech Hardware Bunker
+    [[-7.3, 10.7], [-1.9, 10.7], [-7.3, 14.9], [-1.9, 14.9]].forEach(([cx, cz]) => {
+      shellParts.push(createColoredPart(new THREE.CylinderGeometry(0.08, 0.08, 2.22, 12), '#334155', cx, 1.11, cz));
+    });
+    // 10-Step Modern Architectural Staircase ascending from ground [X: -4.6, Z: 9.30, Y: 0.0] to Floor 2 [X: -4.6, Z: 10.60, Y: 2.30]
+    for (let s = 0; s < 10; s++) {
+      const st = s / 9;
+      const sy = 0.10 + st * 2.15;
       const sz = 9.30 + st * 1.30;
-      shellParts.push(createColoredPart(new THREE.BoxGeometry(1.6, 0.10, 0.26), '#1e293b', -4.6, sy, sz));
-      shellParts.push(createColoredPart(new THREE.BoxGeometry(1.56, 0.02, 0.04), '#38bdf8', -4.6, sy + 0.05, sz + 0.12));
+      shellParts.push(createColoredPart(new THREE.BoxGeometry(1.6, 0.08, 0.22), '#1e293b', -4.6, sy, sz));
+      shellParts.push(createColoredPart(new THREE.BoxGeometry(1.56, 0.02, 0.04), '#38bdf8', -4.6, sy + 0.04, sz + 0.10));
     }
     // Stair stainless stringers
-    shellParts.push(createColoredPart(new THREE.BoxGeometry(0.04, 0.14, 1.8), '#334155', -5.45, 0.65, 9.95, -0.72, 0, 0));
-    shellParts.push(createColoredPart(new THREE.BoxGeometry(0.04, 0.14, 1.8), '#334155', -3.75, 0.65, 9.95, -0.72, 0, 0));
-    // Handrails around Floor 2 War Room Wing (South edge Z = 15.0, West edge X = -7.4, East edge X = -1.8)
-    shellParts.push(createColoredPart(new THREE.BoxGeometry(5.6, 0.05, 0.05), '#64748b', -4.6, 2.22, 15.0));
-    shellParts.push(createColoredPart(new THREE.BoxGeometry(0.05, 0.05, 4.4), '#64748b', -7.4, 2.22, 12.8));
-    shellParts.push(createColoredPart(new THREE.BoxGeometry(0.05, 0.05, 4.4), '#64748b', -1.8, 2.22, 12.8));
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(0.04, 0.18, 2.5), '#334155', -5.45, 1.15, 9.95, -1.02, 0, 0));
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(0.04, 0.18, 2.5), '#334155', -3.75, 1.15, 9.95, -1.02, 0, 0));
+    // Upper Handrails around Floor 2 (Y = 3.32m)
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(5.6, 0.05, 0.05), '#64748b', -4.6, 3.32, 15.0));
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(0.05, 0.05, 4.4), '#64748b', -7.4, 3.32, 12.8));
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(0.05, 0.05, 4.4), '#64748b', -1.8, 3.32, 12.8));
     [-7.4, -4.6, -1.8].forEach((px) => {
-      shellParts.push(createColoredPart(new THREE.CylinderGeometry(0.025, 0.025, 1.02, 8), '#94a3b8', px, 1.71, 15.0));
+      shellParts.push(createColoredPart(new THREE.CylinderGeometry(0.025, 0.025, 0.98, 8), '#94a3b8', px, 2.82, 15.0));
     });
     [10.8, 12.9, 15.0].forEach((pz) => {
-      shellParts.push(createColoredPart(new THREE.CylinderGeometry(0.025, 0.025, 1.02, 8), '#94a3b8', -7.4, 1.71, pz));
-      shellParts.push(createColoredPart(new THREE.CylinderGeometry(0.025, 0.025, 1.02, 8), '#94a3b8', -1.8, 1.71, pz));
+      shellParts.push(createColoredPart(new THREE.CylinderGeometry(0.025, 0.025, 0.98, 8), '#94a3b8', -7.4, 2.82, pz));
+      shellParts.push(createColoredPart(new THREE.CylinderGeometry(0.025, 0.025, 0.98, 8), '#94a3b8', -1.8, 2.82, pz));
     });
 
-    // Dedicated Architectural Enclosure & Walls for the Brand New Floor 2 War Room
-    shellParts.push(createColoredPart(new THREE.BoxGeometry(0.20, 2.60, 5.8), '#cbd5e1', -7.50, 1.30, 12.10));
-    shellParts.push(createColoredPart(new THREE.BoxGeometry(0.24, 0.08, 5.84), '#0284c7', -7.50, 2.64, 12.10));
+    // 2-Story Exterior Cutaway Wall for War Room Wing (height 3.8m)
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(0.20, 3.80, 5.8), '#cbd5e1', -7.50, 1.90, 12.10));
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(0.24, 0.08, 5.84), '#0284c7', -7.50, 3.84, 12.10));
     shellParts.push(createColoredPart(new THREE.BoxGeometry(0.12, 3.20, 0.16), '#475569', -6.30, 1.60, 9.0));
     shellParts.push(createColoredPart(new THREE.BoxGeometry(0.12, 3.20, 0.16), '#475569', -2.90, 1.60, 9.0));
     shellParts.push(createColoredPart(new THREE.BoxGeometry(3.52, 0.14, 0.16), '#0284c7', -4.60, 3.20, 9.0));
@@ -1425,6 +1432,49 @@ class CutawayRoomBuilder {
     floorMesh.position.y = 0.005;
     floorMesh.receiveShadow = true;
     scene.add(floorMesh);
+
+    // Floor Zone Box Plates for Telescope Garden, Floor 2 God's Eye Deck & Ground Bunker
+    const makeZonePlate = (w, d, fill, stroke, title, isL) => {
+      const cv = document.createElement('canvas'); cv.width = 512; cv.height = 512;
+      const ctx = cv.getContext('2d');
+      ctx.fillStyle = fill; ctx.strokeStyle = stroke; ctx.lineWidth = 6;
+      ctx.beginPath();
+      if (ctx.roundRect) ctx.roundRect(16, 16, 480, 480, 24); else ctx.rect(16, 16, 480, 480);
+      ctx.fill(); ctx.stroke();
+      if (title) {
+        ctx.fillStyle = isL ? '#0f172a' : '#f8fafc';
+        ctx.font = 'bold 22px monospace'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        ctx.fillText(title, 256, 460);
+      }
+      const tex = new THREE.CanvasTexture(cv); tex.colorSpace = THREE.SRGBColorSpace;
+      const g = new THREE.PlaneGeometry(w, d); g.rotateX(-Math.PI / 2);
+      const m = new THREE.MeshStandardMaterial({
+        map: tex,
+        transparent: true,
+        roughness: 0.38,
+        polygonOffset: true,
+        polygonOffsetFactor: -2,
+        polygonOffsetUnits: -2
+      });
+      const p = new THREE.Mesh(g, m); p.receiveShadow = true;
+      return p;
+    };
+    // 1. Zone 6: Telescope Garden Terrace Box (Elevated to Y=0.040 so it clears wood slats at Y=0.036 cleanly)
+    const teleFill = isLight ? 'rgba(224, 242, 254, 0.22)' : 'rgba(14, 116, 144, 0.18)';
+    const teleZone = makeZonePlate(5.2, 4.4, teleFill, 'rgba(2, 132, 199, 0.55)', 'COSMIC OBSERVATORY & GARDEN DECK', isLight);
+    teleZone.position.set(3.8, 0.040, 11.75);
+    scene.add(teleZone);
+    // 2. Zone 7: Floor 2 God's Eye AI Command Deck Box (Y=2.385 clears slab at Y=2.37)
+    const godsFill = isLight ? 'rgba(224, 242, 254, 0.22)' : 'rgba(14, 116, 144, 0.18)';
+    const godsZone = makeZonePlate(5.2, 3.8, godsFill, 'rgba(2, 132, 199, 0.60)', "GOD'S EYE AI COMMAND DECK", isLight);
+    godsZone.position.set(-4.6, 2.385, 12.80);
+    scene.add(godsZone);
+    // 3. Ground Hardware & GPU Server Bunker Box (Y=0.030 clears bunker slab)
+    const gndFill = isLight ? 'rgba(209, 250, 229, 0.22)' : 'rgba(6, 95, 70, 0.18)';
+    const gndZone = makeZonePlate(5.2, 3.8, gndFill, 'rgba(5, 150, 105, 0.50)', 'GROUND HARDWARE & GPU SERVER LAB', isLight);
+    gndZone.position.set(-4.6, 0.030, 12.80);
+    scene.add(gndZone);
+    const zonePlates = [teleZone, godsZone, gndZone];
 
     // Prominent 24/7 Autonomous Lab Wall Banner mounted inside the 3D office (-Z upper header)
     // Sized & positioned strictly beneath room ceiling coping (y=4.51 < 4.60) to prevent top overlap
@@ -1464,10 +1514,10 @@ class CutawayRoomBuilder {
       createColoredPart(new THREE.BoxGeometry(5.95, 0.88, 0.03), '#38bdf8', 3.8, 0.58, 14.48),
       createColoredPart(new THREE.BoxGeometry(0.03, 0.88, 5.45), '#38bdf8', 6.78, 0.58, 11.75),
       createColoredPart(new THREE.BoxGeometry(0.03, 0.88, 5.45), '#38bdf8', 0.82, 0.58, 11.75),
-      // Glass Balustrade for Floor 2 Horizontal AI War Room Wing
-      createColoredPart(new THREE.BoxGeometry(5.55, 0.92, 0.03), '#38bdf8', -4.6, 1.71, 15.0),
-      createColoredPart(new THREE.BoxGeometry(0.03, 0.92, 4.35), '#38bdf8', -7.4, 1.71, 12.8),
-      createColoredPart(new THREE.BoxGeometry(0.03, 0.92, 4.35), '#38bdf8', -1.8, 1.71, 12.8),
+      // Glass Balustrade for Floor 2 Horizontal AI War Room Wing (Upper Level Y = 2.82m)
+      createColoredPart(new THREE.BoxGeometry(5.55, 0.92, 0.03), '#38bdf8', -4.6, 2.82, 15.0),
+      createColoredPart(new THREE.BoxGeometry(0.03, 0.92, 4.35), '#38bdf8', -7.4, 2.82, 12.8),
+      createColoredPart(new THREE.BoxGeometry(0.03, 0.92, 4.35), '#38bdf8', -1.8, 2.82, 12.8),
     ];
     const glassMesh = new THREE.Mesh(
       mergeGeometries(glassParts, false),
@@ -1475,7 +1525,7 @@ class CutawayRoomBuilder {
     );
     scene.add(glassMesh);
 
-    return { floorMat, shellMesh };
+    return { floorMat, shellMesh, zonePlates };
   }
 }
 
@@ -1495,6 +1545,7 @@ class IsometricSceneEngine {
       canvas: this.canvas,
       antialias: true,
       powerPreference: 'high-performance',
+      preserveDrawingBuffer: true,
     });
     this.renderer.setPixelRatio(dpr);
     this.renderer.setSize(window.innerWidth, window.innerHeight);
@@ -1569,6 +1620,11 @@ class IsometricSceneEngine {
       this.roomHandles.floorMat.map = buildFloorGridTexture(this.isLightTheme, this.isFloorRugsVisible);
       this.roomHandles.floorMat.needsUpdate = true;
       if (oldMap) oldMap.dispose();
+    }
+    if (this.roomHandles && this.roomHandles.zonePlates) {
+      this.roomHandles.zonePlates.forEach((p) => {
+        p.visible = visible;
+      });
     }
   }
 
@@ -2204,58 +2260,123 @@ class OfficeFurnitureBuilder {
     addCyl(0.03, 0.025, 0.12, 10, '#d97706', tx - 0.08, 1.25, tz - 0.12, -0.45, 0, 0.35);
     addCyl(0.032, 0.032, 0.03, 10, '#0f172a', tx - 0.10, 1.30, tz - 0.14, -0.45, 0, 0.35);
 
-    // Outdoor Garden Terrace Teak Patio Lounge Chairs & Coffee Table (beside Telescope at X: 1.8)
+    // Outdoor Garden Terrace Teak Patio Lounge Chairs & Coffee Table
     const addTeakChair = (cx, cz, rotY = 0.0) => {
       const c = Math.cos(rotY), s = Math.sin(rotY);
+      const rot2D = (lx, lz) => [cx + lx * c + lz * s, cz - lx * s + lz * c];
       const dx1 = 0.28, dz1 = 0.26;
       [[-dx1, -dz1], [dx1, -dz1], [-dx1, dz1], [dx1, dz1]].forEach(([lx, lz]) => {
-        addBox(0.05, 0.42, 0.05, '#784315', cx + lx * c - lz * s, 0.21, cz + lx * s + lz * c, 0, rotY, 0);
+        const [px, pz] = rot2D(lx, lz);
+        addBox(0.05, 0.42, 0.05, '#784315', px, 0.21, pz, 0, rotY, 0);
       });
       addBox(0.68, 0.06, 0.62, '#b47b48', cx, 0.42, cz, 0, rotY, 0);
-      addBox(0.68, 0.48, 0.05, '#9a6232', cx - s * -0.28, 0.68, cz + c * -0.28, 0, rotY, 0);
-      addBox(0.06, 0.04, 0.62, '#b47b48', cx + c * 0.33, 0.58, cz + s * 0.33, 0, rotY, 0);
-      addBox(0.06, 0.04, 0.62, '#b47b48', cx - c * 0.33, 0.58, cz - s * 0.33, 0, rotY, 0);
+      const [bx, bz] = rot2D(0, -0.28);
+      addBox(0.68, 0.48, 0.05, '#9a6232', bx, 0.68, bz, 0, rotY, 0);
+      const [a1x, a1z] = rot2D(0.33, 0);
+      const [a2x, a2z] = rot2D(-0.33, 0);
+      addBox(0.06, 0.04, 0.62, '#b47b48', a1x, 0.58, a1z, 0, rotY, 0);
+      addBox(0.06, 0.04, 0.62, '#b47b48', a2x, 0.58, a2z, 0, rotY, 0);
     };
-    addTeakChair(1.8, 11.2, Math.PI / 2);
-    addTeakChair(1.8, 13.2, -Math.PI / 2);
-    addBox(0.56, 0.04, 0.72, '#b47b48', 1.8, 0.38, 12.2);
+    // Primary Stargazing Chair placed right beside telescope eyepiece, facing telescope [3.6, 12.2]!
+    addTeakChair(2.90, 11.45, 0.78);
+    // Companion Lounge Chair & Coffee Table
+    addTeakChair(1.60, 12.60, 0.90);
+    addBox(0.56, 0.04, 0.72, '#b47b48', 2.00, 0.38, 11.80);
     [[-0.24, -0.32], [0.24, -0.32], [-0.24, 0.32], [0.24, 0.32]].forEach(([txo, tzo]) => {
-      addBox(0.05, 0.36, 0.05, '#784315', 1.8 + txo, 0.18, 12.2 + tzo);
+      addBox(0.05, 0.36, 0.05, '#784315', 2.00 + txo, 0.18, 11.80 + tzo);
     });
-    addCyl(0.04, 0.035, 0.09, 10, '#ffffff', 1.8, 0.445, 12.2);
+    addCyl(0.04, 0.035, 0.09, 10, '#ffffff', 2.00, 0.445, 11.80);
 
-    // Phase 2: Floor 2 Horizontal AI War Room Wing "God's Eye" Curved Panoramic Video Wall (Facing South +Z)
-    addBox(2.2, 1.38, 0.08, '#0f172a', -4.6, 2.45, 10.80);
-    addBox(2.14, 1.32, 0.02, '#0284c7', -4.6, 2.45, 10.84);
-    addBox(1.15, 1.38, 0.08, '#0f172a', -6.15, 2.45, 10.92, 0, -0.21, 0);
-    addBox(1.10, 1.32, 0.02, '#0369a1', -6.15, 2.45, 10.96, 0, -0.21, 0);
-    addBox(1.15, 1.38, 0.08, '#0f172a', -3.05, 2.45, 10.92, 0, 0.21, 0);
-    addBox(1.10, 1.32, 0.02, '#0369a1', -3.05, 2.45, 10.96, 0, 0.21, 0);
-    addBox(4.4, 0.05, 0.10, '#38bdf8', -4.6, 3.18, 10.83);
-    addBox(4.4, 0.05, 0.10, '#38bdf8', -4.6, 1.72, 10.83);
-    screenAnchors.godsEye = { pos: [-4.6, 2.45, 10.86], rotY: 0, w: 4.3, h: 1.32 };
+    // =========================================================================
+    // GROUND ROOM UNDERNEATH FLOOR 2: Hardware Workshop, Tooling & Server Bunker
+    // =========================================================================
+    // 1. Dual 19-Inch GPU Server Racks under Floor 2 (height 2.05m)
+    [12.4, 13.8].forEach((rz) => {
+      addBox(0.70, 2.05, 0.85, '#0f172a', -6.8, 1.05, rz);
+      addBox(0.64, 1.95, 0.02, '#1e293b', -6.44, 1.05, rz);
+      for (let sl = 0; sl < 6; sl++) {
+        addBox(0.60, 0.03, 0.03, '#334155', -6.44, 0.35 + sl * 0.28, rz);
+        ledPositions.push([-6.43, 0.35 + sl * 0.28, rz - 0.22, 0.03, 0.02, 0.02]);
+        ledBaseColors.push(sl % 2 === 0 ? '#10b981' : '#38bdf8');
+      }
+    });
 
-    // Command Operator Desk & 3 Analyst Monitors on Elevated Floor 2 Deck (baseY = 1.20, facing South +Z)
-    addBox(3.8, 0.06, 0.90, '#1e293b', -4.6, 1.62, 12.10);
-    addBox(3.84, 0.02, 0.94, '#0284c7', -4.6, 1.59, 12.10);
+    // 2. Heavy-Duty Hardware Diagnostics Workbench, Tools & Technician Chair
+    addBox(1.90, 0.08, 0.75, '#b47b48', -4.5, 0.85, 14.4);
+    [[-5.35, 14.1], [-3.65, 14.1], [-5.35, 14.7], [-3.65, 14.7]].forEach(([lx, lz]) => {
+      addBox(0.06, 0.82, 0.06, '#334155', lx, 0.41, lz);
+    });
+    // Technician office chair facing workbench
+    addChair(-4.5, 13.6, 0.0, '#34d399', 0.0);
+    // Oscilloscope with glowing waveform screen
+    addBox(0.42, 0.24, 0.28, '#1e293b', -4.8, 1.01, 14.4);
+    addBox(0.36, 0.18, 0.02, '#10b981', -4.8, 1.01, 14.25);
+    // Soldering Station & Multimeter
+    addBox(0.18, 0.14, 0.18, '#0284c7', -4.1, 0.96, 14.4);
+    addCyl(0.015, 0.015, 0.24, 8, '#fbbf24', -3.95, 0.99, 14.36, 0.4, 0, 0);
+    // Technician Keyboard & Mouse on Ground Workbench
+    addBox(0.40, 0.016, 0.14, '#1e293b', -4.3, 0.90, 14.22);
+    addBox(0.06, 0.018, 0.09, '#334155', -4.0, 0.90, 14.22);
+
+    // 3. Liquid Cooling Chiller & Refrigerant Unit
+    addBox(0.75, 1.35, 0.65, '#1e293b', -6.8, 0.70, 11.2);
+    addCyl(0.11, 0.11, 1.05, 12, '#0284c7', -6.65, 0.70, 11.2);
+    addCyl(0.04, 0.04, 0.45, 8, '#38bdf8', -6.45, 0.85, 11.2);
+
+    // 4. UPS Modular Battery Bank Rack
+    addBox(0.65, 1.65, 0.55, '#334155', -2.5, 0.85, 14.4);
+    for (let b = 0; b < 4; b++) {
+      addBox(0.58, 0.24, 0.48, '#0f172a', -2.5, 0.35 + b * 0.38, 14.4);
+      ledPositions.push([-2.5, 0.35 + b * 0.38, 14.15, 0.04, 0.02, 0.02]);
+      ledBaseColors.push('#10b981');
+    }
+
+    // =========================================================================
+    // UPPER LEVEL: Floor 2 AI Command War Room (baseY = 2.30m)
+    // =========================================================================
+    // Curved Panoramic Video Wall "God's Eye" with 3 distinct angled frames (NO occluding front blocks!)
+    addBox(2.2, 1.38, 0.08, '#0f172a', -4.6, 3.55, 10.80);
+    addBox(1.15, 1.38, 0.08, '#0f172a', -6.15, 3.55, 10.90, 0, 0.22, 0);
+    addBox(1.15, 1.38, 0.08, '#0f172a', -3.05, 3.55, 10.90, 0, -0.22, 0);
+    addBox(4.4, 0.05, 0.10, '#38bdf8', -4.6, 4.28, 10.83);
+    addBox(4.4, 0.05, 0.10, '#38bdf8', -4.6, 2.82, 10.83);
+    // 3 Individual Screen Anchors for God's Eye Video Wall
+    screenAnchors.godsEyeCenter = { pos: [-4.6, 3.55, 10.86], rotY: 0, w: 2.14, h: 1.32 };
+    screenAnchors.godsEyeLeft = { pos: [-6.15, 3.55, 10.96], rotY: 0.22, w: 1.10, h: 1.32 };
+    screenAnchors.godsEyeRight = { pos: [-3.05, 3.55, 10.96], rotY: -0.22, w: 1.10, h: 1.32 };
+
+    // Command Operator Desk & 3 Analyst Monitors on Floor 2 (baseY = 2.30, desk surface Y = 2.75)
+    addBox(3.8, 0.06, 0.90, '#1e293b', -4.6, 2.72, 12.10);
+    addBox(3.84, 0.02, 0.94, '#0284c7', -4.6, 2.69, 12.10);
     [[-6.35, 11.75], [-2.85, 11.75], [-6.35, 12.45], [-2.85, 12.45]].forEach(([dx, dz]) => {
-      addBox(0.06, 0.40, 0.06, '#475569', dx, 1.40, dz);
+      addBox(0.06, 0.40, 0.06, '#475569', dx, 2.50, dz);
     });
     // Left Monitor: arXiv cs.LG
-    addBox(0.88, 0.52, 0.03, '#0f172a', -5.6, 1.98, 12.05);
-    addCyl(0.02, 0.02, 0.18, 8, '#64748b', -5.6, 1.71, 12.05);
-    screenAnchors.godsEyeArxiv = { pos: [-5.6, 1.98, 12.07], rotY: 0, w: 0.85, h: 0.49 };
+    addBox(0.88, 0.52, 0.03, '#0f172a', -5.6, 3.08, 12.05);
+    addCyl(0.02, 0.02, 0.18, 8, '#64748b', -5.6, 2.81, 12.05);
+    screenAnchors.godsEyeArxiv = { pos: [-5.6, 3.08, 12.07], rotY: 0, w: 0.85, h: 0.49 };
     // Center Monitor: Hacker News Frontpage
-    addBox(0.88, 0.52, 0.03, '#0f172a', -4.6, 1.98, 12.05);
-    addCyl(0.02, 0.02, 0.18, 8, '#64748b', -4.6, 1.71, 12.05);
-    screenAnchors.godsEyeHN = { pos: [-4.6, 1.98, 12.07], rotY: 0, w: 0.85, h: 0.49 };
+    addBox(0.88, 0.52, 0.03, '#0f172a', -4.6, 3.08, 12.05);
+    addCyl(0.02, 0.02, 0.18, 8, '#64748b', -4.6, 2.81, 12.05);
+    screenAnchors.godsEyeHN = { pos: [-4.6, 3.08, 12.07], rotY: 0, w: 0.85, h: 0.49 };
     // Right Monitor: Papers With Code SOTA Leaderboard
-    addBox(0.88, 0.52, 0.03, '#0f172a', -3.6, 1.98, 12.05);
-    addCyl(0.02, 0.02, 0.18, 8, '#64748b', -3.6, 1.71, 12.05);
-    screenAnchors.godsEyePWC = { pos: [-3.6, 1.98, 12.07], rotY: 0, w: 0.85, h: 0.49 };
+    addBox(0.88, 0.52, 0.03, '#0f172a', -3.6, 3.08, 12.05);
+    addCyl(0.02, 0.02, 0.18, 8, '#64748b', -3.6, 2.81, 12.05);
+    screenAnchors.godsEyePWC = { pos: [-3.6, 3.08, 12.07], rotY: 0, w: 0.85, h: 0.49 };
+
+    // Keyboards & Optical Mice on God's Eye Operator Desk for all 3 Workstations
+    [-5.6, -4.6, -3.6].forEach((cx) => {
+      // Keyboard
+      addBox(0.42, 0.016, 0.14, '#0f172a', cx - 0.06, 2.76, 12.28);
+      addBox(0.40, 0.008, 0.12, '#38bdf8', cx - 0.06, 2.77, 12.28);
+      // Mousepad & Mouse
+      addBox(0.18, 0.006, 0.20, '#1e293b', cx + 0.24, 2.755, 12.28);
+      addBox(0.06, 0.018, 0.09, '#0284c7', cx + 0.24, 2.77, 12.28);
+      addBox(0.01, 0.006, 0.02, '#38bdf8', cx + 0.24, 2.78, 12.26);
+    });
 
     // 3 High-Back Captain Chairs on Floor 2: Seated analysts face NORTH (-Z) directly into the monitors!
-    [-5.6, -4.6, -3.6].forEach((cx) => addChair(cx, 12.85, Math.PI, '#38bdf8', 1.20));
+    [-5.6, -4.6, -3.6].forEach((cx) => addChair(cx, 12.85, Math.PI, '#38bdf8', 2.30));
 
     // Merge all static furniture & appliances into 1 single draw call with smooth shading
     const furnitureMesh = new THREE.Mesh(
@@ -2315,7 +2436,8 @@ class OfficeFurnitureBuilder {
       { zoneId: 'zone_release', workerId: 'worker_release', pos: [-5.2, 1.15, 4.4], size: [3.2, 2.3, 2.8] },
       { zoneId: 'zone_lounge', workerId: 'worker_lounge', pos: [0.0, 1.05, 1.5], size: [3.2, 2.1, 3.2] },
       { zoneId: 'zone_telescope', workerId: 'telescope', isTelescope: true, pos: [3.6, 1.25, 12.2], size: [2.4, 2.0, 2.4] },
-      { zoneId: 'zone_gods_eye', workerId: 'gods_eye', isGodsEye: true, pos: [-4.6, 2.45, 11.50], size: [5.2, 2.0, 3.2] },
+      { zoneId: 'zone_gods_eye', workerId: 'gods_eye', isGodsEye: true, pos: [-4.6, 3.55, 11.20], size: [5.2, 2.4, 2.8] },
+      { zoneId: 'zone_gods_eye', workerId: 'gods_eye', isGodsEye: true, pos: [-4.6, 2.90, 12.10], size: [4.2, 1.4, 1.4] },
     ];
     const proxyMat = new THREE.MeshBasicMaterial({ visible: false });
     for (let z = 0; z < zoneBoxes.length; z++) {
@@ -2892,6 +3014,8 @@ class OfficeAnimationEngine {
       [-5.20, 4.00, 1.45],  // Zone 4 Portfolio Desk
       [5.60, 3.80, 1.35],   // Zone 3 Server Racks & Diagnostics
       [-8.35, 7.40, 0.50],  // Biometric Fingerprint Attendance Pedestal (Flush against West wall)
+      [-6.80, 13.10, 1.25], // Ground Hardware Bunker GPU Server Racks
+      [-4.50, 14.40, 1.15], // Ground Tech Diagnostics Workbench
     ];
 
     this._dummy = new THREE.Object3D();
@@ -2934,7 +3058,13 @@ class OfficeAnimationEngine {
       }
     }
 
-    // 5. Circular Furniture Obstacles (War-Room Table, Espresso Bar, Coffee Table, etc.)
+    // 5. Floor 2 God's Eye Screen & Operator Desk Solid Barrier:
+    // Strictly impassable: Avatars and trajectories must NEVER penetrate or collide with the God's Eye screen or monitors!
+    if (rx > -7.0 && rx < -2.2 && rz > 10.4 && rz < 12.45) {
+      rz = 12.55; // Divert South safely behind operator chairs
+    }
+
+    // 6. Circular Furniture Obstacles (War-Room Table, Espresso Bar, Coffee Table, etc.)
     for (let iter = 0; iter < 2; iter++) {
       for (let k = 0; k < this.obstacles.length; k++) {
         const obs = this.obstacles[k];
@@ -3001,7 +3131,7 @@ class OfficeAnimationEngine {
           let rawX, rawY = 0.0, rawZ;
 
           if (isFloor2Trip) {
-            // Three-stage ascent: Home Desk -> War Room Threshold [-4.6, 0, 9.30] -> Elevated Deck [-4.6, 1.20, 10.60] -> Captain Chair
+            // Three-stage ascent: Home Desk -> War Room Threshold [-4.6, 0, 9.30] -> Floor 2 Deck [-4.6, 2.30, 10.60] -> Captain Chair
             if (smoothP < 0.35) {
               const tp = smoothP / 0.35;
               rawX = av.homePos[0] + (-4.6 - av.homePos[0]) * tp;
@@ -3011,14 +3141,16 @@ class OfficeAnimationEngine {
             } else if (smoothP < 0.70) {
               const tp = (smoothP - 0.35) / 0.35;
               rawX = -4.6;
-              rawY = 1.20 * tp;
+              rawY = 2.30 * tp;
               rawZ = 9.30 + 1.30 * tp;
               targetRotY = 0.0; // Face South climbing stairs
             } else {
               const tp = (smoothP - 0.70) / 0.30;
               rawX = -4.6 + (meetX - (-4.6)) * tp;
-              rawY = 1.20;
+              rawY = 2.30;
               rawZ = 10.60 + (meetZ - 10.60) * tp;
+              // Guard: Clamp strictly to chair corridor (Z >= 12.55) so avatars NEVER penetrate screen or desk!
+              if (rawZ < 12.55 && rawX > -7.0 && rawX < -2.2) rawZ = 12.55;
               targetRotY = Math.atan2(meetX - (-4.6), meetZ - 10.60);
             }
             targetX = rawX;
@@ -3063,7 +3195,7 @@ class OfficeAnimationEngine {
         } else if (cycleT < 13.2) {
           // Seated or standing at the spot chatting with colleague
           targetX = meetX;
-          targetY = isFloor2Trip ? 1.20 : 0.0;
+          targetY = isFloor2Trip ? 2.30 : 0.0;
           targetZ = meetZ;
           targetRotY = meetRot;
           mode = 'discussing';
@@ -3079,17 +3211,18 @@ class OfficeAnimationEngine {
           let rawX, rawY = 0.0, rawZ;
 
           if (isFloor2Trip) {
-            // Three-stage descent: Captain Chair -> Elevated Deck [-4.6, 1.20, 10.60] -> War Room Threshold [-4.6, 0, 9.30] -> Home Desk
+            // Three-stage descent: Captain Chair -> Floor 2 Deck [-4.6, 2.30, 10.60] -> War Room Threshold [-4.6, 0, 9.30] -> Home Desk
             if (smoothP < 0.30) {
               const tp = smoothP / 0.30;
               rawX = meetX + (-4.6 - meetX) * tp;
-              rawY = 1.20;
+              rawY = 2.30;
               rawZ = meetZ + (10.60 - meetZ) * tp;
+              if (rawZ < 12.55 && rawX > -7.0 && rawX < -2.2) rawZ = 12.55;
               targetRotY = Math.atan2(-4.6 - meetX, 10.60 - meetZ);
             } else if (smoothP < 0.65) {
               const tp = (smoothP - 0.30) / 0.35;
               rawX = -4.6;
-              rawY = 1.20 * (1.0 - tp);
+              rawY = 2.30 * (1.0 - tp);
               rawZ = 10.60 - 1.30 * tp;
               targetRotY = Math.PI; // Face North descending stairs
             } else {
@@ -3183,29 +3316,32 @@ class OfficeAnimationEngine {
         b.rForearm.rotation.set(-0.45, 0, 0);
       } else if (mode === 'discussing') {
         const gPhase = elapsedSec * 5.2 + i * 1.7;
-        if (spotPosture === 'stargazing') {
-          activityBadge = isSpeakerA ? '🔭 Cosmic Stargazing' : '🌸 Garden Terrace Break';
-          b.pelvis.position.set(0, 0.84, 0);
+        if (spotPosture === 'telescope_observer' || spotPosture === 'stargazing') {
+          const seatY = 0.44;
+          b.pelvis.position.set(0, seatY, 0);
           if (b.lThigh && b.rThigh && b.lCalf && b.rCalf) {
-            b.lThigh.rotation.set(0, 0, 0);
-            b.rThigh.rotation.set(0, 0, 0);
-            b.lCalf.rotation.set(0, 0, 0);
-            b.rCalf.rotation.set(0, 0, 0);
+            b.lThigh.rotation.x = -Math.PI / 2;
+            b.rThigh.rotation.x = -Math.PI / 2;
+            b.lCalf.rotation.x = Math.PI / 2;
+            b.rCalf.rotation.x = Math.PI / 2;
           }
           if (isSpeakerA) {
-            b.torso.rotation.set(0.24, -0.12, 0);
-            b.head.rotation.set(-0.16, -0.08, 0);
-            b.lUpperArm.rotation.set(-0.68, 0.22, 0);
-            b.lForearm.rotation.set(-0.85, 0, 0);
-            b.rUpperArm.rotation.set(-0.68, -0.22, 0);
-            b.rForearm.rotation.set(-0.85, 0, 0);
+            const focusTurn = Math.sin(elapsedSec * 2.8) * 0.14;
+            b.torso.rotation.set(0.28, 0.08, 0);
+            b.head.rotation.set(0.16, 0.05, 0);
+            b.rUpperArm.rotation.set(-0.75, -0.22, 0);
+            b.rForearm.rotation.set(-1.20 + focusTurn * 0.5, 0.25, focusTurn);
+            b.lUpperArm.rotation.set(-0.68, 0.18, 0);
+            b.lForearm.rotation.set(-1.05, -0.15, 0);
+            activityBadge = '🔭 Calibrating Eyepiece Focus';
           } else {
-            b.torso.rotation.set(-0.08, 0.15, 0);
-            b.head.rotation.set(-0.25, 0.20, 0);
-            b.lUpperArm.rotation.set(-0.35, 0, 0);
-            b.lForearm.rotation.set(-0.55, 0, 0);
-            b.rUpperArm.rotation.set(-0.35, 0, 0);
-            b.rForearm.rotation.set(-0.55, 0, 0);
+            b.torso.rotation.set(0.05, -0.18, 0);
+            b.head.rotation.set(isTalking ? -0.12 : 0.14, isTalking ? -0.22 : 0.10, 0);
+            b.lUpperArm.rotation.set(-0.52, 0.12, 0);
+            b.lForearm.rotation.set(-1.10, 0, 0);
+            b.rUpperArm.rotation.set(-0.52, -0.12, 0);
+            b.rForearm.rotation.set(-1.10, 0, 0);
+            activityBadge = '✨ Correlating Deep-Sky Coordinates';
           }
         } else if (spotPosture === 'command_center') {
           // Seated comfortably on Floor 2 Mezzanine Captain Chair facing God's Eye panoramic display
@@ -3328,7 +3464,7 @@ class OfficeAnimationEngine {
       }
 
       // Update Ground Contact Shadow, Floating Plumbob, Raycast Hit Proxy & Speech Bubble
-      const isSeatedMode = (mode === 'discussing' && (spotPosture === 'seated' || spotPosture === 'seated_stool')) ||
+      const isSeatedMode = (mode === 'discussing' && (spotPosture === 'seated' || spotPosture === 'seated_stool' || spotPosture === 'command_center' || spotPosture === 'telescope_observer')) ||
         (mode === 'home' && av.posture !== 'standing_audit');
       const headHeight = isSeatedMode ? 2.16 : 2.48;
       this._dummy.position.set(targetX, headHeight + Math.sin(t * 2.6) * 0.06, targetZ);
@@ -3720,135 +3856,161 @@ class DynamicMonitorScreensEngine {
     }
     addScreenPlane(screenAnchors.releaseHub, cRel);
 
-    // 6. Floor 2 Panoramic Video Wall "God's Eye" Frontier AI Radar Screen
-    const [cGodsEye, ctxEye] = makeCanvas(1024, 320);
-    ctxEye.fillStyle = '#070b14'; ctxEye.fillRect(0, 0, 1024, 320);
-    ctxEye.strokeStyle = 'rgba(2, 132, 199, 0.14)'; ctxEye.lineWidth = 1;
-    for (let x = 0; x <= 1024; x += 32) { ctxEye.beginPath(); ctxEye.moveTo(x, 0); ctxEye.lineTo(x, 320); ctxEye.stroke(); }
-    for (let y = 0; y <= 320; y += 24) { ctxEye.beginPath(); ctxEye.moveTo(0, y); ctxEye.lineTo(1024, y); ctxEye.stroke(); }
-    ctxEye.fillStyle = '#0f172a'; ctxEye.fillRect(0, 0, 1024, 34);
-    ctxEye.fillStyle = '#38bdf8'; ctxEye.font = 'bold 15px monospace';
-    ctxEye.fillText("👁️ GOD'S EYE // FRONTIER AI COMMAND RADAR", 16, 23);
-    ctxEye.fillStyle = '#10b981'; ctxEye.font = '12px monospace';
-    ctxEye.fillText("● LIVE RADAR ACTIVE   ZERO-HYPE: 100%   NODES: 5 REGIONS   THROUGHPUT: 14.8k tok/s", 430, 22);
-
-    // Panel 1: arXiv Stream
-    ctxEye.fillStyle = 'rgba(15, 23, 42, 0.85)'; ctxEye.fillRect(16, 44, 310, 260);
-    ctxEye.strokeStyle = '#0284c7'; ctxEye.strokeRect(16, 44, 310, 260);
-    ctxEye.fillStyle = '#f87171'; ctxEye.font = 'bold 13px sans-serif'; ctxEye.fillText("📄 arXiv:cs.LG / Stat.ML STREAM", 26, 68);
-    [
-      ["• State-Space Duality: Sub-Quadratic Attention", "  O(N) Scaling Invariants • Lock-Free Kernel", 96],
-      ["• Continuous Batching PagedAttention v3", "  Zero KV-Cache Fragmentation on NVLink", 144],
-      ["• Mechanistic Interpretability of Agent Swarms", "  Formal Guardrails & RLHF Bounds Verified", 192]
-    ].forEach(([t, sub, y]) => {
-      ctxEye.fillStyle = '#f8fafc'; ctxEye.font = '11px sans-serif'; ctxEye.fillText(t, 26, y);
-      ctxEye.fillStyle = '#94a3b8'; ctxEye.fillText(sub, 26, y + 18);
-    });
-    ctxEye.fillStyle = '#38bdf8'; ctxEye.fillText("⚡ 14 New Verified Preprints in Last 24h", 26, 280);
-
-    // Panel 2: World Radar Telemetry Map
-    ctxEye.fillStyle = 'rgba(15, 23, 42, 0.85)'; ctxEye.fillRect(342, 44, 340, 260);
-    ctxEye.strokeStyle = '#0284c7'; ctxEye.strokeRect(342, 44, 340, 260);
-    ctxEye.fillStyle = '#38bdf8'; ctxEye.font = 'bold 13px sans-serif'; ctxEye.fillText("🌐 GLOBAL INFERENCE & REASONING NODES", 352, 68);
-    ctxEye.strokeStyle = 'rgba(56, 189, 248, 0.3)';
-    [35, 65, 95].forEach((r) => { ctxEye.beginPath(); ctxEye.arc(512, 175, r, 0, Math.PI * 2); ctxEye.stroke(); });
-    [
-      ["SF-Node", 440, 150, "28ms"], ["Zurich", 505, 135, "42ms"], ["Tokyo", 580, 145, "58ms"],
-      ["Singapore", 565, 195, "18ms"], ["Jakarta", 550, 220, "12ms"]
-    ].forEach(([name, nx, ny, lat]) => {
+    // =========================================================================
+    // 6. Floor 2 Panoramic Video Wall "God's Eye" (3 Individual Curved Screen Panels)
+    // =========================================================================
+    // Panel 6A: Center Global Inference & Reasoning Nodes Radar
+    const [cCenter, ctxEye] = makeCanvas(512, 320);
+    ctxEye.fillStyle = '#070b14'; ctxEye.fillRect(0, 0, 512, 320);
+    ctxEye.strokeStyle = 'rgba(2, 132, 199, 0.2)'; ctxEye.lineWidth = 1;
+    for (let x = 0; x <= 512; x += 32) { ctxEye.beginPath(); ctxEye.moveTo(x, 0); ctxEye.lineTo(x, 320); ctxEye.stroke(); }
+    for (let y = 0; y <= 320; y += 24) { ctxEye.beginPath(); ctxEye.moveTo(0, y); ctxEye.lineTo(512, y); ctxEye.stroke(); }
+    ctxEye.fillStyle = '#0f172a'; ctxEye.fillRect(0, 0, 512, 36);
+    ctxEye.fillStyle = '#38bdf8'; ctxEye.font = 'bold 13px monospace'; ctxEye.fillText("🌐 GLOBAL INFERENCE & REASONING NODES", 14, 23);
+    ctxEye.strokeStyle = 'rgba(56, 189, 248, 0.35)';
+    [35, 65, 95].forEach((r) => { ctxEye.beginPath(); ctxEye.arc(256, 165, r, 0, Math.PI * 2); ctxEye.stroke(); });
+    [["SF-Node", 185, 140, "28ms"], ["Zurich", 245, 125, "42ms"], ["Tokyo", 330, 135, "58ms"], ["Singapore", 310, 190, "18ms"], ["Jakarta", 295, 215, "12ms"]].forEach(([name, nx, ny, lat]) => {
       ctxEye.fillStyle = '#10b981'; ctxEye.beginPath(); ctxEye.arc(nx, ny, 4, 0, Math.PI * 2); ctxEye.fill();
       ctxEye.fillStyle = '#f8fafc'; ctxEye.font = '9px monospace'; ctxEye.fillText(`${name} (${lat})`, nx + 6, ny + 3);
     });
-    ctxEye.fillStyle = '#10b981'; ctxEye.font = 'bold 12px monospace';
-    ctxEye.fillText("CLUSTER: 8xH100 NVLink • PEAK 14,820 tok/s", 365, 288);
+    ctxEye.fillStyle = '#10b981'; ctxEye.font = 'bold 11px monospace'; ctxEye.fillText("CLUSTER: 8xH100 NVLink • PEAK 14,820 tok/s", 110, 290);
+    addScreenPlane(screenAnchors.godsEyeCenter, cCenter);
 
-    // Panel 3: SOTA Benchmarks & Hacker News
-    ctxEye.fillStyle = 'rgba(15, 23, 42, 0.85)'; ctxEye.fillRect(698, 44, 310, 260);
-    ctxEye.strokeStyle = '#0284c7'; ctxEye.strokeRect(698, 44, 310, 260);
-    ctxEye.fillStyle = '#fbbf24'; ctxEye.font = 'bold 13px sans-serif'; ctxEye.fillText("📊 SOTA BENCHMARKS & HACKER FEEDS", 708, 68);
-    ctxEye.fillStyle = '#f8fafc'; ctxEye.font = '11px sans-serif';
-    ctxEye.fillText("🥇 Agentic-Duality-70B  | MMLU-Pro: 94.2%", 708, 98);
-    ctxEye.fillText("🥈 SubQuad-Mamba-3      | HumanEval: 91.8%", 708, 126);
-    ctxEye.fillText("🥉 Stratum-Ring-Buffer  | 1.84ms Latency", 708, 154);
-    ctxEye.fillStyle = '#ff6600';
-    ctxEye.fillText("🔶 Hacker News: vLLM PagedAttn (482 pts)", 708, 196);
-    ctxEye.fillText("🔶 Hacker News: Zero-Contamination SOTA", 708, 222);
-    ctxEye.fillStyle = '#38bdf8'; ctxEye.fillText("🛡️ 100% Repro Audit • 0 Contamination", 708, 280);
-    addScreenPlane(screenAnchors.godsEye, cGodsEye);
+    // Panel 6B: Left Panel — Neural Network Duality Architecture & GPU VRAM Heatmap
+    const [cEyeL, ctxEyeL] = makeCanvas(512, 320);
+    ctxEyeL.fillStyle = '#070b14'; ctxEyeL.fillRect(0, 0, 512, 320);
+    ctxEyeL.fillStyle = '#0f172a'; ctxEyeL.fillRect(0, 0, 512, 36);
+    ctxEyeL.fillStyle = '#38bdf8'; ctxEyeL.font = 'bold 13px monospace'; ctxEyeL.fillText("🧠 NEURAL DUALITY // SUB-QUADRATIC", 14, 23);
+    // Block Diagram
+    [["[Input Embeddings]", 30], ["▼ Linear Projection", 74], ["▶ [Selective SSM Layer]", 110], ["▶ [Sliding Attn Window]", 150], ["▶ [Bounded Logits]", 190]].forEach(([lbl, y]) => {
+      ctxEyeL.fillStyle = 'rgba(15, 23, 42, 0.85)'; ctxEyeL.fillRect(16, y, 480, 28);
+      ctxEyeL.strokeStyle = '#0284c7'; ctxEyeL.strokeRect(16, y, 480, 28);
+      ctxEyeL.fillStyle = '#38bdf8'; ctxEyeL.font = 'bold 11px monospace'; ctxEyeL.fillText(lbl, 28, y + 18);
+    });
+    ctxEyeL.fillStyle = '#0284c7'; ctxEyeL.fillRect(16, 240, 480, 24);
+    ctxEyeL.fillStyle = '#34d399'; ctxEyeL.fillRect(16, 240, 452, 24);
+    ctxEyeL.fillStyle = '#0f172a'; ctxEyeL.font = 'bold 11px monospace'; ctxEyeL.fillText("VRAM ALLOCATION: 94.2% (150.7 GB / 160 GB)", 24, 256);
+    ctxEyeL.fillStyle = '#94a3b8'; ctxEyeL.font = '10px monospace'; ctxEyeL.fillText("NVLink Bandwidth: 900 GB/s • NUMA Nodes: Balanced", 16, 296);
+    addScreenPlane(screenAnchors.godsEyeLeft, cEyeL);
 
-    // 7. Left Desk Monitor: arXiv.org Paper View
+    // Panel 6C: Right Panel — Token Generation Speed & Cluster Health Matrix
+    const [cEyeR, ctxEyeR] = makeCanvas(512, 320);
+    ctxEyeR.fillStyle = '#070b14'; ctxEyeR.fillRect(0, 0, 512, 320);
+    ctxEyeR.fillStyle = '#0f172a'; ctxEyeR.fillRect(0, 0, 512, 36);
+    ctxEyeR.fillStyle = '#38bdf8'; ctxEyeR.font = 'bold 13px monospace'; ctxEyeR.fillText("📊 THROUGHPUT & CLUSTER METRICS", 14, 23);
+    // Sparkline chart
+    ctxEyeR.strokeStyle = '#38bdf8'; ctxEyeR.lineWidth = 2.5; ctxEyeR.beginPath();
+    [40, 52, 48, 65, 58, 80, 75, 92, 88, 105, 98, 120, 115, 138].forEach((v, idx) => {
+      const sx = 20 + idx * 35, sy = 220 - v;
+      if (idx === 0) ctxEyeR.moveTo(sx, sy); else ctxEyeR.lineTo(sx, sy);
+    });
+    ctxEyeR.stroke();
+    ctxEyeR.fillStyle = '#fbbf24'; ctxEyeR.font = 'bold 12px monospace'; ctxEyeR.fillText("GENERATION SPEED: 3,420 Tok/sec (+18.4%)", 20, 70);
+    ctxEyeR.fillStyle = '#34d399'; ctxEyeR.font = '11px monospace'; ctxEyeR.fillText("P99 LATENCY: 1.84ms • P50: 0.62ms", 20, 96);
+    ctxEyeR.fillStyle = '#cbd5e1'; ctxEyeR.font = '10px monospace'; ctxEyeR.fillText("GPU Cluster Thermals: 62°C Nominal • Fan: 55%", 20, 252);
+    ctxEyeR.fillStyle = '#38bdf8'; ctxEyeR.font = 'bold 10px monospace'; ctxEyeR.fillText("🛡️ 100% REPRODUCIBILITY AUDIT • 0 CONTAMINATION", 20, 285);
+    addScreenPlane(screenAnchors.godsEyeRight, cEyeR);
+
+    // =========================================================================
+    // 7, 8, 9: Desk Monitors with DYNAMIC CYCLING REAL-TIME WEBSITES (Changes Every 7s)
+    // =========================================================================
     const [cArxiv, ctxAx] = makeCanvas(512, 300);
-    ctxAx.fillStyle = '#ffffff'; ctxAx.fillRect(0, 0, 512, 300);
-    ctxAx.fillStyle = '#b31b1b'; ctxAx.fillRect(0, 0, 512, 36);
-    ctxAx.fillStyle = '#ffffff'; ctxAx.font = 'bold 13px monospace';
-    ctxAx.fillText("arXiv:2410.18942v2 [cs.LG]", 14, 23);
-    ctxAx.font = '11px sans-serif'; ctxAx.fillText("Cornell University Library", 345, 23);
-    ctxAx.fillStyle = '#0f172a'; ctxAx.font = 'bold 13px sans-serif';
-    ctxAx.fillText("High-Throughput Stratum Cache Ring Buffer Pattern", 14, 62);
-    ctxAx.fillText("Lock-Free Invariants and AST Complexity Analysis", 14, 80);
-    ctxAx.fillStyle = '#0284c7'; ctxAx.font = '10px sans-serif';
-    ctxAx.fillText("Mateus Yonathan, Sarah Oktavia Ph.D., Citra Beaumount", 14, 102);
-    ctxAx.fillStyle = '#f8fafc'; ctxAx.fillRect(14, 114, 484, 96);
-    ctxAx.strokeStyle = '#cbd5e1'; ctxAx.strokeRect(14, 114, 484, 96);
-    ctxAx.fillStyle = '#334155'; ctxAx.font = '10px sans-serif';
-    ctxAx.fillText("Abstract — We present a high-throughput stratum-cache ring buffer pattern", 20, 132);
-    ctxAx.fillText("tailored for Python concurrency. Static AST analysis proves O(1) amortized", 20, 148);
-    ctxAx.fillText("complexity for enqueue/dequeue operations with zero thread contention.", 20, 164);
-    ctxAx.fillStyle = '#0f172a'; ctxAx.font = 'bold 12px monospace';
-    ctxAx.fillText("Theorem 1: T_amortized = O(1), Contention(P) = 0", 20, 192);
-    ctxAx.fillStyle = '#b31b1b'; ctxAx.fillRect(14, 226, 115, 24);
-    ctxAx.fillStyle = '#ffffff'; ctxAx.font = 'bold 10px sans-serif'; ctxAx.fillText("Download PDF", 28, 242);
-    ctxAx.fillStyle = '#64748b'; ctxAx.font = '10px sans-serif';
-    ctxAx.fillText("Subjects: Machine Learning (cs.LG); Distributed Computing (cs.DC)", 14, 276);
-    addScreenPlane(screenAnchors.godsEyeArxiv, cArxiv);
-
-    // 8. Center Desk Monitor: Hacker News Frontpage View
+    const arxivPlane = addScreenPlane(screenAnchors.godsEyeArxiv, cArxiv);
     const [cHN, ctxHN] = makeCanvas(512, 300);
-    ctxHN.fillStyle = '#f6f6ef'; ctxHN.fillRect(0, 0, 512, 300);
-    ctxHN.fillStyle = '#ff6600'; ctxHN.fillRect(0, 0, 512, 28);
-    ctxHN.fillStyle = '#ffffff'; ctxHN.fillRect(6, 4, 20, 20);
-    ctxHN.fillStyle = '#ff6600'; ctxHN.font = 'bold 15px sans-serif'; ctxHN.fillText("Y", 11, 19);
-    ctxHN.fillStyle = '#000000'; ctxHN.font = 'bold 12px sans-serif'; ctxHN.fillText("Hacker News", 32, 19);
-    ctxHN.font = '10px sans-serif'; ctxHN.fillText("new | past | comments | ask | show | jobs | submit", 120, 18);
-    [
-      ["1.", "Show HN: vLLM PagedAttention v3 with Zero Fragmentation", "482 points by mateusy 4h ago | 164 comments"],
-      ["2.", "Sub-quadratic sequence scaling with bounded numerical stability", "319 points by soktavia 6h ago | 88 comments"],
-      ["3.", "Reproducible benchmarks for frontier LLM reasoning", "275 points by cbeaumont 8h ago | 52 comments"],
-      ["4.", "Mechanistic interpretability of RLHF reward models in swarms", "194 points by anthropic 11h ago | 41 comments"]
-    ].forEach(([rk, tt, pts], idx) => {
-      const y = 48 + idx * 40;
-      ctxHN.fillStyle = '#828282'; ctxHN.font = '11px sans-serif'; ctxHN.fillText(rk, 8, y);
-      ctxHN.fillStyle = '#ff6600'; ctxHN.fillText("▲", 24, y);
-      ctxHN.fillStyle = '#000000'; ctxHN.font = 'bold 11px sans-serif'; ctxHN.fillText(tt, 40, y);
-      ctxHN.fillStyle = '#828282'; ctxHN.font = '9px sans-serif'; ctxHN.fillText(pts, 40, y + 16);
-    });
-    addScreenPlane(screenAnchors.godsEyeHN, cHN);
-
-    // 9. Right Desk Monitor: Papers With Code SOTA Leaderboard View
+    const hnPlane = addScreenPlane(screenAnchors.godsEyeHN, cHN);
     const [cPWC, ctxPWC] = makeCanvas(512, 300);
-    ctxPWC.fillStyle = '#ffffff'; ctxPWC.fillRect(0, 0, 512, 300);
-    ctxPWC.fillStyle = '#1e3a8a'; ctxPWC.fillRect(0, 0, 512, 34);
-    ctxPWC.fillStyle = '#ffffff'; ctxPWC.font = 'bold 13px sans-serif';
-    ctxPWC.fillText("Papers With Code • Verified SOTA Leaderboards", 14, 22);
-    ctxPWC.fillStyle = '#f1f5f9'; ctxPWC.fillRect(10, 42, 492, 24);
-    ctxPWC.fillStyle = '#475569'; ctxPWC.font = 'bold 10px sans-serif';
-    ctxPWC.fillText("Rank   Model Architecture       Benchmark         Verified Metric    Code", 16, 58);
-    [
-      ["🥇", "Agentic-Duality-70B", "MMLU-Pro Zero-Shot", "94.2% (+3.1%)", "4.8k ★"],
-      ["🥈", "SubQuad-Mamba-3",     "HumanEval Python",   "91.8% (+1.8%)", "2.9k ★"],
-      ["🥉", "Stratum-Ring-Buffer", "Inference Latency",  "1.84ms (SOTA)", "1.4k ★"],
-      ["4.",  "Llama-3-Autonomous",  "GSM8K Reasoning",    "89.6% (+0.9%)", "1.2k ★"],
-      ["5.",  "DeepSeek-V2-Lite",    "Code Contamination", "0.0% Audited",  "980 ★"]
-    ].forEach(([rk, m, b, s, c], idx) => {
-      const y = 84 + idx * 24;
-      ctxPWC.fillStyle = idx % 2 === 0 ? '#ffffff' : '#f8fafc'; ctxPWC.fillRect(10, y - 14, 492, 22);
-      ctxPWC.fillStyle = '#0f172a'; ctxPWC.font = '10px sans-serif';
-      ctxPWC.fillText(`${rk}  ${m.padEnd(24)} ${b.padEnd(20)} ${s.padEnd(16)} ${c}`, 16, y);
-    });
-    ctxPWC.fillStyle = '#0284c7'; ctxPWC.fillRect(10, 240, 492, 26);
-    ctxPWC.fillStyle = '#ffffff'; ctxPWC.font = 'bold 10px sans-serif';
-    ctxPWC.fillText("✓ 100% INDEPENDENT ARTIFACT VERIFICATION • ZERO DATA CONTAMINATION", 24, 257);
-    addScreenPlane(screenAnchors.godsEyePWC, cPWC);
+    const pwcPlane = addScreenPlane(screenAnchors.godsEyePWC, cPWC);
+
+    const arxivPages = [
+      { id: "arXiv:2410.18942v2 [cs.LG]", t: "High-Throughput Stratum Cache Ring Buffer Pattern", a: "Mateus Yonathan, Sarah Oktavia Ph.D., Citra Beaumount", abs: "We present a high-throughput stratum-cache ring buffer tailored for lock-free Python concurrency. Static AST analysis proves O(1) amortized complexity with zero thread contention." },
+      { id: "arXiv:2405.21060v1 [cs.LG]", t: "State-Space Duality: Sub-Quadratic Attention Invariants", a: "Albert Gu, Tri Dao, Stanford AI Lab", abs: "We establish theoretical duality between structured state-space models and masked linear attention, enabling sub-quadratic O(N) sequence length scaling during inference." },
+      { id: "arXiv:2408.11894v1 [cs.DC]", t: "PagedAttention & Memory-Bounded Continuous Batching", a: "Woosuk Kwon, Zhuohan Li, UC Berkeley", abs: "Dissecting non-contiguous KV-cache memory allocation in LLM serving. Benchmarks verify 3.4x higher token throughput with 0% memory fragmentation across NVLink." }
+    ];
+
+    const hnPages = [
+      [
+        ["1.", "Show HN: vLLM PagedAttention v3 with Zero Fragmentation", "482 pts by mateusy 4h ago | 164 comments"],
+        ["2.", "Sub-quadratic sequence scaling with bounded numerical stability", "319 pts by soktavia 6h ago | 88 comments"],
+        ["3.", "Reproducible benchmarks for frontier LLM reasoning", "275 pts by cbeaumont 8h ago | 52 comments"],
+        ["4.", "Mechanistic interpretability of RLHF reward models in swarms", "194 pts by anthropic 11h ago | 41 comments"]
+      ],
+      [
+        ["1.", "Why O(N) State-Space Models Beat Attention at Scale", "612 pts by tridao 2h ago | 240 comments"],
+        ["2.", "Ask HN: How do you verify zero data contamination in SOTA?", "410 pts by elena 5h ago | 115 comments"],
+        ["3.", "Show HN: High-performance AST complexity analyzer in Rust", "334 pts by bima 7h ago | 92 comments"],
+        ["4.", "Formal verification of neural agent guardrails under adversarial prefix", "288 pts by safety_lab 9h ago | 73 comments"]
+      ],
+      [
+        ["1.", "Distributed GPU inference benchmarks: H100 vs B200", "750 pts by gpu_guru 1h ago | 312 comments"],
+        ["2.", "Show HN: Interactive 3D Virtual Office & Constellation graph", "520 pts by sytems_lead 3h ago | 185 comments"],
+        ["3.", "Memory-efficient speculative decoding on commodity hardware", "390 pts by open_weights 6h ago | 104 comments"],
+        ["4.", "Clean preprints stream: Filter arXiv hype with automated proofs", "295 pts by scholar_hub 8h ago | 67 comments"]
+      ]
+    ];
+
+    const pwcPages = [
+      { title: "MMLU-Pro Zero-Shot Verified SOTA", rows: [["🥇", "Agentic-Duality-70B", "94.2% (+3.1%)", "4.8k ★"], ["🥈", "SubQuad-Mamba-3", "91.8% (+1.8%)", "2.9k ★"], ["🥉", "Stratum-Ring-Buffer", "89.4% (SOTA)", "1.4k ★"], ["4.", "Llama-3-70B-Instruct", "88.6% (+0.9%)", "12k ★"]] },
+      { title: "HumanEval Python Synthesis Verified SOTA", rows: [["🥇", "SubQuad-Mamba-3", "92.4% (+2.6%)", "2.9k ★"], ["🥈", "Code-Agentic-70B", "91.2% (+1.4%)", "3.6k ★"], ["🥉", "DeepSeek-V2-Coder", "90.2% (Audited)", "5.1k ★"], ["4.", "Llama-3-Code-70B", "88.5% (+0.8%)", "9.8k ★"]] },
+      { title: "GSM8K Multi-Step Mathematical Reasoning", rows: [["🥇", "Reasoning-Duality-70B", "96.8% (+1.5%)", "3.2k ★"], ["🥈", "Agentic-GSM-Pro", "95.4% (+0.9%)", "2.1k ★"], ["🥉", "Mistral-Large-Math", "94.1% (Audited)", "4.4k ★"], ["4.", "Qwen-2-Math-72B", "93.8% (+0.5%)", "6.2k ★"]] }
+    ];
+
+    let deskPageIdx = 0;
+    const renderDeskCycle = () => {
+      // 1. Render arXiv monitor
+      const ax = arxivPages[deskPageIdx % arxivPages.length];
+      ctxAx.fillStyle = '#ffffff'; ctxAx.fillRect(0, 0, 512, 300);
+      ctxAx.fillStyle = '#b31b1b'; ctxAx.fillRect(0, 0, 512, 36);
+      ctxAx.fillStyle = '#ffffff'; ctxAx.font = 'bold 13px monospace'; ctxAx.fillText(ax.id, 14, 23);
+      ctxAx.font = '11px sans-serif'; ctxAx.fillText("Cornell University Library", 345, 23);
+      ctxAx.fillStyle = '#0f172a'; ctxAx.font = 'bold 13px sans-serif'; ctxAx.fillText(ax.t.slice(0, 55), 14, 64);
+      ctxAx.fillStyle = '#0284c7'; ctxAx.font = '10px sans-serif'; ctxAx.fillText(ax.a, 14, 88);
+      ctxAx.fillStyle = '#f8fafc'; ctxAx.fillRect(14, 102, 484, 110);
+      ctxAx.strokeStyle = '#cbd5e1'; ctxAx.strokeRect(14, 102, 484, 110);
+      ctxAx.fillStyle = '#334155'; ctxAx.font = '10px sans-serif';
+      wrapCanvasText(ctxAx, `Abstract — ${ax.abs}`, 22, 124, 468, 16, 4);
+      ctxAx.fillStyle = '#b31b1b'; ctxAx.fillRect(14, 226, 120, 26);
+      ctxAx.fillStyle = '#ffffff'; ctxAx.font = 'bold 11px sans-serif'; ctxAx.fillText("Download PDF ↗", 24, 243);
+      ctxAx.fillStyle = '#64748b'; ctxAx.font = '10px sans-serif'; ctxAx.fillText("Subjects: Machine Learning (cs.LG); Systems (cs.OS)", 14, 280);
+      if (arxivPlane && arxivPlane.tex) arxivPlane.tex.needsUpdate = true;
+
+      // 2. Render Hacker News monitor
+      const hnItems = hnPages[deskPageIdx % hnPages.length];
+      ctxHN.fillStyle = '#f6f6ef'; ctxHN.fillRect(0, 0, 512, 300);
+      ctxHN.fillStyle = '#ff6600'; ctxHN.fillRect(0, 0, 512, 28);
+      ctxHN.fillStyle = '#ffffff'; ctxHN.fillRect(6, 4, 20, 20);
+      ctxHN.fillStyle = '#ff6600'; ctxHN.font = 'bold 15px sans-serif'; ctxHN.fillText("Y", 11, 19);
+      ctxHN.fillStyle = '#000000'; ctxHN.font = 'bold 12px sans-serif'; ctxHN.fillText("Hacker News", 32, 19);
+      ctxHN.font = '10px sans-serif'; ctxHN.fillText("new | past | comments | ask | show | jobs | submit", 120, 18);
+      hnItems.forEach(([rk, tt, pts], idx) => {
+        const y = 48 + idx * 40;
+        ctxHN.fillStyle = '#828282'; ctxHN.font = '11px sans-serif'; ctxHN.fillText(rk, 8, y);
+        ctxHN.fillStyle = '#ff6600'; ctxHN.fillText("▲", 24, y);
+        ctxHN.fillStyle = '#000000'; ctxHN.font = 'bold 11px sans-serif'; ctxHN.fillText(tt.slice(0, 50), 40, y);
+        ctxHN.fillStyle = '#828282'; ctxHN.font = '9px sans-serif'; ctxHN.fillText(pts, 40, y + 16);
+      });
+      if (hnPlane && hnPlane.tex) hnPlane.tex.needsUpdate = true;
+
+      // 3. Render Papers With Code monitor
+      const pwc = pwcPages[deskPageIdx % pwcPages.length];
+      ctxPWC.fillStyle = '#ffffff'; ctxPWC.fillRect(0, 0, 512, 300);
+      ctxPWC.fillStyle = '#1e3a8a'; ctxPWC.fillRect(0, 0, 512, 34);
+      ctxPWC.fillStyle = '#ffffff'; ctxPWC.font = 'bold 13px sans-serif'; ctxPWC.fillText(`Papers With Code • ${pwc.title}`, 14, 22);
+      ctxPWC.fillStyle = '#f1f5f9'; ctxPWC.fillRect(10, 42, 492, 24);
+      ctxPWC.fillStyle = '#475569'; ctxPWC.font = 'bold 10px sans-serif'; ctxPWC.fillText("Rank   Model Architecture       Benchmark Score      Audit Code", 16, 58);
+      pwc.rows.forEach(([rk, m, s, c], idx) => {
+        const y = 84 + idx * 28;
+        ctxPWC.fillStyle = idx % 2 === 0 ? '#ffffff' : '#f8fafc'; ctxPWC.fillRect(10, y - 14, 492, 26);
+        ctxPWC.fillStyle = '#0f172a'; ctxPWC.font = '10px sans-serif'; ctxPWC.fillText(`${rk}  ${m.padEnd(26)} ${s.padEnd(20)} ${c}`, 16, y);
+      });
+      ctxPWC.fillStyle = '#0284c7'; ctxPWC.fillRect(10, 240, 492, 26);
+      ctxPWC.fillStyle = '#ffffff'; ctxPWC.font = 'bold 10px sans-serif'; ctxPWC.fillText("✓ 100% INDEPENDENT ARTIFACT VERIFICATION • ZERO DATA CONTAMINATION", 24, 257);
+      if (pwcPlane && pwcPlane.tex) pwcPlane.tex.needsUpdate = true;
+
+      deskPageIdx++;
+    };
+
+    renderDeskCycle();
+    setInterval(renderDeskCycle, 7000);
   }
 }
 
@@ -4186,16 +4348,8 @@ class DeskDetailsDrawerController {
       else if (worker.id === 'worker_lounge') worker.metadata['Strategy Lead'] = worker.display_name;
     }
 
-    let metaRowsHtml = '';
     const meta = worker.metadata || {};
-    Object.keys(meta).forEach((k) => {
-      metaRowsHtml += `
-        <div class="meta-row">
-          <span class="meta-key">${this.escapeHtml(k)}</span>
-          <span class="meta-val">${this.escapeHtml(meta[k])}</span>
-        </div>
-      `;
-    });
+    const metaRowsHtml = Object.keys(meta).map((k) => `<div class="meta-row"><span class="meta-key">${this.escapeHtml(k)}</span><span class="meta-val">${this.escapeHtml(meta[k])}</span></div>`).join('');
 
     let bodySectionLabel = 'EXECUTIVE PORTFOLIO OVERVIEW';
     let bodyBoxHtml = '';
@@ -4248,21 +4402,11 @@ class DeskDetailsDrawerController {
     if (Array.isArray(worker.recent_items) && worker.recent_items.length > 0) {
       const items = worker.recent_items.slice(0, 5).map((item) => {
         const title = this.escapeHtml(item.topic || item.title || item.id || '');
-        const sub = this.escapeHtml(
-          (item.language ? `[${item.language}] ` : '') + (item.timestamp_wib || item.published_wib || item.repo_name || '')
-        );
+        const sub = this.escapeHtml((item.language ? `[${item.language}] ` : '') + (item.timestamp_wib || item.published_wib || item.repo_name || ''));
         const url = this.escapeHtml(item.scholar_url || item.source_link || '#');
-        return `
-          <a href="${url}" target="_blank" rel="noopener" class="zone-card" style="text-decoration:none;padding:8px 10px;">
-            <div class="zone-card-name" style="font-size:0.75rem;">${title}</div>
-            <div class="zone-card-task">${sub}</div>
-          </a>
-        `;
+        return `<a href="${url}" target="_blank" rel="noopener" class="zone-card" style="text-decoration:none;padding:8px 10px;"><div class="zone-card-name" style="font-size:0.75rem;">${title}</div><div class="zone-card-task">${sub}</div></a>`;
       }).join('');
-      recentHtml = `
-        <div class="abstract-section-label">RECENT PUBLISHED PORTFOLIO ITEMS</div>
-        <div class="zone-list" style="margin-bottom:12px;">${items}</div>
-      `;
+      recentHtml = `<div class="abstract-section-label">RECENT PUBLISHED PORTFOLIO ITEMS</div><div class="zone-list" style="margin-bottom:12px;">${items}</div>`;
     }
 
       let liveDialogueHtml = '';
@@ -4277,20 +4421,8 @@ class DeskDetailsDrawerController {
               <span class="dialogue-topic-tag" title="${this.escapeHtml(disc.topic)}">🔥 ${this.escapeHtml(disc.topic)}</span>
               <span class="dialogue-spot-tag">📍 ${this.escapeHtml(disc.spot_name || 'War Room')}</span>
             </div>
-            <div class="dialogue-bubble-row ${isSpkA ? 'current-speaker' : ''}">
-              <div class="dialogue-speaker-name">
-                <span style="color:#38bdf8;">●</span>
-                <strong>${this.escapeHtml(disc.name_a || 'Colleague A')}:</strong>
-              </div>
-              <div class="dialogue-text">"${this.escapeHtml(disc.line_a)}"</div>
-            </div>
-            <div class="dialogue-bubble-row ${isSpkB ? 'current-speaker' : ''}">
-              <div class="dialogue-speaker-name">
-                <span style="color:#34d399;">●</span>
-                <strong>${this.escapeHtml(disc.name_b || 'Colleague B')}:</strong>
-              </div>
-              <div class="dialogue-text">"${this.escapeHtml(disc.line_b)}"</div>
-            </div>
+            <div class="dialogue-bubble-row ${isSpkA ? 'current-speaker' : ''}"><div class="dialogue-speaker-name"><span style="color:#38bdf8;">●</span> <strong>${this.escapeHtml(disc.name_a || 'Colleague A')}:</strong></div><div class="dialogue-text">"${this.escapeHtml(disc.line_a)}"</div></div>
+            <div class="dialogue-bubble-row ${isSpkB ? 'current-speaker' : ''}"><div class="dialogue-speaker-name"><span style="color:#34d399;">●</span> <strong>${this.escapeHtml(disc.name_b || 'Colleague B')}:</strong></div><div class="dialogue-text">"${this.escapeHtml(disc.line_b)}"</div></div>
           </div>
         `;
       } else {
@@ -5067,23 +5199,19 @@ class LabBossaAudioEngine {
         const btnToggle = document.getElementById('btn-toggle-panel');
 
         const btnToggleAll = document.getElementById('btn-toggle-all-panels');
-        const iconAll = document.getElementById('btn-all-panels-icon');
-        const textAll = document.getElementById('btn-all-panels-text');
+        const btnRestoreAll = document.getElementById('btn-restore-all-panels');
 
         let arePanelsHidden = false;
         const toggleAllPanels = (forceHidden = null) => {
           arePanelsHidden = (forceHidden !== null) ? Boolean(forceHidden) : !arePanelsHidden;
           document.body.classList.toggle('all-panels-hidden', arePanelsHidden);
-          if (btnToggleAll) {
-            btnToggleAll.classList.toggle('panels-hidden', arePanelsHidden);
-            btnToggleAll.title = arePanelsHidden ? 'Show All' : 'Hide All (Cinematic 3D View)';
-            if (iconAll) iconAll.textContent = arePanelsHidden ? '👁' : '✕';
-            if (textAll) textAll.textContent = arePanelsHidden ? 'Show All' : 'Hide All';
-          }
         };
 
         if (btnToggleAll) {
-          btnToggleAll.addEventListener('click', () => toggleAllPanels());
+          btnToggleAll.addEventListener('click', () => toggleAllPanels(true));
+        }
+        if (btnRestoreAll) {
+          btnRestoreAll.addEventListener('click', () => toggleAllPanels(false));
         }
 
         if (btnHideTopbar && topbarEl && btnRestoreTopbar) {
@@ -5097,6 +5225,7 @@ class LabBossaAudioEngine {
           });
         }
         window.toggleAllOfficePanels = toggleAllPanels;
+        this.toggleAllPanels = toggleAllPanels;
 
         const cosmicModal = document.getElementById('telescope-cosmic-modal');
         const btnCloseCosmic = document.getElementById('btn-close-cosmic-modal');
