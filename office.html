@@ -154,10 +154,11 @@
 
     #hud-top-ticker {
       display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      padding: 5px 14px; border-radius: 999px;
+      padding: 6px 14px; border-radius: 14px;
       font-family: var(--font-mono); font-size: 0.70rem; color: #e2e8f0;
       max-width: min(960px, calc(100vw - 20px));
-      pointer-events: auto; white-space: nowrap; overflow: hidden;
+      pointer-events: auto; white-space: normal; flex-wrap: wrap; text-align: center;
+      row-gap: 4px; column-gap: 8px; line-height: 1.45;
     }
 
     #hud-top-ticker .brand-pulse-dot {
@@ -532,10 +533,11 @@
         top: 6px; left: 8px; right: 8px; gap: 5px;
       }
       #hud-top-ticker {
-        padding: 4px 10px; font-size: 0.62rem; border-radius: 999px;
-        width: 100%; max-width: none;
-        white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        padding: 6px 12px; font-size: 0.63rem; border-radius: 12px;
+        width: 100%; max-width: min(620px, calc(100vw - 16px));
+        white-space: normal; flex-wrap: wrap; text-align: center;
         display: inline-flex; align-items: center; justify-content: center;
+        row-gap: 4px; column-gap: 6px; line-height: 1.45;
       }
       .mobile-hide-telemetry { display: none !important; }
       #hud-topbar {
@@ -649,7 +651,8 @@
       </a>
       <button type="button" id="btn-fullscreen" class="top-btn" title="Toggle Fullscreen">⛶</button>
       <button type="button" id="btn-help-office" class="top-btn" title="Visitor Guide">❓ <span class="btn-text-full">Guide</span></button>
-      <button type="button" id="btn-toggle-all-panels" class="top-btn" title="Hide All Panels (Cinematic 3D View)">✕ <span class="btn-text-full">Hide All</span><span class="btn-text-short">Hide</span></button>
+      <button type="button" id="btn-toggle-all-panels" class="top-btn" title="Hide All Panels (Cinematic 3D View)">🎬 <span class="btn-text-full">Hide All</span><span class="btn-text-short">Hide All</span></button>
+      <button type="button" id="btn-hide-topbar" class="top-btn" title="Hide Top HUD Only">✕ <span class="btn-text-full">Hide Top</span><span class="btn-text-short">Hide</span></button>
     </nav>
   </div>
 
@@ -2610,8 +2613,8 @@ class StylizedCharacterFactory {
         gender: 'male',
         hairStyle: 'short_layered',
         accessory: 'none',
-        heldProp: 'audit_tablet',
-        posture: 'standing_audit',
+        heldProp: 'none',
+        posture: 'seated_hardware',
       },
       {
         workerId: 'worker_release',
@@ -3030,7 +3033,7 @@ class OfficeAnimationEngine {
     // 1. Zone 2 Solid Barrier: Research Desk + Wheeled Whiteboard + Gap (x: 3.50 to 9.00, z: -5.15 to -2.60)
     // The gap between the desk (x: 3.6-6.0) and whiteboard (x: 6.3-9.0) is strictly impassable.
     // Strictly impassable: avatars must NEVER squeeze through the gap or penetrate desk/whiteboard!
-    const isSittingAtChair = (av && av.workerId === 'worker_research' && Math.abs(x - 4.80) < 0.35 && Math.abs(z - (-3.35)) < 0.35);
+    const isSittingAtChair = (av && av.workerId === 'worker_research' && Math.abs(x - 4.80) < 0.35 && Math.abs(z - (-3.35)) < 0.35) || (av && av.workerId === 'worker_hardware' && Math.abs(x - (-4.50)) < 0.40 && Math.abs(z - 13.60) < 0.40);
     if (!isSittingAtChair && rx > 3.50 && rx < 9.00 && rz > -5.15 && rz < -2.60) {
       if (rz > -3.10 && rx > 5.50) {
         rz = -2.55; // Divert South into open lounge
@@ -3116,11 +3119,22 @@ class OfficeAnimationEngine {
         const fallbackPos = [spot[0] + (isSpeakerA ? -1.25 : 1.25), 0.0, spot[2]];
         const meetPos = isSpeakerA ? (activeDisc.pos_a || fallbackPos) : (activeDisc.pos_b || fallbackPos);
         const meetX = meetPos[0];
+        const meetY = meetPos[1] || 0.0;
         const meetZ = meetPos[2];
         const meetRot = isSpeakerA
           ? (activeDisc.rot_a !== undefined ? activeDisc.rot_a : Math.PI * 0.5)
           : (activeDisc.rot_b !== undefined ? activeDisc.rot_b : -Math.PI * 0.5);
-        spotPosture = activeDisc.posture || 'seated';
+        spotPosture = activeDisc.posture || 'standing';
+        // Defense-in-depth: Avatars can NEVER sit in mid-air without furniture underneath!
+        if (spotPosture === 'seated' || spotPosture === 'seated_stool') {
+          const onWarChair = Math.abs(meetZ - (-1.65)) < 0.6 && (Math.abs(meetX - (-1.32)) < 0.6 || Math.abs(meetX - 1.32) < 0.6 || Math.abs(meetX) < 0.6);
+          const onSofa = Math.abs(meetZ - 2.32) < 0.6 && Math.abs(meetX) < 1.30;
+          const onStool = Math.abs(meetZ - (-4.51)) < 0.6 && Math.abs(meetX - (-0.30)) < 1.40;
+          const onUpperDeck = (meetZ >= 11.0 && (meetY >= 1.5 || meetX > 1.0));
+          if (!onWarChair && !onSofa && !onStool && !onUpperDeck) {
+            spotPosture = 'standing';
+          }
+        }
         const isFloor2Trip = !!activeDisc.is_floor2 || spotPosture === 'command_center' || (meetZ < -2.0 && meetX < -1.6 && meetX > -8.8);
 
         if (cycleT < 2.8) {
@@ -3430,22 +3444,22 @@ class OfficeAnimationEngine {
           b.lForearm.rotation.set(-0.92 + Math.sin(t * 2.5) * 0.06, 0, 0);
           b.rUpperArm.rotation.set(-0.55 - lookBoard * 0.28, 0, 0);
           b.rForearm.rotation.set(-0.98 + Math.sin(t * 7.5) * 0.09, 0, 0);
-        } else if (av.posture === 'standing_audit') {
-          activityBadge = '📊 Quality Review';
-          b.pelvis.position.set(0, 0.84, Math.sin(t * 0.9) * 0.03);
+        } else if (av.posture === 'seated_hardware' || av.posture === 'standing_audit') {
+          activityBadge = '⚡ GPU Cluster Diagnostics';
+          b.pelvis.position.set(0, 0.45, 0);
           if (b.lThigh && b.rThigh && b.lCalf && b.rCalf) {
-            b.lThigh.rotation.x = -0.04;
-            b.rThigh.rotation.x = 0.04;
-            b.lCalf.rotation.x = 0.04;
-            b.rCalf.rotation.x = 0.04;
+            b.lThigh.rotation.x = -Math.PI / 2;
+            b.rThigh.rotation.x = -Math.PI / 2;
+            b.lCalf.rotation.x = Math.PI / 2;
+            b.rCalf.rotation.x = Math.PI / 2;
           }
-          b.torso.rotation.set(breath, Math.sin(t * 0.7) * 0.14, 0);
-          b.head.rotation.set(-0.10 + Math.sin(t * 1.3) * 0.08, Math.sin(t * 0.7) * 0.22, 0);
-          b.lUpperArm.rotation.set(-0.58, 0, 0);
-          b.lForearm.rotation.set(-0.95 + Math.sin(t * 2.0) * 0.05, 0, 0);
-          const pointPulse = Math.max(0, Math.sin(t * 1.4));
-          b.rUpperArm.rotation.set(-0.35 - pointPulse * 0.55, 0, 0);
-          b.rForearm.rotation.set(-0.75 + pointPulse * 0.35, 0, 0);
+          const dialTune = Math.sin(t * 3.2) * 0.10;
+          b.torso.rotation.set(0.10 + breath, dialTune * 0.25, 0);
+          b.head.rotation.set(0.08, dialTune * 0.35, 0);
+          b.lUpperArm.rotation.set(-0.54 + Math.sin(t * 8.5) * 0.05, 0, 0);
+          b.lForearm.rotation.set(-1.02, 0, 0);
+          b.rUpperArm.rotation.set(-0.58 + dialTune, 0.15, 0);
+          b.rForearm.rotation.set(-0.95 + dialTune * 1.2, 0, 0);
         } else if (av.posture === 'seated_sofa') {
           activityBadge = '☕ Research Lounge';
           b.pelvis.position.set(0, 0.43, 0);
@@ -3581,31 +3595,22 @@ class DynamicMonitorScreensEngine {
     // 1. Kernel Left Monitor: High-Level Systems Architecture Card
     const wKernel = workersById.worker_kernel || {};
     const [cLeft, ctxL] = makeCanvas(512, 256);
-    ctxL.fillStyle = '#020617';
-    ctxL.fillRect(0, 0, 512, 256);
-    ctxL.strokeStyle = '#38bdf8';
-    ctxL.lineWidth = 4;
+    ctxL.fillStyle = '#020617'; ctxL.fillRect(0, 0, 512, 256);
+    ctxL.strokeStyle = '#38bdf8'; ctxL.lineWidth = 4;
     ctxL.strokeRect(2, 2, 508, 252);
-    ctxL.fillStyle = '#38bdf8';
-    ctxL.font = 'bold 16px monospace';
-    ctxL.fillText(`SYSTEMS ARCHITECTURE • ${wKernel.language || 'Polyglot'}`, 14, 28);
-    ctxL.fillStyle = '#34d399';
-    ctxL.font = 'bold 14px sans-serif';
+    ctxL.fillStyle = '#38bdf8'; ctxL.font = 'bold 16px monospace'; ctxL.fillText(`SYSTEMS ARCHITECTURE • ${wKernel.language || 'Polyglot'}`, 14, 28);
+    ctxL.fillStyle = '#34d399'; ctxL.font = 'bold 14px sans-serif';
     wrapCanvasText(ctxL, wKernel.headline || 'Published Systems Module', 14, 58, 480, 20, 3);
-    ctxL.fillStyle = '#cbd5e1';
-    ctxL.font = '13px sans-serif';
+    ctxL.fillStyle = '#cbd5e1'; ctxL.font = '13px sans-serif';
     wrapCanvasText(ctxL, wKernel.portfolio_summary || '', 14, 130, 480, 19, 5);
     addScreenPlane(screenAnchors.kernelLeft, cLeft);
 
     // 2. Kernel Right Monitor: Recent Verified Modules Telemetry
     const [cRight, ctxR] = makeCanvas(512, 256);
-    ctxR.fillStyle = '#090d16';
-    ctxR.fillRect(0, 0, 512, 256);
-    ctxR.strokeStyle = '#0284c7';
-    ctxR.lineWidth = 4;
+    ctxR.fillStyle = '#090d16'; ctxR.fillRect(0, 0, 512, 256);
+    ctxR.strokeStyle = '#0284c7'; ctxR.lineWidth = 4;
     ctxR.strokeRect(2, 2, 508, 252);
-    ctxR.fillStyle = '#7dd3fc';
-    ctxR.font = 'bold 15px monospace';
+    ctxR.fillStyle = '#7dd3fc'; ctxR.font = 'bold 15px monospace';
     ctxR.fillText(`VERIFIED ALGORITHMS (${officeData.summary?.total_modules || 0} MODULES)`, 14, 26);
     const recMods = Array.isArray(wKernel.recent_items) ? wKernel.recent_items : [];
     ctxR.font = '13px monospace';
@@ -3620,66 +3625,43 @@ class DynamicMonitorScreensEngine {
     // 3. Research Left Portrait Monitor: Full High-DPI IEEE Research Paper Page 1
     const wRes = workersById.worker_research || {};
     const [cPdf, ctxP] = makeCanvas(512, 740);
-    ctxP.fillStyle = '#ffffff';
-    ctxP.fillRect(0, 0, 512, 740);
-    ctxP.strokeStyle = '#9333ea';
-    ctxP.lineWidth = 6;
+    ctxP.fillStyle = '#ffffff'; ctxP.fillRect(0, 0, 512, 740);
+    ctxP.strokeStyle = '#9333ea'; ctxP.lineWidth = 6;
     ctxP.strokeRect(3, 3, 506, 734);
     // Top journal banner
-    ctxP.fillStyle = '#581c87';
-    ctxP.fillRect(18, 18, 476, 32);
-    ctxP.fillStyle = '#ffffff';
-    ctxP.font = 'bold 13px monospace';
-    ctxP.fillText('MATEUS YONATHAN • AGENTIC AUTONOMOUS LAB RESEARCH PAPER', 28, 39);
+    ctxP.fillStyle = '#581c87'; ctxP.fillRect(18, 18, 476, 32);
+    ctxP.fillStyle = '#ffffff'; ctxP.font = 'bold 13px monospace'; ctxP.fillText('MATEUS YONATHAN • AGENTIC AUTONOMOUS LAB RESEARCH PAPER', 28, 39);
     // Paper Title
-    ctxP.fillStyle = '#0f172a';
-    ctxP.font = 'bold 18px serif';
+    ctxP.fillStyle = '#0f172a'; ctxP.font = 'bold 18px serif';
     let py = wrapCanvasText(ctxP, wRes.headline || 'Published Research Paper', 24, 76, 464, 22, 4);
     // Author & Timestamp
-    ctxP.fillStyle = '#6b21a8';
-    ctxP.font = 'bold 13px sans-serif';
-    ctxP.fillText(`Author: Mateus Yonathan  |  ${wRes.language || 'Systems'}  |  ${wRes.timestamp_wib || ''}`, 24, py + 4);
+    ctxP.fillStyle = '#6b21a8'; ctxP.font = 'bold 13px sans-serif'; ctxP.fillText(`Author: Mateus Yonathan  |  ${wRes.language || 'Systems'}  |  ${wRes.timestamp_wib || ''}`, 24, py + 4);
     py += 18;
-    ctxP.strokeStyle = '#cbd5e1';
-    ctxP.lineWidth = 1.5;
-    ctxP.beginPath();
-    ctxP.moveTo(24, py);
-    ctxP.lineTo(488, py);
-    ctxP.stroke();
+    ctxP.strokeStyle = '#cbd5e1'; ctxP.lineWidth = 1.5;
+    ctxP.beginPath(); ctxP.moveTo(24, py);
+    ctxP.lineTo(488, py); ctxP.stroke();
     py += 20;
     // Abstract Box
-    ctxP.fillStyle = '#f8fafc';
-    ctxP.fillRect(24, py - 14, 464, 150);
-    ctxP.strokeStyle = '#cbd5e1';
-    ctxP.strokeRect(24, py - 14, 464, 150);
-    ctxP.fillStyle = '#0f172a';
-    ctxP.font = 'bold 13px sans-serif';
-    ctxP.fillText('Abstract — Executive Summary', 34, py + 4);
-    ctxP.fillStyle = '#334155';
-    ctxP.font = '12px serif';
+    ctxP.fillStyle = '#f8fafc'; ctxP.fillRect(24, py - 14, 464, 150);
+    ctxP.strokeStyle = '#cbd5e1'; ctxP.strokeRect(24, py - 14, 464, 150);
+    ctxP.fillStyle = '#0f172a'; ctxP.font = 'bold 13px sans-serif'; ctxP.fillText('Abstract — Executive Summary', 34, py + 4);
+    ctxP.fillStyle = '#334155'; ctxP.font = '12px serif';
     wrapCanvasText(ctxP, wRes.abstract || '', 34, py + 24, 444, 17, 6);
     py += 156;
     // 2-Column Academic Body + Architecture Diagram
-    ctxP.fillStyle = '#0f172a';
-    ctxP.font = 'bold 13px sans-serif';
-    ctxP.fillText('I. SYSTEM ARCHITECTURE', 24, py);
+    ctxP.fillStyle = '#0f172a'; ctxP.font = 'bold 13px sans-serif'; ctxP.fillText('I. SYSTEM ARCHITECTURE', 24, py);
     ctxP.fillText('II. FORMAL GUARANTEES', 268, py);
     // Architecture Diagram Box in Left Column
-    ctxP.fillStyle = '#f3e8ff';
-    ctxP.fillRect(24, py + 10, 220, 110);
-    ctxP.strokeStyle = '#9333ea';
-    ctxP.lineWidth = 2;
+    ctxP.fillStyle = '#f3e8ff'; ctxP.fillRect(24, py + 10, 220, 110);
+    ctxP.strokeStyle = '#9333ea'; ctxP.lineWidth = 2;
     ctxP.strokeRect(24, py + 10, 220, 110);
-    ctxP.fillStyle = '#581c87';
-    ctxP.font = 'bold 11px monospace';
-    ctxP.fillText('[Input Stream] -> [Invariant Check]', 34, py + 42);
+    ctxP.fillStyle = '#581c87'; ctxP.font = 'bold 11px monospace'; ctxP.fillText('[Input Stream] -> [Invariant Check]', 34, py + 42);
     ctxP.fillText('       |              |', 34, py + 64);
     ctxP.fillText('[O(log n) Core] -> [Public Output]', 34, py + 86);
     ctxP.fillText('Fig 1. Algorithmic Architecture', 34, py + 110);
     // Right Column Highlights
     const pLines = Array.isArray(wRes.proof_lines) ? wRes.proof_lines : [];
-    ctxP.fillStyle = '#1e293b';
-    ctxP.font = '11px serif';
+    ctxP.fillStyle = '#1e293b'; ctxP.font = '11px serif';
     wrapCanvasText(ctxP, pLines.join(' '), 268, py + 20, 220, 16, 12);
     // Left Column Lower Text
     wrapCanvasText(ctxP, wRes.abstract || '', 24, py + 140, 220, 15, 7);
@@ -3689,11 +3671,9 @@ class DynamicMonitorScreensEngine {
       const img = new Image();
       img.crossOrigin = 'anonymous';
       img.onload = () => {
-        ctxP.fillStyle = '#ffffff';
-        ctxP.fillRect(0, 0, 512, 740);
+        ctxP.fillStyle = '#ffffff'; ctxP.fillRect(0, 0, 512, 740);
         ctxP.drawImage(img, 8, 8, 496, 724);
-        ctxP.strokeStyle = '#9333ea';
-        ctxP.lineWidth = 6;
+        ctxP.strokeStyle = '#9333ea'; ctxP.lineWidth = 6;
         ctxP.strokeRect(3, 3, 506, 734);
         pdfPlane.tex.needsUpdate = true;
       };
@@ -3702,69 +3682,45 @@ class DynamicMonitorScreensEngine {
 
     // 4. Research Center-Right Wide Monitor: Dual-Page Research Paper Spread (Right in front of Dr. Clara Wijaya!)
     const [cMain, ctxM] = makeCanvas(840, 520);
-    ctxM.fillStyle = '#0f172a';
-    ctxM.fillRect(0, 0, 840, 520);
-    ctxM.strokeStyle = '#a855f7';
-    ctxM.lineWidth = 5;
+    ctxM.fillStyle = '#0f172a'; ctxM.fillRect(0, 0, 840, 520);
+    ctxM.strokeStyle = '#a855f7'; ctxM.lineWidth = 5;
     ctxM.strokeRect(3, 3, 834, 514);
     // Top Research Paper Viewer Toolbar
-    ctxM.fillStyle = '#1e1b4b';
-    ctxM.fillRect(6, 6, 828, 38);
-    ctxM.fillStyle = '#e9d5ff';
-    ctxM.font = 'bold 15px monospace';
+    ctxM.fillStyle = '#1e1b4b'; ctxM.fillRect(6, 6, 828, 38);
+    ctxM.fillStyle = '#e9d5ff'; ctxM.font = 'bold 15px monospace';
     ctxM.fillText(`📄 RESEARCH PAPER VIEWER — ${String(wRes.paper_topic || wRes.headline || '').slice(0, 48)}`, 18, 30);
 
     // Left Page (Page 1 of Research Paper)
-    ctxM.fillStyle = '#ffffff';
-    ctxM.fillRect(20, 54, 388, 448);
-    ctxM.fillStyle = '#581c87';
-    ctxM.fillRect(32, 66, 364, 24);
-    ctxM.fillStyle = '#ffffff';
-    ctxM.font = 'bold 11px monospace';
-    ctxM.fillText(`RESEARCH PAPER #${officeData.summary?.total_papers || 112} • PAGE 1`, 42, 82);
-    ctxM.fillStyle = '#0f172a';
-    ctxM.font = 'bold 15px serif';
+    ctxM.fillStyle = '#ffffff'; ctxM.fillRect(20, 54, 388, 448);
+    ctxM.fillStyle = '#581c87'; ctxM.fillRect(32, 66, 364, 24);
+    ctxM.fillStyle = '#ffffff'; ctxM.font = 'bold 11px monospace'; ctxM.fillText(`RESEARCH PAPER #${officeData.summary?.total_papers || 112} • PAGE 1`, 42, 82);
+    ctxM.fillStyle = '#0f172a'; ctxM.font = 'bold 15px serif';
     let mpy = wrapCanvasText(ctxM, wRes.headline || '', 32, 110, 364, 19, 3);
-    ctxM.fillStyle = '#6b21a8';
-    ctxM.font = 'bold 11px sans-serif';
+    ctxM.fillStyle = '#6b21a8'; ctxM.font = 'bold 11px sans-serif';
     ctxM.fillText(`Mateus Yonathan • Agentic Autonomous Lab (${wRes.language || ''})`, 32, mpy + 2);
-    ctxM.fillStyle = '#334155';
-    ctxM.font = '11.5px serif';
+    ctxM.fillStyle = '#334155'; ctxM.font = '11.5px serif';
     wrapCanvasText(ctxM, wRes.abstract || '', 32, mpy + 24, 364, 16, 16);
 
     // Right Page (Page 2: Formal Guarantees & Algorithmic Evaluation Charts)
-    ctxM.fillStyle = '#ffffff';
-    ctxM.fillRect(432, 54, 388, 448);
-    ctxM.fillStyle = '#0284c7';
-    ctxM.fillRect(444, 66, 364, 24);
-    ctxM.fillStyle = '#ffffff';
-    ctxM.font = 'bold 11px monospace';
-    ctxM.fillText('ALGORITHMIC GUARANTEES & COMPLEXITY • PAGE 2', 454, 82);
-    ctxM.fillStyle = '#0f172a';
-    ctxM.font = 'bold 13px sans-serif';
-    ctxM.fillText('Key Research Findings & Verified Bounds:', 444, 112);
-    ctxM.fillStyle = '#1e293b';
-    ctxM.font = '11.5px serif';
+    ctxM.fillStyle = '#ffffff'; ctxM.fillRect(432, 54, 388, 448);
+    ctxM.fillStyle = '#0284c7'; ctxM.fillRect(444, 66, 364, 24);
+    ctxM.fillStyle = '#ffffff'; ctxM.font = 'bold 11px monospace'; ctxM.fillText('ALGORITHMIC GUARANTEES & COMPLEXITY • PAGE 2', 454, 82);
+    ctxM.fillStyle = '#0f172a'; ctxM.font = 'bold 13px sans-serif'; ctxM.fillText('Key Research Findings & Verified Bounds:', 444, 112);
+    ctxM.fillStyle = '#1e293b'; ctxM.font = '11.5px serif';
     let rmy = 132;
     for (let i = 0; i < Math.min(3, pLines.length); i++) {
       rmy = wrapCanvasText(ctxM, pLines[i], 444, rmy, 360, 15, 3) + 6;
     }
     // Algorithmic Complexity Chart Box on Page 2
-    ctxM.fillStyle = '#f1f5f9';
-    ctxM.fillRect(444, 310, 364, 174);
-    ctxM.strokeStyle = '#94a3b8';
-    ctxM.lineWidth = 1.5;
+    ctxM.fillStyle = '#f1f5f9'; ctxM.fillRect(444, 310, 364, 174);
+    ctxM.strokeStyle = '#94a3b8'; ctxM.lineWidth = 1.5;
     ctxM.strokeRect(444, 310, 364, 174);
-    ctxM.fillStyle = '#0f172a';
-    ctxM.font = 'bold 12px monospace';
-    ctxM.fillText('ASYMPTOTIC COMPLEXITY & SCALING PROFILE', 456, 330);
+    ctxM.fillStyle = '#0f172a'; ctxM.font = 'bold 12px monospace'; ctxM.fillText('ASYMPTOTIC COMPLEXITY & SCALING PROFILE', 456, 330);
     const barColors = ['#9333ea', '#0284c7', '#10b981', '#f59e0b'];
     const barLabels = ['O(log n) Tree', 'Lock-Free Ring', 'SIMD Vector', 'Concurrent Map'];
     for (let b = 0; b < 4; b++) {
       const bw = 150 + ((b * 47) % 120);
-      ctxM.fillStyle = '#334155';
-      ctxM.font = '11px monospace';
-      ctxM.fillText(barLabels[b], 456, 358 + b * 30);
+      ctxM.fillStyle = '#334155'; ctxM.font = '11px monospace'; ctxM.fillText(barLabels[b], 456, 358 + b * 30);
       ctxM.fillStyle = barColors[b];
       ctxM.fillRect(560, 345 + b * 30, bw, 16);
     }
@@ -3781,27 +3737,18 @@ class DynamicMonitorScreensEngine {
 
     // 5. Wheeled Research Whiteboard: Clean Finished Research Paper Summary
     const [cWb, ctxW] = makeCanvas(960, 540);
-    ctxW.fillStyle = '#ffffff';
-    ctxW.fillRect(0, 0, 960, 540);
-    ctxW.strokeStyle = '#475569';
-    ctxW.lineWidth = 8;
+    ctxW.fillStyle = '#ffffff'; ctxW.fillRect(0, 0, 960, 540);
+    ctxW.strokeStyle = '#475569'; ctxW.lineWidth = 8;
     ctxW.strokeRect(4, 4, 952, 532);
-    ctxW.fillStyle = '#581c87';
-    ctxW.fillRect(16, 16, 928, 52);
-    ctxW.fillStyle = '#ffffff';
-    ctxW.font = 'bold 22px sans-serif';
-    ctxW.fillText('📄 RESEARCH PAPER — EXECUTIVE SUMMARY & VERIFIED GUARANTEES', 32, 49);
+    ctxW.fillStyle = '#581c87'; ctxW.fillRect(16, 16, 928, 52);
+    ctxW.fillStyle = '#ffffff'; ctxW.font = 'bold 22px sans-serif'; ctxW.fillText('📄 RESEARCH PAPER — EXECUTIVE SUMMARY & VERIFIED GUARANTEES', 32, 49);
 
-    ctxW.fillStyle = '#0f172a';
-    ctxW.font = 'bold 20px serif';
+    ctxW.fillStyle = '#0f172a'; ctxW.font = 'bold 20px serif';
     let wy = wrapCanvasText(ctxW, wRes.headline || '', 28, 102, 904, 26, 2);
-    ctxW.fillStyle = '#6b21a8';
-    ctxW.font = 'bold 15px monospace';
-    ctxW.fillText(`Lead Author: Mateus Yonathan • Principal Scientist: ${wRes.display_name || 'Dr. Clara Wijaya'} • ${wRes.timestamp_wib || ''}`, 28, wy + 6);
+    ctxW.fillStyle = '#6b21a8'; ctxW.font = 'bold 15px monospace'; ctxW.fillText(`Lead Author: Mateus Yonathan • Principal Scientist: ${wRes.display_name || 'Dr. Clara Wijaya'} • ${wRes.timestamp_wib || ''}`, 28, wy + 6);
     wy += 34;
 
-    ctxW.fillStyle = '#1e293b';
-    ctxW.font = '16px sans-serif';
+    ctxW.fillStyle = '#1e293b'; ctxW.font = '16px sans-serif';
     const cleanHighlights = pLines.length > 0 ? pLines : [wRes.abstract || ''];
     for (let t = 0; t < Math.min(4, cleanHighlights.length); t++) {
       if (wy < 495) {
@@ -3813,24 +3760,17 @@ class DynamicMonitorScreensEngine {
     // 6. Quality & Complexity Review Screen (Zero Hardware/Runner Leak)
     const wHw = workersById.worker_hardware || {};
     const [cSrv, ctxS] = makeCanvas(512, 300);
-    ctxS.fillStyle = '#022c22';
-    ctxS.fillRect(0, 0, 512, 300);
-    ctxS.strokeStyle = '#10b981';
-    ctxS.lineWidth = 4;
+    ctxS.fillStyle = '#022c22'; ctxS.fillRect(0, 0, 512, 300);
+    ctxS.strokeStyle = '#10b981'; ctxS.lineWidth = 4;
     ctxS.strokeRect(2, 2, 508, 296);
-    ctxS.fillStyle = '#34d399';
-    ctxS.font = 'bold 16px monospace';
-    ctxS.fillText('ALGORITHMIC QUALITY & COMPLEXITY AUDIT', 16, 30);
-    ctxS.fillStyle = '#ecfdf5';
-    ctxS.font = '15px monospace';
-    ctxS.fillText(`Published Papers : ${officeData.summary?.total_papers || 112} Verified`, 16, 68);
+    ctxS.fillStyle = '#34d399'; ctxS.font = 'bold 16px monospace'; ctxS.fillText('ALGORITHMIC QUALITY & COMPLEXITY AUDIT', 16, 30);
+    ctxS.fillStyle = '#ecfdf5'; ctxS.font = '15px monospace'; ctxS.fillText(`Published Papers : ${officeData.summary?.total_papers || 112} Verified`, 16, 68);
     ctxS.fillText(`Public Modules   : ${officeData.summary?.total_modules || 407} Published`, 16, 98);
     ctxS.fillText(`Complexity Bound : O(log n) / O(1) Guaranteed`, 16, 128);
     ctxS.fillText(`Review Status    : 24/7 Active Lab`, 16, 158);
     const recPaps = Array.isArray(wHw.recent_items) ? wHw.recent_items : [];
     for (let b = 0; b < Math.min(4, recPaps.length); b++) {
-      ctxS.fillStyle = '#a7f3d0';
-      ctxS.font = '12px monospace';
+      ctxS.fillStyle = '#a7f3d0'; ctxS.font = '12px monospace';
       ctxS.fillText(`[${recPaps[b].language || 'Sys'}] ${String(recPaps[b].topic || '').slice(0, 38)}`, 16, 196 + b * 24);
     }
     addScreenPlane(screenAnchors.serverBench, cSrv);
@@ -3838,13 +3778,10 @@ class DynamicMonitorScreensEngine {
     // 7. Public Portfolio Console: 14 Public GitHub Language Repositories
     const wRel = workersById.worker_release || {};
     const [cRel, ctxG] = makeCanvas(512, 256);
-    ctxG.fillStyle = '#0f172a';
-    ctxG.fillRect(0, 0, 512, 256);
-    ctxG.strokeStyle = '#fbbf24';
-    ctxG.lineWidth = 4;
+    ctxG.fillStyle = '#0f172a'; ctxG.fillRect(0, 0, 512, 256);
+    ctxG.strokeStyle = '#fbbf24'; ctxG.lineWidth = 4;
     ctxG.strokeRect(2, 2, 508, 252);
-    ctxG.fillStyle = '#fbbf24';
-    ctxG.font = 'bold 15px monospace';
+    ctxG.fillStyle = '#fbbf24'; ctxG.font = 'bold 15px monospace';
     ctxG.fillText(`PUBLIC GITHUB PORTFOLIO (${officeData.summary?.total_spokes || 14} REPOS)`, 14, 26);
     const repos = Array.isArray(wRel.public_repos) ? wRel.public_repos : [];
     ctxG.font = '12px monospace';
@@ -3857,59 +3794,172 @@ class DynamicMonitorScreensEngine {
     addScreenPlane(screenAnchors.releaseHub, cRel);
 
     // =========================================================================
-    // 6. Floor 2 Panoramic Video Wall "God's Eye" (3 Individual Curved Screen Panels)
+    // 6. Floor 2 Panoramic Video Wall "God's Eye" (Animated Cyber Hacking Monitoring Suite)
     // =========================================================================
-    // Panel 6A: Center Global Inference & Reasoning Nodes Radar
     const [cCenter, ctxEye] = makeCanvas(512, 320);
-    ctxEye.fillStyle = '#070b14'; ctxEye.fillRect(0, 0, 512, 320);
-    ctxEye.strokeStyle = 'rgba(2, 132, 199, 0.2)'; ctxEye.lineWidth = 1;
-    for (let x = 0; x <= 512; x += 32) { ctxEye.beginPath(); ctxEye.moveTo(x, 0); ctxEye.lineTo(x, 320); ctxEye.stroke(); }
-    for (let y = 0; y <= 320; y += 24) { ctxEye.beginPath(); ctxEye.moveTo(0, y); ctxEye.lineTo(512, y); ctxEye.stroke(); }
-    ctxEye.fillStyle = '#0f172a'; ctxEye.fillRect(0, 0, 512, 36);
-    ctxEye.fillStyle = '#38bdf8'; ctxEye.font = 'bold 13px monospace'; ctxEye.fillText("🌐 GLOBAL INFERENCE & REASONING NODES", 14, 23);
-    ctxEye.strokeStyle = 'rgba(56, 189, 248, 0.35)';
-    [35, 65, 95].forEach((r) => { ctxEye.beginPath(); ctxEye.arc(256, 165, r, 0, Math.PI * 2); ctxEye.stroke(); });
-    [["SF-Node", 185, 140, "28ms"], ["Zurich", 245, 125, "42ms"], ["Tokyo", 330, 135, "58ms"], ["Singapore", 310, 190, "18ms"], ["Jakarta", 295, 215, "12ms"]].forEach(([name, nx, ny, lat]) => {
-      ctxEye.fillStyle = '#10b981'; ctxEye.beginPath(); ctxEye.arc(nx, ny, 4, 0, Math.PI * 2); ctxEye.fill();
-      ctxEye.fillStyle = '#f8fafc'; ctxEye.font = '9px monospace'; ctxEye.fillText(`${name} (${lat})`, nx + 6, ny + 3);
-    });
-    ctxEye.fillStyle = '#10b981'; ctxEye.font = 'bold 11px monospace'; ctxEye.fillText("CLUSTER: 8xH100 NVLink • PEAK 14,820 tok/s", 110, 290);
-    addScreenPlane(screenAnchors.godsEyeCenter, cCenter);
-
-    // Panel 6B: Left Panel — Neural Network Duality Architecture & GPU VRAM Heatmap
+    const centerPlane = addScreenPlane(screenAnchors.godsEyeCenter, cCenter);
     const [cEyeL, ctxEyeL] = makeCanvas(512, 320);
-    ctxEyeL.fillStyle = '#070b14'; ctxEyeL.fillRect(0, 0, 512, 320);
-    ctxEyeL.fillStyle = '#0f172a'; ctxEyeL.fillRect(0, 0, 512, 36);
-    ctxEyeL.fillStyle = '#38bdf8'; ctxEyeL.font = 'bold 13px monospace'; ctxEyeL.fillText("🧠 NEURAL DUALITY // SUB-QUADRATIC", 14, 23);
-    // Block Diagram
-    [["[Input Embeddings]", 30], ["▼ Linear Projection", 74], ["▶ [Selective SSM Layer]", 110], ["▶ [Sliding Attn Window]", 150], ["▶ [Bounded Logits]", 190]].forEach(([lbl, y]) => {
-      ctxEyeL.fillStyle = 'rgba(15, 23, 42, 0.85)'; ctxEyeL.fillRect(16, y, 480, 28);
-      ctxEyeL.strokeStyle = '#0284c7'; ctxEyeL.strokeRect(16, y, 480, 28);
-      ctxEyeL.fillStyle = '#38bdf8'; ctxEyeL.font = 'bold 11px monospace'; ctxEyeL.fillText(lbl, 28, y + 18);
-    });
-    ctxEyeL.fillStyle = '#0284c7'; ctxEyeL.fillRect(16, 240, 480, 24);
-    ctxEyeL.fillStyle = '#34d399'; ctxEyeL.fillRect(16, 240, 452, 24);
-    ctxEyeL.fillStyle = '#0f172a'; ctxEyeL.font = 'bold 11px monospace'; ctxEyeL.fillText("VRAM ALLOCATION: 94.2% (150.7 GB / 160 GB)", 24, 256);
-    ctxEyeL.fillStyle = '#94a3b8'; ctxEyeL.font = '10px monospace'; ctxEyeL.fillText("NVLink Bandwidth: 900 GB/s • NUMA Nodes: Balanced", 16, 296);
-    addScreenPlane(screenAnchors.godsEyeLeft, cEyeL);
-
-    // Panel 6C: Right Panel — Token Generation Speed & Cluster Health Matrix
+    const leftPlane = addScreenPlane(screenAnchors.godsEyeLeft, cEyeL);
     const [cEyeR, ctxEyeR] = makeCanvas(512, 320);
-    ctxEyeR.fillStyle = '#070b14'; ctxEyeR.fillRect(0, 0, 512, 320);
-    ctxEyeR.fillStyle = '#0f172a'; ctxEyeR.fillRect(0, 0, 512, 36);
-    ctxEyeR.fillStyle = '#38bdf8'; ctxEyeR.font = 'bold 13px monospace'; ctxEyeR.fillText("📊 THROUGHPUT & CLUSTER METRICS", 14, 23);
-    // Sparkline chart
-    ctxEyeR.strokeStyle = '#38bdf8'; ctxEyeR.lineWidth = 2.5; ctxEyeR.beginPath();
-    [40, 52, 48, 65, 58, 80, 75, 92, 88, 105, 98, 120, 115, 138].forEach((v, idx) => {
-      const sx = 20 + idx * 35, sy = 220 - v;
-      if (idx === 0) ctxEyeR.moveTo(sx, sy); else ctxEyeR.lineTo(sx, sy);
-    });
-    ctxEyeR.stroke();
-    ctxEyeR.fillStyle = '#fbbf24'; ctxEyeR.font = 'bold 12px monospace'; ctxEyeR.fillText("GENERATION SPEED: 3,420 Tok/sec (+18.4%)", 20, 70);
-    ctxEyeR.fillStyle = '#34d399'; ctxEyeR.font = '11px monospace'; ctxEyeR.fillText("P99 LATENCY: 1.84ms • P50: 0.62ms", 20, 96);
-    ctxEyeR.fillStyle = '#cbd5e1'; ctxEyeR.font = '10px monospace'; ctxEyeR.fillText("GPU Cluster Thermals: 62°C Nominal • Fan: 55%", 20, 252);
-    ctxEyeR.fillStyle = '#38bdf8'; ctxEyeR.font = 'bold 10px monospace'; ctxEyeR.fillText("🛡️ 100% REPRODUCIBILITY AUDIT • 0 CONTAMINATION", 20, 285);
-    addScreenPlane(screenAnchors.godsEyeRight, cEyeR);
+    const rightPlane = addScreenPlane(screenAnchors.godsEyeRight, cEyeR);
+
+    let panoFrame = 0;
+    const renderPanoramicHackerCycle = () => {
+      panoFrame++;
+      const mode = Math.floor(panoFrame / 2) % 3; // Switches screen mode every ~5.6s
+      const tick = panoFrame * 0.45;
+
+      // --- 6A: Center Panel: Cyber Radar & Distributed Inference Matrix ---
+      ctxEye.fillStyle = '#060a12'; ctxEye.fillRect(0, 0, 512, 320);
+      ctxEye.strokeStyle = 'rgba(2, 132, 199, 0.22)'; ctxEye.lineWidth = 1;
+      for (let x = 0; x <= 512; x += 32) { ctxEye.beginPath(); ctxEye.moveTo(x, 0); ctxEye.lineTo(x, 320); ctxEye.stroke(); }
+      for (let y = 0; y <= 320; y += 24) { ctxEye.beginPath(); ctxEye.moveTo(0, y); ctxEye.lineTo(512, y); ctxEye.stroke(); }
+      ctxEye.fillStyle = '#0f172a'; ctxEye.fillRect(0, 0, 512, 34);
+      ctxEye.fillStyle = '#38bdf8'; ctxEye.font = 'bold 12px monospace';
+
+      if (mode === 0) {
+        ctxEye.fillText("🌐 GLOBAL INFERENCE & REASONING NODES", 14, 22);
+        const sweep = tick % (Math.PI * 2);
+        ctxEye.strokeStyle = 'rgba(56, 189, 248, 0.35)';
+        [35, 70, 105].forEach((r) => { ctxEye.beginPath(); ctxEye.arc(256, 160, r, 0, Math.PI * 2); ctxEye.stroke(); });
+        ctxEye.strokeStyle = 'rgba(52, 211, 153, 0.75)'; ctxEye.lineWidth = 2;
+        ctxEye.beginPath(); ctxEye.moveTo(256, 160); ctxEye.lineTo(256 + Math.cos(sweep) * 115, 160 + Math.sin(sweep) * 115); ctxEye.stroke();
+        [["SF-01", 185, 135, "28ms"], ["Zurich", 245, 120, "42ms"], ["Tokyo", 330, 130, "58ms"], ["SG-Node", 310, 185, "18ms"], ["Jakarta", 295, 210, "12ms"]].forEach(([name, nx, ny, lat]) => {
+          ctxEye.fillStyle = '#10b981'; ctxEye.beginPath(); ctxEye.arc(nx, ny, 4, 0, Math.PI * 2); ctxEye.fill();
+          ctxEye.fillStyle = '#f8fafc'; ctxEye.font = '9px monospace'; ctxEye.fillText(`${name} (${lat})`, nx + 6, ny + 3);
+        });
+        ctxEye.fillStyle = '#34d399'; ctxEye.font = 'bold 11px monospace'; ctxEye.fillText("CLUSTER: 8xH100 NVLink • PEAK 16,420 tok/s [NOMINAL]", 60, 290);
+      } else if (mode === 1) {
+        ctxEye.fillText("🛡️ CYBER DEFENSE & ZERO-DAY INTRUSION RADAR", 14, 22);
+        const threats = [
+          ["PORT 8443", "TLSv1.3", "AES-256-GCM", "SYN-ACK", "VERIFIED"],
+          ["AST PROOF", "BOUNDED O(1)", "ZERO CONTAMINATION", "SOTA", "SECURE"],
+          ["SANDBOX", "BPF_FILTER", "CAP_NET_BIND_SERVICE", "NO-PRIV", "ENFORCED"]
+        ];
+        threats.forEach((row, idx) => {
+          const y = 62 + idx * 42;
+          ctxEye.fillStyle = 'rgba(15, 23, 42, 0.9)'; ctxEye.fillRect(16, y, 480, 32);
+          ctxEye.strokeStyle = idx === 1 ? '#10b981' : '#38bdf8'; ctxEye.strokeRect(16, y, 480, 32);
+          ctxEye.fillStyle = '#38bdf8'; ctxEye.font = 'bold 10px monospace';
+          ctxEye.fillText(row.join(" • "), 24, y + 20);
+        });
+        ctxEye.fillStyle = '#fbbf24'; ctxEye.font = 'bold 11px monospace'; ctxEye.fillText("ACTIVE ATTACK SURFACE: 0.00% • 14 PUBLIC SPOKES HARDENED", 48, 290);
+      } else {
+        ctxEye.fillText("⚡ AUTONOMOUS AGENTIC SWARM CONSENSUS MESH", 14, 22);
+        const nodes = [[120, 110], [210, 80], [310, 85], [400, 120], [360, 210], [256, 235], [150, 205]];
+        ctxEye.strokeStyle = 'rgba(56, 189, 248, 0.35)'; ctxEye.lineWidth = 1.5;
+        for (let i = 0; i < nodes.length; i++) {
+          for (let j = i + 1; j < nodes.length; j++) {
+            ctxEye.beginPath(); ctxEye.moveTo(nodes[i][0], nodes[i][1]); ctxEye.lineTo(nodes[j][0], nodes[j][1]); ctxEye.stroke();
+          }
+        }
+        nodes.forEach(([x, y], idx) => {
+          ctxEye.fillStyle = '#38bdf8'; ctxEye.beginPath(); ctxEye.arc(x, y, 6, 0, Math.PI * 2); ctxEye.fill();
+          ctxEye.fillStyle = '#ffffff'; ctxEye.font = '9px monospace'; ctxEye.fillText(`A${idx+1}`, x - 5, y - 9);
+        });
+        ctxEye.fillStyle = '#34d399'; ctxEye.font = 'bold 11px monospace'; ctxEye.fillText("RAFT CONSENSUS: SYNCHRONIZED • EPOCH: 0x884F2A", 95, 290);
+      }
+      if (centerPlane && centerPlane.tex) centerPlane.tex.needsUpdate = true;
+
+      // --- 6B: Left Panel: Neural Duality, VRAM & Hacker Stream ---
+      ctxEyeL.fillStyle = '#060a12'; ctxEyeL.fillRect(0, 0, 512, 320);
+      ctxEyeL.fillStyle = '#0f172a'; ctxEyeL.fillRect(0, 0, 512, 34);
+      ctxEyeL.fillStyle = '#38bdf8'; ctxEyeL.font = 'bold 12px monospace';
+
+      if (mode === 0) {
+        ctxEyeL.fillText("🧠 NEURAL DUALITY // SUB-QUADRATIC", 14, 22);
+        [["[Input Embeddings]", 48], ["▼ Linear Projection", 88], ["▶ [Selective SSM Layer]", 128], ["▶ [Sliding Attn Window]", 168], ["▶ [Bounded Logits]", 208]].forEach(([lbl, y]) => {
+          ctxEyeL.fillStyle = 'rgba(15, 23, 42, 0.85)'; ctxEyeL.fillRect(16, y, 480, 26);
+          ctxEyeL.strokeStyle = '#0284c7'; ctxEyeL.strokeRect(16, y, 480, 26);
+          ctxEyeL.fillStyle = '#38bdf8'; ctxEyeL.font = 'bold 10px monospace'; ctxEyeL.fillText(lbl, 28, y + 17);
+        });
+        ctxEyeL.fillStyle = '#0284c7'; ctxEyeL.fillRect(16, 252, 480, 22);
+        const vramBar = 380 + Math.sin(tick * 1.5) * 40;
+        ctxEyeL.fillStyle = '#34d399'; ctxEyeL.fillRect(16, 252, vramBar, 22);
+        ctxEyeL.fillStyle = '#0f172a'; ctxEyeL.font = 'bold 10px monospace'; ctxEyeL.fillText(`VRAM: ${((vramBar/480)*100).toFixed(1)}% (150.7 GB / 160 GB)`, 24, 267);
+      } else if (mode === 1) {
+        ctxEyeL.fillText("📟 KERNEL SECURITY AUDIT // SCRIPT STREAM", 14, 22);
+        const logs = [
+          `> [${new Date().toISOString().slice(11, 19)}] RED-TEAM RUNNER: PASS`,
+          `> INJECTING ADVERSARIAL EMBEDDING PROMPT... 0 LEAK`,
+          `> SUB-PROCESS CONTAINER ISOLATION: CHROOT OK`,
+          `> NUMA NODE AFFINITY: BALANCED 4x MEMORY CHANNELS`,
+          `> KV-CACHE COMPRESSION RATIO: 3.82x OPTIMIZED`,
+          `> AUDIT SHA: 7c4e9f2a0b1836d5ac684ef9`
+        ];
+        logs.forEach((line, idx) => {
+          ctxEyeL.fillStyle = idx % 2 === 0 ? '#34d399' : '#38bdf8';
+          ctxEyeL.font = '10px monospace'; ctxEyeL.fillText(line, 16, 68 + idx * 36);
+        });
+      } else {
+        ctxEyeL.fillText("📊 SOTA METRICS & REPRODUCIBILITY ENGINE", 14, 22);
+        const benchmarks = [
+          ["MMLU-Pro 5-Shot", "94.2%", "VERIFIED SOTA", "#10b981"],
+          ["HumanEval Synthesis", "92.4%", "INDEPENDENT AUDIT", "#38bdf8"],
+          ["GSM8K Step-by-Step", "96.8%", "ZERO DATA LEAK", "#a855f7"],
+          ["MATH-500 Verified", "84.5%", "MATHEMATICAL PROOF", "#fbbf24"]
+        ];
+        benchmarks.forEach(([bench, score, status, col], idx) => {
+          const y = 58 + idx * 46;
+          ctxEyeL.fillStyle = 'rgba(15, 23, 42, 0.88)'; ctxEyeL.fillRect(16, y, 480, 36);
+          ctxEyeL.strokeStyle = col; ctxEyeL.strokeRect(16, y, 480, 36);
+          ctxEyeL.fillStyle = '#f8fafc'; ctxEyeL.font = 'bold 11px monospace'; ctxEyeL.fillText(bench, 28, y + 22);
+          ctxEyeL.fillStyle = col; ctxEyeL.font = 'bold 12px monospace'; ctxEyeL.fillText(score, 240, y + 22);
+          ctxEyeL.fillStyle = '#94a3b8'; ctxEyeL.font = '10px monospace'; ctxEyeL.fillText(status, 330, y + 22);
+        });
+      }
+      if (leftPlane && leftPlane.tex) leftPlane.tex.needsUpdate = true;
+
+      // --- 6C: Right Panel: Throughput & Cluster Metrics ---
+      ctxEyeR.fillStyle = '#060a12'; ctxEyeR.fillRect(0, 0, 512, 320);
+      ctxEyeR.fillStyle = '#0f172a'; ctxEyeR.fillRect(0, 0, 512, 34);
+      ctxEyeR.fillStyle = '#38bdf8'; ctxEyeR.font = 'bold 12px monospace';
+
+      if (mode === 0) {
+        ctxEyeR.fillText("📊 THROUGHPUT & CLUSTER METRICS", 14, 22);
+        ctxEyeR.strokeStyle = '#38bdf8'; ctxEyeR.lineWidth = 2.5; ctxEyeR.beginPath();
+        const pts = [40, 52, 48, 65, 58, 80, 75, 92, 88, 105, 98, 120, 115, 138];
+        pts.forEach((v, idx) => {
+          const offset = Math.sin((tick * 0.8) + idx) * 12;
+          const sx = 20 + idx * 35, sy = 210 - (v + offset);
+          if (idx === 0) ctxEyeR.moveTo(sx, sy); else ctxEyeR.lineTo(sx, sy);
+        });
+        ctxEyeR.stroke();
+        ctxEyeR.fillStyle = '#fbbf24'; ctxEyeR.font = 'bold 11px monospace'; ctxEyeR.fillText(`GENERATION SPEED: ${3400 + (panoFrame % 5) * 80} Tok/sec (+18.4%)`, 20, 68);
+        ctxEyeR.fillStyle = '#34d399'; ctxEyeR.font = '10px monospace'; ctxEyeR.fillText("P99 LATENCY: 1.84ms • P50: 0.62ms", 20, 92);
+        ctxEyeR.fillStyle = '#cbd5e1'; ctxEyeR.font = '10px monospace'; ctxEyeR.fillText("GPU Cluster Thermals: 62°C Nominal • Fan: 55%", 20, 252);
+        ctxEyeR.fillStyle = '#38bdf8'; ctxEyeR.font = 'bold 10px monospace'; ctxEyeR.fillText("🛡️ 100% REPRODUCIBILITY AUDIT • 0 CONTAMINATION", 20, 285);
+      } else if (mode === 1) {
+        ctxEyeR.fillText("🌡️ 8x H100 GPU CLUSTER THERMALS & TELEMETRY", 14, 22);
+        for (let g = 0; g < 8; g++) {
+          const gx = 20 + (g % 4) * 120;
+          const gy = 56 + Math.floor(g / 4) * 105;
+          ctxEyeR.fillStyle = 'rgba(15, 23, 42, 0.9)'; ctxEyeR.fillRect(gx, gy, 108, 90);
+          ctxEyeR.strokeStyle = '#0284c7'; ctxEyeR.strokeRect(gx, gy, 108, 90);
+          ctxEyeR.fillStyle = '#38bdf8'; ctxEyeR.font = 'bold 10px monospace'; ctxEyeR.fillText(`GPU #${g}`, gx + 10, gy + 18);
+          const temp = 58 + ((g * 3 + panoFrame) % 9);
+          ctxEyeR.fillStyle = temp > 64 ? '#f59e0b' : '#10b981';
+          ctxEyeR.font = 'bold 14px monospace'; ctxEyeR.fillText(`${temp}°C`, gx + 10, gy + 42);
+          ctxEyeR.fillStyle = '#94a3b8'; ctxEyeR.font = '9px monospace'; ctxEyeR.fillText(`Power: ${380 + (g*12)}W`, gx + 10, gy + 62);
+          ctxEyeR.fillText("PCIe 5.0 OK", gx + 10, gy + 78);
+        }
+        ctxEyeR.fillStyle = '#34d399'; ctxEyeR.font = 'bold 10px monospace'; ctxEyeR.fillText("TOTAL CLUSTER POWER: 3.28 kW • THERMAL HEADROOM: 38°C", 50, 290);
+      } else {
+        ctxEyeR.fillText("📈 REAL-TIME LATENCY DISTRIBUTION & LOSS", 14, 22);
+        for (let b = 0; b < 16; b++) {
+          const bh = 30 + Math.abs(Math.sin(tick * 0.5 + b * 0.4)) * 120;
+          const bx = 30 + b * 28;
+          ctxEyeR.fillStyle = b < 12 ? '#38bdf8' : (b < 14 ? '#fbbf24' : '#ef4444');
+          ctxEyeR.fillRect(bx, 240 - bh, 20, bh);
+        }
+        ctxEyeR.fillStyle = '#f8fafc'; ctxEyeR.font = '10px monospace'; ctxEyeR.fillText("HISTOGRAM: INFERENCE LATENCY JITTER (0.2ms - 3.4ms)", 20, 68);
+        ctxEyeR.fillStyle = '#34d399'; ctxEyeR.font = 'bold 10px monospace'; ctxEyeR.fillText("LOSS GRADIENT: 0.0014 • AST INVARIANT CONVERGED", 20, 280);
+      }
+      if (rightPlane && rightPlane.tex) rightPlane.tex.needsUpdate = true;
+    };
+
+    renderPanoramicHackerCycle();
+    setInterval(renderPanoramicHackerCycle, 2800);
 
     // =========================================================================
     // 7, 8, 9: Desk Monitors with DYNAMIC CYCLING REAL-TIME WEBSITES (Changes Every 7s)
@@ -3928,24 +3978,9 @@ class DynamicMonitorScreensEngine {
     ];
 
     const hnPages = [
-      [
-        ["1.", "Show HN: vLLM PagedAttention v3 with Zero Fragmentation", "482 pts by mateusy 4h ago | 164 comments"],
-        ["2.", "Sub-quadratic sequence scaling with bounded numerical stability", "319 pts by soktavia 6h ago | 88 comments"],
-        ["3.", "Reproducible benchmarks for frontier LLM reasoning", "275 pts by cbeaumont 8h ago | 52 comments"],
-        ["4.", "Mechanistic interpretability of RLHF reward models in swarms", "194 pts by anthropic 11h ago | 41 comments"]
-      ],
-      [
-        ["1.", "Why O(N) State-Space Models Beat Attention at Scale", "612 pts by tridao 2h ago | 240 comments"],
-        ["2.", "Ask HN: How do you verify zero data contamination in SOTA?", "410 pts by elena 5h ago | 115 comments"],
-        ["3.", "Show HN: High-performance AST complexity analyzer in Rust", "334 pts by bima 7h ago | 92 comments"],
-        ["4.", "Formal verification of neural agent guardrails under adversarial prefix", "288 pts by safety_lab 9h ago | 73 comments"]
-      ],
-      [
-        ["1.", "Distributed GPU inference benchmarks: H100 vs B200", "750 pts by gpu_guru 1h ago | 312 comments"],
-        ["2.", "Show HN: Interactive 3D Virtual Office & Constellation graph", "520 pts by sytems_lead 3h ago | 185 comments"],
-        ["3.", "Memory-efficient speculative decoding on commodity hardware", "390 pts by open_weights 6h ago | 104 comments"],
-        ["4.", "Clean preprints stream: Filter arXiv hype with automated proofs", "295 pts by scholar_hub 8h ago | 67 comments"]
-      ]
+      [["1.", "Show HN: vLLM PagedAttention v3 with Zero Fragmentation", "482 pts by mateusy 4h ago | 164 comments"], ["2.", "Sub-quadratic sequence scaling with bounded numerical stability", "319 pts by soktavia 6h ago | 88 comments"], ["3.", "Reproducible benchmarks for frontier LLM reasoning", "275 pts by cbeaumont 8h ago | 52 comments"], ["4.", "Mechanistic interpretability of RLHF reward models in swarms", "194 pts by anthropic 11h ago | 41 comments"]],
+      [["1.", "Why O(N) State-Space Models Beat Attention at Scale", "612 pts by tridao 2h ago | 240 comments"], ["2.", "Ask HN: How do you verify zero data contamination in SOTA?", "410 pts by elena 5h ago | 115 comments"], ["3.", "Show HN: High-performance AST complexity analyzer in Rust", "334 pts by bima 7h ago | 92 comments"], ["4.", "Formal verification of neural agent guardrails under adversarial prefix", "288 pts by safety_lab 9h ago | 73 comments"]],
+      [["1.", "Distributed GPU inference benchmarks: H100 vs B200", "750 pts by gpu_guru 1h ago | 312 comments"], ["2.", "Show HN: Interactive 3D Virtual Office & Constellation graph", "520 pts by sytems_lead 3h ago | 185 comments"], ["3.", "Memory-efficient speculative decoding on commodity hardware", "390 pts by open_weights 6h ago | 104 comments"], ["4.", "Clean preprints stream: Filter arXiv hype with automated proofs", "295 pts by scholar_hub 8h ago | 67 comments"]]
     ];
 
     const pwcPages = [
@@ -4126,8 +4161,7 @@ class SpeechBubbleProjector {
     item.el.classList.toggle('talking', Boolean(isTalking));
     if (textChanged) {
       requestAnimationFrame(() => {
-        item.w = item.el.offsetWidth || (window.innerWidth <= 900 ? 170 : 220);
-        item.h = item.el.offsetHeight || (window.innerWidth <= 900 ? 46 : 52);
+        item.w = item.el.offsetWidth || (window.innerWidth <= 900 ? 170 : 220); item.h = item.el.offsetHeight || (window.innerWidth <= 900 ? 46 : 52);
       });
     }
   }
@@ -4150,12 +4184,10 @@ class SpeechBubbleProjector {
     for (let i = 0; i < this.items.length; i++) {
       const item = this.items[i];
       this._projVec.copy(item.worldPos).project(camera);
-      item.sx = (this._projVec.x * halfW) + halfW;
-      item.sy = -(this._projVec.y * halfH) + halfH;
+      item.sx = (this._projVec.x * halfW) + halfW; item.sy = -(this._projVec.y * halfH) + halfH;
       // Zero Layout Thrashing: Uses cached w & h rather than triggering forced synchronous reflow
       const halfBw = item.w * 0.5;
-      item.sx = Math.max(minLeft + halfBw, Math.min(maxRight - halfBw, item.sx));
-      item.sy = Math.max(topSafe + item.h, Math.min(winH - botSafe, item.sy));
+      item.sx = Math.max(minLeft + halfBw, Math.min(maxRight - halfBw, item.sx)); item.sy = Math.max(topSafe + item.h, Math.min(winH - botSafe, item.sy));
     }
 
     // Multi-pass 2D screen-space anti-overlap solver with viewport clamping
@@ -4188,8 +4220,7 @@ class SpeechBubbleProjector {
       for (let i = 0; i < this.items.length; i++) {
         const item = this.items[i];
         const halfBw = item.w * 0.5;
-        item.sx = Math.max(minLeft + halfBw, Math.min(maxRight - halfBw, item.sx));
-        item.sy = Math.max(topSafe + item.h, Math.min(winH - botSafe, item.sy));
+        item.sx = Math.max(minLeft + halfBw, Math.min(maxRight - halfBw, item.sx)); item.sy = Math.max(topSafe + item.h, Math.min(winH - botSafe, item.sy));
       }
     }
 
@@ -4281,12 +4312,10 @@ class OfficeRaycasterEngine {
         const uData = hits[0].object.userData;
         if (uData && uData.isTelescope && this.onSelectTelescope) {
           this.onSelectTelescope();
-          return;
-        }
+          return; }
         if (uData && uData.isGodsEye && this.onSelectGodsEye) {
           this.onSelectGodsEye();
-          return;
-        }
+          return; }
         const wid = uData ? uData.workerId : null;
         if (wid) this.onSelectWorker(wid);
       }
@@ -4296,8 +4325,7 @@ class OfficeRaycasterEngine {
   highlightZone(zoneId, elapsedSec, overridePos = null) {
     if (!zoneId || !this.spatialZones[zoneId]) {
       this.ringMat.opacity = 0.0;
-      return;
-    }
+      return; }
     const z = this.spatialZones[zoneId];
     const px = overridePos ? overridePos.x : z.avatar_position[0];
     const pz = overridePos ? overridePos.z : z.avatar_position[2];
@@ -5719,9 +5747,9 @@ class LabBossaAudioEngine {
           if (items.length === 0) return;
 
           const spots = [
-            { name: 'War Room Whiteboard', pos: [0, 0, -1.65], posture: 'seated' },
-            { name: 'Coffee & Kitchen Bar', pos: [3.8, 0, -2.1], posture: 'standing' },
-            { name: 'Lounge Sofa & Glass Table', pos: [-3.6, 0, 1.8], posture: 'seated' }
+            { name: 'Center War-Room Table', spot_pos: [0, 0, -1.65], pos_a: [-1.32, 0, -1.65], pos_b: [1.32, 0, -1.65], rot_a: 1.57, rot_b: -1.57, posture: 'seated' },
+            { name: 'Executive Lounge Sofa', spot_pos: [0, 0, 2.32], pos_a: [-0.55, 0, 2.32], pos_b: [0.55, 0, 2.32], rot_a: 3.05, rot_b: 3.23, posture: 'seated' },
+            { name: 'Espresso & Smoothie Bar', spot_pos: [-0.30, 0, -4.51], pos_a: [-1.35, 0, -4.51], pos_b: [0.75, 0, -4.51], rot_a: 3.05, rot_b: 3.23, posture: 'seated_stool' }
           ];
 
           const liveDiscs = items.map((story, idx) => {
@@ -5730,7 +5758,11 @@ class LabBossaAudioEngine {
             return {
               topic: rawTitle,
               spot_name: spot.name,
-              spot_pos: spot.pos,
+              spot_pos: spot.spot_pos,
+              pos_a: spot.pos_a,
+              pos_b: spot.pos_b,
+              rot_a: spot.rot_a,
+              rot_b: spot.rot_b,
               posture: spot.posture,
               speaker_a: 'worker_kernel',
               speaker_b: 'worker_research',
