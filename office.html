@@ -45,7 +45,7 @@
       }, true);
     })();
   </script>
-  <meta name="description" content="Interactive 3D Isometric Virtual Office depicting autonomous male and female engineers and research scientists working 24/7 on 416 verified modules and 116 research papers." />
+  <meta name="description" content="Interactive 3D Isometric Virtual Office depicting autonomous male and female engineers and research scientists working 24/7 on 417 verified modules and 116 research papers." />
   <meta name="author" content="Mateus Yonathan" />
   <link rel="canonical" href="https://myonathanlinkedin.github.io/office.html" />
   <link rel="icon" href="https://myonathanlinkedin.github.io/assets/avatar.png" type="image/png" />
@@ -99,6 +99,54 @@
 
     #hud-top-container.collapsed { display: none !important; }
     #btn-restore-topbar.visible { display: inline-flex !important; }
+
+    /* Top-Right Floating Cinematic Toggle: Show / Hide All Panels */
+    #btn-toggle-all-panels {
+      position: fixed;
+      top: 10px;
+      right: 14px;
+      z-index: 1000;
+      pointer-events: auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 0 13px;
+      height: 32px;
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      background: rgba(15, 23, 42, 0.90);
+      border: 1px solid rgba(148, 163, 184, 0.40);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.40);
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    #btn-toggle-all-panels:hover {
+      background: rgba(30, 41, 59, 0.98);
+      border-color: #38bdf8;
+      color: #38bdf8;
+      box-shadow: 0 0 14px rgba(56, 189, 248, 0.45);
+      transform: scale(1.03);
+    }
+    #btn-toggle-all-panels.panels-hidden {
+      border-color: #34d399;
+      color: #34d399;
+      background: rgba(6, 78, 59, 0.92);
+      box-shadow: 0 0 18px rgba(52, 211, 153, 0.50);
+    }
+    body.all-panels-hidden #hud-top-container,
+    body.all-panels-hidden #hud-left,
+    body.all-panels-hidden #hud-bottom-container,
+    body.all-panels-hidden #desk-drawer,
+    body.all-panels-hidden #worker-bubbles {
+      display: none !important;
+    }
 
     #hud-top-ticker {
       display: inline-flex; align-items: center; justify-content: center; gap: 8px;
@@ -520,6 +568,14 @@
       .speech-bubble { max-width: 170px; font-size: 0.61rem; padding: 4px 7px; cursor: pointer; }
       .bubble-activity { max-width: 68px; font-size: 0.53rem; }
       .bubble-toggle-btn { padding: 1px 4px; font-size: 0.53rem; }
+      #btn-toggle-all-panels {
+        top: 6px;
+        right: 8px;
+        height: 28px;
+        padding: 0 9px;
+        font-size: 0.65rem;
+        gap: 4px;
+      }
     }
 </style>
 
@@ -536,6 +592,12 @@
   <canvas id="office-canvas" aria-label="3D Autonomous Virtual Office Diorama"></canvas>
   <div id="worker-bubbles" aria-live="polite"></div>
 
+  <!-- Top-Right Floating Cinematic Toggle: Show / Hide All Panels -->
+  <button type="button" id="btn-toggle-all-panels" class="glass-panel" title="Hide All (Cinematic 3D View)" aria-label="Show or Hide All">
+    <span id="btn-all-panels-icon">✕</span>
+    <span id="btn-all-panels-text">Hide All</span>
+  </button>
+
   <!-- 7.1 Top HUD Container (Mirrors 7.2 Bottom HUD Architecture) -->
   <button type="button" id="btn-restore-topbar" class="top-btn glass-panel" title="Show Top HUD" style="position:fixed;top:10px;left:14px;z-index:55;display:none;padding:0 12px;height:32px;border-color:rgba(52,211,153,0.65);background:rgba(15,23,42,0.92);">▼ Show Top HUD</button>
   <div id="hud-top-container">
@@ -543,7 +605,7 @@
       <span class="brand-pulse-dot" title="24/7 Agentic Autonomous Pipeline Active"></span>
       <span class="brand-title">MATEUS YONATHAN // LAB</span>
       <span class="ticker-sep mobile-hide-telemetry">•</span>
-      <span class="mobile-hide-telemetry">Mods: <strong id="stat-modules">416</strong></span>
+      <span class="mobile-hide-telemetry">Mods: <strong id="stat-modules">417</strong></span>
       <span class="ticker-sep mobile-hide-telemetry">•</span>
       <span class="mobile-hide-telemetry">Papers: <strong id="stat-papers">116</strong></span>
       <span class="ticker-sep">•</span>
@@ -595,7 +657,7 @@
         <button type="button" class="drawer-close" id="btn-close-office-help" title="Close Guide">✕</button>
       </div>
       <div style="font-size:0.82rem;line-height:1.65;color:#cbd5e1;display:grid;gap:9px;margin-top:8px;">
-        <p><strong>What Is This?</strong> Welcome to the interactive 3D exhibition space of the <strong>Mateus Yonathan Agentic Autonomous Lab</strong>. This virtual studio showcases our 24/7 open-source software engineering and academic research publications (416 public modules &amp; 116 Research Papers) in real time.</p>
+        <p><strong>What Is This?</strong> Welcome to the interactive 3D exhibition space of the <strong>Mateus Yonathan Agentic Autonomous Lab</strong>. This virtual studio showcases our 24/7 open-source software engineering and academic research publications (417 public modules &amp; 116 Research Papers) in real time.</p>
         <p><strong>5 Divisions You Can Visit:</strong><br/>
         • <strong>💻 Systems Architecture:</strong> Showcases newly released algorithms and data structures across 14 programming languages.<br/>
         • <strong>📄 Research Paper Wing:</strong> Displays published Research Papers and Mini-Papers with executive summaries and Scholar Preprints.<br/>
@@ -607,6 +669,126 @@
         • <strong><code>💬 Hide / Show</code> Button on Characters:</strong> Toggle any individual character's overhead conversation bubble on or off.<br/>
         • <strong>Show / Hide Panels:</strong> Use <code>☰ Left</code>, <code>📋 Right</code>, and <code>🎛️ Bottom</code> in the top bar (or the <code>✕</code> buttons) to show or hide the left panel, right panel, bottom camera dock, and live notification bar anytime.</p>
       </div>
+    </div>
+  </div>
+
+  <!-- Cosmic Observatory Modal -->
+  <div id="telescope-cosmic-modal" role="dialog" aria-modal="true" aria-label="Cosmic Observatory Dialog" class="glass-panel" style="display:none;position:fixed;inset:0;margin:auto;max-width:540px;width:92%;max-height:85vh;height:fit-content;padding:24px;border-radius:18px;background:rgba(2,6,23,0.92);border:1px solid rgba(56,189,248,0.35);box-shadow:0 0 40px rgba(14,165,233,0.35);backdrop-filter:blur(22px);z-index:9999;overflow-y:auto;color:#f8fafc;font-family:var(--font-sans);">
+    <div style="display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(56,189,248,0.25);padding-bottom:12px;margin-bottom:16px;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span style="font-size:1.6rem;">🔭</span>
+        <div>
+          <h3 style="margin:0;font-size:1.15rem;font-weight:700;color:#38bdf8;letter-spacing:0.04em;">ASTRONOMICAL OBSERVATORY</h3>
+          <span style="font-size:0.75rem;color:#94a3b8;font-family:var(--font-mono);">DEEP-SKY COSMIC TELEMETRY &bull; 3D STELLAR MAPPING</span>
+        </div>
+      </div>
+      <button type="button" id="btn-close-cosmic-modal" class="panel-close" style="width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);color:#f8fafc;cursor:pointer;font-size:0.85rem;display:flex;align-items:center;justify-content:center;">✕</button>
+    </div>
+    
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;font-family:var(--font-mono);font-size:0.75rem;">
+      <div style="background:rgba(15,23,42,0.8);border:1px solid rgba(56,189,248,0.2);border-radius:10px;padding:10px;">
+        <div style="color:#94a3b8;margin-bottom:4px;">CELESTIAL EPOCH</div>
+        <div style="color:#38bdf8;font-weight:700;font-size:0.85rem;" id="cosmic-telemetry-epoch">J2000.0 &bull; LIVE WIB</div>
+      </div>
+      <div style="background:rgba(15,23,42,0.8);border:1px solid rgba(56,189,248,0.2);border-radius:10px;padding:10px;">
+        <div style="color:#94a3b8;margin-bottom:4px;">OBSERVATORY DECK</div>
+        <div style="color:#34d399;font-weight:700;font-size:0.85rem;">SOUTH ZENITH 38° ELEV</div>
+      </div>
+      <div style="background:rgba(15,23,42,0.8);border:1px solid rgba(56,189,248,0.2);border-radius:10px;padding:10px;">
+        <div style="color:#94a3b8;margin-bottom:4px;">OPTICAL COATING</div>
+        <div style="color:#a855f7;font-weight:700;font-size:0.85rem;">APO Triplet ED Glass</div>
+      </div>
+      <div style="background:rgba(15,23,42,0.8);border:1px solid rgba(56,189,248,0.2);border-radius:10px;padding:10px;">
+        <div style="color:#94a3b8;margin-bottom:4px;">ACTIVE TARGET</div>
+        <div style="color:#f59e0b;font-weight:700;font-size:0.85rem;">Cygnus Loop &bull; Andromeda M31</div>
+      </div>
+    </div>
+
+    <p style="font-size:0.82rem;line-height:1.6;color:#cbd5e1;margin-bottom:18px;">
+      Gaze out from our open garden terrace into the infinite computational cosmos. Our research team takes spontaneous stargazing breaks here to contemplate complex algorithms, algorithmic spacetime proofs, and cosmic architecture. Step directly into our interactive 3D Constellation Page to navigate through celestial nodes and deep-sky networks.
+    </p>
+
+    <div style="display:flex;align-items:center;gap:10px;justify-content:flex-end;">
+      <button type="button" id="btn-dismiss-cosmic" style="padding:9px 16px;border-radius:10px;background:rgba(30,41,59,0.7);border:1px solid rgba(148,163,184,0.3);color:#cbd5e1;cursor:pointer;font-size:0.82rem;">Close</button>
+      <a href="constellation.html" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:10px;background:linear-gradient(135deg, #0284c7 0%, #6366f1 100%);color:#ffffff;font-size:0.82rem;font-weight:600;text-decoration:none;box-shadow:0 0 16px rgba(99,102,241,0.45);transition:all 0.2s ease;">🌌 Enter 3D Constellation Page ↗</a>
+    </div>
+  </div>
+
+  <!-- Floor 2 "God's Eye" AI Trend & Hacker Intelligence Modal -->
+  <div id="gods-eye-ai-modal" role="dialog" aria-modal="true" aria-label="God's Eye AI Command Terminal" class="glass-panel" style="display:none;position:fixed;inset:0;margin:auto;max-width:680px;width:92%;max-height:85vh;height:fit-content;padding:24px;border-radius:18px;background:rgba(2,6,23,0.94);border:1px solid rgba(56,189,248,0.45);box-shadow:0 0 45px rgba(2,132,199,0.40);backdrop-filter:blur(22px);z-index:9999;overflow-y:auto;color:#f8fafc;font-family:var(--font-sans);">
+    <div style="display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(56,189,248,0.3);padding-bottom:12px;margin-bottom:14px;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span style="font-size:1.6rem;">👁️</span>
+        <div>
+          <h3 style="margin:0;font-size:1.15rem;font-weight:700;color:#38bdf8;letter-spacing:0.04em;">GOD'S EYE // AI TREND &amp; HACKER INTELLIGENCE</h3>
+          <span style="font-size:0.73rem;color:#94a3b8;font-family:var(--font-mono);">PURE SIGNAL AGGREGATOR &bull; ZERO MARKETING HYPOTHESIS &bull; REPRODUCIBLE SOTA</span>
+        </div>
+      </div>
+      <button type="button" id="btn-close-gods-eye-modal" class="panel-close" style="width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);color:#f8fafc;cursor:pointer;font-size:0.85rem;display:flex;align-items:center;justify-content:center;">✕</button>
+    </div>
+
+    <!-- Live Telemetry Ribbon -->
+    <div style="display:grid;grid-template-columns:repeat(4, 1fr);gap:8px;margin-bottom:14px;font-family:var(--font-mono);font-size:0.72rem;">
+      <div style="background:rgba(15,23,42,0.85);border:1px solid rgba(56,189,248,0.22);border-radius:8px;padding:8px;text-align:center;">
+        <div style="color:#94a3b8;font-size:0.65rem;">SOTA VERIFIED</div>
+        <div style="color:#34d399;font-weight:700;">98.4% AUDITED</div>
+      </div>
+      <div style="background:rgba(15,23,42,0.85);border:1px solid rgba(56,189,248,0.22);border-radius:8px;padding:8px;text-align:center;">
+        <div style="color:#94a3b8;font-size:0.65rem;">PRIMARY PREPRINTS</div>
+        <div style="color:#38bdf8;font-weight:700;">arXiv LIVE 24H</div>
+      </div>
+      <div style="background:rgba(15,23,42,0.85);border:1px solid rgba(56,189,248,0.22);border-radius:8px;padding:8px;text-align:center;">
+        <div style="color:#94a3b8;font-size:0.65rem;">HYPE FILTER</div>
+        <div style="color:#a855f7;font-weight:700;">100% SIGNAL</div>
+      </div>
+      <div style="background:rgba(15,23,42,0.85);border:1px solid rgba(56,189,248,0.22);border-radius:8px;padding:8px;text-align:center;">
+        <div style="color:#94a3b8;font-size:0.65rem;">GPU EFFICIENCY</div>
+        <div style="color:#f59e0b;font-weight:700;">O(N) SUB-QUAD</div>
+      </div>
+    </div>
+
+    <!-- Curated Hype-Free AI News Feeds -->
+    <div style="display:grid;gap:10px;margin-bottom:16px;">
+      <div style="background:rgba(15,23,42,0.75);border:1px solid rgba(56,189,248,0.2);border-radius:10px;padding:12px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <span style="font-family:var(--font-mono);font-size:0.70rem;color:#38bdf8;font-weight:700;">📄 arXiv:cs.LG // State-Space Invariants &amp; Recurrent Attention</span>
+          <span style="font-size:0.68rem;padding:2px 6px;border-radius:4px;background:rgba(52,211,153,0.18);color:#34d399;font-family:var(--font-mono);">Theorem Proof</span>
+        </div>
+        <p style="font-size:0.78rem;line-height:1.55;color:#cbd5e1;margin:0 0 8px 0;">Formal proof establishing bounded state-space duality, eliminating quadratic token bottlenecks while preserving exact associative memory retrieval.</p>
+        <a href="https://arxiv.org/abs/2405.21060" target="_blank" rel="noopener noreferrer" style="font-family:var(--font-mono);font-size:0.72rem;color:#38bdf8;text-decoration:none;">Open Primary arXiv Source ↗</a>
+      </div>
+
+      <div style="background:rgba(15,23,42,0.75);border:1px solid rgba(56,189,248,0.2);border-radius:10px;padding:12px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <span style="font-family:var(--font-mono);font-size:0.70rem;color:#fbbf24;font-weight:700;">💻 Hacker News // vLLM &amp; PagedAttention Continuous Batching</span>
+          <span style="font-size:0.68rem;padding:2px 6px;border-radius:4px;background:rgba(251,191,36,0.18);color:#fbbf24;font-family:var(--font-mono);">Engine Bench</span>
+        </div>
+        <p style="font-size:0.78rem;line-height:1.55;color:#cbd5e1;margin:0 0 8px 0;">Dissecting non-contiguous KV-cache memory fragmentation in LLM inference servers. Real-world benchmark confirms 3.4x throughput scaling with zero quantization loss.</p>
+        <a href="https://news.ycombinator.com/" target="_blank" rel="noopener noreferrer" style="font-family:var(--font-mono);font-size:0.72rem;color:#fbbf24;text-decoration:none;">View Hacker News Discussion ↗</a>
+      </div>
+
+      <div style="background:rgba(15,23,42,0.75);border:1px solid rgba(56,189,248,0.2);border-radius:10px;padding:12px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <span style="font-family:var(--font-mono);font-size:0.70rem;color:#a855f7;font-weight:700;">📊 Papers With Code // SOTA Reproducibility Audit</span>
+          <span style="font-size:0.68rem;padding:2px 6px;border-radius:4px;background:rgba(168,85,247,0.18);color:#a855f7;font-family:var(--font-mono);">Verified Code</span>
+        </div>
+        <p style="font-size:0.78rem;line-height:1.55;color:#cbd5e1;margin:0 0 8px 0;">Independent evaluation of open-weight frontier checkpoints under strict contamination-free zero-shot testing across algorithmic synthesis benchmarks.</p>
+        <a href="https://paperswithcode.com/" target="_blank" rel="noopener noreferrer" style="font-family:var(--font-mono);font-size:0.72rem;color:#a855f7;text-decoration:none;">Inspect Verified Leaderboard ↗</a>
+      </div>
+
+      <div style="background:rgba(15,23,42,0.75);border:1px solid rgba(56,189,248,0.2);border-radius:10px;padding:12px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <span style="font-family:var(--font-mono);font-size:0.70rem;color:#f43f5e;font-weight:700;">🔒 AI Safety &amp; Red-Teaming // Mechanistic Jailbreak Invariants</span>
+          <span style="font-size:0.68rem;padding:2px 6px;border-radius:4px;background:rgba(244,63,94,0.18);color:#f43f5e;font-family:var(--font-mono);">Red-Team Telemetry</span>
+        </div>
+        <p style="font-size:0.78rem;line-height:1.55;color:#cbd5e1;margin:0 0 8px 0;">Auditing latent space representations against adversarial prefix injections and proving formal guardrail safety envelopes for autonomous agent execution.</p>
+        <a href="https://huggingface.co/papers" target="_blank" rel="noopener noreferrer" style="font-family:var(--font-mono);font-size:0.72rem;color:#f43f5e;text-decoration:none;">Review AI Safety Telemetry ↗</a>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:10px;justify-content:flex-end;">
+      <button type="button" id="btn-dismiss-gods-eye" style="padding:9px 18px;border-radius:10px;background:rgba(30,41,59,0.7);border:1px solid rgba(148,163,184,0.3);color:#cbd5e1;cursor:pointer;font-size:0.82rem;">Close Terminal</button>
+      <a href="https://news.ycombinator.com/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:10px;background:linear-gradient(135deg, #0284c7 0%, #0d9488 100%);color:#ffffff;font-size:0.82rem;font-weight:600;text-decoration:none;box-shadow:0 0 16px rgba(13,148,136,0.45);">⚡ Explore Live Hacker News ↗</a>
     </div>
   </div>
 
@@ -662,6 +844,8 @@
       <button type="button" class="cam-btn" data-zone="zone_hardware" title="Zone 3: Algorithmic Quality & Complexity Lab">📊 Quality Lab</button>
       <button type="button" class="cam-btn" data-zone="zone_release" title="Zone 4: Public Open-Source Portfolio Hub">🌐 Portfolio Hub</button>
       <button type="button" class="cam-btn" data-zone="zone_lounge" title="Zone 5: Coffee Lounge">☕ Lounge</button>
+      <button type="button" class="cam-btn" data-zone="zone_telescope" id="btn-cam-garden" title="Outdoor Garden Terrace & Cosmic Telescope">🔭 Garden</button>
+      <button type="button" class="cam-btn" data-zone="zone_gods_eye" id="btn-cam-gods-eye" title="Floor 2: 'God's Eye' AI Command Center">👁️ God's Eye</button>
       <button type="button" class="cam-btn" id="btn-autotour" data-cam="autotour" title="Toggle 360 Isometric Auto-Tour">▶ Auto-Tour: OFF</button>
       <button type="button" class="cam-btn" id="btn-close-bottom" title="Hide Bottom Camera Dock">✕ Hide</button>
     </nav>
@@ -1152,6 +1336,71 @@ class CutawayRoomBuilder {
     shellParts.push(createColoredPart(new THREE.BoxGeometry(W, 0.14, 0.08), '#b47b48', 0, 0.07, -D / 2 + 0.04));
     shellParts.push(createColoredPart(new THREE.BoxGeometry(0.08, 0.14, D), '#b47b48', -W / 2 + 0.04, 0.07, 0));
 
+    // 1. HORIZONTAL EXPANSION WING A: Outdoor Garden Terrace & Telescope (South-East: X: 0.8 to 6.8, Z: 9.0 to 14.5)
+    // 100% OPEN SKY, zero overhead tiers or stilts!
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(6.0, 0.36, 5.5), '#cbd5e1', 3.8, -0.19, 11.75));
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(6.16, 0.08, 5.66), '#94a3b8', 3.8, -0.35, 11.75));
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(5.8, 0.024, 5.3), '#334155', 3.8, 0.012, 11.75));
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(5.4, 0.03, 4.9), '#b47b48', 3.8, 0.018, 11.75));
+    for (let s = 1.2; s <= 6.4; s += 0.85) {
+      shellParts.push(createColoredPart(new THREE.BoxGeometry(0.04, 0.032, 4.86), '#784315', s, 0.02, 11.75));
+    }
+    // Garden Balustrade handrails
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(6.0, 0.05, 0.05), '#64748b', 3.8, 1.08, 14.48));
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(0.05, 0.05, 5.48), '#64748b', 6.78, 1.08, 11.75));
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(0.05, 0.05, 5.48), '#64748b', 0.82, 1.08, 11.75));
+    [0.82, 3.8, 6.78].forEach((px) => {
+      shellParts.push(createColoredPart(new THREE.CylinderGeometry(0.025, 0.025, 1.06, 8), '#94a3b8', px, 0.54, 14.48));
+    });
+    // Zen Bonsai Planters on Garden Terrace
+    [1.4, 6.2].forEach((px) => {
+      shellParts.push(createColoredPart(new THREE.BoxGeometry(0.9, 0.40, 0.9), '#334155', px, 0.20, 13.8));
+      shellParts.push(createColoredPart(new THREE.BoxGeometry(0.78, 0.04, 0.78), '#3f2e18', px, 0.41, 13.8));
+      shellParts.push(createColoredPart(new THREE.SphereGeometry(0.32, 8, 8), '#15803d', px, 0.80, 13.8));
+      shellParts.push(createColoredPart(new THREE.SphereGeometry(0.14, 6, 6), '#f472b6', px + 0.08, 0.98, 13.75));
+    });
+
+    // 2. HORIZONTAL EXPANSION WING B: Floor 2 "God's Eye" AI War Room (South-West: X: -7.6 to -1.6, Z: 9.0 to 15.2)
+    // Separate horizontal wing with dedicated foundation plinth & 6-step staircase to elevated command deck!
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(6.0, 0.36, 6.2), '#cbd5e1', -4.6, -0.19, 12.1));
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(6.16, 0.08, 6.36), '#94a3b8', -4.6, -0.35, 12.1));
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(5.8, 0.024, 6.0), '#334155', -4.6, 0.012, 12.1));
+    // Elevated Command Deck Platform (Y = 1.20m, footprint X: -7.4 to -1.8, Z: 10.6 to 15.0)
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(5.6, 1.20, 4.4), '#0f172a', -4.6, 0.60, 12.8));
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(5.64, 0.04, 4.44), '#0284c7', -4.6, 1.21, 12.8));
+    // 6-Step Architectural Staircase ascending from entrance [X: -4.6, Z: 9.3, Y: 0.0] up to elevated deck [X: -4.6, Z: 10.6, Y: 1.20]
+    for (let s = 0; s < 6; s++) {
+      const st = s / 5;
+      const sy = 0.10 + st * 1.10;
+      const sz = 9.30 + st * 1.30;
+      shellParts.push(createColoredPart(new THREE.BoxGeometry(1.6, 0.10, 0.26), '#1e293b', -4.6, sy, sz));
+      shellParts.push(createColoredPart(new THREE.BoxGeometry(1.56, 0.02, 0.04), '#38bdf8', -4.6, sy + 0.05, sz + 0.12));
+    }
+    // Stair stainless stringers
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(0.04, 0.14, 1.8), '#334155', -5.45, 0.65, 9.95, -0.72, 0, 0));
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(0.04, 0.14, 1.8), '#334155', -3.75, 0.65, 9.95, -0.72, 0, 0));
+    // Handrails around Floor 2 War Room Wing (South edge Z = 15.0, West edge X = -7.4, East edge X = -1.8)
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(5.6, 0.05, 0.05), '#64748b', -4.6, 2.22, 15.0));
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(0.05, 0.05, 4.4), '#64748b', -7.4, 2.22, 12.8));
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(0.05, 0.05, 4.4), '#64748b', -1.8, 2.22, 12.8));
+    [-7.4, -4.6, -1.8].forEach((px) => {
+      shellParts.push(createColoredPart(new THREE.CylinderGeometry(0.025, 0.025, 1.02, 8), '#94a3b8', px, 1.71, 15.0));
+    });
+    [10.8, 12.9, 15.0].forEach((pz) => {
+      shellParts.push(createColoredPart(new THREE.CylinderGeometry(0.025, 0.025, 1.02, 8), '#94a3b8', -7.4, 1.71, pz));
+      shellParts.push(createColoredPart(new THREE.CylinderGeometry(0.025, 0.025, 1.02, 8), '#94a3b8', -1.8, 1.71, pz));
+    });
+
+    // Dedicated Architectural Enclosure & Walls for the Brand New Floor 2 War Room
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(0.20, 2.60, 5.8), '#cbd5e1', -7.50, 1.30, 12.10));
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(0.24, 0.08, 5.84), '#0284c7', -7.50, 2.64, 12.10));
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(0.12, 3.20, 0.16), '#475569', -6.30, 1.60, 9.0));
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(0.12, 3.20, 0.16), '#475569', -2.90, 1.60, 9.0));
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(3.52, 0.14, 0.16), '#0284c7', -4.60, 3.20, 9.0));
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(0.12, 3.20, 0.16), '#475569', 2.0, 1.60, 9.0));
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(0.12, 3.20, 0.16), '#475569', 5.6, 1.60, 9.0));
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(3.72, 0.14, 0.16), '#0284c7', 3.8, 3.20, 9.0));
+
     const mergedShell = mergeGeometries(shellParts, false);
     const shellMat = new THREE.MeshStandardMaterial({
       vertexColors: true,
@@ -1210,6 +1459,15 @@ class CutawayRoomBuilder {
       createColoredPart(new THREE.BoxGeometry(5.4, 2.48, 0.05), '#38bdf8', 4.0, 2.45, -D / 2 - T / 2),
       createColoredPart(new THREE.BoxGeometry(0.05, 2.48, 5.2), '#38bdf8', -W / 2 - T / 2, 2.45, -3.95),
       createColoredPart(new THREE.BoxGeometry(0.05, 2.48, 5.2), '#38bdf8', -W / 2 - T / 2, 2.45, 3.95),
+
+      // Glass Balustrade for Garden Terrace (Open sky)
+      createColoredPart(new THREE.BoxGeometry(5.95, 0.88, 0.03), '#38bdf8', 3.8, 0.58, 14.48),
+      createColoredPart(new THREE.BoxGeometry(0.03, 0.88, 5.45), '#38bdf8', 6.78, 0.58, 11.75),
+      createColoredPart(new THREE.BoxGeometry(0.03, 0.88, 5.45), '#38bdf8', 0.82, 0.58, 11.75),
+      // Glass Balustrade for Floor 2 Horizontal AI War Room Wing
+      createColoredPart(new THREE.BoxGeometry(5.55, 0.92, 0.03), '#38bdf8', -4.6, 1.71, 15.0),
+      createColoredPart(new THREE.BoxGeometry(0.03, 0.92, 4.35), '#38bdf8', -7.4, 1.71, 12.8),
+      createColoredPart(new THREE.BoxGeometry(0.03, 0.92, 4.35), '#38bdf8', -1.8, 1.71, 12.8),
     ];
     const glassMesh = new THREE.Mesh(
       mergeGeometries(glassParts, false),
@@ -1523,26 +1781,26 @@ class OfficeFurnitureBuilder {
     };
 
     // 3.1 Ergonomic Swivel Task Chair
-    const addChair = (cx, cz, rotY = Math.PI, accentHex = '#0284c7') => {
-      addCyl(0.04, 0.04, 0.36, 10, '#64748b', cx, 0.24, cz);
+    const addChair = (cx, cz, rotY = Math.PI, accentHex = '#0284c7', baseY = 0.0) => {
+      addCyl(0.04, 0.04, 0.36, 10, '#64748b', cx, baseY + 0.24, cz);
       for (let i = 0; i < 5; i++) {
         const ang = (i / 5) * Math.PI * 2;
         const bx = cx + Math.cos(ang) * 0.17;
         const bz = cz + Math.sin(ang) * 0.17;
-        addBox(0.34, 0.03, 0.045, '#475569', bx, 0.07, bz, 0, -ang, 0);
-        addCyl(0.035, 0.035, 0.04, 10, '#1e293b', cx + Math.cos(ang) * 0.32, 0.035, cz + Math.sin(ang) * 0.32, Math.PI / 2, 0, 0);
+        addBox(0.34, 0.03, 0.045, '#475569', bx, baseY + 0.07, bz, 0, -ang, 0);
+        addCyl(0.035, 0.035, 0.04, 10, '#1e293b', cx + Math.cos(ang) * 0.32, baseY + 0.035, cz + Math.sin(ang) * 0.32, Math.PI / 2, 0, 0);
       }
-      addBox(0.56, 0.08, 0.54, '#334155', cx, 0.46, cz, 0, rotY, 0);
+      addBox(0.56, 0.08, 0.54, '#334155', cx, baseY + 0.46, cz, 0, rotY, 0);
       const backDz = Math.cos(rotY) * -0.25;
       const backDx = Math.sin(rotY) * -0.25;
-      addBox(0.52, 0.62, 0.06, '#1e293b', cx + backDx, 0.82, cz + backDz, 0, rotY, 0);
-      addBox(0.46, 0.50, 0.03, accentHex, cx + backDx * 0.94, 0.83, cz + backDz * 0.94, 0, rotY, 0);
+      addBox(0.52, 0.62, 0.06, '#1e293b', cx + backDx, baseY + 0.82, cz + backDz, 0, rotY, 0);
+      addBox(0.46, 0.50, 0.03, accentHex, cx + backDx * 0.94, baseY + 0.83, cz + backDz * 0.94, 0, rotY, 0);
       const sideX = Math.cos(rotY) * 0.29;
       const sideZ = -Math.sin(rotY) * 0.29;
-      addBox(0.05, 0.22, 0.05, '#475569', cx - sideX, 0.56, cz - sideZ, 0, rotY, 0);
-      addBox(0.05, 0.22, 0.05, '#475569', cx + sideX, 0.56, cz + sideZ, 0, rotY, 0);
-      addBox(0.07, 0.03, 0.28, '#334155', cx - sideX, 0.67, cz - sideZ, 0, rotY, 0);
-      addBox(0.07, 0.03, 0.28, '#334155', cx + sideX, 0.67, cz + sideZ, 0, rotY, 0);
+      addBox(0.05, 0.22, 0.05, '#475569', cx - sideX, baseY + 0.56, cz - sideZ, 0, rotY, 0);
+      addBox(0.05, 0.22, 0.05, '#475569', cx + sideX, baseY + 0.56, cz + sideZ, 0, rotY, 0);
+      addBox(0.07, 0.03, 0.28, '#334155', cx - sideX, baseY + 0.67, cz - sideZ, 0, rotY, 0);
+      addBox(0.07, 0.03, 0.28, '#334155', cx + sideX, baseY + 0.67, cz + sideZ, 0, rotY, 0);
     };
 
     // 3.2 Zone 1: Kernel Desk (-5.2, -4.4) — Dual Curved 21:9 Monitors + Mechanical Keyboard + PC Tower
@@ -1585,22 +1843,22 @@ class OfficeFurnitureBuilder {
     addCyl(0.018, 0.018, 0.44, 10, '#fbbf24', 5.82, 1.08, -4.68);
     addCyl(0.08, 0.13, 0.14, 12, '#fde68a', 5.76, 1.28, -4.62, 0.3, 0, 0.3);
 
-    // 3.3 Wheeled Research Whiteboard (2.8 x 1.6 units) beside Research Wing
-    const wbX = 7.15;
-    const wbZ = -3.55;
-    const wbRot = -0.52;
+    // 3.3 Wheeled Research Whiteboard (adjusted position & clearance: 0.75m gap from desk)
+    const wbX = 7.82;
+    const wbZ = -3.20;
+    const wbRot = -0.42;
     const cosW = Math.cos(wbRot);
     const sinW = Math.sin(wbRot);
-    addBox(2.84, 1.64, 0.07, '#475569', wbX, 1.72, wbZ, 0, wbRot, 0);
-    addBox(2.40, 0.05, 0.14, '#64748b', wbX, 0.88, wbZ, 0, wbRot, 0);
-    addBox(0.06, 1.70, 0.06, '#475569', wbX - cosW * 1.36, 0.85, wbZ + sinW * 1.36, 0, wbRot, 0);
-    addBox(0.06, 1.70, 0.06, '#475569', wbX + cosW * 1.36, 0.85, wbZ - sinW * 1.36, 0, wbRot, 0);
-    addBox(0.06, 0.05, 0.58, '#475569', wbX - cosW * 1.36, 0.06, wbZ + sinW * 1.36, 0, wbRot, 0);
-    addBox(0.06, 0.05, 0.58, '#475569', wbX + cosW * 1.36, 0.06, wbZ - sinW * 1.36, 0, wbRot, 0);
+    addBox(2.64, 1.64, 0.07, '#475569', wbX, 1.72, wbZ, 0, wbRot, 0);
+    addBox(2.26, 0.05, 0.14, '#64748b', wbX, 0.88, wbZ, 0, wbRot, 0);
+    addBox(0.06, 1.70, 0.06, '#475569', wbX - cosW * 1.26, 0.85, wbZ + sinW * 1.26, 0, wbRot, 0);
+    addBox(0.06, 1.70, 0.06, '#475569', wbX + cosW * 1.26, 0.85, wbZ - sinW * 1.26, 0, wbRot, 0);
+    addBox(0.06, 0.05, 0.58, '#475569', wbX - cosW * 1.26, 0.06, wbZ + sinW * 1.26, 0, wbRot, 0);
+    addBox(0.06, 0.05, 0.58, '#475569', wbX + cosW * 1.26, 0.06, wbZ - sinW * 1.26, 0, wbRot, 0);
     screenAnchors.whiteboard = {
       pos: [wbX + sinW * 0.044, 1.72, wbZ + cosW * 0.044],
       rotY: wbRot,
-      w: 2.72,
+      w: 2.52,
       h: 1.52,
     };
 
@@ -1915,6 +2173,90 @@ class OfficeFurnitureBuilder {
     addMonstera(4.55, -7.45);
     addMonstera(-3.55, -7.45);
 
+    // Phase 2: Astronomical Observatory Telescope (Garden Terrace at [3.6, 0.0, 12.2])
+    const tx = 3.6;
+    const tz = 12.2;
+    addCyl(0.08, 0.08, 0.12, 12, '#334155', tx, 1.14, tz);
+    addCyl(0.18, 0.18, 0.02, 12, '#64748b', tx, 0.52, tz);
+    for (let leg = 0; leg < 3; leg++) {
+      const lang = (leg / 3) * Math.PI * 2;
+      const footX = tx + Math.cos(lang) * 0.56;
+      const footZ = tz + Math.sin(lang) * 0.56;
+      const midX = (tx + footX) * 0.5;
+      const midZ = (tz + footZ) * 0.5;
+      addCyl(0.022, 0.026, 1.22, 8, '#1e293b', midX, 0.57, midZ, Math.sin(lang) * 0.38, 0, -Math.cos(lang) * 0.38);
+      addCyl(0.035, 0.035, 0.04, 8, '#d97706', midX, 0.57, midZ);
+      addCyl(0.028, 0.028, 0.03, 8, '#0f172a', footX, 0.015, footZ);
+    }
+    addBox(0.14, 0.16, 0.14, '#1e293b', tx, 1.25, tz);
+    addCyl(0.05, 0.05, 0.04, 12, '#f59e0b', tx, 1.25, tz + 0.08, Math.PI / 2, 0, 0);
+    addCyl(0.018, 0.018, 0.44, 8, '#94a3b8', tx - 0.16, 1.12, tz, 0, 0, 0.65);
+    addCyl(0.065, 0.065, 0.12, 10, '#0f172a', tx - 0.24, 1.04, tz, 0, 0, 0.65);
+    const tiltElev = 0.66;
+    const yawAzim = -0.42;
+    addCyl(0.11, 0.11, 1.15, 16, '#0f172a', tx + 0.08, 1.48, tz + 0.18, tiltElev, yawAzim, 0);
+    addCyl(0.118, 0.118, 0.16, 16, '#1e3a8a', tx + 0.22, 1.78, tz + 0.44, tiltElev, yawAzim, 0);
+    addCyl(0.122, 0.122, 0.03, 16, '#38bdf8', tx + 0.28, 1.88, tz + 0.52, tiltElev, yawAzim, 0);
+    addCyl(0.105, 0.105, 0.015, 16, '#0284c7', tx + 0.28, 1.88, tz + 0.52, tiltElev, yawAzim, 0);
+    addCyl(0.032, 0.032, 0.42, 8, '#475569', tx + 0.12, 1.62, tz + 0.22, tiltElev, yawAzim, 0);
+    addCyl(0.036, 0.036, 0.02, 8, '#38bdf8', tx + 0.18, 1.75, tz + 0.32, tiltElev, yawAzim, 0);
+    addBox(0.08, 0.08, 0.08, '#1e293b', tx - 0.06, 1.18, tz - 0.08);
+    addCyl(0.03, 0.025, 0.12, 10, '#d97706', tx - 0.08, 1.25, tz - 0.12, -0.45, 0, 0.35);
+    addCyl(0.032, 0.032, 0.03, 10, '#0f172a', tx - 0.10, 1.30, tz - 0.14, -0.45, 0, 0.35);
+
+    // Outdoor Garden Terrace Teak Patio Lounge Chairs & Coffee Table (beside Telescope at X: 1.8)
+    const addTeakChair = (cx, cz, rotY = 0.0) => {
+      const c = Math.cos(rotY), s = Math.sin(rotY);
+      const dx1 = 0.28, dz1 = 0.26;
+      [[-dx1, -dz1], [dx1, -dz1], [-dx1, dz1], [dx1, dz1]].forEach(([lx, lz]) => {
+        addBox(0.05, 0.42, 0.05, '#784315', cx + lx * c - lz * s, 0.21, cz + lx * s + lz * c, 0, rotY, 0);
+      });
+      addBox(0.68, 0.06, 0.62, '#b47b48', cx, 0.42, cz, 0, rotY, 0);
+      addBox(0.68, 0.48, 0.05, '#9a6232', cx - s * -0.28, 0.68, cz + c * -0.28, 0, rotY, 0);
+      addBox(0.06, 0.04, 0.62, '#b47b48', cx + c * 0.33, 0.58, cz + s * 0.33, 0, rotY, 0);
+      addBox(0.06, 0.04, 0.62, '#b47b48', cx - c * 0.33, 0.58, cz - s * 0.33, 0, rotY, 0);
+    };
+    addTeakChair(1.8, 11.2, Math.PI / 2);
+    addTeakChair(1.8, 13.2, -Math.PI / 2);
+    addBox(0.56, 0.04, 0.72, '#b47b48', 1.8, 0.38, 12.2);
+    [[-0.24, -0.32], [0.24, -0.32], [-0.24, 0.32], [0.24, 0.32]].forEach(([txo, tzo]) => {
+      addBox(0.05, 0.36, 0.05, '#784315', 1.8 + txo, 0.18, 12.2 + tzo);
+    });
+    addCyl(0.04, 0.035, 0.09, 10, '#ffffff', 1.8, 0.445, 12.2);
+
+    // Phase 2: Floor 2 Horizontal AI War Room Wing "God's Eye" Curved Panoramic Video Wall (Facing South +Z)
+    addBox(2.2, 1.38, 0.08, '#0f172a', -4.6, 2.45, 10.80);
+    addBox(2.14, 1.32, 0.02, '#0284c7', -4.6, 2.45, 10.84);
+    addBox(1.15, 1.38, 0.08, '#0f172a', -6.15, 2.45, 10.92, 0, -0.21, 0);
+    addBox(1.10, 1.32, 0.02, '#0369a1', -6.15, 2.45, 10.96, 0, -0.21, 0);
+    addBox(1.15, 1.38, 0.08, '#0f172a', -3.05, 2.45, 10.92, 0, 0.21, 0);
+    addBox(1.10, 1.32, 0.02, '#0369a1', -3.05, 2.45, 10.96, 0, 0.21, 0);
+    addBox(4.4, 0.05, 0.10, '#38bdf8', -4.6, 3.18, 10.83);
+    addBox(4.4, 0.05, 0.10, '#38bdf8', -4.6, 1.72, 10.83);
+    screenAnchors.godsEye = { pos: [-4.6, 2.45, 10.86], rotY: 0, w: 4.3, h: 1.32 };
+
+    // Command Operator Desk & 3 Analyst Monitors on Elevated Floor 2 Deck (baseY = 1.20, facing South +Z)
+    addBox(3.8, 0.06, 0.90, '#1e293b', -4.6, 1.62, 12.10);
+    addBox(3.84, 0.02, 0.94, '#0284c7', -4.6, 1.59, 12.10);
+    [[-6.35, 11.75], [-2.85, 11.75], [-6.35, 12.45], [-2.85, 12.45]].forEach(([dx, dz]) => {
+      addBox(0.06, 0.40, 0.06, '#475569', dx, 1.40, dz);
+    });
+    // Left Monitor: arXiv cs.LG
+    addBox(0.88, 0.52, 0.03, '#0f172a', -5.6, 1.98, 12.05);
+    addCyl(0.02, 0.02, 0.18, 8, '#64748b', -5.6, 1.71, 12.05);
+    screenAnchors.godsEyeArxiv = { pos: [-5.6, 1.98, 12.07], rotY: 0, w: 0.85, h: 0.49 };
+    // Center Monitor: Hacker News Frontpage
+    addBox(0.88, 0.52, 0.03, '#0f172a', -4.6, 1.98, 12.05);
+    addCyl(0.02, 0.02, 0.18, 8, '#64748b', -4.6, 1.71, 12.05);
+    screenAnchors.godsEyeHN = { pos: [-4.6, 1.98, 12.07], rotY: 0, w: 0.85, h: 0.49 };
+    // Right Monitor: Papers With Code SOTA Leaderboard
+    addBox(0.88, 0.52, 0.03, '#0f172a', -3.6, 1.98, 12.05);
+    addCyl(0.02, 0.02, 0.18, 8, '#64748b', -3.6, 1.71, 12.05);
+    screenAnchors.godsEyePWC = { pos: [-3.6, 1.98, 12.07], rotY: 0, w: 0.85, h: 0.49 };
+
+    // 3 High-Back Captain Chairs on Floor 2: Seated analysts face NORTH (-Z) directly into the monitors!
+    [-5.6, -4.6, -3.6].forEach((cx) => addChair(cx, 12.85, Math.PI, '#38bdf8', 1.20));
+
     // Merge all static furniture & appliances into 1 single draw call with smooth shading
     const furnitureMesh = new THREE.Mesh(
       mergeGeometries(parts, false),
@@ -1972,13 +2314,15 @@ class OfficeFurnitureBuilder {
       { zoneId: 'zone_hardware', workerId: 'worker_hardware', pos: [5.2, 1.20, 3.6], size: [3.2, 2.4, 3.4] },
       { zoneId: 'zone_release', workerId: 'worker_release', pos: [-5.2, 1.15, 4.4], size: [3.2, 2.3, 2.8] },
       { zoneId: 'zone_lounge', workerId: 'worker_lounge', pos: [0.0, 1.05, 1.5], size: [3.2, 2.1, 3.2] },
+      { zoneId: 'zone_telescope', workerId: 'telescope', isTelescope: true, pos: [3.6, 1.25, 12.2], size: [2.4, 2.0, 2.4] },
+      { zoneId: 'zone_gods_eye', workerId: 'gods_eye', isGodsEye: true, pos: [-4.6, 2.45, 11.50], size: [5.2, 2.0, 3.2] },
     ];
     const proxyMat = new THREE.MeshBasicMaterial({ visible: false });
     for (let z = 0; z < zoneBoxes.length; z++) {
       const zb = zoneBoxes[z];
       const proxy = new THREE.Mesh(new THREE.BoxGeometry(zb.size[0], zb.size[1], zb.size[2]), proxyMat);
       proxy.position.set(zb.pos[0], zb.pos[1], zb.pos[2]);
-      proxy.userData = { zoneId: zb.zoneId, workerId: zb.workerId };
+      proxy.userData = { zoneId: zb.zoneId, workerId: zb.workerId, isTelescope: Boolean(zb.isTelescope), isGodsEye: Boolean(zb.isGodsEye) };
       scene.add(proxy);
       hitProxies.push(proxy);
     }
@@ -2022,7 +2366,88 @@ function createSkinnedPart(geometry, boneIndex, hexColor, matrix4) {
 }
 
 class StylizedCharacterFactory {
-  static buildAll(scene, spatialZones, workersData) {
+  static get SHIFT_PALETTES() {
+    return [
+      // Shift 1: Pagi (06:00 - 12:00 WIB) — Fresh Morning Executive (Bima, Dr. Clara, Marcus, Elena, Nadia)
+      {
+        worker_kernel:   { topColor: '#e0f2fe', vestColor: '#1e3a8a', pantsColor: '#1e293b', shoeColor: '#f8fafc', hairColor: '#1c1917', skinColor: '#f5cba7', plumbobHex: '#10b981' },
+        worker_research: { topColor: '#ffffff', vestColor: '#6366f1', pantsColor: '#334155', shoeColor: '#0f172a', hairColor: '#3b1d0e', skinColor: '#fad7bd', plumbobHex: '#38bdf8' },
+        worker_hardware: { topColor: '#0f172a', vestColor: '#059669', pantsColor: '#1f2937', shoeColor: '#cbd5e1', hairColor: '#292524', skinColor: '#eab68c', plumbobHex: '#fbbf24' },
+        worker_release:  { topColor: '#f0f9ff', vestColor: '#0284c7', pantsColor: '#0f172a', shoeColor: '#f8fafc', hairColor: '#451a03', skinColor: '#f5cba7', plumbobHex: '#10b981' },
+        worker_lounge:   { topColor: '#fdf2f8', vestColor: '#db2777', pantsColor: '#1e293b', shoeColor: '#f1f5f9', hairColor: '#581c87', skinColor: '#fad7bd', plumbobHex: '#ec4899' },
+      },
+      // Shift 2: Siang (12:00 - 18:00 WIB) — Dynamic Tech Innovators (Arthur, Sarah Ph.D., Kevin, Chloe, Audrey)
+      {
+        worker_kernel:   { topColor: '#0f766e', vestColor: '#d97706', pantsColor: '#18181b', shoeColor: '#fed7aa', hairColor: '#18181b', skinColor: '#e8be99', plumbobHex: '#f59e0b' },
+        worker_research: { topColor: '#ffe4e6', vestColor: '#991b1b', pantsColor: '#292524', shoeColor: '#44403c', hairColor: '#262626', skinColor: '#fde0cb', plumbobHex: '#ef4444' },
+        worker_hardware: { topColor: '#1e293b', vestColor: '#15803d', pantsColor: '#374151', shoeColor: '#111827', hairColor: '#3f3f46', skinColor: '#e2ab80', plumbobHex: '#84cc16' },
+        worker_release:  { topColor: '#ede9fe', vestColor: '#ea580c', pantsColor: '#111827', shoeColor: '#ffffff', hairColor: '#78350f', skinColor: '#f7d3b5', plumbobHex: '#06b6d4' },
+        worker_lounge:   { topColor: '#fef3c7', vestColor: '#4338ca', pantsColor: '#0f172a', shoeColor: '#e2e8f0', hairColor: '#312e81', skinColor: '#fce3cf', plumbobHex: '#a855f7' },
+      },
+      // Shift 3: Malam (18:00 - 00:00 WIB) — Sophisticated Amethyst Night (Aris, Dr. Citra, David, Grace, Stella)
+      {
+        worker_kernel:   { topColor: '#18181b', vestColor: '#7c3aed', pantsColor: '#27272a', shoeColor: '#52525b', hairColor: '#27272a', skinColor: '#dcb085', plumbobHex: '#8b5cf6' },
+        worker_research: { topColor: '#f5f3ff', vestColor: '#1d4ed8', pantsColor: '#0f172a', shoeColor: '#1e1b4b', hairColor: '#450a0a', skinColor: '#edd0b7', plumbobHex: '#3b82f6' },
+        worker_hardware: { topColor: '#27272a', vestColor: '#b45309', pantsColor: '#1c1917', shoeColor: '#0a0a0a', hairColor: '#1c1917', skinColor: '#d9a073', plumbobHex: '#f97316' },
+        worker_release:  { topColor: '#042f2e', vestColor: '#0d9488', pantsColor: '#09090b', shoeColor: '#ccfbf1', hairColor: '#1e1b4b', skinColor: '#edd0b7', plumbobHex: '#14b8a6' },
+        worker_lounge:   { topColor: '#ffe4e6', vestColor: '#b91c1c', pantsColor: '#18181b', shoeColor: '#fda4af', hairColor: '#701a75', skinColor: '#edd0b7', plumbobHex: '#f43f5e' },
+      },
+      // Shift 4: Overnight / Dini Hari (00:00 - 06:00 WIB) — Cyberpunk Minimalist Ops (Lucas, Hannah Ph.D., Brandon, Maya, Fiona)
+      {
+        worker_kernel:   { topColor: '#020617', vestColor: '#4f46e5', pantsColor: '#09090b', shoeColor: '#38bdf8', hairColor: '#18181b', skinColor: '#f0c49d', plumbobHex: '#6366f1' },
+        worker_research: { topColor: '#ffffff', vestColor: '#06b6d4', pantsColor: '#0f172a', shoeColor: '#0891b2', hairColor: '#172554', skinColor: '#fce4d4', plumbobHex: '#00f5ff' },
+        worker_hardware: { topColor: '#1f2937', vestColor: '#e11d48', pantsColor: '#111827', shoeColor: '#f43f5e', hairColor: '#27272a', skinColor: '#dfaa7d', plumbobHex: '#ff0055' },
+        worker_release:  { topColor: '#1e1b4b', vestColor: '#f59e0b', pantsColor: '#09090b', shoeColor: '#fef08a', hairColor: '#3730a3', skinColor: '#ebd1ba', plumbobHex: '#fbbf24' },
+        worker_lounge:   { topColor: '#042f2e', vestColor: '#10b981', pantsColor: '#0f172a', shoeColor: '#6ee7b7', hairColor: '#064e3b', skinColor: '#fae0cb', plumbobHex: '#10b981' },
+      },
+    ];
+  }
+
+  static applyShiftOutfit(characterBundle, shiftIdx) {
+    if (!characterBundle || !Array.isArray(characterBundle.avatars)) return;
+    const safeIdx = ((Number(shiftIdx) % 4) + 4) % 4;
+    const palette = StylizedCharacterFactory.SHIFT_PALETTES[safeIdx] || StylizedCharacterFactory.SHIFT_PALETTES[0];
+    const dummyC = new THREE.Color();
+
+    for (let aIdx = 0; aIdx < characterBundle.avatars.length; aIdx++) {
+      const av = characterBundle.avatars[aIdx];
+      const spec = palette[av.workerId];
+      if (!spec || !av.skinnedMesh || !Array.isArray(av.partRanges)) continue;
+      const colorAttr = av.skinnedMesh.geometry.attributes.color;
+      if (!colorAttr) continue;
+
+      const catHexMap = {
+        vest: spec.vestColor,
+        top: spec.topColor,
+        pants: spec.pantsColor,
+        shoe: spec.shoeColor,
+        hair: spec.hairColor,
+        skin: spec.skinColor,
+      };
+
+      for (let r = 0; r < av.partRanges.length; r++) {
+        const pr = av.partRanges[r];
+        const hex = catHexMap[pr.category];
+        if (hex) {
+          dummyC.set(hex);
+          for (let vi = pr.start; vi < pr.start + pr.count; vi++) {
+            colorAttr.setXYZ(vi, dummyC.r, dummyC.g, dummyC.b);
+          }
+        }
+      }
+      colorAttr.needsUpdate = true;
+
+      if (characterBundle.plumbobInstanced && spec.plumbobHex) {
+        characterBundle.plumbobInstanced.setColorAt(aIdx, new THREE.Color(spec.plumbobHex));
+      }
+    }
+
+    if (characterBundle.plumbobInstanced && characterBundle.plumbobInstanced.instanceColor) {
+      characterBundle.plumbobInstanced.instanceColor.needsUpdate = true;
+    }
+  }
+
+  static buildAll(scene, spatialZones, workersData, activeShiftIdx = 0) {
     // Smooth Gouraud/Phong shading (flatShading: false) for organic 3D characters
     const sharedSkinMat = new THREE.MeshStandardMaterial({
       vertexColors: true,
@@ -2035,88 +2460,58 @@ class StylizedCharacterFactory {
     const shadowPositions = [];
     const plumbobColors = [];
 
-    const avatarSpecs = [
+    const safeShiftIdx = ((Number(activeShiftIdx) % 4) + 4) % 4;
+    const palette = StylizedCharacterFactory.SHIFT_PALETTES[safeShiftIdx] || StylizedCharacterFactory.SHIFT_PALETTES[0];
+
+    const baseSpecs = [
       {
         workerId: 'worker_kernel',
         zoneId: 'zone_kernel',
         gender: 'male',
         hairStyle: 'short_layered',
-        hairColor: '#1e1b18',
-        skinColor: '#f5cba7',
-        topColor: '#1e3a8a',
-        vestColor: '#2563eb',
-        pantsColor: '#1e293b',
-        shoeColor: '#e2e8f0',
         accessory: 'glasses',
         heldProp: 'none',
         posture: 'seated_typing',
-        plumbobHex: '#10b981',
       },
       {
         workerId: 'worker_research',
         zoneId: 'zone_research',
         gender: 'female',
         hairStyle: 'ponytail',
-        hairColor: '#3b1d0e',
-        skinColor: '#fad7bd',
-        topColor: '#f8fafc',
-        vestColor: '#7e22ce',
-        pantsColor: '#334155',
-        shoeColor: '#1e1b4b',
         accessory: 'glasses',
         heldProp: 'research_tablet',
         posture: 'seated_research',
-        plumbobHex: '#38bdf8',
       },
       {
         workerId: 'worker_hardware',
         zoneId: 'zone_hardware',
         gender: 'male',
         hairStyle: 'short_layered',
-        hairColor: '#27272a',
-        skinColor: '#eab68c',
-        topColor: '#0f172a',
-        vestColor: '#059669',
-        pantsColor: '#1f2937',
-        shoeColor: '#334155',
         accessory: 'none',
         heldProp: 'audit_tablet',
         posture: 'standing_audit',
-        plumbobHex: '#fbbf24',
       },
       {
         workerId: 'worker_release',
         zoneId: 'zone_release',
         gender: 'female',
         hairStyle: 'wavy_bob',
-        hairColor: '#451a03',
-        skinColor: '#f5cba7',
-        topColor: '#0f172a',
-        vestColor: '#0284c7',
-        pantsColor: '#1e293b',
-        shoeColor: '#f8fafc',
         accessory: 'headset',
         heldProp: 'none',
         posture: 'seated_typing',
-        plumbobHex: '#10b981',
       },
       {
         workerId: 'worker_lounge',
         zoneId: 'zone_lounge',
         gender: 'female',
         hairStyle: 'ponytail',
-        hairColor: '#581c87',
-        skinColor: '#fad7bd',
-        topColor: '#be185d',
-        vestColor: '#db2777',
-        pantsColor: '#1e293b',
-        shoeColor: '#f1f5f9',
         accessory: 'none',
         heldProp: 'coffee_mug',
         posture: 'seated_sofa',
-        plumbobHex: '#ec4899',
       },
     ];
+
+    const avatarSpecs = baseSpecs.map((b) => Object.assign({}, b, palette[b.workerId] || {}));
 
     for (let i = 0; i < avatarSpecs.length; i++) {
       const spec = avatarSpecs[i];
@@ -2250,19 +2645,28 @@ class StylizedCharacterFactory {
     const pos = new THREE.Vector3();
     const scl = new THREE.Vector3(1, 1, 1);
 
-    const addBonePart = (boneIdx, geo, hex, lx = 0, ly = 0, lz = 0, rx = 0, ry = 0, rz = 0, sx = 1, sy = 1, sz = 1) => {
+    const partRanges = [];
+    let currentVertexOffset = 0;
+
+    const addBonePart = (boneIdx, geo, hex, category, lx = 0, ly = 0, lz = 0, rx = 0, ry = 0, rz = 0, sx = 1, sy = 1, sz = 1) => {
       pos.set(lx, ly, lz);
       euler.set(rx, ry, rz);
       quat.setFromEuler(euler);
       scl.set(sx, sy, sz);
       localMat.compose(pos, quat, scl);
       worldMat.multiplyMatrices(bones[boneIdx].matrixWorld, localMat);
-      subGeos.push(createSkinnedPart(geo, boneIdx, hex, worldMat));
+      const part = createSkinnedPart(geo, boneIdx, hex, worldMat);
+      const vCount = part.attributes.position.count;
+      if (category) {
+        partRanges.push({ category, start: currentVertexOffset, count: vCount });
+      }
+      currentVertexOffset += vCount;
+      subGeos.push(part);
     };
 
     // 0. Smooth Organic Pelvis & Belt (bone 0)
-    addBonePart(0, new THREE.CapsuleGeometry(0.125, 0.11, 12, 20), spec.pantsColor, 0, 0, 0, 0, 0, Math.PI / 2, 1.0, 1.0, 0.85);
-    addBonePart(0, new THREE.CylinderGeometry(0.148, 0.148, 0.045, 24), '#0f172a', 0, 0.055, 0, 0, 0, 0, 1.08, 1.0, 0.82);
+    addBonePart(0, new THREE.CapsuleGeometry(0.125, 0.11, 12, 20), spec.pantsColor, 'pants', 0, 0, 0, 0, 0, Math.PI / 2, 1.0, 1.0, 0.85);
+    addBonePart(0, new THREE.CylinderGeometry(0.148, 0.148, 0.045, 24), '#0f172a', 'belt', 0, 0.055, 0, 0, 0, 0, 1.08, 1.0, 0.82);
 
     // 1. Smooth Tapered Torso, Rounded Shoulders, Collar & Neck (bone 1)
     const isFemale = spec.gender === 'female';
@@ -2270,115 +2674,116 @@ class StylizedCharacterFactory {
       1,
       new THREE.CylinderGeometry(isFemale ? 0.148 : 0.168, isFemale ? 0.128 : 0.142, 0.40, 24, 4),
       spec.vestColor,
+      'vest',
       0, 0.21, 0,
       0, 0, 0,
       1.14, 1.0, 0.80
     );
     // Smooth rounded shoulder dome
-    addBonePart(1, new THREE.SphereGeometry(0.165, 22, 16), spec.vestColor, 0, 0.37, 0, 0, 0, 0, 1.24, 0.48, 0.78);
+    addBonePart(1, new THREE.SphereGeometry(0.165, 22, 16), spec.vestColor, 'vest', 0, 0.37, 0, 0, 0, 0, 1.24, 0.48, 0.78);
     // Inner shirt V-neck & collar
-    addBonePart(1, new THREE.CylinderGeometry(0.088, 0.072, 0.12, 20), spec.topColor, 0, 0.39, 0.032, 0, 0, 0, 1.0, 1.0, 0.88);
+    addBonePart(1, new THREE.CylinderGeometry(0.088, 0.072, 0.12, 20), spec.topColor, 'top', 0, 0.39, 0.032, 0, 0, 0, 1.0, 1.0, 0.88);
     if (isFemale) {
       // Subtle organic female silhouette contour & blazer peplum flare
-      addBonePart(1, new THREE.SphereGeometry(0.082, 16, 14), spec.vestColor, 0.068, 0.27, 0.072, 0, 0, 0, 1.0, 0.92, 0.85);
-      addBonePart(1, new THREE.SphereGeometry(0.082, 16, 14), spec.vestColor, -0.068, 0.27, 0.072, 0, 0, 0, 1.0, 0.92, 0.85);
-      addBonePart(1, new THREE.CylinderGeometry(0.128, 0.155, 0.14, 24), spec.vestColor, 0, 0.07, 0, 0, 0, 0, 1.12, 1.0, 0.82);
+      addBonePart(1, new THREE.SphereGeometry(0.082, 16, 14), spec.vestColor, 'vest', 0.068, 0.27, 0.072, 0, 0, 0, 1.0, 0.92, 0.85);
+      addBonePart(1, new THREE.SphereGeometry(0.082, 16, 14), spec.vestColor, 'vest', -0.068, 0.27, 0.072, 0, 0, 0, 1.0, 0.92, 0.85);
+      addBonePart(1, new THREE.CylinderGeometry(0.128, 0.155, 0.14, 24), spec.vestColor, 'vest', 0, 0.07, 0, 0, 0, 0, 1.12, 1.0, 0.82);
     }
     // Smooth cylindrical neck
-    addBonePart(1, new THREE.CylinderGeometry(0.060, 0.068, 0.13, 20), spec.skinColor, 0, 0.46, 0);
+    addBonePart(1, new THREE.CylinderGeometry(0.060, 0.068, 0.13, 20), spec.skinColor, 'skin', 0, 0.46, 0);
 
     // 2. Smooth Sculpted Head, Facial Features & Organic Hair (bone 2)
     // Oval cranium + soft jawline sphere
-    addBonePart(2, new THREE.SphereGeometry(0.202, 28, 24), spec.skinColor, 0, 0.24, 0, 0, 0, 0, 0.94, 1.08, 0.96);
-    addBonePart(2, new THREE.SphereGeometry(0.152, 24, 18), spec.skinColor, 0, 0.165, 0.028, 0, 0, 0, 0.92, 0.88, 0.92);
+    addBonePart(2, new THREE.SphereGeometry(0.202, 28, 24), spec.skinColor, 'skin', 0, 0.24, 0, 0, 0, 0, 0.94, 1.08, 0.96);
+    addBonePart(2, new THREE.SphereGeometry(0.152, 24, 18), spec.skinColor, 'skin', 0, 0.165, 0.028, 0, 0, 0, 0.92, 0.88, 0.92);
     // Smooth ears
-    addBonePart(2, new THREE.SphereGeometry(0.042, 14, 12), spec.skinColor, 0.188, 0.235, -0.01, 0, 0, 0, 0.45, 0.88, 0.65);
+    addBonePart(2, new THREE.SphereGeometry(0.042, 14, 12), spec.skinColor, 'skin', 0.188, 0.235, -0.01, 0, 0, 0, 0.45, 0.88, 0.65);
     addBonePart(2, new THREE.SphereGeometry(0.042, 14, 12), spec.skinColor, -0.188, 0.235, -0.01, 0, 0, 0, 0.45, 0.88, 0.65);
     // Smooth sculpted 3D nose
-    addBonePart(2, new THREE.CapsuleGeometry(0.020, 0.032, 8, 14), spec.skinColor, 0, 0.228, 0.192, -0.22, 0, 0);
+    addBonePart(2, new THREE.CapsuleGeometry(0.020, 0.032, 8, 14), spec.skinColor, 'skin', 0, 0.228, 0.192, -0.22, 0, 0);
     // Expressive almond eyes (sclera + iris + bright catchlight)
-    addBonePart(2, new THREE.SphereGeometry(0.030, 14, 12), '#ffffff', 0.072, 0.262, 0.172, 0, 0, 0, 1.05, 0.85, 0.45);
-    addBonePart(2, new THREE.SphereGeometry(0.030, 14, 12), '#ffffff', -0.072, 0.262, 0.172, 0, 0, 0, 1.05, 0.85, 0.45);
-    addBonePart(2, new THREE.SphereGeometry(0.019, 12, 10), '#0f172a', 0.072, 0.262, 0.184, 0, 0, 0, 1.0, 1.0, 0.55);
+    addBonePart(2, new THREE.SphereGeometry(0.030, 14, 12), '#ffffff', 'eyes', 0.072, 0.262, 0.172, 0, 0, 0, 1.05, 0.85, 0.45);
+    addBonePart(2, new THREE.SphereGeometry(0.030, 14, 12), '#ffffff', 'eyes', -0.072, 0.262, 0.172, 0, 0, 0, 1.05, 0.85, 0.45);
+    addBonePart(2, new THREE.SphereGeometry(0.019, 12, 10), '#0f172a', 'eyes', 0.072, 0.262, 0.184, 0, 0, 0, 1.0, 1.0, 0.55);
     addBonePart(2, new THREE.SphereGeometry(0.019, 12, 10), '#0f172a', -0.072, 0.262, 0.184, 0, 0, 0, 1.0, 1.0, 0.55);
-    addBonePart(2, new THREE.SphereGeometry(0.007, 8, 8), '#ffffff', 0.078, 0.269, 0.192);
-    addBonePart(2, new THREE.SphereGeometry(0.007, 8, 8), '#ffffff', -0.066, 0.269, 0.192);
+    addBonePart(2, new THREE.SphereGeometry(0.007, 8, 8), '#ffffff', 'eyes', 0.078, 0.269, 0.192);
+    addBonePart(2, new THREE.SphereGeometry(0.007, 8, 8), '#ffffff', 'eyes', -0.066, 0.269, 0.192);
     // Soft rosy blush on cheeks
-    addBonePart(2, new THREE.SphereGeometry(0.032, 12, 10), '#f43f5e', 0.105, 0.205, 0.158, 0, 0, 0, 1.1, 0.65, 0.35);
+    addBonePart(2, new THREE.SphereGeometry(0.032, 12, 10), '#f43f5e', 'blush', 0.105, 0.205, 0.158, 0, 0, 0, 1.1, 0.65, 0.35);
     addBonePart(2, new THREE.SphereGeometry(0.032, 12, 10), '#f43f5e', -0.105, 0.205, 0.158, 0, 0, 0, 1.1, 0.65, 0.35);
     // Sculpted eyebrows & friendly smile
-    addBonePart(2, new THREE.CapsuleGeometry(0.010, 0.044, 6, 10), spec.hairColor, 0.074, 0.305, 0.176, 0, 0, 1.48);
-    addBonePart(2, new THREE.CapsuleGeometry(0.010, 0.044, 6, 10), spec.hairColor, -0.074, 0.305, 0.176, 0, 0, -1.48);
-    addBonePart(2, new THREE.TorusGeometry(0.030, 0.0075, 8, 16, Math.PI), '#9f1239', 0, 0.168, 0.178, Math.PI * 0.95, 0, 0);
+    addBonePart(2, new THREE.CapsuleGeometry(0.010, 0.044, 6, 10), spec.hairColor, 'hair', 0.074, 0.305, 0.176, 0, 0, 1.48);
+    addBonePart(2, new THREE.CapsuleGeometry(0.010, 0.044, 6, 10), spec.hairColor, 'hair', -0.074, 0.305, 0.176, 0, 0, -1.48);
+    addBonePart(2, new THREE.TorusGeometry(0.030, 0.0075, 8, 16, Math.PI), '#9f1239', 'mouth', 0, 0.168, 0.178, Math.PI * 0.95, 0, 0);
 
     // Smooth Organic Sculpted Hairstyles (zero blocky cubes)
     // Base rounded hair dome
-    addBonePart(2, new THREE.SphereGeometry(0.214, 28, 24), spec.hairColor, 0, 0.275, -0.018, 0, 0, 0, 0.98, 1.02, 1.02);
+    addBonePart(2, new THREE.SphereGeometry(0.214, 28, 24), spec.hairColor, 'hair', 0, 0.275, -0.018, 0, 0, 0, 0.98, 1.02, 1.02);
     // Swept front bangs
-    addBonePart(2, new THREE.CapsuleGeometry(0.056, 0.17, 10, 16), spec.hairColor, 0.02, 0.385, 0.125, 0.25, 0.12, 1.42);
-    addBonePart(2, new THREE.CapsuleGeometry(0.048, 0.13, 10, 16), spec.hairColor, -0.06, 0.375, 0.132, 0.20, -0.18, -1.35);
+    addBonePart(2, new THREE.CapsuleGeometry(0.056, 0.17, 10, 16), spec.hairColor, 'hair', 0.02, 0.385, 0.125, 0.25, 0.12, 1.42);
+    addBonePart(2, new THREE.CapsuleGeometry(0.048, 0.13, 10, 16), spec.hairColor, 'hair', -0.06, 0.375, 0.132, 0.20, -0.18, -1.35);
 
     if (spec.hairStyle === 'short_layered') {
       // Sculpted male crown wave & tapered side locks
-      addBonePart(2, new THREE.CapsuleGeometry(0.062, 0.16, 10, 16), spec.hairColor, 0, 0.425, 0.04, 0.15, 0, Math.PI / 2);
-      addBonePart(2, new THREE.CapsuleGeometry(0.042, 0.12, 8, 14), spec.hairColor, 0.178, 0.28, 0.02, 0.1, 0, -0.15);
-      addBonePart(2, new THREE.CapsuleGeometry(0.042, 0.12, 8, 14), spec.hairColor, -0.178, 0.28, 0.02, 0.1, 0, 0.15);
+      addBonePart(2, new THREE.CapsuleGeometry(0.062, 0.16, 10, 16), spec.hairColor, 'hair', 0, 0.425, 0.04, 0.15, 0, Math.PI / 2);
+      addBonePart(2, new THREE.CapsuleGeometry(0.042, 0.12, 8, 14), spec.hairColor, 'hair', 0.178, 0.28, 0.02, 0.1, 0, -0.15);
+      addBonePart(2, new THREE.CapsuleGeometry(0.042, 0.12, 8, 14), spec.hairColor, 'hair', -0.178, 0.28, 0.02, 0.1, 0, 0.15);
     } else if (spec.hairStyle === 'ponytail') {
       // Soft side hair locks + scrunchie ring + lush curved ponytail
-      addBonePart(2, new THREE.CapsuleGeometry(0.052, 0.18, 10, 16), spec.hairColor, 0.175, 0.24, 0.02, 0.12, 0, -0.12);
+      addBonePart(2, new THREE.CapsuleGeometry(0.052, 0.18, 10, 16), spec.hairColor, 'hair', 0.175, 0.24, 0.02, 0.12, 0, -0.12);
       addBonePart(2, new THREE.CapsuleGeometry(0.052, 0.18, 10, 16), spec.hairColor, -0.175, 0.24, 0.02, 0.12, 0, 0.12);
-      addBonePart(2, new THREE.TorusGeometry(0.048, 0.016, 10, 20), spec.vestColor, 0, 0.30, -0.205, 0.35, 0, 0);
-      addBonePart(2, new THREE.SphereGeometry(0.082, 18, 16), spec.hairColor, 0, 0.29, -0.25, 0, 0, 0, 0.95, 1.05, 1.15);
-      addBonePart(2, new THREE.CapsuleGeometry(0.068, 0.20, 12, 18), spec.hairColor, 0, 0.16, -0.275, 0.32, 0, 0);
+      addBonePart(2, new THREE.TorusGeometry(0.048, 0.016, 10, 20), spec.vestColor, 'vest', 0, 0.30, -0.205, 0.35, 0, 0);
+      addBonePart(2, new THREE.SphereGeometry(0.082, 18, 16), spec.hairColor, 'hair', 0, 0.29, -0.25, 0, 0, 0, 0.95, 1.05, 1.15);
+      addBonePart(2, new THREE.CapsuleGeometry(0.068, 0.20, 12, 18), spec.hairColor, 'hair', 0, 0.16, -0.275, 0.32, 0, 0);
     } else if (spec.hairStyle === 'wavy_bob') {
       // Smooth rounded bob waves framing face and shoulders
-      addBonePart(2, new THREE.CapsuleGeometry(0.068, 0.22, 12, 18), spec.hairColor, 0.172, 0.20, 0.01, 0.08, 0, -0.08);
+      addBonePart(2, new THREE.CapsuleGeometry(0.068, 0.22, 12, 18), spec.hairColor, 'hair', 0.172, 0.20, 0.01, 0.08, 0, -0.08);
       addBonePart(2, new THREE.CapsuleGeometry(0.068, 0.22, 12, 18), spec.hairColor, -0.172, 0.20, 0.01, 0.08, 0, 0.08);
-      addBonePart(2, new THREE.CapsuleGeometry(0.085, 0.20, 12, 18), spec.hairColor, 0, 0.19, -0.145, 0, 0, Math.PI / 2);
+      addBonePart(2, new THREE.CapsuleGeometry(0.085, 0.20, 12, 18), spec.hairColor, 'hair', 0, 0.19, -0.145, 0, 0, Math.PI / 2);
     }
 
     // Smooth Eyeglasses or Headset
     if (spec.accessory === 'glasses') {
-      addBonePart(2, new THREE.TorusGeometry(0.046, 0.0075, 10, 24), '#0f172a', 0.074, 0.264, 0.188);
-      addBonePart(2, new THREE.TorusGeometry(0.046, 0.0075, 10, 24), '#0f172a', -0.074, 0.264, 0.188);
-      addBonePart(2, new THREE.CylinderGeometry(0.007, 0.007, 0.052, 10), '#0f172a', 0, 0.268, 0.190, 0, 0, Math.PI / 2);
+      addBonePart(2, new THREE.TorusGeometry(0.046, 0.0075, 10, 24), '#0f172a', 'acc', 0.074, 0.264, 0.188);
+      addBonePart(2, new THREE.TorusGeometry(0.046, 0.0075, 10, 24), '#0f172a', 'acc', -0.074, 0.264, 0.188);
+      addBonePart(2, new THREE.CylinderGeometry(0.007, 0.007, 0.052, 10), '#0f172a', 'acc', 0, 0.268, 0.190, 0, 0, Math.PI / 2);
     } else if (spec.accessory === 'headset') {
-      addBonePart(2, new THREE.TorusGeometry(0.212, 0.016, 10, 28, Math.PI), '#f59e0b', 0, 0.255, 0);
-      addBonePart(2, new THREE.CylinderGeometry(0.056, 0.056, 0.038, 20), '#0f172a', 0.208, 0.24, 0, 0, 0, Math.PI / 2);
-      addBonePart(2, new THREE.CylinderGeometry(0.056, 0.056, 0.038, 20), '#0f172a', -0.208, 0.24, 0, 0, 0, Math.PI / 2);
-      addBonePart(2, new THREE.CapsuleGeometry(0.009, 0.14, 6, 12), '#fbbf24', -0.175, 0.185, 0.095, 1.25, 0.35, 0);
+      addBonePart(2, new THREE.TorusGeometry(0.212, 0.016, 10, 28, Math.PI), '#f59e0b', 'acc', 0, 0.255, 0);
+      addBonePart(2, new THREE.CylinderGeometry(0.056, 0.056, 0.038, 20), '#0f172a', 'acc', 0.208, 0.24, 0, 0, 0, Math.PI / 2);
+      addBonePart(2, new THREE.CylinderGeometry(0.056, 0.056, 0.038, 20), '#0f172a', 'acc', -0.208, 0.24, 0, 0, 0, Math.PI / 2);
+      addBonePart(2, new THREE.CapsuleGeometry(0.009, 0.14, 6, 12), '#fbbf24', 'acc', -0.175, 0.185, 0.095, 1.25, 0.35, 0);
     }
 
     // 3. Smooth Capsule Arms, Forearms & Hands (bones 3, 4, 5, 6) + Held Props
-    addBonePart(3, new THREE.CapsuleGeometry(0.054, 0.17, 10, 18), spec.vestColor, 0, -0.11, 0);
-    addBonePart(4, new THREE.CapsuleGeometry(0.045, 0.16, 10, 18), spec.topColor, 0, -0.10, 0);
-    addBonePart(4, new THREE.SphereGeometry(0.046, 14, 12), spec.skinColor, 0, -0.23, 0.01, 0, 0, 0, 0.85, 1.12, 0.68);
-    addBonePart(4, new THREE.CapsuleGeometry(0.015, 0.025, 6, 10), spec.skinColor, -0.032, -0.22, 0.03, 0.4, 0, -0.5);
+    addBonePart(3, new THREE.CapsuleGeometry(0.054, 0.17, 10, 18), spec.vestColor, 'vest', 0, -0.11, 0);
+    addBonePart(4, new THREE.CapsuleGeometry(0.045, 0.16, 10, 18), spec.topColor, 'top', 0, -0.10, 0);
+    addBonePart(4, new THREE.SphereGeometry(0.046, 14, 12), spec.skinColor, 'skin', 0, -0.23, 0.01, 0, 0, 0, 0.85, 1.12, 0.68);
+    addBonePart(4, new THREE.CapsuleGeometry(0.015, 0.025, 6, 10), spec.skinColor, 'skin', -0.032, -0.22, 0.03, 0.4, 0, -0.5);
 
-    addBonePart(5, new THREE.CapsuleGeometry(0.054, 0.17, 10, 18), spec.vestColor, 0, -0.11, 0);
-    addBonePart(6, new THREE.CapsuleGeometry(0.045, 0.16, 10, 18), spec.topColor, 0, -0.10, 0);
-    addBonePart(6, new THREE.SphereGeometry(0.046, 14, 12), spec.skinColor, 0, -0.23, 0.01, 0, 0, 0, 0.85, 1.12, 0.68);
-    addBonePart(6, new THREE.CapsuleGeometry(0.015, 0.025, 6, 10), spec.skinColor, 0.032, -0.22, 0.03, 0.4, 0, 0.5);
+    addBonePart(5, new THREE.CapsuleGeometry(0.054, 0.17, 10, 18), spec.vestColor, 'vest', 0, -0.11, 0);
+    addBonePart(6, new THREE.CapsuleGeometry(0.045, 0.16, 10, 18), spec.topColor, 'top', 0, -0.10, 0);
+    addBonePart(6, new THREE.SphereGeometry(0.046, 14, 12), spec.skinColor, 'skin', 0, -0.23, 0.01, 0, 0, 0, 0.85, 1.12, 0.68);
+    addBonePart(6, new THREE.CapsuleGeometry(0.015, 0.025, 6, 10), spec.skinColor, 'skin', 0.032, -0.22, 0.03, 0.4, 0, 0.5);
 
     if (spec.heldProp === 'research_tablet') {
-      addBonePart(4, new THREE.BoxGeometry(0.22, 0.018, 0.28), '#1e293b', -0.05, -0.25, 0.08);
-      addBonePart(4, new THREE.BoxGeometry(0.19, 0.020, 0.24), '#c084fc', -0.05, -0.25, 0.08);
+      addBonePart(4, new THREE.BoxGeometry(0.22, 0.018, 0.28), '#1e293b', 'prop', -0.05, -0.25, 0.08);
+      addBonePart(4, new THREE.BoxGeometry(0.19, 0.020, 0.24), '#c084fc', 'prop', -0.05, -0.25, 0.08);
     } else if (spec.heldProp === 'audit_tablet') {
-      addBonePart(4, new THREE.BoxGeometry(0.24, 0.020, 0.30), '#0f172a', -0.08, -0.25, 0.09);
-      addBonePart(4, new THREE.BoxGeometry(0.20, 0.022, 0.26), '#10b981', -0.08, -0.25, 0.09);
+      addBonePart(4, new THREE.BoxGeometry(0.24, 0.020, 0.30), '#0f172a', 'prop', -0.08, -0.25, 0.09);
+      addBonePart(4, new THREE.BoxGeometry(0.20, 0.022, 0.26), '#10b981', 'prop', -0.08, -0.25, 0.09);
     } else if (spec.heldProp === 'coffee_mug') {
-      addBonePart(6, new THREE.CylinderGeometry(0.052, 0.046, 0.11, 18), '#ffffff', 0.02, -0.24, 0.06, Math.PI / 2, 0, 0);
-      addBonePart(6, new THREE.TorusGeometry(0.028, 0.008, 8, 16, Math.PI), '#ffffff', 0.02, -0.24, 0.11, 0, Math.PI / 2, 0);
+      addBonePart(6, new THREE.CylinderGeometry(0.052, 0.046, 0.11, 18), '#ffffff', 'prop', 0.02, -0.24, 0.06, Math.PI / 2, 0, 0);
+      addBonePart(6, new THREE.TorusGeometry(0.028, 0.008, 8, 16, Math.PI), '#ffffff', 'prop', 0.02, -0.24, 0.11, 0, Math.PI / 2, 0);
     }
 
     // 4. Smooth Capsule Thighs, Calves & Rounded Sneakers (bones 7, 8, 9, 10)
-    addBonePart(7, new THREE.CapsuleGeometry(0.068, 0.25, 10, 18), spec.pantsColor, 0, -0.17, 0);
-    addBonePart(8, new THREE.CapsuleGeometry(0.056, 0.24, 10, 18), spec.pantsColor, 0, -0.17, 0);
-    addBonePart(8, new THREE.CapsuleGeometry(0.058, 0.12, 10, 18), spec.shoeColor, 0, -0.37, 0.045, Math.PI / 2, 0, 0, 1.05, 1.0, 0.82);
+    addBonePart(7, new THREE.CapsuleGeometry(0.068, 0.25, 10, 18), spec.pantsColor, 'pants', 0, -0.17, 0);
+    addBonePart(8, new THREE.CapsuleGeometry(0.056, 0.24, 10, 18), spec.pantsColor, 'pants', 0, -0.17, 0);
+    addBonePart(8, new THREE.CapsuleGeometry(0.058, 0.12, 10, 18), spec.shoeColor, 'shoe', 0, -0.37, 0.045, Math.PI / 2, 0, 0, 1.05, 1.0, 0.82);
 
-    addBonePart(9, new THREE.CapsuleGeometry(0.068, 0.25, 10, 18), spec.pantsColor, 0, -0.17, 0);
-    addBonePart(10, new THREE.CapsuleGeometry(0.056, 0.24, 10, 18), spec.pantsColor, 0, -0.17, 0);
-    addBonePart(10, new THREE.CapsuleGeometry(0.058, 0.12, 10, 18), spec.shoeColor, 0, -0.37, 0.045, Math.PI / 2, 0, 0, 1.05, 1.0, 0.82);
+    addBonePart(9, new THREE.CapsuleGeometry(0.068, 0.25, 10, 18), spec.pantsColor, 'pants', 0, -0.17, 0);
+    addBonePart(10, new THREE.CapsuleGeometry(0.056, 0.24, 10, 18), spec.pantsColor, 'pants', 0, -0.17, 0);
+    addBonePart(10, new THREE.CapsuleGeometry(0.058, 0.12, 10, 18), spec.shoeColor, 'shoe', 0, -0.37, 0.045, Math.PI / 2, 0, 0, 1.05, 1.0, 0.82);
 
     const mergedCharGeo = mergeGeometries(subGeos, false);
     const skinnedMesh = new THREE.SkinnedMesh(mergedCharGeo, material);
@@ -2437,6 +2842,7 @@ class StylizedCharacterFactory {
       posture: spec.posture,
       rootGroup,
       skinnedMesh,
+      partRanges,
       bones: {
         pelvis: bPelvis,
         torso: bTorso,
@@ -2497,11 +2903,11 @@ class OfficeAnimationEngine {
     let rz = z;
     const arcPush = Math.sin(p * Math.PI);
 
-    // 1. Zone 2 Solid Barrier: Research Desk + Wheeled Whiteboard + Gap (x: 3.50 to 8.55, z: -5.15 to -2.60)
-    // The gap between the desk (x: 3.6-6.0) and whiteboard (x: 5.9-8.5) is too small to pass through.
+    // 1. Zone 2 Solid Barrier: Research Desk + Wheeled Whiteboard + Gap (x: 3.50 to 9.00, z: -5.15 to -2.60)
+    // The gap between the desk (x: 3.6-6.0) and whiteboard (x: 6.3-9.0) is strictly impassable.
     // Strictly impassable: avatars must NEVER squeeze through the gap or penetrate desk/whiteboard!
     const isSittingAtChair = (av && av.workerId === 'worker_research' && Math.abs(x - 4.80) < 0.35 && Math.abs(z - (-3.35)) < 0.35);
-    if (!isSittingAtChair && rx > 3.50 && rx < 8.55 && rz > -5.15 && rz < -2.60) {
+    if (!isSittingAtChair && rx > 3.50 && rx < 9.00 && rz > -5.15 && rz < -2.60) {
       if (rz > -3.10 && rx > 5.50) {
         rz = -2.55; // Divert South into open lounge
       } else {
@@ -2562,6 +2968,7 @@ class OfficeAnimationEngine {
       const t = elapsedSec + av.phaseOffset;
 
       let targetX = av.homePos[0];
+      let targetY = 0.0;
       let targetZ = av.homePos[2];
       let targetRotY = av.homeRotY;
       let mode = 'home';
@@ -2584,26 +2991,71 @@ class OfficeAnimationEngine {
           ? (activeDisc.rot_a !== undefined ? activeDisc.rot_a : Math.PI * 0.5)
           : (activeDisc.rot_b !== undefined ? activeDisc.rot_b : -Math.PI * 0.5);
         spotPosture = activeDisc.posture || 'seated';
+        const isFloor2Trip = !!activeDisc.is_floor2 || spotPosture === 'command_center' || (meetZ < -2.0 && meetX < -1.6 && meetX > -8.8);
 
         if (cycleT < 2.8) {
           // Walking from desk to chair/stool/spot with smooth obstacle avoidance
           const p = cycleT / 2.8;
           const smoothP = p * p * (3.0 - 2.0 * p);
-          let rawX = av.homePos[0] + (meetX - av.homePos[0]) * smoothP;
-          let rawZ = av.homePos[2] + (meetZ - av.homePos[2]) * smoothP;
-          if (av.workerId === 'worker_release' && (meetZ < 3.8 || av.homePos[2] > 3.8)) {
-            rawX += Math.sin(smoothP * Math.PI) * 1.5;
+          const isGardenTrip = meetZ > 9.0 || av.homePos[2] > 9.0;
+          let rawX, rawY = 0.0, rawZ;
+
+          if (isFloor2Trip) {
+            // Three-stage ascent: Home Desk -> War Room Threshold [-4.6, 0, 9.30] -> Elevated Deck [-4.6, 1.20, 10.60] -> Captain Chair
+            if (smoothP < 0.35) {
+              const tp = smoothP / 0.35;
+              rawX = av.homePos[0] + (-4.6 - av.homePos[0]) * tp;
+              rawY = 0.0;
+              rawZ = av.homePos[2] + (9.30 - av.homePos[2]) * tp;
+              targetRotY = Math.atan2(-4.6 - av.homePos[0], 9.30 - av.homePos[2]);
+            } else if (smoothP < 0.70) {
+              const tp = (smoothP - 0.35) / 0.35;
+              rawX = -4.6;
+              rawY = 1.20 * tp;
+              rawZ = 9.30 + 1.30 * tp;
+              targetRotY = 0.0; // Face South climbing stairs
+            } else {
+              const tp = (smoothP - 0.70) / 0.30;
+              rawX = -4.6 + (meetX - (-4.6)) * tp;
+              rawY = 1.20;
+              rawZ = 10.60 + (meetZ - 10.60) * tp;
+              targetRotY = Math.atan2(meetX - (-4.6), meetZ - 10.60);
+            }
+            targetX = rawX;
+            targetY = rawY;
+            targetZ = rawZ;
+          } else if (isGardenTrip) {
+            if (smoothP < 0.55) {
+              const tp = smoothP / 0.55;
+              rawX = av.homePos[0] + (0.0 - av.homePos[0]) * tp;
+              rawZ = av.homePos[2] + (8.8 - av.homePos[2]) * tp;
+            } else {
+              const tp = (smoothP - 0.55) / 0.45;
+              rawX = 0.0 + (meetX - 0.0) * tp;
+              rawZ = 8.8 + (meetZ - 8.8) * tp;
+            }
+            targetX = rawX;
+            targetY = 0.0;
+            targetZ = rawZ;
+            targetRotY = Math.atan2(meetX - av.homePos[0], meetZ - av.homePos[2]);
+          } else {
+            rawX = av.homePos[0] + (meetX - av.homePos[0]) * smoothP;
+            rawZ = av.homePos[2] + (meetZ - av.homePos[2]) * smoothP;
+            if (av.workerId === 'worker_release' && (meetZ < 3.8 || av.homePos[2] > 3.8)) {
+              rawX += Math.sin(smoothP * Math.PI) * 1.5;
+            }
+            if ((av.homePos[0] > 3.5 || meetX > 3.5) &&
+                ((av.homePos[2] > -3.7 && meetZ < -5.0) || (av.homePos[2] < -5.0 && meetZ > -3.7))) {
+              rawX -= Math.sin(smoothP * Math.PI) * 2.5;
+              rawZ += Math.sin(smoothP * Math.PI) * 1.3;
+            }
+            const isRestroomTrip = (meetX > 6.8 && meetZ > 6.4) || (av.homePos[0] > 6.8 && av.homePos[2] > 6.4);
+            const safePos = this._avoidFurnitureObstacles(rawX, rawZ, smoothP, isRestroomTrip, av);
+            targetX = safePos[0];
+            targetY = 0.0;
+            targetZ = safePos[1];
+            targetRotY = Math.atan2(meetX - av.homePos[0], meetZ - av.homePos[2]);
           }
-          if ((av.homePos[0] > 3.5 || meetX > 3.5) &&
-              ((av.homePos[2] > -3.7 && meetZ < -5.0) || (av.homePos[2] < -5.0 && meetZ > -3.7))) {
-            rawX -= Math.sin(smoothP * Math.PI) * 2.5;
-            rawZ += Math.sin(smoothP * Math.PI) * 1.3;
-          }
-          const isRestroomTrip = (meetX > 6.8 && meetZ > 6.4) || (av.homePos[0] > 6.8 && av.homePos[2] > 6.4);
-          const safePos = this._avoidFurnitureObstacles(rawX, rawZ, smoothP, isRestroomTrip, av);
-          targetX = safePos[0];
-          targetZ = safePos[1];
-          targetRotY = Math.atan2(meetX - av.homePos[0], meetZ - av.homePos[2]);
           mode = 'walking';
           walkFactor = 1.0;
           activityBadge = `🚶 Walking to ${activeDisc.spot_name}`;
@@ -2611,6 +3063,7 @@ class OfficeAnimationEngine {
         } else if (cycleT < 13.2) {
           // Seated or standing at the spot chatting with colleague
           targetX = meetX;
+          targetY = isFloor2Trip ? 1.20 : 0.0;
           targetZ = meetZ;
           targetRotY = meetRot;
           mode = 'discussing';
@@ -2622,21 +3075,65 @@ class OfficeAnimationEngine {
           // Walking back from spot to workstation with smooth obstacle avoidance
           const p = (cycleT - 13.2) / (cycleLen - 13.2);
           const smoothP = p * p * (3.0 - 2.0 * p);
-          let rawX = meetX + (av.homePos[0] - meetX) * smoothP;
-          let rawZ = meetZ + (av.homePos[2] - meetZ) * smoothP;
-          if (av.workerId === 'worker_release' && (meetZ < 3.8 || av.homePos[2] > 3.8)) {
-            rawX += Math.sin(smoothP * Math.PI) * 1.5;
+          const isGardenTrip = meetZ > 9.0 || av.homePos[2] > 9.0;
+          let rawX, rawY = 0.0, rawZ;
+
+          if (isFloor2Trip) {
+            // Three-stage descent: Captain Chair -> Elevated Deck [-4.6, 1.20, 10.60] -> War Room Threshold [-4.6, 0, 9.30] -> Home Desk
+            if (smoothP < 0.30) {
+              const tp = smoothP / 0.30;
+              rawX = meetX + (-4.6 - meetX) * tp;
+              rawY = 1.20;
+              rawZ = meetZ + (10.60 - meetZ) * tp;
+              targetRotY = Math.atan2(-4.6 - meetX, 10.60 - meetZ);
+            } else if (smoothP < 0.65) {
+              const tp = (smoothP - 0.30) / 0.35;
+              rawX = -4.6;
+              rawY = 1.20 * (1.0 - tp);
+              rawZ = 10.60 - 1.30 * tp;
+              targetRotY = Math.PI; // Face North descending stairs
+            } else {
+              const tp = (smoothP - 0.65) / 0.35;
+              rawX = -4.6 + (av.homePos[0] - (-4.6)) * tp;
+              rawY = 0.0;
+              rawZ = 9.30 + (av.homePos[2] - 9.30) * tp;
+              targetRotY = Math.atan2(av.homePos[0] - (-4.6), av.homePos[2] - 9.30);
+            }
+            targetX = rawX;
+            targetY = rawY;
+            targetZ = rawZ;
+          } else if (isGardenTrip) {
+            if (smoothP < 0.45) {
+              const tp = smoothP / 0.45;
+              rawX = meetX + (0.0 - meetX) * tp;
+              rawZ = meetZ + (8.8 - meetZ) * tp;
+            } else {
+              const tp = (smoothP - 0.45) / 0.55;
+              rawX = 0.0 + (av.homePos[0] - 0.0) * tp;
+              rawZ = 8.8 + (av.homePos[2] - 8.8) * tp;
+            }
+            targetX = rawX;
+            targetY = 0.0;
+            targetZ = rawZ;
+            targetRotY = Math.atan2(av.homePos[0] - meetX, av.homePos[2] - meetZ);
+          } else {
+            rawX = meetX + (av.homePos[0] - meetX) * smoothP;
+            rawZ = meetZ + (av.homePos[2] - meetZ) * smoothP;
+            if (av.workerId === 'worker_release' && (meetZ < 3.8 || av.homePos[2] > 3.8)) {
+              rawX += Math.sin(smoothP * Math.PI) * 1.5;
+            }
+            if ((av.homePos[0] > 3.5 || meetX > 3.5) &&
+                ((av.homePos[2] > -3.7 && meetZ < -5.0) || (av.homePos[2] < -5.0 && meetZ > -3.7))) {
+              rawX -= Math.sin(smoothP * Math.PI) * 2.5;
+              rawZ += Math.sin(smoothP * Math.PI) * 1.3;
+            }
+            const isRestroomTrip = (meetX > 6.8 && meetZ > 6.4) || (av.homePos[0] > 6.8 && av.homePos[2] > 6.4);
+            const safePos = this._avoidFurnitureObstacles(rawX, rawZ, smoothP, isRestroomTrip, av);
+            targetX = safePos[0];
+            targetY = 0.0;
+            targetZ = safePos[1];
+            targetRotY = Math.atan2(av.homePos[0] - meetX, av.homePos[2] - meetZ);
           }
-          if ((av.homePos[0] > 3.5 || meetX > 3.5) &&
-              ((av.homePos[2] > -3.7 && meetZ < -5.0) || (av.homePos[2] < -5.0 && meetZ > -3.7))) {
-            rawX -= Math.sin(smoothP * Math.PI) * 2.5;
-            rawZ += Math.sin(smoothP * Math.PI) * 1.3;
-          }
-          const isRestroomTrip = (meetX > 6.8 && meetZ > 6.4) || (av.homePos[0] > 6.8 && av.homePos[2] > 6.4);
-          const safePos = this._avoidFurnitureObstacles(rawX, rawZ, smoothP, isRestroomTrip, av);
-          targetX = safePos[0];
-          targetZ = safePos[1];
-          targetRotY = Math.atan2(av.homePos[0] - meetX, av.homePos[2] - meetZ);
           mode = 'walking';
           walkFactor = 1.0;
           activityBadge = '🚶 Returning to Desk';
@@ -2644,7 +3141,7 @@ class OfficeAnimationEngine {
       }
 
       // Apply world position & rotation
-      av.rootGroup.position.set(targetX, 0.0, targetZ);
+      av.rootGroup.position.set(targetX, targetY, targetZ);
       av.rootGroup.rotation.y = targetRotY;
 
       // Dynamic privacy blur / censor inside the restroom cubicle
@@ -2686,7 +3183,50 @@ class OfficeAnimationEngine {
         b.rForearm.rotation.set(-0.45, 0, 0);
       } else if (mode === 'discussing') {
         const gPhase = elapsedSec * 5.2 + i * 1.7;
-        if (spotPosture === 'seated' || spotPosture === 'seated_stool') {
+        if (spotPosture === 'stargazing') {
+          activityBadge = isSpeakerA ? '🔭 Cosmic Stargazing' : '🌸 Garden Terrace Break';
+          b.pelvis.position.set(0, 0.84, 0);
+          if (b.lThigh && b.rThigh && b.lCalf && b.rCalf) {
+            b.lThigh.rotation.set(0, 0, 0);
+            b.rThigh.rotation.set(0, 0, 0);
+            b.lCalf.rotation.set(0, 0, 0);
+            b.rCalf.rotation.set(0, 0, 0);
+          }
+          if (isSpeakerA) {
+            b.torso.rotation.set(0.24, -0.12, 0);
+            b.head.rotation.set(-0.16, -0.08, 0);
+            b.lUpperArm.rotation.set(-0.68, 0.22, 0);
+            b.lForearm.rotation.set(-0.85, 0, 0);
+            b.rUpperArm.rotation.set(-0.68, -0.22, 0);
+            b.rForearm.rotation.set(-0.85, 0, 0);
+          } else {
+            b.torso.rotation.set(-0.08, 0.15, 0);
+            b.head.rotation.set(-0.25, 0.20, 0);
+            b.lUpperArm.rotation.set(-0.35, 0, 0);
+            b.lForearm.rotation.set(-0.55, 0, 0);
+            b.rUpperArm.rotation.set(-0.35, 0, 0);
+            b.rForearm.rotation.set(-0.55, 0, 0);
+          }
+        } else if (spotPosture === 'command_center') {
+          // Seated comfortably on Floor 2 Mezzanine Captain Chair facing God's Eye panoramic display
+          activityBadge = isSpeakerA ? "👁️ God's Eye Lead Operator" : "📡 AI Intelligence Analyst";
+          b.pelvis.position.set(0, 0.48, 0);
+          if (b.lThigh && b.rThigh && b.lCalf && b.rCalf) {
+            b.lThigh.rotation.x = -Math.PI / 2;
+            b.rThigh.rotation.x = -Math.PI / 2;
+            b.lCalf.rotation.x = Math.PI / 2;
+            b.rCalf.rotation.x = Math.PI / 2;
+          }
+          const scan = Math.sin(gPhase * 0.45) * 0.22;
+          b.torso.rotation.set(0.06, scan * 0.35, 0);
+          b.head.rotation.set(-0.06, scan, 0);
+          const typeL = Math.sin(gPhase * 6.5) * 0.08;
+          const typeR = Math.cos(gPhase * 6.5) * 0.08;
+          b.lUpperArm.rotation.set(-0.52 + typeL, 0, 0);
+          b.lForearm.rotation.set(-1.05, 0, 0);
+          b.rUpperArm.rotation.set(-0.52 + typeR, 0, 0);
+          b.rForearm.rotation.set(-1.05, 0, 0);
+        } else if (spotPosture === 'seated' || spotPosture === 'seated_stool') {
           // Seated comfortably on War-Room Chair, Swivel Bar Stool, or Lounge Sofa!
           const seatY = spotPosture === 'seated_stool' ? 0.58 : 0.45;
           const thighAngle = spotPosture === 'seated_stool' ? -1.22 : -Math.PI / 2;
@@ -2861,6 +3401,10 @@ class DynamicMonitorScreensEngine {
       workersById[workers[i].id] = workers[i];
     }
 
+    const makeCanvas = (w, h) => {
+      const cv = document.createElement('canvas'); cv.width = w; cv.height = h;
+      return [cv, cv.getContext('2d')];
+    };
     const addScreenPlane = (anchor, canvas) => {
       if (!anchor) return null;
       const tex = new THREE.CanvasTexture(canvas);
@@ -2900,10 +3444,7 @@ class DynamicMonitorScreensEngine {
 
     // 1. Kernel Left Monitor: High-Level Systems Architecture Card
     const wKernel = workersById.worker_kernel || {};
-    const cLeft = document.createElement('canvas');
-    cLeft.width = 512;
-    cLeft.height = 256;
-    const ctxL = cLeft.getContext('2d');
+    const [cLeft, ctxL] = makeCanvas(512, 256);
     ctxL.fillStyle = '#020617';
     ctxL.fillRect(0, 0, 512, 256);
     ctxL.strokeStyle = '#38bdf8';
@@ -2921,10 +3462,7 @@ class DynamicMonitorScreensEngine {
     addScreenPlane(screenAnchors.kernelLeft, cLeft);
 
     // 2. Kernel Right Monitor: Recent Verified Modules Telemetry
-    const cRight = document.createElement('canvas');
-    cRight.width = 512;
-    cRight.height = 256;
-    const ctxR = cRight.getContext('2d');
+    const [cRight, ctxR] = makeCanvas(512, 256);
     ctxR.fillStyle = '#090d16';
     ctxR.fillRect(0, 0, 512, 256);
     ctxR.strokeStyle = '#0284c7';
@@ -2945,10 +3483,7 @@ class DynamicMonitorScreensEngine {
 
     // 3. Research Left Portrait Monitor: Full High-DPI IEEE Research Paper Page 1
     const wRes = workersById.worker_research || {};
-    const cPdf = document.createElement('canvas');
-    cPdf.width = 512;
-    cPdf.height = 740;
-    const ctxP = cPdf.getContext('2d');
+    const [cPdf, ctxP] = makeCanvas(512, 740);
     ctxP.fillStyle = '#ffffff';
     ctxP.fillRect(0, 0, 512, 740);
     ctxP.strokeStyle = '#9333ea';
@@ -3030,10 +3565,7 @@ class DynamicMonitorScreensEngine {
     }
 
     // 4. Research Center-Right Wide Monitor: Dual-Page Research Paper Spread (Right in front of Dr. Clara Wijaya!)
-    const cMain = document.createElement('canvas');
-    cMain.width = 840;
-    cMain.height = 520;
-    const ctxM = cMain.getContext('2d');
+    const [cMain, ctxM] = makeCanvas(840, 520);
     ctxM.fillStyle = '#0f172a';
     ctxM.fillRect(0, 0, 840, 520);
     ctxM.strokeStyle = '#a855f7';
@@ -3112,10 +3644,7 @@ class DynamicMonitorScreensEngine {
     }
 
     // 5. Wheeled Research Whiteboard: Clean Finished Research Paper Summary
-    const cWb = document.createElement('canvas');
-    cWb.width = 960;
-    cWb.height = 540;
-    const ctxW = cWb.getContext('2d');
+    const [cWb, ctxW] = makeCanvas(960, 540);
     ctxW.fillStyle = '#ffffff';
     ctxW.fillRect(0, 0, 960, 540);
     ctxW.strokeStyle = '#475569';
@@ -3147,10 +3676,7 @@ class DynamicMonitorScreensEngine {
 
     // 6. Quality & Complexity Review Screen (Zero Hardware/Runner Leak)
     const wHw = workersById.worker_hardware || {};
-    const cSrv = document.createElement('canvas');
-    cSrv.width = 512;
-    cSrv.height = 300;
-    const ctxS = cSrv.getContext('2d');
+    const [cSrv, ctxS] = makeCanvas(512, 300);
     ctxS.fillStyle = '#022c22';
     ctxS.fillRect(0, 0, 512, 300);
     ctxS.strokeStyle = '#10b981';
@@ -3175,10 +3701,7 @@ class DynamicMonitorScreensEngine {
 
     // 7. Public Portfolio Console: 14 Public GitHub Language Repositories
     const wRel = workersById.worker_release || {};
-    const cRel = document.createElement('canvas');
-    cRel.width = 512;
-    cRel.height = 256;
-    const ctxG = cRel.getContext('2d');
+    const [cRel, ctxG] = makeCanvas(512, 256);
     ctxG.fillStyle = '#0f172a';
     ctxG.fillRect(0, 0, 512, 256);
     ctxG.strokeStyle = '#fbbf24';
@@ -3196,6 +3719,136 @@ class DynamicMonitorScreensEngine {
       ctxG.fillText(`${repos[s].repo_name}: ${repos[s].module_count}`, 14 + col * 248, 56 + row * 31);
     }
     addScreenPlane(screenAnchors.releaseHub, cRel);
+
+    // 6. Floor 2 Panoramic Video Wall "God's Eye" Frontier AI Radar Screen
+    const [cGodsEye, ctxEye] = makeCanvas(1024, 320);
+    ctxEye.fillStyle = '#070b14'; ctxEye.fillRect(0, 0, 1024, 320);
+    ctxEye.strokeStyle = 'rgba(2, 132, 199, 0.14)'; ctxEye.lineWidth = 1;
+    for (let x = 0; x <= 1024; x += 32) { ctxEye.beginPath(); ctxEye.moveTo(x, 0); ctxEye.lineTo(x, 320); ctxEye.stroke(); }
+    for (let y = 0; y <= 320; y += 24) { ctxEye.beginPath(); ctxEye.moveTo(0, y); ctxEye.lineTo(1024, y); ctxEye.stroke(); }
+    ctxEye.fillStyle = '#0f172a'; ctxEye.fillRect(0, 0, 1024, 34);
+    ctxEye.fillStyle = '#38bdf8'; ctxEye.font = 'bold 15px monospace';
+    ctxEye.fillText("👁️ GOD'S EYE // FRONTIER AI COMMAND RADAR", 16, 23);
+    ctxEye.fillStyle = '#10b981'; ctxEye.font = '12px monospace';
+    ctxEye.fillText("● LIVE RADAR ACTIVE   ZERO-HYPE: 100%   NODES: 5 REGIONS   THROUGHPUT: 14.8k tok/s", 430, 22);
+
+    // Panel 1: arXiv Stream
+    ctxEye.fillStyle = 'rgba(15, 23, 42, 0.85)'; ctxEye.fillRect(16, 44, 310, 260);
+    ctxEye.strokeStyle = '#0284c7'; ctxEye.strokeRect(16, 44, 310, 260);
+    ctxEye.fillStyle = '#f87171'; ctxEye.font = 'bold 13px sans-serif'; ctxEye.fillText("📄 arXiv:cs.LG / Stat.ML STREAM", 26, 68);
+    [
+      ["• State-Space Duality: Sub-Quadratic Attention", "  O(N) Scaling Invariants • Lock-Free Kernel", 96],
+      ["• Continuous Batching PagedAttention v3", "  Zero KV-Cache Fragmentation on NVLink", 144],
+      ["• Mechanistic Interpretability of Agent Swarms", "  Formal Guardrails & RLHF Bounds Verified", 192]
+    ].forEach(([t, sub, y]) => {
+      ctxEye.fillStyle = '#f8fafc'; ctxEye.font = '11px sans-serif'; ctxEye.fillText(t, 26, y);
+      ctxEye.fillStyle = '#94a3b8'; ctxEye.fillText(sub, 26, y + 18);
+    });
+    ctxEye.fillStyle = '#38bdf8'; ctxEye.fillText("⚡ 14 New Verified Preprints in Last 24h", 26, 280);
+
+    // Panel 2: World Radar Telemetry Map
+    ctxEye.fillStyle = 'rgba(15, 23, 42, 0.85)'; ctxEye.fillRect(342, 44, 340, 260);
+    ctxEye.strokeStyle = '#0284c7'; ctxEye.strokeRect(342, 44, 340, 260);
+    ctxEye.fillStyle = '#38bdf8'; ctxEye.font = 'bold 13px sans-serif'; ctxEye.fillText("🌐 GLOBAL INFERENCE & REASONING NODES", 352, 68);
+    ctxEye.strokeStyle = 'rgba(56, 189, 248, 0.3)';
+    [35, 65, 95].forEach((r) => { ctxEye.beginPath(); ctxEye.arc(512, 175, r, 0, Math.PI * 2); ctxEye.stroke(); });
+    [
+      ["SF-Node", 440, 150, "28ms"], ["Zurich", 505, 135, "42ms"], ["Tokyo", 580, 145, "58ms"],
+      ["Singapore", 565, 195, "18ms"], ["Jakarta", 550, 220, "12ms"]
+    ].forEach(([name, nx, ny, lat]) => {
+      ctxEye.fillStyle = '#10b981'; ctxEye.beginPath(); ctxEye.arc(nx, ny, 4, 0, Math.PI * 2); ctxEye.fill();
+      ctxEye.fillStyle = '#f8fafc'; ctxEye.font = '9px monospace'; ctxEye.fillText(`${name} (${lat})`, nx + 6, ny + 3);
+    });
+    ctxEye.fillStyle = '#10b981'; ctxEye.font = 'bold 12px monospace';
+    ctxEye.fillText("CLUSTER: 8xH100 NVLink • PEAK 14,820 tok/s", 365, 288);
+
+    // Panel 3: SOTA Benchmarks & Hacker News
+    ctxEye.fillStyle = 'rgba(15, 23, 42, 0.85)'; ctxEye.fillRect(698, 44, 310, 260);
+    ctxEye.strokeStyle = '#0284c7'; ctxEye.strokeRect(698, 44, 310, 260);
+    ctxEye.fillStyle = '#fbbf24'; ctxEye.font = 'bold 13px sans-serif'; ctxEye.fillText("📊 SOTA BENCHMARKS & HACKER FEEDS", 708, 68);
+    ctxEye.fillStyle = '#f8fafc'; ctxEye.font = '11px sans-serif';
+    ctxEye.fillText("🥇 Agentic-Duality-70B  | MMLU-Pro: 94.2%", 708, 98);
+    ctxEye.fillText("🥈 SubQuad-Mamba-3      | HumanEval: 91.8%", 708, 126);
+    ctxEye.fillText("🥉 Stratum-Ring-Buffer  | 1.84ms Latency", 708, 154);
+    ctxEye.fillStyle = '#ff6600';
+    ctxEye.fillText("🔶 Hacker News: vLLM PagedAttn (482 pts)", 708, 196);
+    ctxEye.fillText("🔶 Hacker News: Zero-Contamination SOTA", 708, 222);
+    ctxEye.fillStyle = '#38bdf8'; ctxEye.fillText("🛡️ 100% Repro Audit • 0 Contamination", 708, 280);
+    addScreenPlane(screenAnchors.godsEye, cGodsEye);
+
+    // 7. Left Desk Monitor: arXiv.org Paper View
+    const [cArxiv, ctxAx] = makeCanvas(512, 300);
+    ctxAx.fillStyle = '#ffffff'; ctxAx.fillRect(0, 0, 512, 300);
+    ctxAx.fillStyle = '#b31b1b'; ctxAx.fillRect(0, 0, 512, 36);
+    ctxAx.fillStyle = '#ffffff'; ctxAx.font = 'bold 13px monospace';
+    ctxAx.fillText("arXiv:2410.18942v2 [cs.LG]", 14, 23);
+    ctxAx.font = '11px sans-serif'; ctxAx.fillText("Cornell University Library", 345, 23);
+    ctxAx.fillStyle = '#0f172a'; ctxAx.font = 'bold 13px sans-serif';
+    ctxAx.fillText("High-Throughput Stratum Cache Ring Buffer Pattern", 14, 62);
+    ctxAx.fillText("Lock-Free Invariants and AST Complexity Analysis", 14, 80);
+    ctxAx.fillStyle = '#0284c7'; ctxAx.font = '10px sans-serif';
+    ctxAx.fillText("Mateus Yonathan, Sarah Oktavia Ph.D., Citra Beaumount", 14, 102);
+    ctxAx.fillStyle = '#f8fafc'; ctxAx.fillRect(14, 114, 484, 96);
+    ctxAx.strokeStyle = '#cbd5e1'; ctxAx.strokeRect(14, 114, 484, 96);
+    ctxAx.fillStyle = '#334155'; ctxAx.font = '10px sans-serif';
+    ctxAx.fillText("Abstract — We present a high-throughput stratum-cache ring buffer pattern", 20, 132);
+    ctxAx.fillText("tailored for Python concurrency. Static AST analysis proves O(1) amortized", 20, 148);
+    ctxAx.fillText("complexity for enqueue/dequeue operations with zero thread contention.", 20, 164);
+    ctxAx.fillStyle = '#0f172a'; ctxAx.font = 'bold 12px monospace';
+    ctxAx.fillText("Theorem 1: T_amortized = O(1), Contention(P) = 0", 20, 192);
+    ctxAx.fillStyle = '#b31b1b'; ctxAx.fillRect(14, 226, 115, 24);
+    ctxAx.fillStyle = '#ffffff'; ctxAx.font = 'bold 10px sans-serif'; ctxAx.fillText("Download PDF", 28, 242);
+    ctxAx.fillStyle = '#64748b'; ctxAx.font = '10px sans-serif';
+    ctxAx.fillText("Subjects: Machine Learning (cs.LG); Distributed Computing (cs.DC)", 14, 276);
+    addScreenPlane(screenAnchors.godsEyeArxiv, cArxiv);
+
+    // 8. Center Desk Monitor: Hacker News Frontpage View
+    const [cHN, ctxHN] = makeCanvas(512, 300);
+    ctxHN.fillStyle = '#f6f6ef'; ctxHN.fillRect(0, 0, 512, 300);
+    ctxHN.fillStyle = '#ff6600'; ctxHN.fillRect(0, 0, 512, 28);
+    ctxHN.fillStyle = '#ffffff'; ctxHN.fillRect(6, 4, 20, 20);
+    ctxHN.fillStyle = '#ff6600'; ctxHN.font = 'bold 15px sans-serif'; ctxHN.fillText("Y", 11, 19);
+    ctxHN.fillStyle = '#000000'; ctxHN.font = 'bold 12px sans-serif'; ctxHN.fillText("Hacker News", 32, 19);
+    ctxHN.font = '10px sans-serif'; ctxHN.fillText("new | past | comments | ask | show | jobs | submit", 120, 18);
+    [
+      ["1.", "Show HN: vLLM PagedAttention v3 with Zero Fragmentation", "482 points by mateusy 4h ago | 164 comments"],
+      ["2.", "Sub-quadratic sequence scaling with bounded numerical stability", "319 points by soktavia 6h ago | 88 comments"],
+      ["3.", "Reproducible benchmarks for frontier LLM reasoning", "275 points by cbeaumont 8h ago | 52 comments"],
+      ["4.", "Mechanistic interpretability of RLHF reward models in swarms", "194 points by anthropic 11h ago | 41 comments"]
+    ].forEach(([rk, tt, pts], idx) => {
+      const y = 48 + idx * 40;
+      ctxHN.fillStyle = '#828282'; ctxHN.font = '11px sans-serif'; ctxHN.fillText(rk, 8, y);
+      ctxHN.fillStyle = '#ff6600'; ctxHN.fillText("▲", 24, y);
+      ctxHN.fillStyle = '#000000'; ctxHN.font = 'bold 11px sans-serif'; ctxHN.fillText(tt, 40, y);
+      ctxHN.fillStyle = '#828282'; ctxHN.font = '9px sans-serif'; ctxHN.fillText(pts, 40, y + 16);
+    });
+    addScreenPlane(screenAnchors.godsEyeHN, cHN);
+
+    // 9. Right Desk Monitor: Papers With Code SOTA Leaderboard View
+    const [cPWC, ctxPWC] = makeCanvas(512, 300);
+    ctxPWC.fillStyle = '#ffffff'; ctxPWC.fillRect(0, 0, 512, 300);
+    ctxPWC.fillStyle = '#1e3a8a'; ctxPWC.fillRect(0, 0, 512, 34);
+    ctxPWC.fillStyle = '#ffffff'; ctxPWC.font = 'bold 13px sans-serif';
+    ctxPWC.fillText("Papers With Code • Verified SOTA Leaderboards", 14, 22);
+    ctxPWC.fillStyle = '#f1f5f9'; ctxPWC.fillRect(10, 42, 492, 24);
+    ctxPWC.fillStyle = '#475569'; ctxPWC.font = 'bold 10px sans-serif';
+    ctxPWC.fillText("Rank   Model Architecture       Benchmark         Verified Metric    Code", 16, 58);
+    [
+      ["🥇", "Agentic-Duality-70B", "MMLU-Pro Zero-Shot", "94.2% (+3.1%)", "4.8k ★"],
+      ["🥈", "SubQuad-Mamba-3",     "HumanEval Python",   "91.8% (+1.8%)", "2.9k ★"],
+      ["🥉", "Stratum-Ring-Buffer", "Inference Latency",  "1.84ms (SOTA)", "1.4k ★"],
+      ["4.",  "Llama-3-Autonomous",  "GSM8K Reasoning",    "89.6% (+0.9%)", "1.2k ★"],
+      ["5.",  "DeepSeek-V2-Lite",    "Code Contamination", "0.0% Audited",  "980 ★"]
+    ].forEach(([rk, m, b, s, c], idx) => {
+      const y = 84 + idx * 24;
+      ctxPWC.fillStyle = idx % 2 === 0 ? '#ffffff' : '#f8fafc'; ctxPWC.fillRect(10, y - 14, 492, 22);
+      ctxPWC.fillStyle = '#0f172a'; ctxPWC.font = '10px sans-serif';
+      ctxPWC.fillText(`${rk}  ${m.padEnd(24)} ${b.padEnd(20)} ${s.padEnd(16)} ${c}`, 16, y);
+    });
+    ctxPWC.fillStyle = '#0284c7'; ctxPWC.fillRect(10, 240, 492, 26);
+    ctxPWC.fillStyle = '#ffffff'; ctxPWC.font = 'bold 10px sans-serif';
+    ctxPWC.fillText("✓ 100% INDEPENDENT ARTIFACT VERIFICATION • ZERO DATA CONTAMINATION", 24, 257);
+    addScreenPlane(screenAnchors.godsEyePWC, cPWC);
   }
 }
 
@@ -3272,6 +3925,22 @@ class SpeechBubbleProjector {
         itemObj.w = itemObj.el.offsetWidth || (window.innerWidth <= 900 ? 170 : 220);
         itemObj.h = itemObj.el.offsetHeight || (window.innerWidth <= 900 ? 46 : 52);
       });
+    }
+  }
+
+  refreshWorkers(workers) {
+    this.workers = workers || this.workers;
+    for (const item of this.items) {
+      const w = this.workers.find((x) => x.id === item.workerId);
+      if (!w) continue;
+      const nameEl = item.el.querySelector('.bubble-name');
+      const dotEl = item.el.querySelector('.bubble-dot');
+      const humanName = w.display_name || (w.role ? w.role.split(' ')[0] : 'Engineer');
+      if (nameEl) nameEl.textContent = humanName;
+      if (dotEl && w.plumbob_color) {
+        dotEl.style.background = w.plumbob_color;
+        dotEl.style.boxShadow = `0 0 8px ${w.plumbob_color}`;
+      }
     }
   }
 
@@ -3394,12 +4063,14 @@ class SpeechBubbleProjector {
 }
 
 class OfficeRaycasterEngine {
-  constructor(canvas, camera, scene, hitProxies, spatialZones, onSelectWorker) {
+  constructor(canvas, camera, scene, hitProxies, spatialZones, onSelectWorker, onSelectTelescope, onSelectGodsEye) {
     this.canvas = canvas;
     this.camera = camera;
     this.hitProxies = hitProxies || [];
     this.spatialZones = spatialZones || {};
     this.onSelectWorker = onSelectWorker;
+    this.onSelectTelescope = onSelectTelescope || null;
+    this.onSelectGodsEye = onSelectGodsEye || null;
 
     this.raycaster = new THREE.Raycaster();
     this.pointer = new THREE.Vector2();
@@ -3445,7 +4116,16 @@ class OfficeRaycasterEngine {
       this.raycaster.setFromCamera(this.pointer, this.camera);
       const hits = this.raycaster.intersectObjects(this.hitProxies, false);
       if (hits.length > 0) {
-        const wid = hits[0].object.userData.workerId;
+        const uData = hits[0].object.userData;
+        if (uData && uData.isTelescope && this.onSelectTelescope) {
+          this.onSelectTelescope();
+          return;
+        }
+        if (uData && uData.isGodsEye && this.onSelectGodsEye) {
+          this.onSelectGodsEye();
+          return;
+        }
+        const wid = uData ? uData.workerId : null;
         if (wid) this.onSelectWorker(wid);
       }
     });
@@ -3631,7 +4311,6 @@ class DeskDetailsDrawerController {
           </div>
         `;
       }
-
 
     this.drawerEl.innerHTML = `
       <div class="drawer-top">
@@ -4303,6 +4982,25 @@ class LabBossaAudioEngine {
         });
       }
 
+      openCosmicModal() {
+        const modal = document.getElementById('telescope-cosmic-modal');
+        if (modal) {
+          modal.style.display = 'block';
+          const epochEl = document.getElementById('cosmic-telemetry-epoch');
+          if (epochEl) {
+            const d = new Date();
+            epochEl.textContent = `J2000.0 • ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')} WIB`;
+          }
+        }
+        this.selectZone('zone_telescope');
+      }
+
+      openGodsEyeModal() {
+        const modal = document.getElementById('gods-eye-ai-modal');
+        if (modal) modal.style.display = 'block';
+        this.selectZone('zone_gods_eye');
+      }
+
       selectWorker(workerId) {
         const worker = this.workersById.get(workerId);
         if (!worker) return;
@@ -4368,6 +5066,26 @@ class LabBossaAudioEngine {
         const leftPanel = document.getElementById('hud-left');
         const btnToggle = document.getElementById('btn-toggle-panel');
 
+        const btnToggleAll = document.getElementById('btn-toggle-all-panels');
+        const iconAll = document.getElementById('btn-all-panels-icon');
+        const textAll = document.getElementById('btn-all-panels-text');
+
+        let arePanelsHidden = false;
+        const toggleAllPanels = (forceHidden = null) => {
+          arePanelsHidden = (forceHidden !== null) ? Boolean(forceHidden) : !arePanelsHidden;
+          document.body.classList.toggle('all-panels-hidden', arePanelsHidden);
+          if (btnToggleAll) {
+            btnToggleAll.classList.toggle('panels-hidden', arePanelsHidden);
+            btnToggleAll.title = arePanelsHidden ? 'Show All' : 'Hide All (Cinematic 3D View)';
+            if (iconAll) iconAll.textContent = arePanelsHidden ? '👁' : '✕';
+            if (textAll) textAll.textContent = arePanelsHidden ? 'Show All' : 'Hide All';
+          }
+        };
+
+        if (btnToggleAll) {
+          btnToggleAll.addEventListener('click', () => toggleAllPanels());
+        }
+
         if (btnHideTopbar && topbarEl && btnRestoreTopbar) {
           btnHideTopbar.addEventListener('click', () => {
             topbarEl.classList.add('collapsed');
@@ -4378,6 +5096,32 @@ class LabBossaAudioEngine {
             btnRestoreTopbar.classList.remove('visible');
           });
         }
+        window.toggleAllOfficePanels = toggleAllPanels;
+
+        const cosmicModal = document.getElementById('telescope-cosmic-modal');
+        const btnCloseCosmic = document.getElementById('btn-close-cosmic-modal');
+        const btnDismissCosmic = document.getElementById('btn-dismiss-cosmic');
+        if (btnCloseCosmic && cosmicModal) {
+          btnCloseCosmic.addEventListener('click', () => { cosmicModal.style.display = 'none'; });
+        }
+        if (btnDismissCosmic && cosmicModal) {
+          btnDismissCosmic.addEventListener('click', () => { cosmicModal.style.display = 'none'; });
+        }
+        const godsEyeModal = document.getElementById('gods-eye-ai-modal');
+        const btnCloseGods = document.getElementById('btn-close-gods-eye-modal');
+        const btnDismissGods = document.getElementById('btn-dismiss-gods-eye');
+        if (btnCloseGods && godsEyeModal) {
+          btnCloseGods.addEventListener('click', () => { godsEyeModal.style.display = 'none'; });
+        }
+        if (btnDismissGods && godsEyeModal) {
+          btnDismissGods.addEventListener('click', () => { godsEyeModal.style.display = 'none'; });
+        }
+        window.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') {
+            if (cosmicModal && cosmicModal.style.display !== 'none') cosmicModal.style.display = 'none';
+            if (godsEyeModal && godsEyeModal.style.display !== 'none') godsEyeModal.style.display = 'none';
+          }
+        });
         const btnToggleDrawer = document.getElementById('btn-toggle-drawer');
         const btnToggleBottom = document.getElementById('btn-toggle-bottom');
         const btnClose = document.getElementById('btn-close-panel');
@@ -4717,7 +5461,7 @@ class LabBossaAudioEngine {
 
       const sceneEngine = new IsometricSceneEngine(canvas, spatialCfg);
       const furnitureBundle = OfficeFurnitureBuilder.build(sceneEngine.scene);
-      const characterBundle = StylizedCharacterFactory.buildAll(sceneEngine.scene, spatialZones, workers);
+      const characterBundle = StylizedCharacterFactory.buildAll(sceneEngine.scene, spatialZones, workers, activeShiftIdx);
 
       DynamicMonitorScreensEngine.build(sceneEngine.scene, furnitureBundle.screenAnchors, payload);
 
@@ -4737,8 +5481,12 @@ class LabBossaAudioEngine {
         sceneEngine.scene,
         furnitureBundle.hitProxies,
         spatialZones,
-        (workerId) => hudCtrl.selectWorker(workerId)
+        (workerId) => hudCtrl.selectWorker(workerId),
+        () => hudCtrl.openCosmicModal(),
+        () => hudCtrl.openGodsEyeModal()
       );
+      window.openCosmicModal = () => hudCtrl.openCosmicModal();
+      window.openGodsEyeModal = () => hudCtrl.openGodsEyeModal();
 
       const animEngine = new OfficeAnimationEngine(
         characterBundle,
@@ -4747,6 +5495,79 @@ class LabBossaAudioEngine {
         bubbleProjector
       );
       hudCtrl.animEngine = animEngine;
+
+      const shiftNames = [
+        'Morning (06:00-12:00 WIB)',
+        'Afternoon (12:00-18:00 WIB)',
+        'Evening (18:00-00:00 WIB)',
+        'Overnight (00:00-06:00 WIB)',
+      ];
+
+      const applyShift = (shiftIdx) => {
+        activeShiftIdx = ((Number(shiftIdx) % 4) + 4) % 4;
+        const sNum = activeShiftIdx + 1;
+        const sName = shiftNames[activeShiftIdx];
+        if (shiftEl) shiftEl.textContent = `Shift ${sNum}/4: ${sName}`;
+        document.querySelectorAll('.stat-shift-val').forEach((el) => {
+          el.textContent = `Shift ${sNum}: ${sName.split(' ')[0]}`;
+        });
+
+        const curRoster = shiftRosters[activeShiftIdx];
+        const curPalette = StylizedCharacterFactory.SHIFT_PALETTES[activeShiftIdx] || {};
+
+        for (const w of workers) {
+          if (curRoster[w.id]) {
+            w.display_name = curRoster[w.id].name;
+            w.role = curRoster[w.id].role;
+            if (curPalette[w.id] && curPalette[w.id].plumbobHex) {
+              w.plumbob_color = curPalette[w.id].plumbobHex;
+            }
+            if (w.metadata) {
+              if (w.id === 'worker_research') w.metadata['Scientist Name'] = curRoster[w.id].name;
+              else if (w.id === 'worker_kernel') w.metadata['Architect Name'] = curRoster[w.id].name;
+              else if (w.id === 'worker_hardware') w.metadata['Lead Reviewer'] = curRoster[w.id].name;
+              else if (w.id === 'worker_release') w.metadata['Portfolio Lead'] = curRoster[w.id].name;
+              else if (w.id === 'worker_lounge') w.metadata['Strategy Lead'] = curRoster[w.id].name;
+            }
+          }
+        }
+
+        // Instantly update character outfits to current shift's colors
+        StylizedCharacterFactory.applyShiftOutfit(characterBundle, activeShiftIdx);
+
+        // Update speech bubbles with active staff names and plumbob dots
+        if (bubbleProjector && typeof bubbleProjector.refreshWorkers === 'function') {
+          bubbleProjector.refreshWorkers(workers);
+        }
+
+        // Update left panel cards
+        if (hudCtrl && typeof hudCtrl._populateLeftPanel === 'function') {
+          hudCtrl._populateLeftPanel();
+        }
+      };
+
+      window.setOfficeShift = applyShift;
+      window.getOfficeShift = () => activeShiftIdx;
+
+      const shiftPill = document.getElementById('stat-shift-pill');
+      if (shiftPill) {
+        shiftPill.style.cursor = 'pointer';
+        shiftPill.addEventListener('click', () => {
+          applyShift((activeShiftIdx + 1) % 4);
+        });
+      }
+
+      setInterval(() => {
+        const wH = (new Date().getUTCHours() + 7) % 24;
+        let expShift = 0;
+        if (wH >= 6 && wH < 12) expShift = 0;
+        else if (wH >= 12 && wH < 18) expShift = 1;
+        else if (wH >= 18) expShift = 2;
+        else expShift = 3;
+        if (expShift !== activeShiftIdx) {
+          applyShift(expShift);
+        }
+      }, 30000);
 
       // Dynamic discussion fetcher: Pulls fresh engineering breakthroughs from Hacker News Firebase API
       // Strict 1500ms timeout with 100% resilient fallback to local curated discussions
@@ -4937,12 +5758,19 @@ class LabBossaAudioEngine {
 
       window.__OFFICE_TELEMETRY__ = {
         initialized: true,
+        THREE,
+        sceneEngine,
+        furnitureBundle,
+        screenAnchors: furnitureBundle.screenAnchors,
         renderer: sceneEngine.renderer,
         scene: sceneEngine.scene,
         camera: sceneEngine.camera,
         workerCount: workers.length,
         zoneCount: Object.keys(spatialZones).length,
         selectZone: (zId) => hudCtrl.selectZone(zId),
+        hudCtrl,
+        characterBundle,
+        workers,
         audioEngine,
         animEngine,
         drawerCtrl,
