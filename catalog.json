@@ -1,14 +1,14 @@
 [
   {
-    "topic": "A2A (Agent2Agent Protocol): Building Interoperable Aether-Vector Systems",
+    "topic": "Shortest Job First (SJF): The CPU Scheduling Algorithm Every Software Engineer Should",
     "language": "Python",
     "folder": "python",
     "category": "\ud83e\udde0 Computational AI & Math Engines",
     "spoke_repo": "python-advanced-lab",
-    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261031_090115_a2a__agent2agent_protocol___bu",
+    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261031_110119_shortest_job_first__sjf___the",
     "source_file": "main.py",
-    "timestamp": "2026-10-31T09:01:15.377057+00:00",
-    "dir_name": "20261031_090115_a2a__agent2agent_protocol___bu"
+    "timestamp": "2026-10-31T11:01:19.144952+00:00",
+    "dir_name": "20261031_110119_shortest_job_first__sjf___the"
   },
   {
     "topic": "LSM-Tree MemTable and SSTable Flush Compaction Engine",
@@ -1549,6 +1549,17 @@
     "source_file": "main.rb",
     "timestamp": "2026-10-05T06:24:27.116491+00:00",
     "dir_name": "20261005_062427_two-phase_commit_protocol_coor"
+  },
+  {
+    "topic": "A2A (Agent2Agent Protocol): Building Interoperable Aether-Vector Systems",
+    "language": "Python",
+    "folder": "python",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "python-advanced-lab",
+    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261031_090115_a2a__agent2agent_protocol___bu",
+    "source_file": "main.py",
+    "timestamp": "2026-10-31T09:01:15.377057+00:00",
+    "dir_name": "20261031_090115_a2a__agent2agent_protocol___bu"
   },
   {
     "topic": "High-Throughput Aether-Cache Ring Buffer Pattern",
