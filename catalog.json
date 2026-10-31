@@ -1,14 +1,14 @@
 [
   {
-    "topic": "Suffix Automaton for Linear-Time Substring Indexing",
+    "topic": "CYK Parsing Algorithm for Context-Free Grammars",
     "language": "Python",
     "folder": "python",
-    "category": "\u26a1 Low-Latency & Memory Systems",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
     "spoke_repo": "python-advanced-lab",
-    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261031_150117_suffix_automaton_for_linear-ti",
+    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261031_170122_cyk_parsing_algorithm_for_cont",
     "source_file": "main.py",
-    "timestamp": "2026-10-31T15:01:17.987635+00:00",
-    "dir_name": "20261031_150117_suffix_automaton_for_linear-ti"
+    "timestamp": "2026-10-31T17:01:22.052569+00:00",
+    "dir_name": "20261031_170122_cyk_parsing_algorithm_for_cont"
   },
   {
     "topic": "LSM-Tree MemTable and SSTable Flush Compaction Engine",
@@ -1551,6 +1551,17 @@
     "dir_name": "20261005_062427_two-phase_commit_protocol_coor"
   },
   {
+    "topic": "Suffix Automaton for Linear-Time Substring Indexing",
+    "language": "Python",
+    "folder": "python",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "python-advanced-lab",
+    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261031_150117_suffix_automaton_for_linear-ti",
+    "source_file": "main.py",
+    "timestamp": "2026-10-31T15:01:17.987635+00:00",
+    "dir_name": "20261031_150117_suffix_automaton_for_linear-ti"
+  },
+  {
     "topic": "Gossip Protocol Node Failure Detector",
     "language": "Python",
     "folder": "python",
@@ -1835,17 +1846,6 @@
     "source_file": "main.py",
     "timestamp": "2026-10-29T07:01:33.467450+00:00",
     "dir_name": "20261029_070133_r-tree_spatial_index_for_multi"
-  },
-  {
-    "topic": "CYK Parsing Algorithm for Context-Free Grammars",
-    "language": "Python",
-    "folder": "python",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "python-advanced-lab",
-    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261029_050115_cyk_parsing_algorithm_for_cont",
-    "source_file": "main.py",
-    "timestamp": "2026-10-29T05:01:15.594873+00:00",
-    "dir_name": "20261029_050115_cyk_parsing_algorithm_for_cont"
   },
   {
     "topic": "Thread-Safe Bounded Blocking Queue with Condition Variables",
