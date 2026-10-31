@@ -1,14 +1,14 @@
 [
   {
-    "topic": "Half-Optimal Induced Matchings in Random Graphs: Online and Low-Degree Algorithms",
+    "topic": "Aho-Corasick Multi-Pattern String Searching Automaton",
     "language": "Python",
     "folder": "python",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "category": "\u26a1 Low-Latency & Memory Systems",
     "spoke_repo": "python-advanced-lab",
-    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261031_190128_half-optimal_induced_matchings",
+    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261031_210118_aho-corasick_multi-pattern_str",
     "source_file": "main.py",
-    "timestamp": "2026-10-31T19:01:28.613707+00:00",
-    "dir_name": "20261031_190128_half-optimal_induced_matchings"
+    "timestamp": "2026-10-31T21:01:18.605734+00:00",
+    "dir_name": "20261031_210118_aho-corasick_multi-pattern_str"
   },
   {
     "topic": "LSM-Tree MemTable and SSTable Flush Compaction Engine",
@@ -1551,6 +1551,17 @@
     "dir_name": "20261005_062427_two-phase_commit_protocol_coor"
   },
   {
+    "topic": "Half-Optimal Induced Matchings in Random Graphs: Online and Low-Degree Algorithms",
+    "language": "Python",
+    "folder": "python",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "python-advanced-lab",
+    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261031_190128_half-optimal_induced_matchings",
+    "source_file": "main.py",
+    "timestamp": "2026-10-31T19:01:28.613707+00:00",
+    "dir_name": "20261031_190128_half-optimal_induced_matchings"
+  },
+  {
     "topic": "CYK Parsing Algorithm for Context-Free Grammars",
     "language": "Python",
     "folder": "python",
@@ -2253,17 +2264,6 @@
     "source_file": "main.py",
     "timestamp": "2026-10-05T06:25:34.099362+00:00",
     "dir_name": "20261005_062534_skip_list_probabilistic_search"
-  },
-  {
-    "topic": "Aho-Corasick Multi-Pattern String Searching Automaton",
-    "language": "Python",
-    "folder": "python",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "python-advanced-lab",
-    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261005_061601_aho-corasick_multi-pattern_str",
-    "source_file": "main.py",
-    "timestamp": "2026-10-05T06:16:01.817018+00:00",
-    "dir_name": "20261005_061601_aho-corasick_multi-pattern_str"
   },
   {
     "topic": "Finite State Machine Tokenizer and Lexical Parser",
