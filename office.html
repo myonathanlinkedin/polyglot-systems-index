@@ -45,7 +45,7 @@
       }, true);
     })();
   </script>
-  <meta name="description" content="Interactive 3D Isometric Virtual Office depicting autonomous male and female engineers and research scientists working 24/7 on 418 verified modules and 119 research papers." />
+  <meta name="description" content="Interactive 3D Isometric Virtual Office depicting autonomous male and female engineers and research scientists working 24/7 on 419 verified modules and 119 research papers." />
   <meta name="author" content="Mateus Yonathan" />
   <link rel="canonical" href="https://myonathanlinkedin.github.io/office.html" />
   <link rel="icon" href="https://myonathanlinkedin.github.io/assets/avatar.png" type="image/png" />
@@ -140,16 +140,15 @@
     body.all-panels-hidden #hud-top-container,
     body.all-panels-hidden #hud-left,
     body.all-panels-hidden #hud-bottom-container,
-    body.all-panels-hidden #desk-drawer:not(.open),
-    body.all-panels-hidden #worker-bubbles {
+    body.all-panels-hidden #desk-drawer,
+    body.all-panels-hidden #desk-drawer.open,
+    body.all-panels-hidden #worker-bubbles,
+    body.all-panels-hidden #gods-eye-ai-modal,
+    body.all-panels-hidden #gods-eye-ai-modal.open {
       display: none !important;
-    }
-    body.all-panels-hidden #desk-drawer.open {
-      display: flex !important;
-      opacity: 1 !important;
-      pointer-events: auto !important;
-      transform: translate3d(0, 0, 0) !important;
-      z-index: 999 !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+      transform: translate3d(500px, 0, 0) !important;
     }
 
     #hud-top-ticker {
@@ -326,6 +325,23 @@
     }
 
     #office-help-modal.open { display: flex; }
+
+    #gods-eye-ai-modal {
+      display: none; position: fixed; inset: 0; margin: auto;
+      max-width: 680px; width: min(680px, calc(100vw - 32px));
+      max-height: 85vh; height: fit-content; padding: 22px;
+      border-radius: 16px; background: var(--glass-bg);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.65), 0 0 24px rgba(56, 189, 248, 0.20), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      z-index: 9999; overflow-y: auto; color: #f8fafc; font-family: var(--font-sans);
+      user-select: text;
+    }
+    #gods-eye-ai-modal.open { display: flex !important; flex-direction: column; }
+    #gods-eye-ai-modal::-webkit-scrollbar { width: 6px; }
+    #gods-eye-ai-modal::-webkit-scrollbar-track { background: rgba(15, 23, 42, 0.4); border-radius: 999px; }
+    #gods-eye-ai-modal::-webkit-scrollbar-thumb { background: rgba(148, 163, 184, 0.32); border-radius: 999px; }
+    #gods-eye-ai-modal::-webkit-scrollbar-thumb:hover { background: rgba(56, 189, 248, 0.6); }
 
     .office-help-card {
       width: min(580px, calc(100vw - 24px)); max-height: 85dvh;
@@ -610,7 +626,7 @@
       <span class="brand-pulse-dot" title="24/7 Agentic Autonomous Pipeline Active"></span>
       <span class="brand-title">MATEUS YONATHAN // LAB</span>
       <span class="ticker-sep mobile-hide-telemetry">•</span>
-      <span class="mobile-hide-telemetry">Mods: <strong id="stat-modules">418</strong></span>
+      <span class="mobile-hide-telemetry">Mods: <strong id="stat-modules">419</strong></span>
       <span class="ticker-sep mobile-hide-telemetry">•</span>
       <span class="mobile-hide-telemetry">Papers: <strong id="stat-papers">119</strong></span>
       <span class="ticker-sep">•</span>
@@ -663,7 +679,7 @@
         <button type="button" class="drawer-close" id="btn-close-office-help" title="Close Guide">✕</button>
       </div>
       <div style="font-size:0.82rem;line-height:1.65;color:#cbd5e1;display:grid;gap:9px;margin-top:8px;">
-        <p><strong>What Is This?</strong> Welcome to the interactive 3D exhibition space of the <strong>Mateus Yonathan Agentic Autonomous Lab</strong>. This virtual studio showcases our 24/7 open-source software engineering and academic research publications (418 public modules &amp; 119 Research Papers) in real time.</p>
+        <p><strong>What Is This?</strong> Welcome to the interactive 3D exhibition space of the <strong>Mateus Yonathan Agentic Autonomous Lab</strong>. This virtual studio showcases our 24/7 open-source software engineering and academic research publications (419 public modules &amp; 119 Research Papers) in real time.</p>
         <p><strong>5 Divisions You Can Visit:</strong><br/>
         • <strong>💻 Systems Architecture:</strong> Showcases newly released algorithms and data structures across 14 programming languages.<br/>
         • <strong>📄 Research Paper Wing:</strong> Displays published Research Papers and Mini-Papers with executive summaries and Scholar Preprints.<br/>
@@ -721,7 +737,7 @@
   </div>
 
   <!-- Floor 2 "God's Eye" AI Trend & Hacker Intelligence Modal -->
-  <div id="gods-eye-ai-modal" role="dialog" aria-modal="true" aria-label="God's Eye AI Command Terminal" class="glass-panel" style="display:none;position:fixed;inset:0;margin:auto;max-width:680px;width:92%;max-height:85vh;height:fit-content;padding:24px;border-radius:18px;background:rgba(2,6,23,0.94);border:1px solid rgba(56,189,248,0.45);box-shadow:0 0 45px rgba(2,132,199,0.40);backdrop-filter:blur(22px);z-index:9999;overflow-y:auto;color:#f8fafc;font-family:var(--font-sans);">
+  <div id="gods-eye-ai-modal" role="dialog" aria-modal="true" aria-label="God's Eye AI Command Terminal" class="glass-panel">
     <div style="display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(56,189,248,0.3);padding-bottom:12px;margin-bottom:14px;">
       <div style="display:flex;align-items:center;gap:10px;">
         <span style="font-size:1.6rem;">👁️</span>
@@ -730,7 +746,7 @@
           <span style="font-size:0.73rem;color:#94a3b8;font-family:var(--font-mono);">PURE SIGNAL AGGREGATOR &bull; ZERO MARKETING HYPOTHESIS &bull; REPRODUCIBLE SOTA</span>
         </div>
       </div>
-      <button type="button" id="btn-close-gods-eye-modal" class="panel-close" style="width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);color:#f8fafc;cursor:pointer;font-size:0.85rem;display:flex;align-items:center;justify-content:center;">✕</button>
+      <button type="button" id="btn-close-gods-eye-modal" class="panel-close" title="Close Terminal">✕</button>
     </div>
 
     <!-- Live Telemetry Ribbon -->
@@ -820,9 +836,6 @@
     </label>
     <label style="display:flex;align-items:center;gap:8px;font-size:0.75rem;color:#cbd5e1;cursor:pointer;margin-bottom:6px;">
       <input type="checkbox" id="chk-notif" checked /> Show Live Notification Bar
-    </label>
-    <label style="display:flex;align-items:center;gap:8px;font-size:0.75rem;color:#cbd5e1;cursor:pointer;margin-bottom:6px;">
-      <input type="checkbox" id="chk-bottom-dock" checked /> Show Bottom Camera Dock
     </label>
     <label style="display:flex;align-items:center;gap:8px;font-size:0.75rem;color:#cbd5e1;cursor:pointer;">
       <input type="checkbox" id="chk-ring" checked /> Show Zone Floor Beacon
@@ -1358,12 +1371,12 @@ class CutawayRoomBuilder {
     [0.82, 3.8, 6.78].forEach((px) => {
       shellParts.push(createColoredPart(new THREE.CylinderGeometry(0.025, 0.025, 1.06, 8), '#94a3b8', px, 0.54, 14.48));
     });
-    // Zen Bonsai Planters on Garden Terrace
+    // Zen Bonsai Planters on Garden Terrace (Elevated/relocated to North corners Z=9.8 to clear 'COSMIC OBSERVATORY & GARDEN DECK' floor typography)
     [1.4, 6.2].forEach((px) => {
-      shellParts.push(createColoredPart(new THREE.BoxGeometry(0.9, 0.40, 0.9), '#334155', px, 0.20, 13.8));
-      shellParts.push(createColoredPart(new THREE.BoxGeometry(0.78, 0.04, 0.78), '#3f2e18', px, 0.41, 13.8));
-      shellParts.push(createColoredPart(new THREE.SphereGeometry(0.32, 8, 8), '#15803d', px, 0.80, 13.8));
-      shellParts.push(createColoredPart(new THREE.SphereGeometry(0.14, 6, 6), '#f472b6', px + 0.08, 0.98, 13.75));
+      shellParts.push(createColoredPart(new THREE.BoxGeometry(0.9, 0.40, 0.9), '#334155', px, 0.20, 9.8));
+      shellParts.push(createColoredPart(new THREE.BoxGeometry(0.78, 0.04, 0.78), '#3f2e18', px, 0.41, 9.8));
+      shellParts.push(createColoredPart(new THREE.SphereGeometry(0.32, 8, 8), '#15803d', px, 0.80, 9.8));
+      shellParts.push(createColoredPart(new THREE.SphereGeometry(0.14, 6, 6), '#f472b6', px + 0.08, 0.98, 9.75));
     });
 
     // 2. HORIZONTAL EXPANSION WING B: Floor 2 "God's Eye" AI War Room (South-West: X: -7.6 to -1.6, Z: 9.0 to 15.2)
@@ -2338,15 +2351,15 @@ class OfficeFurnitureBuilder {
     // UPPER LEVEL: Floor 2 AI Command War Room (baseY = 2.30m)
     // =========================================================================
     // Curved Panoramic Video Wall "God's Eye" with 3 distinct angled frames (NO occluding front blocks!)
-    addBox(2.2, 1.38, 0.08, '#0f172a', -4.6, 3.55, 10.80);
-    addBox(1.15, 1.38, 0.08, '#0f172a', -6.15, 3.55, 10.90, 0, 0.22, 0);
-    addBox(1.15, 1.38, 0.08, '#0f172a', -3.05, 3.55, 10.90, 0, -0.22, 0);
+    addBox(2.02, 1.38, 0.08, '#0f172a', -4.60, 3.55, 10.82);
+    addBox(1.22, 1.38, 0.08, '#0f172a', -6.20, 3.55, 10.95, 0, 0.22, 0);
+    addBox(1.22, 1.38, 0.08, '#0f172a', -3.00, 3.55, 10.95, 0, -0.22, 0);
     addBox(4.4, 0.05, 0.10, '#38bdf8', -4.6, 4.28, 10.83);
     addBox(4.4, 0.05, 0.10, '#38bdf8', -4.6, 2.82, 10.83);
-    // 3 Individual Screen Anchors for God's Eye Video Wall
-    screenAnchors.godsEyeCenter = { pos: [-4.6, 3.55, 10.86], rotY: 0, w: 2.14, h: 1.32 };
-    screenAnchors.godsEyeLeft = { pos: [-6.15, 3.55, 10.96], rotY: 0.22, w: 1.10, h: 1.32 };
-    screenAnchors.godsEyeRight = { pos: [-3.05, 3.55, 10.96], rotY: -0.22, w: 1.10, h: 1.32 };
+    // 3 Individual Screen Anchors for God's Eye Video Wall (Seamless 0-overlap curved alignment)
+    screenAnchors.godsEyeCenter = { pos: [-4.60, 3.55, 10.86], rotY: 0, w: 2.00, h: 1.32 };
+    screenAnchors.godsEyeLeft = { pos: [-6.19, 3.55, 10.99], rotY: 0.22, w: 1.20, h: 1.32 };
+    screenAnchors.godsEyeRight = { pos: [-3.01, 3.55, 10.99], rotY: -0.22, w: 1.20, h: 1.32 };
 
     // Command Operator Desk & 3 Analyst Monitors on Floor 2 (baseY = 2.30, desk surface Y = 2.75)
     addBox(3.8, 0.06, 0.90, '#1e293b', -4.6, 2.72, 12.10);
@@ -3127,7 +3140,7 @@ class OfficeAnimationEngine {
         spotPosture = activeDisc.posture || 'standing';
         // Defense-in-depth: Avatars can NEVER sit in mid-air without furniture underneath!
         if (spotPosture === 'seated' || spotPosture === 'seated_stool') {
-          const onWarChair = Math.abs(meetZ - (-1.65)) < 0.6 && (Math.abs(meetX - (-1.32)) < 0.6 || Math.abs(meetX - 1.32) < 0.6 || Math.abs(meetX) < 0.6);
+          const onWarChair = (Math.abs(meetZ - (-1.65)) < 0.6 && (Math.abs(meetX - (-1.32)) < 0.6 || Math.abs(meetX - 1.32) < 0.6)) || (Math.abs(meetZ - (-2.95)) < 0.6 && Math.abs(meetX) < 0.6);
           const onSofa = Math.abs(meetZ - 2.32) < 0.6 && Math.abs(meetX) < 1.30;
           const onStool = Math.abs(meetZ - (-4.51)) < 0.6 && Math.abs(meetX - (-0.30)) < 1.40;
           const onUpperDeck = (meetZ >= 11.0 && (meetY >= 1.5 || meetX > 1.0));
@@ -3796,24 +3809,24 @@ class DynamicMonitorScreensEngine {
     // =========================================================================
     // 6. Floor 2 Panoramic Video Wall "God's Eye" (Animated Cyber Hacking Monitoring Suite)
     // =========================================================================
-    const [cCenter, ctxEye] = makeCanvas(512, 320);
+    const [cCenter, ctxEye] = makeCanvas(512, 340);
     const centerPlane = addScreenPlane(screenAnchors.godsEyeCenter, cCenter);
-    const [cEyeL, ctxEyeL] = makeCanvas(512, 320);
+    const [cEyeL, ctxEyeL] = makeCanvas(384, 420);
     const leftPlane = addScreenPlane(screenAnchors.godsEyeLeft, cEyeL);
-    const [cEyeR, ctxEyeR] = makeCanvas(512, 320);
+    const [cEyeR, ctxEyeR] = makeCanvas(384, 420);
     const rightPlane = addScreenPlane(screenAnchors.godsEyeRight, cEyeR);
 
     let panoFrame = 0;
     const renderPanoramicHackerCycle = () => {
       panoFrame++;
-      const mode = Math.floor(panoFrame / 2) % 3; // Switches screen mode every ~5.6s
+      const mode = Math.floor(panoFrame / 2) % 3; // Cycle screen modes
       const tick = panoFrame * 0.45;
 
-      // --- 6A: Center Panel: Cyber Radar & Distributed Inference Matrix ---
-      ctxEye.fillStyle = '#060a12'; ctxEye.fillRect(0, 0, 512, 320);
+      // --- 6A: Center Panel: Cyber Radar & Distributed Inference Matrix (512x340) ---
+      ctxEye.fillStyle = '#060a12'; ctxEye.fillRect(0, 0, 512, 340);
       ctxEye.strokeStyle = 'rgba(2, 132, 199, 0.22)'; ctxEye.lineWidth = 1;
-      for (let x = 0; x <= 512; x += 32) { ctxEye.beginPath(); ctxEye.moveTo(x, 0); ctxEye.lineTo(x, 320); ctxEye.stroke(); }
-      for (let y = 0; y <= 320; y += 24) { ctxEye.beginPath(); ctxEye.moveTo(0, y); ctxEye.lineTo(512, y); ctxEye.stroke(); }
+      for (let x = 0; x <= 512; x += 32) { ctxEye.beginPath(); ctxEye.moveTo(x, 0); ctxEye.lineTo(x, 340); ctxEye.stroke(); }
+      for (let y = 0; y <= 340; y += 24) { ctxEye.beginPath(); ctxEye.moveTo(0, y); ctxEye.lineTo(512, y); ctxEye.stroke(); }
       ctxEye.fillStyle = '#0f172a'; ctxEye.fillRect(0, 0, 512, 34);
       ctxEye.fillStyle = '#38bdf8'; ctxEye.font = 'bold 12px monospace';
 
@@ -3821,14 +3834,14 @@ class DynamicMonitorScreensEngine {
         ctxEye.fillText("🌐 GLOBAL INFERENCE & REASONING NODES", 14, 22);
         const sweep = tick % (Math.PI * 2);
         ctxEye.strokeStyle = 'rgba(56, 189, 248, 0.35)';
-        [35, 70, 105].forEach((r) => { ctxEye.beginPath(); ctxEye.arc(256, 160, r, 0, Math.PI * 2); ctxEye.stroke(); });
+        [30, 60, 90].forEach((r) => { ctxEye.beginPath(); ctxEye.arc(256, 140, r, 0, Math.PI * 2); ctxEye.stroke(); });
         ctxEye.strokeStyle = 'rgba(52, 211, 153, 0.75)'; ctxEye.lineWidth = 2;
-        ctxEye.beginPath(); ctxEye.moveTo(256, 160); ctxEye.lineTo(256 + Math.cos(sweep) * 115, 160 + Math.sin(sweep) * 115); ctxEye.stroke();
-        [["SF-01", 185, 135, "28ms"], ["Zurich", 245, 120, "42ms"], ["Tokyo", 330, 130, "58ms"], ["SG-Node", 310, 185, "18ms"], ["Jakarta", 295, 210, "12ms"]].forEach(([name, nx, ny, lat]) => {
+        ctxEye.beginPath(); ctxEye.moveTo(256, 140); ctxEye.lineTo(256 + Math.cos(sweep) * 100, 140 + Math.sin(sweep) * 100); ctxEye.stroke();
+        [["SF-01", 195, 120, "28ms"], ["Zurich", 245, 105, "42ms"], ["Tokyo", 315, 115, "58ms"], ["SG-Node", 300, 165, "18ms"], ["Jakarta", 285, 190, "12ms"]].forEach(([name, nx, ny, lat]) => {
           ctxEye.fillStyle = '#10b981'; ctxEye.beginPath(); ctxEye.arc(nx, ny, 4, 0, Math.PI * 2); ctxEye.fill();
           ctxEye.fillStyle = '#f8fafc'; ctxEye.font = '9px monospace'; ctxEye.fillText(`${name} (${lat})`, nx + 6, ny + 3);
         });
-        ctxEye.fillStyle = '#34d399'; ctxEye.font = 'bold 11px monospace'; ctxEye.fillText("CLUSTER: 8xH100 NVLink • PEAK 16,420 tok/s [NOMINAL]", 60, 290);
+        ctxEye.fillStyle = '#34d399'; ctxEye.font = 'bold 11px monospace'; ctxEye.fillText("CLUSTER: 8xH100 NVLink • PEAK 16,420 tok/s [NOMINAL]", 60, 230);
       } else if (mode === 1) {
         ctxEye.fillText("🛡️ CYBER DEFENSE & ZERO-DAY INTRUSION RADAR", 14, 22);
         const threats = [
@@ -3837,16 +3850,16 @@ class DynamicMonitorScreensEngine {
           ["SANDBOX", "BPF_FILTER", "CAP_NET_BIND_SERVICE", "NO-PRIV", "ENFORCED"]
         ];
         threats.forEach((row, idx) => {
-          const y = 62 + idx * 42;
-          ctxEye.fillStyle = 'rgba(15, 23, 42, 0.9)'; ctxEye.fillRect(16, y, 480, 32);
-          ctxEye.strokeStyle = idx === 1 ? '#10b981' : '#38bdf8'; ctxEye.strokeRect(16, y, 480, 32);
+          const y = 48 + idx * 40;
+          ctxEye.fillStyle = 'rgba(15, 23, 42, 0.9)'; ctxEye.fillRect(20, y, 472, 32);
+          ctxEye.strokeStyle = idx === 1 ? '#10b981' : '#38bdf8'; ctxEye.strokeRect(20, y, 472, 32);
           ctxEye.fillStyle = '#38bdf8'; ctxEye.font = 'bold 10px monospace';
-          ctxEye.fillText(row.join(" • "), 24, y + 20);
+          ctxEye.fillText(row.join(" • "), 28, y + 20);
         });
-        ctxEye.fillStyle = '#fbbf24'; ctxEye.font = 'bold 11px monospace'; ctxEye.fillText("ACTIVE ATTACK SURFACE: 0.00% • 14 PUBLIC SPOKES HARDENED", 48, 290);
+        ctxEye.fillStyle = '#fbbf24'; ctxEye.font = 'bold 11px monospace'; ctxEye.fillText("ACTIVE ATTACK SURFACE: 0.00% • 14 PUBLIC SPOKES HARDENED", 48, 195);
       } else {
         ctxEye.fillText("⚡ AUTONOMOUS AGENTIC SWARM CONSENSUS MESH", 14, 22);
-        const nodes = [[120, 110], [210, 80], [310, 85], [400, 120], [360, 210], [256, 235], [150, 205]];
+        const nodes = [[120, 95], [210, 70], [310, 75], [390, 105], [350, 165], [256, 180], [150, 160]];
         ctxEye.strokeStyle = 'rgba(56, 189, 248, 0.35)'; ctxEye.lineWidth = 1.5;
         for (let i = 0; i < nodes.length; i++) {
           for (let j = i + 1; j < nodes.length; j++) {
@@ -3857,103 +3870,107 @@ class DynamicMonitorScreensEngine {
           ctxEye.fillStyle = '#38bdf8'; ctxEye.beginPath(); ctxEye.arc(x, y, 6, 0, Math.PI * 2); ctxEye.fill();
           ctxEye.fillStyle = '#ffffff'; ctxEye.font = '9px monospace'; ctxEye.fillText(`A${idx+1}`, x - 5, y - 9);
         });
-        ctxEye.fillStyle = '#34d399'; ctxEye.font = 'bold 11px monospace'; ctxEye.fillText("RAFT CONSENSUS: SYNCHRONIZED • EPOCH: 0x884F2A", 95, 290);
+        ctxEye.fillStyle = '#34d399'; ctxEye.font = 'bold 11px monospace'; ctxEye.fillText("RAFT CONSENSUS: SYNCHRONIZED • EPOCH: 0x884F2A", 95, 225);
       }
       if (centerPlane && centerPlane.tex) centerPlane.tex.needsUpdate = true;
 
-      // --- 6B: Left Panel: Neural Duality, VRAM & Hacker Stream ---
-      ctxEyeL.fillStyle = '#060a12'; ctxEyeL.fillRect(0, 0, 512, 320);
-      ctxEyeL.fillStyle = '#0f172a'; ctxEyeL.fillRect(0, 0, 512, 34);
-      ctxEyeL.fillStyle = '#38bdf8'; ctxEyeL.font = 'bold 12px monospace';
+      // --- 6B: Left Panel: Neural Duality, VRAM & Hacker Stream (384x420) ---
+      ctxEyeL.fillStyle = '#060a12'; ctxEyeL.fillRect(0, 0, 384, 420);
+      ctxEyeL.fillStyle = '#0f172a'; ctxEyeL.fillRect(0, 0, 384, 34);
+      ctxEyeL.fillStyle = '#38bdf8'; ctxEyeL.font = 'bold 11px monospace';
 
       if (mode === 0) {
-        ctxEyeL.fillText("🧠 NEURAL DUALITY // SUB-QUADRATIC", 14, 22);
-        [["[Input Embeddings]", 48], ["▼ Linear Projection", 88], ["▶ [Selective SSM Layer]", 128], ["▶ [Sliding Attn Window]", 168], ["▶ [Bounded Logits]", 208]].forEach(([lbl, y]) => {
-          ctxEyeL.fillStyle = 'rgba(15, 23, 42, 0.85)'; ctxEyeL.fillRect(16, y, 480, 26);
-          ctxEyeL.strokeStyle = '#0284c7'; ctxEyeL.strokeRect(16, y, 480, 26);
-          ctxEyeL.fillStyle = '#38bdf8'; ctxEyeL.font = 'bold 10px monospace'; ctxEyeL.fillText(lbl, 28, y + 17);
+        ctxEyeL.fillText("🧠 NEURAL DUALITY // SSM", 12, 22);
+        [["[Input Embeddings]", 46], ["▼ Linear Projection", 84], ["▶ [Selective SSM Layer]", 122], ["▶ [Sliding Attn Window]", 160], ["▶ [Bounded Logits]", 198]].forEach(([lbl, y]) => {
+          ctxEyeL.fillStyle = 'rgba(15, 23, 42, 0.85)'; ctxEyeL.fillRect(14, y, 356, 26);
+          ctxEyeL.strokeStyle = '#0284c7'; ctxEyeL.strokeRect(14, y, 356, 26);
+          ctxEyeL.fillStyle = '#38bdf8'; ctxEyeL.font = 'bold 10px monospace'; ctxEyeL.fillText(lbl, 24, y + 17);
         });
-        ctxEyeL.fillStyle = '#0284c7'; ctxEyeL.fillRect(16, 252, 480, 22);
-        const vramBar = 380 + Math.sin(tick * 1.5) * 40;
-        ctxEyeL.fillStyle = '#34d399'; ctxEyeL.fillRect(16, 252, vramBar, 22);
-        ctxEyeL.fillStyle = '#0f172a'; ctxEyeL.font = 'bold 10px monospace'; ctxEyeL.fillText(`VRAM: ${((vramBar/480)*100).toFixed(1)}% (150.7 GB / 160 GB)`, 24, 267);
+        ctxEyeL.fillStyle = '#0284c7'; ctxEyeL.fillRect(14, 238, 356, 20);
+        const vramBar = 280 + Math.sin(tick * 1.5) * 30;
+        ctxEyeL.fillStyle = '#34d399'; ctxEyeL.fillRect(14, 238, vramBar, 20);
+        ctxEyeL.fillStyle = '#0f172a'; ctxEyeL.font = 'bold 10px monospace'; ctxEyeL.fillText(`VRAM: ${((vramBar/356)*100).toFixed(1)}% (150.7 / 160 GB)`, 20, 252);
       } else if (mode === 1) {
-        ctxEyeL.fillText("📟 KERNEL SECURITY AUDIT // SCRIPT STREAM", 14, 22);
+        ctxEyeL.fillText("📟 KERNEL SECURITY AUDIT", 12, 22);
         const logs = [
-          `> [${new Date().toISOString().slice(11, 19)}] RED-TEAM RUNNER: PASS`,
-          `> INJECTING ADVERSARIAL EMBEDDING PROMPT... 0 LEAK`,
-          `> SUB-PROCESS CONTAINER ISOLATION: CHROOT OK`,
-          `> NUMA NODE AFFINITY: BALANCED 4x MEMORY CHANNELS`,
-          `> KV-CACHE COMPRESSION RATIO: 3.82x OPTIMIZED`,
-          `> AUDIT SHA: 7c4e9f2a0b1836d5ac684ef9`
+          `> [${new Date().toISOString().slice(11, 19)}] RED-TEAM: PASS`,
+          `> ADVERSARIAL EMBEDDING: 0 LEAK`,
+          `> CONTAINER ISOLATION: CHROOT OK`,
+          `> NUMA NODE AFFINITY: 4x CHANNELS`,
+          `> KV-CACHE COMPRESSION: 3.82x OPT`,
+          `> AUDIT SHA: 7c4e9f2a0b1836d5ac68`
         ];
         logs.forEach((line, idx) => {
           ctxEyeL.fillStyle = idx % 2 === 0 ? '#34d399' : '#38bdf8';
-          ctxEyeL.font = '10px monospace'; ctxEyeL.fillText(line, 16, 68 + idx * 36);
+          ctxEyeL.font = 'bold 10px monospace'; ctxEyeL.fillText(line, 14, 62 + idx * 34);
         });
       } else {
-        ctxEyeL.fillText("📊 SOTA METRICS & REPRODUCIBILITY ENGINE", 14, 22);
+        ctxEyeL.fillText("📊 SOTA METRICS ENGINE", 12, 22);
         const benchmarks = [
           ["MMLU-Pro 5-Shot", "94.2%", "VERIFIED SOTA", "#10b981"],
-          ["HumanEval Synthesis", "92.4%", "INDEPENDENT AUDIT", "#38bdf8"],
+          ["HumanEval Synthesis", "92.4%", "INDEPENDENT", "#38bdf8"],
           ["GSM8K Step-by-Step", "96.8%", "ZERO DATA LEAK", "#a855f7"],
-          ["MATH-500 Verified", "84.5%", "MATHEMATICAL PROOF", "#fbbf24"]
+          ["MATH-500 Verified", "84.5%", "FORMAL PROOF", "#fbbf24"]
         ];
         benchmarks.forEach(([bench, score, status, col], idx) => {
-          const y = 58 + idx * 46;
-          ctxEyeL.fillStyle = 'rgba(15, 23, 42, 0.88)'; ctxEyeL.fillRect(16, y, 480, 36);
-          ctxEyeL.strokeStyle = col; ctxEyeL.strokeRect(16, y, 480, 36);
-          ctxEyeL.fillStyle = '#f8fafc'; ctxEyeL.font = 'bold 11px monospace'; ctxEyeL.fillText(bench, 28, y + 22);
-          ctxEyeL.fillStyle = col; ctxEyeL.font = 'bold 12px monospace'; ctxEyeL.fillText(score, 240, y + 22);
-          ctxEyeL.fillStyle = '#94a3b8'; ctxEyeL.font = '10px monospace'; ctxEyeL.fillText(status, 330, y + 22);
+          const y = 46 + idx * 48;
+          ctxEyeL.fillStyle = 'rgba(15, 23, 42, 0.88)'; ctxEyeL.fillRect(14, y, 356, 36);
+          ctxEyeL.strokeStyle = col; ctxEyeL.strokeRect(14, y, 356, 36);
+          ctxEyeL.fillStyle = '#f8fafc'; ctxEyeL.font = 'bold 10px monospace'; ctxEyeL.fillText(bench, 22, y + 22);
+          ctxEyeL.fillStyle = col; ctxEyeL.font = 'bold 11px monospace'; ctxEyeL.fillText(score, 185, y + 22);
+          ctxEyeL.fillStyle = '#94a3b8'; ctxEyeL.font = '9px monospace'; ctxEyeL.fillText(status, 255, y + 22);
         });
       }
       if (leftPlane && leftPlane.tex) leftPlane.tex.needsUpdate = true;
 
-      // --- 6C: Right Panel: Throughput & Cluster Metrics ---
-      ctxEyeR.fillStyle = '#060a12'; ctxEyeR.fillRect(0, 0, 512, 320);
-      ctxEyeR.fillStyle = '#0f172a'; ctxEyeR.fillRect(0, 0, 512, 34);
-      ctxEyeR.fillStyle = '#38bdf8'; ctxEyeR.font = 'bold 12px monospace';
+      // --- 6C: Right Panel: 2-Column GPU Telemetry & Cluster Metrics (384x420) ---
+      ctxEyeR.fillStyle = '#060a12'; ctxEyeR.fillRect(0, 0, 384, 420);
+      ctxEyeR.fillStyle = '#0f172a'; ctxEyeR.fillRect(0, 0, 384, 34);
+      ctxEyeR.fillStyle = '#38bdf8'; ctxEyeR.font = 'bold 11px monospace';
 
       if (mode === 0) {
-        ctxEyeR.fillText("📊 THROUGHPUT & CLUSTER METRICS", 14, 22);
-        ctxEyeR.strokeStyle = '#38bdf8'; ctxEyeR.lineWidth = 2.5; ctxEyeR.beginPath();
-        const pts = [40, 52, 48, 65, 58, 80, 75, 92, 88, 105, 98, 120, 115, 138];
+        ctxEyeR.fillText("📊 THROUGHPUT & CLUSTER", 12, 22);
+        ctxEyeR.strokeStyle = '#38bdf8'; ctxEyeR.lineWidth = 2.0; ctxEyeR.beginPath();
+        const pts = [30, 42, 38, 55, 48, 68, 62, 78, 72, 88];
         pts.forEach((v, idx) => {
-          const offset = Math.sin((tick * 0.8) + idx) * 12;
-          const sx = 20 + idx * 35, sy = 210 - (v + offset);
+          const offset = Math.sin((tick * 0.8) + idx) * 10;
+          const sx = 20 + idx * 36, sy = 190 - (v + offset);
           if (idx === 0) ctxEyeR.moveTo(sx, sy); else ctxEyeR.lineTo(sx, sy);
         });
         ctxEyeR.stroke();
-        ctxEyeR.fillStyle = '#fbbf24'; ctxEyeR.font = 'bold 11px monospace'; ctxEyeR.fillText(`GENERATION SPEED: ${3400 + (panoFrame % 5) * 80} Tok/sec (+18.4%)`, 20, 68);
-        ctxEyeR.fillStyle = '#34d399'; ctxEyeR.font = '10px monospace'; ctxEyeR.fillText("P99 LATENCY: 1.84ms • P50: 0.62ms", 20, 92);
-        ctxEyeR.fillStyle = '#cbd5e1'; ctxEyeR.font = '10px monospace'; ctxEyeR.fillText("GPU Cluster Thermals: 62°C Nominal • Fan: 55%", 20, 252);
-        ctxEyeR.fillStyle = '#38bdf8'; ctxEyeR.font = 'bold 10px monospace'; ctxEyeR.fillText("🛡️ 100% REPRODUCIBILITY AUDIT • 0 CONTAMINATION", 20, 285);
+        ctxEyeR.fillStyle = '#fbbf24'; ctxEyeR.font = 'bold 10px monospace'; ctxEyeR.fillText(`SPEED: ${3400 + (panoFrame % 5) * 80} Tok/s (+18.4%)`, 16, 58);
+        ctxEyeR.fillStyle = '#34d399'; ctxEyeR.font = '9px monospace'; ctxEyeR.fillText("P99: 1.84ms • P50: 0.62ms", 16, 76);
+        ctxEyeR.fillStyle = '#38bdf8'; ctxEyeR.font = 'bold 9px monospace'; ctxEyeR.fillText("🛡️ 100% REPRODUCIBILITY • 0 LEAK", 16, 235);
       } else if (mode === 1) {
-        ctxEyeR.fillText("🌡️ 8x H100 GPU CLUSTER THERMALS & TELEMETRY", 14, 22);
+        ctxEyeR.fillText("🌡️ 8x H100 GPU THERMALS", 12, 22);
         for (let g = 0; g < 8; g++) {
-          const gx = 20 + (g % 4) * 120;
-          const gy = 56 + Math.floor(g / 4) * 105;
-          ctxEyeR.fillStyle = 'rgba(15, 23, 42, 0.9)'; ctxEyeR.fillRect(gx, gy, 108, 90);
-          ctxEyeR.strokeStyle = '#0284c7'; ctxEyeR.strokeRect(gx, gy, 108, 90);
-          ctxEyeR.fillStyle = '#38bdf8'; ctxEyeR.font = 'bold 10px monospace'; ctxEyeR.fillText(`GPU #${g}`, gx + 10, gy + 18);
+          const col = g % 2;
+          const row = Math.floor(g / 2);
+          const gx = 14 + col * 180;
+          const gy = 44 + row * 62;
+          ctxEyeR.fillStyle = 'rgba(15, 23, 42, 0.9)'; ctxEyeR.fillRect(gx, gy, 172, 54);
+          ctxEyeR.strokeStyle = '#0284c7'; ctxEyeR.strokeRect(gx, gy, 172, 54);
+          ctxEyeR.fillStyle = '#38bdf8'; ctxEyeR.font = 'bold 10px monospace';
+          ctxEyeR.fillText(`GPU #${g}`, gx + 8, gy + 15);
           const temp = 58 + ((g * 3 + panoFrame) % 9);
           ctxEyeR.fillStyle = temp > 64 ? '#f59e0b' : '#10b981';
-          ctxEyeR.font = 'bold 14px monospace'; ctxEyeR.fillText(`${temp}°C`, gx + 10, gy + 42);
-          ctxEyeR.fillStyle = '#94a3b8'; ctxEyeR.font = '9px monospace'; ctxEyeR.fillText(`Power: ${380 + (g*12)}W`, gx + 10, gy + 62);
-          ctxEyeR.fillText("PCIe 5.0 OK", gx + 10, gy + 78);
+          ctxEyeR.font = 'bold 13px monospace';
+          ctxEyeR.fillText(`${temp}°C`, gx + 8, gy + 32);
+          ctxEyeR.fillStyle = '#94a3b8'; ctxEyeR.font = '9px monospace';
+          ctxEyeR.fillText(`Pwr:${380 + (g*12)}W • PCIe 5`, gx + 8, gy + 47);
         }
-        ctxEyeR.fillStyle = '#34d399'; ctxEyeR.font = 'bold 10px monospace'; ctxEyeR.fillText("TOTAL CLUSTER POWER: 3.28 kW • THERMAL HEADROOM: 38°C", 50, 290);
+        ctxEyeR.fillStyle = '#34d399'; ctxEyeR.font = 'bold 10px monospace';
+        ctxEyeR.fillText("CLUSTER: 3.28 kW • HEADROOM: 38°C", 16, 310);
       } else {
-        ctxEyeR.fillText("📈 REAL-TIME LATENCY DISTRIBUTION & LOSS", 14, 22);
-        for (let b = 0; b < 16; b++) {
-          const bh = 30 + Math.abs(Math.sin(tick * 0.5 + b * 0.4)) * 120;
-          const bx = 30 + b * 28;
-          ctxEyeR.fillStyle = b < 12 ? '#38bdf8' : (b < 14 ? '#fbbf24' : '#ef4444');
-          ctxEyeR.fillRect(bx, 240 - bh, 20, bh);
+        ctxEyeR.fillText("📈 LATENCY DISTRIBUTION", 12, 22);
+        for (let b = 0; b < 12; b++) {
+          const bh = 20 + Math.abs(Math.sin(tick * 0.5 + b * 0.4)) * 90;
+          const bx = 20 + b * 28;
+          ctxEyeR.fillStyle = b < 8 ? '#38bdf8' : (b < 10 ? '#fbbf24' : '#ef4444');
+          ctxEyeR.fillRect(bx, 200 - bh, 20, bh);
         }
-        ctxEyeR.fillStyle = '#f8fafc'; ctxEyeR.font = '10px monospace'; ctxEyeR.fillText("HISTOGRAM: INFERENCE LATENCY JITTER (0.2ms - 3.4ms)", 20, 68);
-        ctxEyeR.fillStyle = '#34d399'; ctxEyeR.font = 'bold 10px monospace'; ctxEyeR.fillText("LOSS GRADIENT: 0.0014 • AST INVARIANT CONVERGED", 20, 280);
+        ctxEyeR.fillStyle = '#f8fafc'; ctxEyeR.font = '9px monospace'; ctxEyeR.fillText("LATENCY JITTER: 0.2ms - 3.4ms", 16, 58);
+        ctxEyeR.fillStyle = '#34d399'; ctxEyeR.font = 'bold 9px monospace'; ctxEyeR.fillText("LOSS GRADIENT: 0.0014 CONVERGED", 16, 240);
       }
       if (rightPlane && rightPlane.tex) rightPlane.tex.needsUpdate = true;
     };
@@ -5157,7 +5174,10 @@ class LabBossaAudioEngine {
 
       openGodsEyeModal() {
         const modal = document.getElementById('gods-eye-ai-modal');
-        if (modal) modal.style.display = 'block';
+        if (modal) {
+          modal.classList.add('open');
+          modal.style.display = 'flex';
+        }
         this.selectZone('zone_gods_eye');
       }
 
@@ -5233,6 +5253,13 @@ class LabBossaAudioEngine {
         const toggleAllPanels = (forceHidden = null) => {
           arePanelsHidden = (forceHidden !== null) ? Boolean(forceHidden) : !arePanelsHidden;
           document.body.classList.toggle('all-panels-hidden', arePanelsHidden);
+          if (arePanelsHidden) {
+            const godsEyeModal = document.getElementById('gods-eye-ai-modal');
+            if (godsEyeModal) {
+              godsEyeModal.classList.remove('open');
+              godsEyeModal.style.display = 'none';
+            }
+          }
         };
 
         if (btnToggleAll) {
@@ -5268,10 +5295,16 @@ class LabBossaAudioEngine {
         const btnCloseGods = document.getElementById('btn-close-gods-eye-modal');
         const btnDismissGods = document.getElementById('btn-dismiss-gods-eye');
         if (btnCloseGods && godsEyeModal) {
-          btnCloseGods.addEventListener('click', () => { godsEyeModal.style.display = 'none'; });
+          btnCloseGods.addEventListener('click', () => {
+            godsEyeModal.classList.remove('open');
+            godsEyeModal.style.display = 'none';
+          });
         }
         if (btnDismissGods && godsEyeModal) {
-          btnDismissGods.addEventListener('click', () => { godsEyeModal.style.display = 'none'; });
+          btnDismissGods.addEventListener('click', () => {
+            godsEyeModal.classList.remove('open');
+            godsEyeModal.style.display = 'none';
+          });
         }
         window.addEventListener('keydown', (e) => {
           if (e.key === 'Escape') {
@@ -5294,7 +5327,6 @@ class LabBossaAudioEngine {
         const chkFloorZones = document.getElementById('chk-floor-zones');
         const chkBubbles = document.getElementById('chk-bubbles');
         const chkNotif = document.getElementById('chk-notif');
-        const chkBottomDock = document.getElementById('chk-bottom-dock');
         const chkRing = document.getElementById('chk-ring');
 
         const setLeftPanelOpen = (open) => {
@@ -5308,7 +5340,6 @@ class LabBossaAudioEngine {
           const dockVisible = hudBottom && !hudBottom.classList.contains('collapsed');
           if (btnToggleBottom) btnToggleBottom.classList.toggle('active', Boolean(tickerVisible || dockVisible));
           if (chkNotif) chkNotif.checked = Boolean(tickerVisible);
-          if (chkBottomDock) chkBottomDock.checked = Boolean(dockVisible);
         };
 
         if (window.innerWidth <= 900) {
@@ -5362,12 +5393,6 @@ class LabBossaAudioEngine {
         if (chkNotif && liveTicker) {
           chkNotif.addEventListener('change', (e) => {
             liveTicker.classList.toggle('collapsed', !e.target.checked);
-            syncBottomBtnState();
-          });
-        }
-        if (chkBottomDock && hudBottom) {
-          chkBottomDock.addEventListener('change', (e) => {
-            hudBottom.classList.toggle('collapsed', !e.target.checked);
             syncBottomBtnState();
           });
         }
@@ -5747,7 +5772,7 @@ class LabBossaAudioEngine {
           if (items.length === 0) return;
 
           const spots = [
-            { name: 'Center War-Room Table', spot_pos: [0, 0, -1.65], pos_a: [-1.32, 0, -1.65], pos_b: [1.32, 0, -1.65], rot_a: 1.57, rot_b: -1.57, posture: 'seated' },
+            { name: 'Center War-Room Table', spot_pos: [0, 0, -1.65], pos_a: [0, 0, -2.95], pos_b: [1.32, 0, -1.65], rot_a: 0.0, rot_b: -1.57, posture: 'seated' },
             { name: 'Executive Lounge Sofa', spot_pos: [0, 0, 2.32], pos_a: [-0.55, 0, 2.32], pos_b: [0.55, 0, 2.32], rot_a: 3.05, rot_b: 3.23, posture: 'seated' },
             { name: 'Espresso & Smoothie Bar', spot_pos: [-0.30, 0, -4.51], pos_a: [-1.35, 0, -4.51], pos_b: [0.75, 0, -4.51], rot_a: 3.05, rot_b: 3.23, posture: 'seated_stool' }
           ];
