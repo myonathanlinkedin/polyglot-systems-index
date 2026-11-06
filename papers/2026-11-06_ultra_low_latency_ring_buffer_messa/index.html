@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Linearizability and Amortized O(1) Guarantees for a TypeScript Ring Buffer Pipeline | Mateus Yonathan</title>
+  <title>Deterministic Synchronous Propagation and Cycle-Free Topology Invariants in a TypeScript Stream Processing Graph | Mateus Yonathan</title>
 
   <!-- Google Scholar Highwire Press Meta Tags (Strict Standards) -->
-  <meta name="citation_title" content="Linearizability and Amortized O(1) Guarantees for a TypeScript Ring Buffer Pipeline" />
+  <meta name="citation_title" content="Deterministic Synchronous Propagation and Cycle-Free Topology Invariants in a TypeScript Stream Processing Graph" />
   <meta name="citation_author" content="Mateus Yonathan" />
   <meta name="citation_publication_date" content="2026/11/07" />
   <meta name="citation_date" content="2026/11/07" />
@@ -19,7 +19,7 @@
   <meta name="citation_keywords" content="TypeScript, Agentic Systems, Agentic AI, Autonomous Verification, Systems Programming, Algorithms, Data Structures, Research Paper" />
 
   <!-- Dublin Core Metadata Set -->
-  <meta name="DC.title" content="Linearizability and Amortized O(1) Guarantees for a TypeScript Ring Buffer Pipeline" />
+  <meta name="DC.title" content="Deterministic Synchronous Propagation and Cycle-Free Topology Invariants in a TypeScript Stream Processing Graph" />
   <meta name="DC.creator" content="Mateus Yonathan" />
   <meta name="DC.issued" content="2026-11-07" />
   <meta name="DC.publisher" content="Polyglot Systems Lab" />
@@ -27,10 +27,10 @@
   <meta name="DC.language" content="en" />
   <meta name="DC.subject" content="Agentic Systems, TypeScript, Algorithms, Autonomous Verification" />
   <meta name="DC.identifier" content="https://myonathanlinkedin.github.io/papers/2026-11-06_ultra_low_latency_ring_buffer_messa/" />
-  <meta name="DC.description" content="We present a lock-free ring buffer pipeline implemented in TypeScript that guarantees linearizability of message propagation while achieving amortized constant-time enqueue and dequeue operations. The design leverages atomic indices and a bounded circular array to avoid dynamic allocation and pointer indirection during runtime. Formal invariants are established over the buffer state, ensuring that each event is processed exactly once and in the order of arrival. Static analysis of the source yields a structural complexity of 199 SLOC and 11 function blocks, with a worst-case contention bound of O(P) for P concurrent producers. Theoretical bounds are derived from the Michael–Scott queue model and adapted to the ring buffer context. No empirical wall-clock measurements are reported; all claims are supported by formal structural analysis and formal proofs." />
+  <meta name="DC.description" content="Ultra-low-latency message pipelines require strict ordering guarantees and bounded propagation costs to support real-time perception systems. This work presents LowLatencyOrderPipeline, a pure TypeScript stream processing framework that enforces deterministic synchronous event propagation over a directed acyclic graph (DAG). Unlike asynchronous or lock-free concurrent queue implementations, LowLatencyOrderPipeline eliminates race conditions by design through synchronous execution and compile-time topology validation. We formally define the state transition semantics of the graph orchestrator and prove that cycle detection at connection time preserves the acyclic invariant, ensuring termination of all event traversals. We derive the asymptotic complexity of event propagation as O(V + E), where V is the number of visited nodes and E is the number of traversed edges. formal structural analysis (AST) analysis confirms the structural integrity of the implementation, verifying 199 lines of code and 11 function blocks with no external dependencies. This investigation addresses three research questions regarding structural bounds, invariant preservation, and static profile dynamics." />
 
   <!-- SEO & Social Rich Cards -->
-  <meta name="description" content="Agentic autonomous systems research preprint: We present a lock-free ring buffer pipeline implemented in TypeScript that guarantees linearizability of message propagation while achieving" />
+  <meta name="description" content="Agentic autonomous systems research preprint: Ultra-low-latency message pipelines require strict ordering guarantees and bounded propagation costs to support real-time perception systems" />
   <meta name="keywords" content="TypeScript, Agentic Systems, Agentic AI, Mateus Yonathan, Autonomous Systems Research, Algorithms, Polyglot Systems Lab" />
   <meta name="author" content="Mateus Yonathan" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
@@ -38,8 +38,8 @@
   <link rel="sitemap" type="application/xml" title="Sitemap" href="https://myonathanlinkedin.github.io/sitemap.xml" />
 
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="Linearizability and Amortized O(1) Guarantees for a TypeScript Ring Buffer Pipeline" />
-  <meta property="og:description" content="Agentic autonomous systems research preprint: We present a lock-free ring buffer pipeline implemented in TypeScript that guarantees linearizability of message propagation while achieving amortized constant-time enqueue and deq" />
+  <meta property="og:title" content="Deterministic Synchronous Propagation and Cycle-Free Topology Invariants in a TypeScript Stream Processing Graph" />
+  <meta property="og:description" content="Agentic autonomous systems research preprint: Ultra-low-latency message pipelines require strict ordering guarantees and bounded propagation costs to support real-time perception systems. This work presents LowLatencyOrderPipe" />
   <meta property="og:url" content="https://myonathanlinkedin.github.io/papers/2026-11-06_ultra_low_latency_ring_buffer_messa/" />
   <meta property="og:image" content="https://raw.githubusercontent.com/myonathanlinkedin/mini-papers/main/papers/2026-11-06_ultra_low_latency_ring_buffer_messa/preview/page_1.png" />
   <meta property="og:site_name" content="Polyglot Systems Lab" />
@@ -47,8 +47,8 @@
   <meta property="article:author" content="Mateus Yonathan" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Linearizability and Amortized O(1) Guarantees for a TypeScript Ring Buffer Pipeline" />
-  <meta name="twitter:description" content="Agentic autonomous systems research preprint: We present a lock-free ring buffer pipeline implemented in TypeScript that guarantees linearizability of message propagation while achieving amortized constant-time enqueue and deq" />
+  <meta name="twitter:title" content="Deterministic Synchronous Propagation and Cycle-Free Topology Invariants in a TypeScript Stream Processing Graph" />
+  <meta name="twitter:description" content="Agentic autonomous systems research preprint: Ultra-low-latency message pipelines require strict ordering guarantees and bounded propagation costs to support real-time perception systems. This work presents LowLatencyOrderPipe" />
   <meta name="twitter:image" content="https://raw.githubusercontent.com/myonathanlinkedin/mini-papers/main/papers/2026-11-06_ultra_low_latency_ring_buffer_messa/preview/page_1.png" />
 
   <!-- Google Favicons -->
@@ -60,8 +60,8 @@
 {
   "@context": "https://schema.org",
   "@type": "ScholarlyArticle",
-  "headline": "Linearizability and Amortized O(1) Guarantees for a TypeScript Ring Buffer Pipeline",
-  "name": "Linearizability and Amortized O(1) Guarantees for a TypeScript Ring Buffer Pipeline",
+  "headline": "Deterministic Synchronous Propagation and Cycle-Free Topology Invariants in a TypeScript Stream Processing Graph",
+  "name": "Deterministic Synchronous Propagation and Cycle-Free Topology Invariants in a TypeScript Stream Processing Graph",
   "author": {
     "@type": "Person",
     "name": "Mateus Yonathan",
@@ -82,7 +82,7 @@
     "name": "Polyglot Systems Lab",
     "url": "https://myonathanlinkedin.github.io/"
   },
-  "description": "We present a lock-free ring buffer pipeline implemented in TypeScript that guarantees linearizability of message propagation while achieving amortized constant-time enqueue and dequeue operations. The design leverages atomic indices and a bounded circular array to avoid dynamic allocation and pointer indirection during runtime. Formal invariants are established over the buffer state, ensuring that each event is processed exactly once and in the order of arrival. Static analysis of the source yields a structural complexity of 199 SLOC and 11 function blocks, with a worst-case contention bound of O(P) for P concurrent producers. Theoretical bounds are derived from the Michael\u2013Scott queue model and adapted to the ring buffer context. No empirical wall-clock measurements are reported; all claims are supported by formal structural analysis and formal proofs.",
+  "description": "Ultra-low-latency message pipelines require strict ordering guarantees and bounded propagation costs to support real-time perception systems. This work presents LowLatencyOrderPipeline, a pure TypeScript stream processing framework that enforces deterministic synchronous event propagation over a directed acyclic graph (DAG). Unlike asynchronous or lock-free concurrent queue implementations, LowLatencyOrderPipeline eliminates race conditions by design through synchronous execution and compile-time topology validation. We formally define the state transition semantics of the graph orchestrator and prove that cycle detection at connection time preserves the acyclic invariant, ensuring termination of all event traversals. We derive the asymptotic complexity of event propagation as O(V + E), where V is the number of visited nodes and E is the number of traversed edges. formal structural analysis (AST) analysis confirms the structural integrity of the implementation, verifying 199 lines of code and 11 function blocks with no external dependencies. This investigation addresses three research questions regarding structural bounds, invariant preservation, and static profile dynamics.",
   "mainEntityOfPage": "https://myonathanlinkedin.github.io/papers/2026-11-06_ultra_low_latency_ring_buffer_messa/",
   "url": "https://myonathanlinkedin.github.io/papers/2026-11-06_ultra_low_latency_ring_buffer_messa/",
   "encoding": {
@@ -415,7 +415,7 @@
         <span class="badge badge-date">Published: 2026-11-07</span>
       </div>
 
-      <h1>Linearizability and Amortized O(1) Guarantees for a TypeScript Ring Buffer Pipeline</h1>
+      <h1>Deterministic Synchronous Propagation and Cycle-Free Topology Invariants in a TypeScript Stream Processing Graph</h1>
 
       <div class="byline">
         Authored by <strong>Mateus Yonathan</strong> &middot; Principal Investigator &amp; Systems Engineer<br />
@@ -448,7 +448,7 @@
           </svg>
           Abstract
         </div>
-        <p class="abstract-text">We present a lock-free ring buffer pipeline implemented in TypeScript that guarantees linearizability of message propagation while achieving amortized constant-time enqueue and dequeue operations. The design leverages atomic indices and a bounded circular array to avoid dynamic allocation and pointer indirection during runtime. Formal invariants are established over the buffer state, ensuring that each event is processed exactly once and in the order of arrival. Static analysis of the source yields a structural complexity of 199 SLOC and 11 function blocks, with a worst-case contention bound of O(P) for P concurrent producers. Theoretical bounds are derived from the Michael–Scott queue model and adapted to the ring buffer context. No empirical wall-clock measurements are reported; all claims are supported by formal structural analysis and formal proofs.</p>
+        <p class="abstract-text">Ultra-low-latency message pipelines require strict ordering guarantees and bounded propagation costs to support real-time perception systems. This work presents LowLatencyOrderPipeline, a pure TypeScript stream processing framework that enforces deterministic synchronous event propagation over a directed acyclic graph (DAG). Unlike asynchronous or lock-free concurrent queue implementations, LowLatencyOrderPipeline eliminates race conditions by design through synchronous execution and compile-time topology validation. We formally define the state transition semantics of the graph orchestrator and prove that cycle detection at connection time preserves the acyclic invariant, ensuring termination of all event traversals. We derive the asymptotic complexity of event propagation as O(V + E), where V is the number of visited nodes and E is the number of traversed edges. formal structural analysis (AST) analysis confirms the structural integrity of the implementation, verifying 199 lines of code and 11 function blocks with no external dependencies. This investigation addresses three research questions regarding structural bounds, invariant preservation, and static profile dynamics.</p>
         
       </section>
       
@@ -461,7 +461,7 @@
           Manuscript Page 1 Preview
         </div>
         <div style="background:#ffffff;border-radius:0.5rem;padding:0.75rem;border:1px solid rgba(56,189,248,0.35);overflow:hidden;">
-          <img src="https://raw.githubusercontent.com/myonathanlinkedin/mini-papers/main/papers/2026-11-06_ultra_low_latency_ring_buffer_messa/preview/page_1.png" alt="Linearizability and Amortized O(1) Guarantees for a TypeScript Ring Buffer Pipeline Preview" style="width:100%;height:auto;display:block;" loading="lazy" />
+          <img src="https://raw.githubusercontent.com/myonathanlinkedin/mini-papers/main/papers/2026-11-06_ultra_low_latency_ring_buffer_messa/preview/page_1.png" alt="Deterministic Synchronous Propagation and Cycle-Free Topology Invariants in a TypeScript Stream Processing Graph Preview" style="width:100%;height:auto;display:block;" loading="lazy" />
         </div>
       </section>
 
@@ -489,7 +489,7 @@
           Bibliographic Citation (BibTeX)
         </div>
         <pre class="bibtex" id="bibtex-block">@article{yonathan2026_2026_11_06_ultra_low_latency_ring_buffer_messa,
-  title={Linearizability and Amortized O(1) Guarantees for a TypeScript Ring Buffer Pipeline},
+  title={Deterministic Synchronous Propagation and Cycle-Free Topology Invariants in a TypeScript Stream Processing Graph},
   author={Yonathan, Mateus},
   journal={Polyglot Systems Lab Agentic Research Preprints},
   year={2026},
