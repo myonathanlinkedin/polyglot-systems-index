@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Practical guide on out of tree mitigations on Chronos-Structure",
+    "language": "Swift",
+    "folder": "swift",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "swift-systems-lab",
+    "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261106_110123_practical_guide_on_out_of_tree",
+    "source_file": "main",
+    "timestamp": "2026-11-06T11:01:56.541595+00:00",
+    "dir_name": "20261106_110123_practical_guide_on_out_of_tree"
+  },
+  {
     "topic": "Fast Fourier Transform (Cooley-Tukey Radix-2) Signal Processing",
     "language": "Python",
     "folder": "python",
