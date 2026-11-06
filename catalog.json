@@ -1,5 +1,27 @@
 [
   {
+    "topic": "Treap Randomized Binary Search Tree with Heap Priorities",
+    "language": "Swift",
+    "folder": "swift",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "swift-systems-lab",
+    "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261106_140143_treap_randomized_binary_search",
+    "source_file": "main",
+    "timestamp": "2026-11-06T14:02:21.338413+00:00",
+    "dir_name": "20261106_140143_treap_randomized_binary_search"
+  },
+  {
+    "topic": "Finite State Machine Tokenizer and Lexical Parser",
+    "language": "Go",
+    "folder": "go",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "go-concurrency-lab",
+    "source_link": "https://github.com/myonathanlinkedin/go-concurrency-lab/tree/main/algorithms/20261106_130207_finite_state_machine_tokenizer",
+    "source_file": "main",
+    "timestamp": "2026-11-06T13:02:31.518640+00:00",
+    "dir_name": "20261106_130207_finite_state_machine_tokenizer"
+  },
+  {
     "topic": "Memory Pool Block Allocator with Free List",
     "language": "C++",
     "folder": "cpp",
@@ -748,17 +770,6 @@
     "dir_name": "20261101_070210_cyk_parsing_algorithm_for_cont"
   },
   {
-    "topic": "Treap Randomized Binary Search Tree with Heap Priorities",
-    "language": "Python",
-    "folder": "python",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "python-advanced-lab",
-    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261101_050117_treap_randomized_binary_search",
-    "source_file": "main",
-    "timestamp": "2026-11-01T05:01:17.128074+00:00",
-    "dir_name": "20261101_050117_treap_randomized_binary_search"
-  },
-  {
     "topic": "Vector Clock Distributed Event Ordering Mechanism",
     "language": "Python",
     "folder": "python",
@@ -1131,6 +1142,17 @@
     "source_file": "main",
     "timestamp": "2026-10-27T11:01:34.150926+00:00",
     "dir_name": "20261027_110134_limonos_custom_x86-64_kernel"
+  },
+  {
+    "topic": "Treap Randomized Binary Search Tree with Heap Priorities",
+    "language": "Python",
+    "folder": "python",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "python-advanced-lab",
+    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261027_050133_treap_randomized_binary_search",
+    "source_file": "main",
+    "timestamp": "2026-10-27T05:01:33.099420+00:00",
+    "dir_name": "20261027_050133_treap_randomized_binary_search"
   },
   {
     "topic": "Logarithmic Separation between LZ77 and LZ-End and Grammar Compression",
@@ -1892,17 +1914,6 @@
     "dir_name": "20261020_030242_treap_randomized_binary_search"
   },
   {
-    "topic": "Treap Randomized Binary Search Tree with Heap Priorities",
-    "language": "Swift",
-    "folder": "swift",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "swift-systems-lab",
-    "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261020_010131_treap_randomized_binary_search",
-    "source_file": "main",
-    "timestamp": "2026-10-20T01:01:31.526662+00:00",
-    "dir_name": "20261020_010131_treap_randomized_binary_search"
-  },
-  {
     "topic": "Topological Sort with Cycle Detection in Directed Graphs",
     "language": "C",
     "folder": "c",
@@ -2266,17 +2277,6 @@
     "dir_name": "20261016_030130_designing_a_notification_syste"
   },
   {
-    "topic": "Finite State Machine Tokenizer and Lexical Parser",
-    "language": "TypeScript",
-    "folder": "typescript",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "typescript-design-patterns",
-    "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261015_210129_finite_state_machine_tokenizer",
-    "source_file": "main",
-    "timestamp": "2026-10-15T21:01:29.462657+00:00",
-    "dir_name": "20261015_210129_finite_state_machine_tokenizer"
-  },
-  {
     "topic": "HyperLogLog Cardinality Estimation Algorithm",
     "language": "Haskell",
     "folder": "haskell",
@@ -2374,6 +2374,17 @@
     "source_file": "main",
     "timestamp": "2026-10-15T05:01:11.588270+00:00",
     "dir_name": "20261015_050111_why_your_topological_sort_give"
+  },
+  {
+    "topic": "Finite State Machine Tokenizer and Lexical Parser",
+    "language": "TypeScript",
+    "folder": "typescript",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "typescript-design-patterns",
+    "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261015_030124_finite_state_machine_tokenizer",
+    "source_file": "main",
+    "timestamp": "2026-10-15T03:01:24.435142+00:00",
+    "dir_name": "20261015_030124_finite_state_machine_tokenizer"
   },
   {
     "topic": "Phobos",
