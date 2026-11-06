@@ -1,16 +1,5 @@
 [
   {
-    "topic": "Treap Randomized Binary Search Tree with Heap Priorities",
-    "language": "Swift",
-    "folder": "swift",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "swift-systems-lab",
-    "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261106_140143_treap_randomized_binary_search",
-    "source_file": "main",
-    "timestamp": "2026-11-06T14:02:21.338413+00:00",
-    "dir_name": "20261106_140143_treap_randomized_binary_search"
-  },
-  {
     "topic": "Finite State Machine Tokenizer and Lexical Parser",
     "language": "Go",
     "folder": "go",
@@ -770,6 +759,17 @@
     "dir_name": "20261101_070210_cyk_parsing_algorithm_for_cont"
   },
   {
+    "topic": "Treap Randomized Binary Search Tree with Heap Priorities",
+    "language": "Python",
+    "folder": "python",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "python-advanced-lab",
+    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261101_050117_treap_randomized_binary_search",
+    "source_file": "main",
+    "timestamp": "2026-11-01T05:01:17.128074+00:00",
+    "dir_name": "20261101_050117_treap_randomized_binary_search"
+  },
+  {
     "topic": "Vector Clock Distributed Event Ordering Mechanism",
     "language": "Python",
     "folder": "python",
@@ -1142,17 +1142,6 @@
     "source_file": "main",
     "timestamp": "2026-10-27T11:01:34.150926+00:00",
     "dir_name": "20261027_110134_limonos_custom_x86-64_kernel"
-  },
-  {
-    "topic": "Treap Randomized Binary Search Tree with Heap Priorities",
-    "language": "Python",
-    "folder": "python",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "python-advanced-lab",
-    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261027_050133_treap_randomized_binary_search",
-    "source_file": "main",
-    "timestamp": "2026-10-27T05:01:33.099420+00:00",
-    "dir_name": "20261027_050133_treap_randomized_binary_search"
   },
   {
     "topic": "Logarithmic Separation between LZ77 and LZ-End and Grammar Compression",
@@ -1912,6 +1901,17 @@
     "source_file": "main",
     "timestamp": "2026-10-20T03:02:42.391639+00:00",
     "dir_name": "20261020_030242_treap_randomized_binary_search"
+  },
+  {
+    "topic": "Treap Randomized Binary Search Tree with Heap Priorities",
+    "language": "Swift",
+    "folder": "swift",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "swift-systems-lab",
+    "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261020_010131_treap_randomized_binary_search",
+    "source_file": "main",
+    "timestamp": "2026-10-20T01:01:31.526662+00:00",
+    "dir_name": "20261020_010131_treap_randomized_binary_search"
   },
   {
     "topic": "Topological Sort with Cycle Detection in Directed Graphs",
