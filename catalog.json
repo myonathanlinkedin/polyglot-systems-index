@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Simulated Annealing Optimization for Combinatorial Graphs",
+    "language": "Rust",
+    "folder": "rust",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "rust-algorithms",
+    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261106_200123_simulated_annealing_optimizati",
+    "source_file": "main",
+    "timestamp": "2026-11-06T20:01:43.744560+00:00",
+    "dir_name": "20261106_200123_simulated_annealing_optimizati"
+  },
+  {
     "topic": "Aho-Corasick Multi-Pattern String Searching Automaton",
     "language": "C++",
     "folder": "cpp",
@@ -372,17 +383,6 @@
     "source_file": "main",
     "timestamp": "2026-11-05T01:02:43.020462+00:00",
     "dir_name": "20261105_010229_5_leetcode_problems__word_sear"
-  },
-  {
-    "topic": "Simulated Annealing Optimization for Combinatorial Graphs",
-    "language": "Python",
-    "folder": "python",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "python-advanced-lab",
-    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261104_230226_simulated_annealing_optimizati",
-    "source_file": "main",
-    "timestamp": "2026-11-04T23:02:42.830922+00:00",
-    "dir_name": "20261104_230226_simulated_annealing_optimizati"
   },
   {
     "topic": "Recognizing Label-Connected Graphs",
