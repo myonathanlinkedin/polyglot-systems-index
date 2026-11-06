@@ -1,5 +1,16 @@
 [
   {
+    "topic": "A Chronos-Compiler compiler in Axiom-Interpreter, and the kernel that hung without an error",
+    "language": "Zig",
+    "folder": "zig",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "zig-systems-lab",
+    "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261106_170122_a_chronos-compiler_compiler_in",
+    "source_file": "main",
+    "timestamp": "2026-11-06T17:01:37.639320+00:00",
+    "dir_name": "20261106_170122_a_chronos-compiler_compiler_in"
+  },
+  {
     "topic": "Bloom Filter with MurmurHash3 Hash Functions",
     "language": "TypeScript",
     "folder": "typescript",
