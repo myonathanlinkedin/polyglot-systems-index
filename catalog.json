@@ -1,5 +1,38 @@
 [
   {
+    "topic": "Finite State Machine Tokenizer and Lexical Parser",
+    "language": "Go",
+    "folder": "go",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "go-concurrency-lab",
+    "source_link": "https://github.com/myonathanlinkedin/go-concurrency-lab/tree/main/algorithms/20261106_130207_finite_state_machine_tokenizer",
+    "source_file": "main",
+    "timestamp": "2026-11-06T13:02:31.518640+00:00",
+    "dir_name": "20261106_130207_finite_state_machine_tokenizer"
+  },
+  {
+    "topic": "Memory Pool Block Allocator with Free List",
+    "language": "C++",
+    "folder": "cpp",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "cpp-systems-core",
+    "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261106_110227_memory_pool_block_allocator_wi",
+    "source_file": "main",
+    "timestamp": "2026-11-06T11:02:45.231243+00:00",
+    "dir_name": "20261106_110227_memory_pool_block_allocator_wi"
+  },
+  {
+    "topic": "Practical guide on out of tree mitigations on Chronos-Structure",
+    "language": "Swift",
+    "folder": "swift",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "swift-systems-lab",
+    "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261106_110123_practical_guide_on_out_of_tree",
+    "source_file": "main",
+    "timestamp": "2026-11-06T11:01:56.541595+00:00",
+    "dir_name": "20261106_110123_practical_guide_on_out_of_tree"
+  },
+  {
     "topic": "Fast Fourier Transform (Cooley-Tukey Radix-2) Signal Processing",
     "language": "Python",
     "folder": "python",
@@ -902,17 +935,6 @@
     "dir_name": "20261030_130124_avl_tree_rotations_explained_s"
   },
   {
-    "topic": "Memory Pool Block Allocator with Free List",
-    "language": "Python",
-    "folder": "python",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "python-advanced-lab",
-    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261030_110141_memory_pool_block_allocator_wi",
-    "source_file": "main",
-    "timestamp": "2026-10-30T11:01:41.723507+00:00",
-    "dir_name": "20261030_110141_memory_pool_block_allocator_wi"
-  },
-  {
     "topic": "On Zeros and Algorithms for Disordered Systems II: The Antiferromagnetic Ising Model up",
     "language": "Python",
     "folder": "python",
@@ -1054,6 +1076,17 @@
     "source_file": "main",
     "timestamp": "2026-10-28T11:01:20.894678+00:00",
     "dir_name": "20261028_110120_linear-time_fpt_rectilinear_pl"
+  },
+  {
+    "topic": "Memory Pool Block Allocator with Free List",
+    "language": "Python",
+    "folder": "python",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "python-advanced-lab",
+    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261028_090142_memory_pool_block_allocator_wi",
+    "source_file": "main",
+    "timestamp": "2026-10-28T09:01:42.140170+00:00",
+    "dir_name": "20261028_090142_memory_pool_block_allocator_wi"
   },
   {
     "topic": "A fast and secure tar parser for the Aether-Flux ecosystem",
@@ -2244,17 +2277,6 @@
     "dir_name": "20261016_030130_designing_a_notification_syste"
   },
   {
-    "topic": "Finite State Machine Tokenizer and Lexical Parser",
-    "language": "TypeScript",
-    "folder": "typescript",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "typescript-design-patterns",
-    "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261015_210129_finite_state_machine_tokenizer",
-    "source_file": "main",
-    "timestamp": "2026-10-15T21:01:29.462657+00:00",
-    "dir_name": "20261015_210129_finite_state_machine_tokenizer"
-  },
-  {
     "topic": "HyperLogLog Cardinality Estimation Algorithm",
     "language": "Haskell",
     "folder": "haskell",
@@ -2352,6 +2374,17 @@
     "source_file": "main",
     "timestamp": "2026-10-15T05:01:11.588270+00:00",
     "dir_name": "20261015_050111_why_your_topological_sort_give"
+  },
+  {
+    "topic": "Finite State Machine Tokenizer and Lexical Parser",
+    "language": "TypeScript",
+    "folder": "typescript",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "typescript-design-patterns",
+    "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261015_030124_finite_state_machine_tokenizer",
+    "source_file": "main",
+    "timestamp": "2026-10-15T03:01:24.435142+00:00",
+    "dir_name": "20261015_030124_finite_state_machine_tokenizer"
   },
   {
     "topic": "Phobos",
