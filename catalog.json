@@ -1,27 +1,5 @@
 [
   {
-    "topic": "Aether-TreeIndex Spatial Index for Multidimensional Bounding Boxes",
-    "language": "Python",
-    "folder": "python",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "python-advanced-lab",
-    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261107_110217_aether-treeindex_spatial_index",
-    "source_file": "main",
-    "timestamp": "2026-11-07T11:02:31.894795+00:00",
-    "dir_name": "20261107_110217_aether-treeindex_spatial_index"
-  },
-  {
-    "topic": "Lamport Logical Timestamp Synchronization Engine",
-    "language": "Ruby",
-    "folder": "ruby",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "ruby-algorithms-lab",
-    "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261107_110126_lamport_logical_timestamp_sync",
-    "source_file": "main",
-    "timestamp": "2026-11-07T11:01:41.688386+00:00",
-    "dir_name": "20261107_110126_lamport_logical_timestamp_sync"
-  },
-  {
     "topic": "Conjugate Gradient Linear System Solver",
     "language": "Rust",
     "folder": "rust",
@@ -902,6 +880,17 @@
     "dir_name": "20261101_010133_cuckoo_filter_high-efficiency"
   },
   {
+    "topic": "Lamport Logical Timestamp Synchronization Engine",
+    "language": "Python",
+    "folder": "python",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "python-advanced-lab",
+    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261031_230120_lamport_logical_timestamp_sync",
+    "source_file": "main",
+    "timestamp": "2026-10-31T23:01:20.208547+00:00",
+    "dir_name": "20261031_230120_lamport_logical_timestamp_sync"
+  },
+  {
     "topic": "Half-Optimal Induced Matchings in Random Graphs: Online and Low-Degree Algorithms",
     "language": "Python",
     "folder": "python",
@@ -1010,17 +999,6 @@
     "source_file": "main",
     "timestamp": "2026-10-30T21:01:22.424581+00:00",
     "dir_name": "20261030_210122_lsm-tree_memtable_and_sstable"
-  },
-  {
-    "topic": "Lamport Logical Timestamp Synchronization Engine",
-    "language": "Python",
-    "folder": "python",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "python-advanced-lab",
-    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261030_170117_lamport_logical_timestamp_sync",
-    "source_file": "main",
-    "timestamp": "2026-10-30T17:01:17.086739+00:00",
-    "dir_name": "20261030_170117_lamport_logical_timestamp_sync"
   },
   {
     "topic": "AVL Tree Rotations Explained Step by Step (With All 4 Cases)",
