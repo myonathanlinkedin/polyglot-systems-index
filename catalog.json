@@ -1,5 +1,27 @@
 [
   {
+    "topic": "A Near-Optimal Generalized Sorting Algorithm",
+    "language": "Java",
+    "folder": "java",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "java-enterprise-patterns",
+    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261107_020119_a_near-optimal_generalized_sor",
+    "source_file": "main",
+    "timestamp": "2026-11-07T02:01:35.560213+00:00",
+    "dir_name": "20261107_020119_a_near-optimal_generalized_sor"
+  },
+  {
+    "topic": "Pratt Top-Down Operator Precedence Expression Parser",
+    "language": "Go",
+    "folder": "go",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "go-concurrency-lab",
+    "source_link": "https://github.com/myonathanlinkedin/go-concurrency-lab/tree/main/algorithms/20261107_010221_pratt_top-down_operator_preced",
+    "source_file": "main",
+    "timestamp": "2026-11-07T01:02:39.916620+00:00",
+    "dir_name": "20261107_010221_pratt_top-down_operator_preced"
+  },
+  {
     "topic": "Conflict-free Replicated Data Type (CRDT) PN-Counter",
     "language": "Go",
     "folder": "go",
@@ -438,17 +460,6 @@
     "source_file": "main",
     "timestamp": "2026-11-04T20:01:37.358410+00:00",
     "dir_name": "20261104_200120_the_parser_survey_a_usenix_pap"
-  },
-  {
-    "topic": "Pratt Top-Down Operator Precedence Expression Parser",
-    "language": "Python",
-    "folder": "python",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "python-advanced-lab",
-    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261104_190220_pratt_top-down_operator_preced",
-    "source_file": "main",
-    "timestamp": "2026-11-04T19:02:34.536067+00:00",
-    "dir_name": "20261104_190220_pratt_top-down_operator_preced"
   },
   {
     "topic": "Roundtrip All-Pairs Shortest Paths in Directed Graphs",
