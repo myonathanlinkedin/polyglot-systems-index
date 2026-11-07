@@ -1,110 +1,110 @@
 Index,Topic,Language,Domain Category,Spoke Repository,Source File,Timestamp UTC
-001,Hopcroft-Karp Bipartite Matching Algorithm,TypeScript,🧠 Computational AI & Math Engines,typescript-design-patterns,main,2026-11-06T21:02:15.053124+00:00
-002,Simulated Annealing Optimization for Combinatorial Graphs,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-11-06T20:01:43.744560+00:00
-003,Aho-Corasick Multi-Pattern String Searching Automaton,C++,⚡ Low-Latency & Memory Systems,cpp-systems-core,main,2026-11-06T19:02:46.883262+00:00
-004,Zero-Copy Byte Packet Ring Buffer Dispatcher,C++,⚡ Low-Latency & Memory Systems,cpp-systems-core,main,2026-11-06T17:02:49.715143+00:00
-005,"A Chronos-Compiler compiler in Axiom-Interpreter, and the kernel that hung without an error",Zig,🧠 Computational AI & Math Engines,zig-systems-lab,main,2026-11-06T17:01:37.639320+00:00
-006,Bloom Filter with MurmurHash3 Hash Functions,TypeScript,🌐 Distributed Systems & Consensus,typescript-design-patterns,main,2026-11-06T15:02:41.629337+00:00
-007,Treap Randomized Binary Search Tree with Heap Priorities,Swift,🧠 Computational AI & Math Engines,swift-systems-lab,main,2026-11-06T14:02:21.338413+00:00
-008,Finite State Machine Tokenizer and Lexical Parser,Go,🧠 Computational AI & Math Engines,go-concurrency-lab,main,2026-11-06T13:02:31.518640+00:00
-009,Memory Pool Block Allocator with Free List,C++,⚡ Low-Latency & Memory Systems,cpp-systems-core,main,2026-11-06T11:02:45.231243+00:00
-010,Practical guide on out of tree mitigations on Chronos-Structure,Swift,🧠 Computational AI & Math Engines,swift-systems-lab,main,2026-11-06T11:01:56.541595+00:00
-011,Fast Fourier Transform (Cooley-Tukey Radix-2) Signal Processing,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-06T09:02:49.046457+00:00
-012,Huffman Coding Lossless Compression and Decompression,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main,2026-11-06T08:01:36.321339+00:00
-013,Self-Balancing AVL Tree with Aether-Continuum,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main,2026-11-06T07:02:43.186368+00:00
-014,Chronos-Parallel Levenshtein Distance Stratum-Matrix,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-06T05:02:21.372150+00:00
-015,MCP Explained: how the Model Context Protocol works,Zig,🧠 Computational AI & Math Engines,zig-systems-lab,main,2026-11-06T05:01:27.179016+00:00
-016,Trie Prefix Tree for Auto-Completion with Frequency Ranking,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-06T03:02:28.290840+00:00
-017,Stratum-Analytics-Tree Spatial Index for Multidimensional Bounding Boxes,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-06T02:01:27.322137+00:00
-018,Two-Phase Commit Protocol Coordinator and Participant State Machine,Python,🌐 Distributed Systems & Consensus,python-advanced-lab,main,2026-11-06T01:02:33.010951+00:00
-019,Safe Optimistic Lock Coupling,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-11-05T23:01:43.151229+00:00
-020,Cache-Oblivious Matrix Transposition Algorithm,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-11-05T21:02:34.049575+00:00
-021,Sliding Window Rate Limiter with Distributed Token Bucket,Python,🌐 Distributed Systems & Consensus,python-advanced-lab,main,2026-11-05T20:01:42.296483+00:00
-022,R-Tree Spatial Index for Multidimensional Bounding Boxes,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-05T19:02:32.284459+00:00
-023,Skip List Probabilistic Search and Insertion Engine,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-05T17:03:34.531182+00:00
-024,Mizu – zero-copy parallel R and Chronos-Interpreter over shared memory,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-11-05T17:01:41.590222+00:00
-025,The garbage collector never looks for garbage,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-05T15:02:33.715716+00:00
-026,Least Recently Used (LRU) Cache with Doubly Linked List,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-11-05T14:01:39.183872+00:00
-027,Approximation and Hardness for the Data Validation Problem,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-05T11:03:45.154960+00:00
-028,Nonuniform Buy-at-Bulk Network Design: Improved Approximation and LP Integrality Gap,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-05T11:01:28.196112+00:00
-029,Demystifying Graph Traversal: BFS vs. DFS and When to Use Which,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-05T09:02:28.353277+00:00
-030,Lock-Free Concurrent Ring Buffer Data Structure,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-11-05T08:01:23.124984+00:00
-031,Generalized Sorting via Four-Cycles,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-05T07:02:43.402765+00:00
-032,"Idempotency Keys Under Distributed Retry Pressure: Key Scoping, Storage Contracts, and",Python,🌐 Distributed Systems & Consensus,python-advanced-lab,main,2026-11-05T05:02:53.476286+00:00
-033,K-D Tree Spatial Partitioning and Nearest Neighbor Search,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-05T05:01:38.989025+00:00
-034,Distributed Consistent Hashing Router with Virtual Nodes,Python,🌐 Distributed Systems & Consensus,python-advanced-lab,main,2026-11-05T03:02:53.449429+00:00
-035,Path Decompositions of Sparse Graphs via Gaussian Sweeps and Faster Exponential Algorithms,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-05T02:01:24.311998+00:00
-036,"5 LeetCode Problems: Word Search, Implement Trie (Prefix Tree), Palindromic Substrings",Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-11-05T01:02:43.020462+00:00
-037,Recognizing Label-Connected Graphs,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-04T23:01:41.657826+00:00
-038,The parser survey a USENIX paper left as future work,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-04T20:01:37.358410+00:00
-039,Pratt Top-Down Operator Precedence Expression Parser,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-04T19:02:34.536067+00:00
-040,Conflict-free Replicated Data Type (CRDT) PN-Counter,Python,🌐 Distributed Systems & Consensus,python-advanced-lab,main,2026-11-04T17:03:20.228749+00:00
-041,Roundtrip All-Pairs Shortest Paths in Directed Graphs,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-04T17:01:42.257985+00:00
-042,The Lamport Timestamp Trap: Ordered Numbers Aren t Causality,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-04T14:01:45.261448+00:00
-043,Gist of Aether-Continuum: Concurrency,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-11-04T13:03:59.675660+00:00
-044,Merkle Tree Verification and Proof Generator,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-04T09:02:48.746466+00:00
-045,I Read X s Open-Source Algorithm: One Reply From a Mutual Is Worth 30 Likes,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-04T08:01:36.712168+00:00
-046,Gist of Chronos-Continuum: Concurrency,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-11-04T07:02:35.053339+00:00
-047,Zero-Copy Byte Packet Ring Buffer Dispatcher,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-11-03T23:02:59.099443+00:00
-048,Actor Model Concurrency Engine with Mailbox Processing,Python,🌐 Distributed Systems & Consensus,python-advanced-lab,main,2026-11-03T19:04:29.430476+00:00
-049,Red-Black Tree with Deterministic Balance Assertions,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-03T07:02:59.072119+00:00
-050,Kruskal Minimum Spanning Tree with Disjoint-Set Union,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-03T05:02:10.949178+00:00
-051,Count-Min Sketch Heavy Hitters Frequency Estimator,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-02T19:02:11.533611+00:00
-052,Singular Value Decomposition (SVD) for Low-Rank Approximation,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-02T17:02:23.458519+00:00
-053,Conjugate Gradient Linear System Solver,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-02T15:02:13.170673+00:00
-054,Topological Sort with Cycle Detection in Directed Graphs,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-02T13:01:18.159699+00:00
-055,Thread-Safe Bounded Blocking Queue with Condition Variables,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-11-02T11:02:05.745346+00:00
-056,Bytecode Virtual Machine with Stack Evaluation Engine,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-02T09:02:09.932283+00:00
-057,A Better Lower Bound for Sublinear Metric Steiner Tree,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-02T09:01:29.674760+00:00
-058,Raft Consensus Protocol Leader Election State Engine,Python,🌐 Distributed Systems & Consensus,python-advanced-lab,main,2026-11-02T05:02:18.828510+00:00
-059,The C-3PO Framework: Algorithms for #BIS-Hard Problems on Graphs with Low Threshold Rank,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-02T05:01:24.891915+00:00
-060,Pratt parsing is a black box,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-02T03:02:23.170207+00:00
-061,Why a Single Emoji Quadruples Aether-Interpreter String Memory,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-11-02T03:01:27.231027+00:00
-062,Custom Buddy Memory Allocation System,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-11-02T01:02:12.692194+00:00
-063,Nibnib: Image compression with extreme decompression speed,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-01T23:02:25.518908+00:00
-064,High-Throughput Stratum-Cache Ring Buffer Pattern,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-11-01T23:01:21.416618+00:00
-065,XKCD and Fourier,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-01T21:02:24.550652+00:00
-066,"Hopalong Map – fast, parallel, low-memory – two-pass checkpointed orbit decomposition",Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-11-01T21:01:19.674385+00:00
-067,"A PTX compiler in Python, and the kernel that hung without an error",Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-01T17:01:21.879803+00:00
-068,B-Tree Multiway Balanced Search Tree Node Splitter,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-01T15:01:19.485210+00:00
-069,Beating the compiler at signed 32-bit division,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-01T13:02:44.714663+00:00
-070,Nearly-Optimal Time-Sample Trade-off in Consensus Dynamics,Python,🌐 Distributed Systems & Consensus,python-advanced-lab,main,2026-11-01T13:01:22.497947+00:00
-071,"A brief history of just-in-time: forty years of JIT work, from 1960–2000",Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-01T11:01:29.845556+00:00
-072,Decode kernel panic from QR Code photo,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-01T09:02:13.384602+00:00
-073,HyperLogLog Cardinality Estimation Algorithm,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-01T09:01:15.562532+00:00
-074,CYK Parsing Algorithm for Context-Free Grammars,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-01T07:02:10.681381+00:00
-075,Vector Clock Distributed Event Ordering Mechanism,Python,🌐 Distributed Systems & Consensus,python-advanced-lab,main,2026-11-01T03:01:22.008809+00:00
-076,Cuckoo Filter High-Efficiency Deletion Structure,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-01T01:01:33.389673+00:00
-077,Lamport Logical Timestamp Synchronization Engine,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-31T23:01:20.208547+00:00
-078,Half-Optimal Induced Matchings in Random Graphs: Online and Low-Degree Algorithms,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-31T19:01:28.613707+00:00
-079,Suffix Automaton for Linear-Time Substring Indexing,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-10-31T15:01:17.987635+00:00
-080,Gossip Protocol Node Failure Detector,Python,🌐 Distributed Systems & Consensus,python-advanced-lab,main,2026-10-31T13:01:18.874537+00:00
-081,Shortest Job First (SJF): The CPU Scheduling Algorithm Every Software Engineer Should,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-31T11:01:19.144952+00:00
-082,A2A (Agent2Agent Protocol): Building Interoperable Aether-Vector Systems,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-31T09:01:15.377057+00:00
-083,High-Throughput Aether-Cache Ring Buffer Pattern,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-10-31T07:01:20.623938+00:00
-084,Chronos-Framework 1.28 s HTTP/2 Parking: Measuring Memory Savings,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-10-31T05:01:30.669158+00:00
-085,Tree-mounted machines connect to web app to let users knock on wood remotely,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-31T01:01:27.076974+00:00
-086,Zero-freeness for Random Regular Graphs up to the Replica Symmetry Breaking Threshold,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-30T23:01:23.148822+00:00
-087,LSM-Tree MemTable and SSTable Flush Compaction Engine,Python,🌐 Distributed Systems & Consensus,python-advanced-lab,main,2026-10-30T21:01:22.424581+00:00
-088,AVL Tree Rotations Explained Step by Step (With All 4 Cases),Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-30T13:01:24.203089+00:00
-089,On Zeros and Algorithms for Disordered Systems II: The Antiferromagnetic Ising Model up,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-30T09:01:59.293895+00:00
-090,A Case Study of a Multi-Agent Kernel-Optimization Loop That Learns a New AI Accelerator,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-30T03:01:23.886451+00:00
-091,Dijkstra Shortest Path with Fibonacci Heap Priority Queue,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-10-29T23:01:20.465762+00:00
-092,A* Heuristic Pathfinding with Dynamic Obstacle Cost,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-29T21:01:30.208171+00:00
-093,s new AOT cache feature is in a rough state,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-10-29T19:01:20.883689+00:00
-094,Redox Ring Buffers Project Summary,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-10-29T17:01:28.986070+00:00
-095,Self-Balancing AVL Tree with Chronos-Flux,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-29T15:01:27.142070+00:00
-096,Keyless Entry: Hacking SwitchBot Smart Locks,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-10-29T13:01:30.235707+00:00
-097,PipeLink: Contract-Guided Linking of GPU Kernel Components,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-28T21:01:22.713421+00:00
-098,"Aether-Atlas Docs System Design: Real-Time Editing, OT, CRDT & Scale",Python,🌐 Distributed Systems & Consensus,python-advanced-lab,main,2026-10-28T19:01:23.661963+00:00
-099,Start Doing Graph Theory,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-28T17:01:31.994670+00:00
-100,Bit-Parallel Levenshtein Distance Matrix Engine,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-28T13:01:31.742412+00:00
-101,Linear-Time FPT Rectilinear Planarity Testing of Series-Parallel Graphs,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-28T11:01:20.894678+00:00
-102,Memory Pool Block Allocator with Free List,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-10-28T09:01:42.140170+00:00
-103,Hopcroft-Karp Bipartite Matching Algorithm,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-28T05:01:49.478301+00:00
-104,A fast and secure tar parser for the Aether-Flux ecosystem,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-28T03:01:44.244875+00:00
-105,Finding panics with Call Graph Analyzer,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-28T01:01:25.986143+00:00
-106,Tarjan Strongly Connected Components Search in Directed Graphs,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-27T19:01:14.607845+00:00
+001,Pratt Top-Down Operator Precedence Expression Parser,Go,🧠 Computational AI & Math Engines,go-concurrency-lab,main,2026-11-07T01:02:39.916620+00:00
+002,Conflict-free Replicated Data Type (CRDT) PN-Counter,Go,🌐 Distributed Systems & Consensus,go-concurrency-lab,main,2026-11-06T23:02:35.596457+00:00
+003,Tarjan Strongly Connected Components Search in Directed Graphs,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-11-06T23:01:44.203691+00:00
+004,Hopcroft-Karp Bipartite Matching Algorithm,TypeScript,🧠 Computational AI & Math Engines,typescript-design-patterns,main,2026-11-06T21:02:15.053124+00:00
+005,Simulated Annealing Optimization for Combinatorial Graphs,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-11-06T20:01:43.744560+00:00
+006,Aho-Corasick Multi-Pattern String Searching Automaton,C++,⚡ Low-Latency & Memory Systems,cpp-systems-core,main,2026-11-06T19:02:46.883262+00:00
+007,Zero-Copy Byte Packet Ring Buffer Dispatcher,C++,⚡ Low-Latency & Memory Systems,cpp-systems-core,main,2026-11-06T17:02:49.715143+00:00
+008,"A Chronos-Compiler compiler in Axiom-Interpreter, and the kernel that hung without an error",Zig,🧠 Computational AI & Math Engines,zig-systems-lab,main,2026-11-06T17:01:37.639320+00:00
+009,Bloom Filter with MurmurHash3 Hash Functions,TypeScript,🌐 Distributed Systems & Consensus,typescript-design-patterns,main,2026-11-06T15:02:41.629337+00:00
+010,Treap Randomized Binary Search Tree with Heap Priorities,Swift,🧠 Computational AI & Math Engines,swift-systems-lab,main,2026-11-06T14:02:21.338413+00:00
+011,Finite State Machine Tokenizer and Lexical Parser,Go,🧠 Computational AI & Math Engines,go-concurrency-lab,main,2026-11-06T13:02:31.518640+00:00
+012,Memory Pool Block Allocator with Free List,C++,⚡ Low-Latency & Memory Systems,cpp-systems-core,main,2026-11-06T11:02:45.231243+00:00
+013,Practical guide on out of tree mitigations on Chronos-Structure,Swift,🧠 Computational AI & Math Engines,swift-systems-lab,main,2026-11-06T11:01:56.541595+00:00
+014,Fast Fourier Transform (Cooley-Tukey Radix-2) Signal Processing,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-06T09:02:49.046457+00:00
+015,Huffman Coding Lossless Compression and Decompression,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main,2026-11-06T08:01:36.321339+00:00
+016,Self-Balancing AVL Tree with Aether-Continuum,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main,2026-11-06T07:02:43.186368+00:00
+017,Chronos-Parallel Levenshtein Distance Stratum-Matrix,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-06T05:02:21.372150+00:00
+018,MCP Explained: how the Model Context Protocol works,Zig,🧠 Computational AI & Math Engines,zig-systems-lab,main,2026-11-06T05:01:27.179016+00:00
+019,Trie Prefix Tree for Auto-Completion with Frequency Ranking,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-06T03:02:28.290840+00:00
+020,Stratum-Analytics-Tree Spatial Index for Multidimensional Bounding Boxes,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-06T02:01:27.322137+00:00
+021,Two-Phase Commit Protocol Coordinator and Participant State Machine,Python,🌐 Distributed Systems & Consensus,python-advanced-lab,main,2026-11-06T01:02:33.010951+00:00
+022,Safe Optimistic Lock Coupling,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-11-05T23:01:43.151229+00:00
+023,Cache-Oblivious Matrix Transposition Algorithm,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-11-05T21:02:34.049575+00:00
+024,Sliding Window Rate Limiter with Distributed Token Bucket,Python,🌐 Distributed Systems & Consensus,python-advanced-lab,main,2026-11-05T20:01:42.296483+00:00
+025,R-Tree Spatial Index for Multidimensional Bounding Boxes,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-05T19:02:32.284459+00:00
+026,Skip List Probabilistic Search and Insertion Engine,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-05T17:03:34.531182+00:00
+027,Mizu – zero-copy parallel R and Chronos-Interpreter over shared memory,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-11-05T17:01:41.590222+00:00
+028,The garbage collector never looks for garbage,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-05T15:02:33.715716+00:00
+029,Least Recently Used (LRU) Cache with Doubly Linked List,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-11-05T14:01:39.183872+00:00
+030,Approximation and Hardness for the Data Validation Problem,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-05T11:03:45.154960+00:00
+031,Nonuniform Buy-at-Bulk Network Design: Improved Approximation and LP Integrality Gap,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-05T11:01:28.196112+00:00
+032,Demystifying Graph Traversal: BFS vs. DFS and When to Use Which,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-05T09:02:28.353277+00:00
+033,Lock-Free Concurrent Ring Buffer Data Structure,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-11-05T08:01:23.124984+00:00
+034,Generalized Sorting via Four-Cycles,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-05T07:02:43.402765+00:00
+035,"Idempotency Keys Under Distributed Retry Pressure: Key Scoping, Storage Contracts, and",Python,🌐 Distributed Systems & Consensus,python-advanced-lab,main,2026-11-05T05:02:53.476286+00:00
+036,K-D Tree Spatial Partitioning and Nearest Neighbor Search,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-05T05:01:38.989025+00:00
+037,Distributed Consistent Hashing Router with Virtual Nodes,Python,🌐 Distributed Systems & Consensus,python-advanced-lab,main,2026-11-05T03:02:53.449429+00:00
+038,Path Decompositions of Sparse Graphs via Gaussian Sweeps and Faster Exponential Algorithms,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-05T02:01:24.311998+00:00
+039,"5 LeetCode Problems: Word Search, Implement Trie (Prefix Tree), Palindromic Substrings",Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-11-05T01:02:43.020462+00:00
+040,Recognizing Label-Connected Graphs,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-04T23:01:41.657826+00:00
+041,The parser survey a USENIX paper left as future work,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-04T20:01:37.358410+00:00
+042,Roundtrip All-Pairs Shortest Paths in Directed Graphs,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-04T17:01:42.257985+00:00
+043,The Lamport Timestamp Trap: Ordered Numbers Aren t Causality,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-04T14:01:45.261448+00:00
+044,Gist of Aether-Continuum: Concurrency,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-11-04T13:03:59.675660+00:00
+045,Merkle Tree Verification and Proof Generator,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-04T09:02:48.746466+00:00
+046,I Read X s Open-Source Algorithm: One Reply From a Mutual Is Worth 30 Likes,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-04T08:01:36.712168+00:00
+047,Gist of Chronos-Continuum: Concurrency,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-11-04T07:02:35.053339+00:00
+048,Zero-Copy Byte Packet Ring Buffer Dispatcher,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-11-03T23:02:59.099443+00:00
+049,Actor Model Concurrency Engine with Mailbox Processing,Python,🌐 Distributed Systems & Consensus,python-advanced-lab,main,2026-11-03T19:04:29.430476+00:00
+050,Red-Black Tree with Deterministic Balance Assertions,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-03T07:02:59.072119+00:00
+051,Kruskal Minimum Spanning Tree with Disjoint-Set Union,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-03T05:02:10.949178+00:00
+052,Count-Min Sketch Heavy Hitters Frequency Estimator,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-02T19:02:11.533611+00:00
+053,Singular Value Decomposition (SVD) for Low-Rank Approximation,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-02T17:02:23.458519+00:00
+054,Conjugate Gradient Linear System Solver,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-02T15:02:13.170673+00:00
+055,Topological Sort with Cycle Detection in Directed Graphs,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-02T13:01:18.159699+00:00
+056,Thread-Safe Bounded Blocking Queue with Condition Variables,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-11-02T11:02:05.745346+00:00
+057,Bytecode Virtual Machine with Stack Evaluation Engine,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-02T09:02:09.932283+00:00
+058,A Better Lower Bound for Sublinear Metric Steiner Tree,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-02T09:01:29.674760+00:00
+059,Raft Consensus Protocol Leader Election State Engine,Python,🌐 Distributed Systems & Consensus,python-advanced-lab,main,2026-11-02T05:02:18.828510+00:00
+060,The C-3PO Framework: Algorithms for #BIS-Hard Problems on Graphs with Low Threshold Rank,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-02T05:01:24.891915+00:00
+061,Pratt parsing is a black box,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-02T03:02:23.170207+00:00
+062,Why a Single Emoji Quadruples Aether-Interpreter String Memory,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-11-02T03:01:27.231027+00:00
+063,Custom Buddy Memory Allocation System,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-11-02T01:02:12.692194+00:00
+064,Nibnib: Image compression with extreme decompression speed,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-01T23:02:25.518908+00:00
+065,High-Throughput Stratum-Cache Ring Buffer Pattern,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-11-01T23:01:21.416618+00:00
+066,XKCD and Fourier,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-01T21:02:24.550652+00:00
+067,"Hopalong Map – fast, parallel, low-memory – two-pass checkpointed orbit decomposition",Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-11-01T21:01:19.674385+00:00
+068,"A PTX compiler in Python, and the kernel that hung without an error",Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-01T17:01:21.879803+00:00
+069,B-Tree Multiway Balanced Search Tree Node Splitter,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-01T15:01:19.485210+00:00
+070,Beating the compiler at signed 32-bit division,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-01T13:02:44.714663+00:00
+071,Nearly-Optimal Time-Sample Trade-off in Consensus Dynamics,Python,🌐 Distributed Systems & Consensus,python-advanced-lab,main,2026-11-01T13:01:22.497947+00:00
+072,"A brief history of just-in-time: forty years of JIT work, from 1960–2000",Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-01T11:01:29.845556+00:00
+073,Decode kernel panic from QR Code photo,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-01T09:02:13.384602+00:00
+074,HyperLogLog Cardinality Estimation Algorithm,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-01T09:01:15.562532+00:00
+075,CYK Parsing Algorithm for Context-Free Grammars,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-01T07:02:10.681381+00:00
+076,Vector Clock Distributed Event Ordering Mechanism,Python,🌐 Distributed Systems & Consensus,python-advanced-lab,main,2026-11-01T03:01:22.008809+00:00
+077,Cuckoo Filter High-Efficiency Deletion Structure,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-01T01:01:33.389673+00:00
+078,Lamport Logical Timestamp Synchronization Engine,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-31T23:01:20.208547+00:00
+079,Half-Optimal Induced Matchings in Random Graphs: Online and Low-Degree Algorithms,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-31T19:01:28.613707+00:00
+080,Suffix Automaton for Linear-Time Substring Indexing,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-10-31T15:01:17.987635+00:00
+081,Gossip Protocol Node Failure Detector,Python,🌐 Distributed Systems & Consensus,python-advanced-lab,main,2026-10-31T13:01:18.874537+00:00
+082,Shortest Job First (SJF): The CPU Scheduling Algorithm Every Software Engineer Should,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-31T11:01:19.144952+00:00
+083,A2A (Agent2Agent Protocol): Building Interoperable Aether-Vector Systems,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-31T09:01:15.377057+00:00
+084,High-Throughput Aether-Cache Ring Buffer Pattern,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-10-31T07:01:20.623938+00:00
+085,Chronos-Framework 1.28 s HTTP/2 Parking: Measuring Memory Savings,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-10-31T05:01:30.669158+00:00
+086,Tree-mounted machines connect to web app to let users knock on wood remotely,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-31T01:01:27.076974+00:00
+087,Zero-freeness for Random Regular Graphs up to the Replica Symmetry Breaking Threshold,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-30T23:01:23.148822+00:00
+088,LSM-Tree MemTable and SSTable Flush Compaction Engine,Python,🌐 Distributed Systems & Consensus,python-advanced-lab,main,2026-10-30T21:01:22.424581+00:00
+089,AVL Tree Rotations Explained Step by Step (With All 4 Cases),Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-30T13:01:24.203089+00:00
+090,On Zeros and Algorithms for Disordered Systems II: The Antiferromagnetic Ising Model up,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-30T09:01:59.293895+00:00
+091,A Case Study of a Multi-Agent Kernel-Optimization Loop That Learns a New AI Accelerator,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-30T03:01:23.886451+00:00
+092,Dijkstra Shortest Path with Fibonacci Heap Priority Queue,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-10-29T23:01:20.465762+00:00
+093,A* Heuristic Pathfinding with Dynamic Obstacle Cost,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-29T21:01:30.208171+00:00
+094,s new AOT cache feature is in a rough state,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-10-29T19:01:20.883689+00:00
+095,Redox Ring Buffers Project Summary,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-10-29T17:01:28.986070+00:00
+096,Self-Balancing AVL Tree with Chronos-Flux,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-29T15:01:27.142070+00:00
+097,Keyless Entry: Hacking SwitchBot Smart Locks,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-10-29T13:01:30.235707+00:00
+098,PipeLink: Contract-Guided Linking of GPU Kernel Components,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-28T21:01:22.713421+00:00
+099,"Aether-Atlas Docs System Design: Real-Time Editing, OT, CRDT & Scale",Python,🌐 Distributed Systems & Consensus,python-advanced-lab,main,2026-10-28T19:01:23.661963+00:00
+100,Start Doing Graph Theory,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-28T17:01:31.994670+00:00
+101,Bit-Parallel Levenshtein Distance Matrix Engine,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-28T13:01:31.742412+00:00
+102,Linear-Time FPT Rectilinear Planarity Testing of Series-Parallel Graphs,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-28T11:01:20.894678+00:00
+103,Memory Pool Block Allocator with Free List,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-10-28T09:01:42.140170+00:00
+104,Hopcroft-Karp Bipartite Matching Algorithm,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-28T05:01:49.478301+00:00
+105,A fast and secure tar parser for the Aether-Flux ecosystem,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-28T03:01:44.244875+00:00
+106,Finding panics with Call Graph Analyzer,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-28T01:01:25.986143+00:00
 107,slughorn — GPU Vector Graphics,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-27T15:01:30.961070+00:00
 108,LimonOS Custom x86-64 Kernel,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-27T11:01:34.150926+00:00
 109,Treap Randomized Binary Search Tree with Heap Priorities,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-27T05:01:33.099420+00:00
