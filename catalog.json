@@ -1,16 +1,5 @@
 [
   {
-    "topic": "A Near-Optimal Generalized Sorting Algorithm",
-    "language": "Java",
-    "folder": "java",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "java-enterprise-patterns",
-    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261107_020119_a_near-optimal_generalized_sor",
-    "source_file": "main",
-    "timestamp": "2026-11-07T02:01:35.560213+00:00",
-    "dir_name": "20261107_020119_a_near-optimal_generalized_sor"
-  },
-  {
     "topic": "Pratt Top-Down Operator Precedence Expression Parser",
     "language": "Go",
     "folder": "go",
