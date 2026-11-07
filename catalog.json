@@ -1,5 +1,27 @@
 [
   {
+    "topic": "Conjugate Gradient Linear System Solver",
+    "language": "Rust",
+    "folder": "rust",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "rust-algorithms",
+    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261107_090208_conjugate_gradient_linear_syst",
+    "source_file": "main",
+    "timestamp": "2026-11-07T09:02:19.962256+00:00",
+    "dir_name": "20261107_090208_conjugate_gradient_linear_syst"
+  },
+  {
+    "topic": "Thread-Safe Bounded Blocking Queue with Condition Variables",
+    "language": "Zig",
+    "folder": "zig",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "zig-systems-lab",
+    "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261107_080127_thread-safe_bounded_blocking_q",
+    "source_file": "main",
+    "timestamp": "2026-11-07T08:01:40.085710+00:00",
+    "dir_name": "20261107_080127_thread-safe_bounded_blocking_q"
+  },
+  {
     "topic": "A Near-Optimal Generalized Sorting Algorithm",
     "language": "Haskell",
     "folder": "haskell",
@@ -605,17 +627,6 @@
     "dir_name": "20261102_170223_singular_value_decomposition"
   },
   {
-    "topic": "Conjugate Gradient Linear System Solver",
-    "language": "Python",
-    "folder": "python",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "python-advanced-lab",
-    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261102_150213_conjugate_gradient_linear_syst",
-    "source_file": "main",
-    "timestamp": "2026-11-02T15:02:13.170673+00:00",
-    "dir_name": "20261102_150213_conjugate_gradient_linear_syst"
-  },
-  {
     "topic": "Topological Sort with Cycle Detection in Directed Graphs",
     "language": "Python",
     "folder": "python",
@@ -625,17 +636,6 @@
     "source_file": "main",
     "timestamp": "2026-11-02T13:01:18.159699+00:00",
     "dir_name": "20261102_130118_topological_sort_with_cycle_de"
-  },
-  {
-    "topic": "Thread-Safe Bounded Blocking Queue with Condition Variables",
-    "language": "Python",
-    "folder": "python",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "python-advanced-lab",
-    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261102_110205_thread-safe_bounded_blocking_q",
-    "source_file": "main",
-    "timestamp": "2026-11-02T11:02:05.745346+00:00",
-    "dir_name": "20261102_110205_thread-safe_bounded_blocking_q"
   },
   {
     "topic": "Bytecode Virtual Machine with Stack Evaluation Engine",
@@ -801,6 +801,17 @@
     "source_file": "main",
     "timestamp": "2026-11-01T13:01:22.497947+00:00",
     "dir_name": "20261101_130122_nearly-optimal_time-sample_tra"
+  },
+  {
+    "topic": "Conjugate Gradient Linear System Solver",
+    "language": "Python",
+    "folder": "python",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "python-advanced-lab",
+    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261101_110210_conjugate_gradient_linear_syst",
+    "source_file": "main",
+    "timestamp": "2026-11-01T11:02:10.632515+00:00",
+    "dir_name": "20261101_110210_conjugate_gradient_linear_syst"
   },
   {
     "topic": "A brief history of just-in-time: forty years of JIT work, from 1960\u20132000",
@@ -1087,6 +1098,17 @@
     "source_file": "main",
     "timestamp": "2026-10-29T13:01:30.235707+00:00",
     "dir_name": "20261029_130130_keyless_entry__hacking_switchb"
+  },
+  {
+    "topic": "Thread-Safe Bounded Blocking Queue with Condition Variables",
+    "language": "Python",
+    "folder": "python",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "python-advanced-lab",
+    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261028_230130_thread-safe_bounded_blocking_q",
+    "source_file": "main",
+    "timestamp": "2026-10-28T23:01:30.354818+00:00",
+    "dir_name": "20261028_230130_thread-safe_bounded_blocking_q"
   },
   {
     "topic": "PipeLink: Contract-Guided Linking of GPU Kernel Components",
@@ -3562,17 +3584,6 @@
     "source_file": "main",
     "timestamp": "2026-10-10T21:11:11.501426+00:00",
     "dir_name": "20261010_211111_bipartite_balanced_partitioning"
-  },
-  {
-    "topic": "Thread-Safe Bounded Blocking Queue with Condition Variables",
-    "language": "Zig",
-    "folder": "zig",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "zig-systems-lab",
-    "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261010_200223_thread-safe_bounded_blocking_q",
-    "source_file": "main",
-    "timestamp": "2026-10-10T20:02:23.301358+00:00",
-    "dir_name": "20261010_200223_thread-safe_bounded_blocking_q"
   },
   {
     "topic": "Trie Prefix Tree for Auto-Completion with Frequency Ranking",
