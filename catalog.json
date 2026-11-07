@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Memorilla: Latent Semantic Memory for LLMs",
+    "language": "TypeScript",
+    "folder": "typescript",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "typescript-design-patterns",
+    "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261107_050116_memorilla__latent_semantic_mem",
+    "source_file": "main",
+    "timestamp": "2026-11-07T05:01:27.125280+00:00",
+    "dir_name": "20261107_050116_memorilla__latent_semantic_mem"
+  },
+  {
     "topic": "Hopcroft-Karp Bipartite Matching Algorithm",
     "language": "C#",
     "folder": "csharp",
