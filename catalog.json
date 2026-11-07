@@ -1,5 +1,27 @@
 [
   {
+    "topic": "Lamport Logical Timestamp Synchronization Engine",
+    "language": "Ruby",
+    "folder": "ruby",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "ruby-algorithms-lab",
+    "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261107_110126_lamport_logical_timestamp_sync",
+    "source_file": "main",
+    "timestamp": "2026-11-07T11:01:41.688386+00:00",
+    "dir_name": "20261107_110126_lamport_logical_timestamp_sync"
+  },
+  {
+    "topic": "Conjugate Gradient Linear System Solver",
+    "language": "Rust",
+    "folder": "rust",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "rust-algorithms",
+    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261107_090208_conjugate_gradient_linear_syst",
+    "source_file": "main",
+    "timestamp": "2026-11-07T09:02:19.962256+00:00",
+    "dir_name": "20261107_090208_conjugate_gradient_linear_syst"
+  },
+  {
     "topic": "Thread-Safe Bounded Blocking Queue with Condition Variables",
     "language": "Zig",
     "folder": "zig",
@@ -616,17 +638,6 @@
     "dir_name": "20261102_170223_singular_value_decomposition"
   },
   {
-    "topic": "Conjugate Gradient Linear System Solver",
-    "language": "Python",
-    "folder": "python",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "python-advanced-lab",
-    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261102_150213_conjugate_gradient_linear_syst",
-    "source_file": "main",
-    "timestamp": "2026-11-02T15:02:13.170673+00:00",
-    "dir_name": "20261102_150213_conjugate_gradient_linear_syst"
-  },
-  {
     "topic": "Topological Sort with Cycle Detection in Directed Graphs",
     "language": "Python",
     "folder": "python",
@@ -803,6 +814,17 @@
     "dir_name": "20261101_130122_nearly-optimal_time-sample_tra"
   },
   {
+    "topic": "Conjugate Gradient Linear System Solver",
+    "language": "Python",
+    "folder": "python",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "python-advanced-lab",
+    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261101_110210_conjugate_gradient_linear_syst",
+    "source_file": "main",
+    "timestamp": "2026-11-01T11:02:10.632515+00:00",
+    "dir_name": "20261101_110210_conjugate_gradient_linear_syst"
+  },
+  {
     "topic": "A brief history of just-in-time: forty years of JIT work, from 1960\u20132000",
     "language": "Python",
     "folder": "python",
@@ -867,17 +889,6 @@
     "source_file": "main",
     "timestamp": "2026-11-01T01:01:33.389673+00:00",
     "dir_name": "20261101_010133_cuckoo_filter_high-efficiency"
-  },
-  {
-    "topic": "Lamport Logical Timestamp Synchronization Engine",
-    "language": "Python",
-    "folder": "python",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "python-advanced-lab",
-    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261031_230120_lamport_logical_timestamp_sync",
-    "source_file": "main",
-    "timestamp": "2026-10-31T23:01:20.208547+00:00",
-    "dir_name": "20261031_230120_lamport_logical_timestamp_sync"
   },
   {
     "topic": "Half-Optimal Induced Matchings in Random Graphs: Online and Low-Degree Algorithms",
@@ -988,6 +999,17 @@
     "source_file": "main",
     "timestamp": "2026-10-30T21:01:22.424581+00:00",
     "dir_name": "20261030_210122_lsm-tree_memtable_and_sstable"
+  },
+  {
+    "topic": "Lamport Logical Timestamp Synchronization Engine",
+    "language": "Python",
+    "folder": "python",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "python-advanced-lab",
+    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261030_170117_lamport_logical_timestamp_sync",
+    "source_file": "main",
+    "timestamp": "2026-10-30T17:01:17.086739+00:00",
+    "dir_name": "20261030_170117_lamport_logical_timestamp_sync"
   },
   {
     "topic": "AVL Tree Rotations Explained Step by Step (With All 4 Cases)",
