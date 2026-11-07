@@ -1,5 +1,38 @@
 [
   {
+    "topic": "A Near-Optimal Generalized Sorting Algorithm",
+    "language": "Haskell",
+    "folder": "haskell",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "haskell-functional-core",
+    "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261107_070229_a_near-optimal_generalized_sor",
+    "source_file": "main",
+    "timestamp": "2026-11-07T07:02:43.139775+00:00",
+    "dir_name": "20261107_070229_a_near-optimal_generalized_sor"
+  },
+  {
+    "topic": "Cache-Oblivious Matrix Transposition Algorithm",
+    "language": "Rust",
+    "folder": "rust",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "rust-algorithms",
+    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261107_050245_cache-oblivious_matrix_transpo",
+    "source_file": "main",
+    "timestamp": "2026-11-07T05:03:03.534260+00:00",
+    "dir_name": "20261107_050245_cache-oblivious_matrix_transpo"
+  },
+  {
+    "topic": "Memorilla: Latent Semantic Memory for LLMs",
+    "language": "TypeScript",
+    "folder": "typescript",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "typescript-design-patterns",
+    "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261107_050116_memorilla__latent_semantic_mem",
+    "source_file": "main",
+    "timestamp": "2026-11-07T05:01:27.125280+00:00",
+    "dir_name": "20261107_050116_memorilla__latent_semantic_mem"
+  },
+  {
     "topic": "Hopcroft-Karp Bipartite Matching Algorithm",
     "language": "C#",
     "folder": "csharp",
@@ -9,17 +42,6 @@
     "source_file": "main",
     "timestamp": "2026-11-07T03:03:24.664628+00:00",
     "dir_name": "20261107_030253_hopcroft-karp_bipartite_matchi"
-  },
-  {
-    "topic": "A Near-Optimal Generalized Sorting Algorithm",
-    "language": "Java",
-    "folder": "java",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "java-enterprise-patterns",
-    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261107_020119_a_near-optimal_generalized_sor",
-    "source_file": "main",
-    "timestamp": "2026-11-07T02:01:35.560213+00:00",
-    "dir_name": "20261107_020119_a_near-optimal_generalized_sor"
   },
   {
     "topic": "Pratt Top-Down Operator Precedence Expression Parser",
@@ -251,17 +273,6 @@
     "source_file": "main",
     "timestamp": "2026-11-05T23:01:43.151229+00:00",
     "dir_name": "20261105_230128_safe_optimistic_lock_coupling"
-  },
-  {
-    "topic": "Cache-Oblivious Matrix Transposition Algorithm",
-    "language": "Python",
-    "folder": "python",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "python-advanced-lab",
-    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261105_210219_cache-oblivious_matrix_transpo",
-    "source_file": "main",
-    "timestamp": "2026-11-05T21:02:34.049575+00:00",
-    "dir_name": "20261105_210219_cache-oblivious_matrix_transpo"
   },
   {
     "topic": "Sliding Window Rate Limiter with Distributed Token Bucket",
@@ -1219,6 +1230,17 @@
     "source_file": "main",
     "timestamp": "2026-10-26T21:01:38.812454+00:00",
     "dir_name": "20261026_210138_logarithmic_separation_between"
+  },
+  {
+    "topic": "Cache-Oblivious Matrix Transposition Algorithm",
+    "language": "Python",
+    "folder": "python",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "python-advanced-lab",
+    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261026_190130_cache-oblivious_matrix_transpo",
+    "source_file": "main",
+    "timestamp": "2026-10-26T19:01:30.036831+00:00",
+    "dir_name": "20261026_190130_cache-oblivious_matrix_transpo"
   },
   {
     "topic": "writing about pratt parsing so I remember it",
