@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Cache-Oblivious Matrix Transposition Algorithm",
+    "language": "Python",
+    "folder": "python",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "python-advanced-lab",
+    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261109_230219_cache-oblivious_matrix_transpo",
+    "source_file": "main",
+    "timestamp": "2026-11-09T23:02:36.126902+00:00",
+    "dir_name": "20261109_230219_cache-oblivious_matrix_transpo"
+  },
+  {
     "topic": "Treap Randomized Binary Search Tree with Heap Priorities",
     "language": "Swift",
     "folder": "swift",
@@ -449,17 +460,6 @@
     "source_file": "main",
     "timestamp": "2026-11-07T13:03:08.752676+00:00",
     "dir_name": "20261107_130252_cyk_parsing_algorithm_for_cont"
-  },
-  {
-    "topic": "Cache-Oblivious Matrix Transposition Algorithm",
-    "language": "Rust",
-    "folder": "rust",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "rust-algorithms",
-    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261107_050245_cache-oblivious_matrix_transpo",
-    "source_file": "main",
-    "timestamp": "2026-11-07T05:03:03.534260+00:00",
-    "dir_name": "20261107_050245_cache-oblivious_matrix_transpo"
   },
   {
     "topic": "Memorilla: Latent Semantic Memory for LLMs",
@@ -1472,17 +1472,6 @@
     "source_file": "main",
     "timestamp": "2026-10-26T21:01:38.812454+00:00",
     "dir_name": "20261026_210138_logarithmic_separation_between"
-  },
-  {
-    "topic": "Cache-Oblivious Matrix Transposition Algorithm",
-    "language": "Python",
-    "folder": "python",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "python-advanced-lab",
-    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261026_190130_cache-oblivious_matrix_transpo",
-    "source_file": "main",
-    "timestamp": "2026-10-26T19:01:30.036831+00:00",
-    "dir_name": "20261026_190130_cache-oblivious_matrix_transpo"
   },
   {
     "topic": "writing about pratt parsing so I remember it",
