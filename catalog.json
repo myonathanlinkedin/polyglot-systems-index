@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Kruskal Minimum Spanning Tree with Disjoint-Set Union",
+    "language": "Haskell",
+    "folder": "haskell",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "haskell-functional-core",
+    "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261110_050114_kruskal_minimum_spanning_tree",
+    "source_file": "main",
+    "timestamp": "2026-11-10T05:01:26.250599+00:00",
+    "dir_name": "20261110_050114_kruskal_minimum_spanning_tree"
+  },
+  {
     "topic": "Actor Model Concurrency Engine with Mailbox Processing",
     "language": "Go",
     "folder": "go",
@@ -891,17 +902,6 @@
     "dir_name": "20261103_070259_red-black_tree_with_determinis"
   },
   {
-    "topic": "Kruskal Minimum Spanning Tree with Disjoint-Set Union",
-    "language": "Python",
-    "folder": "python",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "python-advanced-lab",
-    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261103_050210_kruskal_minimum_spanning_tree",
-    "source_file": "main",
-    "timestamp": "2026-11-03T05:02:10.949178+00:00",
-    "dir_name": "20261103_050210_kruskal_minimum_spanning_tree"
-  },
-  {
     "topic": "Actor Model Concurrency Engine with Mailbox Processing",
     "language": "Python",
     "folder": "python",
@@ -1483,6 +1483,17 @@
     "source_file": "main",
     "timestamp": "2026-10-27T05:01:33.099420+00:00",
     "dir_name": "20261027_050133_treap_randomized_binary_search"
+  },
+  {
+    "topic": "Kruskal Minimum Spanning Tree with Disjoint-Set Union",
+    "language": "Python",
+    "folder": "python",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "python-advanced-lab",
+    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261027_010133_kruskal_minimum_spanning_tree",
+    "source_file": "main",
+    "timestamp": "2026-10-27T01:01:33.043153+00:00",
+    "dir_name": "20261027_010133_kruskal_minimum_spanning_tree"
   },
   {
     "topic": "Logarithmic Separation between LZ77 and LZ-End and Grammar Compression",
