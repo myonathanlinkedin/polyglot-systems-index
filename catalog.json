@@ -1,5 +1,16 @@
 [
   {
+    "topic": "The Distributed Systems Error Handling Handbook",
+    "language": "Java",
+    "folder": "java",
+    "category": "\ud83c\udf10 Distributed Systems & Consensus",
+    "spoke_repo": "java-enterprise-patterns",
+    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261110_110115_the_distributed_systems_error",
+    "source_file": "main",
+    "timestamp": "2026-11-10T11:01:31.166175+00:00",
+    "dir_name": "20261110_110115_the_distributed_systems_error"
+  },
+  {
     "topic": "Fast Fourier Transform (Cooley-Tukey Radix-2) Signal Processing",
     "language": "Rust",
     "folder": "rust",
