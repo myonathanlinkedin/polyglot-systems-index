@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Zero-Copy Byte Packet Ring Buffer Dispatcher",
+    "language": "Zig",
+    "folder": "zig",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "zig-systems-lab",
+    "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261110_140210_zero-copy_byte_packet_ring_buf",
+    "source_file": "main",
+    "timestamp": "2026-11-10T14:02:28.361314+00:00",
+    "dir_name": "20261110_140210_zero-copy_byte_packet_ring_buf"
+  },
+  {
     "topic": "Count-Min Sketch Heavy Hitters Frequency Estimator",
     "language": "Java",
     "folder": "java",
@@ -603,17 +614,6 @@
     "source_file": "main",
     "timestamp": "2026-11-06T20:01:43.744560+00:00",
     "dir_name": "20261106_200123_simulated_annealing_optimizati"
-  },
-  {
-    "topic": "Zero-Copy Byte Packet Ring Buffer Dispatcher",
-    "language": "C++",
-    "folder": "cpp",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "cpp-systems-core",
-    "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261106_170234_zero-copy_byte_packet_ring_buf",
-    "source_file": "main",
-    "timestamp": "2026-11-06T17:02:49.715143+00:00",
-    "dir_name": "20261106_170234_zero-copy_byte_packet_ring_buf"
   },
   {
     "topic": "A Chronos-Compiler compiler in Axiom-Interpreter, and the kernel that hung without an error",
@@ -4277,17 +4277,6 @@
     "source_file": "main",
     "timestamp": "2026-10-09T14:08:26.781465+00:00",
     "dir_name": "20261009_140826_safe_optimistic_lock_coupling"
-  },
-  {
-    "topic": "Zero-Copy Byte Packet Ring Buffer Dispatcher",
-    "language": "Zig",
-    "folder": "zig",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "zig-systems-lab",
-    "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261009_134655_zero-copy_byte_packet_ring_buf",
-    "source_file": "main",
-    "timestamp": "2026-10-09T13:46:55.211598+00:00",
-    "dir_name": "20261009_134655_zero-copy_byte_packet_ring_buf"
   },
   {
     "topic": "A minimal kernel in Swift, running in QEMU",
