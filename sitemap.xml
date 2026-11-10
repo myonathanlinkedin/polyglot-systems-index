@@ -385,19 +385,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-11-02_why_a_single_emoji_quadruples_aethe/</loc>
-    <lastmod>2026-11-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://myonathanlinkedin.github.io/papers/2026-11-02_idempotency_keys_under_distributed_/</loc>
     <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-11-02_nibnib_image_compression_with_extre/</loc>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-11-02_why_a_single_emoji_quadruples_aethe/</loc>
     <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -409,19 +403,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-11-01_hopalong_map_fast_parallel_low_memo/</loc>
-    <lastmod>2026-11-01</lastmod>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-11-02_nibnib_image_compression_with_extre/</loc>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-11-01_decode_kernel_panic_from_qr_code_ph/</loc>
-    <lastmod>2026-11-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-11-01_vector_clock_distributed_event_orde/</loc>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-11-01_a_ptx_compiler_in_python_and_the_ke/</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -433,31 +421,37 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-11-01_a_ptx_compiler_in_python_and_the_ke/</loc>
-    <lastmod>2026-11-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://myonathanlinkedin.github.io/papers/2026-11-01_nearly_optimal_time_sample_trade_of/</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-31_high_throughput_aether_cache_ring_b/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-11-01_hopalong_map_fast_parallel_low_memo/</loc>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-31_a2a_agent2agent_protocol_building_i/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-11-01_vector_clock_distributed_event_orde/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-11-01_decode_kernel_panic_from_qr_code_ph/</loc>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://myonathanlinkedin.github.io/papers/2026-10-31_shortest_job_first_sjf_the_cpu_sche/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-31_high_throughput_aether_cache_ring_b/</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -475,7 +469,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-30_a_case_study_of_a_multi_agent_kerne/</loc>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-31_a2a_agent2agent_protocol_building_i/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-30_on_zeros_and_algorithms_for_disorde/</loc>
     <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -487,8 +487,14 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-30_on_zeros_and_algorithms_for_disorde/</loc>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-30_a_case_study_of_a_multi_agent_kerne/</loc>
     <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-29_redox_ring_buffers_project_summary/</loc>
+    <lastmod>2026-10-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -499,7 +505,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-29_redox_ring_buffers_project_summary/</loc>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-29_keyless_entry_hacking_switchbot_sma/</loc>
     <lastmod>2026-10-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -511,8 +517,14 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-29_keyless_entry_hacking_switchbot_sma/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-28_a_fast_and_secure_tar_parser_for_th/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-28_start_doing_graph_theory/</loc>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -535,18 +547,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-28_start_doing_graph_theory/</loc>
-    <lastmod>2026-10-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-28_a_fast_and_secure_tar_parser_for_th/</loc>
-    <lastmod>2026-10-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://myonathanlinkedin.github.io/papers/2026-10-27_slughorn_gpu_vector_graphics/</loc>
     <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
@@ -555,18 +555,6 @@
   <url>
     <loc>https://myonathanlinkedin.github.io/papers/2026-10-27_limonos_custom_x86_64_kernel/</loc>
     <lastmod>2026-10-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-26_false_sharing_why_your_lock_free_co/</loc>
-    <lastmod>2026-10-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-26_designing_an_ai_gateway_from_scratc/</loc>
-    <lastmod>2026-10-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -583,19 +571,31 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-26_false_sharing_why_your_lock_free_co/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://myonathanlinkedin.github.io/papers/2026-10-26_growing_trees/</loc>
     <lastmod>2026-10-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-25_stop_guessing_let_the_algorithm_fin/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-26_designing_an_ai_gateway_from_scratc/</loc>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://myonathanlinkedin.github.io/papers/2026-10-25_singular_value_decomposition_svd_fo/</loc>
+    <lastmod>2026-10-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-25_stop_guessing_let_the_algorithm_fin/</loc>
     <lastmod>2026-10-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -619,25 +619,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-24_the_self_healing_code_thesis_compil/</loc>
-    <lastmod>2026-10-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-24_retries_are_a_distributed_systems_b/</loc>
-    <lastmod>2026-10-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://myonathanlinkedin.github.io/papers/2026-10-24_google_illegally_cut_down_250k_tree/</loc>
     <lastmod>2026-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-24_peak_aware_one_way_trading_competit/</loc>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-24_the_self_healing_code_thesis_compil/</loc>
     <lastmod>2026-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -655,13 +643,19 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-22_why_windows_11_still_ships_with_win/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-24_retries_are_a_distributed_systems_b/</loc>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-22_using_a_lookup_table_to_correct_an_/</loc>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-24_peak_aware_one_way_trading_competit/</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-22_why_windows_11_still_ships_with_win/</loc>
     <lastmod>2026-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -673,7 +667,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-22_vector_graphics_in_lil/</loc>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-22_using_a_lookup_table_to_correct_an_/</loc>
     <lastmod>2026-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -685,25 +679,25 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-22_dynamically_optimal_weight_balanced/</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://myonathanlinkedin.github.io/papers/2026-10-22_fucking_algorithm/</loc>
     <lastmod>2026-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-21_suffix_automaton_for_linear_time_su/</loc>
-    <lastmod>2026-10-21</lastmod>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-22_dynamically_optimal_weight_balanced/</loc>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-21_2026_is_an_exciting_year_for_the_ru/</loc>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-22_vector_graphics_in_lil/</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-21_conjugate_gradient_linear_system_so/</loc>
     <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -715,7 +709,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-21_conjugate_gradient_linear_system_so/</loc>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-21_the_compiler_was_supposed_to_end_pr/</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-21_2026_is_an_exciting_year_for_the_ru/</loc>
     <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -727,13 +727,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-21_the_compiler_was_supposed_to_end_pr/</loc>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-21_suffix_automaton_for_linear_time_su/</loc>
     <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-20_how_chronos_kernel_handles_a_fork_w/</loc>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-20_treap_randomized_binary_search_tree/</loc>
     <lastmod>2026-10-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -745,20 +745,14 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-20_treap_randomized_binary_search_tree/</loc>
-    <lastmod>2026-10-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://myonathanlinkedin.github.io/papers/2026-10-20_two_phase_commit_protocol_coordinat/</loc>
     <lastmod>2026-10-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-19_one_parser_two_bugs_many_routers_ex/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-20_how_chronos_kernel_handles_a_fork_w/</loc>
+    <lastmod>2026-10-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -775,7 +769,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-19_lambda_destination_chains_vs_sqs_fa/</loc>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-19_one_parser_two_bugs_many_routers_ex/</loc>
     <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -787,25 +781,13 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-19_lambda_destination_chains_vs_sqs_fa/</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://myonathanlinkedin.github.io/papers/2026-10-18_engineering_a_multimodal_travel_pla/</loc>
-    <lastmod>2026-10-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-18_r_tree_spatial_index_for_multidimen/</loc>
-    <lastmod>2026-10-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-18_lsm_tree_memtable_and_sstable_flush/</loc>
-    <lastmod>2026-10-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-18_parser_combinators/</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -817,25 +799,31 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-18_r_tree_spatial_index_for_multidimen/</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://myonathanlinkedin.github.io/papers/2026-10-18_k_d_tree_spatial_partitioning_and_n/</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-17_aho_corasick_multi_pattern_string_s/</loc>
-    <lastmod>2026-10-17</lastmod>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-18_parser_combinators/</loc>
+    <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-17_red_black_tree_with_deterministic_b/</loc>
-    <lastmod>2026-10-17</lastmod>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-18_lsm_tree_memtable_and_sstable_flush/</loc>
+    <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-17_filters_and_probabilistic_searching/</loc>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-17_you_could_have_invented_transformer/</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -847,13 +835,25 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-17_filters_and_probabilistic_searching/</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-17_trie_prefix_tree_for_auto_completio/</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://myonathanlinkedin.github.io/papers/2026-10-17_distributed_consistent_hashing_rout/</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-17_you_could_have_invented_transformer/</loc>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-17_aho_corasick_multi_pattern_string_s/</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -871,8 +871,20 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-17_trie_prefix_tree_for_auto_completio/</loc>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-17_red_black_tree_with_deterministic_b/</loc>
     <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-16_count_min_sketch_heavy_hitters_freq/</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-16_fast_fourier_transform_cooley_tukey/</loc>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -889,19 +901,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-16_near_optimal_parallel_m_matrix_scal/</loc>
-    <lastmod>2026-10-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://myonathanlinkedin.github.io/papers/2026-10-16_a_story_of_wifi_secrets_uart_lockdo/</loc>
     <lastmod>2026-10-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-16_count_min_sketch_heavy_hitters_freq/</loc>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-16_near_optimal_parallel_m_matrix_scal/</loc>
     <lastmod>2026-10-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -909,36 +915,6 @@
   <url>
     <loc>https://myonathanlinkedin.github.io/papers/2026-10-16_cyk_parsing_algorithm_for_context_f/</loc>
     <lastmod>2026-10-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-16_fast_fourier_transform_cooley_tukey/</loc>
-    <lastmod>2026-10-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-15_self_balancing_avl_tree_with_full_r/</loc>
-    <lastmod>2026-10-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-15_zero_copy_byte_packet_ring_buffer_d/</loc>
-    <lastmod>2026-10-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-15_hyperloglog_cardinality_estimation_/</loc>
-    <lastmod>2026-10-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-15_understanding_nvidia_grace_blackwel/</loc>
-    <lastmod>2026-10-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -955,14 +931,26 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-14_zxc_lossless_compression_built_for_/</loc>
-    <lastmod>2026-10-14</lastmod>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-15_zero_copy_byte_packet_ring_buffer_d/</loc>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-14_constructive_arboricity_in_almost_l/</loc>
-    <lastmod>2026-10-14</lastmod>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-15_understanding_nvidia_grace_blackwel/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-15_hyperloglog_cardinality_estimation_/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-15_self_balancing_avl_tree_with_full_r/</loc>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -979,13 +967,37 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-14_constructive_arboricity_in_almost_l/</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://myonathanlinkedin.github.io/papers/2026-10-14_aethercast_broadcasting_ai_weights_ove/</loc>
     <lastmod>2026-10-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-14_zxc_lossless_compression_built_for_/</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://myonathanlinkedin.github.io/papers/2026-10-13_gossip_protocol_node_failure_detect/</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-13_benchmarking_content_defined_chunki/</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-13_cuckoo_filter_high_efficiency_delet/</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -1003,26 +1015,8 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-13_benchmarking_content_defined_chunki/</loc>
-    <lastmod>2026-10-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://myonathanlinkedin.github.io/papers/2026-10-13_a_simplified_layout_algebra_for_gpu/</loc>
     <lastmod>2026-10-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-13_cuckoo_filter_high_efficiency_delet/</loc>
-    <lastmod>2026-10-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-12_simulated_annealing_optimization_fo/</loc>
-    <lastmod>2026-10-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1033,8 +1027,38 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-12_simulated_annealing_optimization_fo/</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://myonathanlinkedin.github.io/papers/2026-10-12_a_heuristic_pathfinding_with_dynami/</loc>
     <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-11_actor_model_concurrency_engine_with/</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-11_custom_buddy_memory_allocation_syst/</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-11_memory_pool_block_allocator_with_fr/</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-11_raft_consensus_protocol_leader_elec/</loc>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1051,25 +1075,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-11_php_lamport_logical_timestamp_engin/</loc>
-    <lastmod>2026-10-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-11_runge_kutta_4th_order_numerical_ode/</loc>
-    <lastmod>2026-10-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-11_c_memory_pool_block_allocator/</loc>
-    <lastmod>2026-10-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-11_sliding_window_rate_limiter_with_di/</loc>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-11_hopcroft_karp_bipartite_matching_al/</loc>
     <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -1081,19 +1087,19 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-11_raft_consensus_protocol_leader_elec/</loc>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-11_go_sliding_window_rate_limiter/</loc>
     <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-11_safe_optimistic_lock_coupling/</loc>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-11_c_memory_pool_block_allocator/</loc>
     <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-11_custom_buddy_memory_allocation_syst/</loc>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-11_runge_kutta_4th_order_numerical_ode/</loc>
     <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -1105,13 +1111,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-11_go_sliding_window_rate_limiter/</loc>
-    <lastmod>2026-10-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-11_actor_model_concurrency_engine_with/</loc>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-11_php_lamport_logical_timestamp_engin/</loc>
     <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -1123,13 +1123,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-11_memory_pool_block_allocator_with_fr/</loc>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-11_sliding_window_rate_limiter_with_di/</loc>
     <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-11_hopcroft_karp_bipartite_matching_al/</loc>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-11_safe_optimistic_lock_coupling/</loc>
     <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -1141,13 +1141,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-27_logarithmic_separation_between_lz77/</loc>
-    <lastmod>2026-10-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-10-25_almost_tight_distributed_approximat/</loc>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-11-02_high_throughput_stratum_cache_ring_/</loc>
     <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -1159,13 +1153,19 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-25_almost_tight_distributed_approximat/</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://myonathanlinkedin.github.io/papers/2026-11-02_a_better_lower_bound_for_sublinear_/</loc>
     <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myonathanlinkedin.github.io/papers/2026-11-02_high_throughput_stratum_cache_ring_/</loc>
+    <loc>https://myonathanlinkedin.github.io/papers/2026-10-27_logarithmic_separation_between_lz77/</loc>
     <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
