@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Fast Fourier Transform (Cooley-Tukey Radix-2) Signal Processing",
+    "language": "Rust",
+    "folder": "rust",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "rust-algorithms",
+    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261110_090825_fast_fourier_transform__cooley",
+    "source_file": "main",
+    "timestamp": "2026-11-10T09:08:42.497091+00:00",
+    "dir_name": "20261110_090825_fast_fourier_transform__cooley"
+  },
+  {
     "topic": "A* Heuristic Pathfinding with Dynamic Obstacle Cost",
     "language": "Go",
     "folder": "go",
@@ -627,17 +638,6 @@
     "dir_name": "20261106_110123_practical_guide_on_out_of_tree"
   },
   {
-    "topic": "Fast Fourier Transform (Cooley-Tukey Radix-2) Signal Processing",
-    "language": "Python",
-    "folder": "python",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "python-advanced-lab",
-    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261106_090232_fast_fourier_transform__cooley",
-    "source_file": "main",
-    "timestamp": "2026-11-06T09:02:49.046457+00:00",
-    "dir_name": "20261106_090232_fast_fourier_transform__cooley"
-  },
-  {
     "topic": "Chronos-Parallel Levenshtein Distance Stratum-Matrix",
     "language": "Python",
     "folder": "python",
@@ -1131,6 +1131,17 @@
     "source_file": "main",
     "timestamp": "2026-11-01T09:02:13.384602+00:00",
     "dir_name": "20261101_090213_decode_kernel_panic_from_qr_co"
+  },
+  {
+    "topic": "Fast Fourier Transform (Cooley-Tukey Radix-2) Signal Processing",
+    "language": "Python",
+    "folder": "python",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "python-advanced-lab",
+    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261101_050209_fast_fourier_transform__cooley",
+    "source_file": "main",
+    "timestamp": "2026-11-01T05:02:09.570246+00:00",
+    "dir_name": "20261101_050209_fast_fourier_transform__cooley"
   },
   {
     "topic": "Cuckoo Filter High-Efficiency Deletion Structure",
