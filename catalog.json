@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Zero-Copy Parsing in Aether-Flux: nom, Bytes, and the Cost of Ownership",
+    "language": "Zig",
+    "folder": "zig",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "zig-systems-lab",
+    "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261110_190239_zero-copy_parsing_in_aether-fl",
+    "source_file": "main",
+    "timestamp": "2026-11-10T19:02:56.045780+00:00",
+    "dir_name": "20261110_190239_zero-copy_parsing_in_aether-fl"
+  },
+  {
     "topic": "A primer on GPUs and kernel optimization",
     "language": "C",
     "folder": "c",
