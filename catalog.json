@@ -1,5 +1,16 @@
 [
   {
+    "topic": "A primer on GPUs and kernel optimization",
+    "language": "C",
+    "folder": "c",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "c-lowlevel-systems",
+    "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261110_150220_a_primer_on_gpus_and_kernel_op",
+    "source_file": "main",
+    "timestamp": "2026-11-10T15:02:39.058800+00:00",
+    "dir_name": "20261110_150220_a_primer_on_gpus_and_kernel_op"
+  },
+  {
     "topic": "Zero-Copy Byte Packet Ring Buffer Dispatcher",
     "language": "Zig",
     "folder": "zig",
