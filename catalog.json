@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Finite State Machine Tokenizer and Lexical Parser",
+    "language": "TypeScript",
+    "folder": "typescript",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "typescript-design-patterns",
+    "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261110_010218_finite_state_machine_tokenizer",
+    "source_file": "main",
+    "timestamp": "2026-11-10T01:02:36.339799+00:00",
+    "dir_name": "20261110_010218_finite_state_machine_tokenizer"
+  },
+  {
     "topic": "Cache-Oblivious Matrix Transposition Algorithm",
     "language": "Python",
     "folder": "python",
@@ -548,17 +559,6 @@
     "source_file": "main",
     "timestamp": "2026-11-06T15:02:41.629337+00:00",
     "dir_name": "20261106_150224_bloom_filter_with_murmurhash3"
-  },
-  {
-    "topic": "Finite State Machine Tokenizer and Lexical Parser",
-    "language": "Go",
-    "folder": "go",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "go-concurrency-lab",
-    "source_link": "https://github.com/myonathanlinkedin/go-concurrency-lab/tree/main/algorithms/20261106_130207_finite_state_machine_tokenizer",
-    "source_file": "main",
-    "timestamp": "2026-11-06T13:02:31.518640+00:00",
-    "dir_name": "20261106_130207_finite_state_machine_tokenizer"
   },
   {
     "topic": "Memory Pool Block Allocator with Free List",
@@ -2649,17 +2649,6 @@
     "source_file": "main",
     "timestamp": "2026-10-15T05:01:11.588270+00:00",
     "dir_name": "20261015_050111_why_your_topological_sort_give"
-  },
-  {
-    "topic": "Finite State Machine Tokenizer and Lexical Parser",
-    "language": "TypeScript",
-    "folder": "typescript",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "typescript-design-patterns",
-    "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261015_030124_finite_state_machine_tokenizer",
-    "source_file": "main",
-    "timestamp": "2026-10-15T03:01:24.435142+00:00",
-    "dir_name": "20261015_030124_finite_state_machine_tokenizer"
   },
   {
     "topic": "Phobos",
