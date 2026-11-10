@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Your AI Agent s Memory Is Not Its Source of Truth: The Hidden Risk of Stale Context",
+    "language": "Haskell",
+    "folder": "haskell",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "haskell-functional-core",
+    "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261110_050326_your_ai_agent_s_memory_is_not",
+    "source_file": "main",
+    "timestamp": "2026-11-10T05:03:41.134680+00:00",
+    "dir_name": "20261110_050326_your_ai_agent_s_memory_is_not"
+  },
+  {
     "topic": "Kruskal Minimum Spanning Tree with Disjoint-Set Union",
     "language": "Haskell",
     "folder": "haskell",
@@ -295,17 +306,6 @@
     "source_file": "main",
     "timestamp": "2026-11-08T17:03:20.074244+00:00",
     "dir_name": "20261108_170304_jit_bitmap_text_rendering_for"
-  },
-  {
-    "topic": "Your AI Agent s Memory Is Not Its Source of Truth: The Hidden Risk of Stale Context",
-    "language": "Kotlin",
-    "folder": "kotlin",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "kotlin-systems-core",
-    "source_link": "https://github.com/myonathanlinkedin/kotlin-systems-core/tree/main/algorithms/20261108_170113_your_ai_agent_s_memory_is_not",
-    "source_file": "main",
-    "timestamp": "2026-11-08T17:01:34.508220+00:00",
-    "dir_name": "20261108_170113_your_ai_agent_s_memory_is_not"
   },
   {
     "topic": "Aho-Corasick Multi-Pattern String Searching Automaton",
