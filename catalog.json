@@ -1,5 +1,27 @@
 [
   {
+    "topic": "Actor Model Concurrency Engine with Mailbox Processing",
+    "language": "Go",
+    "folder": "go",
+    "category": "\ud83c\udf10 Distributed Systems & Consensus",
+    "spoke_repo": "go-concurrency-lab",
+    "source_link": "https://github.com/myonathanlinkedin/go-concurrency-lab/tree/main/algorithms/20261110_030325_actor_model_concurrency_engine",
+    "source_file": "main",
+    "timestamp": "2026-11-10T03:03:46.389506+00:00",
+    "dir_name": "20261110_030325_actor_model_concurrency_engine"
+  },
+  {
+    "topic": "Design Typeahead Search Step by Step: Why the Trie Stores the Top 10 at Every Node",
+    "language": "Swift",
+    "folder": "swift",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "swift-systems-lab",
+    "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261110_020122_design_typeahead_search_step_b",
+    "source_file": "main",
+    "timestamp": "2026-11-10T02:01:58.807897+00:00",
+    "dir_name": "20261110_020122_design_typeahead_search_step_b"
+  },
+  {
     "topic": "Finite State Machine Tokenizer and Lexical Parser",
     "language": "TypeScript",
     "folder": "typescript",
@@ -858,17 +880,6 @@
     "dir_name": "20261103_230247_zero-copy_byte_packet_ring_buf"
   },
   {
-    "topic": "Actor Model Concurrency Engine with Mailbox Processing",
-    "language": "Python",
-    "folder": "python",
-    "category": "\ud83c\udf10 Distributed Systems & Consensus",
-    "spoke_repo": "python-advanced-lab",
-    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261103_190307_actor_model_concurrency_engine",
-    "source_file": "main",
-    "timestamp": "2026-11-03T19:04:29.430476+00:00",
-    "dir_name": "20261103_190307_actor_model_concurrency_engine"
-  },
-  {
     "topic": "Red-Black Tree with Deterministic Balance Assertions",
     "language": "Python",
     "folder": "python",
@@ -889,6 +900,17 @@
     "source_file": "main",
     "timestamp": "2026-11-03T05:02:10.949178+00:00",
     "dir_name": "20261103_050210_kruskal_minimum_spanning_tree"
+  },
+  {
+    "topic": "Actor Model Concurrency Engine with Mailbox Processing",
+    "language": "Python",
+    "folder": "python",
+    "category": "\ud83c\udf10 Distributed Systems & Consensus",
+    "spoke_repo": "python-advanced-lab",
+    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261103_030247_actor_model_concurrency_engine",
+    "source_file": "main",
+    "timestamp": "2026-11-03T03:02:47.216495+00:00",
+    "dir_name": "20261103_030247_actor_model_concurrency_engine"
   },
   {
     "topic": "Count-Min Sketch Heavy Hitters Frequency Estimator",
@@ -5289,17 +5311,6 @@
     "source_file": "main",
     "timestamp": "2026-10-05T06:42:58.919879+00:00",
     "dir_name": "20261005_064258_vector_clock_distributed_event"
-  },
-  {
-    "topic": "Actor Model Concurrency Engine with Mailbox Processing",
-    "language": "Go",
-    "folder": "go",
-    "category": "\ud83c\udf10 Distributed Systems & Consensus",
-    "spoke_repo": "go-concurrency-lab",
-    "source_link": "https://github.com/myonathanlinkedin/go-concurrency-lab/tree/main/algorithms/20261005_063939_actor_model_concurrency_engine",
-    "source_file": "main",
-    "timestamp": "2026-10-05T06:39:39.370164+00:00",
-    "dir_name": "20261005_063939_actor_model_concurrency_engine"
   },
   {
     "topic": "Topological Sort with Cycle Detection in Directed Graphs",
