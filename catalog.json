@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Skip List Chronos-Search",
+    "language": "Swift",
+    "folder": "swift",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "swift-systems-lab",
+    "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261111_030232_skip_list_chronos-search",
+    "source_file": "main",
+    "timestamp": "2026-11-11T03:02:48.326591+00:00",
+    "dir_name": "20261111_030232_skip_list_chronos-search"
+  },
+  {
     "topic": "High-Throughput Aether-Cache Ring Buffer Pattern",
     "language": "C",
     "folder": "c",
