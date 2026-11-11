@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Custom Buddy Memory Allocation System",
+    "language": "Java",
+    "folder": "java",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "java-enterprise-patterns",
+    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261111_230319_custom_buddy_memory_allocation",
+    "source_file": "main",
+    "timestamp": "2026-11-11T23:03:36.474504+00:00",
+    "dir_name": "20261111_230319_custom_buddy_memory_allocation"
+  },
+  {
     "topic": "Conflict-free Replicated Data Type (CRDT) PN-Counter",
     "language": "Rust",
     "folder": "rust",
@@ -625,17 +636,6 @@
     "source_file": "main",
     "timestamp": "2026-11-07T15:02:24.403185+00:00",
     "dir_name": "20261107_150207_vector_clock_distributed_event"
-  },
-  {
-    "topic": "Custom Buddy Memory Allocation System",
-    "language": "TypeScript",
-    "folder": "typescript",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "typescript-design-patterns",
-    "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261107_140121_custom_buddy_memory_allocation",
-    "source_file": "main",
-    "timestamp": "2026-11-07T14:01:32.256971+00:00",
-    "dir_name": "20261107_140121_custom_buddy_memory_allocation"
   },
   {
     "topic": "CYK Parsing Algorithm for Context-Free Grammars",
