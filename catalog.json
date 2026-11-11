@@ -1,14 +1,25 @@
 [
   {
-    "topic": "Greg Kurtzer s Ginux is now a userspace kernel",
-    "language": "Zig",
-    "folder": "zig",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "zig-systems-lab",
-    "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261111_090253_greg_kurtzer_s_ginux_is_now_a",
+    "topic": "Idempotency Keys Under Distributed Retry Pressure: Key Scoping, Storage Contracts, and",
+    "language": "C#",
+    "folder": "csharp",
+    "category": "\ud83c\udf10 Distributed Systems & Consensus",
+    "spoke_repo": "csharp-enterprise-lab",
+    "source_link": "https://github.com/myonathanlinkedin/csharp-enterprise-lab/tree/main/algorithms/20261111_130237_idempotency_keys_under_distrib",
     "source_file": "main",
-    "timestamp": "2026-11-11T09:03:07.870851+00:00",
-    "dir_name": "20261111_090253_greg_kurtzer_s_ginux_is_now_a"
+    "timestamp": "2026-11-11T13:03:00.579573+00:00",
+    "dir_name": "20261111_130237_idempotency_keys_under_distrib"
+  },
+  {
+    "topic": "Greg Kurtzer s Ginux is now a userspace kernel",
+    "language": "C",
+    "folder": "c",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "c-lowlevel-systems",
+    "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261111_110257_greg_kurtzer_s_ginux_is_now_a",
+    "source_file": "main",
+    "timestamp": "2026-11-11T11:03:10.795474+00:00",
+    "dir_name": "20261111_110257_greg_kurtzer_s_ginux_is_now_a"
   },
   {
     "topic": "Simulated Annealing Optimization for Combinatorial Graphs",
@@ -361,17 +372,6 @@
     "source_file": "main",
     "timestamp": "2026-11-09T05:01:25.018280+00:00",
     "dir_name": "20261109_050113_tennis_and_padel_scoring_as_a"
-  },
-  {
-    "topic": "Idempotency Keys Under Distributed Retry Pressure: Key Scoping, Storage Contracts, and",
-    "language": "Java",
-    "folder": "java",
-    "category": "\ud83c\udf10 Distributed Systems & Consensus",
-    "spoke_repo": "java-enterprise-patterns",
-    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261109_030244_idempotency_keys_under_distrib",
-    "source_file": "main",
-    "timestamp": "2026-11-09T03:02:58.911641+00:00",
-    "dir_name": "20261109_030244_idempotency_keys_under_distrib"
   },
   {
     "topic": "HyperLogLog Cardinality Estimation Algorithm",
