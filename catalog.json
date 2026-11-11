@@ -1,5 +1,16 @@
 [
   {
+    "topic": "High-Throughput Aether-Cache Ring Buffer Pattern",
+    "language": "C",
+    "folder": "c",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "c-lowlevel-systems",
+    "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261111_010227_high-throughput_aether-cache_r",
+    "source_file": "main",
+    "timestamp": "2026-11-11T01:02:43.371688+00:00",
+    "dir_name": "20261111_010227_high-throughput_aether-cache_r"
+  },
+  {
     "topic": "Merkle Tree Verification and Proof Generator",
     "language": "Haskell",
     "folder": "haskell",
@@ -383,17 +394,6 @@
     "source_file": "main",
     "timestamp": "2026-11-08T20:01:36.280701+00:00",
     "dir_name": "20261108_200120_huffman_coding_lossless_compre"
-  },
-  {
-    "topic": "High-Throughput Aether-Cache Ring Buffer Pattern",
-    "language": "Zig",
-    "folder": "zig",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "zig-systems-lab",
-    "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261108_190230_high-throughput_aether-cache_r",
-    "source_file": "main",
-    "timestamp": "2026-11-08T19:02:43.998404+00:00",
-    "dir_name": "20261108_190230_high-throughput_aether-cache_r"
   },
   {
     "topic": "JIT bitmap text rendering for microcontrollers",
