@@ -1,16 +1,5 @@
 [
   {
-    "topic": "Memory Safety Bugs in Aether-Flux Standard Library",
-    "language": "Kotlin",
-    "folder": "kotlin",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "kotlin-systems-core",
-    "source_link": "https://github.com/myonathanlinkedin/kotlin-systems-core/tree/main/algorithms/20261111_050243_memory_safety_bugs_in_aether-f",
-    "source_file": "main",
-    "timestamp": "2026-11-11T05:02:58.875249+00:00",
-    "dir_name": "20261111_050243_memory_safety_bugs_in_aether-f"
-  },
-  {
     "topic": "Skip List Chronos-Search",
     "language": "Swift",
     "folder": "swift",
