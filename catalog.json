@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Why OS Virtual Memory Paging Saved LLM Inference: The AetherPaged-LLM Breakthrough",
+    "language": "Zig",
+    "folder": "zig",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "zig-systems-lab",
+    "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261111_190242_why_os_virtual_memory_paging_s",
+    "source_file": "main",
+    "timestamp": "2026-11-11T19:02:58.207207+00:00",
+    "dir_name": "20261111_190242_why_os_virtual_memory_paging_s"
+  },
+  {
     "topic": "Memory Safety Bugs in Aether-Flux Standard Library",
     "language": "PHP",
     "folder": "php",
