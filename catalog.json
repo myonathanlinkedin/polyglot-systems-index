@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Memory Safety Bugs in Aether-Flux Standard Library",
+    "language": "PHP",
+    "folder": "php",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "php-backend-core",
+    "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261111_170435_memory_safety_bugs_in_aether-f",
+    "source_file": "main",
+    "timestamp": "2026-11-11T17:04:54.065136+00:00",
+    "dir_name": "20261111_170435_memory_safety_bugs_in_aether-f"
+  },
+  {
     "topic": "Idempotency Keys Under Distributed Retry Pressure: Key Scoping, Storage Contracts, and",
     "language": "C#",
     "folder": "csharp",
@@ -31,17 +42,6 @@
     "source_file": "main",
     "timestamp": "2026-11-11T07:02:35.319103+00:00",
     "dir_name": "20261111_070222_simulated_annealing_optimizati"
-  },
-  {
-    "topic": "Memory Safety Bugs in Aether-Flux Standard Library",
-    "language": "Kotlin",
-    "folder": "kotlin",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "kotlin-systems-core",
-    "source_link": "https://github.com/myonathanlinkedin/kotlin-systems-core/tree/main/algorithms/20261111_050243_memory_safety_bugs_in_aether-f",
-    "source_file": "main",
-    "timestamp": "2026-11-11T05:02:58.875249+00:00",
-    "dir_name": "20261111_050243_memory_safety_bugs_in_aether-f"
   },
   {
     "topic": "Skip List Chronos-Search",
