@@ -1,14 +1,14 @@
 [
   {
     "topic": "Greg Kurtzer s Ginux is now a userspace kernel",
-    "language": "Zig",
-    "folder": "zig",
+    "language": "C",
+    "folder": "c",
     "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "zig-systems-lab",
-    "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261111_090253_greg_kurtzer_s_ginux_is_now_a",
+    "spoke_repo": "c-lowlevel-systems",
+    "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261111_110257_greg_kurtzer_s_ginux_is_now_a",
     "source_file": "main",
-    "timestamp": "2026-11-11T09:03:07.870851+00:00",
-    "dir_name": "20261111_090253_greg_kurtzer_s_ginux_is_now_a"
+    "timestamp": "2026-11-11T11:03:10.795474+00:00",
+    "dir_name": "20261111_110257_greg_kurtzer_s_ginux_is_now_a"
   },
   {
     "topic": "Simulated Annealing Optimization for Combinatorial Graphs",
