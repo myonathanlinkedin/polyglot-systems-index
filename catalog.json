@@ -1,5 +1,16 @@
 [
   {
+    "topic": "The Lamport Timestamp Trap: Ordered Numbers Aren t Causality",
+    "language": "Kotlin",
+    "folder": "kotlin",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "kotlin-systems-core",
+    "source_link": "https://github.com/myonathanlinkedin/kotlin-systems-core/tree/main/algorithms/20261112_090329_the_lamport_timestamp_trap__or",
+    "source_file": "main",
+    "timestamp": "2026-11-12T09:03:48.905601+00:00",
+    "dir_name": "20261112_090329_the_lamport_timestamp_trap__or"
+  },
+  {
     "topic": "23 Minutes Before the Freeze: Shortest Paths at Hackathon Raptors: Speed Demon",
     "language": "Kotlin",
     "folder": "kotlin",
@@ -141,17 +152,6 @@
     "source_file": "main",
     "timestamp": "2026-11-10T23:02:47.449045+00:00",
     "dir_name": "20261110_230231_merkle_tree_verification_and_p"
-  },
-  {
-    "topic": "The Lamport Timestamp Trap: Ordered Numbers Aren t Causality",
-    "language": "Ruby",
-    "folder": "ruby",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "ruby-algorithms-lab",
-    "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261110_210243_the_lamport_timestamp_trap__or",
-    "source_file": "main",
-    "timestamp": "2026-11-10T21:02:57.323517+00:00",
-    "dir_name": "20261110_210243_the_lamport_timestamp_trap__or"
   },
   {
     "topic": "Zero-Copy Parsing in Aether-Flux: nom, Bytes, and the Cost of Ownership",
