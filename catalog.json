@@ -1,5 +1,16 @@
 [
   {
+    "topic": "23 Minutes Before the Freeze: Shortest Paths at Hackathon Raptors: Speed Demon",
+    "language": "Kotlin",
+    "folder": "kotlin",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "kotlin-systems-core",
+    "source_link": "https://github.com/myonathanlinkedin/kotlin-systems-core/tree/main/algorithms/20261112_070221_23_minutes_before_the_freeze",
+    "source_file": "main",
+    "timestamp": "2026-11-12T07:02:40.774638+00:00",
+    "dir_name": "20261112_070221_23_minutes_before_the_freeze"
+  },
+  {
     "topic": "Mobile Storage Is a Distributed Systems Problem Wearing a Local API",
     "language": "Go",
     "folder": "go",
