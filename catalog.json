@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Your AI Agent s Memory Is Not Its Source of Truth: The Hidden Risk of Stale Context",
+    "language": "Ruby",
+    "folder": "ruby",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "ruby-algorithms-lab",
+    "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261112_170223_your_ai_agent_s_memory_is_not",
+    "source_file": "main",
+    "timestamp": "2026-11-12T17:02:42.394706+00:00",
+    "dir_name": "20261112_170223_your_ai_agent_s_memory_is_not"
+  },
+  {
     "topic": "Creating Diagrams and Graphs Using Modern CSS",
     "language": "PHP",
     "folder": "php",
@@ -251,17 +262,6 @@
     "source_file": "main",
     "timestamp": "2026-11-10T08:01:50.592481+00:00",
     "dir_name": "20261110_080133_a__heuristic_pathfinding_with"
-  },
-  {
-    "topic": "Your AI Agent s Memory Is Not Its Source of Truth: The Hidden Risk of Stale Context",
-    "language": "Haskell",
-    "folder": "haskell",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "haskell-functional-core",
-    "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261110_050326_your_ai_agent_s_memory_is_not",
-    "source_file": "main",
-    "timestamp": "2026-11-10T05:03:41.134680+00:00",
-    "dir_name": "20261110_050326_your_ai_agent_s_memory_is_not"
   },
   {
     "topic": "Kruskal Minimum Spanning Tree with Disjoint-Set Union",
