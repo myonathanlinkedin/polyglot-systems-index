@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Vector Clock Distributed Event Ordering Mechanism",
+    "language": "C#",
+    "folder": "csharp",
+    "category": "\ud83c\udf10 Distributed Systems & Consensus",
+    "spoke_repo": "csharp-enterprise-lab",
+    "source_link": "https://github.com/myonathanlinkedin/csharp-enterprise-lab/tree/main/algorithms/20261112_110225_vector_clock_distributed_event",
+    "source_file": "main",
+    "timestamp": "2026-11-12T11:02:51.259067+00:00",
+    "dir_name": "20261112_110225_vector_clock_distributed_event"
+  },
+  {
     "topic": "The Lamport Timestamp Trap: Ordered Numbers Aren t Causality",
     "language": "Kotlin",
     "folder": "kotlin",
@@ -658,17 +669,6 @@
     "source_file": "main",
     "timestamp": "2026-11-07T17:01:38.688631+00:00",
     "dir_name": "20261107_170116_the_flash_c_compiler"
-  },
-  {
-    "topic": "Vector Clock Distributed Event Ordering Mechanism",
-    "language": "Rust",
-    "folder": "rust",
-    "category": "\ud83c\udf10 Distributed Systems & Consensus",
-    "spoke_repo": "rust-algorithms",
-    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261107_150207_vector_clock_distributed_event",
-    "source_file": "main",
-    "timestamp": "2026-11-07T15:02:24.403185+00:00",
-    "dir_name": "20261107_150207_vector_clock_distributed_event"
   },
   {
     "topic": "CYK Parsing Algorithm for Context-Free Grammars",
@@ -3969,17 +3969,6 @@
     "source_file": "main",
     "timestamp": "2026-10-10T18:02:05.669129+00:00",
     "dir_name": "20261010_180205_zero_dependency_json_parser"
-  },
-  {
-    "topic": "Vector Clock Distributed Event Ordering Mechanism",
-    "language": "C#",
-    "folder": "csharp",
-    "category": "\ud83c\udf10 Distributed Systems & Consensus",
-    "spoke_repo": "csharp-enterprise-lab",
-    "source_link": "https://github.com/myonathanlinkedin/csharp-enterprise-lab/tree/main/algorithms/20261010_174822_vector_clock_distributed_event",
-    "source_file": "main",
-    "timestamp": "2026-10-10T17:48:22.386310+00:00",
-    "dir_name": "20261010_174822_vector_clock_distributed_event"
   },
   {
     "topic": "I Built a Spell Checker to Watch an Algorithm Think",
