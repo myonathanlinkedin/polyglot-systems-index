@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Sharp Algorithms",
+    "language": "Rust",
+    "folder": "rust",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "rust-algorithms",
+    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261113_110251_sharp_algorithms",
+    "source_file": "main",
+    "timestamp": "2026-11-13T11:03:08.351831+00:00",
+    "dir_name": "20261113_110251_sharp_algorithms"
+  },
+  {
     "topic": "SSA from bytecode: imperative pearl",
     "language": "Ruby",
     "folder": "ruby",
