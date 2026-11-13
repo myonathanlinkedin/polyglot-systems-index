@@ -1,5 +1,16 @@
 [
   {
+    "topic": "CYK Parsing Algorithm for Context-Free Grammars",
+    "language": "Haskell",
+    "folder": "haskell",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "haskell-functional-core",
+    "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261113_210225_cyk_parsing_algorithm_for_cont",
+    "source_file": "main",
+    "timestamp": "2026-11-13T21:02:44.320832+00:00",
+    "dir_name": "20261113_210225_cyk_parsing_algorithm_for_cont"
+  },
+  {
     "topic": "Tarjan Strongly Connected Components Search in Directed Graphs",
     "language": "Rust",
     "folder": "rust",
@@ -735,17 +746,6 @@
     "source_file": "main",
     "timestamp": "2026-11-07T17:01:38.688631+00:00",
     "dir_name": "20261107_170116_the_flash_c_compiler"
-  },
-  {
-    "topic": "CYK Parsing Algorithm for Context-Free Grammars",
-    "language": "Java",
-    "folder": "java",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "java-enterprise-patterns",
-    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261107_130252_cyk_parsing_algorithm_for_cont",
-    "source_file": "main",
-    "timestamp": "2026-11-07T13:03:08.752676+00:00",
-    "dir_name": "20261107_130252_cyk_parsing_algorithm_for_cont"
   },
   {
     "topic": "Memorilla: Latent Semantic Memory for LLMs",
