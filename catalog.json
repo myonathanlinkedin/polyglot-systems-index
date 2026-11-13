@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Runge-Kutta 4th Order Numerical ODE Integrator",
+    "language": "TypeScript",
+    "folder": "typescript",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "typescript-design-patterns",
+    "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261113_070244_runge-kutta_4th_order_numerica",
+    "source_file": "main",
+    "timestamp": "2026-11-13T07:02:54.977002+00:00",
+    "dir_name": "20261113_070244_runge-kutta_4th_order_numerica"
+  },
+  {
     "topic": "Finite State Machine Tokenizer and Lexical Parser",
     "language": "Go",
     "folder": "go",
@@ -603,17 +614,6 @@
     "source_file": "main",
     "timestamp": "2026-11-08T11:03:05.857158+00:00",
     "dir_name": "20261108_110250_aether-treeindex_spatial_index"
-  },
-  {
-    "topic": "Runge-Kutta 4th Order Numerical ODE Integrator",
-    "language": "Haskell",
-    "folder": "haskell",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "haskell-functional-core",
-    "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261108_090301_runge-kutta_4th_order_numerica",
-    "source_file": "main",
-    "timestamp": "2026-11-08T09:03:13.662966+00:00",
-    "dir_name": "20261108_090301_runge-kutta_4th_order_numerica"
   },
   {
     "topic": "Self-Balancing AVL Tree with Aether-Continuum",
