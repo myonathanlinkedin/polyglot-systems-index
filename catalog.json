@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Suffix Automaton for Linear-Time Substring Indexing",
+    "language": "TypeScript",
+    "folder": "typescript",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "typescript-design-patterns",
+    "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261113_010224_suffix_automaton_for_linear-ti",
+    "source_file": "main",
+    "timestamp": "2026-11-13T01:02:37.112143+00:00",
+    "dir_name": "20261113_010224_suffix_automaton_for_linear-ti"
+  },
+  {
     "topic": "Safe Optimistic Lock Coupling",
     "language": "Kotlin",
     "folder": "kotlin",
@@ -350,17 +361,6 @@
     "source_file": "main",
     "timestamp": "2026-11-09T23:01:54.907991+00:00",
     "dir_name": "20261109_230129_treap_randomized_binary_search"
-  },
-  {
-    "topic": "Suffix Automaton for Linear-Time Substring Indexing",
-    "language": "C",
-    "folder": "c",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "c-lowlevel-systems",
-    "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261109_210223_suffix_automaton_for_linear-ti",
-    "source_file": "main",
-    "timestamp": "2026-11-09T21:02:38.201587+00:00",
-    "dir_name": "20261109_210223_suffix_automaton_for_linear-ti"
   },
   {
     "topic": "Algorithms",
