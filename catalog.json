@@ -1,14 +1,14 @@
 [
   {
-    "topic": "Count-Min Sketch Heavy Hitters Frequency Estimator",
-    "language": "Haskell",
-    "folder": "haskell",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "haskell-functional-core",
-    "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261113_170243_count-min_sketch_heavy_hitters",
+    "topic": "Sliding Window Rate Limiter with Distributed Token Bucket",
+    "language": "Rust",
+    "folder": "rust",
+    "category": "\ud83c\udf10 Distributed Systems & Consensus",
+    "spoke_repo": "rust-algorithms",
+    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261113_170237_sliding_window_rate_limiter_wi",
     "source_file": "main",
-    "timestamp": "2026-11-13T17:02:58.722551+00:00",
-    "dir_name": "20261113_170243_count-min_sketch_heavy_hitters"
+    "timestamp": "2026-11-13T17:02:54.731989+00:00",
+    "dir_name": "20261113_170237_sliding_window_rate_limiter_wi"
   },
   {
     "topic": "Merkle Tree Verification and Proof Generator",
@@ -352,6 +352,17 @@
     "dir_name": "20261110_140210_zero-copy_byte_packet_ring_buf"
   },
   {
+    "topic": "Count-Min Sketch Heavy Hitters Frequency Estimator",
+    "language": "Java",
+    "folder": "java",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "java-enterprise-patterns",
+    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261110_110234_count-min_sketch_heavy_hitters",
+    "source_file": "main",
+    "timestamp": "2026-11-10T11:02:49.399499+00:00",
+    "dir_name": "20261110_110234_count-min_sketch_heavy_hitters"
+  },
+  {
     "topic": "The Distributed Systems Error Handling Handbook",
     "language": "Java",
     "folder": "java",
@@ -449,17 +460,6 @@
     "source_file": "main",
     "timestamp": "2026-11-09T20:01:36.956146+00:00",
     "dir_name": "20261109_200121_algorithms"
-  },
-  {
-    "topic": "Sliding Window Rate Limiter with Distributed Token Bucket",
-    "language": "C++",
-    "folder": "cpp",
-    "category": "\ud83c\udf10 Distributed Systems & Consensus",
-    "spoke_repo": "cpp-systems-core",
-    "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261109_190245_sliding_window_rate_limiter_wi",
-    "source_file": "main",
-    "timestamp": "2026-11-09T19:03:01.472616+00:00",
-    "dir_name": "20261109_190245_sliding_window_rate_limiter_wi"
   },
   {
     "topic": "Conjugate Gradient Linear System Solver",
