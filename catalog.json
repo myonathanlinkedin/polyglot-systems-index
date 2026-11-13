@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Tarjan Strongly Connected Components Search in Directed Graphs",
+    "language": "Rust",
+    "folder": "rust",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "rust-algorithms",
+    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261113_200218_tarjan_strongly_connected_comp",
+    "source_file": "main",
+    "timestamp": "2026-11-13T20:02:33.460551+00:00",
+    "dir_name": "20261113_200218_tarjan_strongly_connected_comp"
+  },
+  {
     "topic": "Pratt Top-Down Operator Precedence Expression Parser",
     "language": "TypeScript",
     "folder": "typescript",
@@ -757,17 +768,6 @@
     "source_file": "main",
     "timestamp": "2026-11-07T03:03:24.664628+00:00",
     "dir_name": "20261107_030253_hopcroft-karp_bipartite_matchi"
-  },
-  {
-    "topic": "Tarjan Strongly Connected Components Search in Directed Graphs",
-    "language": "Rust",
-    "folder": "rust",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "rust-algorithms",
-    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261106_230125_tarjan_strongly_connected_comp",
-    "source_file": "main",
-    "timestamp": "2026-11-06T23:01:44.203691+00:00",
-    "dir_name": "20261106_230125_tarjan_strongly_connected_comp"
   },
   {
     "topic": "A Chronos-Compiler compiler in Axiom-Interpreter, and the kernel that hung without an error",
