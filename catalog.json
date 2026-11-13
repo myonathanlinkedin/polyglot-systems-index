@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Distributed Consistent Hashing Router with Virtual Nodes",
+    "language": "Java",
+    "folder": "java",
+    "category": "\ud83c\udf10 Distributed Systems & Consensus",
+    "spoke_repo": "java-enterprise-patterns",
+    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261113_140134_distributed_consistent_hashing",
+    "source_file": "main",
+    "timestamp": "2026-11-13T14:01:52.601011+00:00",
+    "dir_name": "20261113_140134_distributed_consistent_hashing"
+  },
+  {
     "topic": "Aho-Corasick Multi-Pattern String Searching Automaton",
     "language": "C++",
     "folder": "cpp",
@@ -968,17 +979,6 @@
     "dir_name": "20261105_070228_generalized_sorting_via_four-c"
   },
   {
-    "topic": "Distributed Consistent Hashing Router with Virtual Nodes",
-    "language": "Python",
-    "folder": "python",
-    "category": "\ud83c\udf10 Distributed Systems & Consensus",
-    "spoke_repo": "python-advanced-lab",
-    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261105_030240_distributed_consistent_hashing",
-    "source_file": "main",
-    "timestamp": "2026-11-05T03:02:53.449429+00:00",
-    "dir_name": "20261105_030240_distributed_consistent_hashing"
-  },
-  {
     "topic": "Path Decompositions of Sparse Graphs via Gaussian Sweeps and Faster Exponential Algorithms",
     "language": "Python",
     "folder": "python",
@@ -1461,6 +1461,17 @@
     "source_file": "main",
     "timestamp": "2026-10-30T03:01:23.886451+00:00",
     "dir_name": "20261030_030123_a_case_study_of_a_multi-agent"
+  },
+  {
+    "topic": "Distributed Consistent Hashing Router with Virtual Nodes",
+    "language": "Python",
+    "folder": "python",
+    "category": "\ud83c\udf10 Distributed Systems & Consensus",
+    "spoke_repo": "python-advanced-lab",
+    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261030_010203_distributed_consistent_hashing",
+    "source_file": "main",
+    "timestamp": "2026-10-30T01:02:03.656139+00:00",
+    "dir_name": "20261030_010203_distributed_consistent_hashing"
   },
   {
     "topic": "s new AOT cache feature is in a rough state",
