@@ -1,5 +1,16 @@
 [
   {
+    "topic": "SSA from bytecode: imperative pearl",
+    "language": "Ruby",
+    "folder": "ruby",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "ruby-algorithms-lab",
+    "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261113_090311_ssa_from_bytecode__imperative",
+    "source_file": "main",
+    "timestamp": "2026-11-13T09:03:35.046112+00:00",
+    "dir_name": "20261113_090311_ssa_from_bytecode__imperative"
+  },
+  {
     "topic": "Runge-Kutta 4th Order Numerical ODE Integrator",
     "language": "TypeScript",
     "folder": "typescript",
