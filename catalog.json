@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Data Structures in Aether-Continuum Maps",
+    "language": "Haskell",
+    "folder": "haskell",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "haskell-functional-core",
+    "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261113_230131_data_structures_in_aether-cont",
+    "source_file": "main",
+    "timestamp": "2026-11-13T23:01:46.558778+00:00",
+    "dir_name": "20261113_230131_data_structures_in_aether-cont"
+  },
+  {
     "topic": "CYK Parsing Algorithm for Context-Free Grammars",
     "language": "Haskell",
     "folder": "haskell",
