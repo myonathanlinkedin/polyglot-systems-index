@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Aho-Corasick Multi-Pattern String Searching Automaton",
+    "language": "C++",
+    "folder": "cpp",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "cpp-systems-core",
+    "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261113_130347_aho-corasick_multi-pattern_str",
+    "source_file": "main",
+    "timestamp": "2026-11-13T13:04:10.594527+00:00",
+    "dir_name": "20261113_130347_aho-corasick_multi-pattern_str"
+  },
+  {
     "topic": "HyperLogLog Cardinality Estimation Algorithm",
     "language": "PHP",
     "folder": "php",
@@ -592,17 +603,6 @@
     "source_file": "main",
     "timestamp": "2026-11-08T17:03:20.074244+00:00",
     "dir_name": "20261108_170304_jit_bitmap_text_rendering_for"
-  },
-  {
-    "topic": "Aho-Corasick Multi-Pattern String Searching Automaton",
-    "language": "Swift",
-    "folder": "swift",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "swift-systems-lab",
-    "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261108_150217_aho-corasick_multi-pattern_str",
-    "source_file": "main",
-    "timestamp": "2026-11-08T15:02:31.120244+00:00",
-    "dir_name": "20261108_150217_aho-corasick_multi-pattern_str"
   },
   {
     "topic": "Stratum-Alpha (Chronos-Relay Protocol): Building Interoperable Axiom-Flux Systems",
@@ -2220,6 +2220,17 @@
     "source_file": "main",
     "timestamp": "2026-10-21T23:01:21.705687+00:00",
     "dir_name": "20261021_230121_vector_graphics_in_lil"
+  },
+  {
+    "topic": "Aho-Corasick Multi-Pattern String Searching Automaton",
+    "language": "Swift",
+    "folder": "swift",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "swift-systems-lab",
+    "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261021_210119_aho-corasick_multi-pattern_str",
+    "source_file": "main",
+    "timestamp": "2026-10-21T21:01:19.669285+00:00",
+    "dir_name": "20261021_210119_aho-corasick_multi-pattern_str"
   },
   {
     "topic": "The compiler was supposed to end programming too",
