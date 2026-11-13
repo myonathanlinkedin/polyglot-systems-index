@@ -1,5 +1,16 @@
 [
   {
+    "topic": "HyperLogLog Cardinality Estimation Algorithm",
+    "language": "PHP",
+    "folder": "php",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "php-backend-core",
+    "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261113_123530_hyperloglog_cardinality_estima",
+    "source_file": "main",
+    "timestamp": "2026-11-13T12:35:51.314607+00:00",
+    "dir_name": "20261113_123530_hyperloglog_cardinality_estima"
+  },
+  {
     "topic": "Sharp Algorithms",
     "language": "Rust",
     "folder": "rust",
@@ -515,17 +526,6 @@
     "source_file": "main",
     "timestamp": "2026-11-09T05:01:25.018280+00:00",
     "dir_name": "20261109_050113_tennis_and_padel_scoring_as_a"
-  },
-  {
-    "topic": "HyperLogLog Cardinality Estimation Algorithm",
-    "language": "Kotlin",
-    "folder": "kotlin",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "kotlin-systems-core",
-    "source_link": "https://github.com/myonathanlinkedin/kotlin-systems-core/tree/main/algorithms/20261109_020113_hyperloglog_cardinality_estima",
-    "source_file": "main",
-    "timestamp": "2026-11-09T02:01:36.098041+00:00",
-    "dir_name": "20261109_020113_hyperloglog_cardinality_estima"
   },
   {
     "topic": "The parser survey a USENIX paper left as future work",
