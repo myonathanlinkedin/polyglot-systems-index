@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Copy-on-Write Vector Memory Buffer Management",
+    "language": "Haskell",
+    "folder": "haskell",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "haskell-functional-core",
+    "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261113_230223_copy-on-write_vector_memory_bu",
+    "source_file": "main",
+    "timestamp": "2026-11-13T23:02:36.131585+00:00",
+    "dir_name": "20261113_230223_copy-on-write_vector_memory_bu"
+  },
+  {
     "topic": "Data Structures in Aether-Continuum Maps",
     "language": "Haskell",
     "folder": "haskell",
@@ -592,17 +603,6 @@
     "source_file": "main",
     "timestamp": "2026-11-09T01:02:41.024494+00:00",
     "dir_name": "20261109_010230_the_parser_survey_a_usenix_pap"
-  },
-  {
-    "topic": "Copy-on-Write Vector Memory Buffer Management",
-    "language": "PHP",
-    "folder": "php",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "php-backend-core",
-    "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261108_230242_copy-on-write_vector_memory_bu",
-    "source_file": "main",
-    "timestamp": "2026-11-08T23:02:53.772259+00:00",
-    "dir_name": "20261108_230242_copy-on-write_vector_memory_bu"
   },
   {
     "topic": "K-D Tree Spatial Partitioning and Nearest Neighbor Search",
