@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Pratt Top-Down Operator Precedence Expression Parser",
+    "language": "TypeScript",
+    "folder": "typescript",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "typescript-design-patterns",
+    "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261113_190257_pratt_top-down_operator_preced",
+    "source_file": "main",
+    "timestamp": "2026-11-13T19:03:13.041739+00:00",
+    "dir_name": "20261113_190257_pratt_top-down_operator_preced"
+  },
+  {
     "topic": "Sliding Window Rate Limiter with Distributed Token Bucket",
     "language": "Rust",
     "folder": "rust",
@@ -515,17 +526,6 @@
     "source_file": "main",
     "timestamp": "2026-11-09T09:02:41.180772+00:00",
     "dir_name": "20261109_090216_parallel_algorithms_for_higher"
-  },
-  {
-    "topic": "Pratt Top-Down Operator Precedence Expression Parser",
-    "language": "Python",
-    "folder": "python",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "python-advanced-lab",
-    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261109_080231_pratt_top-down_operator_preced",
-    "source_file": "main",
-    "timestamp": "2026-11-09T08:02:45.917902+00:00",
-    "dir_name": "20261109_080231_pratt_top-down_operator_preced"
   },
   {
     "topic": "Thread-Safe Bounded Blocking Queue with Condition Variables",
@@ -5289,17 +5289,6 @@
     "source_file": "main",
     "timestamp": "2026-10-06T10:15:13.803717+00:00",
     "dir_name": "20261006_101513_cuckoo_filter_high-efficiency"
-  },
-  {
-    "topic": "Pratt Top-Down Operator Precedence Expression Parser",
-    "language": "TypeScript",
-    "folder": "typescript",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "typescript-design-patterns",
-    "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261006_092408_pratt_top-down_operator_preced",
-    "source_file": "main",
-    "timestamp": "2026-10-06T09:24:08.109148+00:00",
-    "dir_name": "20261006_092408_pratt_top-down_operator_preced"
   },
   {
     "topic": "Custom Buddy Memory Allocation System",
