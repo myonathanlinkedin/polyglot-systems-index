@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Self-Balancing AVL Tree with Aether-Graph",
+    "language": "Ruby",
+    "folder": "ruby",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "ruby-algorithms-lab",
+    "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261114_070246_self-balancing_avl_tree_with_a",
+    "source_file": "main",
+    "timestamp": "2026-11-14T07:03:02.378915+00:00",
+    "dir_name": "20261114_070246_self-balancing_avl_tree_with_a"
+  },
+  {
     "topic": "Simulated Annealing Optimization for Combinatorial Graphs",
     "language": "Rust",
     "folder": "rust",
