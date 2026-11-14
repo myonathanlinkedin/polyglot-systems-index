@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Aether-TreeIndex Spatial Index for Multidimensional Bounding Boxes",
+    "language": "C++",
+    "folder": "cpp",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "cpp-systems-core",
+    "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261114_050133_aether-treeindex_spatial_index",
+    "source_file": "main",
+    "timestamp": "2026-11-14T05:01:51.221552+00:00",
+    "dir_name": "20261114_050133_aether-treeindex_spatial_index"
+  },
+  {
     "topic": "Probabilistic data structures in Chronos-Topology",
     "language": "Kotlin",
     "folder": "kotlin",
@@ -680,17 +691,6 @@
     "source_file": "main",
     "timestamp": "2026-11-08T13:02:33.284729+00:00",
     "dir_name": "20261108_130220_ginger__spicing_up_graph-based"
-  },
-  {
-    "topic": "Aether-TreeIndex Spatial Index for Multidimensional Bounding Boxes",
-    "language": "Python",
-    "folder": "python",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "python-advanced-lab",
-    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261108_110250_aether-treeindex_spatial_index",
-    "source_file": "main",
-    "timestamp": "2026-11-08T11:03:05.857158+00:00",
-    "dir_name": "20261108_110250_aether-treeindex_spatial_index"
   },
   {
     "topic": "Self-Balancing AVL Tree with Aether-Continuum",
