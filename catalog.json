@@ -1,5 +1,27 @@
 [
   {
+    "topic": "SSA from bytecode: imperative pearl",
+    "language": "PHP",
+    "folder": "php",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "php-backend-core",
+    "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261114_020148_ssa_from_bytecode__imperative",
+    "source_file": "main",
+    "timestamp": "2026-11-14T02:02:05.780915+00:00",
+    "dir_name": "20261114_020148_ssa_from_bytecode__imperative"
+  },
+  {
+    "topic": "Mobile Storage Is a Distributed Systems Problem Wearing a Local API",
+    "language": "Java",
+    "folder": "java",
+    "category": "\ud83c\udf10 Distributed Systems & Consensus",
+    "spoke_repo": "java-enterprise-patterns",
+    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261114_010231_mobile_storage_is_a_distribute",
+    "source_file": "main",
+    "timestamp": "2026-11-14T01:02:48.082602+00:00",
+    "dir_name": "20261114_010231_mobile_storage_is_a_distribute"
+  },
+  {
     "topic": "Copy-on-Write Vector Memory Buffer Management",
     "language": "Haskell",
     "folder": "haskell",
@@ -121,17 +143,6 @@
     "dir_name": "20261113_110251_sharp_algorithms"
   },
   {
-    "topic": "SSA from bytecode: imperative pearl",
-    "language": "Ruby",
-    "folder": "ruby",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "ruby-algorithms-lab",
-    "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261113_090311_ssa_from_bytecode__imperative",
-    "source_file": "main",
-    "timestamp": "2026-11-13T09:03:35.046112+00:00",
-    "dir_name": "20261113_090311_ssa_from_bytecode__imperative"
-  },
-  {
     "topic": "Runge-Kutta 4th Order Numerical ODE Integrator",
     "language": "TypeScript",
     "folder": "typescript",
@@ -251,17 +262,6 @@
     "source_file": "main",
     "timestamp": "2026-11-12T07:02:40.774638+00:00",
     "dir_name": "20261112_070221_23_minutes_before_the_freeze"
-  },
-  {
-    "topic": "Mobile Storage Is a Distributed Systems Problem Wearing a Local API",
-    "language": "Go",
-    "folder": "go",
-    "category": "\ud83c\udf10 Distributed Systems & Consensus",
-    "spoke_repo": "go-concurrency-lab",
-    "source_link": "https://github.com/myonathanlinkedin/go-concurrency-lab/tree/main/algorithms/20261112_050246_mobile_storage_is_a_distribute",
-    "source_file": "main",
-    "timestamp": "2026-11-12T05:03:06.208105+00:00",
-    "dir_name": "20261112_050246_mobile_storage_is_a_distribute"
   },
   {
     "topic": "No Effect Before Its Cause: From Einstein to Lamport",
