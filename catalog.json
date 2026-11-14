@@ -1,16 +1,5 @@
 [
   {
-    "topic": "Treap Randomized Binary Search Tree with Heap Priorities",
-    "language": "C++",
-    "folder": "cpp",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "cpp-systems-core",
-    "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261114_130233_treap_randomized_binary_search",
-    "source_file": "main",
-    "timestamp": "2026-11-14T13:02:46.520721+00:00",
-    "dir_name": "20261114_130233_treap_randomized_binary_search"
-  },
-  {
     "topic": "Kildall s algorithm",
     "language": "Ruby",
     "folder": "ruby",
@@ -548,6 +537,17 @@
     "source_file": "main",
     "timestamp": "2026-11-09T23:02:36.126902+00:00",
     "dir_name": "20261109_230219_cache-oblivious_matrix_transpo"
+  },
+  {
+    "topic": "Treap Randomized Binary Search Tree with Heap Priorities",
+    "language": "Swift",
+    "folder": "swift",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "swift-systems-lab",
+    "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261109_230129_treap_randomized_binary_search",
+    "source_file": "main",
+    "timestamp": "2026-11-09T23:01:54.907991+00:00",
+    "dir_name": "20261109_230129_treap_randomized_binary_search"
   },
   {
     "topic": "Algorithms",
@@ -2473,17 +2473,6 @@
     "source_file": "main",
     "timestamp": "2026-10-20T03:02:42.391639+00:00",
     "dir_name": "20261020_030242_treap_randomized_binary_search"
-  },
-  {
-    "topic": "Treap Randomized Binary Search Tree with Heap Priorities",
-    "language": "Swift",
-    "folder": "swift",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "swift-systems-lab",
-    "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261020_010131_treap_randomized_binary_search",
-    "source_file": "main",
-    "timestamp": "2026-10-20T01:01:31.526662+00:00",
-    "dir_name": "20261020_010131_treap_randomized_binary_search"
   },
   {
     "topic": "Topological Sort with Cycle Detection in Directed Graphs",
