@@ -253,6 +253,19 @@
       font-size: 1rem;
       line-height: 1.75;
       text-align: justify;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+      word-wrap: break-word;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    .abstract-text a {
+      color: var(--accent, #38bdf8);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      overflow-wrap: anywhere !important;
+      word-break: break-all !important;
+      word-wrap: break-word !important;
     }
     .metrics-grid {
       display: grid;
