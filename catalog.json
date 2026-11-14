@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Kildall s algorithm",
+    "language": "Ruby",
+    "folder": "ruby",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "ruby-algorithms-lab",
+    "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261114_110227_kildall_s_algorithm",
+    "source_file": "main",
+    "timestamp": "2026-11-14T11:02:41.017438+00:00",
+    "dir_name": "20261114_110227_kildall_s_algorithm"
+  },
+  {
     "topic": "Conflict-free Replicated Data Type (CRDT) PN-Counter",
     "language": "Go",
     "folder": "go",
