@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Conflict-free Replicated Data Type (CRDT) PN-Counter",
+    "language": "Go",
+    "folder": "go",
+    "category": "\ud83c\udf10 Distributed Systems & Consensus",
+    "spoke_repo": "go-concurrency-lab",
+    "source_link": "https://github.com/myonathanlinkedin/go-concurrency-lab/tree/main/algorithms/20261114_110124_conflict-free_replicated_data",
+    "source_file": "main",
+    "timestamp": "2026-11-14T11:01:44.056518+00:00",
+    "dir_name": "20261114_110124_conflict-free_replicated_data"
+  },
+  {
     "topic": "Actor Model Concurrency Engine with Mailbox Processing",
     "language": "Java",
     "folder": "java",
@@ -350,17 +361,6 @@
     "source_file": "main",
     "timestamp": "2026-11-11T23:03:36.474504+00:00",
     "dir_name": "20261111_230319_custom_buddy_memory_allocation"
-  },
-  {
-    "topic": "Conflict-free Replicated Data Type (CRDT) PN-Counter",
-    "language": "Rust",
-    "folder": "rust",
-    "category": "\ud83c\udf10 Distributed Systems & Consensus",
-    "spoke_repo": "rust-algorithms",
-    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261111_210319_conflict-free_replicated_data",
-    "source_file": "main",
-    "timestamp": "2026-11-11T21:03:38.800269+00:00",
-    "dir_name": "20261111_210319_conflict-free_replicated_data"
   },
   {
     "topic": "Why OS Virtual Memory Paging Saved LLM Inference: The AetherPaged-LLM Breakthrough",
