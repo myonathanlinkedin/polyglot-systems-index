@@ -1,5 +1,27 @@
 [
   {
+    "topic": "Copy-on-Write Vector Memory Buffer Management",
+    "language": "PHP",
+    "folder": "php",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "php-backend-core",
+    "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261115_210226_copy-on-write_vector_memory_bu",
+    "source_file": "main",
+    "timestamp": "2026-11-15T21:02:40.793425+00:00",
+    "dir_name": "20261115_210226_copy-on-write_vector_memory_bu"
+  },
+  {
+    "topic": "Why OS Virtual Memory Paging Saved LLM Inference: The ChronosPaging Breakthrough",
+    "language": "C",
+    "folder": "c",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "c-lowlevel-systems",
+    "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261115_200134_why_os_virtual_memory_paging_s",
+    "source_file": "main",
+    "timestamp": "2026-11-15T20:01:51.323467+00:00",
+    "dir_name": "20261115_200134_why_os_virtual_memory_paging_s"
+  },
+  {
     "topic": "Count-Min Sketch Heavy Hitters Frequency Estimator",
     "language": "Haskell",
     "folder": "haskell",
@@ -295,17 +317,6 @@
     "source_file": "main",
     "timestamp": "2026-11-14T01:02:48.082602+00:00",
     "dir_name": "20261114_010231_mobile_storage_is_a_distribute"
-  },
-  {
-    "topic": "Copy-on-Write Vector Memory Buffer Management",
-    "language": "Haskell",
-    "folder": "haskell",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "haskell-functional-core",
-    "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261113_230223_copy-on-write_vector_memory_bu",
-    "source_file": "main",
-    "timestamp": "2026-11-13T23:02:36.131585+00:00",
-    "dir_name": "20261113_230223_copy-on-write_vector_memory_bu"
   },
   {
     "topic": "Data Structures in Aether-Continuum Maps",
