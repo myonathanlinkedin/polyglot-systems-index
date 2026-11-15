@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Separations Between Submodular-Like Graph Widths",
+    "language": "Kotlin",
+    "folder": "kotlin",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "kotlin-systems-core",
+    "source_link": "https://github.com/myonathanlinkedin/kotlin-systems-core/tree/main/algorithms/20261115_140130_separations_between_submodular",
+    "source_file": "main",
+    "timestamp": "2026-11-15T14:01:51.426891+00:00",
+    "dir_name": "20261115_140130_separations_between_submodular"
+  },
+  {
     "topic": "Probabilistic data structures in Chronos-Topology",
     "language": "Ruby",
     "folder": "ruby",
