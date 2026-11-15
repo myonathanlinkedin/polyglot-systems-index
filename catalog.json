@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Why OS Virtual Memory Paging Saved LLM Inference: The ChronosPaging Breakthrough",
+    "language": "C",
+    "folder": "c",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "c-lowlevel-systems",
+    "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261115_200134_why_os_virtual_memory_paging_s",
+    "source_file": "main",
+    "timestamp": "2026-11-15T20:01:51.323467+00:00",
+    "dir_name": "20261115_200134_why_os_virtual_memory_paging_s"
+  },
+  {
     "topic": "Count-Min Sketch Heavy Hitters Frequency Estimator",
     "language": "Haskell",
     "folder": "haskell",
