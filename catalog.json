@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Probabilistic data structures in Chronos-Topology",
+    "language": "Haskell",
+    "folder": "haskell",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "haskell-functional-core",
+    "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261115_080129_probabilistic_data_structures",
+    "source_file": "main",
+    "timestamp": "2026-11-15T08:01:43.357847+00:00",
+    "dir_name": "20261115_080129_probabilistic_data_structures"
+  },
+  {
     "topic": "Advanced Algorithms",
     "language": "Ruby",
     "folder": "ruby",
@@ -207,17 +218,6 @@
     "source_file": "main",
     "timestamp": "2026-11-14T05:01:51.221552+00:00",
     "dir_name": "20261114_050133_aether-treeindex_spatial_index"
-  },
-  {
-    "topic": "Probabilistic data structures in Chronos-Topology",
-    "language": "Kotlin",
-    "folder": "kotlin",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "kotlin-systems-core",
-    "source_link": "https://github.com/myonathanlinkedin/kotlin-systems-core/tree/main/algorithms/20261114_030227_probabilistic_data_structures",
-    "source_file": "main",
-    "timestamp": "2026-11-14T03:02:45.134476+00:00",
-    "dir_name": "20261114_030227_probabilistic_data_structures"
   },
   {
     "topic": "SSA from bytecode: imperative pearl",
