@@ -1,6 +1,6 @@
 Index,Topic,Language,Domain Category,Spoke Repository,Source File,Timestamp UTC
-001,Thread-Safe Bounded Blocking Queue with Condition Variables,Rust,⚡ Low-Latency & Memory Systems,rust-algorithms,main,2026-11-15T05:01:44.054788+00:00
-002,Kildall s algorithm,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main,2026-11-15T03:03:08.282868+00:00
+001,Kildall s algorithm,Kotlin,🧠 Computational AI & Math Engines,kotlin-systems-core,main,2026-11-15T05:03:05.006096+00:00
+002,Thread-Safe Bounded Blocking Queue with Condition Variables,Rust,⚡ Low-Latency & Memory Systems,rust-algorithms,main,2026-11-15T05:01:44.054788+00:00
 003,Safe Optimistic Lock Coupling,C#,⚡ Low-Latency & Memory Systems,csharp-enterprise-lab,main,2026-11-15T02:01:52.701097+00:00
 004,Bytecode Virtual Machine with Stack Evaluation Engine,Zig,🧠 Computational AI & Math Engines,zig-systems-lab,main,2026-11-15T01:02:50.215982+00:00
 005,Least Recently Used (LRU) Cache with Doubly Linked List,Go,⚡ Low-Latency & Memory Systems,go-concurrency-lab,main,2026-11-14T23:03:19.405560+00:00

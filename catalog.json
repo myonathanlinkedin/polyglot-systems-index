@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Kildall s algorithm",
+    "language": "Kotlin",
+    "folder": "kotlin",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "kotlin-systems-core",
+    "source_link": "https://github.com/myonathanlinkedin/kotlin-systems-core/tree/main/algorithms/20261115_050250_kildall_s_algorithm",
+    "source_file": "main",
+    "timestamp": "2026-11-15T05:03:05.006096+00:00",
+    "dir_name": "20261115_050250_kildall_s_algorithm"
+  },
+  {
     "topic": "Thread-Safe Bounded Blocking Queue with Condition Variables",
     "language": "Rust",
     "folder": "rust",
@@ -9,17 +20,6 @@
     "source_file": "main",
     "timestamp": "2026-11-15T05:01:44.054788+00:00",
     "dir_name": "20261115_050130_thread-safe_bounded_blocking_q"
-  },
-  {
-    "topic": "Kildall s algorithm",
-    "language": "Haskell",
-    "folder": "haskell",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "haskell-functional-core",
-    "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261115_030254_kildall_s_algorithm",
-    "source_file": "main",
-    "timestamp": "2026-11-15T03:03:08.282868+00:00",
-    "dir_name": "20261115_030254_kildall_s_algorithm"
   },
   {
     "topic": "Safe Optimistic Lock Coupling",
