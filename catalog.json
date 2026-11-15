@@ -1,5 +1,27 @@
 [
   {
+    "topic": "Probabilistic data structures in Chronos-Topology",
+    "language": "Ruby",
+    "folder": "ruby",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "ruby-algorithms-lab",
+    "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261115_130222_probabilistic_data_structures",
+    "source_file": "main",
+    "timestamp": "2026-11-15T13:02:34.954741+00:00",
+    "dir_name": "20261115_130222_probabilistic_data_structures"
+  },
+  {
+    "topic": "Merkle Tree Verification and Proof Generator",
+    "language": "Haskell",
+    "folder": "haskell",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "haskell-functional-core",
+    "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261115_110129_merkle_tree_verification_and_p",
+    "source_file": "main",
+    "timestamp": "2026-11-15T11:01:43.795634+00:00",
+    "dir_name": "20261115_110129_merkle_tree_verification_and_p"
+  },
+  {
     "topic": "The Sicilian Citrus Family Tree",
     "language": "Kotlin",
     "folder": "kotlin",
@@ -9,17 +31,6 @@
     "source_file": "main",
     "timestamp": "2026-11-15T09:02:36.371632+00:00",
     "dir_name": "20261115_090211_the_sicilian_citrus_family_tre"
-  },
-  {
-    "topic": "Probabilistic data structures in Chronos-Topology",
-    "language": "Haskell",
-    "folder": "haskell",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "haskell-functional-core",
-    "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261115_080129_probabilistic_data_structures",
-    "source_file": "main",
-    "timestamp": "2026-11-15T08:01:43.357847+00:00",
-    "dir_name": "20261115_080129_probabilistic_data_structures"
   },
   {
     "topic": "Advanced Algorithms",
@@ -317,17 +328,6 @@
     "source_file": "main",
     "timestamp": "2026-11-13T17:02:54.731989+00:00",
     "dir_name": "20261113_170237_sliding_window_rate_limiter_wi"
-  },
-  {
-    "topic": "Merkle Tree Verification and Proof Generator",
-    "language": "Rust",
-    "folder": "rust",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "rust-algorithms",
-    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261113_150258_merkle_tree_verification_and_p",
-    "source_file": "main",
-    "timestamp": "2026-11-13T15:03:11.457650+00:00",
-    "dir_name": "20261113_150258_merkle_tree_verification_and_p"
   },
   {
     "topic": "Distributed Consistent Hashing Router with Virtual Nodes",
@@ -4354,17 +4354,6 @@
     "source_file": "main",
     "timestamp": "2026-10-09T17:05:55.459745+00:00",
     "dir_name": "20261009_170555_two-phase_commit_protocol_coor"
-  },
-  {
-    "topic": "Merkle Tree Verification and Proof Generator",
-    "language": "Haskell",
-    "folder": "haskell",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "haskell-functional-core",
-    "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261009_170221_merkle_tree_verification_and_p",
-    "source_file": "main",
-    "timestamp": "2026-10-09T17:02:21.478826+00:00",
-    "dir_name": "20261009_170221_merkle_tree_verification_and_p"
   },
   {
     "topic": "Singular Value Decomposition (SVD) for Low-Rank Approximation",
