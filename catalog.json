@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Advanced Algorithms",
+    "language": "Go",
+    "folder": "go",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "go-concurrency-lab",
+    "source_link": "https://github.com/myonathanlinkedin/go-concurrency-lab/tree/main/algorithms/20261115_230301_advanced_algorithms",
+    "source_file": "main",
+    "timestamp": "2026-11-15T23:03:20.377306+00:00",
+    "dir_name": "20261115_230301_advanced_algorithms"
+  },
+  {
     "topic": "Your AI Agent s Memory Is Not Its Source of Truth: The Hidden Risk of Stale Context",
     "language": "Go",
     "folder": "go",
@@ -108,17 +119,6 @@
     "source_file": "main",
     "timestamp": "2026-11-15T09:02:36.371632+00:00",
     "dir_name": "20261115_090211_the_sicilian_citrus_family_tre"
-  },
-  {
-    "topic": "Advanced Algorithms",
-    "language": "Ruby",
-    "folder": "ruby",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "ruby-algorithms-lab",
-    "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261115_070238_advanced_algorithms",
-    "source_file": "main",
-    "timestamp": "2026-11-15T07:02:51.050871+00:00",
-    "dir_name": "20261115_070238_advanced_algorithms"
   },
   {
     "topic": "Kildall s algorithm",
