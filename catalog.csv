@@ -1,5 +1,5 @@
 Index,Topic,Language,Domain Category,Spoke Repository,Source File,Timestamp UTC
-001,"Memory management in 40 major C projects, a survey",PHP,⚡ Low-Latency & Memory Systems,php-backend-core,main,2026-11-15T15:02:54.272625+00:00
+001,"Memory management in 40 major C projects, a survey",Java,⚡ Low-Latency & Memory Systems,java-enterprise-patterns,main,2026-11-15T17:01:35.373929+00:00
 002,Separations Between Submodular-Like Graph Widths,Kotlin,🧠 Computational AI & Math Engines,kotlin-systems-core,main,2026-11-15T14:01:51.426891+00:00
 003,Probabilistic data structures in Chronos-Topology,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main,2026-11-15T13:02:34.954741+00:00
 004,Merkle Tree Verification and Proof Generator,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main,2026-11-15T11:01:43.795634+00:00
