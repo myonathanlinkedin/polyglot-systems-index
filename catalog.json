@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Memory management in 40 major C projects, a survey",
+    "language": "PHP",
+    "folder": "php",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "php-backend-core",
+    "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261115_150243_memory_management_in_40_major",
+    "source_file": "main",
+    "timestamp": "2026-11-15T15:02:54.272625+00:00",
+    "dir_name": "20261115_150243_memory_management_in_40_major"
+  },
+  {
     "topic": "Separations Between Submodular-Like Graph Widths",
     "language": "Kotlin",
     "folder": "kotlin",
