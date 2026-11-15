@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Thread-Safe Bounded Blocking Queue with Condition Variables",
+    "language": "Rust",
+    "folder": "rust",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "rust-algorithms",
+    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261115_050130_thread-safe_bounded_blocking_q",
+    "source_file": "main",
+    "timestamp": "2026-11-15T05:01:44.054788+00:00",
+    "dir_name": "20261115_050130_thread-safe_bounded_blocking_q"
+  },
+  {
     "topic": "Kildall s algorithm",
     "language": "Haskell",
     "folder": "haskell",
@@ -680,17 +691,6 @@
     "source_file": "main",
     "timestamp": "2026-11-09T09:02:41.180772+00:00",
     "dir_name": "20261109_090216_parallel_algorithms_for_higher"
-  },
-  {
-    "topic": "Thread-Safe Bounded Blocking Queue with Condition Variables",
-    "language": "Rust",
-    "folder": "rust",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "rust-algorithms",
-    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261109_070233_thread-safe_bounded_blocking_q",
-    "source_file": "main",
-    "timestamp": "2026-11-09T07:02:53.757978+00:00",
-    "dir_name": "20261109_070233_thread-safe_bounded_blocking_q"
   },
   {
     "topic": "Tennis and padel scoring as a state machine in TypeScript",
