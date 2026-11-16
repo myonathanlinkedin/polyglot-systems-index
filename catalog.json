@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Trie Prefix Tree for Auto-Completion with Frequency Ranking",
+    "language": "Java",
+    "folder": "java",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "java-enterprise-patterns",
+    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261116_050135_trie_prefix_tree_for_auto-comp",
+    "source_file": "main",
+    "timestamp": "2026-11-16T05:01:54.256696+00:00",
+    "dir_name": "20261116_050135_trie_prefix_tree_for_auto-comp"
+  },
+  {
     "topic": "Memory management in 40 major C projects, a survey",
     "language": "C",
     "folder": "c",
@@ -1010,17 +1021,6 @@
     "source_file": "main",
     "timestamp": "2026-11-06T05:01:27.179016+00:00",
     "dir_name": "20261106_050114_mcp_explained__how_the_model_c"
-  },
-  {
-    "topic": "Trie Prefix Tree for Auto-Completion with Frequency Ranking",
-    "language": "Python",
-    "folder": "python",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "python-advanced-lab",
-    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261106_030213_trie_prefix_tree_for_auto-comp",
-    "source_file": "main",
-    "timestamp": "2026-11-06T03:02:28.290840+00:00",
-    "dir_name": "20261106_030213_trie_prefix_tree_for_auto-comp"
   },
   {
     "topic": "Stratum-Analytics-Tree Spatial Index for Multidimensional Bounding Boxes",
