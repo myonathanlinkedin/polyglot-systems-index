@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Aho-Corasick Multi-Pattern String Searching Automaton",
+    "language": "C++",
+    "folder": "cpp",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "cpp-systems-core",
+    "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261116_230305_aho-corasick_multi-pattern_str",
+    "source_file": "main",
+    "timestamp": "2026-11-16T23:03:22.809992+00:00",
+    "dir_name": "20261116_230305_aho-corasick_multi-pattern_str"
+  },
+  {
     "topic": "Exact-Quota Facility Location: A Transfer Framework and Three Approximation Guarantees",
     "language": "Swift",
     "folder": "swift",
@@ -350,17 +361,6 @@
     "source_file": "main",
     "timestamp": "2026-11-14T19:02:51.040366+00:00",
     "dir_name": "20261114_190239_probabilistic_data_structures"
-  },
-  {
-    "topic": "Aho-Corasick Multi-Pattern String Searching Automaton",
-    "language": "Swift",
-    "folder": "swift",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "swift-systems-lab",
-    "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261114_150235_aho-corasick_multi-pattern_str",
-    "source_file": "main",
-    "timestamp": "2026-11-14T15:02:47.516132+00:00",
-    "dir_name": "20261114_150235_aho-corasick_multi-pattern_str"
   },
   {
     "topic": "You could have invented transformers from memory",
@@ -2473,6 +2473,17 @@
     "source_file": "main",
     "timestamp": "2026-10-21T23:01:21.705687+00:00",
     "dir_name": "20261021_230121_vector_graphics_in_lil"
+  },
+  {
+    "topic": "Aho-Corasick Multi-Pattern String Searching Automaton",
+    "language": "Swift",
+    "folder": "swift",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "swift-systems-lab",
+    "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261021_210119_aho-corasick_multi-pattern_str",
+    "source_file": "main",
+    "timestamp": "2026-10-21T21:01:19.669285+00:00",
+    "dir_name": "20261021_210119_aho-corasick_multi-pattern_str"
   },
   {
     "topic": "The compiler was supposed to end programming too",
