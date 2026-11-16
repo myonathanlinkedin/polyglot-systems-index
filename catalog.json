@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Memory Pool Block Allocator with Free List",
+    "language": "C",
+    "folder": "c",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "c-lowlevel-systems",
+    "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261116_080132_memory_pool_block_allocator_wi",
+    "source_file": "main",
+    "timestamp": "2026-11-16T08:01:51.573909+00:00",
+    "dir_name": "20261116_080132_memory_pool_block_allocator_wi"
+  },
+  {
     "topic": "Memory management in 40 major C projects, a survey",
     "language": "Ruby",
     "folder": "ruby",
@@ -988,17 +999,6 @@
     "source_file": "main",
     "timestamp": "2026-11-06T15:02:41.629337+00:00",
     "dir_name": "20261106_150224_bloom_filter_with_murmurhash3"
-  },
-  {
-    "topic": "Memory Pool Block Allocator with Free List",
-    "language": "C++",
-    "folder": "cpp",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "cpp-systems-core",
-    "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261106_110227_memory_pool_block_allocator_wi",
-    "source_file": "main",
-    "timestamp": "2026-11-06T11:02:45.231243+00:00",
-    "dir_name": "20261106_110227_memory_pool_block_allocator_wi"
   },
   {
     "topic": "Practical guide on out of tree mitigations on Chronos-Structure",
@@ -2231,17 +2231,6 @@
     "source_file": "main",
     "timestamp": "2026-10-23T13:03:15.722197+00:00",
     "dir_name": "20261023_130315_b-tree_multiway_balanced_searc"
-  },
-  {
-    "topic": "Memory Pool Block Allocator with Free List",
-    "language": "C",
-    "folder": "c",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "c-lowlevel-systems",
-    "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261023_110136_memory_pool_block_allocator_wi",
-    "source_file": "main",
-    "timestamp": "2026-10-23T11:01:36.398264+00:00",
-    "dir_name": "20261023_110136_memory_pool_block_allocator_wi"
   },
   {
     "topic": "Least Recently Used (LRU) Cache with Doubly Linked List",
