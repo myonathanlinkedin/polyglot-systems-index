@@ -1,11 +1,11 @@
 Index,Topic,Language,Domain Category,Spoke Repository,Source File,Timestamp UTC
-001,Advanced Algorithms,Go,🧠 Computational AI & Math Engines,go-concurrency-lab,main,2026-11-15T23:03:20.377306+00:00
-002,Your AI Agent s Memory Is Not Its Source of Truth: The Hidden Risk of Stale Context,Go,⚡ Low-Latency & Memory Systems,go-concurrency-lab,main,2026-11-15T23:01:51.174002+00:00
-003,Copy-on-Write Vector Memory Buffer Management,PHP,⚡ Low-Latency & Memory Systems,php-backend-core,main,2026-11-15T21:02:40.793425+00:00
-004,Why OS Virtual Memory Paging Saved LLM Inference: The ChronosPaging Breakthrough,C,⚡ Low-Latency & Memory Systems,c-lowlevel-systems,main,2026-11-15T20:01:51.323467+00:00
-005,Count-Min Sketch Heavy Hitters Frequency Estimator,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main,2026-11-15T19:02:44.022248+00:00
-006,Chronos-Topology Algorithms,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-11-15T17:02:43.358304+00:00
-007,"Memory management in 40 major C projects, a survey",Java,⚡ Low-Latency & Memory Systems,java-enterprise-patterns,main,2026-11-15T17:01:35.373929+00:00
+001,"Memory management in 40 major C projects, a survey",Ruby,⚡ Low-Latency & Memory Systems,ruby-algorithms-lab,main,2026-11-16T01:02:53.620139+00:00
+002,Advanced Algorithms,Go,🧠 Computational AI & Math Engines,go-concurrency-lab,main,2026-11-15T23:03:20.377306+00:00
+003,Your AI Agent s Memory Is Not Its Source of Truth: The Hidden Risk of Stale Context,Go,⚡ Low-Latency & Memory Systems,go-concurrency-lab,main,2026-11-15T23:01:51.174002+00:00
+004,Copy-on-Write Vector Memory Buffer Management,PHP,⚡ Low-Latency & Memory Systems,php-backend-core,main,2026-11-15T21:02:40.793425+00:00
+005,Why OS Virtual Memory Paging Saved LLM Inference: The ChronosPaging Breakthrough,C,⚡ Low-Latency & Memory Systems,c-lowlevel-systems,main,2026-11-15T20:01:51.323467+00:00
+006,Count-Min Sketch Heavy Hitters Frequency Estimator,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main,2026-11-15T19:02:44.022248+00:00
+007,Chronos-Topology Algorithms,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-11-15T17:02:43.358304+00:00
 008,Separations Between Submodular-Like Graph Widths,Kotlin,🧠 Computational AI & Math Engines,kotlin-systems-core,main,2026-11-15T14:01:51.426891+00:00
 009,Probabilistic data structures in Chronos-Topology,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main,2026-11-15T13:02:34.954741+00:00
 010,Merkle Tree Verification and Proof Generator,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main,2026-11-15T11:01:43.795634+00:00

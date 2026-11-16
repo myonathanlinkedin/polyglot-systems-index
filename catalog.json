@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Memory management in 40 major C projects, a survey",
+    "language": "Ruby",
+    "folder": "ruby",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "ruby-algorithms-lab",
+    "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261116_010236_memory_management_in_40_major",
+    "source_file": "main",
+    "timestamp": "2026-11-16T01:02:53.620139+00:00",
+    "dir_name": "20261116_010236_memory_management_in_40_major"
+  },
+  {
     "topic": "Advanced Algorithms",
     "language": "Go",
     "folder": "go",
@@ -64,17 +75,6 @@
     "source_file": "main",
     "timestamp": "2026-11-15T17:02:43.358304+00:00",
     "dir_name": "20261115_170228_chronos-topology_algorithms"
-  },
-  {
-    "topic": "Memory management in 40 major C projects, a survey",
-    "language": "Java",
-    "folder": "java",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "java-enterprise-patterns",
-    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261115_170122_memory_management_in_40_major",
-    "source_file": "main",
-    "timestamp": "2026-11-15T17:01:35.373929+00:00",
-    "dir_name": "20261115_170122_memory_management_in_40_major"
   },
   {
     "topic": "Separations Between Submodular-Like Graph Widths",
