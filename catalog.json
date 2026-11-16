@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Exact-Quota Facility Location: A Transfer Framework and Three Approximation Guarantees",
+    "language": "Swift",
+    "folder": "swift",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "swift-systems-lab",
+    "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261116_230131_exact-quota_facility_location",
+    "source_file": "main",
+    "timestamp": "2026-11-16T23:02:00.885165+00:00",
+    "dir_name": "20261116_230131_exact-quota_facility_location"
+  },
+  {
     "topic": "Conflict-free Replicated Data Type (CRDT) PN-Counter",
     "language": "Rust",
     "folder": "rust",
