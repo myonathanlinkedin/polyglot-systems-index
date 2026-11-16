@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Why OS Virtual Memory Paging Saved LLM Inference: The ChronosPaging Breakthrough",
+    "language": "Zig",
+    "folder": "zig",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "zig-systems-lab",
+    "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261116_020121_why_os_virtual_memory_paging_s",
+    "source_file": "main",
+    "timestamp": "2026-11-16T02:01:38.114633+00:00",
+    "dir_name": "20261116_020121_why_os_virtual_memory_paging_s"
+  },
+  {
     "topic": "Memory management in 40 major C projects, a survey",
     "language": "Ruby",
     "folder": "ruby",
@@ -42,17 +53,6 @@
     "source_file": "main",
     "timestamp": "2026-11-15T21:02:40.793425+00:00",
     "dir_name": "20261115_210226_copy-on-write_vector_memory_bu"
-  },
-  {
-    "topic": "Why OS Virtual Memory Paging Saved LLM Inference: The ChronosPaging Breakthrough",
-    "language": "C",
-    "folder": "c",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "c-lowlevel-systems",
-    "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261115_200134_why_os_virtual_memory_paging_s",
-    "source_file": "main",
-    "timestamp": "2026-11-15T20:01:51.323467+00:00",
-    "dir_name": "20261115_200134_why_os_virtual_memory_paging_s"
   },
   {
     "topic": "Count-Min Sketch Heavy Hitters Frequency Estimator",
