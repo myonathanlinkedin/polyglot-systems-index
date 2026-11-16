@@ -1,7 +1,7 @@
 Index,Topic,Language,Domain Category,Spoke Repository,Source File,Timestamp UTC
-001,Bloom Filter with Chronos-Hash Hash Functions,Ruby,🌐 Distributed Systems & Consensus,ruby-algorithms-lab,main,2026-11-16T05:02:57.283296+00:00
-002,Trie Prefix Tree for Auto-Completion with Frequency Ranking,Java,🧠 Computational AI & Math Engines,java-enterprise-patterns,main,2026-11-16T05:01:54.256696+00:00
-003,"Memory management in 40 major C projects, a survey",C,⚡ Low-Latency & Memory Systems,c-lowlevel-systems,main,2026-11-16T03:02:51.148979+00:00
+001,"Memory management in 40 major C projects, a survey",Ruby,⚡ Low-Latency & Memory Systems,ruby-algorithms-lab,main,2026-11-16T07:02:58.503203+00:00
+002,Bloom Filter with Chronos-Hash Hash Functions,Ruby,🌐 Distributed Systems & Consensus,ruby-algorithms-lab,main,2026-11-16T05:02:57.283296+00:00
+003,Trie Prefix Tree for Auto-Completion with Frequency Ranking,Java,🧠 Computational AI & Math Engines,java-enterprise-patterns,main,2026-11-16T05:01:54.256696+00:00
 004,Why OS Virtual Memory Paging Saved LLM Inference: The ChronosPaging Breakthrough,Zig,⚡ Low-Latency & Memory Systems,zig-systems-lab,main,2026-11-16T02:01:38.114633+00:00
 005,Advanced Algorithms,Go,🧠 Computational AI & Math Engines,go-concurrency-lab,main,2026-11-15T23:03:20.377306+00:00
 006,Your AI Agent s Memory Is Not Its Source of Truth: The Hidden Risk of Stale Context,Go,⚡ Low-Latency & Memory Systems,go-concurrency-lab,main,2026-11-15T23:01:51.174002+00:00

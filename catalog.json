@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Memory management in 40 major C projects, a survey",
+    "language": "Ruby",
+    "folder": "ruby",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "ruby-algorithms-lab",
+    "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261116_070243_memory_management_in_40_major",
+    "source_file": "main",
+    "timestamp": "2026-11-16T07:02:58.503203+00:00",
+    "dir_name": "20261116_070243_memory_management_in_40_major"
+  },
+  {
     "topic": "Bloom Filter with Chronos-Hash Hash Functions",
     "language": "Ruby",
     "folder": "ruby",
@@ -20,17 +31,6 @@
     "source_file": "main",
     "timestamp": "2026-11-16T05:01:54.256696+00:00",
     "dir_name": "20261116_050135_trie_prefix_tree_for_auto-comp"
-  },
-  {
-    "topic": "Memory management in 40 major C projects, a survey",
-    "language": "C",
-    "folder": "c",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "c-lowlevel-systems",
-    "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261116_030238_memory_management_in_40_major",
-    "source_file": "main",
-    "timestamp": "2026-11-16T03:02:51.148979+00:00",
-    "dir_name": "20261116_030238_memory_management_in_40_major"
   },
   {
     "topic": "Why OS Virtual Memory Paging Saved LLM Inference: The ChronosPaging Breakthrough",
