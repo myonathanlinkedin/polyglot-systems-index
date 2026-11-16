@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Paint in the memory of other programs",
+    "language": "C++",
+    "folder": "cpp",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "cpp-systems-core",
+    "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261116_110128_paint_in_the_memory_of_other_p",
+    "source_file": "main",
+    "timestamp": "2026-11-16T11:01:47.743300+00:00",
+    "dir_name": "20261116_110128_paint_in_the_memory_of_other_p"
+  },
+  {
     "topic": "Debian Becomes Unresponsive after 6.1.0-55 Kernel Update",
     "language": "Zig",
     "folder": "zig",
