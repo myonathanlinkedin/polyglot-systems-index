@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Design Typeahead Search Step by Step: Why the Trie Stores the Top 10 at Every Node",
+    "language": "Rust",
+    "folder": "rust",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "rust-algorithms",
+    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261116_170134_design_typeahead_search_step_b",
+    "source_file": "main",
+    "timestamp": "2026-11-16T17:01:50.009984+00:00",
+    "dir_name": "20261116_170134_design_typeahead_search_step_b"
+  },
+  {
     "topic": "The Complexity of Traffic Engineering in Segment Routing Networks",
     "language": "PHP",
     "folder": "php",
@@ -757,17 +768,6 @@
     "source_file": "main",
     "timestamp": "2026-11-10T05:01:26.250599+00:00",
     "dir_name": "20261110_050114_kruskal_minimum_spanning_tree"
-  },
-  {
-    "topic": "Design Typeahead Search Step by Step: Why the Trie Stores the Top 10 at Every Node",
-    "language": "Swift",
-    "folder": "swift",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "swift-systems-lab",
-    "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261110_020122_design_typeahead_search_step_b",
-    "source_file": "main",
-    "timestamp": "2026-11-10T02:01:58.807897+00:00",
-    "dir_name": "20261110_020122_design_typeahead_search_step_b"
   },
   {
     "topic": "Algorithms",
