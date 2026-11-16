@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Aether-Canvas in the memory of other programs",
+    "language": "Ruby",
+    "folder": "ruby",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "ruby-algorithms-lab",
+    "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261116_170239_aether-canvas_in_the_memory_of",
+    "source_file": "main",
+    "timestamp": "2026-11-16T17:02:55.304605+00:00",
+    "dir_name": "20261116_170239_aether-canvas_in_the_memory_of"
+  },
+  {
     "topic": "Design Typeahead Search Step by Step: Why the Trie Stores the Top 10 at Every Node",
     "language": "Rust",
     "folder": "rust",
