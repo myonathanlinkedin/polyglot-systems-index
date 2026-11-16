@@ -1,8 +1,8 @@
 Index,Topic,Language,Domain Category,Spoke Repository,Source File,Timestamp UTC
-001,Gossip Protocol Node Failure Detector,C++,🌐 Distributed Systems & Consensus,cpp-systems-core,main,2026-11-16T19:03:50.979748+00:00
-002,Aether-Canvas in the memory of other programs,Ruby,⚡ Low-Latency & Memory Systems,ruby-algorithms-lab,main,2026-11-16T17:02:55.304605+00:00
-003,Design Typeahead Search Step by Step: Why the Trie Stores the Top 10 at Every Node,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-11-16T17:01:50.009984+00:00
-004,The Complexity of Traffic Engineering in Segment Routing Networks,PHP,⚡ Low-Latency & Memory Systems,php-backend-core,main,2026-11-16T15:03:01.760910+00:00
+001,The Complexity of Traffic Engineering in Segment Routing Networks,TypeScript,⚡ Low-Latency & Memory Systems,typescript-design-patterns,main,2026-11-16T20:01:53.476236+00:00
+002,Gossip Protocol Node Failure Detector,C++,🌐 Distributed Systems & Consensus,cpp-systems-core,main,2026-11-16T19:03:50.979748+00:00
+003,Aether-Canvas in the memory of other programs,Ruby,⚡ Low-Latency & Memory Systems,ruby-algorithms-lab,main,2026-11-16T17:02:55.304605+00:00
+004,Design Typeahead Search Step by Step: Why the Trie Stores the Top 10 at Every Node,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-11-16T17:01:50.009984+00:00
 005,Bytecode Virtual Machine with Stack Evaluation Engine,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main,2026-11-16T14:01:55.197949+00:00
 006,"Design a Notification System: Queues, Retries and Fan-out",Haskell,⚡ Low-Latency & Memory Systems,haskell-functional-core,main,2026-11-16T13:02:42.348147+00:00
 007,Your AI Agent s Memory Is Not Its Source of Truth: The Hidden Risk of Stale Context,C++,⚡ Low-Latency & Memory Systems,cpp-systems-core,main,2026-11-16T11:02:38.971290+00:00
