@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Your AI Agent s Memory Is Not Its Source of Truth: The Hidden Risk of Stale Context",
+    "language": "C++",
+    "folder": "cpp",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "cpp-systems-core",
+    "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261116_110224_your_ai_agent_s_memory_is_not",
+    "source_file": "main",
+    "timestamp": "2026-11-16T11:02:38.971290+00:00",
+    "dir_name": "20261116_110224_your_ai_agent_s_memory_is_not"
+  },
+  {
     "topic": "Paint in the memory of other programs",
     "language": "C++",
     "folder": "cpp",
@@ -86,17 +97,6 @@
     "source_file": "main",
     "timestamp": "2026-11-15T23:03:20.377306+00:00",
     "dir_name": "20261115_230301_advanced_algorithms"
-  },
-  {
-    "topic": "Your AI Agent s Memory Is Not Its Source of Truth: The Hidden Risk of Stale Context",
-    "language": "Go",
-    "folder": "go",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "go-concurrency-lab",
-    "source_link": "https://github.com/myonathanlinkedin/go-concurrency-lab/tree/main/algorithms/20261115_230126_your_ai_agent_s_memory_is_not",
-    "source_file": "main",
-    "timestamp": "2026-11-15T23:01:51.174002+00:00",
-    "dir_name": "20261115_230126_your_ai_agent_s_memory_is_not"
   },
   {
     "topic": "Copy-on-Write Vector Memory Buffer Management",
