@@ -1,5 +1,27 @@
 [
   {
+    "topic": "The Complexity of Traffic Engineering in Segment Routing Networks",
+    "language": "PHP",
+    "folder": "php",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "php-backend-core",
+    "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261116_150240_the_complexity_of_traffic_engi",
+    "source_file": "main",
+    "timestamp": "2026-11-16T15:03:01.760910+00:00",
+    "dir_name": "20261116_150240_the_complexity_of_traffic_engi"
+  },
+  {
+    "topic": "Bytecode Virtual Machine with Stack Evaluation Engine",
+    "language": "C#",
+    "folder": "csharp",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "csharp-enterprise-lab",
+    "source_link": "https://github.com/myonathanlinkedin/csharp-enterprise-lab/tree/main/algorithms/20261116_140125_bytecode_virtual_machine_with",
+    "source_file": "main",
+    "timestamp": "2026-11-16T14:01:55.197949+00:00",
+    "dir_name": "20261116_140125_bytecode_virtual_machine_with"
+  },
+  {
     "topic": "Design a Notification System: Queues, Retries and Fan-out",
     "language": "Haskell",
     "folder": "haskell",
@@ -218,17 +240,6 @@
     "source_file": "main",
     "timestamp": "2026-11-15T02:01:52.701097+00:00",
     "dir_name": "20261115_020129_safe_optimistic_lock_coupling"
-  },
-  {
-    "topic": "Bytecode Virtual Machine with Stack Evaluation Engine",
-    "language": "Zig",
-    "folder": "zig",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "zig-systems-lab",
-    "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261115_010236_bytecode_virtual_machine_with",
-    "source_file": "main",
-    "timestamp": "2026-11-15T01:02:50.215982+00:00",
-    "dir_name": "20261115_010236_bytecode_virtual_machine_with"
   },
   {
     "topic": "Least Recently Used (LRU) Cache with Doubly Linked List",
