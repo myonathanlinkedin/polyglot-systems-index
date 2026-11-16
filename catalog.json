@@ -1,5 +1,27 @@
 [
   {
+    "topic": "Bytecode Virtual Machine with Stack Evaluation Engine",
+    "language": "C#",
+    "folder": "csharp",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "csharp-enterprise-lab",
+    "source_link": "https://github.com/myonathanlinkedin/csharp-enterprise-lab/tree/main/algorithms/20261116_140125_bytecode_virtual_machine_with",
+    "source_file": "main",
+    "timestamp": "2026-11-16T14:01:55.197949+00:00",
+    "dir_name": "20261116_140125_bytecode_virtual_machine_with"
+  },
+  {
+    "topic": "Design a Notification System: Queues, Retries and Fan-out",
+    "language": "Haskell",
+    "folder": "haskell",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "haskell-functional-core",
+    "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261116_130227_design_a_notification_system",
+    "source_file": "main",
+    "timestamp": "2026-11-16T13:02:42.348147+00:00",
+    "dir_name": "20261116_130227_design_a_notification_system"
+  },
+  {
     "topic": "Your AI Agent s Memory Is Not Its Source of Truth: The Hidden Risk of Stale Context",
     "language": "C++",
     "folder": "cpp",
@@ -207,17 +229,6 @@
     "source_file": "main",
     "timestamp": "2026-11-15T02:01:52.701097+00:00",
     "dir_name": "20261115_020129_safe_optimistic_lock_coupling"
-  },
-  {
-    "topic": "Bytecode Virtual Machine with Stack Evaluation Engine",
-    "language": "Zig",
-    "folder": "zig",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "zig-systems-lab",
-    "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261115_010236_bytecode_virtual_machine_with",
-    "source_file": "main",
-    "timestamp": "2026-11-15T01:02:50.215982+00:00",
-    "dir_name": "20261115_010236_bytecode_virtual_machine_with"
   },
   {
     "topic": "Least Recently Used (LRU) Cache with Doubly Linked List",
