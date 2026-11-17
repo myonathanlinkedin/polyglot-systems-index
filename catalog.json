@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Computing Independent Sets of Size Three in Disk Graphs",
+    "language": "Go",
+    "folder": "go",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "go-concurrency-lab",
+    "source_link": "https://github.com/myonathanlinkedin/go-concurrency-lab/tree/main/algorithms/20261117_030244_computing_independent_sets_of",
+    "source_file": "main",
+    "timestamp": "2026-11-17T03:03:04.224883+00:00",
+    "dir_name": "20261117_030244_computing_independent_sets_of"
+  },
+  {
     "topic": "Simulated Annealing Optimization for Combinatorial Graphs",
     "language": "Haskell",
     "folder": "haskell",
