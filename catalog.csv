@@ -1,14 +1,14 @@
 Index,Topic,Language,Domain Category,Spoke Repository,Source File,Timestamp UTC
-001,Memory Pool Block Allocator with Free List,Rust,⚡ Low-Latency & Memory Systems,rust-algorithms,main,2026-11-17T20:01:52.600906+00:00
-002,Fast Fourier Transform (Cooley-Tukey Radix-2) Signal Processing,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-17T19:02:56.199391+00:00
-003,Aether-Framework in the memory of other programs,Java,⚡ Low-Latency & Memory Systems,java-enterprise-patterns,main,2026-11-17T17:03:56.223231+00:00
-004,Lamport Logical Timestamp Synchronization Engine,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main,2026-11-17T17:01:51.428337+00:00
-005,Custom Buddy Memory Allocation System,Zig,⚡ Low-Latency & Memory Systems,zig-systems-lab,main,2026-11-17T15:03:23.614646+00:00
-006,An Optimal Online Algorithm for Single-machine Scheduling with Two Agents,C,🧠 Computational AI & Math Engines,c-lowlevel-systems,main,2026-11-17T14:01:51.196073+00:00
-007,Zero-Copy Byte Packet Ring Buffer Dispatcher,C++,⚡ Low-Latency & Memory Systems,cpp-systems-core,main,2026-11-17T13:02:45.366088+00:00
-008,Skip List Aether-Index,PHP,🧠 Computational AI & Math Engines,php-backend-core,main,2026-11-17T11:03:04.395211+00:00
-009,Conflict-free Replicated Data Type (CRDT) PN-Counter,Go,🌐 Distributed Systems & Consensus,go-concurrency-lab,main,2026-11-17T09:03:11.393242+00:00
-010,LSM-Tree MemTable and SSTable Flush Compaction Engine,Java,🌐 Distributed Systems & Consensus,java-enterprise-patterns,main,2026-11-17T08:02:00.444497+00:00
+001,LSM-Tree MemTable and SSTable Flush Compaction Engine,Swift,🌐 Distributed Systems & Consensus,swift-systems-lab,main,2026-11-17T21:03:25.948199+00:00
+002,Memory Pool Block Allocator with Free List,Rust,⚡ Low-Latency & Memory Systems,rust-algorithms,main,2026-11-17T20:01:52.600906+00:00
+003,Fast Fourier Transform (Cooley-Tukey Radix-2) Signal Processing,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-17T19:02:56.199391+00:00
+004,Aether-Framework in the memory of other programs,Java,⚡ Low-Latency & Memory Systems,java-enterprise-patterns,main,2026-11-17T17:03:56.223231+00:00
+005,Lamport Logical Timestamp Synchronization Engine,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main,2026-11-17T17:01:51.428337+00:00
+006,Custom Buddy Memory Allocation System,Zig,⚡ Low-Latency & Memory Systems,zig-systems-lab,main,2026-11-17T15:03:23.614646+00:00
+007,An Optimal Online Algorithm for Single-machine Scheduling with Two Agents,C,🧠 Computational AI & Math Engines,c-lowlevel-systems,main,2026-11-17T14:01:51.196073+00:00
+008,Zero-Copy Byte Packet Ring Buffer Dispatcher,C++,⚡ Low-Latency & Memory Systems,cpp-systems-core,main,2026-11-17T13:02:45.366088+00:00
+009,Skip List Aether-Index,PHP,🧠 Computational AI & Math Engines,php-backend-core,main,2026-11-17T11:03:04.395211+00:00
+010,Conflict-free Replicated Data Type (CRDT) PN-Counter,Go,🌐 Distributed Systems & Consensus,go-concurrency-lab,main,2026-11-17T09:03:11.393242+00:00
 011,Chronos-Canvas in the memory of other programs,Swift,⚡ Low-Latency & Memory Systems,swift-systems-lab,main,2026-11-17T05:02:39.160046+00:00
 012,"Memory management in 40 major C projects, a survey",Swift,⚡ Low-Latency & Memory Systems,swift-systems-lab,main,2026-11-17T05:01:53.907563+00:00
 013,Computing Independent Sets of Size Three in Disk Graphs,Go,🧠 Computational AI & Math Engines,go-concurrency-lab,main,2026-11-17T03:03:04.224883+00:00
