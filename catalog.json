@@ -1,16 +1,5 @@
 [
   {
-    "topic": "An Optimal Online Algorithm for Single-machine Scheduling with Two Agents",
-    "language": "C",
-    "folder": "c",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "c-lowlevel-systems",
-    "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261117_140135_an_optimal_online_algorithm_fo",
-    "source_file": "main",
-    "timestamp": "2026-11-17T14:01:51.196073+00:00",
-    "dir_name": "20261117_140135_an_optimal_online_algorithm_fo"
-  },
-  {
     "topic": "Zero-Copy Byte Packet Ring Buffer Dispatcher",
     "language": "C++",
     "folder": "cpp",
