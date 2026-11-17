@@ -1,5 +1,27 @@
 [
   {
+    "topic": "Conflict-free Replicated Data Type (CRDT) PN-Counter",
+    "language": "Go",
+    "folder": "go",
+    "category": "\ud83c\udf10 Distributed Systems & Consensus",
+    "spoke_repo": "go-concurrency-lab",
+    "source_link": "https://github.com/myonathanlinkedin/go-concurrency-lab/tree/main/algorithms/20261117_090249_conflict-free_replicated_data",
+    "source_file": "main",
+    "timestamp": "2026-11-17T09:03:11.393242+00:00",
+    "dir_name": "20261117_090249_conflict-free_replicated_data"
+  },
+  {
+    "topic": "LSM-Tree MemTable and SSTable Flush Compaction Engine",
+    "language": "Java",
+    "folder": "java",
+    "category": "\ud83c\udf10 Distributed Systems & Consensus",
+    "spoke_repo": "java-enterprise-patterns",
+    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261117_080139_lsm-tree_memtable_and_sstable",
+    "source_file": "main",
+    "timestamp": "2026-11-17T08:02:00.444497+00:00",
+    "dir_name": "20261117_080139_lsm-tree_memtable_and_sstable"
+  },
+  {
     "topic": "Memory Pool Block Allocator with Free List",
     "language": "C++",
     "folder": "cpp",
@@ -86,17 +108,6 @@
     "source_file": "main",
     "timestamp": "2026-11-16T23:02:00.885165+00:00",
     "dir_name": "20261116_230131_exact-quota_facility_location"
-  },
-  {
-    "topic": "Conflict-free Replicated Data Type (CRDT) PN-Counter",
-    "language": "Rust",
-    "folder": "rust",
-    "category": "\ud83c\udf10 Distributed Systems & Consensus",
-    "spoke_repo": "rust-algorithms",
-    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261116_210316_conflict-free_replicated_data",
-    "source_file": "main",
-    "timestamp": "2026-11-16T21:03:32.510074+00:00",
-    "dir_name": "20261116_210316_conflict-free_replicated_data"
   },
   {
     "topic": "The Complexity of Traffic Engineering in Segment Routing Networks",
@@ -603,17 +614,6 @@
     "source_file": "main",
     "timestamp": "2026-11-13T01:02:37.112143+00:00",
     "dir_name": "20261113_010224_suffix_automaton_for_linear-ti"
-  },
-  {
-    "topic": "LSM-Tree MemTable and SSTable Flush Compaction Engine",
-    "language": "PHP",
-    "folder": "php",
-    "category": "\ud83c\udf10 Distributed Systems & Consensus",
-    "spoke_repo": "php-backend-core",
-    "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261112_210237_lsm-tree_memtable_and_sstable",
-    "source_file": "main",
-    "timestamp": "2026-11-12T21:02:50.081518+00:00",
-    "dir_name": "20261112_210237_lsm-tree_memtable_and_sstable"
   },
   {
     "topic": "Creating Diagrams and Graphs Using Modern CSS",
