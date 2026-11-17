@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Aether-Framework in the memory of other programs",
+    "language": "Java",
+    "folder": "java",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "java-enterprise-patterns",
+    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261117_170338_aether-framework_in_the_memory",
+    "source_file": "main",
+    "timestamp": "2026-11-17T17:03:56.223231+00:00",
+    "dir_name": "20261117_170338_aether-framework_in_the_memory"
+  },
+  {
     "topic": "Lamport Logical Timestamp Synchronization Engine",
     "language": "Ruby",
     "folder": "ruby",
@@ -53,17 +64,6 @@
     "source_file": "main",
     "timestamp": "2026-11-17T11:03:04.395211+00:00",
     "dir_name": "20261117_110247_skip_list_aether-index"
-  },
-  {
-    "topic": "Aether-Framework in the memory of other programs",
-    "language": "PHP",
-    "folder": "php",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "php-backend-core",
-    "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261117_110131_aether-framework_in_the_memory",
-    "source_file": "main",
-    "timestamp": "2026-11-17T11:01:43.475764+00:00",
-    "dir_name": "20261117_110131_aether-framework_in_the_memory"
   },
   {
     "topic": "Conflict-free Replicated Data Type (CRDT) PN-Counter",

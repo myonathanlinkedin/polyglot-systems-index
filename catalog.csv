@@ -1,10 +1,10 @@
 Index,Topic,Language,Domain Category,Spoke Repository,Source File,Timestamp UTC
-001,Lamport Logical Timestamp Synchronization Engine,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main,2026-11-17T17:01:51.428337+00:00
-002,Custom Buddy Memory Allocation System,Zig,⚡ Low-Latency & Memory Systems,zig-systems-lab,main,2026-11-17T15:03:23.614646+00:00
-003,An Optimal Online Algorithm for Single-machine Scheduling with Two Agents,C,🧠 Computational AI & Math Engines,c-lowlevel-systems,main,2026-11-17T14:01:51.196073+00:00
-004,Zero-Copy Byte Packet Ring Buffer Dispatcher,C++,⚡ Low-Latency & Memory Systems,cpp-systems-core,main,2026-11-17T13:02:45.366088+00:00
-005,Skip List Aether-Index,PHP,🧠 Computational AI & Math Engines,php-backend-core,main,2026-11-17T11:03:04.395211+00:00
-006,Aether-Framework in the memory of other programs,PHP,⚡ Low-Latency & Memory Systems,php-backend-core,main,2026-11-17T11:01:43.475764+00:00
+001,Aether-Framework in the memory of other programs,Java,⚡ Low-Latency & Memory Systems,java-enterprise-patterns,main,2026-11-17T17:03:56.223231+00:00
+002,Lamport Logical Timestamp Synchronization Engine,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main,2026-11-17T17:01:51.428337+00:00
+003,Custom Buddy Memory Allocation System,Zig,⚡ Low-Latency & Memory Systems,zig-systems-lab,main,2026-11-17T15:03:23.614646+00:00
+004,An Optimal Online Algorithm for Single-machine Scheduling with Two Agents,C,🧠 Computational AI & Math Engines,c-lowlevel-systems,main,2026-11-17T14:01:51.196073+00:00
+005,Zero-Copy Byte Packet Ring Buffer Dispatcher,C++,⚡ Low-Latency & Memory Systems,cpp-systems-core,main,2026-11-17T13:02:45.366088+00:00
+006,Skip List Aether-Index,PHP,🧠 Computational AI & Math Engines,php-backend-core,main,2026-11-17T11:03:04.395211+00:00
 007,Conflict-free Replicated Data Type (CRDT) PN-Counter,Go,🌐 Distributed Systems & Consensus,go-concurrency-lab,main,2026-11-17T09:03:11.393242+00:00
 008,LSM-Tree MemTable and SSTable Flush Compaction Engine,Java,🌐 Distributed Systems & Consensus,java-enterprise-patterns,main,2026-11-17T08:02:00.444497+00:00
 009,Memory Pool Block Allocator with Free List,C++,⚡ Low-Latency & Memory Systems,cpp-systems-core,main,2026-11-17T07:02:54.262830+00:00
