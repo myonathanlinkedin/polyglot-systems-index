@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Memory management in 40 major C projects, a survey",
+    "language": "Swift",
+    "folder": "swift",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "swift-systems-lab",
+    "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261117_050128_memory_management_in_40_major",
+    "source_file": "main",
+    "timestamp": "2026-11-17T05:01:53.907563+00:00",
+    "dir_name": "20261117_050128_memory_management_in_40_major"
+  },
+  {
     "topic": "Computing Independent Sets of Size Three in Disk Graphs",
     "language": "Go",
     "folder": "go",
@@ -174,17 +185,6 @@
     "source_file": "main",
     "timestamp": "2026-11-16T08:01:51.573909+00:00",
     "dir_name": "20261116_080132_memory_pool_block_allocator_wi"
-  },
-  {
-    "topic": "Memory management in 40 major C projects, a survey",
-    "language": "Ruby",
-    "folder": "ruby",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "ruby-algorithms-lab",
-    "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261116_070243_memory_management_in_40_major",
-    "source_file": "main",
-    "timestamp": "2026-11-16T07:02:58.503203+00:00",
-    "dir_name": "20261116_070243_memory_management_in_40_major"
   },
   {
     "topic": "Bloom Filter with Chronos-Hash Hash Functions",

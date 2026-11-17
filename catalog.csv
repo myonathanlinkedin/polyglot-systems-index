@@ -1,21 +1,21 @@
 Index,Topic,Language,Domain Category,Spoke Repository,Source File,Timestamp UTC
-001,Computing Independent Sets of Size Three in Disk Graphs,Go,🧠 Computational AI & Math Engines,go-concurrency-lab,main,2026-11-17T03:03:04.224883+00:00
-002,Simulated Annealing Optimization for Combinatorial Graphs,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main,2026-11-17T02:01:47.918045+00:00
-003,Distributed Consistent Hashing Router with Virtual Nodes,Rust,🌐 Distributed Systems & Consensus,rust-algorithms,main,2026-11-17T01:02:50.372870+00:00
-004,Aho-Corasick Multi-Pattern String Searching Automaton,C++,⚡ Low-Latency & Memory Systems,cpp-systems-core,main,2026-11-16T23:03:22.809992+00:00
-005,Exact-Quota Facility Location: A Transfer Framework and Three Approximation Guarantees,Swift,🧠 Computational AI & Math Engines,swift-systems-lab,main,2026-11-16T23:02:00.885165+00:00
-006,Conflict-free Replicated Data Type (CRDT) PN-Counter,Rust,🌐 Distributed Systems & Consensus,rust-algorithms,main,2026-11-16T21:03:32.510074+00:00
-007,The Complexity of Traffic Engineering in Segment Routing Networks,TypeScript,⚡ Low-Latency & Memory Systems,typescript-design-patterns,main,2026-11-16T20:01:53.476236+00:00
-008,Gossip Protocol Node Failure Detector,C++,🌐 Distributed Systems & Consensus,cpp-systems-core,main,2026-11-16T19:03:50.979748+00:00
-009,Aether-Canvas in the memory of other programs,Ruby,⚡ Low-Latency & Memory Systems,ruby-algorithms-lab,main,2026-11-16T17:02:55.304605+00:00
-010,Design Typeahead Search Step by Step: Why the Trie Stores the Top 10 at Every Node,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-11-16T17:01:50.009984+00:00
-011,Bytecode Virtual Machine with Stack Evaluation Engine,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main,2026-11-16T14:01:55.197949+00:00
-012,"Design a Notification System: Queues, Retries and Fan-out",Haskell,⚡ Low-Latency & Memory Systems,haskell-functional-core,main,2026-11-16T13:02:42.348147+00:00
-013,Your AI Agent s Memory Is Not Its Source of Truth: The Hidden Risk of Stale Context,C++,⚡ Low-Latency & Memory Systems,cpp-systems-core,main,2026-11-16T11:02:38.971290+00:00
-014,Paint in the memory of other programs,C++,⚡ Low-Latency & Memory Systems,cpp-systems-core,main,2026-11-16T11:01:47.743300+00:00
-015,Debian Becomes Unresponsive after 6.1.0-55 Kernel Update,Zig,🧠 Computational AI & Math Engines,zig-systems-lab,main,2026-11-16T09:03:06.753701+00:00
-016,Memory Pool Block Allocator with Free List,C,⚡ Low-Latency & Memory Systems,c-lowlevel-systems,main,2026-11-16T08:01:51.573909+00:00
-017,"Memory management in 40 major C projects, a survey",Ruby,⚡ Low-Latency & Memory Systems,ruby-algorithms-lab,main,2026-11-16T07:02:58.503203+00:00
+001,"Memory management in 40 major C projects, a survey",Swift,⚡ Low-Latency & Memory Systems,swift-systems-lab,main,2026-11-17T05:01:53.907563+00:00
+002,Computing Independent Sets of Size Three in Disk Graphs,Go,🧠 Computational AI & Math Engines,go-concurrency-lab,main,2026-11-17T03:03:04.224883+00:00
+003,Simulated Annealing Optimization for Combinatorial Graphs,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main,2026-11-17T02:01:47.918045+00:00
+004,Distributed Consistent Hashing Router with Virtual Nodes,Rust,🌐 Distributed Systems & Consensus,rust-algorithms,main,2026-11-17T01:02:50.372870+00:00
+005,Aho-Corasick Multi-Pattern String Searching Automaton,C++,⚡ Low-Latency & Memory Systems,cpp-systems-core,main,2026-11-16T23:03:22.809992+00:00
+006,Exact-Quota Facility Location: A Transfer Framework and Three Approximation Guarantees,Swift,🧠 Computational AI & Math Engines,swift-systems-lab,main,2026-11-16T23:02:00.885165+00:00
+007,Conflict-free Replicated Data Type (CRDT) PN-Counter,Rust,🌐 Distributed Systems & Consensus,rust-algorithms,main,2026-11-16T21:03:32.510074+00:00
+008,The Complexity of Traffic Engineering in Segment Routing Networks,TypeScript,⚡ Low-Latency & Memory Systems,typescript-design-patterns,main,2026-11-16T20:01:53.476236+00:00
+009,Gossip Protocol Node Failure Detector,C++,🌐 Distributed Systems & Consensus,cpp-systems-core,main,2026-11-16T19:03:50.979748+00:00
+010,Aether-Canvas in the memory of other programs,Ruby,⚡ Low-Latency & Memory Systems,ruby-algorithms-lab,main,2026-11-16T17:02:55.304605+00:00
+011,Design Typeahead Search Step by Step: Why the Trie Stores the Top 10 at Every Node,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-11-16T17:01:50.009984+00:00
+012,Bytecode Virtual Machine with Stack Evaluation Engine,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main,2026-11-16T14:01:55.197949+00:00
+013,"Design a Notification System: Queues, Retries and Fan-out",Haskell,⚡ Low-Latency & Memory Systems,haskell-functional-core,main,2026-11-16T13:02:42.348147+00:00
+014,Your AI Agent s Memory Is Not Its Source of Truth: The Hidden Risk of Stale Context,C++,⚡ Low-Latency & Memory Systems,cpp-systems-core,main,2026-11-16T11:02:38.971290+00:00
+015,Paint in the memory of other programs,C++,⚡ Low-Latency & Memory Systems,cpp-systems-core,main,2026-11-16T11:01:47.743300+00:00
+016,Debian Becomes Unresponsive after 6.1.0-55 Kernel Update,Zig,🧠 Computational AI & Math Engines,zig-systems-lab,main,2026-11-16T09:03:06.753701+00:00
+017,Memory Pool Block Allocator with Free List,C,⚡ Low-Latency & Memory Systems,c-lowlevel-systems,main,2026-11-16T08:01:51.573909+00:00
 018,Bloom Filter with Chronos-Hash Hash Functions,Ruby,🌐 Distributed Systems & Consensus,ruby-algorithms-lab,main,2026-11-16T05:02:57.283296+00:00
 019,Trie Prefix Tree for Auto-Completion with Frequency Ranking,Java,🧠 Computational AI & Math Engines,java-enterprise-patterns,main,2026-11-16T05:01:54.256696+00:00
 020,Why OS Virtual Memory Paging Saved LLM Inference: The ChronosPaging Breakthrough,Zig,⚡ Low-Latency & Memory Systems,zig-systems-lab,main,2026-11-16T02:01:38.114633+00:00
