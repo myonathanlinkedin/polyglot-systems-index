@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Lamport Logical Timestamp Synchronization Engine",
+    "language": "Ruby",
+    "folder": "ruby",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "ruby-algorithms-lab",
+    "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261117_170132_lamport_logical_timestamp_sync",
+    "source_file": "main",
+    "timestamp": "2026-11-17T17:01:51.428337+00:00",
+    "dir_name": "20261117_170132_lamport_logical_timestamp_sync"
+  },
+  {
     "topic": "Custom Buddy Memory Allocation System",
     "language": "Zig",
     "folder": "zig",
@@ -1054,17 +1065,6 @@
     "source_file": "main",
     "timestamp": "2026-11-08T02:01:42.674818+00:00",
     "dir_name": "20261108_020129_counting_over_unbreakable_deco"
-  },
-  {
-    "topic": "Lamport Logical Timestamp Synchronization Engine",
-    "language": "Swift",
-    "folder": "swift",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "swift-systems-lab",
-    "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261108_010221_lamport_logical_timestamp_sync",
-    "source_file": "main",
-    "timestamp": "2026-11-08T01:02:32.952400+00:00",
-    "dir_name": "20261108_010221_lamport_logical_timestamp_sync"
   },
   {
     "topic": "Raft Consensus Protocol Leader Election State Engine",
