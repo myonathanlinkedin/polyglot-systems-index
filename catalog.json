@@ -1,5 +1,27 @@
 [
   {
+    "topic": "Custom Buddy Memory Allocation System",
+    "language": "Zig",
+    "folder": "zig",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "zig-systems-lab",
+    "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261117_150306_custom_buddy_memory_allocation",
+    "source_file": "main",
+    "timestamp": "2026-11-17T15:03:23.614646+00:00",
+    "dir_name": "20261117_150306_custom_buddy_memory_allocation"
+  },
+  {
+    "topic": "An Optimal Online Algorithm for Single-machine Scheduling with Two Agents",
+    "language": "C",
+    "folder": "c",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "c-lowlevel-systems",
+    "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261117_140135_an_optimal_online_algorithm_fo",
+    "source_file": "main",
+    "timestamp": "2026-11-17T14:01:51.196073+00:00",
+    "dir_name": "20261117_140135_an_optimal_online_algorithm_fo"
+  },
+  {
     "topic": "Zero-Copy Byte Packet Ring Buffer Dispatcher",
     "language": "C++",
     "folder": "cpp",
@@ -702,17 +724,6 @@
     "source_file": "main",
     "timestamp": "2026-11-12T01:03:12.019507+00:00",
     "dir_name": "20261112_010253_no_effect_before_its_cause__fr"
-  },
-  {
-    "topic": "Custom Buddy Memory Allocation System",
-    "language": "Java",
-    "folder": "java",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "java-enterprise-patterns",
-    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261111_230319_custom_buddy_memory_allocation",
-    "source_file": "main",
-    "timestamp": "2026-11-11T23:03:36.474504+00:00",
-    "dir_name": "20261111_230319_custom_buddy_memory_allocation"
   },
   {
     "topic": "Why OS Virtual Memory Paging Saved LLM Inference: The AetherPaged-LLM Breakthrough",
