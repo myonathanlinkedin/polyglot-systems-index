@@ -1,5 +1,38 @@
 [
   {
+    "topic": "Fast Fourier Transform (Cooley-Tukey Radix-2) Signal Processing",
+    "language": "Python",
+    "folder": "python",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "python-advanced-lab",
+    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261117_190241_fast_fourier_transform__cooley",
+    "source_file": "main",
+    "timestamp": "2026-11-17T19:02:56.199391+00:00",
+    "dir_name": "20261117_190241_fast_fourier_transform__cooley"
+  },
+  {
+    "topic": "Aether-Framework in the memory of other programs",
+    "language": "Java",
+    "folder": "java",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "java-enterprise-patterns",
+    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261117_170338_aether-framework_in_the_memory",
+    "source_file": "main",
+    "timestamp": "2026-11-17T17:03:56.223231+00:00",
+    "dir_name": "20261117_170338_aether-framework_in_the_memory"
+  },
+  {
+    "topic": "Lamport Logical Timestamp Synchronization Engine",
+    "language": "Ruby",
+    "folder": "ruby",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "ruby-algorithms-lab",
+    "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261117_170132_lamport_logical_timestamp_sync",
+    "source_file": "main",
+    "timestamp": "2026-11-17T17:01:51.428337+00:00",
+    "dir_name": "20261117_170132_lamport_logical_timestamp_sync"
+  },
+  {
     "topic": "Custom Buddy Memory Allocation System",
     "language": "Zig",
     "folder": "zig",
@@ -42,17 +75,6 @@
     "source_file": "main",
     "timestamp": "2026-11-17T11:03:04.395211+00:00",
     "dir_name": "20261117_110247_skip_list_aether-index"
-  },
-  {
-    "topic": "Aether-Framework in the memory of other programs",
-    "language": "PHP",
-    "folder": "php",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "php-backend-core",
-    "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261117_110131_aether-framework_in_the_memory",
-    "source_file": "main",
-    "timestamp": "2026-11-17T11:01:43.475764+00:00",
-    "dir_name": "20261117_110131_aether-framework_in_the_memory"
   },
   {
     "topic": "Conflict-free Replicated Data Type (CRDT) PN-Counter",
@@ -825,17 +847,6 @@
     "dir_name": "20261110_110115_the_distributed_systems_error"
   },
   {
-    "topic": "Fast Fourier Transform (Cooley-Tukey Radix-2) Signal Processing",
-    "language": "Rust",
-    "folder": "rust",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "rust-algorithms",
-    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261110_090825_fast_fourier_transform__cooley",
-    "source_file": "main",
-    "timestamp": "2026-11-10T09:08:42.497091+00:00",
-    "dir_name": "20261110_090825_fast_fourier_transform__cooley"
-  },
-  {
     "topic": "A* Heuristic Pathfinding with Dynamic Obstacle Cost",
     "language": "Go",
     "folder": "go",
@@ -1054,17 +1065,6 @@
     "source_file": "main",
     "timestamp": "2026-11-08T02:01:42.674818+00:00",
     "dir_name": "20261108_020129_counting_over_unbreakable_deco"
-  },
-  {
-    "topic": "Lamport Logical Timestamp Synchronization Engine",
-    "language": "Swift",
-    "folder": "swift",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "swift-systems-lab",
-    "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261108_010221_lamport_logical_timestamp_sync",
-    "source_file": "main",
-    "timestamp": "2026-11-08T01:02:32.952400+00:00",
-    "dir_name": "20261108_010221_lamport_logical_timestamp_sync"
   },
   {
     "topic": "Raft Consensus Protocol Leader Election State Engine",
@@ -1571,17 +1571,6 @@
     "source_file": "main",
     "timestamp": "2026-11-01T09:02:13.384602+00:00",
     "dir_name": "20261101_090213_decode_kernel_panic_from_qr_co"
-  },
-  {
-    "topic": "Fast Fourier Transform (Cooley-Tukey Radix-2) Signal Processing",
-    "language": "Python",
-    "folder": "python",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "python-advanced-lab",
-    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261101_050209_fast_fourier_transform__cooley",
-    "source_file": "main",
-    "timestamp": "2026-11-01T05:02:09.570246+00:00",
-    "dir_name": "20261101_050209_fast_fourier_transform__cooley"
   },
   {
     "topic": "Count-Min Sketch Heavy Hitters Frequency Estimator",
