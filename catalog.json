@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Skip List Aether-Index",
+    "language": "PHP",
+    "folder": "php",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "php-backend-core",
+    "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261117_110247_skip_list_aether-index",
+    "source_file": "main",
+    "timestamp": "2026-11-17T11:03:04.395211+00:00",
+    "dir_name": "20261117_110247_skip_list_aether-index"
+  },
+  {
     "topic": "Aether-Framework in the memory of other programs",
     "language": "PHP",
     "folder": "php",
