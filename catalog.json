@@ -1,5 +1,38 @@
 [
   {
+    "topic": "Memory Pool Block Allocator with Free List",
+    "language": "C++",
+    "folder": "cpp",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "cpp-systems-core",
+    "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261117_070241_memory_pool_block_allocator_wi",
+    "source_file": "main",
+    "timestamp": "2026-11-17T07:02:54.262830+00:00",
+    "dir_name": "20261117_070241_memory_pool_block_allocator_wi"
+  },
+  {
+    "topic": "Chronos-Canvas in the memory of other programs",
+    "language": "Swift",
+    "folder": "swift",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "swift-systems-lab",
+    "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261117_050221_chronos-canvas_in_the_memory_o",
+    "source_file": "main",
+    "timestamp": "2026-11-17T05:02:39.160046+00:00",
+    "dir_name": "20261117_050221_chronos-canvas_in_the_memory_o"
+  },
+  {
+    "topic": "Memory management in 40 major C projects, a survey",
+    "language": "Swift",
+    "folder": "swift",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "swift-systems-lab",
+    "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261117_050128_memory_management_in_40_major",
+    "source_file": "main",
+    "timestamp": "2026-11-17T05:01:53.907563+00:00",
+    "dir_name": "20261117_050128_memory_management_in_40_major"
+  },
+  {
     "topic": "Computing Independent Sets of Size Three in Disk Graphs",
     "language": "Go",
     "folder": "go",
@@ -163,28 +196,6 @@
     "source_file": "main",
     "timestamp": "2026-11-16T09:03:06.753701+00:00",
     "dir_name": "20261116_090251_debian_becomes_unresponsive_af"
-  },
-  {
-    "topic": "Memory Pool Block Allocator with Free List",
-    "language": "C",
-    "folder": "c",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "c-lowlevel-systems",
-    "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261116_080132_memory_pool_block_allocator_wi",
-    "source_file": "main",
-    "timestamp": "2026-11-16T08:01:51.573909+00:00",
-    "dir_name": "20261116_080132_memory_pool_block_allocator_wi"
-  },
-  {
-    "topic": "Memory management in 40 major C projects, a survey",
-    "language": "Ruby",
-    "folder": "ruby",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "ruby-algorithms-lab",
-    "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261116_070243_memory_management_in_40_major",
-    "source_file": "main",
-    "timestamp": "2026-11-16T07:02:58.503203+00:00",
-    "dir_name": "20261116_070243_memory_management_in_40_major"
   },
   {
     "topic": "Bloom Filter with Chronos-Hash Hash Functions",
@@ -2297,6 +2308,17 @@
     "source_file": "main",
     "timestamp": "2026-10-23T13:03:15.722197+00:00",
     "dir_name": "20261023_130315_b-tree_multiway_balanced_searc"
+  },
+  {
+    "topic": "Memory Pool Block Allocator with Free List",
+    "language": "C",
+    "folder": "c",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "c-lowlevel-systems",
+    "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261023_110136_memory_pool_block_allocator_wi",
+    "source_file": "main",
+    "timestamp": "2026-10-23T11:01:36.398264+00:00",
+    "dir_name": "20261023_110136_memory_pool_block_allocator_wi"
   },
   {
     "topic": "Least Recently Used (LRU) Cache with Doubly Linked List",
