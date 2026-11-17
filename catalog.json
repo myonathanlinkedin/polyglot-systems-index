@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Chronos-Canvas in the memory of other programs",
+    "language": "Swift",
+    "folder": "swift",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "swift-systems-lab",
+    "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261117_050221_chronos-canvas_in_the_memory_o",
+    "source_file": "main",
+    "timestamp": "2026-11-17T05:02:39.160046+00:00",
+    "dir_name": "20261117_050221_chronos-canvas_in_the_memory_o"
+  },
+  {
     "topic": "Memory management in 40 major C projects, a survey",
     "language": "Swift",
     "folder": "swift",
