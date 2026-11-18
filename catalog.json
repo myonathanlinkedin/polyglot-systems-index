@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Lakegres: Vector search on existing Open/Hudi/Iceberg tables",
+    "language": "Swift",
+    "folder": "swift",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "swift-systems-lab",
+    "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261118_200136_lakegres__vector_search_on_exi",
+    "source_file": "main",
+    "timestamp": "2026-11-18T20:02:09.150420+00:00",
+    "dir_name": "20261118_200136_lakegres__vector_search_on_exi"
+  },
+  {
     "topic": "Gossip Protocol Node Failure Detector",
     "language": "Rust",
     "folder": "rust",
