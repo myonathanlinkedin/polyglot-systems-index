@@ -1,27 +1,5 @@
 [
   {
-    "topic": "Simulated Annealing Optimization for Combinatorial Graphs",
-    "language": "Rust",
-    "folder": "rust",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "rust-algorithms",
-    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261118_230212_simulated_annealing_optimizati",
-    "source_file": "main",
-    "timestamp": "2026-11-18T23:02:36.281049+00:00",
-    "dir_name": "20261118_230212_simulated_annealing_optimizati"
-  },
-  {
-    "topic": "Copy-on-Write Vector Memory Buffer Management",
-    "language": "PHP",
-    "folder": "php",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "php-backend-core",
-    "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261118_230126_copy-on-write_vector_memory_bu",
-    "source_file": "main",
-    "timestamp": "2026-11-18T23:01:38.102171+00:00",
-    "dir_name": "20261118_230126_copy-on-write_vector_memory_bu"
-  },
-  {
     "topic": "LSM-Tree MemTable and SSTable Flush Compaction Engine",
     "language": "Java",
     "folder": "java",
@@ -187,6 +165,17 @@
     "dir_name": "20261118_010257_two-phase_commit_protocol_coor"
   },
   {
+    "topic": "Copy-on-Write Vector Memory Buffer Management",
+    "language": "Java",
+    "folder": "java",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "java-enterprise-patterns",
+    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261117_230139_copy-on-write_vector_memory_bu",
+    "source_file": "main",
+    "timestamp": "2026-11-17T23:01:57.299705+00:00",
+    "dir_name": "20261117_230139_copy-on-write_vector_memory_bu"
+  },
+  {
     "topic": "Memory Pool Block Allocator with Free List",
     "language": "Rust",
     "folder": "rust",
@@ -317,6 +306,17 @@
     "source_file": "main",
     "timestamp": "2026-11-17T03:03:04.224883+00:00",
     "dir_name": "20261117_030244_computing_independent_sets_of"
+  },
+  {
+    "topic": "Simulated Annealing Optimization for Combinatorial Graphs",
+    "language": "Haskell",
+    "folder": "haskell",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "haskell-functional-core",
+    "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261117_020136_simulated_annealing_optimizati",
+    "source_file": "main",
+    "timestamp": "2026-11-17T02:01:47.918045+00:00",
+    "dir_name": "20261117_020136_simulated_annealing_optimizati"
   },
   {
     "topic": "Distributed Consistent Hashing Router with Virtual Nodes",
@@ -2242,17 +2242,6 @@
     "source_file": "main",
     "timestamp": "2026-10-24T19:02:10.234647+00:00",
     "dir_name": "20261024_190210_custom_buddy_memory_allocation"
-  },
-  {
-    "topic": "Simulated Annealing Optimization for Combinatorial Graphs",
-    "language": "Haskell",
-    "folder": "haskell",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "haskell-functional-core",
-    "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261024_170134_simulated_annealing_optimizati",
-    "source_file": "main",
-    "timestamp": "2026-10-24T17:01:34.509422+00:00",
-    "dir_name": "20261024_170134_simulated_annealing_optimizati"
   },
   {
     "topic": "Google illegally cut down 250K trees in Finland for data center",
