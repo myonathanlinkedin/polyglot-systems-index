@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Gossip Protocol Node Failure Detector",
+    "language": "Rust",
+    "folder": "rust",
+    "category": "\ud83c\udf10 Distributed Systems & Consensus",
+    "spoke_repo": "rust-algorithms",
+    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261118_190246_gossip_protocol_node_failure_d",
+    "source_file": "main",
+    "timestamp": "2026-11-18T19:03:02.437213+00:00",
+    "dir_name": "20261118_190246_gossip_protocol_node_failure_d"
+  },
+  {
     "topic": "Trie Prefix Tree for Auto-Completion with Frequency Ranking",
     "language": "C#",
     "folder": "csharp",
@@ -339,17 +350,6 @@
     "source_file": "main",
     "timestamp": "2026-11-16T20:01:53.476236+00:00",
     "dir_name": "20261116_200139_the_complexity_of_traffic_engi"
-  },
-  {
-    "topic": "Gossip Protocol Node Failure Detector",
-    "language": "C++",
-    "folder": "cpp",
-    "category": "\ud83c\udf10 Distributed Systems & Consensus",
-    "spoke_repo": "cpp-systems-core",
-    "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261116_190334_gossip_protocol_node_failure_d",
-    "source_file": "main",
-    "timestamp": "2026-11-16T19:03:50.979748+00:00",
-    "dir_name": "20261116_190334_gossip_protocol_node_failure_d"
   },
   {
     "topic": "Aether-Canvas in the memory of other programs",
