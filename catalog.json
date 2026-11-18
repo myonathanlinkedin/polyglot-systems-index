@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Two-Phase Commit Protocol Coordinator and Participant State Machine",
+    "language": "C",
+    "folder": "c",
+    "category": "\ud83c\udf10 Distributed Systems & Consensus",
+    "spoke_repo": "c-lowlevel-systems",
+    "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261118_010257_two-phase_commit_protocol_coor",
+    "source_file": "main",
+    "timestamp": "2026-11-18T01:03:09.832828+00:00",
+    "dir_name": "20261118_010257_two-phase_commit_protocol_coor"
+  },
+  {
     "topic": "Finite State Machine Tokenizer and Lexical Parser",
     "language": "TypeScript",
     "folder": "typescript",
@@ -1175,17 +1186,6 @@
     "source_file": "main",
     "timestamp": "2026-11-06T02:01:27.322137+00:00",
     "dir_name": "20261106_020116_stratum-analytics-tree_spatial"
-  },
-  {
-    "topic": "Two-Phase Commit Protocol Coordinator and Participant State Machine",
-    "language": "Python",
-    "folder": "python",
-    "category": "\ud83c\udf10 Distributed Systems & Consensus",
-    "spoke_repo": "python-advanced-lab",
-    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261106_010219_two-phase_commit_protocol_coor",
-    "source_file": "main",
-    "timestamp": "2026-11-06T01:02:33.010951+00:00",
-    "dir_name": "20261106_010219_two-phase_commit_protocol_coor"
   },
   {
     "topic": "R-Tree Spatial Index for Multidimensional Bounding Boxes",
