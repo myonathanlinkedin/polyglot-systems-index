@@ -1,5 +1,16 @@
 [
   {
+    "topic": "LSM-Tree MemTable and SSTable Flush Compaction Engine",
+    "language": "Java",
+    "folder": "java",
+    "category": "\ud83c\udf10 Distributed Systems & Consensus",
+    "spoke_repo": "java-enterprise-patterns",
+    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261118_210256_lsm-tree_memtable_and_sstable",
+    "source_file": "main",
+    "timestamp": "2026-11-18T21:03:14.071871+00:00",
+    "dir_name": "20261118_210256_lsm-tree_memtable_and_sstable"
+  },
+  {
     "topic": "Lakegres: Vector search on existing Open/Hudi/Iceberg tables",
     "language": "Swift",
     "folder": "swift",
@@ -141,17 +152,6 @@
     "source_file": "main",
     "timestamp": "2026-11-18T03:02:34.820630+00:00",
     "dir_name": "20261118_030219_runge-kutta_4th_order_numerica"
-  },
-  {
-    "topic": "LSM-Tree MemTable and SSTable Flush Compaction Engine",
-    "language": "PHP",
-    "folder": "php",
-    "category": "\ud83c\udf10 Distributed Systems & Consensus",
-    "spoke_repo": "php-backend-core",
-    "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261118_020143_lsm-tree_memtable_and_sstable",
-    "source_file": "main",
-    "timestamp": "2026-11-18T02:01:56.243345+00:00",
-    "dir_name": "20261118_020143_lsm-tree_memtable_and_sstable"
   },
   {
     "topic": "Two-Phase Commit Protocol Coordinator and Participant State Machine",
