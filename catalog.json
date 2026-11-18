@@ -1,5 +1,27 @@
 [
   {
+    "topic": "HyperLogLog Cardinality Estimation Algorithm",
+    "language": "Swift",
+    "folder": "swift",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "swift-systems-lab",
+    "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261118_150350_hyperloglog_cardinality_estima",
+    "source_file": "main",
+    "timestamp": "2026-11-18T15:04:08.396260+00:00",
+    "dir_name": "20261118_150350_hyperloglog_cardinality_estima"
+  },
+  {
+    "topic": "Merkle Tree Verification and Proof Generator",
+    "language": "Rust",
+    "folder": "rust",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "rust-algorithms",
+    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261118_140147_merkle_tree_verification_and_p",
+    "source_file": "main",
+    "timestamp": "2026-11-18T14:02:02.605231+00:00",
+    "dir_name": "20261118_140147_merkle_tree_verification_and_p"
+  },
+  {
     "topic": "Vector Clock Distributed Event Ordering Mechanism",
     "language": "Rust",
     "folder": "rust",
@@ -473,17 +495,6 @@
     "dir_name": "20261115_130222_probabilistic_data_structures"
   },
   {
-    "topic": "Merkle Tree Verification and Proof Generator",
-    "language": "Haskell",
-    "folder": "haskell",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "haskell-functional-core",
-    "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261115_110129_merkle_tree_verification_and_p",
-    "source_file": "main",
-    "timestamp": "2026-11-15T11:01:43.795634+00:00",
-    "dir_name": "20261115_110129_merkle_tree_verification_and_p"
-  },
-  {
     "topic": "The Sicilian Citrus Family Tree",
     "language": "Kotlin",
     "folder": "kotlin",
@@ -702,17 +713,6 @@
     "source_file": "main",
     "timestamp": "2026-11-13T17:02:54.731989+00:00",
     "dir_name": "20261113_170237_sliding_window_rate_limiter_wi"
-  },
-  {
-    "topic": "HyperLogLog Cardinality Estimation Algorithm",
-    "language": "PHP",
-    "folder": "php",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "php-backend-core",
-    "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261113_123530_hyperloglog_cardinality_estima",
-    "source_file": "main",
-    "timestamp": "2026-11-13T12:35:51.314607+00:00",
-    "dir_name": "20261113_123530_hyperloglog_cardinality_estima"
   },
   {
     "topic": "Sharp Algorithms",
@@ -4552,6 +4552,17 @@
     "source_file": "main",
     "timestamp": "2026-10-09T17:05:55.459745+00:00",
     "dir_name": "20261009_170555_two-phase_commit_protocol_coor"
+  },
+  {
+    "topic": "Merkle Tree Verification and Proof Generator",
+    "language": "Haskell",
+    "folder": "haskell",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "haskell-functional-core",
+    "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261009_170221_merkle_tree_verification_and_p",
+    "source_file": "main",
+    "timestamp": "2026-10-09T17:02:21.478826+00:00",
+    "dir_name": "20261009_170221_merkle_tree_verification_and_p"
   },
   {
     "topic": "Singular Value Decomposition (SVD) for Low-Rank Approximation",
