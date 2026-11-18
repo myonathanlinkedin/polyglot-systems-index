@@ -1,11 +1,11 @@
 Index,Topic,Language,Domain Category,Spoke Repository,Source File,Timestamp UTC
-001,HyperLogLog Cardinality Estimation Algorithm,Swift,🧠 Computational AI & Math Engines,swift-systems-lab,main,2026-11-18T15:04:08.396260+00:00
-002,Merkle Tree Verification and Proof Generator,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-11-18T14:02:02.605231+00:00
-003,Vector Clock Distributed Event Ordering Mechanism,Rust,🌐 Distributed Systems & Consensus,rust-algorithms,main,2026-11-18T13:03:49.210831+00:00
-004,Skip List Chronos-Index,Go,🧠 Computational AI & Math Engines,go-concurrency-lab,main,2026-11-18T11:02:54.805609+00:00
-005,Finite State Machine Tokenizer and Lexical Parser,TypeScript,🧠 Computational AI & Math Engines,typescript-design-patterns,main,2026-11-18T11:01:55.184889+00:00
-006,Sexp Matrix,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-18T09:10:37.287372+00:00
-007,Advanced Algorithms,Kotlin,🧠 Computational AI & Math Engines,kotlin-systems-core,main,2026-11-18T08:02:05.627945+00:00
+001,Advanced Algorithms,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main,2026-11-18T17:01:53.296048+00:00
+002,HyperLogLog Cardinality Estimation Algorithm,Swift,🧠 Computational AI & Math Engines,swift-systems-lab,main,2026-11-18T15:04:08.396260+00:00
+003,Merkle Tree Verification and Proof Generator,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-11-18T14:02:02.605231+00:00
+004,Vector Clock Distributed Event Ordering Mechanism,Rust,🌐 Distributed Systems & Consensus,rust-algorithms,main,2026-11-18T13:03:49.210831+00:00
+005,Skip List Chronos-Index,Go,🧠 Computational AI & Math Engines,go-concurrency-lab,main,2026-11-18T11:02:54.805609+00:00
+006,Finite State Machine Tokenizer and Lexical Parser,TypeScript,🧠 Computational AI & Math Engines,typescript-design-patterns,main,2026-11-18T11:01:55.184889+00:00
+007,Sexp Matrix,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-18T09:10:37.287372+00:00
 008,Storage Engines Explained: B-Tree vs LSM Tree,PHP,🌐 Distributed Systems & Consensus,php-backend-core,main,2026-11-18T05:03:04.218861+00:00
 009,Lock-Free Concurrent Ring Buffer Data Structure,Zig,⚡ Low-Latency & Memory Systems,zig-systems-lab,main,2026-11-18T05:01:53.310140+00:00
 010,Runge-Kutta 4th Order Numerical ODE Integrator,Swift,🧠 Computational AI & Math Engines,swift-systems-lab,main,2026-11-18T03:02:34.820630+00:00
