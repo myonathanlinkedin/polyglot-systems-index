@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Copy-on-Write Vector Memory Buffer Management",
+    "language": "PHP",
+    "folder": "php",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "php-backend-core",
+    "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261118_230126_copy-on-write_vector_memory_bu",
+    "source_file": "main",
+    "timestamp": "2026-11-18T23:01:38.102171+00:00",
+    "dir_name": "20261118_230126_copy-on-write_vector_memory_bu"
+  },
+  {
     "topic": "LSM-Tree MemTable and SSTable Flush Compaction Engine",
     "language": "Java",
     "folder": "java",
@@ -163,17 +174,6 @@
     "source_file": "main",
     "timestamp": "2026-11-18T01:03:09.832828+00:00",
     "dir_name": "20261118_010257_two-phase_commit_protocol_coor"
-  },
-  {
-    "topic": "Copy-on-Write Vector Memory Buffer Management",
-    "language": "Java",
-    "folder": "java",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "java-enterprise-patterns",
-    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261117_230139_copy-on-write_vector_memory_bu",
-    "source_file": "main",
-    "timestamp": "2026-11-17T23:01:57.299705+00:00",
-    "dir_name": "20261117_230139_copy-on-write_vector_memory_bu"
   },
   {
     "topic": "Memory Pool Block Allocator with Free List",

@@ -1,20 +1,20 @@
 Index,Topic,Language,Domain Category,Spoke Repository,Source File,Timestamp UTC
-001,LSM-Tree MemTable and SSTable Flush Compaction Engine,Java,🌐 Distributed Systems & Consensus,java-enterprise-patterns,main,2026-11-18T21:03:14.071871+00:00
-002,Lakegres: Vector search on existing Open/Hudi/Iceberg tables,Swift,🧠 Computational AI & Math Engines,swift-systems-lab,main,2026-11-18T20:02:09.150420+00:00
-003,Gossip Protocol Node Failure Detector,Rust,🌐 Distributed Systems & Consensus,rust-algorithms,main,2026-11-18T19:03:02.437213+00:00
-004,Trie Prefix Tree for Auto-Completion with Frequency Ranking,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main,2026-11-18T17:03:21.323256+00:00
-005,Advanced Algorithms,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main,2026-11-18T17:01:53.296048+00:00
-006,HyperLogLog Cardinality Estimation Algorithm,Swift,🧠 Computational AI & Math Engines,swift-systems-lab,main,2026-11-18T15:04:08.396260+00:00
-007,Merkle Tree Verification and Proof Generator,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-11-18T14:02:02.605231+00:00
-008,Vector Clock Distributed Event Ordering Mechanism,Rust,🌐 Distributed Systems & Consensus,rust-algorithms,main,2026-11-18T13:03:49.210831+00:00
-009,Skip List Chronos-Index,Go,🧠 Computational AI & Math Engines,go-concurrency-lab,main,2026-11-18T11:02:54.805609+00:00
-010,Finite State Machine Tokenizer and Lexical Parser,TypeScript,🧠 Computational AI & Math Engines,typescript-design-patterns,main,2026-11-18T11:01:55.184889+00:00
-011,Sexp Matrix,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-18T09:10:37.287372+00:00
-012,Storage Engines Explained: B-Tree vs LSM Tree,PHP,🌐 Distributed Systems & Consensus,php-backend-core,main,2026-11-18T05:03:04.218861+00:00
-013,Lock-Free Concurrent Ring Buffer Data Structure,Zig,⚡ Low-Latency & Memory Systems,zig-systems-lab,main,2026-11-18T05:01:53.310140+00:00
-014,Runge-Kutta 4th Order Numerical ODE Integrator,Swift,🧠 Computational AI & Math Engines,swift-systems-lab,main,2026-11-18T03:02:34.820630+00:00
-015,Two-Phase Commit Protocol Coordinator and Participant State Machine,C,🌐 Distributed Systems & Consensus,c-lowlevel-systems,main,2026-11-18T01:03:09.832828+00:00
-016,Copy-on-Write Vector Memory Buffer Management,Java,⚡ Low-Latency & Memory Systems,java-enterprise-patterns,main,2026-11-17T23:01:57.299705+00:00
+001,Copy-on-Write Vector Memory Buffer Management,PHP,⚡ Low-Latency & Memory Systems,php-backend-core,main,2026-11-18T23:01:38.102171+00:00
+002,LSM-Tree MemTable and SSTable Flush Compaction Engine,Java,🌐 Distributed Systems & Consensus,java-enterprise-patterns,main,2026-11-18T21:03:14.071871+00:00
+003,Lakegres: Vector search on existing Open/Hudi/Iceberg tables,Swift,🧠 Computational AI & Math Engines,swift-systems-lab,main,2026-11-18T20:02:09.150420+00:00
+004,Gossip Protocol Node Failure Detector,Rust,🌐 Distributed Systems & Consensus,rust-algorithms,main,2026-11-18T19:03:02.437213+00:00
+005,Trie Prefix Tree for Auto-Completion with Frequency Ranking,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main,2026-11-18T17:03:21.323256+00:00
+006,Advanced Algorithms,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main,2026-11-18T17:01:53.296048+00:00
+007,HyperLogLog Cardinality Estimation Algorithm,Swift,🧠 Computational AI & Math Engines,swift-systems-lab,main,2026-11-18T15:04:08.396260+00:00
+008,Merkle Tree Verification and Proof Generator,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-11-18T14:02:02.605231+00:00
+009,Vector Clock Distributed Event Ordering Mechanism,Rust,🌐 Distributed Systems & Consensus,rust-algorithms,main,2026-11-18T13:03:49.210831+00:00
+010,Skip List Chronos-Index,Go,🧠 Computational AI & Math Engines,go-concurrency-lab,main,2026-11-18T11:02:54.805609+00:00
+011,Finite State Machine Tokenizer and Lexical Parser,TypeScript,🧠 Computational AI & Math Engines,typescript-design-patterns,main,2026-11-18T11:01:55.184889+00:00
+012,Sexp Matrix,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-18T09:10:37.287372+00:00
+013,Storage Engines Explained: B-Tree vs LSM Tree,PHP,🌐 Distributed Systems & Consensus,php-backend-core,main,2026-11-18T05:03:04.218861+00:00
+014,Lock-Free Concurrent Ring Buffer Data Structure,Zig,⚡ Low-Latency & Memory Systems,zig-systems-lab,main,2026-11-18T05:01:53.310140+00:00
+015,Runge-Kutta 4th Order Numerical ODE Integrator,Swift,🧠 Computational AI & Math Engines,swift-systems-lab,main,2026-11-18T03:02:34.820630+00:00
+016,Two-Phase Commit Protocol Coordinator and Participant State Machine,C,🌐 Distributed Systems & Consensus,c-lowlevel-systems,main,2026-11-18T01:03:09.832828+00:00
 017,Memory Pool Block Allocator with Free List,Rust,⚡ Low-Latency & Memory Systems,rust-algorithms,main,2026-11-17T20:01:52.600906+00:00
 018,Fast Fourier Transform (Cooley-Tukey Radix-2) Signal Processing,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-17T19:02:56.199391+00:00
 019,Aether-Framework in the memory of other programs,Java,⚡ Low-Latency & Memory Systems,java-enterprise-patterns,main,2026-11-17T17:03:56.223231+00:00
