@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Storage Engines Explained: B-Tree vs LSM Tree",
+    "language": "PHP",
+    "folder": "php",
+    "category": "\ud83c\udf10 Distributed Systems & Consensus",
+    "spoke_repo": "php-backend-core",
+    "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261118_050251_storage_engines_explained__b-t",
+    "source_file": "main",
+    "timestamp": "2026-11-18T05:03:04.218861+00:00",
+    "dir_name": "20261118_050251_storage_engines_explained__b-t"
+  },
+  {
     "topic": "Lock-Free Concurrent Ring Buffer Data Structure",
     "language": "Zig",
     "folder": "zig",
