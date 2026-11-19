@@ -1,20 +1,20 @@
 Index,Topic,Language,Domain Category,Spoke Repository,Source File,Timestamp UTC
-001,Sexp Matrix,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-11-19T01:02:32.442463+00:00
-002,Simulated Annealing Optimization for Combinatorial Graphs,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-11-18T23:02:36.281049+00:00
-003,Copy-on-Write Vector Memory Buffer Management,PHP,⚡ Low-Latency & Memory Systems,php-backend-core,main,2026-11-18T23:01:38.102171+00:00
-004,LSM-Tree MemTable and SSTable Flush Compaction Engine,Java,🌐 Distributed Systems & Consensus,java-enterprise-patterns,main,2026-11-18T21:03:14.071871+00:00
-005,Lakegres: Vector search on existing Open/Hudi/Iceberg tables,Swift,🧠 Computational AI & Math Engines,swift-systems-lab,main,2026-11-18T20:02:09.150420+00:00
-006,Gossip Protocol Node Failure Detector,Rust,🌐 Distributed Systems & Consensus,rust-algorithms,main,2026-11-18T19:03:02.437213+00:00
-007,Trie Prefix Tree for Auto-Completion with Frequency Ranking,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main,2026-11-18T17:03:21.323256+00:00
-008,Advanced Algorithms,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main,2026-11-18T17:01:53.296048+00:00
-009,HyperLogLog Cardinality Estimation Algorithm,Swift,🧠 Computational AI & Math Engines,swift-systems-lab,main,2026-11-18T15:04:08.396260+00:00
-010,Merkle Tree Verification and Proof Generator,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-11-18T14:02:02.605231+00:00
-011,Vector Clock Distributed Event Ordering Mechanism,Rust,🌐 Distributed Systems & Consensus,rust-algorithms,main,2026-11-18T13:03:49.210831+00:00
-012,Skip List Chronos-Index,Go,🧠 Computational AI & Math Engines,go-concurrency-lab,main,2026-11-18T11:02:54.805609+00:00
-013,Finite State Machine Tokenizer and Lexical Parser,TypeScript,🧠 Computational AI & Math Engines,typescript-design-patterns,main,2026-11-18T11:01:55.184889+00:00
-014,Storage Engines Explained: B-Tree vs LSM Tree,PHP,🌐 Distributed Systems & Consensus,php-backend-core,main,2026-11-18T05:03:04.218861+00:00
-015,Lock-Free Concurrent Ring Buffer Data Structure,Zig,⚡ Low-Latency & Memory Systems,zig-systems-lab,main,2026-11-18T05:01:53.310140+00:00
-016,Runge-Kutta 4th Order Numerical ODE Integrator,Swift,🧠 Computational AI & Math Engines,swift-systems-lab,main,2026-11-18T03:02:34.820630+00:00
+001,Runge-Kutta 4th Order Numerical ODE Integrator,Java,🧠 Computational AI & Math Engines,java-enterprise-patterns,main,2026-11-19T02:01:25.215646+00:00
+002,Sexp Matrix,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-11-19T01:02:32.442463+00:00
+003,Simulated Annealing Optimization for Combinatorial Graphs,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-11-18T23:02:36.281049+00:00
+004,Copy-on-Write Vector Memory Buffer Management,PHP,⚡ Low-Latency & Memory Systems,php-backend-core,main,2026-11-18T23:01:38.102171+00:00
+005,LSM-Tree MemTable and SSTable Flush Compaction Engine,Java,🌐 Distributed Systems & Consensus,java-enterprise-patterns,main,2026-11-18T21:03:14.071871+00:00
+006,Lakegres: Vector search on existing Open/Hudi/Iceberg tables,Swift,🧠 Computational AI & Math Engines,swift-systems-lab,main,2026-11-18T20:02:09.150420+00:00
+007,Gossip Protocol Node Failure Detector,Rust,🌐 Distributed Systems & Consensus,rust-algorithms,main,2026-11-18T19:03:02.437213+00:00
+008,Trie Prefix Tree for Auto-Completion with Frequency Ranking,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main,2026-11-18T17:03:21.323256+00:00
+009,Advanced Algorithms,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main,2026-11-18T17:01:53.296048+00:00
+010,HyperLogLog Cardinality Estimation Algorithm,Swift,🧠 Computational AI & Math Engines,swift-systems-lab,main,2026-11-18T15:04:08.396260+00:00
+011,Merkle Tree Verification and Proof Generator,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-11-18T14:02:02.605231+00:00
+012,Vector Clock Distributed Event Ordering Mechanism,Rust,🌐 Distributed Systems & Consensus,rust-algorithms,main,2026-11-18T13:03:49.210831+00:00
+013,Skip List Chronos-Index,Go,🧠 Computational AI & Math Engines,go-concurrency-lab,main,2026-11-18T11:02:54.805609+00:00
+014,Finite State Machine Tokenizer and Lexical Parser,TypeScript,🧠 Computational AI & Math Engines,typescript-design-patterns,main,2026-11-18T11:01:55.184889+00:00
+015,Storage Engines Explained: B-Tree vs LSM Tree,PHP,🌐 Distributed Systems & Consensus,php-backend-core,main,2026-11-18T05:03:04.218861+00:00
+016,Lock-Free Concurrent Ring Buffer Data Structure,Zig,⚡ Low-Latency & Memory Systems,zig-systems-lab,main,2026-11-18T05:01:53.310140+00:00
 017,Two-Phase Commit Protocol Coordinator and Participant State Machine,C,🌐 Distributed Systems & Consensus,c-lowlevel-systems,main,2026-11-18T01:03:09.832828+00:00
 018,Memory Pool Block Allocator with Free List,Rust,⚡ Low-Latency & Memory Systems,rust-algorithms,main,2026-11-17T20:01:52.600906+00:00
 019,Fast Fourier Transform (Cooley-Tukey Radix-2) Signal Processing,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-11-17T19:02:56.199391+00:00
