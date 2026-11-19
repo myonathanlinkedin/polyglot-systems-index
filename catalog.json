@@ -1,5 +1,16 @@
 [
   {
+    "topic": "K-D Tree Spatial Partitioning and Nearest Neighbor Search",
+    "language": "Rust",
+    "folder": "rust",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "rust-algorithms",
+    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261119_090341_k-d_tree_spatial_partitioning",
+    "source_file": "main",
+    "timestamp": "2026-11-19T09:04:04.123499+00:00",
+    "dir_name": "20261119_090341_k-d_tree_spatial_partitioning"
+  },
+  {
     "topic": "The Traveling Salesman Problem: From 19th Century Puzzles to Genetic Algorithms",
     "language": "Go",
     "folder": "go",
@@ -1032,17 +1043,6 @@
     "source_file": "main",
     "timestamp": "2026-11-09T01:02:41.024494+00:00",
     "dir_name": "20261109_010230_the_parser_survey_a_usenix_pap"
-  },
-  {
-    "topic": "K-D Tree Spatial Partitioning and Nearest Neighbor Search",
-    "language": "C++",
-    "folder": "cpp",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "cpp-systems-core",
-    "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261108_230124_k-d_tree_spatial_partitioning",
-    "source_file": "main",
-    "timestamp": "2026-11-08T23:01:38.649386+00:00",
-    "dir_name": "20261108_230124_k-d_tree_spatial_partitioning"
   },
   {
     "topic": "Your Payment Webhook Is Not a Notification. It s a Distributed Systems Problem.",
