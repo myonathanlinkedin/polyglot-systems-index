@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Even Faster Algorithms for Bounded Integer Programming",
+    "language": "TypeScript",
+    "folder": "typescript",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "typescript-design-patterns",
+    "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261119_110627_even_faster_algorithms_for_bou",
+    "source_file": "main",
+    "timestamp": "2026-11-19T11:06:40.069461+00:00",
+    "dir_name": "20261119_110627_even_faster_algorithms_for_bou"
+  },
+  {
     "topic": "Count-Min Sketch Heavy Hitters Frequency Estimator",
     "language": "Go",
     "folder": "go",
