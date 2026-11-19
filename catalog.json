@@ -1,5 +1,27 @@
 [
   {
+    "topic": "Even Faster Algorithms for Bounded Integer Programming",
+    "language": "TypeScript",
+    "folder": "typescript",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "typescript-design-patterns",
+    "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261119_210253_even_faster_algorithms_for_bou",
+    "source_file": "main",
+    "timestamp": "2026-11-19T21:03:06.586608+00:00",
+    "dir_name": "20261119_210253_even_faster_algorithms_for_bou"
+  },
+  {
+    "topic": "It s all about the allocator",
+    "language": "C++",
+    "folder": "cpp",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "cpp-systems-core",
+    "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261119_200111_it_s_all_about_the_allocator",
+    "source_file": "main",
+    "timestamp": "2026-11-19T20:01:27.810969+00:00",
+    "dir_name": "20261119_200111_it_s_all_about_the_allocator"
+  },
+  {
     "topic": "A Principled Approach to Concurrency, Nondeterminism, and Asynchrony in Choreographies",
     "language": "Haskell",
     "folder": "haskell",
@@ -20,17 +42,6 @@
     "source_file": "main",
     "timestamp": "2026-11-19T17:05:48.632232+00:00",
     "dir_name": "20261119_170533_build_your_own_stack-based_byt"
-  },
-  {
-    "topic": "It s All about the Allocator",
-    "language": "C",
-    "folder": "c",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "c-lowlevel-systems",
-    "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261119_170134_it_s_all_about_the_allocator",
-    "source_file": "main",
-    "timestamp": "2026-11-19T17:01:48.804903+00:00",
-    "dir_name": "20261119_170134_it_s_all_about_the_allocator"
   },
   {
     "topic": "Simulated Annealing Optimization for Combinatorial Graphs",
@@ -64,17 +75,6 @@
     "source_file": "main",
     "timestamp": "2026-11-19T13:02:39.173425+00:00",
     "dir_name": "20261119_130224_cache-oblivious_matrix_transpo"
-  },
-  {
-    "topic": "Even Faster Algorithms for Bounded Integer Programming",
-    "language": "TypeScript",
-    "folder": "typescript",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "typescript-design-patterns",
-    "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261119_110627_even_faster_algorithms_for_bou",
-    "source_file": "main",
-    "timestamp": "2026-11-19T11:06:40.069461+00:00",
-    "dir_name": "20261119_110627_even_faster_algorithms_for_bou"
   },
   {
     "topic": "Count-Min Sketch Heavy Hitters Frequency Estimator",
