@@ -1,5 +1,16 @@
 [
   {
+    "topic": "B-Tree Multiway Balanced Search Tree Node Splitter",
+    "language": "Swift",
+    "folder": "swift",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "swift-systems-lab",
+    "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261119_140121_b-tree_multiway_balanced_searc",
+    "source_file": "main",
+    "timestamp": "2026-11-19T14:01:51.890953+00:00",
+    "dir_name": "20261119_140121_b-tree_multiway_balanced_searc"
+  },
+  {
     "topic": "Cache-Oblivious Matrix Transposition Algorithm",
     "language": "Rust",
     "folder": "rust",
@@ -1120,17 +1131,6 @@
     "source_file": "main",
     "timestamp": "2026-11-08T08:01:19.602844+00:00",
     "dir_name": "20261108_080107_self-balancing_avl_tree_with_a"
-  },
-  {
-    "topic": "B-Tree Multiway Balanced Search Tree Node Splitter",
-    "language": "Swift",
-    "folder": "swift",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "swift-systems-lab",
-    "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261108_070214_b-tree_multiway_balanced_searc",
-    "source_file": "main",
-    "timestamp": "2026-11-08T07:02:27.981681+00:00",
-    "dir_name": "20261108_070214_b-tree_multiway_balanced_searc"
   },
   {
     "topic": "A Near-Optimal Generalized Sorting Algorithm",
