@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Build Your Own Stack-Based Bytecode Virtual Machine in C",
+    "language": "C",
+    "folder": "c",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "c-lowlevel-systems",
+    "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261119_170533_build_your_own_stack-based_byt",
+    "source_file": "main",
+    "timestamp": "2026-11-19T17:05:48.632232+00:00",
+    "dir_name": "20261119_170533_build_your_own_stack-based_byt"
+  },
+  {
     "topic": "It s All about the Allocator",
     "language": "C",
     "folder": "c",
