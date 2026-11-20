@@ -1,16 +1,5 @@
 [
   {
-    "topic": "Efficient Classical Algorithms for Ground Energy Estimation of Fermions with",
-    "language": "Ruby",
-    "folder": "ruby",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "ruby-algorithms-lab",
-    "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261120_140131_efficient_classical_algorithms",
-    "source_file": "main",
-    "timestamp": "2026-11-20T14:01:47.547960+00:00",
-    "dir_name": "20261120_140131_efficient_classical_algorithms"
-  },
-  {
     "topic": "Supporting FOSS projects to transition to memory safe tech",
     "language": "Kotlin",
     "folder": "kotlin",
@@ -20,6 +9,17 @@
     "source_file": "main",
     "timestamp": "2026-11-20T13:02:53.566492+00:00",
     "dir_name": "20261120_130233_supporting_foss_projects_to_tr"
+  },
+  {
+    "topic": "Efficient Classical Algorithms for Ground Energy Estimation of Fermions with",
+    "language": "C",
+    "folder": "c",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "c-lowlevel-systems",
+    "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261120_110249_efficient_classical_algorithms",
+    "source_file": "main",
+    "timestamp": "2026-11-20T11:03:00.749461+00:00",
+    "dir_name": "20261120_110249_efficient_classical_algorithms"
   },
   {
     "topic": "Merkle Tree Verification and Proof Generator",
