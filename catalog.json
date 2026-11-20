@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Supporting FOSS projects to transition to memory safe tech",
+    "language": "C",
+    "folder": "c",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "c-lowlevel-systems",
+    "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261120_110142_supporting_foss_projects_to_tr",
+    "source_file": "main",
+    "timestamp": "2026-11-20T11:01:56.388397+00:00",
+    "dir_name": "20261120_110142_supporting_foss_projects_to_tr"
+  },
+  {
     "topic": "Merkle Tree Verification and Proof Generator",
     "language": "Rust",
     "folder": "rust",
