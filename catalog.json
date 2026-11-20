@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Gossip Protocol Node Failure Detector",
+    "language": "C++",
+    "folder": "cpp",
+    "category": "\ud83c\udf10 Distributed Systems & Consensus",
+    "spoke_repo": "cpp-systems-core",
+    "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261120_170128_gossip_protocol_node_failure_d",
+    "source_file": "main",
+    "timestamp": "2026-11-20T17:01:44.119931+00:00",
+    "dir_name": "20261120_170128_gossip_protocol_node_failure_d"
+  },
+  {
     "topic": "Skip List Aether-Index",
     "language": "C",
     "folder": "c",
@@ -273,17 +284,6 @@
     "source_file": "main",
     "timestamp": "2026-11-18T20:02:09.150420+00:00",
     "dir_name": "20261118_200136_lakegres__vector_search_on_exi"
-  },
-  {
-    "topic": "Gossip Protocol Node Failure Detector",
-    "language": "Rust",
-    "folder": "rust",
-    "category": "\ud83c\udf10 Distributed Systems & Consensus",
-    "spoke_repo": "rust-algorithms",
-    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261118_190246_gossip_protocol_node_failure_d",
-    "source_file": "main",
-    "timestamp": "2026-11-18T19:03:02.437213+00:00",
-    "dir_name": "20261118_190246_gossip_protocol_node_failure_d"
   },
   {
     "topic": "Trie Prefix Tree for Auto-Completion with Frequency Ranking",
