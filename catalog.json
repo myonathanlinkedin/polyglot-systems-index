@@ -1,5 +1,27 @@
 [
   {
+    "topic": "Skip List Aether-Index",
+    "language": "C",
+    "folder": "c",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "c-lowlevel-systems",
+    "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261120_150245_skip_list_aether-index",
+    "source_file": "main",
+    "timestamp": "2026-11-20T15:03:00.408301+00:00",
+    "dir_name": "20261120_150245_skip_list_aether-index"
+  },
+  {
+    "topic": "Efficient Classical Algorithms for Ground Energy Estimation of Fermions with",
+    "language": "Ruby",
+    "folder": "ruby",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "ruby-algorithms-lab",
+    "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261120_140131_efficient_classical_algorithms",
+    "source_file": "main",
+    "timestamp": "2026-11-20T14:01:47.547960+00:00",
+    "dir_name": "20261120_140131_efficient_classical_algorithms"
+  },
+  {
     "topic": "Supporting FOSS projects to transition to memory safe tech",
     "language": "Kotlin",
     "folder": "kotlin",
@@ -9,17 +31,6 @@
     "source_file": "main",
     "timestamp": "2026-11-20T13:02:53.566492+00:00",
     "dir_name": "20261120_130233_supporting_foss_projects_to_tr"
-  },
-  {
-    "topic": "Efficient Classical Algorithms for Ground Energy Estimation of Fermions with",
-    "language": "C",
-    "folder": "c",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "c-lowlevel-systems",
-    "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261120_110249_efficient_classical_algorithms",
-    "source_file": "main",
-    "timestamp": "2026-11-20T11:03:00.749461+00:00",
-    "dir_name": "20261120_110249_efficient_classical_algorithms"
   },
   {
     "topic": "Merkle Tree Verification and Proof Generator",
@@ -427,17 +438,6 @@
     "source_file": "main",
     "timestamp": "2026-11-17T13:02:45.366088+00:00",
     "dir_name": "20261117_130228_zero-copy_byte_packet_ring_buf"
-  },
-  {
-    "topic": "Skip List Aether-Index",
-    "language": "PHP",
-    "folder": "php",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "php-backend-core",
-    "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261117_110247_skip_list_aether-index",
-    "source_file": "main",
-    "timestamp": "2026-11-17T11:03:04.395211+00:00",
-    "dir_name": "20261117_110247_skip_list_aether-index"
   },
   {
     "topic": "Conflict-free Replicated Data Type (CRDT) PN-Counter",
