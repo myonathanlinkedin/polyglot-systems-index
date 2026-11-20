@@ -1,6 +1,6 @@
 Index,Topic,Language,Domain Category,Spoke Repository,Source File,Timestamp UTC
-001,Efficient Classical Algorithms for Ground Energy Estimation of Fermions with,C,🧠 Computational AI & Math Engines,c-lowlevel-systems,main,2026-11-20T11:03:00.749461+00:00
-002,Supporting FOSS projects to transition to memory safe tech,C,⚡ Low-Latency & Memory Systems,c-lowlevel-systems,main,2026-11-20T11:01:56.388397+00:00
+001,Supporting FOSS projects to transition to memory safe tech,Kotlin,⚡ Low-Latency & Memory Systems,kotlin-systems-core,main,2026-11-20T13:02:53.566492+00:00
+002,Efficient Classical Algorithms for Ground Energy Estimation of Fermions with,C,🧠 Computational AI & Math Engines,c-lowlevel-systems,main,2026-11-20T11:03:00.749461+00:00
 003,Merkle Tree Verification and Proof Generator,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-11-20T08:01:26.825178+00:00
 004,How the European Commission rolled out Matrix to more than 40k staff,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-11-20T07:02:34.755094+00:00
 005,High-Throughput Aether-Cache Ring Buffer Pattern,Zig,⚡ Low-Latency & Memory Systems,zig-systems-lab,main,2026-11-20T05:02:59.815086+00:00
