@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Trie Prefix Tree for Auto-Completion with Frequency Ranking",
+    "language": "PHP",
+    "folder": "php",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "php-backend-core",
+    "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261120_230127_trie_prefix_tree_for_auto-comp",
+    "source_file": "main",
+    "timestamp": "2026-11-20T23:01:40.415988+00:00",
+    "dir_name": "20261120_230127_trie_prefix_tree_for_auto-comp"
+  },
+  {
     "topic": "Memory Pool Block Allocator with Free List",
     "language": "C++",
     "folder": "cpp",
@@ -328,17 +339,6 @@
     "source_file": "main",
     "timestamp": "2026-11-18T20:02:09.150420+00:00",
     "dir_name": "20261118_200136_lakegres__vector_search_on_exi"
-  },
-  {
-    "topic": "Trie Prefix Tree for Auto-Completion with Frequency Ranking",
-    "language": "C#",
-    "folder": "csharp",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "csharp-enterprise-lab",
-    "source_link": "https://github.com/myonathanlinkedin/csharp-enterprise-lab/tree/main/algorithms/20261118_170242_trie_prefix_tree_for_auto-comp",
-    "source_file": "main",
-    "timestamp": "2026-11-18T17:03:21.323256+00:00",
-    "dir_name": "20261118_170242_trie_prefix_tree_for_auto-comp"
   },
   {
     "topic": "HyperLogLog Cardinality Estimation Algorithm",
