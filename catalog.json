@@ -1,5 +1,16 @@
 [
   {
+    "topic": "How the European Commission rolled out Matrix to more than 40k staff",
+    "language": "Rust",
+    "folder": "rust",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "rust-algorithms",
+    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261120_070221_how_the_european_commission_ro",
+    "source_file": "main",
+    "timestamp": "2026-11-20T07:02:34.755094+00:00",
+    "dir_name": "20261120_070221_how_the_european_commission_ro"
+  },
+  {
     "topic": "High-Throughput Aether-Cache Ring Buffer Pattern",
     "language": "Zig",
     "folder": "zig",
