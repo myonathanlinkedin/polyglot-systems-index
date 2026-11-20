@@ -1,5 +1,16 @@
 [
   {
+    "topic": "High-Throughput Aether-Cache Ring Buffer Pattern",
+    "language": "C",
+    "folder": "c",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "c-lowlevel-systems",
+    "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261120_020104_high-throughput_aether-cache_r",
+    "source_file": "main",
+    "timestamp": "2026-11-20T02:01:18.935266+00:00",
+    "dir_name": "20261120_020104_high-throughput_aether-cache_r"
+  },
+  {
     "topic": "Count-Min Sketch Heavy Hitters Frequency Estimator",
     "language": "Java",
     "folder": "java",
@@ -9,17 +20,6 @@
     "source_file": "main",
     "timestamp": "2026-11-19T23:03:01.885924+00:00",
     "dir_name": "20261119_230247_count-min_sketch_heavy_hitters"
-  },
-  {
-    "topic": "High-Throughput Aether-Cache Ring Buffer Pattern",
-    "language": "Zig",
-    "folder": "zig",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "zig-systems-lab",
-    "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261119_230141_high-throughput_aether-cache_r",
-    "source_file": "main",
-    "timestamp": "2026-11-19T23:01:56.304533+00:00",
-    "dir_name": "20261119_230141_high-throughput_aether-cache_r"
   },
   {
     "topic": "Even Faster Algorithms for Bounded Integer Programming",
