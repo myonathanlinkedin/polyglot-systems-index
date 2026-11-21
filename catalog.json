@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Count-Min Sketch Heavy Hitters Frequency Estimator",
+    "language": "Haskell",
+    "folder": "haskell",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "haskell-functional-core",
+    "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261121_110211_count-min_sketch_heavy_hitters",
+    "source_file": "main",
+    "timestamp": "2026-11-21T11:02:24.984618+00:00",
+    "dir_name": "20261121_110211_count-min_sketch_heavy_hitters"
+  },
+  {
     "topic": "Exact guarantees and faster algorithms for k-rollercoasters",
     "language": "TypeScript",
     "folder": "typescript",
@@ -218,17 +229,6 @@
     "source_file": "main",
     "timestamp": "2026-11-20T05:02:59.815086+00:00",
     "dir_name": "20261120_050247_high-throughput_aether-cache_r"
-  },
-  {
-    "topic": "Count-Min Sketch Heavy Hitters Frequency Estimator",
-    "language": "Java",
-    "folder": "java",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "java-enterprise-patterns",
-    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261119_230247_count-min_sketch_heavy_hitters",
-    "source_file": "main",
-    "timestamp": "2026-11-19T23:03:01.885924+00:00",
-    "dir_name": "20261119_230247_count-min_sketch_heavy_hitters"
   },
   {
     "topic": "Even Faster Algorithms for Bounded Integer Programming",
