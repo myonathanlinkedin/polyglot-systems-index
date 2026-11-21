@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Self-Balancing AVL Tree with Chronos-Topology",
+    "language": "Kotlin",
+    "folder": "kotlin",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "kotlin-systems-core",
+    "source_link": "https://github.com/myonathanlinkedin/kotlin-systems-core/tree/main/algorithms/20261121_020127_self-balancing_avl_tree_with_c",
+    "source_file": "main",
+    "timestamp": "2026-11-21T02:01:51.131462+00:00",
+    "dir_name": "20261121_020127_self-balancing_avl_tree_with_c"
+  },
+  {
     "topic": "StarMPI-SVD: Distributed-Memory Parallel Star-M Tensor SVD",
     "language": "Go",
     "folder": "go",
