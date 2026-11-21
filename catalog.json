@@ -1,16 +1,5 @@
 [
   {
-    "topic": "Fast Fourier Transform (Cooley-Tukey Radix-2) Signal Processing",
-    "language": "C++",
-    "folder": "cpp",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "cpp-systems-core",
-    "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261121_200103_fast_fourier_transform__cooley",
-    "source_file": "main",
-    "timestamp": "2026-11-21T20:01:17.949482+00:00",
-    "dir_name": "20261121_200103_fast_fourier_transform__cooley"
-  },
-  {
     "topic": "Tic-Tac-Toe Minimax Algorithm in Chronos-Compute",
     "language": "PHP",
     "folder": "php",
@@ -493,6 +482,17 @@
     "source_file": "main",
     "timestamp": "2026-11-18T05:01:53.310140+00:00",
     "dir_name": "20261118_050138_lock-free_concurrent_ring_buff"
+  },
+  {
+    "topic": "Fast Fourier Transform (Cooley-Tukey Radix-2) Signal Processing",
+    "language": "Python",
+    "folder": "python",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "python-advanced-lab",
+    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261117_190241_fast_fourier_transform__cooley",
+    "source_file": "main",
+    "timestamp": "2026-11-17T19:02:56.199391+00:00",
+    "dir_name": "20261117_190241_fast_fourier_transform__cooley"
   },
   {
     "topic": "Aether-Framework in the memory of other programs",
@@ -1813,17 +1813,6 @@
     "source_file": "main",
     "timestamp": "2026-11-01T09:02:13.384602+00:00",
     "dir_name": "20261101_090213_decode_kernel_panic_from_qr_co"
-  },
-  {
-    "topic": "Fast Fourier Transform (Cooley-Tukey Radix-2) Signal Processing",
-    "language": "Python",
-    "folder": "python",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "python-advanced-lab",
-    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261101_050209_fast_fourier_transform__cooley",
-    "source_file": "main",
-    "timestamp": "2026-11-01T05:02:09.570246+00:00",
-    "dir_name": "20261101_050209_fast_fourier_transform__cooley"
   },
   {
     "topic": "Count-Min Sketch Heavy Hitters Frequency Estimator",
