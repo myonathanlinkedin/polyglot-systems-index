@@ -1,5 +1,16 @@
 [
   {
+    "topic": "The Cost of Virtual Memory: TLBs and Effective Memory Access Time",
+    "language": "C",
+    "folder": "c",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "c-lowlevel-systems",
+    "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261121_050215_the_cost_of_virtual_memory__tl",
+    "source_file": "main",
+    "timestamp": "2026-11-21T05:02:28.958051+00:00",
+    "dir_name": "20261121_050215_the_cost_of_virtual_memory__tl"
+  },
+  {
     "topic": "LSM-Tree MemTable and SSTable Flush Compaction Engine",
     "language": "PHP",
     "folder": "php",
