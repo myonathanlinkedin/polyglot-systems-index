@@ -1,0 +1,2873 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <title>Mateus Yonathan | 3D Gundam-Like Mecha Hangar — Autonomous Kinematic Engineering Lab</title>
+  <meta name="description"
+    content="Interactive 3D Gundam-Like Mecha Engineering Hangar by Mateus Yonathan. Pure Gundam-universe rigged PBR mobile suits, physical Gunpla snap-fit adapters with tactile lock mechanics, 26-station UHIS modular packs, and real-time AMBAC telemetry." />
+  <meta name="keywords"
+    content="Mateus Yonathan, Gundam-Like Mecha Hangar, 3D WebGL Three.js, Gunpla Snap-Fit Adapter, Autonomous Agentic CAD, UHIS 26-Station Hardpoints, Systems Engineering Lab" />
+  <meta name="author" content="Mateus Yonathan" />
+  <meta name="application-name" content="Mateus Yonathan" />
+  <link rel="canonical" href="https://myonathanlinkedin.github.io/mecha.html" />
+  <link rel="icon" type="image/x-icon" href="https://myonathanlinkedin.github.io/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="48x48" href="https://myonathanlinkedin.github.io/assets/favicon-48x48.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://myonathanlinkedin.github.io/assets/apple-touch-icon.png" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Mateus Yonathan" />
+  <meta property="og:url" content="https://myonathanlinkedin.github.io/mecha.html" />
+  <meta property="og:title" content="Mateus Yonathan | 3D Gundam-Like Mecha Hangar — Autonomous Kinematic Engineering Lab" />
+  <meta property="og:description"
+    content="Autonomous 3D Gundam-Like Mecha Engineering Hangar featuring Gundam-universe mobile suits, physical Gunpla snap-fit adapters, procedural weathered PBR armor, and combat kinematics." />
+  <meta property="og:image" content="https://myonathanlinkedin.github.io/assets/avatar.png" />
+  <meta property="og:image:alt" content="Mateus Yonathan — 3D Gundam-Like Mecha Hangar" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://myonathanlinkedin.github.io/mecha.html" />
+  <meta name="twitter:title" content="Mateus Yonathan | 3D Gundam-Like Mecha Hangar" />
+  <meta name="twitter:description"
+    content="Autonomous 3D Gundam-Like Mecha Hangar by Mateus Yonathan with physical Gunpla snap-fit adapters and 26-station UHIS kitbashing." />
+  <meta name="twitter:image" content="https://myonathanlinkedin.github.io/assets/avatar.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "@id": "https://myonathanlinkedin.github.io/mecha.html#webapp",
+    "url": "https://myonathanlinkedin.github.io/mecha.html",
+    "name": "Mateus Yonathan | 3D Gundam-Like Mecha Hangar",
+    "applicationCategory": "DesignApplication",
+    "operatingSystem": "WebGL / Modern Browser",
+    "author": {
+      "@type": "Person",
+      "@id": "https://myonathanlinkedin.github.io/#person",
+      "name": "Mateus Yonathan",
+      "url": "https://myonathanlinkedin.github.io/",
+      "sameAs": [
+        "https://github.com/myonathanlinkedin",
+        "https://researchgate.net/profile/Mateus-Yonathan",
+        "https://ssrn.com/author=7774866"
+      ]
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@500;700;800;900&display=swap"
+    rel="stylesheet" />
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+    }
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg-hangar: #040814;
+      --bg-panel: rgba(8, 13, 25, 0.80);
+      --border-panel: rgba(0, 229, 255, 0.24);
+      --accent-cyan: #00e5ff;
+      --accent-cyan-dim: rgba(0, 229, 255, 0.14);
+      --accent-gold: #f59e0b;
+      --accent-red: #ef4444;
+      --accent-green: #10b981;
+      --text-main: #f1f5f9;
+      --text-muted: #8b9bb4;
+      --font-display: 'Orbitron', monospace;
+      --font-mono: 'Fira Code', monospace;
+      --font-sans: 'Inter', -apple-system, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      width: 100%; height: 100%; overflow: hidden;
+      background: #040814; color: var(--text-main);
+      font-family: var(--font-sans); user-select: none;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #hangar-viewport { position: fixed; inset: 0; width: 100vw; height: 100vh; height: 100dvh; overflow: hidden; }
+    #hangar-canvas { position: absolute; inset: 0; width: 100%; height: 100%; outline: none; touch-action: none; cursor: grab; }
+    #hangar-canvas:active { cursor: grabbing; }
+
+    /* Sci-Fi Corner Reticles */
+    .corner-marker { position: fixed; z-index: 15; width: 22px; height: 22px; opacity: 0.35; pointer-events: none; }
+    .corner-marker::before, .corner-marker::after { content: ""; position: absolute; background: var(--accent-cyan); }
+    .corner-marker.tl { top: 8px; left: 8px; }
+    .corner-marker.tl::before { width: 22px; height: 1px; top: 0; left: 0; }
+    .corner-marker.tl::after { width: 1px; height: 22px; top: 0; left: 0; }
+    .corner-marker.tr { top: 8px; right: 8px; }
+    .corner-marker.tr::before { width: 22px; height: 1px; top: 0; right: 0; }
+    .corner-marker.tr::after { width: 1px; height: 22px; top: 0; right: 0; }
+    .corner-marker.bl { bottom: 8px; left: 8px; }
+    .corner-marker.bl::before { width: 22px; height: 1px; bottom: 0; left: 0; }
+    .corner-marker.bl::after { width: 1px; height: 22px; bottom: 0; left: 0; }
+    .corner-marker.br { bottom: 8px; right: 8px; }
+    .corner-marker.br::before { width: 22px; height: 1px; bottom: 0; right: 0; }
+    .corner-marker.br::after { width: 1px; height: 22px; bottom: 0; right: 0; }
+
+    .glass-hud {
+      background: var(--bg-panel);
+      backdrop-filter: blur(18px) saturate(180%);
+      -webkit-backdrop-filter: blur(18px) saturate(180%);
+      border: 1px solid var(--border-panel);
+      border-radius: 12px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+      pointer-events: auto;
+      transition: transform 0.34s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.28s ease, width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Hidden panel utility states for Show/Hide & Show/Hide All */
+    .hud-hidden-top-left { transform: translateY(-140%) !important; opacity: 0 !important; pointer-events: none !important; }
+    .hud-hidden-left { transform: translateX(calc(-100% - 32px)) !important; opacity: 0 !important; pointer-events: none !important; }
+    .hud-hidden-right { transform: translateX(calc(100% + 32px)) !important; opacity: 0 !important; pointer-events: none !important; }
+    .hud-hidden-bottom { transform: translate(-50%, 150%) !important; opacity: 0 !important; pointer-events: none !important; }
+
+    /* Top-Left Clean Navigation: Single-Row Author Brand + 1 Main Page Link + 1 All-3D-Pages Dropdown + Guide & Battle BGM */
+    #nav-header {
+      position: fixed; top: 12px; left: 14px; z-index: 60;
+      display: flex; align-items: center; gap: 6px; padding: 6px 10px;
+      max-width: calc(100vw - 420px); flex-wrap: nowrap; overflow: hidden;
+    }
+
+    .brand-title {
+      font-family: var(--font-display); font-weight: 800; font-size: 9.6px;
+      letter-spacing: 0.9px; color: var(--text-main); text-decoration: none;
+      display: flex; align-items: center; gap: 6px; white-space: nowrap;
+      transition: color 0.18s;
+    }
+    .brand-title:hover { color: var(--accent-cyan); }
+    .brand-title span.accent { color: var(--accent-cyan); }
+    .brand-title span.sep-slash { color: rgba(255, 255, 255, 0.28); font-weight: 500; }
+
+    .status-orb {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--accent-cyan); box-shadow: 0 0 10px var(--accent-cyan);
+      animation: pulse-glow 2s infinite ease-in-out; flex-shrink: 0;
+    }
+    @keyframes pulse-glow { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.45; transform: scale(0.8); } }
+
+    .nav-sep { width: 1px; height: 16px; background: rgba(255, 255, 255, 0.14); flex-shrink: 0; }
+
+    .nav-home-btn {
+      font-family: var(--font-mono); font-size: 9.4px; font-weight: 700;
+      color: #e2e8f0; text-decoration: none;
+      background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 6px; padding: 4px 8px;
+      display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; transition: all 0.2s; flex-shrink: 0;
+    }
+    .nav-home-btn:hover { color: var(--accent-cyan); border-color: var(--accent-cyan); background: rgba(0, 229, 255, 0.12); }
+
+    .nav-select {
+      font-family: var(--font-mono); font-size: 9.4px; font-weight: 600;
+      color: var(--accent-cyan); background: rgba(10, 18, 36, 0.92);
+      border: 1px solid rgba(0, 229, 255, 0.38); border-radius: 6px;
+      padding: 4px 7px; outline: none; cursor: pointer; transition: all 0.2s; flex-shrink: 0;
+    }
+    .nav-select:hover, .nav-select:focus { border-color: var(--accent-cyan); box-shadow: 0 0 12px rgba(0, 229, 255, 0.3); }
+    .nav-select option { background: #091224; color: #f1f5f9; }
+
+    /* Persistent Top-Right Application Menu Visibility Bar (Show/Hide & Show/Hide All) */
+    #hud-vis-bar {
+      position: fixed; top: 14px; right: 16px; z-index: 100;
+      display: flex; align-items: center; gap: 5px; padding: 6px 8px;
+      border-radius: 10px; background: rgba(8, 13, 25, 0.84);
+      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(0, 229, 255, 0.3); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
+    }
+
+    .vis-pill {
+      font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+      padding: 5px 8px; border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.12); background: rgba(255, 255, 255, 0.04);
+      color: var(--text-muted); cursor: pointer;
+      display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; transition: all 0.18s ease;
+    }
+    .vis-pill:hover { color: var(--text-main); border-color: rgba(0, 229, 255, 0.45); background: rgba(0, 229, 255, 0.08); }
+    .vis-pill.active { color: var(--accent-cyan); border-color: rgba(0, 229, 255, 0.6); background: rgba(0, 229, 255, 0.15); }
+    .vis-divider { width: 1px; height: 18px; background: rgba(255, 255, 255, 0.15); margin: 0 2px; }
+
+    .vis-master-btn {
+      font-family: var(--font-display); font-size: 9.5px; font-weight: 700; letter-spacing: 0.8px;
+      padding: 6px 10px; border-radius: 6px;
+      border: 1px solid rgba(245, 158, 11, 0.55); background: rgba(245, 158, 11, 0.16);
+      color: #fcd34d; cursor: pointer; white-space: nowrap; transition: all 0.2s ease;
+    }
+    .vis-master-btn:hover { background: rgba(245, 158, 11, 0.28); box-shadow: 0 0 14px rgba(245, 158, 11, 0.35); }
+    .vis-master-btn.all-hidden {
+      border-color: var(--accent-cyan); background: rgba(0, 229, 255, 0.18);
+      color: var(--accent-cyan); box-shadow: 0 0 18px rgba(0, 229, 255, 0.3);
+    }
+    #hud-vis-bar.compact-mode .vis-pill, #hud-vis-bar.compact-mode .vis-divider { display: none; }
+
+    /* Left Drawer: Pure Gundam-Universe Roster + Modular Snap-Fit Parts Catalog */
+    #left-drawer {
+      position: fixed; top: 66px; left: 16px; bottom: 70px;
+      width: 348px; max-width: calc(100vw - 32px); z-index: 40;
+      display: flex; flex-direction: column; padding: 12px; gap: 8px; overflow: hidden;
+    }
+    #left-drawer.expanded { width: 500px; }
+
+    .drawer-title {
+      font-family: var(--font-display); font-size: 10px; font-weight: 700;
+      color: var(--accent-cyan); letter-spacing: 1.4px;
+      display: flex; justify-content: space-between; align-items: center;
+      padding-bottom: 5px; border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .title-actions { display: flex; align-items: center; gap: 4px; }
+    .icon-toggle-btn {
+      background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--text-muted); border-radius: 5px; padding: 2px 7px; font-size: 10.5px;
+      cursor: pointer; transition: all 0.18s;
+    }
+    .icon-toggle-btn:hover { color: var(--accent-cyan); border-color: var(--accent-cyan); background: rgba(0, 229, 255, 0.12); }
+
+    /* Pure Gundam-Universe Mobile Suit Roster Grid */
+    .unit-roster { display: grid; grid-template-columns: repeat(2, 1fr); gap: 5px; }
+    .unit-btn {
+      font-family: var(--font-mono); font-size: 9.4px; font-weight: 700;
+      padding: 6px 7px; border-radius: 7px;
+      border: 1px solid rgba(255, 255, 255, 0.11); background: rgba(0, 0, 0, 0.36);
+      color: var(--text-muted); cursor: pointer; text-align: left;
+      display: flex; flex-direction: column; gap: 1px; transition: all 0.18s;
+    }
+    .unit-btn .u-sub { font-size: 7.8px; font-weight: 500; opacity: 0.74; }
+    .unit-btn:hover { color: var(--text-main); border-color: rgba(0, 229, 255, 0.4); }
+    .unit-btn.active.hero { background: rgba(0, 229, 255, 0.16); border-color: var(--accent-cyan); color: var(--accent-cyan); box-shadow: 0 0 12px rgba(0, 229, 255, 0.18); }
+    .unit-btn.active.titans { background: rgba(59, 130, 246, 0.22); border-color: #60a5fa; color: #93c5fd; box-shadow: 0 0 12px rgba(59, 130, 246, 0.24); }
+    .unit-btn.active.ace { background: rgba(239, 68, 68, 0.18); border-color: var(--accent-red); color: #fca5a5; box-shadow: 0 0 12px rgba(239, 68, 68, 0.22); }
+    .unit-btn.active.orbital { background: rgba(148, 163, 184, 0.20); border-color: #cbd5e1; color: #e2e8f0; box-shadow: 0 0 12px rgba(148, 163, 184, 0.2); }
+    .unit-btn.active.cad { background: rgba(245, 158, 11, 0.18); border-color: var(--accent-gold); color: #fcd34d; }
+    .unit-btn.full-span { grid-column: span 2; flex-direction: row; justify-content: space-between; align-items: center; }
+
+    .section-divider-label {
+      font-family: var(--font-display); font-size: 8.6px; letter-spacing: 1.2px;
+      color: var(--text-muted); margin-top: 2px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+
+    .parts-search-wrap { position: relative; display: flex; align-items: center; width: 100%; }
+    .parts-search-input {
+      width: 100%; background: rgba(12, 20, 38, 0.8); border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 7px; padding: 6px 24px 6px 9px; font-size: 10.5px;
+      font-family: var(--font-sans); color: var(--text-main); outline: none;
+    }
+    .parts-search-input:focus { border-color: var(--accent-cyan); }
+    .search-clear-btn { position: absolute; right: 6px; background: transparent; border: none; color: var(--text-muted); cursor: pointer; font-size: 11px; }
+
+    .category-chips-scroll { display: flex; gap: 4px; overflow-x: auto; padding-bottom: 2px; }
+    .category-chips-scroll::-webkit-scrollbar { height: 3px; }
+    .category-chips-scroll::-webkit-scrollbar-thumb { background: rgba(0, 229, 255, 0.3); border-radius: 3px; }
+    .cat-chip {
+      font-family: var(--font-mono); font-size: 9px; font-weight: 700;
+      padding: 3px 7px; border-radius: 5px;
+      border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(0, 0, 0, 0.35);
+      color: var(--text-muted); cursor: pointer; white-space: nowrap; transition: all 0.15s;
+    }
+    .cat-chip.active { background: var(--accent-cyan-dim); color: var(--accent-cyan); border-color: var(--accent-cyan); }
+
+    .filter-controls-row { display: flex; gap: 5px; }
+    .hud-dropdown {
+      flex: 1; font-family: var(--font-mono); font-size: 9.2px; font-weight: 600;
+      color: var(--text-muted); background: rgba(12, 20, 38, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 6px; padding: 4px 6px;
+      outline: none; cursor: pointer;
+    }
+    .hud-dropdown:focus { border-color: var(--accent-cyan); color: var(--text-main); }
+
+    .catalog-status-bar {
+      display: flex; justify-content: space-between; align-items: center;
+      font-family: var(--font-mono); font-size: 9px; color: var(--text-muted);
+    }
+    .equipped-filter-btn {
+      font-family: var(--font-mono); font-size: 9px; font-weight: 700;
+      color: var(--accent-green); background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 99px;
+      padding: 2px 7px; cursor: pointer;
+    }
+    .equipped-filter-btn.active { background: rgba(16, 185, 129, 0.32); border-color: var(--accent-green); }
+
+    .items-scroll { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 6px; padding-right: 3px; }
+    #left-drawer.expanded .items-scroll { display: grid; grid-template-columns: 1fr 1fr; align-content: start; gap: 7px; }
+    .items-scroll::-webkit-scrollbar { width: 4px; }
+    .items-scroll::-webkit-scrollbar-thumb { background: rgba(0, 229, 255, 0.25); border-radius: 4px; }
+
+    .part-card {
+      background: rgba(15, 23, 42, 0.58); border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px; padding: 8px 9px; cursor: pointer; transition: all 0.16s ease;
+      display: flex; flex-direction: column; gap: 4px;
+    }
+    .part-card:hover { border-color: rgba(0, 229, 255, 0.45); background: rgba(15, 23, 42, 0.88); }
+    .part-card.equipped { border-color: var(--accent-green); background: rgba(16, 185, 129, 0.11); }
+
+    .part-card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 6px; }
+    .part-name-group { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+    .part-name { font-size: 10.4px; font-weight: 700; color: var(--text-main); line-height: 1.25; }
+    .part-serial { font-family: var(--font-mono); font-size: 8.4px; color: var(--accent-gold); }
+
+    .equip-action-btn {
+      font-family: var(--font-mono); font-size: 8.6px; font-weight: 700;
+      padding: 3px 6px; border-radius: 5px;
+      border: 1px solid rgba(0, 229, 255, 0.35); background: rgba(0, 229, 255, 0.1);
+      color: var(--accent-cyan); cursor: pointer; white-space: nowrap; flex-shrink: 0;
+    }
+    .equip-action-btn.equipped { border-color: var(--accent-green); background: rgba(16, 185, 129, 0.22); color: #34d399; }
+
+    .part-desc { font-size: 9.4px; color: var(--text-muted); line-height: 1.3; }
+    .part-specs-grid { display: flex; flex-wrap: wrap; gap: 4px; }
+    .spec-pill {
+      font-family: var(--font-mono); font-size: 8.2px; padding: 2px 5px; border-radius: 4px;
+      background: rgba(0, 0, 0, 0.38); border: 1px solid rgba(255, 255, 255, 0.08); color: #cbd5e1;
+    }
+    .spec-pill.adapter { color: #fcd34d; border-color: rgba(245, 158, 11, 0.35); background: rgba(245, 158, 11, 0.09); }
+    .spec-pill.hp { color: var(--accent-cyan); border-color: rgba(0, 229, 255, 0.22); }
+
+    /* Right Side Stack: Telemetry Drawer + Scene Controls Panel */
+    #right-stack {
+      position: fixed; top: 66px; right: 16px; bottom: 70px;
+      width: 304px; max-width: calc(100vw - 32px); z-index: 40;
+      display: flex; flex-direction: column; gap: 9px;
+      pointer-events: none; overflow-y: auto; padding-right: 2px;
+    }
+    #right-stack.stack-hidden { opacity: 0 !important; overflow: hidden !important; pointer-events: none !important; }
+    #right-stack::-webkit-scrollbar { width: 3px; }
+    #right-stack::-webkit-scrollbar-thumb { background: rgba(0, 229, 255, 0.25); border-radius: 3px; }
+
+    #right-drawer, #scene-panel { padding: 12px; display: flex; flex-direction: column; gap: 7px; }
+    .telemetry-block { display: flex; flex-direction: column; gap: 4px; }
+    .telemetry-row {
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 10px; padding-bottom: 3px; border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .telemetry-label { color: var(--text-muted); font-family: var(--font-mono); font-size: 8.8px; }
+    .telemetry-val { font-family: var(--font-display); font-size: 9.8px; font-weight: 700; color: var(--text-main); text-align: right; }
+    .telemetry-val.amber { color: var(--accent-gold); }
+    .telemetry-val.green { color: var(--accent-green); }
+    .telemetry-val.cyan { color: var(--accent-cyan); }
+
+    .ambac-badge {
+      font-family: var(--font-mono); font-size: 8.8px; font-weight: 700; text-align: center;
+      padding: 4px 8px; border-radius: 6px;
+      background: rgba(16, 185, 129, 0.14); border: 1px solid rgba(16, 185, 129, 0.4); color: #6ee7b7;
+    }
+
+    .author-credit-bar {
+      display: flex; align-items: center; justify-content: space-between; gap: 6px;
+      padding: 5px 8px; border-radius: 7px;
+      background: rgba(0, 229, 255, 0.07); border: 1px solid rgba(0, 229, 255, 0.22);
+      font-family: var(--font-mono); font-size: 8.6px; color: #cbd5e1;
+    }
+    .author-credit-bar a { color: var(--accent-cyan); text-decoration: none; font-weight: 700; }
+    .author-credit-bar a:hover { text-decoration: underline; }
+
+    .control-sublabel {
+      font-family: var(--font-display); font-size: 8.8px; letter-spacing: 1.4px;
+      color: var(--text-muted); text-transform: uppercase; margin-top: 2px;
+    }
+    .mode-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
+    .mode-btn {
+      font-family: var(--font-mono); font-size: 9.2px; font-weight: 600;
+      padding: 5px 7px; border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(255, 255, 255, 0.04);
+      color: var(--text-muted); cursor: pointer; display: flex; align-items: center; gap: 5px; transition: all 0.18s;
+    }
+    .mode-btn:hover { color: var(--text-main); border-color: rgba(0, 229, 255, 0.4); }
+    .mode-btn.active { background: var(--accent-cyan-dim); border-color: var(--accent-cyan); color: var(--accent-cyan); box-shadow: 0 0 12px rgba(0, 229, 255, 0.16); }
+
+    .anim-chips { display: flex; flex-wrap: wrap; gap: 4px; }
+    .anim-btn {
+      font-family: var(--font-mono); font-size: 8.8px; font-weight: 600;
+      padding: 3px 7px; border-radius: 5px;
+      border: 1px solid rgba(255, 255, 255, 0.12); background: rgba(0, 0, 0, 0.35);
+      color: var(--text-muted); cursor: pointer; transition: all 0.15s;
+    }
+    .anim-btn:hover { color: var(--text-main); border-color: rgba(0, 229, 255, 0.45); }
+    .anim-btn.active { background: rgba(245, 158, 11, 0.2); border-color: var(--accent-gold); color: #fcd34d; }
+
+    .planet-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; }
+    .planet-btn {
+      background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 6px; padding: 4px 2px; cursor: pointer;
+      display: flex; flex-direction: column; align-items: center; gap: 1px; transition: all 0.18s;
+    }
+    .planet-btn .p-icon { font-size: 12px; }
+    .planet-btn .p-name { font-family: var(--font-mono); font-size: 7.5px; color: var(--text-muted); text-transform: uppercase; }
+    .planet-btn.active { background: var(--accent-cyan-dim); border-color: var(--accent-cyan); }
+    .planet-btn.active .p-name { color: var(--accent-cyan); font-weight: 700; }
+
+    .toggle-row { display: flex; justify-content: space-between; align-items: center; font-size: 10px; color: var(--text-muted); }
+    .switch-btn {
+      width: 32px; height: 17px; border-radius: 99px;
+      background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.18);
+      position: relative; cursor: pointer; transition: all 0.25s;
+    }
+    .switch-btn::after {
+      content: ""; position: absolute; top: 2px; left: 2px; width: 11px; height: 11px;
+      border-radius: 50%; background: var(--text-muted); transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .switch-btn.active { background: var(--accent-cyan-dim); border-color: var(--accent-cyan); }
+    .switch-btn.active::after { left: 17px; background: var(--accent-cyan); box-shadow: 0 0 8px var(--accent-cyan); }
+
+    /* Bottom Control Dock */
+    #bottom-bar {
+      position: fixed; bottom: 14px; left: 50%; transform: translateX(-50%);
+      z-index: 50; display: flex; align-items: center; gap: 10px;
+      padding: 7px 13px; max-width: calc(100vw - 24px); flex-wrap: wrap; justify-content: center;
+    }
+    .slider-group { display: flex; align-items: center; gap: 7px; font-family: var(--font-mono); font-size: 9.8px; font-weight: 700; color: var(--accent-cyan); }
+    .exploded-slider { width: 110px; accent-color: var(--accent-cyan); cursor: pointer; }
+    .cam-group { display: flex; align-items: center; gap: 4px; }
+    .action-btn {
+      font-family: var(--font-mono); font-size: 9.2px; font-weight: 700;
+      padding: 5px 8px; border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.14); background: rgba(15, 23, 42, 0.78);
+      color: var(--text-main); cursor: pointer; transition: all 0.18s; white-space: nowrap;
+    }
+    .action-btn:hover { border-color: var(--accent-cyan); color: var(--accent-cyan); background: rgba(0, 229, 255, 0.12); }
+    .action-btn.active { border-color: var(--accent-cyan); color: var(--accent-cyan); background: var(--accent-cyan-dim); }
+
+    /* Loading Overlay */
+    #loading-overlay {
+      position: fixed; inset: 0; z-index: 200;
+      background: radial-gradient(circle at 50% 40%, #0a1833 0%, #030712 80%);
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+      transition: opacity 0.4s ease;
+    }
+    .spinner { width: 44px; height: 44px; border-radius: 50%; border: 3px solid rgba(0, 229, 255, 0.18); border-top-color: var(--accent-cyan); animation: spin 0.9s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .loading-text { font-family: var(--font-display); font-size: 11px; letter-spacing: 2.5px; color: var(--accent-cyan); }
+
+    /* Info Guide Modal & Tactile KLIK Toast */
+    #guide-backdrop {
+      display: none; position: fixed; inset: 0; z-index: 180;
+      background: rgba(2, 6, 20, 0.72); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      align-items: center; justify-content: center; padding: 16px;
+    }
+    #guide-backdrop.open { display: flex; }
+    #guide-modal {
+      width: min(690px, 96vw); max-height: 86vh; overflow-y: auto;
+      padding: 20px 22px; background: rgba(9, 15, 30, 0.96);
+      border: 1px solid rgba(0, 229, 255, 0.4); border-radius: 16px;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.75), 0 0 32px rgba(0, 229, 255, 0.14);
+    }
+    .guide-header {
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid rgba(0, 229, 255, 0.22); padding-bottom: 12px; margin-bottom: 14px;
+    }
+    .guide-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 9px; margin: 12px 0 14px; }
+    .guide-card { background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(0, 229, 255, 0.18); border-radius: 10px; padding: 10px 12px; }
+    .guide-card h4 { font-family: var(--font-display); font-size: 9.5px; color: var(--accent-cyan); letter-spacing: 1px; margin-bottom: 4px; }
+    .guide-card p { font-size: 10.8px; color: #cbd5e1; line-height: 1.48; }
+
+    .mecha-toast {
+      position: fixed; bottom: 72px; left: 50%; transform: translateX(-50%) translateY(12px);
+      z-index: 160; padding: 7px 15px; border-radius: 99px;
+      background: rgba(8, 14, 28, 0.94); border: 1px solid rgba(0, 229, 255, 0.5);
+      color: var(--accent-cyan); font-family: var(--font-mono); font-size: 10.5px; font-weight: 700;
+      opacity: 0; pointer-events: none; transition: all 0.25s ease; white-space: nowrap;
+      box-shadow: 0 8px 26px rgba(0, 0, 0, 0.6), 0 0 18px rgba(0, 229, 255, 0.22);
+    }
+    .mecha-toast.visible { opacity: 1; transform: translateX(-50%) translateY(0); }
+    .mecha-toast.klik { border-color: #34d399; color: #6ee7b7; box-shadow: 0 8px 26px rgba(0,0,0,0.6), 0 0 20px rgba(16,185,129,0.35); }
+
+    .nav-action-pill {
+      font-family: var(--font-mono); font-size: 9.2px; font-weight: 700;
+      color: #e2e8f0; background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 6px;
+      padding: 4px 7px; cursor: pointer; display: inline-flex; align-items: center; gap: 4px;
+      white-space: nowrap; transition: all 0.18s; flex-shrink: 0;
+    }
+    .nav-action-pill:hover { color: var(--accent-cyan); border-color: var(--accent-cyan); background: rgba(0, 229, 255, 0.12); }
+    .nav-action-pill.playing { color: #34d399; border-color: rgba(52, 211, 153, 0.6); background: rgba(16, 185, 129, 0.16); }
+
+    @media (max-width: 1180px) {
+      #nav-header { flex-wrap: wrap; max-width: calc(100vw - 24px); }
+    }
+
+    @media (max-width: 960px) {
+      #nav-header { max-width: calc(100vw - 24px); }
+      #hud-vis-bar { top: auto; bottom: 70px; right: 12px; }
+      #left-drawer { width: min(320px, calc(100vw - 24px)); }
+      #right-stack { width: min(290px, calc(100vw - 24px)); }
+      .guide-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Sci-Fi Corner Reticles -->
+  <div class="corner-marker tl"></div>
+  <div class="corner-marker tr"></div>
+  <div class="corner-marker bl"></div>
+  <div class="corner-marker br"></div>
+
+  <!-- Loading Overlay -->
+  <div id="loading-overlay">
+    <div class="spinner"></div>
+    <div id="loading-label" class="loading-text">INITIALIZING 3D GUNDAM-LIKE HANGAR...</div>
+  </div>
+
+  <!-- 3D Viewport -->
+  <div id="hangar-viewport">
+    <canvas id="hangar-canvas"></canvas>
+  </div>
+
+  <!-- Top-Left Clean Navigation: Author Brand + 1 Main Page Link + 1 All-3D-Pages Dropdown + Guide & Battle BGM -->
+  <header id="nav-header" class="glass-hud">
+    <a href="https://github.com/myonathanlinkedin" target="_blank" rel="noopener noreferrer" class="brand-title"
+      title="Mateus Yonathan — Agentic Autonomous Systems Lab">
+      <span class="status-orb"></span>
+      <span>MATEUS YONATHAN <span class="sep-slash">//</span> <span class="accent">MECHA HANGAR</span></span>
+    </a>
+    <span class="nav-sep"></span>
+    <a href="index.html" class="nav-home-btn" title="Return to Main Portfolio Page">🏠 Main Page</a>
+    <select id="nav-3d-pages" class="nav-select" aria-label="Switch 3D Interactive Pages"
+      onchange="if(this.value){window.location.href=this.value;}">
+      <option value="" selected>🤖 3D Gundam-Like Hangar</option>
+      <option value="office.html">🏢 3D Virtual Office (24/7)</option>
+      <option value="constellation.html">🌌 3D Knowledge Constellation</option>
+    </select>
+    <span class="nav-sep"></span>
+    <button id="btn-open-guide" class="nav-action-pill" title="About this Autonomous Agentic Hangar">ℹ️ Guide</button>
+    <button id="btn-bgm-toggle" class="nav-action-pill" title="Toggle Mecha Battle Background Music">🔇 BGM</button>
+    <button id="btn-bgm-track" class="nav-action-pill" title="Switch Mecha Battle Track">🎵 Track</button>
+  </header>
+
+  <!-- Autonomous Agentic Hangar Info Guide Modal -->
+  <div id="guide-backdrop" role="dialog" aria-modal="true" aria-label="Autonomous 3D Mecha Hangar Guide">
+    <div id="guide-modal">
+      <div class="guide-header">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="font-size:22px;">🤖</span>
+          <div>
+            <div style="font-family:var(--font-display);font-size:13px;font-weight:800;color:var(--accent-cyan);letter-spacing:1.2px;">
+              MATEUS YONATHAN // AUTONOMOUS 3D GUNDAM-LIKE HANGAR
+            </div>
+            <div style="font-family:var(--font-mono);font-size:9.3px;color:var(--text-muted);margin-top:2px;">
+              ZERO HUMAN INTERVENTION • PHYSICAL GUNPLA SNAP-FIT ADAPTERS • 26-STATION UHIS KITBASHING
+            </div>
+          </div>
+        </div>
+        <button id="btn-close-guide" class="icon-toggle-btn" title="Close Guide">✕</button>
+      </div>
+
+      <p style="font-size:11.4px;color:#e2e8f0;line-height:1.6;">
+        Welcome to the <strong>Gundam-Like Mecha Engineering Hangar</strong> of <strong>Mateus Yonathan's Agentic Autonomous Lab</strong>. Every modular mission pack, physical machined Gunpla adapter bracket, beam rifle, composite shield, vernier wing-binder array, structural mass calculation, SAT collision clearance check, and catalog manifest is synthesized, cryptographically verified (SHA-256), and deployed <strong>100% automatically by autonomous agentic pipelines without manual human intervention</strong>.
+      </p>
+
+      <div class="guide-grid">
+        <div class="guide-card">
+          <h4>🔌 PHYSICAL GUNPLA ADAPTERS + "KLIK!" LOCK</h4>
+          <p>Parts never clip or float — every backpack unit slides onto a physical machined graphite twin-peg <strong>ADP-HP00-DORSAL</strong> adapter (3.0mm Gunpla/Striker spec) attached directly to the live skeletal <code>chest</code> bone, engaging with spring detent recoil, cyan seam flash, and synthesized mechanical <strong>"KLIK!"</strong> lock feedback.</p>
+        </div>
+        <div class="guide-card">
+          <h4>⚔️ HERO GUNDAM VS. ZEON ENEMY ROSTER</h4>
+          <p>Authentic Gundam-Universe lineup with zero off-universe robots: Federation Hero <strong>VANGUARD-07</strong> alongside smooth Auto-Normal sculpted Zeon &amp; Neo-Zeon Mono-Eye enemies — <strong>MS-06Z Zaku-II</strong>, <strong>MS-07B Gouf</strong>, and <strong>MSN-04S Sazabi</strong> — plus the <strong>RX-78 CAD Frame</strong>.</p>
+        </div>
+        <div class="guide-card">
+          <h4>⚡ 100% AUTONOMOUS AGENTIC PIPELINE</h4>
+          <p>Autonomous engineering workers continuously synthesize new weapons, armor, and propulsion pods in local adapter space, enforce 1-slot mutual exclusion per hardpoint group, compute AMBAC thrust-to-weight physics, and publish zero-duplicate parts directly to this live 3D showcase.</p>
+        </div>
+        <div class="guide-card">
+          <h4>👁️ SHOW/HIDE HUD &amp; BATTLE BGM</h4>
+          <p>Toggle any individual panel from the top-right bar, press <strong>H</strong> (or click <strong>HIDE ALL</strong>) for unobstructed cinema mode, switch between PBR / Hologram / X-Ray / Blueprint shaders, and play synthesized Gundam-style orchestral battle music anytime.</p>
+        </div>
+      </div>
+
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;border-top:1px solid rgba(255,255,255,0.08);padding-top:12px;flex-wrap:wrap;">
+        <span style="font-family:var(--font-mono);font-size:9.3px;color:var(--accent-green);">● AUTHOR: MATEUS YONATHAN • AUTONOMOUS PIPELINE ACTIVE 24/7</span>
+        <button id="btn-dismiss-guide" class="action-btn active" style="padding:7px 16px;font-size:10.5px;">Got It — Enter Hangar</button>
+      </div>
+    </div>
+  </div>
+  <div id="mecha-toast" class="mecha-toast"></div>
+
+  <!-- Persistent Top-Right Application Menu Visibility Bar (Show/Hide & Show/Hide All) -->
+  <nav id="hud-vis-bar" aria-label="Menu Visibility Controls">
+    <button id="vis-left" class="vis-pill active" title="Show/Hide Modular Parts Catalog">◧ Parts</button>
+    <button id="vis-right" class="vis-pill active" title="Show/Hide Diagnostic Telemetry">◨ Specs</button>
+    <button id="vis-scene" class="vis-pill active" title="Show/Hide Render Modes &amp; Lighting">🎨 Scene</button>
+    <button id="vis-bottom" class="vis-pill active" title="Show/Hide Bottom Control Dock">▬ Dock</button>
+    <span class="vis-divider"></span>
+    <button id="btn-toggle-all-hud" class="vis-master-btn" title="Toggle All Menus (Hotkey: H)">👁️ HIDE ALL</button>
+  </nav>
+
+  <!-- Left Drawer: Pure Gundam-Universe Roster + Snap-Fit Modular Parts Catalog -->
+  <aside id="left-drawer" class="glass-hud">
+    <div class="drawer-title">
+      <span>GUNDAM-UNIVERSE ROSTER</span>
+      <div class="title-actions">
+        <button id="btn-toggle-drawer-size" class="icon-toggle-btn" title="Expand / Compact Grid">⛶</button>
+        <button id="btn-hide-left" class="icon-toggle-btn" title="Hide Parts Catalog">✕</button>
+      </div>
+    </div>
+
+    <!-- Pure Gundam-Universe Roster: Federation Hero + Authentic Zeon / Neo-Zeon Mono-Eye Enemies + CAD Lab -->
+    <div id="unit-roster" class="unit-roster">
+      <button class="unit-btn active hero" data-unit="vanguard_rx">
+        <span>⚔️ VANGUARD-07</span>
+        <span class="u-sub">Hero Gundam • 18m PBR</span>
+      </button>
+      <button class="unit-btn orbital" data-unit="enemy_zaku">
+        <span>👁️ MS-06Z ZAKU-II</span>
+        <span class="u-sub">Zeon Enemy • Mono-Eye</span>
+      </button>
+      <button class="unit-btn titans" data-unit="enemy_gouf">
+        <span>⚡ MS-07B GOUF</span>
+        <span class="u-sub">Zeon Ace • Heat Saber</span>
+      </button>
+      <button class="unit-btn ace" data-unit="enemy_sazabi">
+        <span>🔥 MSN-04S SAZABI</span>
+        <span class="u-sub">Neo-Zeon Commander</span>
+      </button>
+      <button class="unit-btn full-span cad" data-unit="cad_rx">
+        <span>⚙️ RX-78 CAD INNER FRAME (95-Node Exploded Lab)</span>
+        <span class="u-sub">PARAMETRIC CAD</span>
+      </button>
+    </div>
+
+    <div class="section-divider-label">
+      <span>SNAP-FIT UHIS PARTS CATALOG</span>
+      <span style="color: var(--accent-gold);">🔌 GUNPLA ADAPTERS</span>
+    </div>
+
+    <!-- Search -->
+    <div class="parts-search-wrap">
+      <input type="text" id="parts-search-input" class="parts-search-input"
+        placeholder="🔍 Search parts, serial, adapter, HP..." autocomplete="off" />
+      <button id="btn-clear-search" class="search-clear-btn" style="display: none;" title="Clear Search">✕</button>
+    </div>
+
+    <!-- Category Filter Chips -->
+    <div id="category-chips" class="category-chips-scroll">
+      <button class="cat-chip active" data-category="all">ALL (<span id="cat-count-all">0</span>)</button>
+      <button class="cat-chip" data-category="pack">PACKS (<span id="cat-count-packs">0</span>)</button>
+      <button class="cat-chip" data-category="weapon">WEAPONS (<span id="cat-count-weapons">0</span>)</button>
+      <button class="cat-chip" data-category="armor">ARMOR (<span id="cat-count-armor">0</span>)</button>
+      <button class="cat-chip" data-category="propulsion">VERNIERS (<span id="cat-count-propulsion">0</span>)</button>
+    </div>
+
+    <!-- Hardpoint Station & Sort Controls -->
+    <div class="filter-controls-row">
+      <select id="station-filter" class="hud-dropdown">
+        <option value="all">📍 All Hardpoints (26-Station)</option>
+        <option value="HP-00">HP-00 Dorsal Adapter Hub</option>
+        <option value="HP-01">HP-01 Cranial Visor</option>
+        <option value="HP-03">HP-03 Clavicle Mount</option>
+        <option value="HP-07">HP-07 Aux Shield Rack</option>
+        <option value="HP-11">HP-11 Aux Weapon Rack</option>
+        <option value="HP-13">HP-13 Hip Core</option>
+        <option value="HP-17">HP-17 Rear Skirt</option>
+      </select>
+      <select id="parts-sort" class="hud-dropdown" style="max-width: 108px;">
+        <option value="default">Sort: Default</option>
+        <option value="name_asc">Name A-Z</option>
+        <option value="mass_asc">Mass (Light)</option>
+        <option value="mass_desc">Mass (Heavy)</option>
+        <option value="thrust_desc">Thrust (Max)</option>
+      </select>
+    </div>
+
+    <!-- Status Bar + Equipped-Only Quick Filter -->
+    <div class="catalog-status-bar">
+      <span id="catalog-count-label">Showing 0 of 0 parts</span>
+      <button id="btn-equipped-only" class="equipped-filter-btn" title="Filter equipped parts">0 Equipped</button>
+    </div>
+
+    <!-- Scrollable / Grid Parts List -->
+    <div id="parts-list" class="items-scroll"></div>
+  </aside>
+
+  <!-- Right Side Stack: Diagnostic Telemetry + Scene/Animation/Lighting Panel -->
+  <div id="right-stack">
+    <aside id="right-drawer" class="glass-hud">
+      <div class="drawer-title">
+        <span>DIAGNOSTIC TELEMETRY</span>
+        <div class="title-actions">
+          <span style="color: var(--accent-green); font-family: var(--font-mono); font-size: 9px; margin-right: 4px;">● LIVE</span>
+          <button id="btn-hide-right" class="icon-toggle-btn" title="Hide Telemetry">✕</button>
+        </div>
+      </div>
+
+      <div class="telemetry-block">
+        <div class="telemetry-row">
+          <span class="telemetry-label">ACTIVE MOBILE SUIT</span>
+          <span id="tel-chassis" class="telemetry-val cyan">VANGUARD-07 RX</span>
+        </div>
+        <div class="telemetry-row">
+          <span class="telemetry-label">HEIGHT / FRAME</span>
+          <span id="tel-height" class="telemetry-val">18.0 m (27.3k Tris)</span>
+        </div>
+        <div class="telemetry-row">
+          <span class="telemetry-label">TOTAL MASS</span>
+          <span id="tel-mass" class="telemetry-val">43,400 kg</span>
+        </div>
+        <div class="telemetry-row">
+          <span class="telemetry-label">REACTOR OUTPUT</span>
+          <span id="tel-reactor" class="telemetry-val amber">3,450 kW</span>
+        </div>
+        <div class="telemetry-row">
+          <span class="telemetry-label">THRUST FORCE</span>
+          <span id="tel-thrust" class="telemetry-val">55,500 kgf</span>
+        </div>
+        <div class="telemetry-row">
+          <span class="telemetry-label">VACUUM TWR</span>
+          <span id="tel-twr" class="telemetry-val amber">1.28 G</span>
+        </div>
+        <div class="telemetry-row">
+          <span class="telemetry-label">ADAPTER LOCKS</span>
+          <span id="tel-equipped-count" class="telemetry-val green">0 / 3 locked</span>
+        </div>
+      </div>
+
+      <div class="ambac-badge" id="tel-ambac">PLUG-LOCK ADAPTERS: READY (0.0mm CLEARANCE)</div>
+
+      <div style="padding-top: 5px; border-top: 1px solid rgba(255,255,255,0.07);">
+        <div style="font-family: var(--font-mono); font-size: 8.6px; color: var(--accent-gold); margin-bottom: 2px;">
+          UNIT ARCHITECTURE &amp; INSPECTOR
+        </div>
+        <div id="inspect-title" style="font-size: 10.6px; font-weight: 700;">VANGUARD-07 RX-Type</div>
+        <div id="inspect-body" style="font-size: 9.4px; color: var(--text-muted); line-height: 1.36; margin-top: 2px;">
+          18m Federation prototype mobile suit with Satin Polar White armor, Cobalt chest, Signal Red core, Gold V-fin, and bone-mounted ADP-HP00-DORSAL Gunpla adapter.
+        </div>
+      </div>
+
+      <div class="author-credit-bar">
+        <span>ARCHITECT</span>
+        <a href="https://github.com/myonathanlinkedin" target="_blank" rel="noopener noreferrer">Mateus Yonathan ↗</a>
+      </div>
+    </aside>
+
+    <!-- Scene, Animation & Lighting Controls Panel -->
+    <aside id="scene-panel" class="glass-hud">
+      <div class="drawer-title">
+        <span>ANIMATION, SHADER &amp; LIGHT</span>
+        <div class="title-actions">
+          <button id="btn-hide-scene" class="icon-toggle-btn" title="Hide Scene Controls">✕</button>
+        </div>
+      </div>
+
+      <div class="control-sublabel">Combat &amp; Kinetic Stance</div>
+      <div id="anim-chips" class="anim-chips"></div>
+
+      <div class="control-sublabel">Shader / Render Mode</div>
+      <div class="mode-grid">
+        <button class="mode-btn active" data-render-mode="standard">◆ Standard PBR</button>
+        <button class="mode-btn" data-render-mode="hologram">◇ Hologram</button>
+        <button class="mode-btn" data-render-mode="xray">▦ X-Ray Mesh</button>
+        <button class="mode-btn" data-render-mode="blueprint">📐 Blueprint</button>
+      </div>
+
+      <div class="control-sublabel">Environment Lighting</div>
+      <div id="planet-grid" class="planet-grid">
+        <button class="planet-btn active" data-env="hangar" title="Hangar Studio"><span class="p-icon">🏗️</span><span class="p-name">Hangar</span></button>
+        <button class="planet-btn" data-env="earth" title="Earth Orbit"><span class="p-icon">🌍</span><span class="p-name">Earth</span></button>
+        <button class="planet-btn" data-env="mars" title="Mars Dust"><span class="p-icon">🔴</span><span class="p-name">Mars</span></button>
+        <button class="planet-btn" data-env="lunar" title="Lunar Contrast"><span class="p-icon">🌑</span><span class="p-name">Lunar</span></button>
+        <button class="planet-btn" data-env="cyberpunk" title="Neo-Tokyo Neon"><span class="p-icon">🏙️</span><span class="p-name">Cyber</span></button>
+      </div>
+
+      <div class="toggle-row">
+        <span>Auto-Rotate Turntable</span>
+        <button id="btn-auto-rotate" class="switch-btn active" aria-label="Toggle Auto Rotate"></button>
+      </div>
+      <div class="toggle-row">
+        <span>Animation Playback</span>
+        <button id="btn-anim-play" class="switch-btn active" aria-label="Toggle Animation Playback"></button>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Bottom Control Dock -->
+  <footer id="bottom-bar" class="glass-hud">
+    <div class="slider-group">
+      <span>EXPLODED PACKS / CAD</span>
+      <input type="range" id="slider-exploded" class="exploded-slider" min="0" max="100" value="0" />
+      <span id="lbl-exploded" style="min-width: 28px;">0%</span>
+    </div>
+    <div class="cam-group">
+      <button class="action-btn active" data-cam="heroic">3/4 HEROIC</button>
+      <button class="action-btn" data-cam="front">FRONT</button>
+      <button class="action-btn" data-cam="head">HEAD ZOOM</button>
+      <button class="action-btn" data-cam="dorsal">DORSAL ADAPTER</button>
+      <button id="btn-reset-view" class="action-btn" title="Auto-Fit Reset Camera">↺ FIT</button>
+      <button id="btn-hide-bottom" class="icon-toggle-btn" title="Hide Bottom Dock">✕</button>
+    </div>
+  </footer>
+
+  <!-- Three.js Studio WebGL Engine -->
+  <script type="module">
+    import * as THREE from 'three';
+    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+    import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+    import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+    import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+    import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+    import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+    import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+
+    // =========================================================================
+    // 1. PURE GUNDAM-UNIVERSE ROSTER (HERO GUNDAM + ZEON / NEO-ZEON ENEMIES!)
+    // =========================================================================
+    const UNIT_REGISTRY = {
+      vanguard_rx: {
+        id: 'vanguard_rx',
+        name: 'VANGUARD-07 RX-Type',
+        faction: 'hero',
+        heightStr: '18.0 m (27.3k Tris)',
+        massKg: 43400,
+        reactorKw: 3450,
+        baseThrust: 55500,
+        glbUrl: 'assets/mecha/models/cc0/vanguard-07.glb',
+        isCC0: true,
+        isZeonEnemy: false,
+        defaultAnim: 'Sentinel',
+        packColors: {
+          primary: 0xdbe3ee,    // Satin Polar White
+          secondary: 0x1e40af,  // Federation Cobalt Blue
+          accent: 0xb91c1c,     // Signal Crimson Red
+          gold: 0xeab308,       // Metallic V-Fin Gold
+          frame: 0x263140,      // Graphite Actuator
+          optic: 0x00f5ff       // Emerald-Cyan Sensor
+        },
+        desc: '18m Federation prototype Hero Gundam with Satin Polar White armor, Cobalt chest, Signal Red core, Gold V-fin, emerald twin optics, 7 combat animations, and physical chest-bone ADP-HP00-DORSAL Gunpla adapter.'
+      },
+      enemy_zaku: {
+        id: 'enemy_zaku',
+        name: 'MS-06Z Zaku-II Infantry',
+        faction: 'zeon_zaku',
+        heightStr: '17.5 m (Smooth Auto-Normal)',
+        massKg: 58100,
+        reactorKw: 2450,
+        baseThrust: 43000,
+        glbUrl: 'assets/mecha/models/enemies/enemy_zaku_ms06.glb',
+        isCC0: false,
+        isZeonEnemy: true,
+        dorsalZ: -26.5,
+        monoEyeColor: 0xff2268,
+        monoEyeCenterY: 165.0,
+        monoEyeRadius: 8.7,
+        defaultAnim: null,
+        packColors: {
+          primary: 0x70875b,    // Zeon Sage Olive
+          secondary: 0x3a4d34,  // Deep Forest Olive
+          accent: 0x262d36,     // Industrial Charcoal
+          gold: 0xc29b38,       // Military Brass Trim
+          frame: 0x232933,
+          optic: 0xff2268       // Sweeping Ruby-Pink Mono-Eye
+        },
+        desc: 'Iconic Principality of Zeon mass-production Mono-Eye enemy: smooth domed helmet with live sweeping Ruby Mono-Eye, braided cheek & waist power hoses, left 3-spike curved dome pauldron, right curved shoulder shield, 120mm drum-mag MG, and thermal Heat Hawk.'
+      },
+      enemy_gouf: {
+        id: 'enemy_gouf',
+        name: 'MS-07B Gouf Close-Combat Ace',
+        faction: 'zeon_gouf',
+        heightStr: '18.2 m (Smooth Auto-Normal)',
+        massKg: 58500,
+        reactorKw: 2980,
+        baseThrust: 54000,
+        glbUrl: 'assets/mecha/models/enemies/enemy_gouf_ms07.glb',
+        isCC0: false,
+        isZeonEnemy: true,
+        dorsalZ: -26.5,
+        monoEyeColor: 0xff2266,
+        monoEyeCenterY: 165.0,
+        monoEyeRadius: 8.7,
+        defaultAnim: null,
+        packColors: {
+          primary: 0x3b6fb6,    // Military Cornflower Blue
+          secondary: 0x1a335c,  // Deep Prussian Navy
+          accent: 0x262e3c,     // Stealth Gunmetal
+          gold: 0xf97316,       // Thermal Heat Accent
+          frame: 0x222936,
+          optic: 0xff2266       // Ruby Mono-Eye
+        },
+        desc: 'Specialized Zeon ground-combat Mono-Eye ace featuring a swept commander fin helmet, symmetric twin curved horned shoulder pauldrons, two-tone military blue/navy armor, curved Knight Shield, and blazing molten-orange Thermal Heat Saber.'
+      },
+      enemy_sazabi: {
+        id: 'enemy_sazabi',
+        name: 'MSN-04S Sazabi Commander',
+        faction: 'neo_zeon',
+        heightStr: '23.0 m (Smooth Heavy Class)',
+        massKg: 71200,
+        reactorKw: 4960,
+        baseThrust: 133000,
+        glbUrl: 'assets/mecha/models/enemies/enemy_sazabi_msn04.glb',
+        isCC0: false,
+        isZeonEnemy: true,
+        dorsalZ: -27.5,
+        monoEyeColor: 0x22ff88,
+        monoEyeCenterY: 164.2,
+        monoEyeRadius: 8.6,
+        defaultAnim: null,
+        packColors: {
+          primary: 0x8f1820,    // Neo-Zeon Metallic Crimson-Maroon
+          secondary: 0x1d222c,  // Obsidian Inner Armor
+          accent: 0x5c0f15,     // Deep Oxblood Shade
+          gold: 0xeab308,       // Burnished Commander Gold
+          frame: 0x1c212b,
+          optic: 0x22ff88       // Blazing Emerald Mono-Eye
+        },
+        desc: 'Flagship Neo-Zeon Heavy Commander Mobile Suit: sweeping crested helmet with live Emerald Mono-Eye, massive curved flared shoulder binders, Golden Abdominal Mega-Particle Cannon, braided gold pipes, bell-bottom hover calves, and Heavy Beam Shot-Rifle.'
+      },
+      cad_rx: {
+        id: 'cad_rx',
+        name: 'RX-78 Ver.Ka CAD Frame',
+        faction: 'hero',
+        heightStr: '180.0 mm (95 CAD Nodes)',
+        massKg: 24500,
+        reactorKw: 3450,
+        baseThrust: 55500,
+        glbUrl: 'assets/mecha/models/baselines/baseline_gundam_frame_v1.glb',
+        isCC0: false,
+        isZeonEnemy: false,
+        defaultAnim: null,
+        packColors: {
+          primary: 0xdbe3ee,
+          secondary: 0x1d4ed8,
+          accent: 0xb91c1c,
+          gold: 0xeab308,
+          frame: 0x263140,
+          optic: 0x00f5ff
+        },
+        desc: 'Parametric 95-node Ver.Ka Movable Frame compiled autonomously by our CAD engine for exploded assembly disassembly, hardpoint alignment verification, and forearm/hand direct mounting.'
+      }
+    };
+
+    const state = {
+      catalog: null,
+      activeUnitId: 'vanguard_rx',
+      equippedPacks: new Map(),      // part_id -> { part, model, slotGroup, adapterId }
+      slotOccupancy: {               // Strict 1-slot-per-group Gunpla mutual exclusion!
+        dorsal_pack: null,
+        aux_shield: null,
+        aux_weapon: null
+      },
+      socketRig: null,               // { dorsal_pack, aux_shield, aux_weapon } physical adapter wrappers
+      adapterTemplate: null,         // Cached GLB scene for ADP-HP00-DORSAL
+      factionTextureCache: new Map(),
+      snapAnimations: [],            // Active 3-stage Gunpla slide-in + KLIK detent recoil animations
+      renderMode: 'standard',
+      activeEnv: 'hangar',
+      explodedFactor: 0.0,
+      autoRotate: true,
+      animPlaying: true,
+      chassisModel: null,
+      monoEyeNode: null,             // Live sweeping Zeon Mono-Eye mesh reference
+      monoEyeBasePos: null,
+      mixer: null,
+      actions: new Map(),
+      activeAnimName: null,
+      chassisParts: [],
+      blueprintEdges: [],
+      searchQuery: '',
+      activeCategory: 'all',
+      activeStation: 'all',
+      activeSort: 'default',
+      equippedOnly: false,
+      isDrawerExpanded: false,
+      menus: {
+        left: true, right: true, scene: true, bottom: true,
+        allHidden: false, savedBeforeHideAll: null
+      }
+    };
+
+    // DOM Elements
+    const canvas = document.getElementById('hangar-canvas');
+    const loadingOverlay = document.getElementById('loading-overlay');
+    const loadingLabel = document.getElementById('loading-label');
+    const navHeader = document.getElementById('nav-header');
+    const hudVisBar = document.getElementById('hud-vis-bar');
+    const leftDrawer = document.getElementById('left-drawer');
+    const rightStack = document.getElementById('right-stack');
+    const rightDrawer = document.getElementById('right-drawer');
+    const scenePanel = document.getElementById('scene-panel');
+    const bottomBar = document.getElementById('bottom-bar');
+
+    const visLeftBtn = document.getElementById('vis-left');
+    const visRightBtn = document.getElementById('vis-right');
+    const visSceneBtn = document.getElementById('vis-scene');
+    const visBottomBtn = document.getElementById('vis-bottom');
+    const btnToggleAllHud = document.getElementById('btn-toggle-all-hud');
+
+    const animChips = document.getElementById('anim-chips');
+    const partsList = document.getElementById('parts-list');
+    const partsSearchInput = document.getElementById('parts-search-input');
+    const btnClearSearch = document.getElementById('btn-clear-search');
+    const categoryChips = document.getElementById('category-chips');
+    const stationFilter = document.getElementById('station-filter');
+    const partsSort = document.getElementById('parts-sort');
+    const catalogCountLabel = document.getElementById('catalog-count-label');
+    const btnEquippedOnly = document.getElementById('btn-equipped-only');
+    const sliderExploded = document.getElementById('slider-exploded');
+    const lblExploded = document.getElementById('lbl-exploded');
+    const btnAutoRotate = document.getElementById('btn-auto-rotate');
+    const btnAnimPlay = document.getElementById('btn-anim-play');
+
+    const telChassis = document.getElementById('tel-chassis');
+    const telHeight = document.getElementById('tel-height');
+    const telMass = document.getElementById('tel-mass');
+    const telReactor = document.getElementById('tel-reactor');
+    const telThrust = document.getElementById('tel-thrust');
+    const telTwr = document.getElementById('tel-twr');
+    const telEquippedCount = document.getElementById('tel-equipped-count');
+    const telAmbac = document.getElementById('tel-ambac');
+    const inspectTitle = document.getElementById('inspect-title');
+    const inspectBody = document.getElementById('inspect-body');
+
+    // =========================================================================
+    // 2. APPLICATION MENU SHOW / HIDE & SHOW / HIDE ALL CONTROLLER
+    // =========================================================================
+    function syncMenuVisibility() {
+      const m = state.menus;
+      const showHeader = !m.allHidden;
+      const showLeft = !m.allHidden && m.left;
+      const showRight = !m.allHidden && m.right;
+      const showScene = !m.allHidden && m.scene;
+      const showBottom = !m.allHidden && m.bottom;
+
+      navHeader.classList.toggle('hud-hidden-top-left', !showHeader);
+      leftDrawer.classList.toggle('hud-hidden-left', !showLeft);
+      rightDrawer.classList.toggle('hud-hidden-right', !showRight);
+      scenePanel.classList.toggle('hud-hidden-right', !showScene);
+      rightStack.classList.toggle('stack-hidden', !showRight && !showScene);
+      bottomBar.classList.toggle('hud-hidden-bottom', !showBottom);
+
+      visLeftBtn.classList.toggle('active', showLeft);
+      visRightBtn.classList.toggle('active', showRight);
+      visSceneBtn.classList.toggle('active', showScene);
+      visBottomBtn.classList.toggle('active', showBottom);
+
+      hudVisBar.classList.toggle('compact-mode', m.allHidden);
+      btnToggleAllHud.classList.toggle('all-hidden', m.allHidden);
+      btnToggleAllHud.innerText = m.allHidden ? '👁️ SHOW ALL (H)' : '👁️ HIDE ALL';
+    }
+
+    function toggleSingleMenu(key) {
+      if (state.menus.allHidden) state.menus.allHidden = false;
+      state.menus[key] = !state.menus[key];
+      syncMenuVisibility();
+    }
+
+    function toggleAllMenus() {
+      if (!state.menus.allHidden) {
+        state.menus.savedBeforeHideAll = {
+          left: state.menus.left, right: state.menus.right, scene: state.menus.scene, bottom: state.menus.bottom
+        };
+        state.menus.allHidden = true;
+      } else {
+        state.menus.allHidden = false;
+        if (state.menus.savedBeforeHideAll) Object.assign(state.menus, state.menus.savedBeforeHideAll);
+        if (!state.menus.left && !state.menus.right && !state.menus.scene && !state.menus.bottom) {
+          state.menus.left = state.menus.right = state.menus.scene = state.menus.bottom = true;
+        }
+      }
+      syncMenuVisibility();
+    }
+
+    visLeftBtn.addEventListener('click', () => toggleSingleMenu('left'));
+    visRightBtn.addEventListener('click', () => toggleSingleMenu('right'));
+    visSceneBtn.addEventListener('click', () => toggleSingleMenu('scene'));
+    visBottomBtn.addEventListener('click', () => toggleSingleMenu('bottom'));
+    btnToggleAllHud.addEventListener('click', toggleAllMenus);
+    document.getElementById('btn-hide-left')?.addEventListener('click', () => { state.menus.left = false; syncMenuVisibility(); });
+    document.getElementById('btn-hide-right')?.addEventListener('click', () => { state.menus.right = false; syncMenuVisibility(); });
+    document.getElementById('btn-hide-scene')?.addEventListener('click', () => { state.menus.scene = false; syncMenuVisibility(); });
+    document.getElementById('btn-hide-bottom')?.addEventListener('click', () => { state.menus.bottom = false; syncMenuVisibility(); });
+
+    window.addEventListener('keydown', (e) => {
+      if (document.activeElement && ['INPUT', 'SELECT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
+      if (e.key === 'h' || e.key === 'H') toggleAllMenus();
+    });
+
+    if (window.innerWidth < 960) {
+      state.menus.left = false; state.menus.right = false; state.menus.scene = false;
+    }
+    syncMenuVisibility();
+
+    // =========================================================================
+    // 3. THREE.JS STUDIO RENDERER, PMREM ROOM ENVIRONMENT & CRISP BLOOM
+    // =========================================================================
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.05;
+
+    const maxAnisotropy = Math.min(renderer.capabilities.getMaxAnisotropy(), 8);
+
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x060b16);
+    scene.fog = new THREE.FogExp2(0x060b16, 0.0012);
+
+    const pmremGenerator = new THREE.PMREMGenerator(renderer);
+    scene.environment = pmremGenerator.fromScene(new RoomEnvironment(), 0.04).texture;
+    scene.environmentIntensity = 0.85;
+    pmremGenerator.dispose();
+
+    const camera = new THREE.PerspectiveCamera(38, window.innerWidth / window.innerHeight, 1.0, 2200.0);
+    camera.position.set(115, 110, 240);
+
+    const controls = new OrbitControls(camera, canvas);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.05;
+    controls.target.set(0, 92, 0);
+    controls.maxPolarAngle = Math.PI / 2 + 0.06;
+    controls.minDistance = 42;
+    controls.maxDistance = 620;
+    controls.autoRotate = state.autoRotate;
+    controls.autoRotateSpeed = 0.72;
+
+    // Crisp Studio Bloom (Threshold 1.45 so satin white armor NEVER blows out!)
+    let composer = null;
+    try {
+      composer = new EffectComposer(renderer);
+      composer.addPass(new RenderPass(scene, camera));
+      const bloomPass = new UnrealBloomPass(
+        new THREE.Vector2(window.innerWidth, window.innerHeight),
+        0.26, 0.30, 1.45
+      );
+      composer.addPass(bloomPass);
+      composer.addPass(new OutputPass());
+    } catch (e) {
+      composer = null;
+    }
+
+    // Studio & Planetary Lighting Rig
+    const hemiLight = new THREE.HemisphereLight(0xcfe8ff, 0x101828, 0.65);
+    scene.add(hemiLight);
+
+    const keyLight = new THREE.DirectionalLight(0xffffff, 2.0);
+    keyLight.position.set(130, 240, 175);
+    keyLight.castShadow = true;
+    keyLight.shadow.mapSize.set(2048, 2048);
+    keyLight.shadow.camera.near = 20;
+    keyLight.shadow.camera.far = 700;
+    keyLight.shadow.camera.left = -160;
+    keyLight.shadow.camera.right = 160;
+    keyLight.shadow.camera.top = 240;
+    keyLight.shadow.camera.bottom = -40;
+    keyLight.shadow.bias = -0.0005;
+    scene.add(keyLight);
+
+    const fillLight = new THREE.DirectionalLight(0x7dd3fc, 0.85);
+    fillLight.position.set(-165, 130, 110);
+    scene.add(fillLight);
+
+    const rimLight = new THREE.DirectionalLight(0x38bdf8, 1.35);
+    rimLight.position.set(-100, 195, -180);
+    scene.add(rimLight);
+
+    const holoCoreLight = new THREE.PointLight(0x00e5ff, 0, 260);
+    holoCoreLight.position.set(0, 100, 45);
+    scene.add(holoCoreLight);
+
+    // Hangar Pedestal Platform & Tactical Floor
+    const floorGroup = new THREE.Group();
+    scene.add(floorGroup);
+
+    const darkPad = new THREE.Mesh(
+      new THREE.CylinderGeometry(76, 84, 4.0, 64),
+      new THREE.MeshStandardMaterial({ color: 0x0b1222, roughness: 0.32, metalness: 0.72 })
+    );
+    darkPad.position.y = -2.0;
+    darkPad.receiveShadow = true;
+    floorGroup.add(darkPad);
+
+    const glowRingOuter = new THREE.Mesh(
+      new THREE.RingGeometry(71, 73.2, 64),
+      new THREE.MeshBasicMaterial({ color: 0x00e5ff, side: THREE.DoubleSide, transparent: true, opacity: 0.55 })
+    );
+    glowRingOuter.rotation.x = -Math.PI / 2;
+    glowRingOuter.position.y = 0.08;
+    floorGroup.add(glowRingOuter);
+
+    const glowRingInner = new THREE.Mesh(
+      new THREE.RingGeometry(46, 47.0, 64),
+      new THREE.MeshBasicMaterial({ color: 0xf59e0b, side: THREE.DoubleSide, transparent: true, opacity: 0.35 })
+    );
+    glowRingInner.rotation.x = -Math.PI / 2;
+    glowRingInner.position.y = 0.08;
+    floorGroup.add(glowRingInner);
+
+    const gridHelper = new THREE.GridHelper(540, 44, 0x0ea5e9, 0x132038);
+    gridHelper.position.y = -0.05;
+    gridHelper.material.transparent = true;
+    gridHelper.material.opacity = 0.28;
+    floorGroup.add(gridHelper);
+
+    // Starfield Backdrop
+    const starPositions = new Float32Array(1800 * 3);
+    for (let i = 0; i < 1800; i++) {
+      const r = 450 + Math.random() * 680;
+      const theta = Math.random() * Math.PI * 2;
+      const phi = Math.acos(2 * Math.random() - 1);
+      starPositions[i * 3] = r * Math.sin(phi) * Math.cos(theta);
+      starPositions[i * 3 + 1] = Math.abs(r * Math.cos(phi)) + 15;
+      starPositions[i * 3 + 2] = r * Math.sin(phi) * Math.sin(theta);
+    }
+    const starGeo = new THREE.BufferGeometry();
+    starGeo.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
+    const starField = new THREE.Points(
+      starGeo,
+      new THREE.PointsMaterial({ color: 0xe2e8f0, size: 1.7, transparent: true, opacity: 0.38 })
+    );
+    scene.add(starField);
+
+    // Cyberpunk Neon Accents
+    const cyberGroup = new THREE.Group();
+    cyberGroup.visible = false;
+    const neonTorus = new THREE.Mesh(
+      new THREE.TorusGeometry(42, 1.5, 16, 64),
+      new THREE.MeshBasicMaterial({ color: 0xff007f })
+    );
+    neonTorus.position.set(-125, 125, -110);
+    cyberGroup.add(neonTorus);
+    const neonPillar = new THREE.Mesh(
+      new THREE.CylinderGeometry(1.5, 1.5, 130, 16),
+      new THREE.MeshBasicMaterial({ color: 0x00e5ff })
+    );
+    neonPillar.position.set(130, 115, -90);
+    cyberGroup.add(neonPillar);
+    scene.add(cyberGroup);
+
+    // =========================================================================
+    // 4. PROCEDURAL CANVAS WEATHERED PBR ENGINE (ORGANIC BRUSHED GUNDARIUM!)
+    // =========================================================================
+    function createProceduralMechaPBR() {
+      const size = 512;
+
+      // A. Organic Brushed Alloy & Subtle Military Seam Heightfield (NO graph-paper tiling!)
+      const hCanvas = document.createElement('canvas');
+      hCanvas.width = size; hCanvas.height = size;
+      const hCtx = hCanvas.getContext('2d');
+      hCtx.fillStyle = '#808080';
+      hCtx.fillRect(0, 0, size, size);
+
+      const imgData = hCtx.getImageData(0, 0, size, size);
+      const d = imgData.data;
+      let seed = 1337;
+      const rand = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
+      for (let i = 0; i < d.length; i += 4) {
+        const v = 128 + Math.floor((rand() - 0.5) * 14);
+        d[i] = d[i + 1] = d[i + 2] = v; d[i + 3] = 255;
+      }
+      hCtx.putImageData(imgData, 0, 0);
+
+      // Broad, authentic Master Grade asymmetric armor seams (1 clean split + 1 beveled inspection hatch!)
+      hCtx.strokeStyle = '#484848';
+      hCtx.lineWidth = 2;
+      hCtx.beginPath(); hCtx.moveTo(0, 256); hCtx.lineTo(size, 256); hCtx.stroke();
+      hCtx.beginPath(); hCtx.moveTo(256, 0); hCtx.lineTo(256, size); hCtx.stroke();
+      hCtx.strokeStyle = '#5a5a5a';
+      hCtx.lineWidth = 1.5;
+      hCtx.strokeRect(48, 48, 160, 120);
+      hCtx.strokeRect(300, 296, 152, 132);
+
+      // Hairline combat abrasion scratches & brushed micro-wear
+      hCtx.strokeStyle = 'rgba(82,82,82,0.36)';
+      hCtx.lineWidth = 1;
+      for (let s = 0; s < 90; s++) {
+        const x0 = rand() * size, y0 = rand() * size;
+        const len = 14 + rand() * 54;
+        const ang = (rand() - 0.5) * 0.45;
+        hCtx.beginPath(); hCtx.moveTo(x0, y0); hCtx.lineTo(x0 + Math.cos(ang) * len, y0 + Math.sin(ang) * len); hCtx.stroke();
+      }
+
+      // Sobel filter -> Tangent-Space Normal Map (THREE.NoColorSpace!)
+      const hSrc = hCtx.getImageData(0, 0, size, size).data;
+      const nCanvas = document.createElement('canvas');
+      nCanvas.width = size; nCanvas.height = size;
+      const nCtx = nCanvas.getContext('2d');
+      const nImg = nCtx.createImageData(size, size);
+      const nd = nImg.data;
+      const sampleH = (x, y) => hSrc[(((y + size) % size) * size + ((x + size) % size)) * 4] / 255.0;
+      const strength = 1.45;
+      for (let y = 0; y < size; y++) {
+        for (let x = 0; x < size; x++) {
+          const tl = sampleH(x - 1, y - 1), t = sampleH(x, y - 1), tr = sampleH(x + 1, y - 1);
+          const l = sampleH(x - 1, y), r = sampleH(x + 1, y);
+          const bl = sampleH(x - 1, y + 1), b = sampleH(x, y + 1), br = sampleH(x + 1, y + 1);
+          const dx = (tr + 2 * r + br - tl - 2 * l - bl) * strength;
+          const dy = (bl + 2 * b + br - tl - 2 * t - tr) * strength;
+          const dz = 1.0;
+          const inv = 1.0 / Math.hypot(dx, dy, dz);
+          const idx = (y * size + x) * 4;
+          nd[idx]     = Math.round((-dx * inv * 0.5 + 0.5) * 255);
+          nd[idx + 1] = Math.round((-dy * inv * 0.5 + 0.5) * 255);
+          nd[idx + 2] = Math.round(( dz * inv * 0.5 + 0.5) * 255);
+          nd[idx + 3] = 255;
+        }
+      }
+      nCtx.putImageData(nImg, 0, 0);
+
+      // B. Weathered Brushed Military Armor Roughness Map (THREE.NoColorSpace!)
+      const rCanvas = document.createElement('canvas');
+      rCanvas.width = size; rCanvas.height = size;
+      const rCtx = rCanvas.getContext('2d');
+      rCtx.fillStyle = '#5c5c5c';
+      rCtx.fillRect(0, 0, size, size);
+      for (let i = 0; i < 160; i++) {
+        const cx = rand() * size, cy = rand() * size, rad = 18 + rand() * 58;
+        const g = rCtx.createRadialGradient(cx, cy, 2, cx, cy, rad);
+        const shade = 72 + Math.floor(rand() * 48);
+        g.addColorStop(0, `rgba(${shade},${shade},${shade},0.22)`);
+        g.addColorStop(1, 'rgba(92,92,92,0)');
+        rCtx.fillStyle = g;
+        rCtx.beginPath(); rCtx.arc(cx, cy, rad, 0, Math.PI * 2); rCtx.fill();
+      }
+
+      // C. Organic Weathered Satin Gundarium Albedo Multiplier (matches VANGUARD-07 battle wear!)
+      const aCanvas = document.createElement('canvas');
+      aCanvas.width = size; aCanvas.height = size;
+      const aCtx = aCanvas.getContext('2d');
+      aCtx.fillStyle = '#f3f5f8';
+      aCtx.fillRect(0, 0, size, size);
+      // Soft atmospheric weathering clouds & subtle panel-tone modulation (like VANGUARD_BaseColor!)
+      for (let i = 0; i < 140; i++) {
+        const cx = rand() * size, cy = rand() * size, rad = 20 + rand() * 68;
+        const g = aCtx.createRadialGradient(cx, cy, 2, cx, cy, rad);
+        const tone = 212 + Math.floor(rand() * 32);
+        g.addColorStop(0, `rgba(${tone},${tone + 2},${tone + 5},0.16)`);
+        g.addColorStop(1, 'rgba(243,245,248,0)');
+        aCtx.fillStyle = g;
+        aCtx.beginPath(); aCtx.arc(cx, cy, rad, 0, Math.PI * 2); aCtx.fill();
+      }
+      // Subtle military panel-line wash (delicate alpha so it looks machined, never tiled!)
+      aCtx.strokeStyle = 'rgba(42, 52, 68, 0.22)';
+      aCtx.lineWidth = 1.6;
+      aCtx.beginPath(); aCtx.moveTo(0, 256); aCtx.lineTo(size, 256); aCtx.stroke();
+      aCtx.beginPath(); aCtx.moveTo(256, 0); aCtx.lineTo(256, size); aCtx.stroke();
+      aCtx.strokeStyle = 'rgba(42, 52, 68, 0.14)';
+      aCtx.lineWidth = 1.2;
+      aCtx.strokeRect(48, 48, 160, 120);
+      aCtx.strokeRect(300, 296, 152, 132);
+
+      const makeTex = (cvs, isSRGB) => {
+        const t = new THREE.CanvasTexture(cvs);
+        t.wrapS = THREE.RepeatWrapping;
+        t.wrapT = THREE.RepeatWrapping;
+        t.repeat.set(0.32, 0.32);
+        t.anisotropy = maxAnisotropy;
+        t.colorSpace = isSRGB ? THREE.SRGBColorSpace : THREE.NoColorSpace;
+        t.needsUpdate = true;
+        return t;
+      };
+
+      return {
+        normalMap: makeTex(nCanvas, false),
+        roughnessMap: makeTex(rCanvas, false),
+        albedoDetailMap: makeTex(aCanvas, true)
+      };
+    }
+
+    const mechaPBR = createProceduralMechaPBR();
+
+    // Real-time Faction Color-Grading of VANGUARD-07 BaseColor (preserves 100% weathering & panel lines!)
+    function getFactionGradedTexture(unitId, origTex, palette) {
+      if (!palette || !origTex || !origTex.image) return origTex;
+      if (state.factionTextureCache.has(unitId)) return state.factionTextureCache.get(unitId);
+
+      const img = origTex.image;
+      const w = Math.min(img.width || 1024, 1024);
+      const h = Math.min(img.height || 1024, 1024);
+      const cvs = document.createElement('canvas');
+      cvs.width = w; cvs.height = h;
+      const ctx = cvs.getContext('2d');
+      ctx.drawImage(img, 0, 0, w, h);
+
+      const frame = ctx.getImageData(0, 0, w, h);
+      const px = frame.data;
+      const [wr, wg, wb] = palette.white;
+      const [br, bg, bb] = palette.blue;
+      const [rr, rg, rb] = palette.red;
+      const [yr, yg, yb] = palette.yellow;
+
+      for (let i = 0; i < px.length; i += 4) {
+        const r = px[i] / 255.0, g = px[i + 1] / 255.0, b = px[i + 2] / 255.0;
+        const mx = Math.max(r, g, b), mn = Math.min(r, g, b);
+        const sat = mx > 1e-4 ? (mx - mn) / mx : 0.0;
+        const lum = 0.299 * r + 0.587 * g + 0.114 * b;
+
+        let nr = r, ng = g, nb = b;
+        if (b > r + 0.08 && b > g + 0.04) {
+          // Cobalt blue chest / backpack band -> preserve luminance weathering
+          const lScale = Math.min(1.55, lum / 0.34);
+          nr = br * lScale; ng = bg * lScale; nb = bb * lScale;
+        } else if (r > g + 0.11 && r > b + 0.11) {
+          // Signal red waist / cockpit / feet band
+          const lScale = Math.min(1.45, lum / 0.32);
+          nr = rr * lScale; ng = rg * lScale; nb = rb * lScale;
+        } else if (r > 0.42 && g > 0.32 && b < g - 0.10) {
+          // Gold V-fin / vents band
+          const lScale = Math.min(1.35, lum / 0.58);
+          nr = yr * lScale; ng = yg * lScale; nb = yb * lScale;
+        } else if (sat < 0.22 && mx > 0.46) {
+          // Satin Polar White armor band -> smooth blend above dark joints so weathering stays ultra-crisp!
+          const t = Math.min(1.0, (mx - 0.46) / 0.22);
+          const lScale = Math.min(1.18, lum / 0.78);
+          nr = r * (1 - t) + (wr * lScale) * t;
+          ng = g * (1 - t) + (wg * lScale) * t;
+          nb = b * (1 - t) + (wb * lScale) * t;
+        }
+        px[i]     = Math.max(0, Math.min(255, Math.round(nr * 255)));
+        px[i + 1] = Math.max(0, Math.min(255, Math.round(ng * 255)));
+        px[i + 2] = Math.max(0, Math.min(255, Math.round(nb * 255)));
+      }
+      ctx.putImageData(frame, 0, 0);
+
+      const graded = new THREE.CanvasTexture(cvs);
+      graded.flipY = origTex.flipY;
+      graded.wrapS = origTex.wrapS;
+      graded.wrapT = origTex.wrapT;
+      graded.colorSpace = THREE.SRGBColorSpace;
+      graded.anisotropy = maxAnisotropy;
+      graded.needsUpdate = true;
+      state.factionTextureCache.set(unitId, graded);
+      return graded;
+    }
+
+    // =========================================================================
+    // 5. CUSTOM GLSL FRESNEL HOLOGRAM SHADER & LIGHTING PRESETS
+    // =========================================================================
+    const hologramMaterial = new THREE.ShaderMaterial({
+      transparent: true, side: THREE.DoubleSide, depthWrite: false, blending: THREE.AdditiveBlending,
+      uniforms: { uTime: { value: 0 }, uColor: { value: new THREE.Color('#00e5ff') }, uAlpha: { value: 0.75 } },
+      vertexShader: `
+        varying vec3 vNormal; varying vec3 vViewDir; varying float vWorldY;
+        void main() {
+          vNormal = normalize(normalMatrix * normal);
+          vec4 worldPos = modelMatrix * vec4(position, 1.0);
+          vWorldY = worldPos.y;
+          vec4 mvPos = modelViewMatrix * vec4(position, 1.0);
+          vViewDir = normalize(-mvPos.xyz);
+          gl_Position = projectionMatrix * mvPos;
+        }
+      `,
+      fragmentShader: `
+        uniform float uTime; uniform vec3 uColor; uniform float uAlpha;
+        varying vec3 vNormal; varying vec3 vViewDir; varying float vWorldY;
+        float rand(vec2 st) { return fract(sin(dot(st.xy, vec2(12.9898, 78.233))) * 43758.5453123); }
+        void main() {
+          float fresnel = pow(1.0 - abs(dot(vNormal, vViewDir)), 2.5);
+          float scanLine = smoothstep(0.3, 0.7, sin(vWorldY * 1.4 + uTime * 4.5) * 0.5 + 0.5);
+          float scanIntensity = mix(0.45, 1.0, scanLine);
+          float barPos = mod(uTime * 48.0, 210.0) - 10.0;
+          float scanBar = (1.0 - smoothstep(0.0, 14.0, abs(vWorldY - barPos))) * 0.7;
+          float glitch = step(0.975, rand(vec2(floor(uTime * 14.0), 0.0)));
+          float flicker = 1.0 - glitch * 0.35;
+          float alpha = clamp((0.14 + fresnel * 1.15 + scanBar) * scanIntensity * flicker, 0.0, 1.0) * uAlpha;
+          vec3 col = uColor * (0.65 + fresnel * 1.5 + scanBar * 1.6) + vec3(fresnel * 0.2, fresnel * 0.08, 0.0);
+          gl_FragColor = vec4(col, alpha);
+        }
+      `
+    });
+
+    const blueprintSolidMat = new THREE.MeshStandardMaterial({ color: 0x08142b, roughness: 0.72, metalness: 0.18 });
+    const blueprintLineMat = new THREE.LineBasicMaterial({ color: 0x00e5ff, transparent: true, opacity: 0.78 });
+
+    const ENVIRONMENTS = {
+      hangar:    { bg: 0x060b16, fog: 0x060b16, key: 0xffffff, keyI: 2.0, fill: 0x7dd3fc, fillI: 0.85, rim: 0x38bdf8, rimI: 1.35, hemiI: 0.65, envI: 0.85, stars: 0.32, cyber: false },
+      earth:     { bg: 0x071226, fog: 0x071226, key: 0xfffdf5, keyI: 2.3, fill: 0x60a5fa, fillI: 1.05, rim: 0x93c5fd, rimI: 1.25, hemiI: 0.75, envI: 0.95, stars: 0.72, cyber: false },
+      mars:      { bg: 0x16090b, fog: 0x16090b, key: 0xff8c5a, keyI: 2.2, fill: 0xd94626, fillI: 1.0,  rim: 0xfb923c, rimI: 1.5,  hemiI: 0.55, envI: 0.75, stars: 0.52, cyber: false },
+      lunar:     { bg: 0x05060a, fog: 0x05060a, key: 0xf8fafc, keyI: 2.6, fill: 0x475569, fillI: 0.3,  rim: 0xcbd5e1, rimI: 0.95, hemiI: 0.30, envI: 0.65, stars: 0.95, cyber: false },
+      cyberpunk: { bg: 0x070217, fog: 0x070217, key: 0x6d28d9, keyI: 1.0, fill: 0xff007f, fillI: 2.4,  rim: 0x00e5ff, rimI: 2.6,  hemiI: 0.45, envI: 0.75, stars: 0.45, cyber: true }
+    };
+
+    function applyEnvironment(envKey) {
+      const cfg = ENVIRONMENTS[envKey] || ENVIRONMENTS.hangar;
+      state.activeEnv = envKey;
+      scene.background.setHex(cfg.bg);
+      scene.fog.color.setHex(cfg.fog);
+      keyLight.color.setHex(cfg.key); keyLight.intensity = cfg.keyI;
+      fillLight.color.setHex(cfg.fill); fillLight.intensity = cfg.fillI;
+      rimLight.color.setHex(cfg.rim); rimLight.intensity = cfg.rimI;
+      hemiLight.intensity = cfg.hemiI;
+      scene.environmentIntensity = cfg.envI;
+      starField.material.opacity = cfg.stars;
+      cyberGroup.visible = cfg.cyber;
+      glowRingOuter.material.color.setHex(cfg.cyber ? 0xff007f : 0x00e5ff);
+    }
+
+    // =========================================================================
+    // 6. PHYSICAL PBR MATERIAL BUILDERS (WEATHERED CLEARCOAT + FACTION SYNC!)
+    // =========================================================================
+    function buildCadPBRMaterial(node) {
+      const n = (node.name || '').toLowerCase();
+      let color = 0xe8edf5, roughness = 0.34, metalness = 0.16, emissive = 0x000000, emissiveIntensity = 0.0, useDetail = true;
+      if (n.includes('twin_eyes') || n.includes('sensor_front') || n.includes('sensor_rear') || n.includes('thruster_glow')) {
+        color = 0x00f5ff; emissive = 0x00f5ff; emissiveIntensity = 2.4; roughness = 0.1; metalness = 0.1; useDetail = false;
+      } else if (n.includes('v_fin_crest_gem') || n.includes('chin_guard') || n.includes('cockpit_hatch') || n.includes('abdomen_core') || n.includes('toe_plate') || n.includes('heel_block')) {
+        color = 0xc81e1e; roughness = 0.36; metalness = 0.22;
+      } else if (n.includes('v_fin') || n.includes('louvers') || n.includes('v_emblem')) {
+        color = 0xeab308; roughness = 0.26; metalness = 0.85; useDetail = false;
+      } else if (n.includes('chest_armor_blue')) {
+        color = 0x1d4ed8; roughness = 0.34; metalness = 0.28;
+      } else if (n.includes('backpack_core') || n.includes('visor_recess') || n.includes('vent_duct') || n.includes('foot_sole')) {
+        color = 0x1e293b; roughness = 0.44; metalness = 0.65;
+      } else if (n.includes('hydraulic') || n.includes('piston') || n.includes('thruster_bell')) {
+        color = 0xcbd5e1; roughness = 0.18; metalness = 0.94; useDetail = false;
+      } else if (n.includes('frame') || n.includes('gimbal') || n.includes('knuckle') || n.includes('pivot') || n.includes('gear') || n.includes('fist') || n.includes('socket') || n.includes('clavicle') || n.includes('humerus') || n.includes('femur') || n.includes('tibia') || n.includes('neck')) {
+        color = 0x334155; roughness = 0.44; metalness = 0.82;
+      }
+      return new THREE.MeshPhysicalMaterial({
+        color, roughness, metalness, emissive, emissiveIntensity,
+        map: useDetail ? mechaPBR.albedoDetailMap : null,
+        normalMap: useDetail ? mechaPBR.normalMap : null,
+        normalScale: new THREE.Vector2(0.45, 0.45),
+        roughnessMap: useDetail ? mechaPBR.roughnessMap : null,
+        clearcoat: useDetail ? 0.22 : 0.0,
+        clearcoatRoughness: 0.22,
+        envMapIntensity: 1.05
+      });
+    }
+
+    function buildZeonEnemyPBRMaterial(node, spec) {
+      const n = (node.name || '').toLowerCase();
+      // Matte-satin military armor base (roughness ~0.58-0.64 so Zeon armor looks like real painted military alloy, NOT shiny bowling balls!)
+      let color = spec.packColors.primary, roughness = 0.60, metalness = 0.16, emissive = 0x000000, emissiveIntensity = 0.0, useDetail = true, coat = 0.06;
+
+      if (n.includes('mono_eye_glow')) {
+        color = spec.monoEyeColor || 0xff2268;
+        emissive = spec.monoEyeColor || 0xff2268;
+        emissiveIntensity = 3.4; roughness = 0.15; metalness = 0.05; useDetail = false; coat = 0.0;
+      } else if (n.includes('heat_saber_glow') || n.includes('hawk_blade_glow')) {
+        color = 0xff7a1a; emissive = 0xff4500; emissiveIntensity = 2.6; roughness = 0.24; metalness = 0.22; useDetail = false; coat = 0.0;
+      } else if (n.includes('belly_emitter_glow')) {
+        color = 0xffcc33; emissive = 0xff9900; emissiveIntensity = 2.6; roughness = 0.18; metalness = 0.25; useDetail = false; coat = 0.0;
+      } else if (n.includes('track_rail')) {
+        color = 0x090c12; roughness = 0.62; metalness = 0.35; useDetail = false; coat = 0.0;
+      } else if (n.includes('_gold') || n.includes('trim_gold') || n.includes('cannon_gold') || n.includes('crest_gold')) {
+        color = 0xd9a21b; roughness = 0.34; metalness = 0.80; useDetail = false; coat = 0.12;
+      } else if (n.includes('thruster') || n.includes('jet_')) {
+        color = n.includes('gold') ? 0xcf9a24 : 0x4b5563;
+        roughness = 0.34; metalness = 0.86; useDetail = false; coat = 0.0;
+      } else if (n.includes('hose')) {
+        color = spec.id === 'enemy_sazabi' ? 0xcfa026 : 0x3b4450;
+        roughness = 0.50; metalness = spec.id === 'enemy_sazabi' ? 0.74 : 0.45; useDetail = false; coat = 0.0;
+      } else if (n.includes('hawk_head_purple')) {
+        color = 0x52396e; roughness = 0.54; metalness = 0.32;
+      } else if (n.includes('olive_dark')) {
+        color = 0x384b31; roughness = 0.64; metalness = 0.14;
+      } else if (n.includes('_navy')) {
+        color = 0x1a3158; roughness = 0.58; metalness = 0.18;
+      } else if (n.includes('_oxblood')) {
+        color = 0x5a0f15; roughness = 0.54; metalness = 0.22;
+      } else if (n.includes('_obsidian') || n.includes('_dark') || n.includes('_frame') || n.includes('socket') || n.includes('_mg_') || n.includes('_rifle_')) {
+        color = 0x202630; roughness = 0.58; metalness = 0.58; useDetail = false; coat = 0.0;
+      } else if (n.includes('_maroon')) {
+        color = 0x8a1820; roughness = 0.48; metalness = 0.24; coat = 0.12;
+      } else if (n.includes('_blue')) {
+        color = 0x396eb4; roughness = 0.56; metalness = 0.18;
+      } else if (n.includes('_olive') || n.includes('zaku_')) {
+        color = 0x6f855b; roughness = 0.62; metalness = 0.14;
+      }
+
+      return new THREE.MeshPhysicalMaterial({
+        color, roughness, metalness, emissive, emissiveIntensity,
+        map: useDetail ? mechaPBR.albedoDetailMap : null,
+        normalMap: useDetail ? mechaPBR.normalMap : null,
+        normalScale: new THREE.Vector2(0.45, 0.45),
+        roughnessMap: useDetail ? mechaPBR.roughnessMap : null,
+        clearcoat: coat,
+        clearcoatRoughness: 0.35,
+        envMapIntensity: 0.78
+      });
+    }
+
+    function buildAdapterMaterial(node) {
+      const n = (node.name || '').toLowerCase();
+      if (n.includes('gold') || n.includes('detent')) {
+        return new THREE.MeshPhysicalMaterial({
+          color: 0xf59e0b, roughness: 0.26, metalness: 0.86,
+          emissive: 0x78350f, emissiveIntensity: 0.35, clearcoat: 0.2, envMapIntensity: 1.1
+        });
+      }
+      if (n.includes('peg')) {
+        return new THREE.MeshStandardMaterial({
+          color: 0x94a3b8, roughness: 0.22, metalness: 0.92, envMapIntensity: 1.15
+        });
+      }
+      // Machined graphite gunmetal bracket (matches VANGUARD-07 graphite actuators!)
+      return new THREE.MeshPhysicalMaterial({
+        color: 0x1e2530, roughness: 0.38, metalness: 0.78,
+        normalMap: mechaPBR.normalMap, normalScale: new THREE.Vector2(0.35, 0.35),
+        roughnessMap: mechaPBR.roughnessMap,
+        clearcoat: 0.16, clearcoatRoughness: 0.32, envMapIntensity: 1.05
+      });
+    }
+
+    function buildPackPBRMaterial(node, unitId = state.activeUnitId) {
+      const spec = UNIT_REGISTRY[unitId] || UNIT_REGISTRY.vanguard_rx;
+      const pc = spec.packColors;
+      const n = (node.name || '').toLowerCase();
+
+      let color = pc.frame, roughness = 0.38, metalness = 0.74, emissive = 0x000000, emissiveIntensity = 0.0, useArmorDetail = true;
+
+      if (n.includes('optic_cyan')) {
+        color = pc.optic; emissive = pc.optic; emissiveIntensity = 2.6; roughness = 0.12; metalness = 0.1; useArmorDetail = false;
+      } else if (n.includes('dovetail') || n.includes('bracket') || n.includes('clamp') || n.includes('rack_arm') || n.includes('yoke') || n.includes('grip') || n.includes('epac')) {
+        color = pc.frame; roughness = 0.40; metalness = 0.82;
+      } else if (n.includes('shield_core_red') || n.includes('tank') || n.includes('booster')) {
+        color = pc.accent; roughness = 0.34; metalness = 0.28;
+      } else if (n.includes('fuselage') || n.includes('rack') || n.includes('core_chassis') || n.includes('hub_core') || n.includes('pylon')) {
+        color = pc.secondary; roughness = 0.35; metalness = 0.32;
+      } else if (n.includes('gold') || n.includes('blade') || n.includes('intake') || n.includes('cross_gold')) {
+        color = pc.gold; roughness = 0.25; metalness = 0.85; useArmorDetail = false;
+      } else if (n.includes('wing') || n.includes('disc') || n.includes('shield_frame') || n.includes('fin_binder') || n.includes('tower_shield') || n.includes('rudder')) {
+        color = pc.primary; roughness = 0.34; metalness = 0.22;
+      } else if (n.includes('bell') || n.includes('thruster') || n.includes('vernier')) {
+        color = 0x526072; roughness = 0.24; metalness = 0.90; emissive = pc.optic; emissiveIntensity = 0.14; useArmorDetail = false;
+      } else if (n.includes('barrel') || n.includes('receiver') || n.includes('sleeve') || n.includes('cylinder') || n.includes('stake')) {
+        color = 0x334155; roughness = 0.32; metalness = 0.84;
+      }
+
+      return new THREE.MeshPhysicalMaterial({
+        color, roughness, metalness, emissive, emissiveIntensity,
+        map: useArmorDetail ? mechaPBR.albedoDetailMap : null,
+        normalMap: useArmorDetail ? mechaPBR.normalMap : null,
+        normalScale: new THREE.Vector2(0.55, 0.55),
+        roughnessMap: useArmorDetail ? mechaPBR.roughnessMap : null,
+        clearcoat: useArmorDetail ? 0.22 : 0.08,
+        clearcoatRoughness: 0.22,
+        envMapIntensity: 1.05
+      });
+    }
+
+    // =========================================================================
+    // 7. SCENE ROOT, PHYSICAL GUNPLA BONE-SOCKET RIG & RENDER MODES
+    // =========================================================================
+    const mechaRoot = new THREE.Group();
+    scene.add(mechaRoot);
+    const gltfLoader = new GLTFLoader();
+
+    async function loadAdapterTemplate() {
+      if (state.adapterTemplate) return state.adapterTemplate;
+      try {
+        const gltf = await new Promise((res, rej) =>
+          gltfLoader.load('assets/mecha/models/parts/adapter_hp00_dorsal.glb', res, undefined, rej)
+        );
+        state.adapterTemplate = gltf.scene;
+      } catch (e) {
+        console.warn('Fallback procedural adapter bracket used:', e);
+        const grp = new THREE.Group();
+        const body = new THREE.Mesh(new THREE.BoxGeometry(22, 22, 8), buildAdapterMaterial({ name: 'adapter_clamp_body' }));
+        body.position.set(0, 0, -4);
+        grp.add(body);
+        state.adapterTemplate = grp;
+      }
+      return state.adapterTemplate;
+    }
+
+    function createPhysicalAdapterSocket(parentNode, opts) {
+      const wrapper = new THREE.Group();
+      wrapper.name = `SocketWrapper_${opts.slotGroup}_${opts.adapterId}`;
+      wrapper.position.set(...opts.pos);
+      if (opts.rot) wrapper.rotation.set(...opts.rot);
+      wrapper.scale.setScalar(opts.scale);
+      parentNode.add(wrapper);
+
+      // 1. Machined Graphite Gunpla Physical Adapter Bracket
+      const adapterVis = new THREE.Group();
+      adapterVis.name = `PhysicalAdapter_${opts.adapterId}`;
+      if (state.adapterTemplate) {
+        const clone = state.adapterTemplate.clone(true);
+        clone.traverse(n => {
+          if (n.isMesh) {
+            n.castShadow = true; n.receiveShadow = true;
+            n.material = buildAdapterMaterial(n);
+            n.userData.origMaterial = n.material;
+            n.userData.isAdapterHardware = true;
+          }
+        });
+        if (opts.adapterScale) clone.scale.set(...opts.adapterScale);
+        adapterVis.add(clone);
+      }
+      adapterVis.visible = !!opts.alwaysVisible;
+      wrapper.add(adapterVis);
+
+      // 2. Razor-Thin Precision Cyan Detent Lock-Seam Flash Ring (triggers at exact KLIK contact!)
+      const lockRingGeo = new THREE.RingGeometry(10.6, 11.8, 48);
+      const lockRingMat = new THREE.MeshBasicMaterial({
+        color: 0x00f5ff, side: THREE.DoubleSide, transparent: true, opacity: 0.0, depthWrite: false
+      });
+      const lockRing = new THREE.Mesh(lockRingGeo, lockRingMat);
+      const dockedZ = opts.dockedZ !== undefined ? opts.dockedZ : -8.0;
+      lockRing.position.set(0, 0, dockedZ - 0.2);
+      lockRing.visible = false;
+      wrapper.add(lockRing);
+
+      // 3. Isolated Payload Container (safe from AnimationMixer; slides along rail into dockedZ!)
+      const payloadContainer = new THREE.Group();
+      payloadContainer.name = `PayloadContainer_${opts.slotGroup}`;
+      payloadContainer.position.set(0, 0, dockedZ);
+      wrapper.add(payloadContainer);
+
+      return {
+        slotGroup: opts.slotGroup,
+        adapterId: opts.adapterId,
+        boneName: parentNode.name || 'root',
+        wrapper,
+        adapterVis,
+        alwaysVisible: !!opts.alwaysVisible,
+        lockRing,
+        payloadContainer,
+        dockedZ
+      };
+    }
+
+    function buildSocketRigForUnit(model, spec) {
+      if (spec.isCC0) {
+        // Live Skeletal Bone Attachment on VANGUARD-07 (moves 100% synced with all 7 animations!)
+        const chestBone = model.getObjectByName('chest') || model;
+        const pelvisBone = model.getObjectByName('pelvis') || model;
+
+        return {
+          // ADP-HP00-DORSAL: Seated flush against flat cobalt rear backpack face (Z=-3.10), between sabers & above thrusters!
+          dorsal_pack: createPhysicalAdapterSocket(chestBone, {
+            slotGroup: 'dorsal_pack',
+            adapterId: 'ADP-HP00-DORSAL',
+            pos: [0.0, 3.35, -3.10],
+            rot: [0.0, 0.0, 0.0],
+            scale: 0.095,
+            dockedZ: -8.0,
+            alwaysVisible: true
+          }),
+          // ADP-HP07-FOREARM: Sleek Rear-Left Hip/Skirt Tactical Stow Sub-Arm (flush clamped, ZERO clip!)
+          aux_shield: createPhysicalAdapterSocket(pelvisBone, {
+            slotGroup: 'aux_shield',
+            adapterId: 'ADP-HP07-FOREARM',
+            pos: [2.10, 0.35, -2.32],
+            rot: [0.04, -0.24, -0.05],
+            scale: 0.084,
+            adapterScale: [0.42, 0.48, 0.55],
+            dockedZ: -4.4,
+            alwaysVisible: false
+          }),
+          // ADP-HP11-WEAPON: Sleek Rear-Right Hip/Flank Long-Rifle Stow Rack (flush clamped, ZERO clip!)
+          aux_weapon: createPhysicalAdapterSocket(pelvisBone, {
+            slotGroup: 'aux_weapon',
+            adapterId: 'ADP-HP11-WEAPON',
+            pos: [-2.00, 0.90, -2.35],
+            rot: [0.05, 0.14, 0.18],
+            scale: 0.084,
+            adapterScale: [0.28, 0.34, 0.45],
+            dockedZ: -4.2,
+            alwaysVisible: false
+          })
+        };
+      } else if (spec.isZeonEnemy) {
+        // Smooth Zeon / Neo-Zeon Enemy Mobile Suits (mm-scale with native hand/shoulder arms -> rear waist stow racks!)
+        return {
+          dorsal_pack: createPhysicalAdapterSocket(model, {
+            slotGroup: 'dorsal_pack',
+            adapterId: 'ADP-HP00-DORSAL',
+            pos: [0.0, 141.0, spec.dorsalZ || -26.5],
+            rot: [0, 0, 0],
+            scale: 1.0,
+            dockedZ: -8.0,
+            alwaysVisible: true
+          }),
+          aux_shield: createPhysicalAdapterSocket(model, {
+            slotGroup: 'aux_shield',
+            adapterId: 'ADP-HP07-FOREARM',
+            pos: [22.0, 96.0, -24.0],
+            rot: [0.04, -0.24, -0.05],
+            scale: 0.84,
+            adapterScale: [0.42, 0.48, 0.55],
+            dockedZ: -4.4,
+            alwaysVisible: false
+          }),
+          aux_weapon: createPhysicalAdapterSocket(model, {
+            slotGroup: 'aux_weapon',
+            adapterId: 'ADP-HP11-WEAPON',
+            pos: [-22.0, 102.0, -24.5],
+            rot: [0.05, 0.18, 0.20],
+            scale: 0.84,
+            adapterScale: [0.40, 0.46, 0.55],
+            dockedZ: -4.4,
+            alwaysVisible: false
+          })
+        };
+      } else {
+        // Direct mm-scale Hardpoint Adapters on Bare-Arm RX-78 Ver.Ka CAD Frame
+        return {
+          dorsal_pack: createPhysicalAdapterSocket(model, {
+            slotGroup: 'dorsal_pack',
+            adapterId: 'ADP-HP00-DORSAL',
+            pos: [0.0, 141.5, -27.5],
+            rot: [0, 0, 0],
+            scale: 1.0,
+            alwaysVisible: true
+          }),
+          aux_shield: createPhysicalAdapterSocket(model, {
+            slotGroup: 'aux_shield',
+            adapterId: 'ADP-HP07-FOREARM',
+            pos: [41.5, 102.0, 2.5],
+            rot: [0, Math.PI / 2, 0],
+            scale: 0.92,
+            adapterScale: [0.7, 0.7, 0.8],
+            alwaysVisible: false
+          }),
+          aux_weapon: createPhysicalAdapterSocket(model, {
+            slotGroup: 'aux_weapon',
+            adapterId: 'ADP-HP11-WEAPON',
+            pos: [-38.5, 89.0, 14.0],
+            rot: [Math.PI / 2, 0, 0],
+            scale: 0.92,
+            adapterScale: [0.65, 0.65, 0.8],
+            alwaysVisible: false
+          })
+        };
+      }
+    }
+
+    function clearBlueprintEdges() {
+      state.blueprintEdges.forEach(line => {
+        if (line.parent) line.parent.remove(line);
+        line.geometry?.dispose();
+      });
+      state.blueprintEdges = [];
+    }
+
+    function applyRenderMode(mode) {
+      state.renderMode = mode;
+      clearBlueprintEdges();
+      holoCoreLight.intensity = (mode === 'hologram') ? 4.0 : 0.0;
+
+      mechaRoot.traverse(node => {
+        if (!node.isMesh || !node.userData.origMaterial) return;
+        const orig = node.userData.origMaterial;
+
+        if (mode === 'standard') {
+          if (Array.isArray(orig)) orig.forEach(m => { m.wireframe = false; });
+          else orig.wireframe = false;
+          node.material = orig;
+        } else if (mode === 'hologram') {
+          node.material = hologramMaterial;
+        } else if (mode === 'xray') {
+          if (Array.isArray(orig)) orig.forEach(m => { m.wireframe = true; });
+          else orig.wireframe = true;
+          node.material = orig;
+        } else if (mode === 'blueprint') {
+          if (!node.isSkinnedMesh) {
+            node.material = blueprintSolidMat;
+            const edges = new THREE.EdgesGeometry(node.geometry, 28);
+            const line = new THREE.LineSegments(edges, blueprintLineMat);
+            node.add(line);
+            state.blueprintEdges.push(line);
+          } else {
+            node.material = new THREE.MeshBasicMaterial({ color: 0x00e5ff, wireframe: true, transparent: true, opacity: 0.45 });
+          }
+        }
+      });
+
+      document.querySelectorAll('[data-render-mode]').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.renderMode === mode);
+      });
+    }
+
+    // =========================================================================
+    // 8. AUTO-FIT CAMERA & PRESETS (INCLUDING DORSAL ADAPTER CLOSE-UP!)
+    // =========================================================================
+    function setCameraPreset(preset) {
+      const box = new THREE.Box3().setFromObject(mechaRoot);
+      const center = new THREE.Vector3(0, 92, 0);
+      const size = new THREE.Vector3(90, 180, 70);
+      if (!box.isEmpty()) { box.getCenter(center); box.getSize(size); }
+      const maxDim = Math.max(size.x, size.y, size.z, 185);
+
+      if (preset === 'heroic') {
+        camera.position.set(maxDim * 0.68, center.y + maxDim * 0.09, maxDim * 1.76);
+        controls.target.set(center.x, center.y + 6, center.z);
+      } else if (preset === 'front') {
+        camera.position.set(0, center.y + 6, maxDim * 1.82);
+        controls.target.set(center.x, center.y + 6, center.z);
+      } else if (preset === 'head') {
+        camera.position.set(36, center.y + size.y * 0.36, 82);
+        controls.target.set(0, center.y + size.y * 0.34, 0);
+      } else if (preset === 'dorsal') {
+        camera.position.set(-72, center.y + 34, -152);
+        controls.target.set(0, center.y + 26, -24);
+      } else if (preset === 'adapter_macro') {
+        camera.position.set(-48, 148, -96);
+        controls.target.set(0, 136, -34);
+      }
+      controls.update();
+      document.querySelectorAll('[data-cam]').forEach(b => b.classList.toggle('active', b.dataset.cam === preset));
+    }
+
+    // =========================================================================
+    // 9. SKELETAL ANIMATION CONTROLLER
+    // =========================================================================
+    function playAnimation(clipName) {
+      if (!state.mixer || !state.actions.has(clipName)) return;
+      const next = state.actions.get(clipName);
+      state.actions.forEach((act, nm) => { if (nm !== clipName) act.fadeOut(0.28); });
+      next.reset().fadeIn(0.28).play();
+      state.activeAnimName = clipName;
+      animChips.querySelectorAll('.anim-btn').forEach(b => b.classList.toggle('active', b.dataset.anim === clipName));
+    }
+
+    function renderAnimationChips(clips, defaultClip) {
+      animChips.innerHTML = '';
+      if (!clips || clips.length === 0) {
+        const spec = UNIT_REGISTRY[state.activeUnitId];
+        const msg = spec?.isZeonEnemy
+          ? '👁️ Live Mono-Eye Sweep Active — use Exploded Slider below'
+          : 'Static CAD Frame — use Exploded Slider below';
+        animChips.innerHTML = `<span style="font-size:9px;color:var(--text-muted);font-family:var(--font-mono);">${msg}</span>`;
+        return;
+      }
+      clips.forEach(clip => {
+        const btn = document.createElement('button');
+        btn.className = 'anim-btn' + (clip.name === defaultClip ? ' active' : '');
+        btn.dataset.anim = clip.name;
+        btn.innerText = clip.name;
+        btn.addEventListener('click', () => playAnimation(clip.name));
+        animChips.appendChild(btn);
+      });
+    }
+
+    // =========================================================================
+    // 10. LOAD GUNDAM-UNIVERSE UNIT & RE-MOUNT LOCKED ADAPTER PACKS
+    // =========================================================================
+    async function loadUnit(unitId) {
+      const spec = UNIT_REGISTRY[unitId] || UNIT_REGISTRY.vanguard_rx;
+      state.activeUnitId = spec.id;
+
+      document.querySelectorAll('#unit-roster .unit-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.unit === spec.id);
+      });
+
+      loadingLabel.innerText = `LOADING ${spec.name.toUpperCase()}...`;
+      loadingOverlay.style.display = 'flex';
+      loadingOverlay.style.opacity = '1';
+
+      // Snapshot currently equipped parts so they seamlessly re-lock onto the new Gundam unit's adapters!
+      const previouslyEquipped = Array.from(state.equippedPacks.values()).map(entry => entry.part);
+
+      clearBlueprintEdges();
+      state.snapAnimations = [];
+      if (state.mixer) { state.mixer.stopAllAction(); state.mixer = null; }
+      state.actions.clear();
+
+      if (state.chassisModel) {
+        mechaRoot.remove(state.chassisModel);
+        state.chassisModel.traverse(n => { if (n.geometry) n.geometry.dispose(); });
+        state.chassisModel = null;
+      }
+      state.equippedPacks.clear();
+      state.slotOccupancy = { dorsal_pack: null, aux_shield: null, aux_weapon: null };
+      state.socketRig = null;
+      state.monoEyeNode = null;
+      state.monoEyeBasePos = null;
+      state.chassisParts = [];
+
+      await loadAdapterTemplate();
+
+      return new Promise((resolve, reject) => {
+        gltfLoader.load(spec.glbUrl, async (gltf) => {
+          const model = gltf.scene;
+          state.chassisModel = model;
+
+          // Normalize scale to exact 180-unit Master Grade Hangar height & anchor feet cleanly at Y = 0!
+          const rawBox = new THREE.Box3().setFromObject(model);
+          const rawSize = new THREE.Vector3();
+          rawBox.getSize(rawSize);
+          const scaleFactor = rawSize.y > 0.001 ? (180.0 / rawSize.y) : 1.0;
+          model.scale.setScalar(scaleFactor);
+
+          model.updateMatrixWorld(true);
+          const scaledBox = new THREE.Box3().setFromObject(model);
+          const scaledCenter = new THREE.Vector3();
+          scaledBox.getCenter(scaledCenter);
+          model.position.set(-scaledCenter.x, -scaledBox.min.y, -scaledCenter.z);
+
+          model.traverse(node => {
+            if (node.isMesh) {
+              node.castShadow = true;
+              node.receiveShadow = true;
+              if (spec.isZeonEnemy) {
+                node.material = buildZeonEnemyPBRMaterial(node, spec);
+                if ((node.name || '').toLowerCase().includes('mono_eye_glow')) {
+                  state.monoEyeNode = node;
+                  state.monoEyeBasePos = node.position.clone();
+                }
+              } else if (!spec.isCC0) {
+                node.material = buildCadPBRMaterial(node);
+              } else if (node.material) {
+                const mats = Array.isArray(node.material) ? node.material : [node.material];
+                mats.forEach(m => { m.envMapIntensity = 1.08; });
+              }
+              node.userData.origMaterial = node.material;
+              if (node.geometry) {
+                node.geometry.computeBoundingBox();
+                node.userData.geomCenter = new THREE.Vector3();
+                node.geometry.boundingBox.getCenter(node.userData.geomCenter);
+              }
+              node.userData.initialPosition = node.position.clone();
+              state.chassisParts.push(node);
+            }
+          });
+
+          mechaRoot.add(model);
+
+          // Mount Physical Machined Gunpla Adapters Directly Onto Live Skeletal Bones!
+          state.socketRig = buildSocketRigForUnit(model, spec);
+
+          if (gltf.animations && gltf.animations.length > 0) {
+            state.mixer = new THREE.AnimationMixer(model);
+            gltf.animations.forEach(clip => {
+              state.actions.set(clip.name, state.mixer.clipAction(clip));
+            });
+            const startClip = state.actions.has(spec.defaultAnim) ? spec.defaultAnim : gltf.animations[0].name;
+            renderAnimationChips(gltf.animations, startClip);
+            playAnimation(startClip);
+          } else {
+            renderAnimationChips([], null);
+          }
+
+          // Seamlessly re-lock any equipped modular parts onto the new unit's adapters with synced faction paint!
+          for (const part of previouslyEquipped) {
+            await mountPartOnAdapter(part, true);
+          }
+
+          applyRenderMode(state.renderMode);
+          applyExplodedDisplacement(state.explodedFactor);
+          updateTelemetry();
+          renderInventory();
+
+          inspectTitle.innerText = spec.name;
+          inspectBody.innerText = spec.desc;
+
+          setCameraPreset('heroic');
+          loadingOverlay.style.opacity = '0';
+          setTimeout(() => { loadingOverlay.style.display = 'none'; }, 350);
+          resolve(model);
+        }, undefined, (err) => {
+          console.error('Error loading unit GLB:', err);
+          loadingLabel.innerText = 'ERROR LOADING MODEL ASSET';
+          reject(err);
+        });
+      });
+    }
+
+    // =========================================================================
+    // 11. SNAP-FIT MODULAR CATALOG + 1-SLOT MUTUAL EXCLUSION + KLIK PHYSICS!
+    // =========================================================================
+    function resolvePartSlotGroup(part) {
+      if (part.slot_group) return part.slot_group;
+      const cat = (part.category || '').toLowerCase();
+      if (cat.includes('weapon') || part.primary_hardpoint === 'HP-11') return 'aux_weapon';
+      if (cat.includes('armor') || part.primary_hardpoint === 'HP-07') return 'aux_shield';
+      return 'dorsal_pack';
+    }
+
+    function matchCategoryBucket(part, bucket) {
+      if (bucket === 'all') return true;
+      const cat = (part.category || '').toLowerCase();
+      if (bucket === 'pack') return cat.includes('pack');
+      if (bucket === 'weapon') return cat.includes('weapon');
+      if (bucket === 'armor') return cat.includes('armor') || cat.includes('shield');
+      if (bucket === 'propulsion') return cat.includes('propulsion') || cat.includes('vernier');
+      return cat === bucket;
+    }
+
+    function renderInventory() {
+      partsList.innerHTML = '';
+      if (!state.catalog || !state.catalog.modular_parts) return;
+
+      const allParts = state.catalog.modular_parts;
+      document.getElementById('cat-count-all').innerText = allParts.length;
+      document.getElementById('cat-count-packs').innerText = allParts.filter(p => matchCategoryBucket(p, 'pack')).length;
+      document.getElementById('cat-count-weapons').innerText = allParts.filter(p => matchCategoryBucket(p, 'weapon')).length;
+      document.getElementById('cat-count-armor').innerText = allParts.filter(p => matchCategoryBucket(p, 'armor')).length;
+      document.getElementById('cat-count-propulsion').innerText = allParts.filter(p => matchCategoryBucket(p, 'propulsion')).length;
+
+      let filtered = allParts.filter(part => {
+        if (state.equippedOnly && !state.equippedPacks.has(part.part_id)) return false;
+        if (state.searchQuery) {
+          const q = state.searchQuery;
+          const hit = (part.name || '').toLowerCase().includes(q)
+            || (part.serial_number || '').toLowerCase().includes(q)
+            || (part.adapter_id || '').toLowerCase().includes(q)
+            || (part.telemetry_and_lore?.operational_role || '').toLowerCase().includes(q)
+            || (part.compatible_hardpoints || []).some(hp => hp.toLowerCase().includes(q));
+          if (!hit) return false;
+        }
+        if (!matchCategoryBucket(part, state.activeCategory)) return false;
+        if (state.activeStation !== 'all' && !(part.compatible_hardpoints || []).includes(state.activeStation)) return false;
+        return true;
+      });
+
+      if (state.activeSort === 'name_asc') filtered.sort((a, b) => a.name.localeCompare(b.name));
+      else if (state.activeSort === 'mass_asc') filtered.sort((a, b) => a.structural_specs.mass_kg - b.structural_specs.mass_kg);
+      else if (state.activeSort === 'mass_desc') filtered.sort((a, b) => b.structural_specs.mass_kg - a.structural_specs.mass_kg);
+      else if (state.activeSort === 'thrust_desc') filtered.sort((a, b) => (b.telemetry_and_lore?.vernier_thrust_kgf || 0) - (a.telemetry_and_lore?.vernier_thrust_kgf || 0));
+
+      catalogCountLabel.innerText = `Showing ${filtered.length} of ${allParts.length} parts`;
+      btnEquippedOnly.innerText = state.equippedOnly ? `✓ Locked (${state.equippedPacks.size})` : `${state.equippedPacks.size} Locked`;
+      btnEquippedOnly.classList.toggle('active', state.equippedOnly);
+
+      if (filtered.length === 0) {
+        partsList.innerHTML = `<div style="padding:18px;text-align:center;color:var(--text-muted);font-size:10.5px;">No modular parts match current filters.</div>`;
+        return;
+      }
+
+      filtered.forEach(part => {
+        const isEquipped = state.equippedPacks.has(part.part_id);
+        const adapterId = part.adapter_id || 'ADP-HP00-DORSAL';
+        const card = document.createElement('div');
+        card.className = `part-card ${isEquipped ? 'equipped' : ''}`;
+        card.setAttribute('data-part-id', part.part_id);
+        card.innerHTML = `
+          <div class="part-card-top">
+            <div class="part-name-group">
+              <span class="part-name">${part.name}</span>
+              <span class="part-serial">${part.serial_number}</span>
+            </div>
+            <button class="equip-action-btn ${isEquipped ? 'equipped' : ''}">${isEquipped ? '🔒 LOCKED' : '+ SNAP IN'}</button>
+          </div>
+          <div class="part-desc">${part.telemetry_and_lore?.operational_role || ''}</div>
+          <div class="part-specs-grid">
+            <span class="spec-pill adapter">🔌 ${adapterId}</span>
+            <span class="spec-pill">⚖️ ${(part.structural_specs.mass_kg / 1000).toFixed(1)}t</span>
+            <span class="spec-pill">🚀 ${((part.telemetry_and_lore?.vernier_thrust_kgf || 0) / 1000).toFixed(0)}k kgf</span>
+            <span class="spec-pill hp">📍 ${part.primary_hardpoint || part.compatible_hardpoints[0]}</span>
+          </div>
+        `;
+        card.addEventListener('click', () => toggleEquipPart(part));
+        partsList.appendChild(card);
+      });
+    }
+
+    function dismountPart(partId, silent = false) {
+      const entry = state.equippedPacks.get(partId);
+      if (!entry) return;
+      const socket = state.socketRig?.[entry.slotGroup];
+      if (socket && entry.model.parent === socket.payloadContainer) {
+        socket.payloadContainer.remove(entry.model);
+        if (!socket.alwaysVisible) socket.adapterVis.visible = false;
+      }
+      entry.model.traverse(n => { if (n.geometry) n.geometry.dispose(); });
+      state.chassisParts = state.chassisParts.filter(n => n.parent !== null);
+      state.equippedPacks.delete(partId);
+      if (state.slotOccupancy[entry.slotGroup] === partId) {
+        state.slotOccupancy[entry.slotGroup] = null;
+      }
+      if (!silent) {
+        battleAudio.playGunplaUnlatch();
+        showToast(`🔓 [UNLATCH] ${entry.adapterId} Released — ${entry.part.name}`, false);
+      }
+    }
+
+    async function mountPartOnAdapter(part, silent = false) {
+      if (!state.socketRig) return;
+      const slotGroup = resolvePartSlotGroup(part);
+      const socket = state.socketRig[slotGroup] || state.socketRig.dorsal_pack;
+      const adapterId = part.adapter_id || socket.adapterId;
+
+      // Enforce 1-slot mutual exclusion per hardpoint group (prevents overlapping double packs!)
+      const existingId = state.slotOccupancy[slotGroup];
+      if (existingId && existingId !== part.part_id) {
+        dismountPart(existingId, true);
+      }
+
+      const modelUrl = `assets/mecha/${part.cad_mesh_definition.asset_reference.relative_url}`;
+      try {
+        const gltf = await new Promise((res, rej) => gltfLoader.load(modelUrl, res, undefined, rej));
+        const packModel = gltf.scene;
+        packModel.traverse(node => {
+          if (node.isMesh) {
+            node.castShadow = true;
+            node.receiveShadow = true;
+            node.material = buildPackPBRMaterial(node, state.activeUnitId);
+            node.userData.origMaterial = node.material;
+            node.geometry.computeBoundingBox();
+            node.userData.geomCenter = new THREE.Vector3();
+            node.geometry.boundingBox.getCenter(node.userData.geomCenter);
+            node.userData.initialPosition = node.position.clone();
+            node.userData.isModularPack = true;
+            state.chassisParts.push(node);
+          }
+        });
+
+        socket.adapterVis.visible = true;
+        socket.payloadContainer.add(packModel);
+        state.equippedPacks.set(part.part_id, { part, model: packModel, slotGroup, adapterId });
+        state.slotOccupancy[slotGroup] = part.part_id;
+
+        if (silent) {
+          socket.payloadContainer.position.z = socket.dockedZ;
+        } else {
+          // 3-Stage Gunpla Slide-In + Physical Detent Recoil + "KLIK!" Lock Burst!
+          socket.payloadContainer.position.z = socket.dockedZ - 36.0;
+          state.snapAnimations = state.snapAnimations.filter(a => a.socket !== socket);
+          state.snapAnimations.push({
+            socket,
+            partName: part.name,
+            adapterId,
+            elapsed: 0,
+            slideDur: 0.22,
+            recoilDur: 0.08,
+            ringDur: 0.34,
+            clicked: false
+          });
+        }
+      } catch (e) {
+        console.error('Failed to load modular part:', e);
+      }
+    }
+
+    async function toggleEquipPart(part) {
+      if (state.equippedPacks.has(part.part_id)) {
+        dismountPart(part.part_id, false);
+      } else {
+        await mountPartOnAdapter(part, false);
+      }
+      renderInventory();
+      updateTelemetry();
+      applyRenderMode(state.renderMode);
+      applyExplodedDisplacement(state.explodedFactor);
+    }
+
+    function updateTelemetry() {
+      const spec = UNIT_REGISTRY[state.activeUnitId] || UNIT_REGISTRY.vanguard_rx;
+      let totalMass = spec.massKg;
+      let totalReactor = spec.reactorKw;
+      let totalThrust = spec.baseThrust;
+
+      state.equippedPacks.forEach(entry => {
+        const p = entry.part;
+        totalMass += p.structural_specs.mass_kg;
+        totalReactor += p.telemetry_and_lore.reactor_power_draw_kw;
+        totalThrust += p.telemetry_and_lore.vernier_thrust_kgf;
+      });
+
+      const twr = totalMass > 0 ? (totalThrust / totalMass) : 0;
+      const lockedCount = state.equippedPacks.size;
+      telChassis.innerText = spec.name;
+      telHeight.innerText = spec.heightStr;
+      telMass.innerText = `${totalMass.toLocaleString()} kg (${(totalMass / 1000).toFixed(1)}t)`;
+      telReactor.innerText = `${totalReactor.toLocaleString()} kW`;
+      telThrust.innerText = `${totalThrust.toLocaleString()} kgf`;
+      telTwr.innerText = `${twr.toFixed(2)} G`;
+      telEquippedCount.innerText = `${lockedCount} / 3 locked`;
+      telAmbac.innerText = lockedCount > 0
+        ? `🔒 SNAP-LOCKED: ${lockedCount} ADAPTER${lockedCount > 1 ? 'S' : ''} • 0.0mm INTERFERENCE`
+        : `PLUG-LOCK ADAPTERS: READY (0.0mm CLEARANCE)`;
+    }
+
+    // =========================================================================
+    // 12. VECTOR-ALIGNED EXPLODED VIEW (FOR CAD INNER FRAME & ADAPTER PAYLOADS)
+    // =========================================================================
+    function applyExplodedDisplacement(factor) {
+      // Slide physical adapter payloads smoothly back along their rail axis during exploded inspection!
+      if (state.socketRig && state.snapAnimations.length === 0) {
+        Object.values(state.socketRig).forEach(sock => {
+          sock.payloadContainer.position.z = sock.dockedZ - factor * 34.0;
+        });
+      }
+
+      state.chassisParts.forEach(node => {
+        if (!node.userData.initialPosition || node.isSkinnedMesh) return;
+        const n = (node.name || '').toLowerCase();
+        const init = node.userData.initialPosition;
+        const gc = node.userData.geomCenter || new THREE.Vector3();
+        const sideSign = n.endsWith('_l') || gc.x < -1.0 ? -1.0 : (n.endsWith('_r') || gc.x > 1.0 ? 1.0 : 0.0);
+        const dir = new THREE.Vector3(0, 0, 0);
+
+        if (node.userData.isModularPack) {
+          dir.set(sideSign * 0.45, 0.15, -0.55);
+          node.position.copy(init).addScaledVector(dir, factor * 24.0);
+          return;
+        }
+
+        if (n.includes('head') || n.includes('v_fin')) dir.set(0, 1.35, 0.25);
+        else if (n.includes('chest') || n.includes('cockpit') || n.includes('abdomen')) dir.set(0, 0.15, 1.35);
+        else if (n.includes('pauldron') || n.includes('arm') || n.includes('forearm') || n.includes('shield') || n.includes('rifle') || n.includes('elbow') || n.includes('fist')) dir.set((sideSign || 1) * 1.5, 0.12, 0.15);
+        else if (n.includes('foot') || n.includes('sole') || n.includes('ankle')) dir.set(sideSign * 0.55, -1.2, 0.3);
+        else if (n.includes('shin') || n.includes('calf') || n.includes('knee') || n.includes('tibia')) dir.set(sideSign * 0.75, -0.65, 0.2);
+        else if (n.includes('thigh') || n.includes('femur') || n.includes('hip')) dir.set(sideSign * 0.85, -0.2, 0);
+        else if (n.includes('backpack') || n.includes('wing') || n.includes('cannon') || n.includes('booster') || n.includes('tank') || n.includes('rotodome') || n.includes('fin_binder') || n.includes('vernier')) dir.set(sideSign * 0.35, 0.15, -1.65);
+        else dir.set(sideSign * 0.4, 0.3, -0.4);
+
+        node.position.copy(init).addScaledVector(dir, factor * 42.0);
+      });
+    }
+
+    // =========================================================================
+    // 13. EVENT LISTENERS
+    // =========================================================================
+    document.querySelectorAll('#unit-roster .unit-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (btn.dataset.unit !== state.activeUnitId) loadUnit(btn.dataset.unit);
+      });
+    });
+
+    sliderExploded.addEventListener('input', (e) => {
+      const val = parseFloat(e.target.value);
+      state.explodedFactor = val / 100.0;
+      lblExploded.innerText = `${Math.round(val)}%`;
+      applyExplodedDisplacement(state.explodedFactor);
+    });
+
+    document.querySelectorAll('[data-render-mode]').forEach(btn => {
+      btn.addEventListener('click', () => applyRenderMode(btn.dataset.renderMode));
+    });
+
+    document.querySelectorAll('#planet-grid .planet-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#planet-grid .planet-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        applyEnvironment(btn.dataset.env);
+      });
+    });
+
+    document.querySelectorAll('[data-cam]').forEach(btn => {
+      btn.addEventListener('click', () => setCameraPreset(btn.dataset.cam));
+    });
+    document.getElementById('btn-reset-view')?.addEventListener('click', () => setCameraPreset('heroic'));
+
+    btnAutoRotate.addEventListener('click', () => {
+      state.autoRotate = !state.autoRotate;
+      controls.autoRotate = state.autoRotate;
+      btnAutoRotate.classList.toggle('active', state.autoRotate);
+    });
+    btnAnimPlay.addEventListener('click', () => {
+      state.animPlaying = !state.animPlaying;
+      btnAnimPlay.classList.toggle('active', state.animPlaying);
+    });
+
+    document.getElementById('btn-toggle-drawer-size')?.addEventListener('click', (e) => {
+      state.isDrawerExpanded = !state.isDrawerExpanded;
+      leftDrawer.classList.toggle('expanded', state.isDrawerExpanded);
+      e.currentTarget.innerText = state.isDrawerExpanded ? '🗗' : '⛶';
+    });
+
+    partsSearchInput?.addEventListener('input', (e) => {
+      state.searchQuery = e.target.value.trim().toLowerCase();
+      btnClearSearch.style.display = state.searchQuery ? 'block' : 'none';
+      renderInventory();
+    });
+    btnClearSearch?.addEventListener('click', () => {
+      partsSearchInput.value = ''; state.searchQuery = ''; btnClearSearch.style.display = 'none'; renderInventory();
+    });
+    categoryChips?.addEventListener('click', (e) => {
+      const btn = e.target.closest('.cat-chip');
+      if (!btn) return;
+      categoryChips.querySelectorAll('.cat-chip').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      state.activeCategory = btn.dataset.category || 'all';
+      renderInventory();
+    });
+    stationFilter?.addEventListener('change', (e) => { state.activeStation = e.target.value; renderInventory(); });
+    partsSort?.addEventListener('change', (e) => { state.activeSort = e.target.value; renderInventory(); });
+    btnEquippedOnly?.addEventListener('click', () => { state.equippedOnly = !state.equippedOnly; renderInventory(); });
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      if (composer) composer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    // =========================================================================
+    // 14. INFO GUIDE MODAL + GUNDAM BATTLE BGM + TACTILE GUNPLA "KLIK!" SFX
+    // =========================================================================
+    const guideBackdrop = document.getElementById('guide-backdrop');
+    const toastEl = document.getElementById('mecha-toast');
+    let toastTimer = null;
+
+    function showToast(msg, isKlik = false) {
+      if (!toastEl) return;
+      toastEl.textContent = msg;
+      toastEl.classList.toggle('klik', !!isKlik);
+      toastEl.classList.add('visible');
+      if (toastTimer) clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toastEl.classList.remove('visible'), 2800);
+    }
+
+    function openGuide() { guideBackdrop?.classList.add('open'); }
+    function closeGuide() { guideBackdrop?.classList.remove('open'); }
+
+    document.getElementById('btn-open-guide')?.addEventListener('click', openGuide);
+    document.getElementById('btn-close-guide')?.addEventListener('click', closeGuide);
+    document.getElementById('btn-dismiss-guide')?.addEventListener('click', closeGuide);
+    guideBackdrop?.addEventListener('click', (e) => { if (e.target === guideBackdrop) closeGuide(); });
+    window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeGuide(); });
+
+    class MechaBattleAudioEngine {
+      constructor(toggleBtn, trackBtn) {
+        this.toggleBtn = toggleBtn;
+        this.trackBtn = trackBtn;
+        this.ctx = null;
+        this.masterGain = null;
+        this.sfxGain = null;
+        this.currentSource = null;
+        this.isPlaying = false;
+        this.userMuted = false;
+        this.trackIndex = 0;
+        this.cachedBuffers = [];
+        this.renderPromises = {};
+
+        this.tracks = [
+          {
+            name: 'Orbital Sortie (UC Battle Theme)', shortName: 'Orbital Sortie', bpm: 138,
+            bass: [38, 34, 36, 33, 34, 31, 33, 33],
+            chords: [
+              [50, 57, 62, 65], [46, 53, 58, 62], [48, 55, 60, 64], [45, 52, 57, 60],
+              [46, 53, 58, 62], [43, 50, 55, 58], [45, 52, 57, 61], [45, 52, 57, 61]
+            ],
+            lead: [
+              74, 0, 74, 77, 81, 0, 79, 77, 74, 0, 72, 74, 77, 0, 76, 0,
+              74, 0, 77, 81, 86, 0, 84, 81, 79, 0, 77, 76, 77, 0, 81, 0,
+              82, 0, 81, 79, 77, 0, 74, 77, 79, 0, 77, 76, 74, 0, 72, 0,
+              73, 0, 76, 79, 81, 0, 85, 81, 86, 0, 85, 81, 79, 76, 73, 0
+            ],
+            intensity: 'heroic_battle'
+          },
+          {
+            name: 'Zero-G Intercept (High-Mobility Combat)', shortName: 'Zero-G Combat', bpm: 146,
+            bass: [40, 36, 38, 35, 36, 33, 35, 35],
+            chords: [
+              [52, 59, 64, 67], [48, 55, 60, 64], [50, 57, 62, 66], [47, 54, 59, 62],
+              [48, 55, 60, 64], [45, 52, 57, 60], [47, 54, 59, 63], [47, 54, 59, 63]
+            ],
+            lead: [
+              76, 79, 83, 0, 83, 81, 79, 76, 79, 81, 83, 0, 86, 0, 83, 0,
+              84, 83, 79, 0, 79, 76, 74, 76, 78, 81, 86, 0, 83, 0, 78, 0,
+              76, 79, 84, 0, 83, 81, 79, 76, 81, 84, 88, 0, 86, 84, 81, 0,
+              83, 0, 83, 81, 79, 78, 76, 78, 79, 83, 87, 0, 88, 0, 83, 0
+            ],
+            intensity: 'cyber_combat'
+          },
+          {
+            name: 'Catapult Launch Deck (Tactical Pulse)', shortName: 'Launch Deck', bpm: 116,
+            bass: [36, 36, 32, 32, 29, 29, 31, 31],
+            chords: [
+              [48, 55, 60, 63], [48, 55, 60, 63], [44, 51, 56, 60], [44, 51, 56, 60],
+              [41, 48, 53, 56], [41, 48, 53, 56], [43, 50, 55, 59], [43, 50, 55, 59]
+            ],
+            lead: [
+              72, 0, 0, 75, 79, 0, 75, 0, 72, 0, 74, 75, 79, 0, 0, 0,
+              80, 0, 0, 79, 75, 0, 72, 0, 75, 0, 79, 80, 84, 0, 0, 0,
+              77, 0, 0, 75, 72, 0, 68, 0, 72, 0, 75, 77, 80, 0, 0, 0,
+              79, 0, 77, 74, 71, 0, 74, 0, 79, 0, 83, 0, 86, 0, 79, 0
+            ],
+            intensity: 'hangar_pulse'
+          }
+        ];
+
+        this._bindUi();
+        setTimeout(() => { this._renderTrackBuffer(0).catch(() => {}); }, 250);
+      }
+
+      _midi(m) { return 440.0 * Math.pow(2.0, (m - 69.0) / 12.0); }
+
+      _initCtx() {
+        if (this.ctx) return;
+        const AC = window.AudioContext || window.webkitAudioContext;
+        if (!AC) return;
+        this.ctx = new AC({ latencyHint: 'interactive' });
+        this.masterGain = this.ctx.createGain();
+        this.masterGain.gain.value = 0.24;
+        this.masterGain.connect(this.ctx.destination);
+        this.sfxGain = this.ctx.createGain();
+        this.sfxGain.gain.value = 0.55;
+        this.sfxGain.connect(this.ctx.destination);
+      }
+
+      // Authentic Bandai Gunpla Plastic/Metal Snap-Fit "KLIK!" Synthesis (3-Layer Acoustic Transient!)
+      playGunplaSnapClick() {
+        try {
+          this._initCtx();
+          if (!this.ctx) return;
+          if (this.ctx.state === 'suspended') this.ctx.resume().catch(() => {});
+          const now = this.ctx.currentTime;
+
+          // Layer 1: Crisp 2.4kHz Bandpass ABS/Metal Snap Transient ("KLIK!")
+          const len = Math.floor(this.ctx.sampleRate * 0.032);
+          const buf = this.ctx.createBuffer(1, len, this.ctx.sampleRate);
+          const ch = buf.getChannelData(0);
+          for (let i = 0; i < len; i++) {
+            ch[i] = (Math.random() * 2 - 1) * Math.exp(-i / (len * 0.18));
+          }
+          const src = this.ctx.createBufferSource();
+          src.buffer = buf;
+          const bp = this.ctx.createBiquadFilter();
+          bp.type = 'bandpass'; bp.frequency.value = 2450; bp.Q.value = 4.2;
+          const g1 = this.ctx.createGain();
+          g1.gain.setValueAtTime(0.85, now);
+          g1.gain.exponentialRampToValueAtTime(0.001, now + 0.032);
+          src.connect(bp); bp.connect(g1); g1.connect(this.sfxGain);
+          src.start(now);
+
+          // Layer 2: Solid Mechanical Detent Body Thump (340 Hz -> 46 Hz)
+          const thump = this.ctx.createOscillator();
+          const g2 = this.ctx.createGain();
+          thump.type = 'triangle';
+          thump.frequency.setValueAtTime(340, now);
+          thump.frequency.exponentialRampToValueAtTime(46, now + 0.042);
+          g2.gain.setValueAtTime(0.42, now);
+          g2.gain.exponentialRampToValueAtTime(0.001, now + 0.046);
+          thump.connect(g2); g2.connect(this.sfxGain);
+          thump.start(now); thump.stop(now + 0.05);
+
+          // Layer 3: Metallic Locking Pin Micro-Ping (4.9 kHz, 12ms after seat)
+          const pin = this.ctx.createOscillator();
+          const g3 = this.ctx.createGain();
+          pin.type = 'sine';
+          pin.frequency.setValueAtTime(4900, now + 0.012);
+          pin.frequency.exponentialRampToValueAtTime(2900, now + 0.034);
+          g3.gain.setValueAtTime(0.18, now + 0.012);
+          g3.gain.exponentialRampToValueAtTime(0.001, now + 0.036);
+          pin.connect(g3); g3.connect(this.sfxGain);
+          pin.start(now + 0.012); pin.stop(now + 0.04);
+        } catch (_) {}
+      }
+
+      playGunplaUnlatch() {
+        try {
+          this._initCtx();
+          if (!this.ctx) return;
+          if (this.ctx.state === 'suspended') this.ctx.resume().catch(() => {});
+          const now = this.ctx.currentTime;
+          const osc = this.ctx.createOscillator();
+          const g = this.ctx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(920, now);
+          osc.frequency.exponentialRampToValueAtTime(260, now + 0.055);
+          g.gain.setValueAtTime(0.24, now);
+          g.gain.exponentialRampToValueAtTime(0.001, now + 0.06);
+          osc.connect(g); g.connect(this.sfxGain);
+          osc.start(now); osc.stop(now + 0.065);
+        } catch (_) {}
+      }
+
+      async _renderTrackBuffer(idx) {
+        if (this.cachedBuffers[idx]) return this.cachedBuffers[idx];
+        if (this.renderPromises[idx]) return this.renderPromises[idx];
+
+        const work = async () => {
+          const tr = this.tracks[idx];
+          const sr = 44100;
+          const totalBars = tr.chords.length;
+          const totalSteps = totalBars * 16;
+          const stepDur = (60.0 / tr.bpm) / 4.0;
+          const loopDur = stepDur * totalSteps;
+          const OffCtx = window.OfflineAudioContext || window.webkitOfflineAudioContext;
+          if (!OffCtx) return null;
+
+          const off = new OffCtx(2, Math.ceil((loopDur + 0.8) * sr), sr);
+          const delayL = off.createDelay(1.0); delayL.delayTime.value = 0.22;
+          const delayR = off.createDelay(1.0); delayR.delayTime.value = 0.31;
+          const fb = off.createGain(); fb.gain.value = 0.26;
+          const lp = off.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 2800;
+          const merger = off.createChannelMerger(2);
+          delayL.connect(lp); delayR.connect(lp); lp.connect(fb); fb.connect(delayL); fb.connect(delayR);
+          delayL.connect(merger, 0, 0); delayR.connect(merger, 0, 1);
+          const wetBus = off.createGain(); wetBus.gain.value = 0.32;
+          wetBus.connect(delayL); wetBus.connect(delayR);
+          const dryBus = off.createGain(); dryBus.gain.value = 0.78;
+          dryBus.connect(off.destination); merger.connect(off.destination);
+
+          const noiseBuf = off.createBuffer(1, Math.floor(sr * 0.25), sr);
+          const nd = noiseBuf.getChannelData(0);
+          for (let i = 0; i < nd.length; i++) nd[i] = Math.random() * 2 - 1;
+
+          for (let s = 0; s < totalSteps; s++) {
+            const t = s * stepDur;
+            const bar = Math.floor(s / 16);
+            const bs = s % 16;
+            const bassMidi = tr.bass[bar % tr.bass.length];
+            const chord = tr.chords[bar % tr.chords.length];
+
+            if (bs % 2 === 0 || (tr.intensity !== 'hangar_pulse' && bs % 4 === 3)) {
+              const bOsc = off.createOscillator(), bFilt = off.createBiquadFilter(), bGain = off.createGain();
+              bOsc.type = 'sawtooth';
+              bOsc.frequency.setValueAtTime(this._midi(bassMidi + (bs % 4 === 2 ? 12 : 0)), t);
+              bFilt.type = 'lowpass';
+              bFilt.frequency.setValueAtTime(bs % 4 === 0 ? 950 : 520, t);
+              bFilt.frequency.exponentialRampToValueAtTime(180, t + stepDur * 1.6);
+              bGain.gain.setValueAtTime(0.001, t);
+              bGain.gain.linearRampToValueAtTime(0.24, t + 0.01);
+              bGain.gain.exponentialRampToValueAtTime(0.001, t + stepDur * 1.7);
+              bOsc.connect(bFilt); bFilt.connect(bGain); bGain.connect(dryBus);
+              bOsc.start(t); bOsc.stop(t + stepDur * 1.8);
+            }
+
+            if (bs === 0 || (tr.intensity === 'heroic_battle' && bs === 10)) {
+              const dur = (bs === 0) ? stepDur * 9.0 : stepDur * 5.0;
+              chord.forEach(note => {
+                const o = off.createOscillator(), f = off.createBiquadFilter(), g = off.createGain();
+                o.type = 'sawtooth'; o.frequency.setValueAtTime(this._midi(note), t);
+                f.type = 'lowpass'; f.frequency.setValueAtTime(340, t);
+                f.frequency.linearRampToValueAtTime(1650, t + 0.14);
+                f.frequency.exponentialRampToValueAtTime(620, t + dur);
+                g.gain.setValueAtTime(0.001, t);
+                g.gain.linearRampToValueAtTime(0.055, t + 0.06);
+                g.gain.exponentialRampToValueAtTime(0.001, t + dur);
+                o.connect(f); f.connect(g); g.connect(dryBus); g.connect(wetBus);
+                o.start(t); o.stop(t + dur + 0.05);
+              });
+            }
+
+            if (s % 2 === 0) {
+              const lMidi = tr.lead[(s / 2) % tr.lead.length];
+              if (lMidi > 0) {
+                const dur = stepDur * 3.2;
+                [-4, 4].forEach(det => {
+                  const o = off.createOscillator(), f = off.createBiquadFilter(), g = off.createGain();
+                  o.type = 'sawtooth'; o.frequency.setValueAtTime(this._midi(lMidi), t); o.detune.setValueAtTime(det, t);
+                  f.type = 'lowpass'; f.frequency.setValueAtTime(2400, t); f.frequency.exponentialRampToValueAtTime(1100, t + dur);
+                  g.gain.setValueAtTime(0.001, t); g.gain.linearRampToValueAtTime(0.068, t + 0.02); g.gain.exponentialRampToValueAtTime(0.001, t + dur);
+                  o.connect(f); f.connect(g); g.connect(dryBus); g.connect(wetBus);
+                  o.start(t); o.stop(t + dur + 0.04);
+                });
+              }
+            }
+
+            if (bs === 0 || bs === 6 || bs === 8 || (tr.intensity === 'cyber_combat' && bs === 14)) {
+              const k = off.createOscillator(), kg = off.createGain();
+              k.type = 'sine'; k.frequency.setValueAtTime(135, t); k.frequency.exponentialRampToValueAtTime(40, t + 0.12);
+              kg.gain.setValueAtTime(0.42, t); kg.gain.exponentialRampToValueAtTime(0.001, t + 0.16);
+              k.connect(kg); kg.connect(dryBus); k.start(t); k.stop(t + 0.18);
+            }
+
+            if (bs === 4 || bs === 12) {
+              const ns = off.createBufferSource(); ns.buffer = noiseBuf;
+              const bp = off.createBiquadFilter(); bp.type = 'bandpass'; bp.frequency.value = 1850;
+              const ng = off.createGain(); ng.gain.setValueAtTime(0.18, t); ng.gain.exponentialRampToValueAtTime(0.001, t + 0.13);
+              ns.connect(bp); bp.connect(ng); ng.connect(dryBus); ng.connect(wetBus);
+              ns.start(t); ns.stop(t + 0.15);
+            }
+
+            if (bs % 2 === 0) {
+              const hs = off.createBufferSource(); hs.buffer = noiseBuf;
+              const hp = off.createBiquadFilter(); hp.type = 'highpass'; hp.frequency.value = 7200;
+              const hg = off.createGain(); hg.gain.setValueAtTime(bs % 4 === 2 ? 0.055 : 0.025, t); hg.gain.exponentialRampToValueAtTime(0.001, t + 0.045);
+              hs.connect(hp); hp.connect(hg); hg.connect(dryBus);
+              hs.start(t); hs.stop(t + 0.05);
+            }
+          }
+
+          const rendered = await off.startRendering();
+          const loopFrames = Math.floor(loopDur * sr);
+          const cleanBuf = off.createBuffer(2, loopFrames, sr);
+          for (let ch = 0; ch < 2; ch++) {
+            const srcD = rendered.getChannelData(ch);
+            const dstD = cleanBuf.getChannelData(ch);
+            const fadeLen = Math.min(400, Math.floor(loopFrames * 0.01));
+            for (let i = 0; i < loopFrames; i++) dstD[i] = srcD[i];
+            const tailFrames = Math.min(rendered.length - loopFrames, loopFrames);
+            for (let i = 0; i < tailFrames; i++) dstD[i] += srcD[loopFrames + i];
+            for (let i = 0; i < fadeLen; i++) {
+              const g = i / fadeLen; dstD[i] *= g; dstD[loopFrames - 1 - i] *= g;
+            }
+          }
+          this.cachedBuffers[idx] = cleanBuf;
+          return cleanBuf;
+        };
+
+        this.renderPromises[idx] = work();
+        return this.renderPromises[idx];
+      }
+
+      async start() {
+        this._initCtx();
+        if (!this.ctx) return;
+        if (this.ctx.state === 'suspended') await this.ctx.resume().catch(() => {});
+        const buf = await this._renderTrackBuffer(this.trackIndex);
+        if (!buf) return;
+        this._stopSource();
+        const src = this.ctx.createBufferSource();
+        src.buffer = buf; src.loop = true; src.connect(this.masterGain); src.start(0);
+        this.currentSource = src; this.isPlaying = true; this._updateUi();
+        showToast(`🎵 Now Playing: ${this.tracks[this.trackIndex].name}`);
+      }
+
+      _stopSource() {
+        if (this.currentSource) {
+          try { this.currentSource.stop(); this.currentSource.disconnect(); } catch (_) {}
+          this.currentSource = null;
+        }
+      }
+
+      stop() { this._stopSource(); this.isPlaying = false; this._updateUi(); }
+
+      async toggle() {
+        if (this.isPlaying) { this.userMuted = true; this.stop(); showToast('🔇 Battle BGM Muted'); }
+        else { this.userMuted = false; await this.start(); }
+      }
+
+      async nextTrack() { this.trackIndex = (this.trackIndex + 1) % this.tracks.length; this.userMuted = false; await this.start(); }
+
+      _updateUi() {
+        if (this.toggleBtn) {
+          this.toggleBtn.classList.toggle('playing', this.isPlaying);
+          this.toggleBtn.textContent = this.isPlaying ? '🔊 BGM' : '🔇 BGM';
+        }
+        if (this.trackBtn) this.trackBtn.textContent = `🎵 ${this.tracks[this.trackIndex].shortName}`;
+      }
+
+      _bindUi() {
+        this.toggleBtn?.addEventListener('click', () => this.toggle());
+        this.trackBtn?.addEventListener('click', () => this.nextTrack());
+        this._updateUi();
+      }
+    }
+
+    const battleAudio = new MechaBattleAudioEngine(
+      document.getElementById('btn-bgm-toggle'),
+      document.getElementById('btn-bgm-track')
+    );
+
+    // Expose Debug/QA API
+    window.__mechaDebug = {
+      state, loadUnit, playAnimation, setCameraPreset, applyRenderMode, applyEnvironment,
+      toggleAllMenus, toggleSingleMenu, toggleEquipPart,
+      equipPartById: async (partId) => {
+        const p = state.catalog?.modular_parts?.find(x => x.part_id === partId);
+        if (p) await toggleEquipPart(p);
+      },
+      setCameraExact: (px, py, pz, tx, ty, tz) => {
+        state.autoRotate = false;
+        controls.autoRotate = false;
+        btnAutoRotate?.classList.remove('active');
+        camera.position.set(px, py, pz);
+        controls.target.set(tx, ty, tz);
+        controls.update();
+      },
+      getSocketInfo: () => ({
+        activeUnit: state.activeUnitId,
+        slotOccupancy: { ...state.slotOccupancy },
+        equippedCount: state.equippedPacks.size,
+        sockets: state.socketRig ? Object.fromEntries(
+          Object.entries(state.socketRig).map(([k, s]) => [k, {
+            adapterId: s.adapterId, boneName: s.boneName, adapterVisible: s.adapterVis.visible,
+            payloadChildren: s.payloadContainer.children.length
+          }])
+        ) : null
+      })
+    };
+
+    // =========================================================================
+    // 15. BOOTSTRAP & 60FPS ANIMATION / GUNPLA SNAP-DETENT ENGINE
+    // =========================================================================
+    async function bootstrap() {
+      try {
+        const res = await fetch('data/mecha_catalog.json', { cache: 'no-store' });
+        if (!res.ok) throw new Error('Local catalog not found');
+        state.catalog = await res.json();
+      } catch {
+        const res = await fetch('https://raw.githubusercontent.com/myonathanlinkedin/Codes_Container/main/data/mecha_catalog.json');
+        state.catalog = await res.json();
+      }
+      renderInventory();
+      await loadUnit('vanguard_rx');
+    }
+
+    const clock = new THREE.Clock();
+    function animate() {
+      requestAnimationFrame(animate);
+      const delta = Math.min(clock.getDelta(), 0.05);
+      const elapsed = clock.getElapsedTime();
+
+      if (state.mixer && state.animPlaying) {
+        state.mixer.update(delta);
+      }
+
+      // Live Iconic Zeon / Neo-Zeon Sweeping Glowing Mono-Eye Scanner Animation!
+      if (state.monoEyeNode && state.animPlaying && state.explodedFactor < 0.05) {
+        const spec = UNIT_REGISTRY[state.activeUnitId];
+        if (spec && spec.isZeonEnemy) {
+          const sweepAng = Math.sin(elapsed * 1.45) * 0.62; // +-35.5 deg smooth sweep across black visor track!
+          const r = spec.monoEyeRadius || 8.6;
+          state.monoEyeNode.position.set(
+            Math.sin(sweepAng) * r,
+            state.monoEyeBasePos.y,
+            state.monoEyeBasePos.z + (Math.cos(sweepAng) - 1.0) * r
+          );
+          if (state.monoEyeNode.material && state.monoEyeNode.material.emissiveIntensity !== undefined) {
+            state.monoEyeNode.material.emissiveIntensity = 3.2 + Math.sin(elapsed * 4.5) * 0.65;
+          }
+        }
+      }
+
+      // 3-Stage Gunpla Slide-In + Physical Detent Recoil + "KLIK!" Ring Burst
+      if (state.snapAnimations.length > 0) {
+        for (let i = state.snapAnimations.length - 1; i >= 0; i--) {
+          const anim = state.snapAnimations[i];
+          anim.elapsed += delta;
+          const sock = anim.socket;
+
+          if (anim.elapsed < anim.slideDur) {
+            // Stage 1: Precision Rail Slide-In (ease-out-cubic)
+            const t = anim.elapsed / anim.slideDur;
+            const ease = 1 - Math.pow(1 - t, 3);
+            sock.payloadContainer.position.z = (sock.dockedZ - 36.0) + 36.0 * ease;
+          } else {
+            // Stage 2: Exact Seat Contact -> Fire Tactile "KLIK!" Sound + Lock Seam Burst + Toast!
+            if (!anim.clicked) {
+              anim.clicked = true;
+              battleAudio.playGunplaSnapClick();
+              sock.lockRing.visible = true;
+              sock.lockRing.scale.setScalar(0.85);
+              sock.lockRing.material.opacity = 0.95;
+              showToast(`🔒 [KLIK!] ${anim.adapterId} Locked — ${anim.partName}`, true);
+            }
+
+            // Physical Spring Detent Micro-Recoil Settle
+            const rt = Math.min(1.0, (anim.elapsed - anim.slideDur) / anim.recoilDur);
+            const recoil = Math.sin(rt * Math.PI) * 1.9;
+            sock.payloadContainer.position.z = sock.dockedZ + recoil;
+
+            // Cyan Lock-Seam Ring Radial Expand & Fade
+            const ft = Math.min(1.0, (anim.elapsed - anim.slideDur) / anim.ringDur);
+            sock.lockRing.scale.setScalar(0.85 + ft * 1.35);
+            sock.lockRing.material.opacity = (1.0 - ft) * 0.9;
+
+            if (ft >= 1.0) {
+              sock.payloadContainer.position.z = sock.dockedZ - state.explodedFactor * 34.0;
+              sock.lockRing.visible = false;
+              state.snapAnimations.splice(i, 1);
+            }
+          }
+        }
+      }
+
+      if (state.renderMode === 'hologram') {
+        hologramMaterial.uniforms.uTime.value = elapsed;
+      }
+      if (cyberGroup.visible) {
+        neonTorus.rotation.y = elapsed * 0.5;
+        neonTorus.rotation.x = Math.sin(elapsed * 0.7) * 0.35;
+      }
+      controls.update();
+      if (composer) composer.render();
+      else renderer.render(scene, camera);
+    }
+
+    bootstrap();
+    animate();
+  </script>
+</body>
+
+</html>

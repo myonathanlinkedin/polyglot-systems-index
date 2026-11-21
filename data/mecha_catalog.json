@@ -1,0 +1,742 @@
+{
+  "version": "2.0.0",
+  "asset_repository": "https://github.com/myonathanlinkedin/mecha-assets",
+  "asset_cdn_base_url": "https://raw.githubusercontent.com/myonathanlinkedin/mecha-assets/main",
+  "last_synced": "2026-11-21T17:00:58.586827+00:00",
+  "baselines": [
+    {
+      "id": "baseline_gundam_frame_v1",
+      "faction": "hero_federation",
+      "name": "RX-Type Advanced Movable Frame",
+      "mesh_url": "models/baselines/baseline_gundam_frame_v1.glb",
+      "sha256_hash": "029c4864c5c397609c69187bbef3544e36160b285b336765a17691fd9f886499",
+      "file_size_bytes": 638752,
+      "base_mass_kg": 24500,
+      "base_reactor_kw": 3450,
+      "subsystem_count": 95,
+      "hardpoints": [
+        "HP-00",
+        "HP-01",
+        "HP-02",
+        "HP-03",
+        "HP-04",
+        "HP-05",
+        "HP-06",
+        "HP-07",
+        "HP-08",
+        "HP-09",
+        "HP-10",
+        "HP-11",
+        "HP-12",
+        "HP-13",
+        "HP-14",
+        "HP-15",
+        "HP-16",
+        "HP-17",
+        "HP-18",
+        "HP-19",
+        "HP-20",
+        "HP-21",
+        "HP-22",
+        "HP-23",
+        "HP-24",
+        "HP-25",
+        "HP-26"
+      ]
+    },
+    {
+      "id": "baseline_rival_heavy_frame_v1",
+      "faction": "antagonist_zeon_heavy",
+      "name": "MS-Type Heavy Industrial Movable Frame",
+      "mesh_url": "models/baselines/baseline_rival_heavy_frame_v1.glb",
+      "sha256_hash": "835acab2fdf8579e61e0c642073ec7951ee9d7156a61095bd917bba2be5275f6",
+      "file_size_bytes": 310632,
+      "base_mass_kg": 31200,
+      "base_reactor_kw": 4200,
+      "subsystem_count": 47,
+      "hardpoints": [
+        "HP-00",
+        "HP-01",
+        "HP-02",
+        "HP-03",
+        "HP-04",
+        "HP-05",
+        "HP-06",
+        "HP-07",
+        "HP-08",
+        "HP-09",
+        "HP-10",
+        "HP-11",
+        "HP-12",
+        "HP-13",
+        "HP-14",
+        "HP-15",
+        "HP-16",
+        "HP-17",
+        "HP-18",
+        "HP-19",
+        "HP-20",
+        "HP-21",
+        "HP-22",
+        "HP-23",
+        "HP-24",
+        "HP-25",
+        "HP-26"
+      ]
+    }
+  ],
+  "modular_parts": [
+    {
+      "part_id": "mission_pack_type_a_aero",
+      "serial_number": "GXM-MPK-AERO-01",
+      "name": "Type-A Atmospheric Superiority Pack",
+      "category": "modular_mission_pack",
+      "primary_hardpoint": "HP-00",
+      "slot_group": "dorsal_pack",
+      "adapter_id": "ADP-HP00-DORSAL",
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-00",
+        "HP-19",
+        "HP-22"
+      ],
+      "structural_specs": {
+        "mass_kg": 4200,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -22.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "station_id": "HP-00",
+          "gender": "male_dovetail_key",
+          "relative_position": [
+            0.0,
+            48.0,
+            -18.0
+          ],
+          "clearance_tolerance_mm": 0.2
+        },
+        {
+          "station_id": "HP-19",
+          "gender": "female_chassis_socket",
+          "relative_position": [
+            22.0,
+            -24.0,
+            0.0
+          ],
+          "clearance_tolerance_mm": 0.2
+        },
+        {
+          "station_id": "HP-22",
+          "gender": "female_chassis_socket",
+          "relative_position": [
+            -22.0,
+            -24.0,
+            0.0
+          ],
+          "clearance_tolerance_mm": 0.2
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "asset_reference": {
+          "relative_url": "models/parts/mission_pack_type_a_aero.glb",
+          "sha256_hash": "f9864d82dac37a34c07f26762c1aafa978008fe5cdfecb1347891fdbdde2ea70",
+          "file_size_bytes": 56836,
+          "compression": "meshopt"
+        },
+        "bounding_box_aabb_mm": {
+          "min": [
+            -60.32602831829667,
+            -22.0,
+            -34.0
+          ],
+          "max": [
+            60.32602831829667,
+            37.0,
+            11.492109098140496
+          ]
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Atmospheric flight and supersonic interception.",
+        "reactor_power_draw_kw": 450,
+        "vernier_thrust_kgf": 82000
+      }
+    },
+    {
+      "part_id": "mission_pack_type_s_space",
+      "serial_number": "GXM-MPK-SPAC-02",
+      "name": "Type-S High-Mobility Space Interceptor Pack",
+      "category": "modular_mission_pack",
+      "primary_hardpoint": "HP-00",
+      "slot_group": "dorsal_pack",
+      "adapter_id": "ADP-HP00-DORSAL",
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-00",
+        "HP-03",
+        "HP-05",
+        "HP-24",
+        "HP-26"
+      ],
+      "structural_specs": {
+        "mass_kg": 6800,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -22.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "station_id": "HP-00",
+          "gender": "male_dovetail_key",
+          "relative_position": [
+            0.0,
+            48.0,
+            -18.0
+          ],
+          "clearance_tolerance_mm": 0.2
+        },
+        {
+          "station_id": "HP-03",
+          "gender": "female_chassis_socket",
+          "relative_position": [
+            34.0,
+            50.0,
+            0.0
+          ],
+          "clearance_tolerance_mm": 0.2
+        },
+        {
+          "station_id": "HP-05",
+          "gender": "female_chassis_socket",
+          "relative_position": [
+            -34.0,
+            50.0,
+            0.0
+          ],
+          "clearance_tolerance_mm": 0.2
+        },
+        {
+          "station_id": "HP-24",
+          "gender": "female_chassis_socket",
+          "relative_position": [
+            20.0,
+            -62.0,
+            -2.0
+          ],
+          "clearance_tolerance_mm": 0.2
+        },
+        {
+          "station_id": "HP-26",
+          "gender": "female_chassis_socket",
+          "relative_position": [
+            -20.0,
+            -62.0,
+            -2.0
+          ],
+          "clearance_tolerance_mm": 0.2
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "asset_reference": {
+          "relative_url": "models/parts/mission_pack_type_s_space.glb",
+          "sha256_hash": "8ddd6f8d4a0e26d0881370f0119f0d5f2a1802e66ba27a71a4a573ce596cf27b",
+          "file_size_bytes": 47764,
+          "compression": "meshopt"
+        },
+        "bounding_box_aabb_mm": {
+          "min": [
+            -31.464637715169665,
+            -40.85408979621438,
+            -34.372349350912515
+          ],
+          "max": [
+            31.464637715169665,
+            23.084085000504206,
+            8.0
+          ]
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "High-G orbital pursuit and vector dogfighting.",
+        "reactor_power_draw_kw": 680,
+        "vernier_thrust_kgf": 140000
+      }
+    },
+    {
+      "part_id": "mission_pack_type_h_artillery",
+      "serial_number": "GXM-MPK-ARTY-03",
+      "name": "Type-H Heavy Bombardment Artillery Pack",
+      "category": "modular_mission_pack",
+      "primary_hardpoint": "HP-00",
+      "slot_group": "dorsal_pack",
+      "adapter_id": "ADP-HP00-DORSAL",
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-00",
+        "HP-13",
+        "HP-17"
+      ],
+      "structural_specs": {
+        "mass_kg": 9500,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -22.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "station_id": "HP-00",
+          "gender": "male_dovetail_key",
+          "relative_position": [
+            0.0,
+            48.0,
+            -18.0
+          ],
+          "clearance_tolerance_mm": 0.2
+        },
+        {
+          "station_id": "HP-13",
+          "gender": "female_chassis_socket",
+          "relative_position": [
+            18.0,
+            2.0,
+            0.0
+          ],
+          "clearance_tolerance_mm": 0.2
+        },
+        {
+          "station_id": "HP-17",
+          "gender": "female_chassis_socket",
+          "relative_position": [
+            -18.0,
+            2.0,
+            0.0
+          ],
+          "clearance_tolerance_mm": 0.2
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "asset_reference": {
+          "relative_url": "models/parts/mission_pack_type_h_artillery.glb",
+          "sha256_hash": "cbda7bc8c582cb8efd6503ffce35a3a9018bec80c16c2dbe1df6751e43b2d890",
+          "file_size_bytes": 66760,
+          "compression": "meshopt"
+        },
+        "bounding_box_aabb_mm": {
+          "min": [
+            -31.0,
+            -20.5,
+            -20.0
+          ],
+          "max": [
+            31.0,
+            32.75,
+            64.0
+          ]
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Siege bombardment with dual 380mm mega cannons.",
+        "reactor_power_draw_kw": 1200,
+        "vernier_thrust_kgf": 24000
+      }
+    },
+    {
+      "part_id": "mission_pack_type_e_recon",
+      "serial_number": "GXM-MPK-EWRN-04",
+      "name": "Type-E Electronic Reconnaissance & Radome Pack",
+      "category": "modular_mission_pack",
+      "primary_hardpoint": "HP-00",
+      "slot_group": "dorsal_pack",
+      "adapter_id": "ADP-HP00-DORSAL",
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-00",
+        "HP-01",
+        "HP-02"
+      ],
+      "structural_specs": {
+        "mass_kg": 3400,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -22.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "station_id": "HP-00",
+          "gender": "male_dovetail_key",
+          "relative_position": [
+            0.0,
+            48.0,
+            -18.0
+          ],
+          "clearance_tolerance_mm": 0.2
+        },
+        {
+          "station_id": "HP-01",
+          "gender": "female_chassis_socket",
+          "relative_position": [
+            14.0,
+            56.0,
+            4.0
+          ],
+          "clearance_tolerance_mm": 0.2
+        },
+        {
+          "station_id": "HP-02",
+          "gender": "female_chassis_socket",
+          "relative_position": [
+            -14.0,
+            56.0,
+            4.0
+          ],
+          "clearance_tolerance_mm": 0.2
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "asset_reference": {
+          "relative_url": "models/parts/mission_pack_type_e_recon.glb",
+          "sha256_hash": "bd91348111a65e18750e580485b0f86dfa656e6a496a9d11b6043d776077d03c",
+          "file_size_bytes": 26388,
+          "compression": "meshopt"
+        },
+        "bounding_box_aabb_mm": {
+          "min": [
+            -24.5,
+            -7.0,
+            -41.47031489979035
+          ],
+          "max": [
+            24.5,
+            35.85492547746093,
+            8.0
+          ]
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Minovsky particle gradient scanning & battlefield LIDAR.",
+        "reactor_power_draw_kw": 850,
+        "vernier_thrust_kgf": 18000
+      }
+    },
+    {
+      "part_id": "mission_pack_type_c_cqc",
+      "serial_number": "GXM-MPK-CQCP-05",
+      "name": "Type-C Close-Quarters Combat Breacher Pack",
+      "category": "modular_mission_pack",
+      "primary_hardpoint": "HP-07",
+      "slot_group": "aux_shield",
+      "adapter_id": "ADP-HP07-FOREARM",
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-07",
+        "HP-11"
+      ],
+      "structural_specs": {
+        "mass_kg": 5100,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -22.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "station_id": "HP-07",
+          "gender": "female_chassis_socket",
+          "relative_position": [
+            38.0,
+            24.0,
+            4.0
+          ],
+          "clearance_tolerance_mm": 0.2
+        },
+        {
+          "station_id": "HP-11",
+          "gender": "female_chassis_socket",
+          "relative_position": [
+            -38.0,
+            24.0,
+            4.0
+          ],
+          "clearance_tolerance_mm": 0.2
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "asset_reference": {
+          "relative_url": "models/parts/mission_pack_type_c_cqc.glb",
+          "sha256_hash": "31563b1a04ca95c3d6bff7bf6d8060a14a5b73c6973edb9b080b1bbc87b92e16",
+          "file_size_bytes": 23632,
+          "compression": "meshopt"
+        },
+        "bounding_box_aabb_mm": {
+          "min": [
+            -14.5,
+            -56.0,
+            -15.3
+          ],
+          "max": [
+            14.5,
+            26.0,
+            8.0
+          ]
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Urban breaching with pneumatic pile-bunker stake.",
+        "reactor_power_draw_kw": 320,
+        "vernier_thrust_kgf": 12000
+      }
+    },
+    {
+      "part_id": "weapon_beam_rifle_rx",
+      "serial_number": "GXM-WPN-BRIF-06",
+      "name": "RX-78 Ver.Ka Long-Barrel Beam Rifle (E-Pac)",
+      "category": "weapon",
+      "primary_hardpoint": "HP-11",
+      "slot_group": "aux_weapon",
+      "adapter_id": "ADP-HP11-WEAPON",
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-11"
+      ],
+      "structural_specs": {
+        "mass_kg": 920,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -22.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "station_id": "HP-11",
+          "gender": "female_chassis_socket",
+          "relative_position": [
+            -38.0,
+            24.0,
+            4.0
+          ],
+          "clearance_tolerance_mm": 0.2
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "asset_reference": {
+          "relative_url": "models/parts/weapon_beam_rifle_rx.glb",
+          "sha256_hash": "497fd6013b51d25e8e1e79904d8625b716124ab51738f57c44a117f02ebdfb8a",
+          "file_size_bytes": 32964,
+          "compression": "meshopt"
+        },
+        "bounding_box_aabb_mm": {
+          "min": [
+            -12.0,
+            -14.0,
+            -15.8
+          ],
+          "max": [
+            12.0,
+            66.0,
+            8.0
+          ]
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "High-output mega-particle beam rifle with gold optical sight & E-Pac.",
+        "reactor_power_draw_kw": 310,
+        "vernier_thrust_kgf": 0
+      }
+    },
+    {
+      "part_id": "armor_tower_shield_fed",
+      "serial_number": "GXM-ARM-SHLD-07",
+      "name": "Gundarium Hexagonal Federation Composite Shield",
+      "category": "armor",
+      "primary_hardpoint": "HP-07",
+      "slot_group": "aux_shield",
+      "adapter_id": "ADP-HP07-FOREARM",
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-07"
+      ],
+      "structural_specs": {
+        "mass_kg": 2150,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -22.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "station_id": "HP-07",
+          "gender": "female_chassis_socket",
+          "relative_position": [
+            38.0,
+            24.0,
+            4.0
+          ],
+          "clearance_tolerance_mm": 0.2
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "asset_reference": {
+          "relative_url": "models/parts/armor_tower_shield_fed.glb",
+          "sha256_hash": "e69b489efa2c6fc4eb27ad5f14542117626a21ae74168ebaeae38405acd9c3cc",
+          "file_size_bytes": 34472,
+          "compression": "meshopt"
+        },
+        "bounding_box_aabb_mm": {
+          "min": [
+            -16.5,
+            -34.0,
+            -10.299999999999999
+          ],
+          "max": [
+            16.5,
+            27.0,
+            8.0
+          ]
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Multi-layered anti-beam Gundarium hexagonal shield with gold cross emblem.",
+        "reactor_power_draw_kw": 0,
+        "vernier_thrust_kgf": 0
+      }
+    },
+    {
+      "part_id": "propulsion_vernier_wing_pod",
+      "serial_number": "GXM-PRV-FINB-08",
+      "name": "Twin Wing-Binder Psycho-Fin Vernier Array",
+      "category": "propulsion",
+      "primary_hardpoint": "HP-00",
+      "slot_group": "dorsal_pack",
+      "adapter_id": "ADP-HP00-DORSAL",
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-00",
+        "HP-03"
+      ],
+      "structural_specs": {
+        "mass_kg": 4950,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -22.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "station_id": "HP-00",
+          "gender": "male_dovetail_key",
+          "relative_position": [
+            0.0,
+            48.0,
+            -18.0
+          ],
+          "clearance_tolerance_mm": 0.2
+        },
+        {
+          "station_id": "HP-03",
+          "gender": "female_chassis_socket",
+          "relative_position": [
+            34.0,
+            50.0,
+            0.0
+          ],
+          "clearance_tolerance_mm": 0.2
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "asset_reference": {
+          "relative_url": "models/parts/propulsion_vernier_wing_pod.glb",
+          "sha256_hash": "89a1b3edfd0501a7722530bac069ce022c331fc805b7ae43ddb625923afdf012",
+          "file_size_bytes": 97844,
+          "compression": "meshopt"
+        },
+        "bounding_box_aabb_mm": {
+          "min": [
+            -46.163463065997426,
+            -13.142373233232565,
+            -26.525942012948377
+          ],
+          "max": [
+            46.163463065997426,
+            41.40317415894295,
+            8.0
+          ]
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "6-unit asymmetric wing-binder vernier array for high-G AMBAC vector agility.",
+        "reactor_power_draw_kw": 920,
+        "vernier_thrust_kgf": 168000
+      }
+    }
+  ]
+}
