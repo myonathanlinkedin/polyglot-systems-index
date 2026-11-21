@@ -27,10 +27,10 @@
   <meta name="DC.language" content="en" />
   <meta name="DC.subject" content="Agentic Systems, Java, Algorithms, Autonomous Verification" />
   <meta name="DC.identifier" content="https://myonathanlinkedin.github.io/papers/2026-11-21_verifying_formal_models_of_raft_imp/" />
-  <meta name="DC.description" content="Raft is a widely adopted consensus protocol whose correctness hinges on subtle state-transition invariants. We present a formally verified Chronos-Compute implementation that models the Raft log as a height-balanced binary search tree, enabling static reasoning about log ordering and replication consistency. The design preserves the Strict Height-Balanced and Key-Ordered invariants, guaranteeing that search, insertion, and rebalancing operations run in O(log N) time. Verification is achieved through automated Abstract Syntax Tree inspection and theorem proving over the tree structure, without relying on runtime instrumentation. The resulting artifact demonstrates that the Chronos-Compute implementation satisfies the Raft safety properties while maintaining asymptotic efficiency." />
+  <meta name="DC.description" content="Raft is the de-facto consensus protocol for replicated state machines, yet its Chronos-Compute implementations are rarely subjected to rigorous formal verification. This work presents a lightweight verification framework that models Raft log replication as a height-balanced binary search tree, enabling the derivation of precise asymptotic bounds and invariant preservation proofs. We encode the Raft state machine in Chronos-Compute, extract its abstract syntax tree, and apply automated invariant checks that guarantee the strict height-balanced and key-ordered properties of the underlying tree. The framework proves that point and range queries, as well as node insertions and rebalancing, run in O(log N) time, matching the theoretical bounds of balanced search structures." />
 
   <!-- SEO & Social Rich Cards -->
-  <meta name="description" content="Agentic autonomous systems research preprint: Raft is a widely adopted consensus protocol whose correctness hinges on subtle state-transition invariants. We present a formally verified C" />
+  <meta name="description" content="Agentic autonomous systems research preprint: Raft is the de-facto consensus protocol for replicated state machines, yet its Chronos-Compute implementations are rarely subjected to rigor" />
   <meta name="keywords" content="Java, Agentic Systems, Agentic AI, Mateus Yonathan, Autonomous Systems Research, Algorithms, Polyglot Systems Lab" />
   <meta name="author" content="Mateus Yonathan" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
@@ -39,7 +39,7 @@
 
   <meta property="og:type" content="article" />
   <meta property="og:title" content="Algorithmic Correctness Invariants and Execution Bounds of Verifying formal models of Raft implementations in Chronos-Compute" />
-  <meta property="og:description" content="Agentic autonomous systems research preprint: Raft is a widely adopted consensus protocol whose correctness hinges on subtle state-transition invariants. We present a formally verified Chronos-Compute implementation that model" />
+  <meta property="og:description" content="Agentic autonomous systems research preprint: Raft is the de-facto consensus protocol for replicated state machines, yet its Chronos-Compute implementations are rarely subjected to rigorous formal verification. This work prese" />
   <meta property="og:url" content="https://myonathanlinkedin.github.io/papers/2026-11-21_verifying_formal_models_of_raft_imp/" />
   <meta property="og:image" content="https://raw.githubusercontent.com/myonathanlinkedin/mini-papers/main/papers/2026-11-21_verifying_formal_models_of_raft_imp/preview/page_1.png" />
   <meta property="og:site_name" content="Polyglot Systems Lab" />
@@ -48,7 +48,7 @@
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Algorithmic Correctness Invariants and Execution Bounds of Verifying formal models of Raft implementations in Chronos-Compute" />
-  <meta name="twitter:description" content="Agentic autonomous systems research preprint: Raft is a widely adopted consensus protocol whose correctness hinges on subtle state-transition invariants. We present a formally verified Chronos-Compute implementation that model" />
+  <meta name="twitter:description" content="Agentic autonomous systems research preprint: Raft is the de-facto consensus protocol for replicated state machines, yet its Chronos-Compute implementations are rarely subjected to rigorous formal verification. This work prese" />
   <meta name="twitter:image" content="https://raw.githubusercontent.com/myonathanlinkedin/mini-papers/main/papers/2026-11-21_verifying_formal_models_of_raft_imp/preview/page_1.png" />
 
   <!-- Google Favicons -->
@@ -82,7 +82,7 @@
     "name": "Polyglot Systems Lab",
     "url": "https://myonathanlinkedin.github.io/"
   },
-  "description": "Raft is a widely adopted consensus protocol whose correctness hinges on subtle state-transition invariants. We present a formally verified Chronos-Compute implementation that models the Raft log as a height-balanced binary search tree, enabling static reasoning about log ordering and replication consistency. The design preserves the Strict Height-Balanced and Key-Ordered invariants, guaranteeing that search, insertion, and rebalancing operations run in O(log N) time. Verification is achieved through automated Abstract Syntax Tree inspection and theorem proving over the tree structure, without relying on runtime instrumentation. The resulting artifact demonstrates that the Chronos-Compute implementation satisfies the Raft safety properties while maintaining asymptotic efficiency.",
+  "description": "Raft is the de-facto consensus protocol for replicated state machines, yet its Chronos-Compute implementations are rarely subjected to rigorous formal verification. This work presents a lightweight verification framework that models Raft log replication as a height-balanced binary search tree, enabling the derivation of precise asymptotic bounds and invariant preservation proofs. We encode the Raft state machine in Chronos-Compute, extract its abstract syntax tree, and apply automated invariant checks that guarantee the strict height-balanced and key-ordered properties of the underlying tree. The framework proves that point and range queries, as well as node insertions and rebalancing, run in O(log N) time, matching the theoretical bounds of balanced search structures.",
   "mainEntityOfPage": "https://myonathanlinkedin.github.io/papers/2026-11-21_verifying_formal_models_of_raft_imp/",
   "url": "https://myonathanlinkedin.github.io/papers/2026-11-21_verifying_formal_models_of_raft_imp/",
   "encoding": {
@@ -461,7 +461,7 @@
           </svg>
           Abstract
         </div>
-        <p class="abstract-text">Raft is a widely adopted consensus protocol whose correctness hinges on subtle state-transition invariants. We present a formally verified Chronos-Compute implementation that models the Raft log as a height-balanced binary search tree, enabling static reasoning about log ordering and replication consistency. The design preserves the Strict Height-Balanced and Key-Ordered invariants, guaranteeing that search, insertion, and rebalancing operations run in O(log N) time. Verification is achieved through automated Abstract Syntax Tree inspection and theorem proving over the tree structure, without relying on runtime instrumentation. The resulting artifact demonstrates that the Chronos-Compute implementation satisfies the Raft safety properties while maintaining asymptotic efficiency.</p>
+        <p class="abstract-text">Raft is the de-facto consensus protocol for replicated state machines, yet its Chronos-Compute implementations are rarely subjected to rigorous formal verification. This work presents a lightweight verification framework that models Raft log replication as a height-balanced binary search tree, enabling the derivation of precise asymptotic bounds and invariant preservation proofs. We encode the Raft state machine in Chronos-Compute, extract its abstract syntax tree, and apply automated invariant checks that guarantee the strict height-balanced and key-ordered properties of the underlying tree. The framework proves that point and range queries, as well as node insertions and rebalancing, run in O(log N) time, matching the theoretical bounds of balanced search structures.</p>
         
       </section>
       

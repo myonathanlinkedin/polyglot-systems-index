@@ -45,7 +45,7 @@
       }, true);
     })();
   </script>
-  <meta name="description" content="Interactive 3D Isometric Virtual Office depicting autonomous male and female engineers and research scientists working 24/7 on 559 verified modules and 233 research papers." />
+  <meta name="description" content="Interactive 3D Isometric Virtual Office depicting autonomous male and female engineers and research scientists working 24/7 on 560 verified modules and 233 research papers." />
   <meta name="author" content="Mateus Yonathan" />
   <link rel="canonical" href="https://myonathanlinkedin.github.io/office.html" />
   <link rel="icon" href="https://myonathanlinkedin.github.io/assets/avatar.png" type="image/png" />
@@ -639,7 +639,7 @@
       <span class="brand-pulse-dot" title="24/7 Agentic Autonomous Pipeline Active"></span>
       <span class="brand-title">MATEUS YONATHAN // LAB</span>
       <span class="ticker-sep mobile-hide-telemetry">•</span>
-      <span class="mobile-hide-telemetry">Mods: <strong id="stat-modules">559</strong></span>
+      <span class="mobile-hide-telemetry">Mods: <strong id="stat-modules">560</strong></span>
       <span class="ticker-sep mobile-hide-telemetry">•</span>
       <span class="mobile-hide-telemetry">Papers: <strong id="stat-papers">233</strong></span>
       <span class="ticker-sep">•</span>
@@ -696,13 +696,14 @@
         <button type="button" class="drawer-close" id="btn-close-office-help" title="Close Guide">✕</button>
       </div>
       <div style="font-size:0.82rem;line-height:1.65;color:#cbd5e1;display:grid;gap:9px;margin-top:8px;">
-        <p><strong>What Is This?</strong> Welcome to the interactive 3D exhibition space of the <strong>Mateus Yonathan Agentic Autonomous Lab</strong>. This virtual studio showcases our 24/7 open-source software engineering and academic research publications (559 public modules &amp; 233 Research Papers) in real time.</p>
-        <p><strong>5 Divisions You Can Visit:</strong><br/>
+        <p><strong>What Is This?</strong> Welcome to the interactive 3D exhibition space of the <strong>24/7 Agentic Autonomous Lab</strong>. This virtual studio showcases our 24/7 open-source software engineering and academic research publications (560 public modules &amp; 233 Research Papers) in real time.</p>
+        <p><strong>7 Divisions You Can Visit:</strong><br/>
         • <strong>💻 Systems Architecture:</strong> Showcases newly released algorithms and data structures across 14 programming languages.<br/>
         • <strong>📄 Research Paper Wing:</strong> Displays published Research Papers and Mini-Papers with executive summaries and Scholar Preprints.<br/>
         • <strong>📊 Quality &amp; Complexity Lab:</strong> Reviews algorithmic efficiency, asymptotic complexity, and software reliability.<br/>
         • <strong>🌐 Public Portfolio Hub:</strong> Connects directly to all 14 public open-source GitHub language repositories.<br/>
-        • <strong>☕ Executive Lounge &amp; Kitchen Bar:</strong> Social hub where researchers sit down for coffee, snacks, and daily research discussions.</p>
+        • <strong>☕ Executive Lounge &amp; Kitchen Bar:</strong> Social hub where researchers sit down for coffee, snacks, and daily research discussions.<br/>
+        • <strong>🤖 3D Gundam &amp; Mecha Robotics Wing (Right Wing):</strong> Houses the giant 3.6m RX-78 Vanguard Gundam prototype on an illuminated catapult gantry alongside our 2 dedicated Mecha CAD &amp; AMBAC Kinematics engineers. Click the Giant Gundam to open the Mecha Hangar modal and launch <code>mecha.html</code>!</p>
         <p><strong>How to Explore (Visitor Controls):</strong><br/>
         • <strong>Click Any Character or Desk:</strong> Opens the portfolio summary card on the right with direct links to open the Scholar Preprint or view GitHub code.<br/>
         • <strong><code>💬 Hide / Show</code> Button on Characters:</strong> Toggle any individual character's overhead conversation bubble on or off.<br/>
@@ -750,6 +751,48 @@
     <div style="display:flex;align-items:center;gap:10px;justify-content:flex-end;">
       <button type="button" id="btn-dismiss-cosmic" style="padding:9px 16px;border-radius:10px;background:rgba(30,41,59,0.7);border:1px solid rgba(148,163,184,0.3);color:#cbd5e1;cursor:pointer;font-size:0.82rem;">Close</button>
       <a href="constellation.html" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:10px;background:linear-gradient(135deg, #0284c7 0%, #6366f1 100%);color:#ffffff;font-size:0.82rem;font-weight:600;text-decoration:none;box-shadow:0 0 16px rgba(99,102,241,0.45);transition:all 0.2s ease;">🌌 Enter 3D Constellation Page ↗</a>
+    </div>
+  </div>
+
+  <!-- Right-Side Wing: 3D Gundam & Mecha Robotics Hangar Modal (Triggered by clicking Giant Gundam in Gantry!) -->
+  <div id="mecha-hangar-modal" role="dialog" aria-modal="true" aria-label="3D Gundam & Mecha Robotics Hangar Dialog" class="glass-panel" style="display:none;position:fixed;inset:0;margin:auto;max-width:580px;width:92%;max-height:85vh;height:fit-content;padding:24px;border-radius:18px;background:rgba(2,6,23,0.94);border:1px solid rgba(239,68,68,0.48);box-shadow:0 0 44px rgba(239,68,68,0.32);backdrop-filter:blur(22px);z-index:9999;overflow-y:auto;color:#f8fafc;font-family:var(--font-sans);">
+    <div style="display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(239,68,68,0.28);padding-bottom:12px;margin-bottom:16px;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span style="font-size:1.7rem;">🤖</span>
+        <div>
+          <h3 style="margin:0;font-size:1.15rem;font-weight:800;color:#fca5a5;letter-spacing:0.04em;">3D GUNDAM &amp; MECHA ROBOTICS HANGAR</h3>
+          <span style="font-size:0.74rem;color:#94a3b8;font-family:var(--font-mono);">1/100 MG VER.KA &bull; 8-ZONE PHYSICAL GUNPLA ADAPTERS &bull; AMBAC RIG</span>
+        </div>
+      </div>
+      <button type="button" id="btn-close-mecha-modal" class="panel-close" style="width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);color:#f8fafc;cursor:pointer;font-size:0.85rem;display:flex;align-items:center;justify-content:center;">✕</button>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;font-family:var(--font-mono);font-size:0.74rem;">
+      <div style="background:rgba(15,23,42,0.84);border:1px solid rgba(239,68,68,0.26);border-radius:10px;padding:10px;">
+        <div style="color:#94a3b8;margin-bottom:4px;">ACTIVE PROTOTYPE</div>
+        <div style="color:#fca5a5;font-weight:700;font-size:0.84rem;">RX-78 Vanguard + 3 Zeon Suits</div>
+      </div>
+      <div style="background:rgba(15,23,42,0.84);border:1px solid rgba(245,158,11,0.26);border-radius:10px;padding:10px;">
+        <div style="color:#94a3b8;margin-bottom:4px;">SNAP-FIT HARDPOINTS</div>
+        <div style="color:#fbbf24;font-weight:700;font-size:0.84rem;">8-Zone Anti-Sinking Adapters</div>
+      </div>
+      <div style="background:rgba(15,23,42,0.84);border:1px solid rgba(56,189,248,0.26);border-radius:10px;padding:10px;">
+        <div style="color:#94a3b8;margin-bottom:4px;">KINEMATICS &amp; AIM</div>
+        <div style="color:#38bdf8;font-weight:700;font-size:0.84rem;">11-Bone Rig &bull; 0.0° Beam Aim</div>
+      </div>
+      <div style="background:rgba(15,23,42,0.84);border:1px solid rgba(52,211,153,0.26);border-radius:10px;padding:10px;">
+        <div style="color:#94a3b8;margin-bottom:4px;">MECHA SPECIALISTS</div>
+        <div id="mecha-modal-specialists" style="color:#34d399;font-weight:700;font-size:0.84rem;">Kenji Gunawan &amp; Reina Takahashi</div>
+      </div>
+    </div>
+
+    <p style="font-size:0.82rem;line-height:1.62;color:#cbd5e1;margin-bottom:18px;">
+      Welcome to the East <strong>3D Gundam &amp; Mecha Robotics Wing</strong>. Our dedicated Mecha CAD Architect and AMBAC Kinematics Lead continuously synthesize 1/100 Master Grade Ver.Ka &amp; Real Grade mobile suits (<strong>RX-78 Vanguard, MS-06Z Zaku-II, MS-07B Gouf, and MSN-04S Sazabi</strong>) with recessed internal mono-eye optics, outward forearm C-clamp shield adapters, palm trigger-latch weapon grips, and 8-zone modular armor packs. Click below to launch the interactive 3D Gundam-Like Hangar!
+    </p>
+
+    <div style="display:flex;align-items:center;gap:10px;justify-content:flex-end;">
+      <button type="button" id="btn-dismiss-mecha" style="padding:9px 16px;border-radius:10px;background:rgba(30,41,59,0.7);border:1px solid rgba(148,163,184,0.3);color:#cbd5e1;cursor:pointer;font-size:0.82rem;">Close</button>
+      <a href="mecha.html" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:10px;background:linear-gradient(135deg, #dc2626 0%, #d97706 100%);color:#ffffff;font-size:0.82rem;font-weight:700;text-decoration:none;box-shadow:0 0 18px rgba(239,68,68,0.45);transition:all 0.2s ease;">🤖 Enter 3D Gundam-Like Hangar Page ↗</a>
     </div>
   </div>
 
@@ -834,7 +877,7 @@
   <!-- Left Divisions & Quick Inspector Panel -->
   <aside id="hud-left" class="glass-panel" aria-label="Autonomous Office Divisions">
     <div class="panel-header">
-      <span class="panel-title">24/7 Lab Divisions (5)</span>
+      <span class="panel-title">24/7 Lab Divisions (7)</span>
       <button type="button" id="btn-close-panel" class="panel-close" title="Hide Panel (H)">✕</button>
     </div>
     <div class="hud-left-meta" style="display:flex;align-items:center;justify-content:space-between;padding:8px 10px;margin-bottom:12px;border-radius:10px;background:rgba(2,6,23,0.72);border:1px solid rgba(148,163,184,0.18);font-family:var(--font-mono);font-size:0.72rem;">
@@ -882,6 +925,7 @@
       <button type="button" class="cam-btn" data-zone="zone_lounge" title="Zone 5: Coffee Lounge">☕ Lounge</button>
       <button type="button" class="cam-btn" data-zone="zone_telescope" id="btn-cam-garden" title="Outdoor Garden Terrace & Cosmic Telescope">🔭 Garden</button>
       <button type="button" class="cam-btn" data-zone="zone_gods_eye" id="btn-cam-gods-eye" title="Floor 2: 'God's Eye' AI Command Center">👁️ God's Eye</button>
+      <button type="button" class="cam-btn" data-zone="zone_mecha" id="btn-cam-mecha" title="Right Wing: 3D Gundam & Mecha Robotics Hangar Bay">🤖 Gundam Bay</button>
       <button type="button" class="cam-btn" id="btn-autotour" data-cam="autotour" title="Toggle 360 Isometric Auto-Tour">▶ Auto-Tour: OFF</button>
       <button type="button" class="cam-btn" id="btn-close-bottom" title="Hide Bottom Camera Dock">✕ Hide</button>
     </nav>
@@ -1156,12 +1200,12 @@ class BillboardHUDAnimator {
     this.latestModule = '[Python] Singular Value Decomposition (SVD) for Low-Rank Approximation';
     this.latestPaper = 'Idempotency Keys Under High-Throughput Distributed Transactions';
 
-    // 4-Shift Data
+    // 4-Shift Data (7 Divisions including 2 Mecha Robotics Specialists)
     this.shifts = [
-      { id: 1, name: 'Morning', hours: '06:00 - 12:00 WIB', team: ['Bima Vance', 'Dr. Clara Wijaya', 'Marcus Pratama', 'Elena Kusuma', 'Nadia Miller'] },
-      { id: 2, name: 'Afternoon', hours: '12:00 - 18:00 WIB', team: ['Arthur Nugraha', 'Sarah Oktavia, Ph.D.', 'Kevin Setiawan', 'Chloe Lestari', 'Audrey Wibisono'] },
-      { id: 3, name: 'Evening', hours: '18:00 - 00:00 WIB', team: ['Aris Hamilton', 'Dr. Citra Beaumont', 'David Siregar', 'Grace Pangestu', 'Stella Gunawan'] },
-      { id: 4, name: 'Overnight', hours: '00:00 - 06:00 WIB', team: ['Lucas Wibowo', 'Hannah Handayani, Ph.D.', 'Brandon Prakoso', 'Maya Safitri', 'Fiona Saputri'] }
+      { id: 1, name: 'Morning', hours: '06:00 - 12:00 WIB', team: ['Bima Vance', 'Dr. Clara Wijaya', 'Marcus Pratama', 'Elena Kusuma', 'Nadia Miller', 'Kenji Gunawan', 'Reina Takahashi'] },
+      { id: 2, name: 'Afternoon', hours: '12:00 - 18:00 WIB', team: ['Arthur Nugraha', 'Sarah Oktavia, Ph.D.', 'Kevin Setiawan', 'Chloe Lestari', 'Audrey Wibisono', 'Ryuichi Santoso', 'Aiko Kusuma'] },
+      { id: 3, name: 'Evening', hours: '18:00 - 00:00 WIB', team: ['Aris Hamilton', 'Dr. Citra Beaumont', 'David Siregar', 'Grace Pangestu', 'Stella Gunawan', 'Takeshi Halim', 'Mei-Ling Wijaya'] },
+      { id: 4, name: 'Overnight', hours: '00:00 - 06:00 WIB', team: ['Lucas Wibowo', 'Hannah Handayani, Ph.D.', 'Brandon Prakoso', 'Maya Safitri', 'Fiona Saputri', 'Hiroshi Prakoso', 'Yuki Handayani'] }
     ];
     this.activeShiftIdx = 0;
 
@@ -1439,7 +1483,7 @@ class BillboardHUDAnimator {
     // Brand Name
     ctx.fillStyle = '#ffffff';
     ctx.font = '900 38px system-ui, -apple-system, sans-serif';
-    ctx.fillText('MATEUS YONATHAN // AGENTIC LAB', 98, 58);
+    ctx.fillText('24/7 AGENTIC AUTONOMOUS LAB', 98, 58);
 
     // Subtitle with live clock
     ctx.fillStyle = '#38bdf8';
@@ -1689,6 +1733,25 @@ class CutawayRoomBuilder {
     shellParts.push(createColoredPart(new THREE.BoxGeometry(0.12, 3.20, 0.16), '#475569', 5.6, 1.60, 9.0));
     shellParts.push(createColoredPart(new THREE.BoxGeometry(3.72, 0.14, 0.16), '#0284c7', 3.8, 3.20, 9.0));
 
+    // 3. HORIZONTAL EXPANSION WING C: 3D Gundam & Mecha Robotics Hangar Wing (East / Right Side: X: 9.0 to 16.2, Z: -7.5 to +4.5)
+    // Dedicated right-side expansion wing housing the Giant 3D RX-78 Gundam Gantry Bay & 2 Mecha Engineering Workstations!
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(7.2, 0.36, 12.0), '#cbd5e1', 12.6, -0.19, -1.5));
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(7.36, 0.08, 12.16), '#94a3b8', 12.6, -0.35, -1.5));
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(7.0, 0.024, 11.8), '#1e293b', 12.6, 0.012, -1.5));
+    // Hangar metallic tactical deck inlay
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(6.6, 0.028, 11.4), '#f1f5f9', 12.6, 0.016, -1.5));
+    // North Cutaway Wall for Mecha Wing (-Z = -7.5) with Panoramic Ribbon Window
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(7.2, 1.15, T), '#f8fafc', 12.6, 0.575, -7.5));
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(7.2, 0.85, T), '#f8fafc', 12.6, H - 0.425, -7.5));
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(0.40, 2.6, T), '#f8fafc', 16.0, 2.45, -7.5));
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(6.8, 0.10, T + 0.06), '#64748b', 12.5, 1.18, -7.5));
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(6.8, 0.10, T + 0.06), '#64748b', 12.5, 3.72, -7.5));
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(7.28, 0.12, T + 0.08), '#ef4444', 12.6, H + 0.05, -7.5));
+    // Connecting Architectural Portal Arch between Main Lab and Right-Side Mecha Robotics Wing (at X = 9.0, Z = -1.2)
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(0.16, 3.30, 0.16), '#475569', 9.0, 1.65, -6.2));
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(0.16, 3.30, 0.16), '#475569', 9.0, 1.65, 3.8));
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(0.18, 0.16, 10.16), '#ef4444', 9.0, 3.30, -1.2));
+
     const mergedShell = mergeGeometries(shellParts, false);
     const shellMat = new THREE.MeshStandardMaterial({
       vertexColors: true,
@@ -1755,7 +1818,12 @@ class CutawayRoomBuilder {
     const gndZone = makeZonePlate(5.2, 3.8, gndFill, 'rgba(5, 150, 105, 0.50)', 'GROUND HARDWARE & GPU SERVER LAB', isLight);
     gndZone.position.set(-4.6, 0.030, 12.80);
     scene.add(gndZone);
-    const zonePlates = [teleZone, godsZone, gndZone];
+    // 4. Zone 10: Right-Side 3D Gundam & Mecha Robotics Hangar Wing Floor Plate
+    const mechaFill = isLight ? 'rgba(254, 226, 226, 0.24)' : 'rgba(153, 27, 27, 0.20)';
+    const mechaZone = makeZonePlate(6.6, 11.4, mechaFill, 'rgba(239, 68, 68, 0.58)', '3D GUNDAM & MECHA ROBOTICS HANGAR', isLight);
+    mechaZone.position.set(12.6, 0.034, -1.30);
+    scene.add(mechaZone);
+    const zonePlates = [teleZone, godsZone, gndZone, mechaZone];
 
     // Prominent 24/7 Autonomous Lab Wall Banner mounted inside the 3D office (-Z upper header)
     // Sized & positioned strictly beneath room ceiling coping (y=4.51 < 4.60) to prevent top overlap
@@ -1819,6 +1887,10 @@ class CutawayRoomBuilder {
       createColoredPart(new THREE.BoxGeometry(0.05, 1.49, 4.02), '#38bdf8', -7.50, 1.175, 12.625),
       // Floor 2 East Open Glass Balustrade overlooking the central lab
       createColoredPart(new THREE.BoxGeometry(0.03, 0.92, 4.35), '#38bdf8', -1.8, 2.82, 12.8),
+      // Right-Side Mecha Robotics Wing North Window & Perimeter Glass Balustrades
+      createColoredPart(new THREE.BoxGeometry(6.75, 2.48, 0.05), '#38bdf8', 12.5, 2.45, -7.5),
+      createColoredPart(new THREE.BoxGeometry(0.03, 0.98, 11.8), '#38bdf8', 16.15, 0.526, -1.5),
+      createColoredPart(new THREE.BoxGeometry(7.10, 0.98, 0.03), '#38bdf8', 12.6, 0.526, 4.45),
     ];
     const glassMesh = new THREE.Mesh(
       mergeGeometries(glassParts, false),
@@ -2683,6 +2755,117 @@ class OfficeFurnitureBuilder {
     // 3 High-Back Captain Chairs on Floor 2: Seated analysts face NORTH (-Z) directly into the monitors!
     [-5.6, -4.6, -3.6].forEach((cx) => addChair(cx, 12.85, Math.PI, '#38bdf8', 2.30));
 
+    // =========================================================================
+    // RIGHT-SIDE EXPANSION WING C: 3D GUNDAM & MECHA ROBOTICS HANGAR (X: 9.0 to 16.2)
+    // =========================================================================
+    // 1. Two Dedicated Mecha Engineering Workstations:
+    //    - North Desk (zone_mecha: Kenji Gunawan at [10.6, -4.8], Chair at [10.6, -3.75] facing North)
+    //    - South Desk (zone_mecha_rig: Reina Takahashi at [10.6, 1.60], Chair at [10.6, 2.65] facing North)
+    addDesk(10.6, -4.8, '#ef4444');
+    addChair(10.6, -3.75, Math.PI, '#ef4444');
+    addBox(0.84, 0.48, 0.04, '#0f172a', 10.15, 1.12, -4.90, 0, 0.16, 0);
+    addBox(0.84, 0.48, 0.04, '#0f172a', 11.05, 1.12, -4.90, 0, -0.16, 0);
+    addCyl(0.03, 0.03, 0.24, 8, '#64748b', 10.15, 0.88, -4.95);
+    addCyl(0.03, 0.03, 0.24, 8, '#64748b', 11.05, 0.88, -4.95);
+    screenAnchors.mechaCadLeft = { pos: [10.15, 1.12, -4.87], rotY: 0.16, w: 0.80, h: 0.44 };
+    screenAnchors.mechaCadRight = { pos: [11.05, 1.12, -4.87], rotY: -0.16, w: 0.80, h: 0.44 };
+
+    addDesk(10.6, 1.60, '#f97316');
+    addChair(10.6, 2.65, Math.PI, '#fb923c');
+    addBox(1.18, 0.56, 0.04, '#0f172a', 10.60, 1.16, 1.50);
+    addCyl(0.035, 0.035, 0.26, 8, '#64748b', 10.60, 0.88, 1.46);
+    screenAnchors.mechaRigMain = { pos: [10.60, 1.16, 1.53], rotY: 0.0, w: 1.12, h: 0.52 };
+
+    // 2. Giant Illuminated Catapult Maintenance Gantry & 3.6m Hero RX-78 Gundam Mobile Suit Prototype (X = 13.8, Z = -1.6)
+    const gx = 13.8, gz = -1.6;
+    // Octagonal Dark-Graphite Hangar Catapult Pedestal & Glowing Cyan/Amber Calibration Rings
+    addCyl(1.45, 1.60, 0.18, 16, '#0f172a', gx, 0.09, gz);
+    addCyl(1.28, 1.32, 0.04, 16, '#0284c7', gx, 0.19, gz);
+    addCyl(1.18, 1.18, 0.05, 16, '#1e293b', gx, 0.22, gz);
+    // Twin Steel Gantry Service Towers flanking the Giant Gundam
+    [-1.25, 1.25].forEach((zOff) => {
+      addBox(0.22, 3.65, 0.22, '#334155', gx + 0.85, 1.85, gz + zOff);
+      addBox(0.28, 0.12, 0.28, '#f59e0b', gx + 0.85, 0.24, gz + zOff);
+      addBox(0.95, 0.08, 0.18, '#475569', gx + 0.42, 2.85, gz + zOff);
+      ledPositions.push([gx + 0.85, 3.68, gz + zOff, 0.08, 0.08, 0.08]);
+      ledBaseColors.push('#ef4444');
+    });
+    // Overhead Gantry Cross-Bridge Truss
+    addBox(0.24, 0.18, 2.75, '#334155', gx + 0.85, 3.65, gz);
+
+    // 3. Sculpted Giant 3.6m Hero RX-78 Vanguard Gundam Mobile Suit standing in the Gantry Bay (Facing West -X into the lab!)
+    //    - Red Combat Boots & Ankle Guards
+    [-0.38, 0.38].forEach((zLeg) => {
+      addBox(0.52, 0.18, 0.28, '#dc2626', gx - 0.08, 0.31, gz + zLeg); // Red Boot Toe/Sole
+      addBox(0.34, 0.16, 0.26, '#f8fafc', gx + 0.02, 0.44, gz + zLeg); // White Ankle Cuff
+      // White Flared Gundam Lower Leg (Shin/Calf) + Grey Knee Joint + White Thigh
+      addBox(0.36, 0.86, 0.32, '#f1f5f9', gx + 0.02, 0.92, gz + zLeg);
+      addBox(0.14, 0.26, 0.22, '#eab308', gx - 0.16, 1.18, gz + zLeg); // Gold Knee Fin
+      addCyl(0.12, 0.12, 0.26, 12, '#334155', gx + 0.02, 1.38, gz + zLeg, Math.PI / 2, 0, 0);
+      addBox(0.32, 0.68, 0.28, '#e2e8f0', gx + 0.02, 1.72, gz + zLeg);
+      // Physical Calf Booster Pod on Outer Lower Leg (ADP-HP24-CALF)
+      addBox(0.22, 0.42, 0.16, '#1d4ed8', gx + 0.04, 0.88, gz + zLeg + (zLeg > 0 ? 0.22 : -0.22));
+    });
+    //    - Pelvis, White Front/Side Skirts & Golden V-Emblem Codpiece
+    addBox(0.42, 0.34, 1.02, '#f8fafc', gx, 2.12, gz);
+    addBox(0.46, 0.38, 0.28, '#ffffff', gx - 0.04, 2.12, gz);
+    addBox(0.06, 0.16, 0.16, '#eab308', gx - 0.28, 2.15, gz); // Gold V-Emblem
+    //    - Crimson Red Abdomen & Royal-Blue Gundarium Chest Cuirass + Twin Golden Louver Vents
+    addBox(0.44, 0.36, 0.72, '#dc2626', gx, 2.44, gz);
+    addBox(0.54, 0.56, 1.08, '#1d4ed8', gx, 2.86, gz);
+    addBox(0.58, 0.42, 0.30, '#dc2626', gx - 0.04, 2.82, gz); // Red Cockpit Hatch
+    [-0.34, 0.34].forEach((zVent) => {
+      addBox(0.08, 0.22, 0.26, '#eab308', gx - 0.26, 2.84, gz + zVent); // Gold Chest Louvers
+    });
+    //    - Dorsal Jetpack & Twin White Beam Saber Hilts + Swept Aero Wing Binders
+    addBox(0.34, 0.52, 0.68, '#1e293b', gx + 0.38, 2.86, gz);
+    [-0.24, 0.24].forEach((zSab) => {
+      addCyl(0.04, 0.04, 0.52, 10, '#f8fafc', gx + 0.48, 3.32, gz + zSab, 0, 0, -0.35);
+      addBox(0.18, 0.95, 0.08, '#e2e8f0', gx + 0.58, 3.15, gz + zSab * 3.2, 0.35 * (zSab > 0 ? 1 : -1), 0, -0.25);
+    });
+    //    - Broad White Shoulder Pauldrons, 6-Tube Red/Gold Shoulder Pods, Arms, Beam Rifle & Hexagonal Shield!
+    [-0.74, 0.74].forEach((zArm) => {
+      addBox(0.48, 0.44, 0.46, '#f8fafc', gx, 2.98, gz + zArm);
+      addBox(0.32, 0.26, 0.18, '#dc2626', gx - 0.04, 3.12, gz + zArm + (zArm > 0 ? 0.26 : -0.26));
+      addBox(0.26, 0.48, 0.24, '#e2e8f0', gx, 2.56, gz + zArm);
+    });
+    // Right Arm (zArm = -0.74, North side when facing West -X): Raised aiming Long-Barrel Beam Rifle horizontally along -X!
+    addBox(0.52, 0.24, 0.24, '#f8fafc', gx - 0.24, 2.32, gz - 0.74);
+    addBox(0.95, 0.16, 0.10, '#1e293b', gx - 0.78, 2.38, gz - 0.74); // Beam Rifle Receiver
+    addCyl(0.035, 0.035, 0.75, 10, '#334155', gx - 1.38, 2.40, gz - 0.74, 0, 0, Math.PI / 2); // Horizontal Beam Barrel!
+    addCyl(0.04, 0.04, 0.28, 10, '#eab308', gx - 0.82, 2.50, gz - 0.74, 0, 0, Math.PI / 2); // Top Gold Scope!
+    // Left Forearm (zArm = +0.74, South side when facing West -X): Outer C-Clamp Hexagonal Red/White/Gold Shield facing outward (+Z)!
+    addBox(0.46, 0.24, 0.24, '#f8fafc', gx - 0.16, 2.26, gz + 0.74);
+    addBox(0.10, 0.14, 0.16, '#1e293b', gx - 0.16, 2.26, gz + 0.92); // Forearm C-Clamp Standoff Adapter!
+    addBox(0.52, 1.18, 0.08, '#f8fafc', gx - 0.18, 2.28, gz + 1.02); // Outer White Shield Frame
+    addBox(0.42, 0.98, 0.06, '#dc2626', gx - 0.18, 2.28, gz + 1.06); // Outer Red Shield Core
+    addBox(0.10, 0.42, 0.06, '#eab308', gx - 0.18, 2.25, gz + 1.09); // Gold Cross Vertical
+    addBox(0.28, 0.10, 0.06, '#eab308', gx - 0.18, 2.34, gz + 1.09); // Gold Cross Horizontal
+    //    - Gundam Head, Red Chin, Emerald Dual Eyes & Iconic Quad White/Gold V-Fin Crest!
+    addBox(0.38, 0.36, 0.38, '#f8fafc', gx - 0.02, 3.34, gz);
+    addBox(0.08, 0.10, 0.26, '#10f5a0', gx - 0.21, 3.34, gz); // Glowing Emerald Twin Eyes
+    addBox(0.08, 0.08, 0.12, '#dc2626', gx - 0.22, 3.20, gz); // Red Chin Guard
+    addBox(0.10, 0.12, 0.10, '#dc2626', gx - 0.21, 3.48, gz); // Red Forehead Gem
+    // Quad V-Fin Blades (White Main + Gold Sub-Blades)
+    addBox(0.04, 0.42, 0.05, '#ffffff', gx - 0.20, 3.66, gz - 0.22, 0.65, 0, 0);
+    addBox(0.04, 0.42, 0.05, '#ffffff', gx - 0.20, 3.66, gz + 0.22, -0.65, 0, 0);
+    addBox(0.04, 0.34, 0.04, '#eab308', gx - 0.19, 3.60, gz - 0.26, 0.82, 0, 0);
+    addBox(0.04, 0.34, 0.04, '#eab308', gx - 0.19, 3.60, gz + 0.26, -0.82, 0, 0);
+
+    // Animated Vertical Cyan Laser Calibration Ring scanning up and down the Giant Gundam!
+    const scanRingGeo = new THREE.RingGeometry(1.12, 1.22, 32);
+    scanRingGeo.rotateX(-Math.PI / 2);
+    const scanRingMat = new THREE.MeshBasicMaterial({
+      color: 0x00f5ff,
+      side: THREE.DoubleSide,
+      transparent: true,
+      opacity: 0.65,
+      depthWrite: false,
+    });
+    const mechaScannerRing = new THREE.Mesh(scanRingGeo, scanRingMat);
+    mechaScannerRing.position.set(gx, 1.8, gz);
+    scene.add(mechaScannerRing);
+
     // Merge all static furniture & appliances into 1 single draw call with smooth shading
     const furnitureMesh = new THREE.Mesh(
       mergeGeometries(parts, false),
@@ -2743,13 +2926,22 @@ class OfficeFurnitureBuilder {
       { zoneId: 'zone_telescope', workerId: 'telescope', isTelescope: true, pos: [3.6, 1.25, 12.2], size: [2.4, 2.0, 2.4] },
       { zoneId: 'zone_gods_eye', workerId: 'gods_eye', isGodsEye: true, pos: [-4.6, 3.55, 11.20], size: [5.2, 2.4, 2.8] },
       { zoneId: 'zone_gods_eye', workerId: 'gods_eye', isGodsEye: true, pos: [-4.6, 2.90, 12.10], size: [4.2, 1.4, 1.4] },
+      { zoneId: 'zone_mecha', workerId: 'worker_mecha', pos: [10.6, 1.25, -4.2], size: [2.6, 2.6, 2.4] },
+      { zoneId: 'zone_mecha_rig', workerId: 'worker_mecha_rig', pos: [10.6, 1.25, 2.1], size: [2.6, 2.6, 2.4] },
+      { zoneId: 'zone_mecha', workerId: 'mecha_gundam', isMechaGundam: true, pos: [13.8, 2.0, -1.6], size: [2.8, 4.0, 2.8] },
     ];
     const proxyMat = new THREE.MeshBasicMaterial({ visible: false });
     for (let z = 0; z < zoneBoxes.length; z++) {
       const zb = zoneBoxes[z];
       const proxy = new THREE.Mesh(new THREE.BoxGeometry(zb.size[0], zb.size[1], zb.size[2]), proxyMat);
       proxy.position.set(zb.pos[0], zb.pos[1], zb.pos[2]);
-      proxy.userData = { zoneId: zb.zoneId, workerId: zb.workerId, isTelescope: Boolean(zb.isTelescope), isGodsEye: Boolean(zb.isGodsEye) };
+      proxy.userData = {
+        zoneId: zb.zoneId,
+        workerId: zb.workerId,
+        isTelescope: Boolean(zb.isTelescope),
+        isGodsEye: Boolean(zb.isGodsEye),
+        isMechaGundam: Boolean(zb.isMechaGundam),
+      };
       scene.add(proxy);
       hitProxies.push(proxy);
     }
@@ -2760,6 +2952,7 @@ class OfficeFurnitureBuilder {
       steamPoints,
       screenAnchors,
       hitProxies,
+      mechaScannerRing,
     };
   }
 }
@@ -2795,37 +2988,45 @@ function createSkinnedPart(geometry, boneIndex, hexColor, matrix4) {
 class StylizedCharacterFactory {
   static get SHIFT_PALETTES() {
     return [
-      // Shift 1: Morning (06:00 - 12:00 WIB) — Fresh Morning Executive (Bima, Dr. Clara, Marcus, Elena, Nadia)
+      // Shift 1: Morning (06:00 - 12:00 WIB) — Fresh Morning Executive (Bima, Dr. Clara, Marcus, Elena, Nadia, Kenji, Reina)
       {
-        worker_kernel:   { topColor: '#e0f2fe', vestColor: '#1e3a8a', pantsColor: '#1e293b', shoeColor: '#f8fafc', hairColor: '#1c1917', skinColor: '#f5cba7', plumbobHex: '#10b981' },
-        worker_research: { topColor: '#ffffff', vestColor: '#6366f1', pantsColor: '#334155', shoeColor: '#0f172a', hairColor: '#3b1d0e', skinColor: '#fad7bd', plumbobHex: '#38bdf8' },
-        worker_hardware: { topColor: '#0f172a', vestColor: '#059669', pantsColor: '#1f2937', shoeColor: '#cbd5e1', hairColor: '#292524', skinColor: '#eab68c', plumbobHex: '#fbbf24' },
-        worker_release:  { topColor: '#f0f9ff', vestColor: '#0284c7', pantsColor: '#0f172a', shoeColor: '#f8fafc', hairColor: '#451a03', skinColor: '#f5cba7', plumbobHex: '#10b981' },
-        worker_lounge:   { topColor: '#fdf2f8', vestColor: '#db2777', pantsColor: '#1e293b', shoeColor: '#f1f5f9', hairColor: '#581c87', skinColor: '#fad7bd', plumbobHex: '#ec4899' },
+        worker_kernel:    { topColor: '#e0f2fe', vestColor: '#1e3a8a', pantsColor: '#1e293b', shoeColor: '#f8fafc', hairColor: '#1c1917', skinColor: '#f5cba7', plumbobHex: '#10b981' },
+        worker_research:  { topColor: '#ffffff', vestColor: '#6366f1', pantsColor: '#334155', shoeColor: '#0f172a', hairColor: '#3b1d0e', skinColor: '#fad7bd', plumbobHex: '#38bdf8' },
+        worker_hardware:  { topColor: '#0f172a', vestColor: '#059669', pantsColor: '#1f2937', shoeColor: '#cbd5e1', hairColor: '#292524', skinColor: '#eab68c', plumbobHex: '#fbbf24' },
+        worker_release:   { topColor: '#f0f9ff', vestColor: '#0284c7', pantsColor: '#0f172a', shoeColor: '#f8fafc', hairColor: '#451a03', skinColor: '#f5cba7', plumbobHex: '#10b981' },
+        worker_lounge:    { topColor: '#fdf2f8', vestColor: '#db2777', pantsColor: '#1e293b', shoeColor: '#f1f5f9', hairColor: '#581c87', skinColor: '#fad7bd', plumbobHex: '#ec4899' },
+        worker_mecha:     { topColor: '#f8fafc', vestColor: '#1d4ed8', pantsColor: '#0f172a', shoeColor: '#dc2626', hairColor: '#18181b', skinColor: '#f5cba7', plumbobHex: '#00e5ff' },
+        worker_mecha_rig: { topColor: '#fef3c7', vestColor: '#b91c1c', pantsColor: '#1e293b', shoeColor: '#f8fafc', hairColor: '#31102f', skinColor: '#fad7bd', plumbobHex: '#f59e0b' },
       },
-      // Shift 2: Afternoon (12:00 - 18:00 WIB) — Dynamic Tech Innovators (Arthur, Sarah Ph.D., Kevin, Chloe, Audrey)
+      // Shift 2: Afternoon (12:00 - 18:00 WIB) — Dynamic Tech Innovators (Arthur, Sarah Ph.D., Kevin, Chloe, Audrey, Ryuji, Ayumi)
       {
-        worker_kernel:   { topColor: '#0f766e', vestColor: '#d97706', pantsColor: '#18181b', shoeColor: '#fed7aa', hairColor: '#18181b', skinColor: '#e8be99', plumbobHex: '#f59e0b' },
-        worker_research: { topColor: '#ffe4e6', vestColor: '#991b1b', pantsColor: '#292524', shoeColor: '#44403c', hairColor: '#262626', skinColor: '#fde0cb', plumbobHex: '#ef4444' },
-        worker_hardware: { topColor: '#1e293b', vestColor: '#15803d', pantsColor: '#374151', shoeColor: '#111827', hairColor: '#3f3f46', skinColor: '#e2ab80', plumbobHex: '#84cc16' },
-        worker_release:  { topColor: '#ede9fe', vestColor: '#ea580c', pantsColor: '#111827', shoeColor: '#ffffff', hairColor: '#78350f', skinColor: '#f7d3b5', plumbobHex: '#06b6d4' },
-        worker_lounge:   { topColor: '#fef3c7', vestColor: '#4338ca', pantsColor: '#0f172a', shoeColor: '#e2e8f0', hairColor: '#312e81', skinColor: '#fce3cf', plumbobHex: '#a855f7' },
+        worker_kernel:    { topColor: '#0f766e', vestColor: '#d97706', pantsColor: '#18181b', shoeColor: '#fed7aa', hairColor: '#18181b', skinColor: '#e8be99', plumbobHex: '#f59e0b' },
+        worker_research:  { topColor: '#ffe4e6', vestColor: '#991b1b', pantsColor: '#292524', shoeColor: '#44403c', hairColor: '#262626', skinColor: '#fde0cb', plumbobHex: '#ef4444' },
+        worker_hardware:  { topColor: '#1e293b', vestColor: '#15803d', pantsColor: '#374151', shoeColor: '#111827', hairColor: '#3f3f46', skinColor: '#e2ab80', plumbobHex: '#84cc16' },
+        worker_release:   { topColor: '#ede9fe', vestColor: '#ea580c', pantsColor: '#111827', shoeColor: '#ffffff', hairColor: '#78350f', skinColor: '#f7d3b5', plumbobHex: '#06b6d4' },
+        worker_lounge:    { topColor: '#fef3c7', vestColor: '#4338ca', pantsColor: '#0f172a', shoeColor: '#e2e8f0', hairColor: '#312e81', skinColor: '#fce3cf', plumbobHex: '#a855f7' },
+        worker_mecha:     { topColor: '#e0f2fe', vestColor: '#0284c7', pantsColor: '#1e293b', shoeColor: '#f59e0b', hairColor: '#1c1917', skinColor: '#e8be99', plumbobHex: '#38bdf8' },
+        worker_mecha_rig: { topColor: '#ffffff', vestColor: '#d97706', pantsColor: '#0f172a', shoeColor: '#ef4444', hairColor: '#3b1d0e', skinColor: '#fde0cb', plumbobHex: '#34d399' },
       },
-      // Shift 3: Evening (18:00 - 00:00 WIB) — Sophisticated Amethyst Night (Aris, Dr. Citra, David, Grace, Stella)
+      // Shift 3: Evening (18:00 - 00:00 WIB) — Sophisticated Amethyst Night (Aris, Dr. Citra, David, Grace, Stella, Kenzo, Sakura)
       {
-        worker_kernel:   { topColor: '#18181b', vestColor: '#7c3aed', pantsColor: '#27272a', shoeColor: '#52525b', hairColor: '#27272a', skinColor: '#dcb085', plumbobHex: '#8b5cf6' },
-        worker_research: { topColor: '#f5f3ff', vestColor: '#1d4ed8', pantsColor: '#0f172a', shoeColor: '#1e1b4b', hairColor: '#450a0a', skinColor: '#edd0b7', plumbobHex: '#3b82f6' },
-        worker_hardware: { topColor: '#27272a', vestColor: '#b45309', pantsColor: '#1c1917', shoeColor: '#0a0a0a', hairColor: '#1c1917', skinColor: '#d9a073', plumbobHex: '#f97316' },
-        worker_release:  { topColor: '#042f2e', vestColor: '#0d9488', pantsColor: '#09090b', shoeColor: '#ccfbf1', hairColor: '#1e1b4b', skinColor: '#edd0b7', plumbobHex: '#14b8a6' },
-        worker_lounge:   { topColor: '#ffe4e6', vestColor: '#b91c1c', pantsColor: '#18181b', shoeColor: '#fda4af', hairColor: '#701a75', skinColor: '#edd0b7', plumbobHex: '#f43f5e' },
+        worker_kernel:    { topColor: '#18181b', vestColor: '#7c3aed', pantsColor: '#27272a', shoeColor: '#52525b', hairColor: '#27272a', skinColor: '#dcb085', plumbobHex: '#8b5cf6' },
+        worker_research:  { topColor: '#f5f3ff', vestColor: '#1d4ed8', pantsColor: '#0f172a', shoeColor: '#1e1b4b', hairColor: '#450a0a', skinColor: '#edd0b7', plumbobHex: '#3b82f6' },
+        worker_hardware:  { topColor: '#27272a', vestColor: '#b45309', pantsColor: '#1c1917', shoeColor: '#0a0a0a', hairColor: '#1c1917', skinColor: '#d9a073', plumbobHex: '#f97316' },
+        worker_release:   { topColor: '#042f2e', vestColor: '#0d9488', pantsColor: '#09090b', shoeColor: '#ccfbf1', hairColor: '#1e1b4b', skinColor: '#edd0b7', plumbobHex: '#14b8a6' },
+        worker_lounge:    { topColor: '#ffe4e6', vestColor: '#b91c1c', pantsColor: '#18181b', shoeColor: '#fda4af', hairColor: '#701a75', skinColor: '#edd0b7', plumbobHex: '#f43f5e' },
+        worker_mecha:     { topColor: '#0f172a', vestColor: '#0891b2', pantsColor: '#18181b', shoeColor: '#38bdf8', hairColor: '#18181b', skinColor: '#dcb085', plumbobHex: '#00e5ff' },
+        worker_mecha_rig: { topColor: '#fdf2f8', vestColor: '#9333ea', pantsColor: '#1e1b4b', shoeColor: '#f472b6', hairColor: '#4a044e', skinColor: '#edd0b7', plumbobHex: '#fbbf24' },
       },
-      // Shift 4: Overnight / Dini Hari (00:00 - 06:00 WIB) — Cyberpunk Minimalist Ops (Lucas, Hannah Ph.D., Brandon, Maya, Fiona)
+      // Shift 4: Overnight / Dini Hari (00:00 - 06:00 WIB) — Cyberpunk Minimalist Ops (Lucas, Hannah Ph.D., Brandon, Maya, Fiona, Takeshi, Mikaela)
       {
-        worker_kernel:   { topColor: '#020617', vestColor: '#4f46e5', pantsColor: '#09090b', shoeColor: '#38bdf8', hairColor: '#18181b', skinColor: '#f0c49d', plumbobHex: '#6366f1' },
-        worker_research: { topColor: '#ffffff', vestColor: '#06b6d4', pantsColor: '#0f172a', shoeColor: '#0891b2', hairColor: '#172554', skinColor: '#fce4d4', plumbobHex: '#00f5ff' },
-        worker_hardware: { topColor: '#1f2937', vestColor: '#e11d48', pantsColor: '#111827', shoeColor: '#f43f5e', hairColor: '#27272a', skinColor: '#dfaa7d', plumbobHex: '#ff0055' },
-        worker_release:  { topColor: '#1e1b4b', vestColor: '#f59e0b', pantsColor: '#09090b', shoeColor: '#fef08a', hairColor: '#3730a3', skinColor: '#ebd1ba', plumbobHex: '#fbbf24' },
-        worker_lounge:   { topColor: '#042f2e', vestColor: '#10b981', pantsColor: '#0f172a', shoeColor: '#6ee7b7', hairColor: '#064e3b', skinColor: '#fae0cb', plumbobHex: '#10b981' },
+        worker_kernel:    { topColor: '#020617', vestColor: '#4f46e5', pantsColor: '#09090b', shoeColor: '#38bdf8', hairColor: '#18181b', skinColor: '#f0c49d', plumbobHex: '#6366f1' },
+        worker_research:  { topColor: '#ffffff', vestColor: '#06b6d4', pantsColor: '#0f172a', shoeColor: '#0891b2', hairColor: '#172554', skinColor: '#fce4d4', plumbobHex: '#00f5ff' },
+        worker_hardware:  { topColor: '#1f2937', vestColor: '#e11d48', pantsColor: '#111827', shoeColor: '#f43f5e', hairColor: '#27272a', skinColor: '#dfaa7d', plumbobHex: '#ff0055' },
+        worker_release:   { topColor: '#1e1b4b', vestColor: '#f59e0b', pantsColor: '#09090b', shoeColor: '#fef08a', hairColor: '#3730a3', skinColor: '#ebd1ba', plumbobHex: '#fbbf24' },
+        worker_lounge:    { topColor: '#042f2e', vestColor: '#10b981', pantsColor: '#0f172a', shoeColor: '#6ee7b7', hairColor: '#064e3b', skinColor: '#fae0cb', plumbobHex: '#10b981' },
+        worker_mecha:     { topColor: '#090d16', vestColor: '#2563eb', pantsColor: '#020617', shoeColor: '#00e5ff', hairColor: '#0f172a', skinColor: '#f0c49d', plumbobHex: '#00e5ff' },
+        worker_mecha_rig: { topColor: '#1e1b4b', vestColor: '#dc2626', pantsColor: '#09090b', shoeColor: '#fbbf24', hairColor: '#31102f', skinColor: '#fae0cb', plumbobHex: '#34d399' },
       },
     ];
   }
@@ -2935,6 +3136,24 @@ class StylizedCharacterFactory {
         accessory: 'none',
         heldProp: 'coffee_mug',
         posture: 'seated_sofa',
+      },
+      {
+        workerId: 'worker_mecha',
+        zoneId: 'zone_mecha',
+        gender: 'male',
+        hairStyle: 'short_layered',
+        accessory: 'glasses',
+        heldProp: 'none',
+        posture: 'seated_typing',
+      },
+      {
+        workerId: 'worker_mecha_rig',
+        zoneId: 'zone_mecha_rig',
+        gender: 'female',
+        hairStyle: 'ponytail',
+        accessory: 'headset',
+        heldProp: 'audit_tablet',
+        posture: 'seated_research',
       },
     ];
 
@@ -3300,6 +3519,7 @@ class OfficeAnimationEngine {
     this.ledPositions = furnitureBundle.ledPositions;
     this.ledBaseColors = furnitureBundle.ledBaseColors;
     this.steamPoints = furnitureBundle.steamPoints;
+    this.mechaScannerRing = furnitureBundle.mechaScannerRing || null;
     this.hitProxies = furnitureBundle.hitProxies || [];
     this.dailyDiscussions = Array.isArray(dailyDiscussions) ? dailyDiscussions : [];
     this.bubbleProjector = bubbleProjector || null;
@@ -3321,6 +3541,9 @@ class OfficeAnimationEngine {
       [-8.35, 7.40, 0.50],  // Biometric Fingerprint Attendance Pedestal (Flush against West wall)
       [-6.80, 13.10, 1.25], // Ground Hardware Bunker GPU Server Racks
       [-4.50, 14.40, 1.15], // Ground Tech Diagnostics Workbench
+      [10.60, -4.80, 0.85], // Zone 10 North Mecha CAD Desk
+      [10.60, 1.60, 0.85],  // Zone 10 South Mecha Kinematics Desk
+      [13.80, -1.60, 1.50], // Giant 3.6m RX-78 Gundam Gantry Pedestal
     ];
 
     this._dummy = new THREE.Object3D();
@@ -3544,10 +3767,13 @@ class OfficeAnimationEngine {
         const catHighTech = [];
         const catDesk = [];
         const catAmenities = [];
+        const catMecha = [];
 
         for (let idx = 0; idx < discCount; idx++) {
           const name = discList[idx].spot_name || '';
-          if (name.includes('War-Room') || name.includes('Bundaran') || name.includes('Round Table') || name.includes('Sofa')) {
+          if (name.includes('Gundam') || name.includes('Mecha') || name.includes('Zone 10')) {
+            catMecha.push(idx);
+          } else if (name.includes('War-Room') || name.includes('Bundaran') || name.includes('Round Table') || name.includes('Sofa')) {
             catMeeting.push(idx);
           } else if (name.includes("God's Eye") || name.includes('Server Diagnostic') || name.includes('GPU') || name.includes('Bunker')) {
             catHighTech.push(idx);
@@ -3570,11 +3796,13 @@ class OfficeAnimationEngine {
         shuffleList(catHighTech);
         shuffleList(catDesk);
         shuffleList(catAmenities);
+        shuffleList(catMecha);
 
         const interleaved = [];
-        const maxLen = Math.max(catMeeting.length, catHighTech.length, catDesk.length, catAmenities.length);
+        const maxLen = Math.max(catMeeting.length, catHighTech.length, catDesk.length, catAmenities.length, catMecha.length);
         for (let i = 0; i < maxLen; i++) {
           const roundCats = [];
+          if (catMecha.length > 0) roundCats.push(catMecha[i % catMecha.length]);
           if (catMeeting.length > 0) roundCats.push(catMeeting[i % catMeeting.length]);
           if (catHighTech.length > 0) roundCats.push(catHighTech[i % catHighTech.length]);
           if (catDesk.length > 0) roundCats.push(catDesk[i % catDesk.length]);
@@ -4040,6 +4268,23 @@ class OfficeAnimationEngine {
             b.rUpperArm.rotation.set(-0.45 - tWave * 0.5, -0.10, 0);
             b.rForearm.rotation.set(-0.85 - tWave, 0.10, 0);
           }
+        } else if (spotPosture === 'mecha_gantry_calibration') {
+          activityBadge = isSpeakerA ? '🤖 Calibrating RX-78 Gundam Gantry' : '🎯 Auditing 8-Zone Gunpla Adapters';
+          b.pelvis.position.set(0, 0.84, 0);
+          if (b.lThigh && b.rThigh && b.lCalf && b.rCalf) {
+            b.lThigh.rotation.set(-0.03, 0, 0);
+            b.rThigh.rotation.set(0.03, 0, 0);
+            b.lCalf.rotation.set(0.04, 0, 0);
+            b.rCalf.rotation.set(0.04, 0, 0);
+          }
+          const lookUp = -0.18 + Math.sin(elapsedSec * 1.8) * 0.08;
+          b.torso.rotation.set(-0.05, Math.sin(elapsedSec * 1.4) * 0.12, 0);
+          b.head.rotation.set(lookUp, Math.sin(elapsedSec * 1.1) * 0.16, 0);
+          const pointArm = Math.sin(elapsedSec * 2.6) * 0.14;
+          b.rUpperArm.rotation.set(-0.88 + pointArm, -0.16, 0);
+          b.rForearm.rotation.set(-0.95 + pointArm * 0.8, 0.12, 0);
+          b.lUpperArm.rotation.set(-0.52, 0.16, 0);
+          b.lForearm.rotation.set(-1.05, -0.12, 0);
         } else if (spotPosture === 'restroom_visit') {
           activityBadge = '🚻 Executive Restroom Refresh';
           b.pelvis.position.set(0, 0.84, 0);
@@ -4074,6 +4319,7 @@ class OfficeAnimationEngine {
           spotPosture === 'attendance_scan' ||
           spotPosture === 'bookshelf_reading' ||
           spotPosture === 'server_diagnostics' ||
+          spotPosture === 'mecha_gantry_calibration' ||
           spotPosture === 'restroom_visit' ||
           spotPosture === 'telescope_observer' ||
           spotPosture === 'stargazing' ||
@@ -4223,6 +4469,12 @@ class OfficeAnimationEngine {
       }
       posAttr.needsUpdate = true;
     }
+
+    // 4. Giant RX-78 Gundam Vertical Laser Calibration Ring Animation in Right-Side Mecha Wing
+    if (this.mechaScannerRing) {
+      this.mechaScannerRing.position.y = 0.35 + ((Math.sin(elapsedSec * 1.45) + 1.0) * 0.5) * 3.15;
+      this.mechaScannerRing.rotation.z = elapsedSec * 1.2;
+    }
   }
 }
 
@@ -4314,12 +4566,12 @@ class DynamicMonitorScreensEngine {
     ctxP.strokeRect(3, 3, 506, 734);
     // Top journal banner
     ctxP.fillStyle = '#581c87'; ctxP.fillRect(18, 18, 476, 32);
-    ctxP.fillStyle = '#ffffff'; ctxP.font = 'bold 13px monospace'; ctxP.fillText('MATEUS YONATHAN • AGENTIC AUTONOMOUS LAB RESEARCH PAPER', 28, 39);
+    ctxP.fillStyle = '#ffffff'; ctxP.font = 'bold 13px monospace'; ctxP.fillText('24/7 AGENTIC AUTONOMOUS LAB • IEEE RESEARCH PAPER', 28, 39);
     // Paper Title
     ctxP.fillStyle = '#0f172a'; ctxP.font = 'bold 18px serif';
     let py = wrapCanvasText(ctxP, wRes.headline || 'Published Research Paper', 24, 76, 464, 22, 4);
     // Author & Timestamp
-    ctxP.fillStyle = '#6b21a8'; ctxP.font = 'bold 13px sans-serif'; ctxP.fillText(`Author: Mateus Yonathan  |  ${wRes.language || 'Systems'}  |  ${wRes.timestamp_wib || ''}`, 24, py + 4);
+    ctxP.fillStyle = '#6b21a8'; ctxP.font = 'bold 13px sans-serif'; ctxP.fillText(`Division: Principal Research Wing  |  ${wRes.language || 'Systems'}  |  ${wRes.timestamp_wib || ''}`, 24, py + 4);
     py += 18;
     ctxP.strokeStyle = '#cbd5e1'; ctxP.lineWidth = 1.5;
     ctxP.beginPath(); ctxP.moveTo(24, py);
@@ -4381,7 +4633,7 @@ class DynamicMonitorScreensEngine {
     ctxM.fillStyle = '#0f172a'; ctxM.font = 'bold 15px serif';
     let mpy = wrapCanvasText(ctxM, wRes.headline || '', 32, 110, 364, 19, 3);
     ctxM.fillStyle = '#6b21a8'; ctxM.font = 'bold 11px sans-serif';
-    ctxM.fillText(`Mateus Yonathan • Agentic Autonomous Lab (${wRes.language || ''})`, 32, mpy + 2);
+    ctxM.fillText(`24/7 Agentic Autonomous Lab (${wRes.language || ''})`, 32, mpy + 2);
     ctxM.fillStyle = '#334155'; ctxM.font = '11.5px serif';
     wrapCanvasText(ctxM, wRes.abstract || '', 32, mpy + 24, 364, 16, 16);
 
@@ -4429,7 +4681,7 @@ class DynamicMonitorScreensEngine {
 
     ctxW.fillStyle = '#0f172a'; ctxW.font = 'bold 20px serif';
     let wy = wrapCanvasText(ctxW, wRes.headline || '', 28, 102, 904, 26, 2);
-    ctxW.fillStyle = '#6b21a8'; ctxW.font = 'bold 15px monospace'; ctxW.fillText(`Lead Author: Mateus Yonathan • Principal Scientist: ${wRes.display_name || 'Dr. Clara Wijaya'} • ${wRes.timestamp_wib || ''}`, 28, wy + 6);
+    ctxW.fillStyle = '#6b21a8'; ctxW.font = 'bold 15px monospace'; ctxW.fillText(`Principal Scientist: ${wRes.display_name || 'Dr. Clara Wijaya'} • ${wRes.timestamp_wib || ''}`, 28, wy + 6);
     wy += 34;
 
     ctxW.fillStyle = '#1e293b'; ctxW.font = '16px sans-serif';
@@ -4476,6 +4728,54 @@ class DynamicMonitorScreensEngine {
       ctxG.fillText(`${repos[s].repo_name}: ${repos[s].module_count}`, 14 + col * 248, 56 + row * 31);
     }
     addScreenPlane(screenAnchors.releaseHub, cRel);
+
+    // 8. Right-Side Mecha Robotics Wing Monitors: CAD B-Rep Compiler, 8-Zone Physical Adapters & AMBAC Kinematics
+    const [cMechaL, ctxML] = makeCanvas(512, 256);
+    ctxML.fillStyle = '#090d16'; ctxML.fillRect(0, 0, 512, 256);
+    ctxML.strokeStyle = '#ef4444'; ctxML.lineWidth = 4; ctxML.strokeRect(2, 2, 508, 252);
+    ctxML.fillStyle = '#ef4444'; ctxML.font = 'bold 15px monospace';
+    ctxML.fillText('🤖 1/100 MG VER.KA GUNDAM CAD COMPILER', 14, 26);
+    ctxML.fillStyle = '#38bdf8'; ctxML.font = '12px monospace';
+    ctxML.fillText('• Polyhedral 14-Pt Double-Chamfer Armor Lofts', 14, 58);
+    ctxML.fillText('• Recessed Internal Mono-Eye (Z=+8.6mm Track)', 14, 86);
+    ctxML.fillText('• 8-Zone Anti-Sinking Physical Gunpla Adapters', 14, 114);
+    ctxML.fillText('• Forearm C-Clamp Outward (-X) Shield Strut', 14, 142);
+    ctxML.fillText('• Palm Trigger-Latch Horizontal Beam Aim (+Z)', 14, 170);
+    ctxML.fillStyle = '#34d399'; ctxML.font = 'bold 12px monospace';
+    ctxML.fillText('STATUS: ONLINE CAD REFERENCE + FALLBACK OK', 14, 212);
+    addScreenPlane(screenAnchors.mechaCadLeft, cMechaL);
+
+    const [cMechaR, ctxMR] = makeCanvas(512, 256);
+    ctxMR.fillStyle = '#090d16'; ctxMR.fillRect(0, 0, 512, 256);
+    ctxMR.strokeStyle = '#f59e0b'; ctxMR.lineWidth = 4; ctxMR.strokeRect(2, 2, 508, 252);
+    ctxMR.fillStyle = '#fbbf24'; ctxMR.font = 'bold 15px monospace';
+    ctxMR.fillText('🔌 8-ZONE GUNPLA SNAP-FIT ADAPTER GRID', 14, 26);
+    const adpList = [
+      '1. ADP-HP01-CRANIAL  : Temple & Crown Standoff',
+      '2. ADP-HP09-PECTORAL : Chobham Chest Harness',
+      '3. ADP-HP03-SHOULDER : Over-Pauldron Arch Yoke',
+      '4. ADP-HP00-DORSAL   : Twin-Peg Striker Clamp',
+      '5. ADP-HP11-WEAPON   : Palm Trigger-Latch Rail',
+      '6. ADP-HP07-FOREARM  : Lateral C-Clamp & Strut',
+    ];
+    ctxMR.fillStyle = '#e2e8f0'; ctxMR.font = '12px monospace';
+    adpList.forEach((ln, idx) => ctxMR.fillText(ln, 14, 58 + idx * 30));
+    addScreenPlane(screenAnchors.mechaCadRight, cMechaR);
+
+    const [cMechaRig, ctxMG] = makeCanvas(640, 300);
+    ctxMG.fillStyle = '#060a12'; ctxMG.fillRect(0, 0, 640, 300);
+    ctxMG.strokeStyle = '#fb923c'; ctxMG.lineWidth = 4; ctxMG.strokeRect(2, 2, 636, 296);
+    ctxMG.fillStyle = '#fb923c'; ctxMG.font = 'bold 16px monospace';
+    ctxMG.fillText('🎯 11-BONE AMBAC KINEMATICS & SAT COLLISION SANDBOX', 16, 28);
+    ctxMG.fillStyle = '#34d399'; ctxMG.font = '13px monospace';
+    ctxMG.fillText('• Beam Aim Barrel Pitch : 0.0° Horizontal (+Z Target Lock)', 16, 66);
+    ctxMG.fillText('• Shield Outward Normal : [-1, 0, 0] Lateral Forearm Clamp', 16, 96);
+    ctxMG.fillText('• Roster : RX-78 Vanguard | Zaku-II | Gouf | Sazabi', 16, 126);
+    ctxMG.fillText('• Shader : Gunpla Studio Bevel Highlight & Hemi-Cavity AO', 16, 156);
+    ctxMG.fillText('• CDN    : Private Storage -> Public mecha-assets Sync', 16, 186);
+    ctxMG.fillStyle = '#38bdf8'; ctxMG.font = 'bold 13px monospace';
+    ctxMG.fillText('▶ CLICK GIANT GUNDAM IN GANTRY TO ENTER 3D MECHA HANGAR ↗', 16, 246);
+    addScreenPlane(screenAnchors.mechaRigMain, cMechaRig);
 
     // =========================================================================
     // 6. Floor 2 Panoramic Video Wall "God's Eye" (Animated Cyber Hacking Monitoring Suite)
@@ -4660,7 +4960,7 @@ class DynamicMonitorScreensEngine {
     const pwcPlane = addScreenPlane(screenAnchors.godsEyePWC, cPWC);
 
     const arxivPages = [
-      { id: "arXiv:2410.18942v2 [cs.LG]", t: "High-Throughput Stratum Cache Ring Buffer Pattern", a: "Mateus Yonathan, Sarah Oktavia Ph.D., Citra Beaumount", abs: "We present a high-throughput stratum-cache ring buffer tailored for lock-free Python concurrency. Static AST analysis proves O(1) amortized complexity with zero thread contention." },
+      { id: "arXiv:2410.18942v2 [cs.LG]", t: "High-Throughput Stratum Cache Ring Buffer Pattern", a: "Sarah Oktavia Ph.D., Citra Beaumount, Autonomous Systems Lab", abs: "We present a high-throughput stratum-cache ring buffer tailored for lock-free Python concurrency. Static AST analysis proves O(1) amortized complexity with zero thread contention." },
       { id: "arXiv:2405.21060v1 [cs.LG]", t: "State-Space Duality: Sub-Quadratic Attention Invariants", a: "Albert Gu, Tri Dao, Stanford AI Lab", abs: "We establish theoretical duality between structured state-space models and masked linear attention, enabling sub-quadratic O(N) sequence length scaling during inference." },
       { id: "arXiv:2408.11894v1 [cs.DC]", t: "PagedAttention & Memory-Bounded Continuous Batching", a: "Woosuk Kwon, Zhuohan Li, UC Berkeley", abs: "Dissecting non-contiguous KV-cache memory allocation in LLM serving. Benchmarks verify 3.4x higher token throughput with 0% memory fragmentation across NVLink." }
     ];
@@ -4944,7 +5244,7 @@ class SpeechBubbleProjector {
 }
 
 class OfficeRaycasterEngine {
-  constructor(canvas, camera, scene, hitProxies, spatialZones, onSelectWorker, onSelectTelescope, onSelectGodsEye) {
+  constructor(canvas, camera, scene, hitProxies, spatialZones, onSelectWorker, onSelectTelescope, onSelectGodsEye, onSelectMechaGundam) {
     this.canvas = canvas;
     this.camera = camera;
     this.hitProxies = hitProxies || [];
@@ -4952,6 +5252,7 @@ class OfficeRaycasterEngine {
     this.onSelectWorker = onSelectWorker;
     this.onSelectTelescope = onSelectTelescope || null;
     this.onSelectGodsEye = onSelectGodsEye || null;
+    this.onSelectMechaGundam = onSelectMechaGundam || null;
 
     this.raycaster = new THREE.Raycaster();
     this.pointer = new THREE.Vector2();
@@ -5003,6 +5304,9 @@ class OfficeRaycasterEngine {
           return; }
         if (uData && uData.isGodsEye && this.onSelectGodsEye) {
           this.onSelectGodsEye();
+          return; }
+        if (uData && uData.isMechaGundam && this.onSelectMechaGundam) {
+          this.onSelectMechaGundam();
           return; }
         const wid = uData ? uData.workerId : null;
         if (wid) this.onSelectWorker(wid);
@@ -5062,6 +5366,8 @@ class DeskDetailsDrawerController {
       else if (worker.id === 'worker_hardware') worker.metadata['Lead Reviewer'] = worker.display_name;
       else if (worker.id === 'worker_release') worker.metadata['Portfolio Lead'] = worker.display_name;
       else if (worker.id === 'worker_lounge') worker.metadata['Strategy Lead'] = worker.display_name;
+      else if (worker.id === 'worker_mecha') worker.metadata['Mecha Architect'] = worker.display_name;
+      else if (worker.id === 'worker_mecha_rig') worker.metadata['Kinematics Lead'] = worker.display_name;
     }
 
     const meta = worker.metadata || {};
@@ -5092,7 +5398,7 @@ class DeskDetailsDrawerController {
     );
     const primaryLabel = links.scholar_url
       ? '🎓 Scholar Preprint ↗'
-      : (links.source_url ? 'Open Public Module ↗' : 'Open Public Portfolio ↗');
+      : (links.source_url === 'mecha.html' ? '🤖 Enter 3D Gundam Hangar ↗' : (links.source_url ? 'Open Public Module ↗' : 'Open Public Portfolio ↗'));
     let secondaryUrl = 'constellation.html';
     let secondaryLabel = '🌌 3D Constellation ↗';
     if (links.repo_url) {
@@ -5850,8 +6156,41 @@ class LabBossaAudioEngine {
           modal.classList.add('open');
           modal.style.display = 'flex';
         }
+        const cosmicModal = document.getElementById('telescope-cosmic-modal');
+        if (cosmicModal) cosmicModal.style.display = 'none';
+        const mechaModal = document.getElementById('mecha-hangar-modal');
+        if (mechaModal) mechaModal.style.display = 'none';
         if (this.drawerCtrl) this.drawerCtrl.close();
         this.selectZone('zone_gods_eye');
+      }
+
+      openMechaModal() {
+        const modal = document.getElementById('mecha-hangar-modal');
+        if (modal) {
+          const specEl = document.getElementById('mecha-modal-specialists');
+          if (specEl) {
+            const wMecha = this.workersById.get('worker_mecha');
+            const wRig = this.workersById.get('worker_mecha_rig');
+            if (wMecha && wRig) {
+              specEl.textContent = `${wMecha.display_name} & ${wRig.display_name}`;
+            }
+          }
+          modal.style.display = 'block';
+        }
+        const cosmicModal = document.getElementById('telescope-cosmic-modal');
+        if (cosmicModal) cosmicModal.style.display = 'none';
+        const godsEyeModal = document.getElementById('gods-eye-ai-modal');
+        if (godsEyeModal) {
+          godsEyeModal.classList.remove('open');
+          godsEyeModal.style.display = 'none';
+        }
+        if (this.drawerCtrl) this.drawerCtrl.close();
+        const zSpec = this.spatialZones['zone_mecha'];
+        if (zSpec) {
+          this.selectedZoneId = 'zone_mecha';
+          this.sceneEngine.focusOn([12.8, 1.8, -1.6], 2.35, false);
+          this._highlightActiveZoneButtons('zone_mecha');
+        }
       }
 
       selectWorker(workerId) {
@@ -5863,6 +6202,10 @@ class LabBossaAudioEngine {
         const cosmicModal = document.getElementById('telescope-cosmic-modal');
         if (cosmicModal) {
           cosmicModal.style.display = 'none';
+        }
+        const mechaModal = document.getElementById('mecha-hangar-modal');
+        if (mechaModal) {
+          mechaModal.style.display = 'none';
         }
         const worker = this.workersById.get(workerId);
         if (!worker) return;
@@ -5961,6 +6304,10 @@ class LabBossaAudioEngine {
             if (cosmicModal) {
               cosmicModal.style.display = 'none';
             }
+            const mechaModal = document.getElementById('mecha-hangar-modal');
+            if (mechaModal) {
+              mechaModal.style.display = 'none';
+            }
             if (this.drawerCtrl) {
               this.drawerCtrl.close();
             }
@@ -6020,10 +6367,20 @@ class LabBossaAudioEngine {
             godsEyeModal.style.display = 'none';
           });
         }
+        const mechaModal = document.getElementById('mecha-hangar-modal');
+        const btnCloseMecha = document.getElementById('btn-close-mecha-modal');
+        const btnDismissMecha = document.getElementById('btn-dismiss-mecha');
+        if (btnCloseMecha && mechaModal) {
+          btnCloseMecha.addEventListener('click', () => { mechaModal.style.display = 'none'; });
+        }
+        if (btnDismissMecha && mechaModal) {
+          btnDismissMecha.addEventListener('click', () => { mechaModal.style.display = 'none'; });
+        }
         window.addEventListener('keydown', (e) => {
           if (e.key === 'Escape') {
             if (cosmicModal && cosmicModal.style.display !== 'none') cosmicModal.style.display = 'none';
             if (godsEyeModal && godsEyeModal.style.display !== 'none') godsEyeModal.style.display = 'none';
+            if (mechaModal && mechaModal.style.display !== 'none') mechaModal.style.display = 'none';
             if (this.drawerCtrl) this.drawerCtrl.close();
           }
         });
@@ -6212,10 +6569,10 @@ class LabBossaAudioEngine {
 
         const updateTicker = () => {
           const ev = this.feedEvents[this.tickerIndex % this.feedEvents.length];
-          const badge = ev.kind === 'PAPER' ? '📄 PAPER PUBLISHED' : '💻 MODULE SYNTHESIZED';
+          const badge = ev.kind === 'PAPER' ? '📄 PAPER PUBLISHED' : (ev.kind === 'MECHA' ? '🤖 3D GUNDAM CAD SYNTHESIZED' : '💻 MODULE SYNTHESIZED');
           textEl.innerHTML = `<span class="ticker-tag">${badge} [${ev.language}] • ${ev.timestamp_wib}</span> <span class="ticker-title">${ev.label}</span>`;
           if (tickerEl) {
-            tickerEl.dataset.zoneId = ev.kind === 'PAPER' ? 'zone_research' : 'zone_kernel';
+            tickerEl.dataset.zoneId = ev.kind === 'PAPER' ? 'zone_research' : (ev.kind === 'MECHA' ? 'zone_mecha' : 'zone_kernel');
           }
           this.tickerIndex += 1;
         };
@@ -6280,6 +6637,8 @@ class LabBossaAudioEngine {
           worker_hardware: { name: 'Marcus Pratama', role: 'Hardware & Systems Optimization Lead' },
           worker_release: { name: 'Elena Kusuma', role: 'Open-Source Portfolio Lead' },
           worker_lounge: { name: 'Nadia Miller', role: 'Research Strategy & Collaboration Lead' },
+          worker_mecha: { name: 'Kenji Gunawan', role: 'Lead Mecha CAD & Gunpla Hardpoint Architect' },
+          worker_mecha_rig: { name: 'Reina Takahashi', role: 'Mecha Kinematics & AMBAC Combat Rig Lead' },
         },
         // Shift 2: Afternoon (12:00 - 18:00 WIB)
         {
@@ -6288,6 +6647,8 @@ class LabBossaAudioEngine {
           worker_hardware: { name: 'Kevin Setiawan', role: 'Algorithmic Quality & Complexity Lead' },
           worker_release: { name: 'Chloe Lestari', role: 'Open-Source Portfolio Lead' },
           worker_lounge: { name: 'Audrey Wibisono', role: 'Research Strategy & Collaboration Lead' },
+          worker_mecha: { name: 'Ryuichi Santoso', role: 'Lead Mecha CAD & Gunpla Hardpoint Architect' },
+          worker_mecha_rig: { name: 'Aiko Kusuma', role: 'Mecha Kinematics & AMBAC Combat Rig Lead' },
         },
         // Shift 3: Evening (18:00 - 00:00 WIB)
         {
@@ -6296,6 +6657,8 @@ class LabBossaAudioEngine {
           worker_hardware: { name: 'David Siregar', role: 'Algorithmic Quality & Complexity Lead' },
           worker_release: { name: 'Grace Pangestu', role: 'Open-Source Portfolio Lead' },
           worker_lounge: { name: 'Stella Gunawan', role: 'Research Strategy & Collaboration Lead' },
+          worker_mecha: { name: 'Takeshi Halim', role: 'Lead Mecha CAD & Gunpla Hardpoint Architect' },
+          worker_mecha_rig: { name: 'Mei-Ling Wijaya', role: 'Mecha Kinematics & AMBAC Combat Rig Lead' },
         },
         // Shift 4: Overnight (00:00 - 06:00 WIB)
         {
@@ -6304,6 +6667,8 @@ class LabBossaAudioEngine {
           worker_hardware: { name: 'Brandon Prakoso', role: 'Algorithmic Quality & Complexity Lead' },
           worker_release: { name: 'Maya Safitri', role: 'Open-Source Portfolio Lead' },
           worker_lounge: { name: 'Fiona Saputri', role: 'Research Strategy & Collaboration Lead' },
+          worker_mecha: { name: 'Hiroshi Prakoso', role: 'Lead Mecha CAD & Gunpla Hardpoint Architect' },
+          worker_mecha_rig: { name: 'Yuki Handayani', role: 'Mecha Kinematics & AMBAC Combat Rig Lead' },
         },
       ];
 
@@ -6325,6 +6690,8 @@ class LabBossaAudioEngine {
             else if (w.id === 'worker_hardware') w.metadata['Lead Reviewer'] = activeRoster[w.id].name;
             else if (w.id === 'worker_release') w.metadata['Portfolio Lead'] = activeRoster[w.id].name;
             else if (w.id === 'worker_lounge') w.metadata['Strategy Lead'] = activeRoster[w.id].name;
+            else if (w.id === 'worker_mecha') w.metadata['Mecha Architect'] = activeRoster[w.id].name;
+            else if (w.id === 'worker_mecha_rig') w.metadata['Kinematics Lead'] = activeRoster[w.id].name;
           }
         }
       }
@@ -6336,6 +6703,8 @@ class LabBossaAudioEngine {
         worker_hardware: 'Marcus',
         worker_release: 'Elena',
         worker_lounge: 'Nadia',
+        worker_mecha: 'Kenji',
+        worker_mecha_rig: 'Reina',
       };
       const nameReplacements = {};
       for (const [wid, defName] of Object.entries(defaultNames)) {
@@ -6384,10 +6753,12 @@ class LabBossaAudioEngine {
         spatialZones,
         (workerId) => hudCtrl.selectWorker(workerId),
         () => hudCtrl.openCosmicModal(),
-        () => hudCtrl.openGodsEyeModal()
+        () => hudCtrl.openGodsEyeModal(),
+        () => hudCtrl.openMechaModal()
       );
       window.openCosmicModal = () => hudCtrl.openCosmicModal();
       window.openGodsEyeModal = () => hudCtrl.openGodsEyeModal();
+      window.openMechaModal = () => hudCtrl.openMechaModal();
 
       const animEngine = new OfficeAnimationEngine(
         characterBundle,
@@ -6434,6 +6805,8 @@ class LabBossaAudioEngine {
               else if (w.id === 'worker_hardware') w.metadata['Lead Reviewer'] = curRoster[w.id].name;
               else if (w.id === 'worker_release') w.metadata['Portfolio Lead'] = curRoster[w.id].name;
               else if (w.id === 'worker_lounge') w.metadata['Strategy Lead'] = curRoster[w.id].name;
+              else if (w.id === 'worker_mecha') w.metadata['Mecha Architect'] = curRoster[w.id].name;
+              else if (w.id === 'worker_mecha_rig') w.metadata['Kinematics Lead'] = curRoster[w.id].name;
             }
           }
         }
