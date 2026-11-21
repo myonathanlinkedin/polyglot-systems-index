@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Verifying formal models of Raft implementations",
+    "language": "Java",
+    "folder": "java",
+    "category": "\ud83c\udf10 Distributed Systems & Consensus",
+    "spoke_repo": "java-enterprise-patterns",
+    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261121_150214_verifying_formal_models_of_raf",
+    "source_file": "main",
+    "timestamp": "2026-11-21T15:02:29.599706+00:00",
+    "dir_name": "20261121_150214_verifying_formal_models_of_raf"
+  },
+  {
     "topic": "Improved Bounds for Directed SSSP in Sparse and Intermediate-Density Graphs",
     "language": "Java",
     "folder": "java",
