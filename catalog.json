@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Efficient Classical Algorithms for Ground Energy Estimation of Fermions with",
+    "language": "Swift",
+    "folder": "swift",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "swift-systems-lab",
+    "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261121_130251_efficient_classical_algorithms",
+    "source_file": "main",
+    "timestamp": "2026-11-21T13:03:06.710244+00:00",
+    "dir_name": "20261121_130251_efficient_classical_algorithms"
+  },
+  {
     "topic": "Count-Min Sketch Heavy Hitters Frequency Estimator",
     "language": "Haskell",
     "folder": "haskell",
@@ -185,17 +196,6 @@
     "source_file": "main",
     "timestamp": "2026-11-20T15:03:00.408301+00:00",
     "dir_name": "20261120_150245_skip_list_aether-index"
-  },
-  {
-    "topic": "Efficient Classical Algorithms for Ground Energy Estimation of Fermions with",
-    "language": "Ruby",
-    "folder": "ruby",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "ruby-algorithms-lab",
-    "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261120_140131_efficient_classical_algorithms",
-    "source_file": "main",
-    "timestamp": "2026-11-20T14:01:47.547960+00:00",
-    "dir_name": "20261120_140131_efficient_classical_algorithms"
   },
   {
     "topic": "Merkle Tree Verification and Proof Generator",
