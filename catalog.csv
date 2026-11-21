@@ -1,15 +1,15 @@
 Index,Topic,Language,Domain Category,Spoke Repository,Source File,Timestamp UTC
-001,Self-Balancing AVL Tree with Chronos-Topology,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main,2026-11-21T01:02:50.097391+00:00
-002,StarMPI-SVD: Distributed-Memory Parallel Star-M Tensor SVD,Go,🌐 Distributed Systems & Consensus,go-concurrency-lab,main,2026-11-20T23:02:33.968623+00:00
-003,Trie Prefix Tree for Auto-Completion with Frequency Ranking,PHP,🧠 Computational AI & Math Engines,php-backend-core,main,2026-11-20T23:01:40.415988+00:00
-004,Memory Pool Block Allocator with Free List,C++,⚡ Low-Latency & Memory Systems,cpp-systems-core,main,2026-11-20T21:02:13.358902+00:00
-005,Conjugate Gradient Linear System Solver,C++,🧠 Computational AI & Math Engines,cpp-systems-core,main,2026-11-20T20:01:31.035962+00:00
-006,Improved Bounds for Directed SSSP in Sparse and Intermediate-Density Graphs,PHP,🧠 Computational AI & Math Engines,php-backend-core,main,2026-11-20T19:02:38.799711+00:00
-007,Storage Engines Explained: B-Tree vs LSM Tree,C#,🌐 Distributed Systems & Consensus,csharp-enterprise-lab,main,2026-11-20T17:04:20.676352+00:00
-008,Gossip Protocol Node Failure Detector,C++,🌐 Distributed Systems & Consensus,cpp-systems-core,main,2026-11-20T17:01:44.119931+00:00
-009,Skip List Aether-Index,C,🧠 Computational AI & Math Engines,c-lowlevel-systems,main,2026-11-20T15:03:00.408301+00:00
-010,Efficient Classical Algorithms for Ground Energy Estimation of Fermions with,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main,2026-11-20T14:01:47.547960+00:00
-011,Supporting FOSS projects to transition to memory safe tech,Kotlin,⚡ Low-Latency & Memory Systems,kotlin-systems-core,main,2026-11-20T13:02:53.566492+00:00
+001,Supporting FOSS projects to transition to memory safe tech,C#,⚡ Low-Latency & Memory Systems,csharp-enterprise-lab,main,2026-11-21T03:02:34.648850+00:00
+002,Self-Balancing AVL Tree with Chronos-Topology,Kotlin,🧠 Computational AI & Math Engines,kotlin-systems-core,main,2026-11-21T02:01:51.131462+00:00
+003,StarMPI-SVD: Distributed-Memory Parallel Star-M Tensor SVD,Go,🌐 Distributed Systems & Consensus,go-concurrency-lab,main,2026-11-20T23:02:33.968623+00:00
+004,Trie Prefix Tree for Auto-Completion with Frequency Ranking,PHP,🧠 Computational AI & Math Engines,php-backend-core,main,2026-11-20T23:01:40.415988+00:00
+005,Memory Pool Block Allocator with Free List,C++,⚡ Low-Latency & Memory Systems,cpp-systems-core,main,2026-11-20T21:02:13.358902+00:00
+006,Conjugate Gradient Linear System Solver,C++,🧠 Computational AI & Math Engines,cpp-systems-core,main,2026-11-20T20:01:31.035962+00:00
+007,Improved Bounds for Directed SSSP in Sparse and Intermediate-Density Graphs,PHP,🧠 Computational AI & Math Engines,php-backend-core,main,2026-11-20T19:02:38.799711+00:00
+008,Storage Engines Explained: B-Tree vs LSM Tree,C#,🌐 Distributed Systems & Consensus,csharp-enterprise-lab,main,2026-11-20T17:04:20.676352+00:00
+009,Gossip Protocol Node Failure Detector,C++,🌐 Distributed Systems & Consensus,cpp-systems-core,main,2026-11-20T17:01:44.119931+00:00
+010,Skip List Aether-Index,C,🧠 Computational AI & Math Engines,c-lowlevel-systems,main,2026-11-20T15:03:00.408301+00:00
+011,Efficient Classical Algorithms for Ground Energy Estimation of Fermions with,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main,2026-11-20T14:01:47.547960+00:00
 012,Merkle Tree Verification and Proof Generator,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-11-20T08:01:26.825178+00:00
 013,How the European Commission rolled out Matrix to more than 40k staff,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-11-20T07:02:34.755094+00:00
 014,High-Throughput Aether-Cache Ring Buffer Pattern,Zig,⚡ Low-Latency & Memory Systems,zig-systems-lab,main,2026-11-20T05:02:59.815086+00:00
