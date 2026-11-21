@@ -1,5 +1,16 @@
 [
   {
+    "topic": "HyperLogLog Cardinality Estimation Algorithm",
+    "language": "Kotlin",
+    "folder": "kotlin",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "kotlin-systems-core",
+    "source_link": "https://github.com/myonathanlinkedin/kotlin-systems-core/tree/main/algorithms/20261121_080107_hyperloglog_cardinality_estima",
+    "source_file": "main",
+    "timestamp": "2026-11-21T08:01:27.689518+00:00",
+    "dir_name": "20261121_080107_hyperloglog_cardinality_estima"
+  },
+  {
     "topic": "TideCache: Efficient Hybrid LLM Serving with Transparent Cache Management and Layer-Wise",
     "language": "Java",
     "folder": "java",
@@ -383,17 +394,6 @@
     "source_file": "main",
     "timestamp": "2026-11-18T20:02:09.150420+00:00",
     "dir_name": "20261118_200136_lakegres__vector_search_on_exi"
-  },
-  {
-    "topic": "HyperLogLog Cardinality Estimation Algorithm",
-    "language": "Swift",
-    "folder": "swift",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "swift-systems-lab",
-    "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261118_150350_hyperloglog_cardinality_estima",
-    "source_file": "main",
-    "timestamp": "2026-11-18T15:04:08.396260+00:00",
-    "dir_name": "20261118_150350_hyperloglog_cardinality_estima"
   },
   {
     "topic": "Vector Clock Distributed Event Ordering Mechanism",
