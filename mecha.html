@@ -22,7 +22,8 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Mateus Yonathan" />
   <meta property="og:url" content="https://myonathanlinkedin.github.io/mecha.html" />
-  <meta property="og:title" content="Mateus Yonathan | 3D Gundam-Like Mecha Hangar — 8-Zone Full-Body Customization Lab" />
+  <meta property="og:title"
+    content="Mateus Yonathan | 3D Gundam-Like Mecha Hangar — 8-Zone Full-Body Customization Lab" />
   <meta property="og:description"
     content="Autonomous 3D Gundam-Like Mecha Engineering Hangar featuring full-body 8-zone Gunpla snap-fit adapters, smooth Auto-Normal Mobile Suits, zero-duplicate agentic synthesis, and 60fps combat stances." />
   <meta property="og:image" content="https://myonathanlinkedin.github.io/assets/avatar.png" />
@@ -90,34 +91,141 @@
       --font-sans: 'Inter', -apple-system, sans-serif;
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    html, body {
-      width: 100%; height: 100%; overflow: hidden;
-      background: #040814; color: var(--text-main);
-      font-family: var(--font-sans); user-select: none;
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #040814;
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      user-select: none;
       -webkit-font-smoothing: antialiased;
     }
 
-    #hangar-viewport { position: fixed; inset: 0; width: 100vw; height: 100vh; height: 100dvh; overflow: hidden; }
-    #hangar-canvas { position: absolute; inset: 0; width: 100%; height: 100%; outline: none; touch-action: none; cursor: grab; }
-    #hangar-canvas:active { cursor: grabbing; }
+    #hangar-viewport {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      height: 100dvh;
+      overflow: hidden;
+    }
+
+    #hangar-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      outline: none;
+      touch-action: none;
+      cursor: grab;
+    }
+
+    #hangar-canvas:active {
+      cursor: grabbing;
+    }
 
     /* Sci-Fi Corner Reticles */
-    .corner-marker { position: fixed; z-index: 15; width: 22px; height: 22px; opacity: 0.35; pointer-events: none; }
-    .corner-marker::before, .corner-marker::after { content: ""; position: absolute; background: var(--accent-cyan); }
-    .corner-marker.tl { top: 8px; left: 8px; }
-    .corner-marker.tl::before { width: 22px; height: 1px; top: 0; left: 0; }
-    .corner-marker.tl::after { width: 1px; height: 22px; top: 0; left: 0; }
-    .corner-marker.tr { top: 8px; right: 8px; }
-    .corner-marker.tr::before { width: 22px; height: 1px; top: 0; right: 0; }
-    .corner-marker.tr::after { width: 1px; height: 22px; top: 0; right: 0; }
-    .corner-marker.bl { bottom: 8px; left: 8px; }
-    .corner-marker.bl::before { width: 22px; height: 1px; bottom: 0; left: 0; }
-    .corner-marker.bl::after { width: 1px; height: 22px; bottom: 0; left: 0; }
-    .corner-marker.br { bottom: 8px; right: 8px; }
-    .corner-marker.br::before { width: 22px; height: 1px; bottom: 0; right: 0; }
-    .corner-marker.br::after { width: 1px; height: 22px; bottom: 0; right: 0; }
+    .corner-marker {
+      position: fixed;
+      z-index: 15;
+      width: 22px;
+      height: 22px;
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    .corner-marker::before,
+    .corner-marker::after {
+      content: "";
+      position: absolute;
+      background: var(--accent-cyan);
+    }
+
+    .corner-marker.tl {
+      top: 8px;
+      left: 8px;
+    }
+
+    .corner-marker.tl::before {
+      width: 22px;
+      height: 1px;
+      top: 0;
+      left: 0;
+    }
+
+    .corner-marker.tl::after {
+      width: 1px;
+      height: 22px;
+      top: 0;
+      left: 0;
+    }
+
+    .corner-marker.tr {
+      top: 8px;
+      right: 8px;
+    }
+
+    .corner-marker.tr::before {
+      width: 22px;
+      height: 1px;
+      top: 0;
+      right: 0;
+    }
+
+    .corner-marker.tr::after {
+      width: 1px;
+      height: 22px;
+      top: 0;
+      right: 0;
+    }
+
+    .corner-marker.bl {
+      bottom: 8px;
+      left: 8px;
+    }
+
+    .corner-marker.bl::before {
+      width: 22px;
+      height: 1px;
+      bottom: 0;
+      left: 0;
+    }
+
+    .corner-marker.bl::after {
+      width: 1px;
+      height: 22px;
+      bottom: 0;
+      left: 0;
+    }
+
+    .corner-marker.br {
+      bottom: 8px;
+      right: 8px;
+    }
+
+    .corner-marker.br::before {
+      width: 22px;
+      height: 1px;
+      bottom: 0;
+      right: 0;
+    }
+
+    .corner-marker.br::after {
+      width: 1px;
+      height: 22px;
+      bottom: 0;
+      right: 0;
+    }
 
     .glass-hud {
       background: var(--bg-panel);
@@ -131,20 +239,49 @@
     }
 
     /* Hidden panel utility states for Show/Hide & Show/Hide All */
-    .hud-hidden-top-left { transform: translateY(-140%) !important; opacity: 0 !important; pointer-events: none !important; }
-    .hud-hidden-left { transform: translateX(calc(-100% - 32px)) !important; opacity: 0 !important; pointer-events: none !important; }
-    .hud-hidden-right { transform: translateX(calc(100% + 32px)) !important; opacity: 0 !important; pointer-events: none !important; }
-    .hud-hidden-bottom { transform: translate(-50%, 150%) !important; opacity: 0 !important; pointer-events: none !important; }
+    .hud-hidden-top-left {
+      transform: translateY(-140%) !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+
+    .hud-hidden-left {
+      transform: translateX(calc(-100% - 32px)) !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+
+    .hud-hidden-right {
+      transform: translateX(calc(100% + 32px)) !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+
+    .hud-hidden-bottom {
+      transform: translate(-50%, 150%) !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
 
     /* Universal Panel Close '✕' Button (Matches office.html & constellation.html) */
     .panel-close-x {
-      width: 24px; height: 24px; border-radius: 6px;
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
       border: 1px solid rgba(148, 163, 184, 0.24);
       background: rgba(15, 23, 42, 0.78);
-      color: #cbd5e1; font-size: 11px; font-weight: 700; line-height: 1;
-      display: inline-flex; align-items: center; justify-content: center;
-      cursor: pointer; transition: all 0.16s ease; flex-shrink: 0;
+      color: #cbd5e1;
+      font-size: 11px;
+      font-weight: 700;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.16s ease;
+      flex-shrink: 0;
     }
+
     .panel-close-x:hover {
       color: #ffffff;
       border-color: rgba(248, 113, 113, 0.72);
@@ -154,464 +291,1407 @@
 
     /* Floating Restore Top HUD Button (Visible when Top Bar is closed via ✕) */
     #btn-restore-top {
-      position: fixed; top: 12px; left: 14px; z-index: 65;
-      display: none; align-items: center; gap: 5px;
-      padding: 5px 11px; border-radius: 8px;
-      font-family: var(--font-mono); font-size: 9.5px; font-weight: 700;
-      color: var(--accent-cyan); background: rgba(8, 13, 25, 0.92);
+      position: fixed;
+      top: 12px;
+      left: 14px;
+      z-index: 65;
+      display: none;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 11px;
+      border-radius: 8px;
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      background: rgba(8, 13, 25, 0.92);
       border: 1px solid rgba(0, 229, 255, 0.55);
-      cursor: pointer; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
     }
-    #btn-restore-top.visible { display: inline-flex; }
-    #btn-restore-top:hover { background: rgba(0, 229, 255, 0.16); }
+
+    #btn-restore-top.visible {
+      display: inline-flex;
+    }
+
+    #btn-restore-top:hover {
+      background: rgba(0, 229, 255, 0.16);
+    }
 
     /* Top-Left Clean Navigation: Single-Row Author Brand + 1 Main Page Link + 1 All-3D-Pages Dropdown + Guide & Battle BGM + Close ✕ */
     #nav-header {
-      position: fixed; top: 12px; left: 14px; z-index: 60;
-      display: flex; align-items: center; gap: 6px; padding: 6px 10px;
-      max-width: calc(100vw - 410px); flex-wrap: nowrap; overflow: hidden;
+      position: fixed;
+      top: 12px;
+      left: 14px;
+      z-index: 60;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      max-width: calc(100vw - 410px);
+      flex-wrap: nowrap;
+      overflow: hidden;
     }
 
     .brand-title {
-      font-family: var(--font-display); font-weight: 800; font-size: 9.6px;
-      letter-spacing: 0.9px; color: var(--text-main); text-decoration: none;
-      display: flex; align-items: center; gap: 6px; white-space: nowrap;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 9.6px;
+      letter-spacing: 0.9px;
+      color: var(--text-main);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
       transition: color 0.18s;
     }
-    .brand-title:hover { color: var(--accent-cyan); }
-    .brand-title span.accent { color: var(--accent-cyan); }
-    .brand-title span.sep-slash { color: rgba(255, 255, 255, 0.28); font-weight: 500; }
+
+    .brand-title:hover {
+      color: var(--accent-cyan);
+    }
+
+    .brand-title span.accent {
+      color: var(--accent-cyan);
+    }
+
+    .brand-title span.sep-slash {
+      color: rgba(255, 255, 255, 0.28);
+      font-weight: 500;
+    }
 
     .status-orb {
-      width: 7px; height: 7px; border-radius: 50%;
-      background: var(--accent-cyan); box-shadow: 0 0 10px var(--accent-cyan);
-      animation: pulse-glow 2s infinite ease-in-out; flex-shrink: 0;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent-cyan);
+      box-shadow: 0 0 10px var(--accent-cyan);
+      animation: pulse-glow 2s infinite ease-in-out;
+      flex-shrink: 0;
     }
-    @keyframes pulse-glow { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.45; transform: scale(0.8); } }
 
-    .nav-sep { width: 1px; height: 16px; background: rgba(255, 255, 255, 0.14); flex-shrink: 0; }
+    @keyframes pulse-glow {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.45;
+        transform: scale(0.8);
+      }
+    }
+
+    .nav-sep {
+      width: 1px;
+      height: 16px;
+      background: rgba(255, 255, 255, 0.14);
+      flex-shrink: 0;
+    }
 
     .nav-home-btn {
-      font-family: var(--font-mono); font-size: 9.4px; font-weight: 700;
-      color: #e2e8f0; text-decoration: none;
-      background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.16);
-      border-radius: 6px; padding: 4px 8px;
-      display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; transition: all 0.2s; flex-shrink: 0;
+      font-family: var(--font-mono);
+      font-size: 9.4px;
+      font-weight: 700;
+      color: #e2e8f0;
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 6px;
+      padding: 4px 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      white-space: nowrap;
+      transition: all 0.2s;
+      flex-shrink: 0;
     }
-    .nav-home-btn:hover { color: var(--accent-cyan); border-color: var(--accent-cyan); background: rgba(0, 229, 255, 0.12); }
+
+    .nav-home-btn:hover {
+      color: var(--accent-cyan);
+      border-color: var(--accent-cyan);
+      background: rgba(0, 229, 255, 0.12);
+    }
 
     .nav-select {
-      font-family: var(--font-mono); font-size: 9.4px; font-weight: 600;
-      color: var(--accent-cyan); background: rgba(10, 18, 36, 0.92);
-      border: 1px solid rgba(0, 229, 255, 0.38); border-radius: 6px;
-      padding: 4px 7px; outline: none; cursor: pointer; transition: all 0.2s; flex-shrink: 0;
+      font-family: var(--font-mono);
+      font-size: 9.4px;
+      font-weight: 600;
+      color: var(--accent-cyan);
+      background: rgba(10, 18, 36, 0.92);
+      border: 1px solid rgba(0, 229, 255, 0.38);
+      border-radius: 6px;
+      padding: 4px 7px;
+      outline: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      flex-shrink: 0;
     }
-    .nav-select:hover, .nav-select:focus { border-color: var(--accent-cyan); box-shadow: 0 0 12px rgba(0, 229, 255, 0.3); }
-    .nav-select option { background: #091224; color: #f1f5f9; }
+
+    .nav-select:hover,
+    .nav-select:focus {
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 12px rgba(0, 229, 255, 0.3);
+    }
+
+    .nav-select option {
+      background: #091224;
+      color: #f1f5f9;
+    }
 
     /* Persistent Top-Right Application Menu Visibility Bar (Show/Hide & Show/Hide All) */
     #hud-vis-bar {
-      position: fixed; top: 12px; right: 16px; z-index: 100;
-      display: flex; align-items: center; gap: 5px; padding: 6px 8px;
-      border-radius: 10px; background: rgba(8, 13, 25, 0.86);
-      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
-      border: 1px solid rgba(0, 229, 255, 0.3); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
+      position: fixed;
+      top: 12px;
+      right: 16px;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 6px 8px;
+      border-radius: 10px;
+      background: rgba(8, 13, 25, 0.86);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(0, 229, 255, 0.3);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
     }
 
     .vis-pill {
-      font-family: var(--font-mono); font-size: 10px; font-weight: 600;
-      padding: 5px 8px; border-radius: 6px;
-      border: 1px solid rgba(255, 255, 255, 0.12); background: rgba(255, 255, 255, 0.04);
-      color: var(--text-muted); cursor: pointer;
-      display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; transition: all 0.18s ease;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 600;
+      padding: 5px 8px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-muted);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      white-space: nowrap;
+      transition: all 0.18s ease;
     }
-    .vis-pill:hover { color: var(--text-main); border-color: rgba(0, 229, 255, 0.45); background: rgba(0, 229, 255, 0.08); }
-    .vis-pill.active { color: var(--accent-cyan); border-color: rgba(0, 229, 255, 0.6); background: rgba(0, 229, 255, 0.15); }
-    .vis-divider { width: 1px; height: 18px; background: rgba(255, 255, 255, 0.15); margin: 0 2px; }
+
+    .vis-pill:hover {
+      color: var(--text-main);
+      border-color: rgba(0, 229, 255, 0.45);
+      background: rgba(0, 229, 255, 0.08);
+    }
+
+    .vis-pill.active {
+      color: var(--accent-cyan);
+      border-color: rgba(0, 229, 255, 0.6);
+      background: rgba(0, 229, 255, 0.15);
+    }
+
+    .vis-divider {
+      width: 1px;
+      height: 18px;
+      background: rgba(255, 255, 255, 0.15);
+      margin: 0 2px;
+    }
 
     .vis-master-btn {
-      font-family: var(--font-display); font-size: 9.5px; font-weight: 700; letter-spacing: 0.8px;
-      padding: 6px 10px; border-radius: 6px;
-      border: 1px solid rgba(245, 158, 11, 0.55); background: rgba(245, 158, 11, 0.16);
-      color: #fcd34d; cursor: pointer; white-space: nowrap; transition: all 0.2s ease;
+      font-family: var(--font-display);
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      border: 1px solid rgba(245, 158, 11, 0.55);
+      background: rgba(245, 158, 11, 0.16);
+      color: #fcd34d;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
     }
-    .vis-master-btn:hover { background: rgba(245, 158, 11, 0.28); box-shadow: 0 0 14px rgba(245, 158, 11, 0.35); }
+
+    .vis-master-btn:hover {
+      background: rgba(245, 158, 11, 0.28);
+      box-shadow: 0 0 14px rgba(245, 158, 11, 0.35);
+    }
+
     .vis-master-btn.all-hidden {
-      border-color: var(--accent-cyan); background: rgba(0, 229, 255, 0.18);
-      color: var(--accent-cyan); box-shadow: 0 0 18px rgba(0, 229, 255, 0.3);
+      border-color: var(--accent-cyan);
+      background: rgba(0, 229, 255, 0.18);
+      color: var(--accent-cyan);
+      box-shadow: 0 0 18px rgba(0, 229, 255, 0.3);
     }
-    #hud-vis-bar.compact-mode .vis-pill, #hud-vis-bar.compact-mode .vis-divider { display: none; }
+
+    #hud-vis-bar.compact-mode .vis-pill,
+    #hud-vis-bar.compact-mode .vis-divider {
+      display: none;
+    }
 
     /* Left Drawer: Pure Gundam-Universe 4-Unit Roster + 8-Zone Full-Body Modular Parts Catalog */
     #left-drawer {
-      position: fixed; top: 62px; left: 16px; bottom: 68px;
-      width: 356px; max-width: calc(100vw - 32px); z-index: 40;
-      display: flex; flex-direction: column; padding: 12px; gap: 7px; overflow: hidden;
+      position: fixed;
+      top: 62px;
+      left: 16px;
+      bottom: 68px;
+      width: 356px;
+      max-width: calc(100vw - 32px);
+      z-index: 40;
+      display: flex;
+      flex-direction: column;
+      padding: 12px;
+      gap: 7px;
+      overflow: hidden;
     }
-    #left-drawer.expanded { width: 520px; }
+
+    #left-drawer.expanded {
+      width: 520px;
+    }
 
     .drawer-title {
-      font-family: var(--font-display); font-size: 10px; font-weight: 700;
-      color: var(--accent-cyan); letter-spacing: 1.3px;
-      display: flex; justify-content: space-between; align-items: center;
-      padding-bottom: 5px; border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      font-family: var(--font-display);
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      letter-spacing: 1.3px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 5px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
-    .title-actions { display: flex; align-items: center; gap: 5px; }
+
+    .title-actions {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
     .icon-toggle-btn {
-      width: 24px; height: 24px;
-      background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.14);
-      color: var(--text-muted); border-radius: 6px; font-size: 11px;
-      display: inline-flex; align-items: center; justify-content: center;
-      cursor: pointer; transition: all 0.18s;
+      width: 24px;
+      height: 24px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: var(--text-muted);
+      border-radius: 6px;
+      font-size: 11px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.18s;
     }
-    .icon-toggle-btn:hover { color: var(--accent-cyan); border-color: var(--accent-cyan); background: rgba(0, 229, 255, 0.12); }
+
+    .icon-toggle-btn:hover {
+      color: var(--accent-cyan);
+      border-color: var(--accent-cyan);
+      background: rgba(0, 229, 255, 0.12);
+    }
 
     /* Unified 4-Unit Gundam-Universe Mobile Suit Roster Grid (2x2) */
-    .unit-roster { display: grid; grid-template-columns: repeat(2, 1fr); gap: 5px; }
-    .unit-btn {
-      font-family: var(--font-mono); font-size: 9.4px; font-weight: 700;
-      padding: 6px 8px; border-radius: 7px;
-      border: 1px solid rgba(255, 255, 255, 0.11); background: rgba(0, 0, 0, 0.36);
-      color: var(--text-muted); cursor: pointer; text-align: left;
-      display: flex; flex-direction: column; gap: 1px; transition: all 0.18s;
+    .unit-roster {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 5px;
     }
-    .unit-btn .u-sub { font-size: 7.8px; font-weight: 500; opacity: 0.78; }
-    .unit-btn:hover { color: var(--text-main); border-color: rgba(0, 229, 255, 0.4); }
-    .unit-btn.active.hero { background: rgba(0, 229, 255, 0.16); border-color: var(--accent-cyan); color: var(--accent-cyan); box-shadow: 0 0 12px rgba(0, 229, 255, 0.18); }
-    .unit-btn.active.titans { background: rgba(59, 130, 246, 0.22); border-color: #60a5fa; color: #93c5fd; box-shadow: 0 0 12px rgba(59, 130, 246, 0.24); }
-    .unit-btn.active.ace { background: rgba(239, 68, 68, 0.18); border-color: var(--accent-red); color: #fca5a5; box-shadow: 0 0 12px rgba(239, 68, 68, 0.22); }
-    .unit-btn.active.orbital { background: rgba(16, 185, 129, 0.18); border-color: #34d399; color: #6ee7b7; box-shadow: 0 0 12px rgba(16, 185, 129, 0.2); }
+
+    .unit-btn {
+      font-family: var(--font-mono);
+      font-size: 9.4px;
+      font-weight: 700;
+      padding: 6px 8px;
+      border-radius: 7px;
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      background: rgba(0, 0, 0, 0.36);
+      color: var(--text-muted);
+      cursor: pointer;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      transition: all 0.18s;
+    }
+
+    .unit-btn .u-sub {
+      font-size: 7.8px;
+      font-weight: 500;
+      opacity: 0.78;
+    }
+
+    .unit-btn:hover {
+      color: var(--text-main);
+      border-color: rgba(0, 229, 255, 0.4);
+    }
+
+    .unit-btn.active.hero {
+      background: rgba(0, 229, 255, 0.16);
+      border-color: var(--accent-cyan);
+      color: var(--accent-cyan);
+      box-shadow: 0 0 12px rgba(0, 229, 255, 0.18);
+    }
+
+    .unit-btn.active.titans {
+      background: rgba(59, 130, 246, 0.22);
+      border-color: #60a5fa;
+      color: #93c5fd;
+      box-shadow: 0 0 12px rgba(59, 130, 246, 0.24);
+    }
+
+    .unit-btn.active.ace {
+      background: rgba(239, 68, 68, 0.18);
+      border-color: var(--accent-red);
+      color: #fca5a5;
+      box-shadow: 0 0 12px rgba(239, 68, 68, 0.22);
+    }
+
+    .unit-btn.active.orbital {
+      background: rgba(16, 185, 129, 0.18);
+      border-color: #34d399;
+      color: #6ee7b7;
+      box-shadow: 0 0 12px rgba(16, 185, 129, 0.2);
+    }
 
     .section-divider-label {
-      font-family: var(--font-display); font-size: 8.5px; letter-spacing: 1.1px;
-      color: var(--text-muted); margin-top: 2px;
-      display: flex; justify-content: space-between; align-items: center;
+      font-family: var(--font-display);
+      font-size: 8.5px;
+      letter-spacing: 1.1px;
+      color: var(--text-muted);
+      margin-top: 2px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     /* Quick Loadout & Live Agentic Synthesizer Action Row */
     .quick-loadout-row {
-      display: grid; grid-template-columns: 1fr 1fr auto; gap: 5px;
+      display: grid;
+      grid-template-columns: 1fr 1fr auto;
+      gap: 5px;
     }
+
     .loadout-btn {
-      font-family: var(--font-mono); font-size: 8.9px; font-weight: 700;
-      padding: 5px 7px; border-radius: 6px; cursor: pointer;
-      display: inline-flex; align-items: center; justify-content: center; gap: 4px;
-      transition: all 0.18s ease; white-space: nowrap;
+      font-family: var(--font-mono);
+      font-size: 8.9px;
+      font-weight: 700;
+      padding: 5px 7px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      transition: all 0.18s ease;
+      white-space: nowrap;
     }
+
     .loadout-btn.full-armor {
       background: linear-gradient(135deg, rgba(245, 158, 11, 0.22), rgba(239, 68, 68, 0.22));
-      border: 1px solid rgba(245, 158, 11, 0.58); color: #fcd34d;
+      border: 1px solid rgba(245, 158, 11, 0.58);
+      color: #fcd34d;
     }
-    .loadout-btn.full-armor:hover { background: rgba(245, 158, 11, 0.34); box-shadow: 0 0 12px rgba(245, 158, 11, 0.3); }
+
+    .loadout-btn.full-armor:hover {
+      background: rgba(245, 158, 11, 0.34);
+      box-shadow: 0 0 12px rgba(245, 158, 11, 0.3);
+    }
+
     .loadout-btn.agent-synth {
       background: linear-gradient(135deg, rgba(0, 229, 255, 0.18), rgba(16, 185, 129, 0.20));
-      border: 1px solid rgba(0, 229, 255, 0.55); color: var(--accent-cyan);
+      border: 1px solid rgba(0, 229, 255, 0.55);
+      color: var(--accent-cyan);
     }
-    .loadout-btn.agent-synth:hover { background: rgba(0, 229, 255, 0.30); box-shadow: 0 0 12px rgba(0, 229, 255, 0.3); }
+
+    .loadout-btn.agent-synth:hover {
+      background: rgba(0, 229, 255, 0.30);
+      box-shadow: 0 0 12px rgba(0, 229, 255, 0.3);
+    }
+
     .loadout-btn.clear-all {
       background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.16); color: var(--text-muted);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: var(--text-muted);
     }
-    .loadout-btn.clear-all:hover { color: #fca5a5; border-color: rgba(239, 68, 68, 0.55); background: rgba(153, 27, 27, 0.25); }
 
-    .parts-search-wrap { position: relative; display: flex; align-items: center; width: 100%; }
-    .parts-search-input {
-      width: 100%; background: rgba(12, 20, 38, 0.8); border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 7px; padding: 5px 24px 5px 9px; font-size: 10.2px;
-      font-family: var(--font-sans); color: var(--text-main); outline: none;
+    .loadout-btn.clear-all:hover {
+      color: #fca5a5;
+      border-color: rgba(239, 68, 68, 0.55);
+      background: rgba(153, 27, 27, 0.25);
     }
-    .parts-search-input:focus { border-color: var(--accent-cyan); }
-    .search-clear-btn { position: absolute; right: 6px; background: transparent; border: none; color: var(--text-muted); cursor: pointer; font-size: 11px; }
+
+    .parts-search-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+
+    .parts-search-input {
+      width: 100%;
+      background: rgba(12, 20, 38, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 7px;
+      padding: 5px 24px 5px 9px;
+      font-size: 10.2px;
+      font-family: var(--font-sans);
+      color: var(--text-main);
+      outline: none;
+    }
+
+    .parts-search-input:focus {
+      border-color: var(--accent-cyan);
+    }
+
+    .search-clear-btn {
+      position: absolute;
+      right: 6px;
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 11px;
+    }
 
     /* 8-Zone Body Customization Filter Chips */
-    .category-chips-scroll { display: flex; gap: 4px; overflow-x: auto; padding-bottom: 3px; }
-    .category-chips-scroll::-webkit-scrollbar { height: 3px; }
-    .category-chips-scroll::-webkit-scrollbar-thumb { background: rgba(0, 229, 255, 0.3); border-radius: 3px; }
-    .cat-chip {
-      font-family: var(--font-mono); font-size: 8.6px; font-weight: 700;
-      padding: 3px 6px; border-radius: 5px;
-      border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(0, 0, 0, 0.35);
-      color: var(--text-muted); cursor: pointer; white-space: nowrap; transition: all 0.15s;
+    .category-chips-scroll {
+      display: flex;
+      gap: 4px;
+      overflow-x: auto;
+      padding-bottom: 3px;
     }
-    .cat-chip.active { background: var(--accent-cyan-dim); color: var(--accent-cyan); border-color: var(--accent-cyan); }
 
-    .filter-controls-row { display: flex; gap: 5px; }
-    .hud-dropdown {
-      flex: 1; font-family: var(--font-mono); font-size: 9px; font-weight: 600;
-      color: var(--text-muted); background: rgba(12, 20, 38, 0.85);
-      border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 6px; padding: 4px 6px;
-      outline: none; cursor: pointer;
+    .category-chips-scroll::-webkit-scrollbar {
+      height: 3px;
     }
-    .hud-dropdown:focus { border-color: var(--accent-cyan); color: var(--text-main); }
+
+    .category-chips-scroll::-webkit-scrollbar-thumb {
+      background: rgba(0, 229, 255, 0.3);
+      border-radius: 3px;
+    }
+
+    .cat-chip {
+      font-family: var(--font-mono);
+      font-size: 8.6px;
+      font-weight: 700;
+      padding: 3px 6px;
+      border-radius: 5px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(0, 0, 0, 0.35);
+      color: var(--text-muted);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s;
+    }
+
+    .cat-chip.active {
+      background: var(--accent-cyan-dim);
+      color: var(--accent-cyan);
+      border-color: var(--accent-cyan);
+    }
+
+    .filter-controls-row {
+      display: flex;
+      gap: 5px;
+    }
+
+    .hud-dropdown {
+      flex: 1;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: rgba(12, 20, 38, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 6px;
+      padding: 4px 6px;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .hud-dropdown:focus {
+      border-color: var(--accent-cyan);
+      color: var(--text-main);
+    }
 
     .catalog-status-bar {
-      display: flex; justify-content: space-between; align-items: center;
-      font-family: var(--font-mono); font-size: 8.8px; color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 8.8px;
+      color: var(--text-muted);
     }
-    .equipped-filter-btn {
-      font-family: var(--font-mono); font-size: 8.8px; font-weight: 700;
-      color: var(--accent-green); background: rgba(16, 185, 129, 0.12);
-      border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 99px;
-      padding: 2px 7px; cursor: pointer;
-    }
-    .equipped-filter-btn.active { background: rgba(16, 185, 129, 0.32); border-color: var(--accent-green); }
 
-    .items-scroll { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 6px; padding-right: 3px; }
-    #left-drawer.expanded .items-scroll { display: grid; grid-template-columns: 1fr 1fr; align-content: start; gap: 7px; }
-    .items-scroll::-webkit-scrollbar { width: 4px; }
-    .items-scroll::-webkit-scrollbar-thumb { background: rgba(0, 229, 255, 0.25); border-radius: 4px; }
+    .equipped-filter-btn {
+      font-family: var(--font-mono);
+      font-size: 8.8px;
+      font-weight: 700;
+      color: var(--accent-green);
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 99px;
+      padding: 2px 7px;
+      cursor: pointer;
+    }
+
+    .equipped-filter-btn.active {
+      background: rgba(16, 185, 129, 0.32);
+      border-color: var(--accent-green);
+    }
+
+    .items-scroll {
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding-right: 3px;
+    }
+
+    #left-drawer.expanded .items-scroll {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-content: start;
+      gap: 7px;
+    }
+
+    .items-scroll::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .items-scroll::-webkit-scrollbar-thumb {
+      background: rgba(0, 229, 255, 0.25);
+      border-radius: 4px;
+    }
 
     .part-card {
-      background: rgba(15, 23, 42, 0.58); border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 8px; padding: 7px 9px; cursor: pointer; transition: all 0.16s ease;
-      display: flex; flex-direction: column; gap: 4px;
+      background: rgba(15, 23, 42, 0.58);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 7px 9px;
+      cursor: pointer;
+      transition: all 0.16s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
     }
-    .part-card:hover { border-color: rgba(0, 229, 255, 0.45); background: rgba(15, 23, 42, 0.88); }
-    .part-card.equipped { border-color: var(--accent-green); background: rgba(16, 185, 129, 0.11); }
 
-    .part-card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 6px; }
-    .part-name-group { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
-    .part-name { font-size: 10.2px; font-weight: 700; color: var(--text-main); line-height: 1.25; }
-    .part-serial { font-family: var(--font-mono); font-size: 8.2px; color: var(--accent-gold); }
+    .part-card:hover {
+      border-color: rgba(0, 229, 255, 0.45);
+      background: rgba(15, 23, 42, 0.88);
+    }
+
+    .part-card.equipped {
+      border-color: var(--accent-green);
+      background: rgba(16, 185, 129, 0.11);
+    }
+
+    .part-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 6px;
+    }
+
+    .part-name-group {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      min-width: 0;
+    }
+
+    .part-name {
+      font-size: 10.2px;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.25;
+    }
+
+    .part-serial {
+      font-family: var(--font-mono);
+      font-size: 8.2px;
+      color: var(--accent-gold);
+    }
 
     .equip-action-btn {
-      font-family: var(--font-mono); font-size: 8.5px; font-weight: 700;
-      padding: 3px 6px; border-radius: 5px;
-      border: 1px solid rgba(0, 229, 255, 0.35); background: rgba(0, 229, 255, 0.1);
-      color: var(--accent-cyan); cursor: pointer; white-space: nowrap; flex-shrink: 0;
+      font-family: var(--font-mono);
+      font-size: 8.5px;
+      font-weight: 700;
+      padding: 3px 6px;
+      border-radius: 5px;
+      border: 1px solid rgba(0, 229, 255, 0.35);
+      background: rgba(0, 229, 255, 0.1);
+      color: var(--accent-cyan);
+      cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
-    .equip-action-btn.equipped { border-color: var(--accent-green); background: rgba(16, 185, 129, 0.22); color: #34d399; }
 
-    .part-desc { font-size: 9.2px; color: var(--text-muted); line-height: 1.3; }
-    .part-specs-grid { display: flex; flex-wrap: wrap; gap: 4px; }
-    .spec-pill {
-      font-family: var(--font-mono); font-size: 8px; padding: 1.5px 5px; border-radius: 4px;
-      background: rgba(0, 0, 0, 0.38); border: 1px solid rgba(255, 255, 255, 0.08); color: #cbd5e1;
+    .equip-action-btn.equipped {
+      border-color: var(--accent-green);
+      background: rgba(16, 185, 129, 0.22);
+      color: #34d399;
     }
-    .spec-pill.zone { color: #a7f3d0; border-color: rgba(16, 185, 129, 0.38); background: rgba(16, 185, 129, 0.12); font-weight: 700; }
-    .spec-pill.adapter { color: #fcd34d; border-color: rgba(245, 158, 11, 0.35); background: rgba(245, 158, 11, 0.09); }
-    .spec-pill.seed { color: #c084fc; border-color: rgba(192, 132, 252, 0.35); background: rgba(168, 85, 247, 0.10); }
+
+    .part-desc {
+      font-size: 9.2px;
+      color: var(--text-muted);
+      line-height: 1.3;
+    }
+
+    .part-specs-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .spec-pill {
+      font-family: var(--font-mono);
+      font-size: 8px;
+      padding: 1.5px 5px;
+      border-radius: 4px;
+      background: rgba(0, 0, 0, 0.38);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #cbd5e1;
+    }
+
+    .spec-pill.zone {
+      color: #a7f3d0;
+      border-color: rgba(16, 185, 129, 0.38);
+      background: rgba(16, 185, 129, 0.12);
+      font-weight: 700;
+    }
+
+    .spec-pill.adapter {
+      color: #fcd34d;
+      border-color: rgba(245, 158, 11, 0.35);
+      background: rgba(245, 158, 11, 0.09);
+    }
+
+    .spec-pill.seed {
+      color: #c084fc;
+      border-color: rgba(192, 132, 252, 0.35);
+      background: rgba(168, 85, 247, 0.10);
+    }
 
     /* Right Side Stack: Telemetry Drawer + Scene Controls Panel */
     #right-stack {
-      position: fixed; top: 62px; right: 16px; bottom: 68px;
-      width: 306px; max-width: calc(100vw - 32px); z-index: 40;
-      display: flex; flex-direction: column; gap: 8px;
-      pointer-events: none; overflow-y: auto; padding-right: 2px;
+      position: fixed;
+      top: 62px;
+      right: 16px;
+      bottom: 68px;
+      width: 306px;
+      max-width: calc(100vw - 32px);
+      z-index: 40;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      pointer-events: none;
+      overflow-y: auto;
+      padding-right: 2px;
     }
-    #right-stack.stack-hidden { opacity: 0 !important; overflow: hidden !important; pointer-events: none !important; }
-    #right-stack::-webkit-scrollbar { width: 3px; }
-    #right-stack::-webkit-scrollbar-thumb { background: rgba(0, 229, 255, 0.25); border-radius: 3px; }
 
-    #right-drawer, #scene-panel { padding: 8px 11px; display: flex; flex-direction: column; gap: 4.5px; }
-    .telemetry-block { display: flex; flex-direction: column; gap: 3px; }
-    .telemetry-row {
-      display: flex; justify-content: space-between; align-items: center;
-      font-size: 9.6px; padding-bottom: 2px; border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    #right-stack.stack-hidden {
+      opacity: 0 !important;
+      overflow: hidden !important;
+      pointer-events: none !important;
     }
-    .telemetry-label { color: var(--text-muted); font-family: var(--font-mono); font-size: 8.6px; }
-    .telemetry-val { font-family: var(--font-display); font-size: 9.6px; font-weight: 700; color: var(--text-main); text-align: right; }
-    .telemetry-val.amber { color: var(--accent-gold); }
-    .telemetry-val.green { color: var(--accent-green); }
-    .telemetry-val.cyan { color: var(--accent-cyan); }
+
+    #right-stack::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    #right-stack::-webkit-scrollbar-thumb {
+      background: rgba(0, 229, 255, 0.25);
+      border-radius: 3px;
+    }
+
+    #right-drawer,
+    #scene-panel {
+      padding: 8px 11px;
+      display: flex;
+      flex-direction: column;
+      gap: 4.5px;
+    }
+
+    .telemetry-block {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .telemetry-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 9.6px;
+      padding-bottom: 2px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .telemetry-label {
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 8.6px;
+    }
+
+    .telemetry-val {
+      font-family: var(--font-display);
+      font-size: 9.6px;
+      font-weight: 700;
+      color: var(--text-main);
+      text-align: right;
+    }
+
+    .telemetry-val.amber {
+      color: var(--accent-gold);
+    }
+
+    .telemetry-val.green {
+      color: var(--accent-green);
+    }
+
+    .telemetry-val.cyan {
+      color: var(--accent-cyan);
+    }
 
     /* 8-Zone Body Loadout Status Matrix in Telemetry Panel */
     .body-zone-matrix {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3px;
       padding: 4px 0;
     }
+
     .bz-pill {
-      font-family: var(--font-mono); font-size: 7.8px; font-weight: 700;
-      padding: 3px 4px; border-radius: 4px; text-align: center;
-      background: rgba(0, 0, 0, 0.35); border: 1px solid rgba(255, 255, 255, 0.08);
-      color: var(--text-muted); cursor: pointer; transition: all 0.15s;
-      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      font-family: var(--font-mono);
+      font-size: 7.8px;
+      font-weight: 700;
+      padding: 3px 4px;
+      border-radius: 4px;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.15s;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
-    .bz-pill:hover { border-color: var(--accent-cyan); color: var(--text-main); }
+
+    .bz-pill:hover {
+      border-color: var(--accent-cyan);
+      color: var(--text-main);
+    }
+
     .bz-pill.locked {
-      background: rgba(16, 185, 129, 0.18); border-color: var(--accent-green); color: #6ee7b7;
+      background: rgba(16, 185, 129, 0.18);
+      border-color: var(--accent-green);
+      color: #6ee7b7;
     }
 
     .ambac-badge {
-      font-family: var(--font-mono); font-size: 8.4px; font-weight: 700; text-align: center;
-      padding: 4px 8px; border-radius: 6px;
-      background: rgba(16, 185, 129, 0.14); border: 1px solid rgba(16, 185, 129, 0.4); color: #6ee7b7;
+      font-family: var(--font-mono);
+      font-size: 8.4px;
+      font-weight: 700;
+      text-align: center;
+      padding: 4px 8px;
+      border-radius: 6px;
+      background: rgba(16, 185, 129, 0.14);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      color: #6ee7b7;
     }
 
     .author-credit-bar {
-      display: flex; align-items: center; justify-content: space-between; gap: 6px;
-      padding: 4px 8px; border-radius: 7px;
-      background: rgba(0, 229, 255, 0.07); border: 1px solid rgba(0, 229, 255, 0.22);
-      font-family: var(--font-mono); font-size: 8.5px; color: #cbd5e1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      padding: 4px 8px;
+      border-radius: 7px;
+      background: rgba(0, 229, 255, 0.07);
+      border: 1px solid rgba(0, 229, 255, 0.22);
+      font-family: var(--font-mono);
+      font-size: 8.5px;
+      color: #cbd5e1;
     }
-    .author-credit-bar a { color: var(--accent-cyan); text-decoration: none; font-weight: 700; }
-    .author-credit-bar a:hover { text-decoration: underline; }
+
+    .author-credit-bar a {
+      color: var(--accent-cyan);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .author-credit-bar a:hover {
+      text-decoration: underline;
+    }
 
     .control-sublabel {
-      font-family: var(--font-display); font-size: 8.6px; letter-spacing: 1.3px;
-      color: var(--text-muted); text-transform: uppercase; margin-top: 1px;
+      font-family: var(--font-display);
+      font-size: 8.6px;
+      letter-spacing: 1.3px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-top: 1px;
     }
-    .mode-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
+
+    .mode-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px;
+    }
+
     .mode-btn {
-      font-family: var(--font-mono); font-size: 9px; font-weight: 600;
-      padding: 5px 7px; border-radius: 6px;
-      border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(255, 255, 255, 0.04);
-      color: var(--text-muted); cursor: pointer; display: flex; align-items: center; gap: 5px; transition: all 0.18s;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 600;
+      padding: 5px 7px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.18s;
     }
-    .mode-btn:hover { color: var(--text-main); border-color: rgba(0, 229, 255, 0.4); }
-    .mode-btn.active { background: var(--accent-cyan-dim); border-color: var(--accent-cyan); color: var(--accent-cyan); box-shadow: 0 0 12px rgba(0, 229, 255, 0.16); }
 
-    .anim-chips { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+    .mode-btn:hover {
+      color: var(--text-main);
+      border-color: rgba(0, 229, 255, 0.4);
+    }
+
+    .mode-btn.active {
+      background: var(--accent-cyan-dim);
+      border-color: var(--accent-cyan);
+      color: var(--accent-cyan);
+      box-shadow: 0 0 12px rgba(0, 229, 255, 0.16);
+    }
+
+    .anim-chips {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+    }
+
     .anim-btn {
-      font-family: var(--font-mono); font-size: 8.6px; font-weight: 600;
-      padding: 4px 5px; border-radius: 5px; text-align: center;
-      border: 1px solid rgba(255, 255, 255, 0.12); background: rgba(0, 0, 0, 0.35);
-      color: var(--text-muted); cursor: pointer; transition: all 0.15s;
+      font-family: var(--font-mono);
+      font-size: 8.6px;
+      font-weight: 600;
+      padding: 4px 5px;
+      border-radius: 5px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(0, 0, 0, 0.35);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.15s;
     }
-    .anim-btn:hover { color: var(--text-main); border-color: rgba(0, 229, 255, 0.45); }
-    .anim-btn.active { background: rgba(245, 158, 11, 0.22); border-color: var(--accent-gold); color: #fcd34d; box-shadow: 0 0 10px rgba(245, 158, 11, 0.18); }
 
-    .planet-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4px; }
+    .anim-btn:hover {
+      color: var(--text-main);
+      border-color: rgba(0, 229, 255, 0.45);
+    }
+
+    .anim-btn.active {
+      background: rgba(245, 158, 11, 0.22);
+      border-color: var(--accent-gold);
+      color: #fcd34d;
+      box-shadow: 0 0 10px rgba(245, 158, 11, 0.18);
+    }
+
+    .planet-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 4px;
+    }
+
     .planet-btn {
-      background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 6px; padding: 5px 7px; cursor: pointer;
-      display: flex; flex-direction: row; align-items: center; justify-content: flex-start; gap: 5px; transition: all 0.18s;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 6px;
+      padding: 5px 7px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 5px;
+      transition: all 0.18s;
     }
-    .planet-btn .p-icon { font-size: 11px; }
-    .planet-btn .p-name { font-family: var(--font-mono); font-size: 8.4px; color: var(--text-muted); text-transform: uppercase; white-space: nowrap; }
-    .planet-btn.active { background: var(--accent-cyan-dim); border-color: var(--accent-cyan); box-shadow: 0 0 10px rgba(0, 229, 255, 0.15); }
-    .planet-btn.active .p-name { color: var(--accent-cyan); font-weight: 700; }
 
-    .toggle-row { display: flex; justify-content: space-between; align-items: center; font-size: 9.8px; color: var(--text-muted); }
+    .planet-btn .p-icon {
+      font-size: 11px;
+    }
+
+    .planet-btn .p-name {
+      font-family: var(--font-mono);
+      font-size: 8.4px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .planet-btn.active {
+      background: var(--accent-cyan-dim);
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 10px rgba(0, 229, 255, 0.15);
+    }
+
+    .planet-btn.active .p-name {
+      color: var(--accent-cyan);
+      font-weight: 700;
+    }
+
+    .toggle-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 9.8px;
+      color: var(--text-muted);
+    }
+
     .switch-btn {
-      width: 32px; height: 17px; border-radius: 99px;
-      background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.18);
-      position: relative; cursor: pointer; transition: all 0.25s;
+      width: 32px;
+      height: 17px;
+      border-radius: 99px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      position: relative;
+      cursor: pointer;
+      transition: all 0.25s;
     }
+
     .switch-btn::after {
-      content: ""; position: absolute; top: 2px; left: 2px; width: 11px; height: 11px;
-      border-radius: 50%; background: var(--text-muted); transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--text-muted);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .switch-btn.active { background: var(--accent-cyan-dim); border-color: var(--accent-cyan); }
-    .switch-btn.active::after { left: 17px; background: var(--accent-cyan); box-shadow: 0 0 8px var(--accent-cyan); }
+
+    .switch-btn.active {
+      background: var(--accent-cyan-dim);
+      border-color: var(--accent-cyan);
+    }
+
+    .switch-btn.active::after {
+      left: 17px;
+      background: var(--accent-cyan);
+      box-shadow: 0 0 8px var(--accent-cyan);
+    }
 
     /* Bottom Control Dock */
     #bottom-bar {
-      position: fixed; bottom: 12px; left: 50%; transform: translateX(-50%);
-      z-index: 50; display: flex; align-items: center; gap: 10px;
-      padding: 7px 12px; max-width: calc(100vw - 24px); flex-wrap: wrap; justify-content: center;
+      position: fixed;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 12px;
+      max-width: calc(100vw - 24px);
+      flex-wrap: wrap;
+      justify-content: center;
     }
-    .slider-group { display: flex; align-items: center; gap: 7px; font-family: var(--font-mono); font-size: 9.5px; font-weight: 700; color: var(--accent-cyan); }
-    .exploded-slider { width: 110px; accent-color: var(--accent-cyan); cursor: pointer; }
-    .cam-group { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; justify-content: center; }
+
+    .slider-group {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      font-weight: 700;
+      color: var(--accent-cyan);
+    }
+
+    .exploded-slider {
+      width: 110px;
+      accent-color: var(--accent-cyan);
+      cursor: pointer;
+    }
+
+    .cam-group {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
     .action-btn {
-      font-family: var(--font-mono); font-size: 9px; font-weight: 700;
-      padding: 5px 8px; border-radius: 6px;
-      border: 1px solid rgba(255, 255, 255, 0.14); background: rgba(15, 23, 42, 0.78);
-      color: var(--text-main); cursor: pointer; transition: all 0.18s; white-space: nowrap;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 700;
+      padding: 5px 8px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(15, 23, 42, 0.78);
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all 0.18s;
+      white-space: nowrap;
     }
-    .action-btn:hover { border-color: var(--accent-cyan); color: var(--accent-cyan); background: rgba(0, 229, 255, 0.12); }
-    .action-btn.active { border-color: var(--accent-cyan); color: var(--accent-cyan); background: var(--accent-cyan-dim); }
+
+    .action-btn:hover {
+      border-color: var(--accent-cyan);
+      color: var(--accent-cyan);
+      background: rgba(0, 229, 255, 0.12);
+    }
+
+    .action-btn.active {
+      border-color: var(--accent-cyan);
+      color: var(--accent-cyan);
+      background: var(--accent-cyan-dim);
+    }
 
     /* Loading Overlay */
     #loading-overlay {
-      position: fixed; inset: 0; z-index: 200;
+      position: fixed;
+      inset: 0;
+      z-index: 200;
       background: radial-gradient(circle at 50% 40%, #0a1833 0%, #030712 80%);
-      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
       transition: opacity 0.4s ease;
     }
-    .spinner { width: 44px; height: 44px; border-radius: 50%; border: 3px solid rgba(0, 229, 255, 0.18); border-top-color: var(--accent-cyan); animation: spin 0.9s linear infinite; }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    .loading-text { font-family: var(--font-display); font-size: 11px; letter-spacing: 2.5px; color: var(--accent-cyan); }
+
+    .spinner {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 3px solid rgba(0, 229, 255, 0.18);
+      border-top-color: var(--accent-cyan);
+      animation: spin 0.9s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .loading-text {
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      color: var(--accent-cyan);
+    }
 
     /* Info Guide Modal & Tactile KLIK Toast */
     #guide-backdrop {
-      display: none; position: fixed; inset: 0; z-index: 180;
-      background: rgba(2, 6, 20, 0.72); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-      align-items: center; justify-content: center; padding: 16px;
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 180;
+      background: rgba(2, 6, 20, 0.72);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
     }
-    #guide-backdrop.open { display: flex; }
+
+    #guide-backdrop.open {
+      display: flex;
+    }
+
     #guide-modal {
-      width: min(700px, 96vw); max-height: 86vh; overflow-y: auto;
-      padding: 20px 22px; background: rgba(9, 15, 30, 0.96);
-      border: 1px solid rgba(0, 229, 255, 0.4); border-radius: 16px;
+      width: min(700px, 96vw);
+      max-height: 86vh;
+      overflow-y: auto;
+      padding: 20px 22px;
+      background: rgba(9, 15, 30, 0.96);
+      border: 1px solid rgba(0, 229, 255, 0.4);
+      border-radius: 16px;
       box-shadow: 0 24px 70px rgba(0, 0, 0, 0.75), 0 0 32px rgba(0, 229, 255, 0.14);
     }
+
     .guide-header {
-      display: flex; align-items: center; justify-content: space-between;
-      border-bottom: 1px solid rgba(0, 229, 255, 0.22); padding-bottom: 12px; margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(0, 229, 255, 0.22);
+      padding-bottom: 12px;
+      margin-bottom: 14px;
     }
-    .guide-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 9px; margin: 12px 0 14px; }
-    .guide-card { background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(0, 229, 255, 0.18); border-radius: 10px; padding: 10px 12px; }
-    .guide-card h4 { font-family: var(--font-display); font-size: 9.5px; color: var(--accent-cyan); letter-spacing: 1px; margin-bottom: 4px; }
-    .guide-card p { font-size: 10.8px; color: #cbd5e1; line-height: 1.48; }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 9px;
+      margin: 12px 0 14px;
+    }
+
+    .guide-card {
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(0, 229, 255, 0.18);
+      border-radius: 10px;
+      padding: 10px 12px;
+    }
+
+    .guide-card h4 {
+      font-family: var(--font-display);
+      font-size: 9.5px;
+      color: var(--accent-cyan);
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    .guide-card p {
+      font-size: 10.8px;
+      color: #cbd5e1;
+      line-height: 1.48;
+    }
 
     .mecha-toast {
-      position: fixed; bottom: 72px; left: 50%; transform: translateX(-50%) translateY(12px);
-      z-index: 160; padding: 7px 15px; border-radius: 99px;
-      background: rgba(8, 14, 28, 0.94); border: 1px solid rgba(0, 229, 255, 0.5);
-      color: var(--accent-cyan); font-family: var(--font-mono); font-size: 10.2px; font-weight: 700;
-      opacity: 0; pointer-events: none; transition: all 0.25s ease; white-space: nowrap;
-      max-width: calc(100vw - 24px); overflow: hidden; text-overflow: ellipsis;
+      position: fixed;
+      bottom: 72px;
+      left: 50%;
+      transform: translateX(-50%) translateY(12px);
+      z-index: 160;
+      padding: 7px 15px;
+      border-radius: 99px;
+      background: rgba(8, 14, 28, 0.94);
+      border: 1px solid rgba(0, 229, 255, 0.5);
+      color: var(--accent-cyan);
+      font-family: var(--font-mono);
+      font-size: 10.2px;
+      font-weight: 700;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+      max-width: calc(100vw - 24px);
+      overflow: hidden;
+      text-overflow: ellipsis;
       box-shadow: 0 8px 26px rgba(0, 0, 0, 0.6), 0 0 18px rgba(0, 229, 255, 0.22);
     }
-    .mecha-toast.visible { opacity: 1; transform: translateX(-50%) translateY(0); }
-    .mecha-toast.klik { border-color: #34d399; color: #6ee7b7; box-shadow: 0 8px 26px rgba(0,0,0,0.6), 0 0 20px rgba(16,185,129,0.35); }
+
+    /* Teardown 3D Engineering Callout Leaders Overlay */
+    #callout-layer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 35;
+      overflow: hidden;
+      display: none;
+    }
+
+    #callout-layer.visible {
+      display: block;
+    }
+
+    #callout-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .callout-tag {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      padding: 5px 9px;
+      border-radius: 7px;
+      background: rgba(9, 15, 29, 0.88);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(56, 189, 248, 0.50);
+      border-left: 3px solid #f97316;
+      color: #f8fafc;
+      font-family: var(--font-mono);
+      font-size: 8.6px;
+      font-weight: 700;
+      letter-spacing: 0.45px;
+      white-space: nowrap;
+      line-height: 1.25;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.42);
+    }
+
+    .callout-tag .c-sub {
+      display: block;
+      font-size: 7.4px;
+      color: #94a3b8;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    .callout-tag .c-dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #f97316;
+      margin-right: 5px;
+      vertical-align: middle;
+      box-shadow: 0 0 8px rgba(249, 115, 22, 0.7);
+    }
+
+    body.studio-light-mode .callout-tag {
+      background: rgba(15, 23, 42, 0.90);
+      color: #f8fafc;
+      border-color: rgba(148, 163, 184, 0.45);
+      border-left: 3px solid #f97316;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.22);
+    }
+
+    body.studio-light-mode .callout-tag .c-sub {
+      display: block;
+      color: #cbd5e1;
+    }
+
+
+    .mecha-toast.visible {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .mecha-toast.klik {
+      border-color: #34d399;
+      color: #6ee7b7;
+      box-shadow: 0 8px 26px rgba(0, 0, 0, 0.6), 0 0 20px rgba(16, 185, 129, 0.35);
+    }
 
     .nav-action-pill {
-      font-family: var(--font-mono); font-size: 9.2px; font-weight: 700;
-      color: #e2e8f0; background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 6px;
-      padding: 4px 7px; cursor: pointer; display: inline-flex; align-items: center; gap: 4px;
-      white-space: nowrap; transition: all 0.18s; flex-shrink: 0;
+      font-family: var(--font-mono);
+      font-size: 9.2px;
+      font-weight: 700;
+      color: #e2e8f0;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 6px;
+      padding: 4px 7px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      white-space: nowrap;
+      transition: all 0.18s;
+      flex-shrink: 0;
     }
-    .nav-action-pill:hover { color: var(--accent-cyan); border-color: var(--accent-cyan); background: rgba(0, 229, 255, 0.12); }
-    .nav-action-pill.playing { color: #34d399; border-color: rgba(52, 211, 153, 0.6); background: rgba(16, 185, 129, 0.16); }
+
+    .nav-action-pill:hover {
+      color: var(--accent-cyan);
+      border-color: var(--accent-cyan);
+      background: rgba(0, 229, 255, 0.12);
+    }
+
+    .nav-action-pill.playing {
+      color: #34d399;
+      border-color: rgba(52, 211, 153, 0.6);
+      background: rgba(16, 185, 129, 0.16);
+    }
 
     @media (max-width: 1220px) {
-      #nav-header { flex-wrap: wrap; max-width: calc(100vw - 380px); }
+      #nav-header {
+        flex-wrap: wrap;
+        max-width: calc(100vw - 380px);
+      }
     }
 
     /* Mobile & Tablet Ergonomic Layout — Zero Bottom Overlap Guarantee */
     @media (max-width: 960px) {
       #nav-header {
-        top: 8px; left: 8px; right: 8px; max-width: none;
-        flex-wrap: wrap; justify-content: space-between;
-        padding: 6px 8px; gap: 4px 6px;
+        top: 8px;
+        left: 8px;
+        right: 8px;
+        max-width: none;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 6px 8px;
+        gap: 4px 6px;
       }
-      #btn-restore-top { top: 8px; left: 8px; }
+
+      #btn-restore-top {
+        top: 8px;
+        left: 8px;
+      }
+
       #bottom-bar {
-        bottom: 6px; left: 8px; right: 8px;
+        bottom: 6px;
+        left: 8px;
+        right: 8px;
         transform: none !important;
-        max-width: none; padding: 5px 6px; gap: 4px;
+        max-width: none;
+        padding: 5px 6px;
+        gap: 4px;
       }
-      #bottom-bar .action-btn { padding: 4px 6px; font-size: 8.3px; }
-      #bottom-bar .exploded-slider { width: 78px; }
+
+      #bottom-bar .action-btn {
+        padding: 4px 6px;
+        font-size: 8.3px;
+      }
+
+      #bottom-bar .exploded-slider {
+        width: 78px;
+      }
+
       #bottom-bar.hud-hidden-bottom {
         transform: translateY(150%) !important;
       }
+
       #hud-vis-bar {
-        top: auto; bottom: 102px; left: 8px; right: 8px;
-        justify-content: space-between; padding: 4px 6px;
+        top: auto;
+        bottom: 102px;
+        left: 8px;
+        right: 8px;
+        justify-content: space-between;
+        padding: 4px 6px;
         transition: bottom 0.28s cubic-bezier(0.16, 1, 0.3, 1);
       }
+
       #hud-vis-bar.dock-hidden-mobile {
         bottom: 10px;
       }
+
       #hud-vis-bar.compact-mode {
-        left: auto; right: 10px; width: auto;
+        left: auto;
+        right: 10px;
+        width: auto;
       }
-      .vis-pill { flex: 1; justify-content: center; padding: 5px 4px; font-size: 9.2px; }
+
+      .vis-pill {
+        flex: 1;
+        justify-content: center;
+        padding: 5px 4px;
+        font-size: 9.2px;
+      }
+
       #left-drawer {
-        top: 76px; left: 8px; right: 8px; bottom: 132px;
-        width: auto; max-width: none;
+        top: 76px;
+        left: 8px;
+        right: 8px;
+        bottom: 132px;
+        width: auto;
+        max-width: none;
       }
+
       #right-stack {
-        top: 76px; left: 8px; right: 8px; bottom: 132px;
-        width: auto; max-width: none;
+        top: 76px;
+        left: 8px;
+        right: 8px;
+        bottom: 132px;
+        width: auto;
+        max-width: none;
       }
-      .mecha-toast { bottom: 132px; }
-      .guide-grid { grid-template-columns: 1fr; }
+
+      .mecha-toast {
+        bottom: 132px;
+      }
+
+      .guide-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -666,7 +1746,8 @@
         <div style="display:flex;align-items:center;gap:10px;">
           <span style="font-size:22px;">🤖</span>
           <div>
-            <div style="font-family:var(--font-display);font-size:13px;font-weight:800;color:var(--accent-cyan);letter-spacing:1.2px;">
+            <div
+              style="font-family:var(--font-display);font-size:13px;font-weight:800;color:var(--accent-cyan);letter-spacing:1.2px;">
               AUTONOMOUS 3D GUNDAM-LIKE ENGINEERING HANGAR
             </div>
             <div style="font-family:var(--font-mono);font-size:9.3px;color:var(--text-muted);margin-top:2px;">
@@ -678,31 +1759,47 @@
       </div>
 
       <p style="font-size:11.4px;color:#e2e8f0;line-height:1.6;">
-        Welcome to the <strong>Autonomous 3D Gundam-Like Mecha Engineering Hangar</strong>. Inspired by <em>Bandai 30 Minutes Missions (30MM)</em>, <em>Gundam Breaker 4</em>, and <em>FA-78-1 Full Armor Gundam</em>, you can customize <strong>all 8 anatomical body zones</strong> (Head, Chest, Shoulders, Backpack, Right Weapon, Left Shield, Waist Railguns, and Leg Boosters) with physical Gunpla snap-fit adapters and tactile <strong>"KLIK!"</strong> lock feedback.
+        Welcome to the <strong>Autonomous 3D Gundam-Like Mecha Engineering Hangar</strong>. Inspired by <em>Bandai 30
+          Minutes Missions (30MM)</em>, <em>Gundam Breaker 4</em>, and <em>FA-78-1 Full Armor Gundam</em>, you can
+        customize <strong>all 8 anatomical body zones</strong> (Head, Chest, Shoulders, Backpack, Right Weapon, Left
+        Shield, Waist Railguns, and Leg Boosters) with physical Gunpla snap-fit adapters and tactile
+        <strong>"KLIK!"</strong> lock feedback.
       </p>
 
       <div class="guide-grid">
         <div class="guide-card">
           <h4>🦾 8-ZONE FULL-BODY CUSTOMIZATION</h4>
-          <p>Snap modular parts onto <strong>👑 Head</strong> (60mm Vulcan &amp; Psycho-Crest), <strong>🛡️ Chest</strong> (Chobham Reactive Armor), <strong>🚀 Shoulders</strong> (6-Tube Missile Pods), <strong>🎒 Backpack</strong>, <strong>🔫 Right Arm</strong>, <strong>🔰 Left Forearm</strong>, <strong>⚡ Waist</strong> (Xiphias Hip Railguns), and <strong>🦵 Legs</strong> (Calf Booster Pods).</p>
+          <p>Snap modular parts onto <strong>👑 Head</strong> (60mm Vulcan &amp; Psycho-Crest), <strong>🛡️
+              Chest</strong> (Chobham Reactive Armor), <strong>🚀 Shoulders</strong> (6-Tube Missile Pods), <strong>🎒
+              Backpack</strong>, <strong>🔫 Right Arm</strong>, <strong>🔰 Left Forearm</strong>, <strong>⚡
+              Waist</strong> (Xiphias Hip Railguns), and <strong>🦵 Legs</strong> (Calf Booster Pods).</p>
         </div>
         <div class="guide-card">
           <h4>⚔️ UNIFIED HERO &amp; ZEON MONO-EYE ROSTER</h4>
-          <p>Cohesive Auto-Smooth Gundam-Universe roster: Federation Hero <strong>RX-78 VANGUARD</strong> alongside authentic Zeon &amp; Neo-Zeon Mono-Eye enemies (<strong>MS-06Z Zaku-II</strong>, <strong>MS-07B Gouf</strong>, <strong>MSN-04S Sazabi</strong>) — all rigged with 11 kinematic bones and 6 live combat stances.</p>
+          <p>Cohesive Auto-Smooth Gundam-Universe roster: Federation Hero <strong>RX-78 VANGUARD</strong> alongside
+            authentic Zeon &amp; Neo-Zeon Mono-Eye enemies (<strong>MS-06Z Zaku-II</strong>, <strong>MS-07B
+              Gouf</strong>, <strong>MSN-04S Sazabi</strong>) — all rigged with 11 kinematic bones and 6 live combat
+            stances.</p>
         </div>
         <div class="guide-card">
           <h4>🧬 AGENTIC ZERO-DUPLICATE SYNTHESIZER</h4>
-          <p>Every catalog part carries a unique SHA-256 cryptographic seed and parametric CAD genome. Click <strong>🧬 +AGENT SYNTH</strong> anytime to autonomously compile a brand-new, non-duplicate 3D modular part in real time.</p>
+          <p>Every catalog part carries a unique SHA-256 cryptographic seed and parametric CAD genome. Click <strong>🧬
+              +AGENT SYNTH</strong> anytime to autonomously compile a brand-new, non-duplicate 3D modular part in real
+            time.</p>
         </div>
         <div class="guide-card">
           <h4>✕ PANEL CLOSE &amp; CINEMA HUD CONTROLS</h4>
-          <p>Every HUD panel features a dedicated <strong>✕</strong> close button. Toggle individual panels from the visibility dock or press <strong>H</strong> (<strong>HIDE ALL</strong>) for unobstructed 3D inspection.</p>
+          <p>Every HUD panel features a dedicated <strong>✕</strong> close button. Toggle individual panels from the
+            visibility dock or press <strong>H</strong> (<strong>HIDE ALL</strong>) for unobstructed 3D inspection.</p>
         </div>
       </div>
 
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;border-top:1px solid rgba(255,255,255,0.08);padding-top:12px;flex-wrap:wrap;">
-        <span style="font-family:var(--font-mono);font-size:9.3px;color:var(--accent-green);">● AUTONOMOUS AGENTIC PIPELINE ACTIVE 24/7</span>
-        <button id="btn-dismiss-guide" class="action-btn active" style="padding:7px 16px;font-size:10.5px;">Got It — Enter Hangar</button>
+      <div
+        style="display:flex;justify-content:space-between;align-items:center;gap:10px;border-top:1px solid rgba(255,255,255,0.08);padding-top:12px;flex-wrap:wrap;">
+        <span style="font-family:var(--font-mono);font-size:9.3px;color:var(--accent-green);">● AUTONOMOUS AGENTIC
+          PIPELINE ACTIVE 24/7</span>
+        <button id="btn-dismiss-guide" class="action-btn active" style="padding:7px 16px;font-size:10.5px;">Got It —
+          Enter Hangar</button>
       </div>
     </div>
   </div>
@@ -755,10 +1852,12 @@
 
     <!-- 1-Click Full Armor Loadout + Live Agentic Zero-Duplicate Part Synthesizer -->
     <div class="quick-loadout-row">
-      <button id="btn-full-armor" class="loadout-btn full-armor" title="Snap on a complete 8-zone Full-Armor loadout across Head, Chest, Shoulders, Back, Arms, Waist &amp; Legs">
+      <button id="btn-full-armor" class="loadout-btn full-armor"
+        title="Snap on a complete 8-zone Full-Armor loadout across Head, Chest, Shoulders, Back, Arms, Waist &amp; Legs">
         ⚡ FULL ARMOR (8-ZONE)
       </button>
-      <button id="btn-agentic-synth" class="loadout-btn agent-synth" title="Autonomously synthesize a brand-new unique non-duplicate 3D part with SHA-256 seed genome">
+      <button id="btn-agentic-synth" class="loadout-btn agent-synth"
+        title="Autonomously synthesize a brand-new unique non-duplicate 3D part with SHA-256 seed genome">
         🧬 +AGENT SYNTH
       </button>
       <button id="btn-clear-loadout" class="loadout-btn clear-all" title="Dismount all equipped parts">
@@ -812,7 +1911,8 @@
     <!-- Status Bar + Equipped-Only Quick Filter -->
     <div class="catalog-status-bar">
       <span id="catalog-count-label">Showing 0 of 0 unique parts</span>
-      <button id="btn-equipped-only" class="equipped-filter-btn" title="Filter equipped parts">0 / 8 Zones Locked</button>
+      <button id="btn-equipped-only" class="equipped-filter-btn" title="Filter equipped parts">0 / 8 Zones
+        Locked</button>
     </div>
 
     <!-- Scrollable / Grid Parts List -->
@@ -825,7 +1925,8 @@
       <div class="drawer-title">
         <span>DIAGNOSTIC TELEMETRY</span>
         <div class="title-actions">
-          <span style="color: var(--accent-green); font-family: var(--font-mono); font-size: 9px; margin-right: 2px;">● LIVE</span>
+          <span style="color: var(--accent-green); font-family: var(--font-mono); font-size: 9px; margin-right: 2px;">●
+            LIVE</span>
           <button id="btn-hide-right" class="panel-close-x" title="Close Telemetry Panel">✕</button>
         </div>
       </div>
@@ -881,7 +1982,8 @@
         </div>
         <div id="inspect-title" style="font-size: 10.2px; font-weight: 700;">RX-78 VANGUARD (Ver.Ka Smooth Frame)</div>
         <div id="inspect-body" style="font-size: 8.9px; color: var(--text-muted); line-height: 1.32; margin-top: 2px;">
-          Unified 18m Federation Hero Gundam with smooth 54° Auto-Normal beveled Gundarium armor, 11-bone kinematic rig, and 8-zone full-body Gunpla snap-fit sockets.
+          Unified 18m Federation Hero Gundam with smooth 54° Auto-Normal beveled Gundarium armor, 11-bone kinematic rig,
+          and 8-zone full-body Gunpla snap-fit sockets.
         </div>
       </div>
     </aside>
@@ -898,22 +2000,44 @@
       <div class="control-sublabel">AMBAC Kinetic Stance (All 4 Suits)</div>
       <div id="anim-chips" class="anim-chips"></div>
 
-      <div class="control-sublabel">Optical Sensor Overlay</div>
+      <div class="control-sublabel">Optical Sensor &amp; Teardown Cutaway</div>
       <div class="mode-grid">
         <button class="mode-btn active" data-render-mode="standard">◆ Gundarium PBR</button>
+        <button class="mode-btn" data-render-mode="glass">🧊 Glass Cutaway</button>
         <button class="mode-btn" data-render-mode="hologram">◇ Minovsky Scan</button>
         <button class="mode-btn" data-render-mode="xray">▦ Movable Frame</button>
-        <button class="mode-btn" data-render-mode="blueprint">📐 Anaheim CAD</button>
+        <button class="mode-btn" data-render-mode="blueprint" style="grid-column: span 2;">📐 Anaheim CAD
+          Blueprint</button>
       </div>
 
-      <div class="control-sublabel">Tactical Combat Sector</div>
+      <div class="control-sublabel">Tactical Sector &amp; Studio Lighting</div>
       <div id="planet-grid" class="planet-grid">
-        <button class="planet-btn active" data-env="hangar" title="A Baoa Qu Asteroid Dock"><span class="p-icon">🛸</span><span class="p-name">A Baoa Qu</span></button>
-        <button class="planet-btn" data-env="earth" title="Side-7 Orbital Colony Bay"><span class="p-icon">🛰️</span><span class="p-name">Side-7 Bay</span></button>
-        <button class="planet-btn" data-env="mars" title="Jaburo Subterranean Catapult"><span class="p-icon">🏜️</span><span class="p-name">Jaburo Deck</span></button>
-        <button class="planet-btn" data-env="cyberpunk" title="Minovsky I-Field Reactor Chamber"><span class="p-icon">⚡</span><span class="p-name">Minovsky Lab</span></button>
+        <button class="planet-btn active" data-env="hangar" title="A Baoa Qu Asteroid Dock"><span
+            class="p-icon">🛸</span><span class="p-name">A Baoa Qu</span></button>
+        <button class="planet-btn" data-env="studio" title="Teardown Pale Studio Light Lab"><span
+            class="p-icon">☀️</span><span class="p-name">Studio Lab</span></button>
+        <button class="planet-btn" data-env="earth" title="Side-7 Orbital Colony Bay"><span
+            class="p-icon">🛰️</span><span class="p-name">Side-7 Bay</span></button>
+        <button class="planet-btn" data-env="mars" title="Jaburo Subterranean Catapult"><span
+            class="p-icon">🏜️</span><span class="p-name">Jaburo Deck</span></button>
+        <button class="planet-btn" data-env="cyberpunk" title="Minovsky I-Field Reactor Chamber"><span
+            class="p-icon">⚡</span><span class="p-name">Minovsky Lab</span></button>
+        <button class="planet-btn" data-env="lunar" title="Lunar Von Braun Foundry"><span class="p-icon">🌑</span><span
+            class="p-name">Von Braun</span></button>
       </div>
 
+      <div class="toggle-row">
+        <span>🔓 Hatch / Petal Open</span>
+        <button id="btn-hatch-open" class="switch-btn" aria-label="Toggle Maintenance Hatch Open"></button>
+      </div>
+      <div class="toggle-row">
+        <span>🏷️ 3D Callout Leaders</span>
+        <button id="btn-callouts" class="switch-btn" aria-label="Toggle 3D Engineering Callouts"></button>
+      </div>
+      <div class="toggle-row">
+        <span>🎬 Auto-Tour Demo</span>
+        <button id="btn-auto-tour" class="switch-btn" aria-label="Toggle Interactive Auto-Tour"></button>
+      </div>
       <div class="toggle-row">
         <span>360° Catapult Turntable</span>
         <button id="btn-auto-rotate" class="switch-btn active" aria-label="Toggle Auto Rotate"></button>
@@ -922,7 +2046,18 @@
         <span>Live Kinematic Actuators</span>
         <button id="btn-anim-play" class="switch-btn active" aria-label="Toggle Animation Playback"></button>
       </div>
+      <div class="toggle-row" style="font-size: 9px; color: var(--text-muted); padding-top: 2px;">
+        <span>GPU Quality Tier</span>
+        <span id="gpu-tier-badge"
+          style="font-family: var(--font-mono); color: var(--accent-cyan); font-weight: 700;">AUTO</span>
+      </div>
     </aside>
+  </div>
+
+  <!-- Teardown 3D Engineering Callout Leaders Layer -->
+  <div id="callout-layer" aria-hidden="true">
+    <svg id="callout-svg"></svg>
+    <div id="callout-nodes"></div>
   </div>
 
   <!-- Bottom Control Dock -->
@@ -937,6 +2072,8 @@
       <button class="action-btn" data-cam="front">FRONT</button>
       <button class="action-btn" data-cam="head">HEAD ZOOM</button>
       <button class="action-btn" data-cam="dorsal">DORSAL ADAPTER</button>
+      <button id="btn-dock-hatch" class="action-btn" title="Open Hinged Chest/Reactor Petals">🔓 HATCH</button>
+      <button id="btn-dock-isolate" class="action-btn" title="Toggle Ghost Shell Zone Isolation">👻 ISOLATE</button>
       <button id="btn-reset-view" class="action-btn" title="Auto-Fit Reset Camera">↺ FIT</button>
       <button id="btn-hide-bottom" class="panel-close-x" title="Close Bottom Dock">✕</button>
     </div>
@@ -950,6 +2087,7 @@
     import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
     import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
     import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+    import { GTAOPass } from 'three/addons/postprocessing/GTAOPass.js';
     import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
     import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
 
@@ -1070,23 +2208,23 @@
 
     // 8 Anatomical Body Zones Metadata
     const BODY_ZONES = {
-      head_sensor:    { label: '👑 HEAD',     short: 'HEAD',   adapterId: 'ADP-HP01-CRANIAL',  hp: 'HP-01', order: 1 },
-      chest_armor:    { label: '🛡️ CHEST',    short: 'CHEST',  adapterId: 'ADP-HP09-PECTORAL', hp: 'HP-09', order: 2 },
-      shoulder_pods:  { label: '🚀 SHOULDER', short: 'SHLDR',  adapterId: 'ADP-HP03-SHOULDER', hp: 'HP-03', order: 3 },
-      dorsal_pack:    { label: '🎒 BACKPACK', short: 'BACK',   adapterId: 'ADP-HP00-DORSAL',   hp: 'HP-00', order: 4 },
-      aux_weapon:     { label: '🔫 R-WEAPON', short: 'R-ARM',  adapterId: 'ADP-HP11-WEAPON',   hp: 'HP-11', order: 5 },
-      aux_shield:     { label: '🔰 L-SHIELD', short: 'L-ARM',  adapterId: 'ADP-HP07-FOREARM',  hp: 'HP-07', order: 6 },
-      waist_ordnance: { label: '⚡ WAIST',    short: 'WAIST',  adapterId: 'ADP-HP13-WAIST',    hp: 'HP-13', order: 7 },
-      leg_thrusters:  { label: '🦵 LEGS',     short: 'LEGS',   adapterId: 'ADP-HP24-CALF',     hp: 'HP-24', order: 8 }
+      head_sensor: { label: '👑 HEAD', short: 'HEAD', adapterId: 'ADP-HP01-CRANIAL', hp: 'HP-01', order: 1 },
+      chest_armor: { label: '🛡️ CHEST', short: 'CHEST', adapterId: 'ADP-HP09-PECTORAL', hp: 'HP-09', order: 2 },
+      shoulder_pods: { label: '🚀 SHOULDER', short: 'SHLDR', adapterId: 'ADP-HP03-SHOULDER', hp: 'HP-03', order: 3 },
+      dorsal_pack: { label: '🎒 BACKPACK', short: 'BACK', adapterId: 'ADP-HP00-DORSAL', hp: 'HP-00', order: 4 },
+      aux_weapon: { label: '🔫 R-WEAPON', short: 'R-ARM', adapterId: 'ADP-HP11-WEAPON', hp: 'HP-11', order: 5 },
+      aux_shield: { label: '🔰 L-SHIELD', short: 'L-ARM', adapterId: 'ADP-HP07-FOREARM', hp: 'HP-07', order: 6 },
+      waist_ordnance: { label: '⚡ WAIST', short: 'WAIST', adapterId: 'ADP-HP13-WAIST', hp: 'HP-13', order: 7 },
+      leg_thrusters: { label: '🦵 LEGS', short: 'LEGS', adapterId: 'ADP-HP24-CALF', hp: 'HP-24', order: 8 }
     };
 
     // 6 Live 60fps Combat & Kinetic Stances Available on ALL 4 Mobile Suits
     const PROCEDURAL_STANCES = [
-      { id: 'Sentinel',    label: '⚓ Standby' },
-      { id: 'RifleBurst',  label: '🎯 Beam Aim' },
+      { id: 'Sentinel', label: '⚓ Standby' },
+      { id: 'RifleBurst', label: '🎯 Beam Aim' },
       { id: 'ShieldGuard', label: '🛡️ Guard' },
-      { id: 'BoostJump',   label: '🚀 AMBAC' },
-      { id: 'MeleeSlash',  label: '⚔️ Cleave' },
+      { id: 'BoostJump', label: '🚀 AMBAC' },
+      { id: 'MeleeSlash', label: '⚔️ Cleave' },
       { id: 'PatrolMarch', label: '🦿 Stride' }
     ];
 
@@ -1113,6 +2251,16 @@
       renderMode: 'standard',
       activeEnv: 'hangar',
       explodedFactor: 0.0,
+      hatchOpen: false,
+      hatchProgress: 0.0,
+      isolatedZone: null,
+      showCallouts: false,
+      autoTour: false,
+      autoTourStep: 0,
+      autoTourTimer: 0.0,
+      gpuTier: 'HIGH',
+      gearNodes: [],
+      hingeNodes: [],
       autoRotate: true,
       animPlaying: true,
       chassisModel: null,
@@ -1274,12 +2422,58 @@
 
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(0x060b16);
-    scene.fog = new THREE.FogExp2(0x060b16, 0.0012);
+    scene.fog = new THREE.FogExp2(0x060b16, 0.00075);
 
-    const pmremGenerator = new THREE.PMREMGenerator(renderer);
-    scene.environment = pmremGenerator.fromScene(new RoomEnvironment(), 0.04).texture;
-    scene.environmentIntensity = 0.72;
-    pmremGenerator.dispose();
+    // Cinema-Grade Multi-Softbox Studio HDRI Environment (replaces flat RoomEnvironment!)
+    function createCinemaSoftboxEnvMap(ren) {
+      const pmrem = new THREE.PMREMGenerator(ren);
+      pmrem.compileEquirectangularShader();
+      const envScene = new THREE.Scene();
+      envScene.background = new THREE.Color(0x0b1220);
+
+      // Gradient studio cyclorama shell inside PMREM for smooth metallic horizons
+      const envDome = new THREE.Mesh(
+        new THREE.SphereGeometry(48, 32, 24),
+        new THREE.ShaderMaterial({
+          side: THREE.BackSide,
+          vertexShader: `varying vec3 vDir; void main(){ vDir = normalize(position); gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0); }`,
+          fragmentShader: `
+            varying vec3 vDir;
+            void main() {
+              float y = vDir.y * 0.5 + 0.5;
+              vec3 low = vec3(0.05, 0.08, 0.13);
+              vec3 mid = vec3(0.18, 0.24, 0.34);
+              vec3 top = vec3(0.58, 0.66, 0.78);
+              vec3 col = mix(low, mid, smoothstep(0.15, 0.50, y));
+              col = mix(col, top, smoothstep(0.52, 0.96, y));
+              gl_FragColor = vec4(col, 1.0);
+            }
+          `
+        })
+      );
+      envScene.add(envDome);
+
+      // 4 High-Contrast Automotive/Aerospace Softbox Light Panels
+      const addSoftbox = (w, h, color, pos, lookAt) => {
+        const m = new THREE.Mesh(
+          new THREE.PlaneGeometry(w, h),
+          new THREE.MeshBasicMaterial({ color, side: THREE.DoubleSide })
+        );
+        m.position.set(...pos);
+        m.lookAt(...lookAt);
+        envScene.add(m);
+      };
+      addSoftbox(28, 12, new THREE.Color(4.2, 4.1, 3.9), [0, 26, 10], [0, 0, 0]);       // Overhead Main Key Softbox
+      addSoftbox(10, 26, new THREE.Color(1.9, 2.8, 4.2), [-28, 11, 16], [0, 4, 0]);     // Left Cool Aerospace Strip
+      addSoftbox(10, 22, new THREE.Color(3.6, 2.4, 1.4), [28, 10, -14], [0, 4, 0]);     // Right Warm Titanium Kicker
+      addSoftbox(22, 6, new THREE.Color(2.4, 2.7, 3.2), [0, 14, -28], [0, 2, 0]);      // Back Rim Strip
+
+      const tex = pmrem.fromScene(envScene, 0.028).texture;
+      pmrem.dispose();
+      return tex;
+    }
+    scene.environment = createCinemaSoftboxEnvMap(renderer);
+    scene.environmentIntensity = 1.05;
 
     const camera = new THREE.PerspectiveCamera(38, window.innerWidth / window.innerHeight, 1.0, 2200.0);
     camera.position.set(115, 110, 240);
@@ -1294,12 +2488,42 @@
     controls.autoRotate = state.autoRotate;
     controls.autoRotateSpeed = 0.72;
 
-    // High-threshold Bloom (1.90) so ONLY emissive Mono-Eyes, Twin-Eyes & Plasma Thrusters glow!
+    // GPU Quality Tiers (Phase 4.3 — inspired by teardown live.js TIERS)
+    const GPU_TIERS = {
+      HIGH: { dpr: Math.min(window.devicePixelRatio || 1, 1.5), gtao: true, gtaoSamples: 12, shadowSize: 2048 },
+      MED: { dpr: Math.min(window.devicePixelRatio || 1, 1.0), gtao: true, gtaoSamples: 6, shadowSize: 1024 },
+      LOW: { dpr: 1.0, gtao: false, gtaoSamples: 0, shadowSize: 512 }
+    };
+    const detectInitialGpuTier = () => {
+      try {
+        const gl = renderer.getContext();
+        const dbg = gl.getExtension('WEBGL_debug_renderer_info');
+        const ren = dbg ? String(gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL) || '') : '';
+        if (/swiftshader|llvmpipe|software|mesa/i.test(ren) || window.innerWidth < 780) return 'LOW';
+        if (/intel|uhd|iris|mali|adreno/i.test(ren)) return 'MED';
+      } catch (_) { }
+      return 'HIGH';
+    };
+    state.gpuTier = detectInitialGpuTier();
+
+    // High-threshold Bloom (1.90) + GTAO Contact Shadows (Phase 4.2 & 6.5 clippingPlanes sync!)
     let composer = null;
+    let gtaoPass = null;
+    let bloomPass = null;
     try {
       composer = new EffectComposer(renderer);
       composer.addPass(new RenderPass(scene, camera));
-      const bloomPass = new UnrealBloomPass(
+      try {
+        gtaoPass = new GTAOPass(scene, camera, window.innerWidth, window.innerHeight);
+        gtaoPass.output = GTAOPass.OUTPUT.Default;
+        gtaoPass.updateGtaoMaterial({ radius: 9.5, distanceExponent: 1.8, thickness: 6.0, scale: 1.0, samples: GPU_TIERS[state.gpuTier].gtaoSamples || 8 });
+        if (gtaoPass.normalMaterial) gtaoPass.normalMaterial.clippingPlanes = renderer.clippingPlanes || [];
+        gtaoPass.enabled = GPU_TIERS[state.gpuTier].gtao;
+        composer.addPass(gtaoPass);
+      } catch (_) {
+        gtaoPass = null;
+      }
+      bloomPass = new UnrealBloomPass(
         new THREE.Vector2(window.innerWidth, window.innerHeight),
         0.16, 0.25, 1.90
       );
@@ -1309,6 +2533,23 @@
       composer = null;
     }
 
+    const gpuTierBadge = document.getElementById('gpu-tier-badge');
+    function applyGpuQualityTier(tierName) {
+      const tKey = GPU_TIERS[tierName] ? tierName : 'LOW';
+      const tCfg = GPU_TIERS[tKey];
+      state.gpuTier = tKey;
+      renderer.setPixelRatio(tCfg.dpr);
+      if (gtaoPass) {
+        gtaoPass.enabled = Boolean(tCfg.gtao);
+        if (tCfg.gtao && tCfg.gtaoSamples > 0) {
+          gtaoPass.updateGtaoMaterial({ samples: tCfg.gtaoSamples });
+        }
+        if (gtaoPass.normalMaterial) gtaoPass.normalMaterial.clippingPlanes = renderer.clippingPlanes || [];
+      }
+      if (gpuTierBadge) gpuTierBadge.textContent = `${tKey}${tCfg.gtao ? ' • GTAO' : ''}`;
+    }
+    applyGpuQualityTier(state.gpuTier);
+
     // Studio & Planetary Lighting Rig
     const hemiLight = new THREE.HemisphereLight(0xcfe8ff, 0x101828, 0.55);
     scene.add(hemiLight);
@@ -1316,7 +2557,8 @@
     const keyLight = new THREE.DirectionalLight(0xffffff, 1.48);
     keyLight.position.set(130, 240, 175);
     keyLight.castShadow = true;
-    keyLight.shadow.mapSize.set(2048, 2048);
+    const initShadowSz = GPU_TIERS[state.gpuTier].shadowSize;
+    keyLight.shadow.mapSize.set(initShadowSz, initShadowSz);
     keyLight.shadow.camera.near = 20;
     keyLight.shadow.camera.far = 700;
     keyLight.shadow.camera.left = -160;
@@ -1338,39 +2580,283 @@
     holoCoreLight.position.set(0, 100, 45);
     scene.add(holoCoreLight);
 
-    // Hangar Pedestal Platform & Tactical Floor
+    // Interactive Architectural Infinity Cyclorama Dome (replaces flat graph-paper backdrop!)
+    const cycloramaUniforms = {
+      uTopColor: { value: new THREE.Color(0x0b1528) },
+      uMidColor: { value: new THREE.Color(0x060c18) },
+      uBotColor: { value: new THREE.Color(0x03060d) },
+      uAccentColor: { value: new THREE.Color(0x00e5ff) },
+      uPointer: { value: new THREE.Vector2(0, 0) },
+      uTime: { value: 0.0 },
+      uStudioMode: { value: 0.0 }
+    };
+    const cycloramaDome = new THREE.Mesh(
+      new THREE.SphereGeometry(920, 48, 32),
+      new THREE.ShaderMaterial({
+        side: THREE.BackSide,
+        depthWrite: false,
+        fog: false,
+        uniforms: cycloramaUniforms,
+        vertexShader: `
+          varying vec3 vWorldDir;
+          void main() {
+            vWorldDir = normalize(position);
+            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+          }
+        `,
+        fragmentShader: `
+          uniform vec3 uTopColor;
+          uniform vec3 uMidColor;
+          uniform vec3 uBotColor;
+          uniform vec3 uAccentColor;
+          uniform vec2 uPointer;
+          uniform float uTime;
+          uniform float uStudioMode;
+          varying vec3 vWorldDir;
+          void main() {
+            float h = clamp(vWorldDir.y * 0.5 + 0.5, 0.0, 1.0);
+            vec3 col = mix(uBotColor, uMidColor, smoothstep(0.32, 0.52, h));
+            col = mix(col, uTopColor, smoothstep(0.50, 0.92, h));
+
+            // Interactive mouse-tracked studio softbox light sweep across the curved cyclorama
+            vec3 spotDir = normalize(vec3(uPointer.x * 0.55, 0.24 + uPointer.y * 0.25, -0.78));
+            float spotDot = max(dot(normalize(vWorldDir), spotDir), 0.0);
+            float softHalo = pow(max(spotDot, 0.0001), 5.0);
+            col += mix(uAccentColor * 0.20, vec3(0.16, 0.19, 0.24), uStudioMode) * softHalo;
+
+            // Subtle architectural curved horizon band & animated atmospheric light wave
+            float horizonBand = exp(-abs(vWorldDir.y - 0.04) * 14.0);
+            float wave = 0.5 + 0.5 * sin(vWorldDir.x * 5.0 + uTime * 0.55);
+            col += uAccentColor * horizonBand * mix(0.11, 0.045, uStudioMode) * (0.7 + 0.3 * wave);
+
+            // Subtle overhead studio skylight dome glow
+            float zenith = pow(max(vWorldDir.y, 0.0001), 2.4);
+            col += mix(vec3(0.03, 0.07, 0.14), vec3(0.14, 0.16, 0.20), uStudioMode) * zenith;
+            gl_FragColor = vec4(col, 1.0);
+          }
+        `
+      })
+    );
+    scene.add(cycloramaDome);
+
+    // Interactive Cursor-Tracked Specular Key Spotlight (reacts smoothly to pointer movement!)
+    const pointerLight = new THREE.PointLight(0x38bdf8, 1.2, 420, 1.4);
+    pointerLight.position.set(0, 140, 180);
+    scene.add(pointerLight);
+
+    // Architectural Studio Gantry Light Ribs (Parallax depth background elements!)
+    const studioBayGroup = new THREE.Group();
+    const bayRibMat = new THREE.MeshPhysicalMaterial({
+      color: 0x334155, roughness: 0.38, metalness: 0.72, clearcoat: 0.25,
+      transparent: true, opacity: 0.55
+    });
+    const bayLightStripMat = new THREE.MeshBasicMaterial({
+      color: 0x38bdf8, transparent: true, opacity: 0.42
+    });
+    const studioBayRibs = [];
+    for (let i = -2; i <= 2; i++) {
+      const ang = i * 0.34;
+      const dist = 305;
+      const rib = new THREE.Group();
+      const pillar = new THREE.Mesh(new THREE.BoxGeometry(6, 260, 14), bayRibMat);
+      pillar.position.y = 128;
+      rib.add(pillar);
+      const strip = new THREE.Mesh(new THREE.BoxGeometry(1.4, 210, 1.8), bayLightStripMat);
+      strip.position.set(0, 128, 7.6);
+      rib.add(strip);
+      rib.position.set(Math.sin(ang) * dist, 0, -Math.cos(ang) * dist + 45);
+      rib.rotation.y = -ang;
+      rib.userData.baseX = rib.position.x;
+      rib.userData.baseZ = rib.position.z;
+      studioBayGroup.add(rib);
+      studioBayRibs.push(rib);
+    }
+    // Overhead architectural curved light-bridge gantry arc
+    const gantryArc = new THREE.Mesh(
+      new THREE.TorusGeometry(240, 2.2, 12, 96, Math.PI),
+      bayRibMat
+    );
+    gantryArc.position.set(0, 12, -95);
+    studioBayGroup.add(gantryArc);
+    scene.add(studioBayGroup);
+
+    // Brushed Radial CNC Titanium Turntable Deck + Vernier Azimuth Ring + Contact Shadow
+    function createTurntableDeckTextures() {
+      const sz = 1024;
+      const c = document.createElement('canvas');
+      c.width = sz; c.height = sz;
+      const ctx = c.getContext('2d');
+      const cx = sz / 2, cy = sz / 2;
+      ctx.fillStyle = '#182235';
+      ctx.fillRect(0, 0, sz, sz);
+
+      // Concentric CNC brushed lathe micro-rings
+      for (let r = 18; r < sz * 0.49; r += 3) {
+        const shade = 22 + Math.floor(Math.sin(r * 0.37) * 6 + ((r * 17) % 9));
+        ctx.strokeStyle = `rgba(${shade + 8}, ${shade + 16}, ${shade + 28}, 0.55)`;
+        ctx.lineWidth = 1.3;
+        ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.stroke();
+      }
+      // Radial aerospace deck panel joints (12 sectors)
+      ctx.strokeStyle = 'rgba(148, 163, 184, 0.22)';
+      ctx.lineWidth = 2;
+      for (let i = 0; i < 12; i++) {
+        const a = (i / 12) * Math.PI * 2;
+        ctx.beginPath();
+        ctx.moveTo(cx + Math.cos(a) * 90, cy + Math.sin(a) * 90);
+        ctx.lineTo(cx + Math.cos(a) * 490, cy + Math.sin(a) * 490);
+        ctx.stroke();
+      }
+      // Recessed precision concentric technical tracks
+      [155, 290, 415, 468].forEach((rad, idx) => {
+        ctx.strokeStyle = idx === 2 ? 'rgba(249, 115, 22, 0.42)' : 'rgba(56, 189, 248, 0.34)';
+        ctx.lineWidth = idx === 3 ? 3 : 1.6;
+        ctx.beginPath(); ctx.arc(cx, cy, rad, 0, Math.PI * 2); ctx.stroke();
+      });
+      // Outer vernier tick marks (72 ticks)
+      for (let i = 0; i < 72; i++) {
+        const a = (i / 72) * Math.PI * 2;
+        const major = i % 6 === 0;
+        const r0 = major ? 430 : 446;
+        const r1 = 462;
+        ctx.strokeStyle = major ? 'rgba(226, 232, 240, 0.55)' : 'rgba(148, 163, 184, 0.28)';
+        ctx.lineWidth = major ? 2.4 : 1.2;
+        ctx.beginPath();
+        ctx.moveTo(cx + Math.cos(a) * r0, cy + Math.sin(a) * r0);
+        ctx.lineTo(cx + Math.cos(a) * r1, cy + Math.sin(a) * r1);
+        ctx.stroke();
+      }
+      const tex = new THREE.CanvasTexture(c);
+      tex.colorSpace = THREE.SRGBColorSpace;
+      tex.anisotropy = maxAnisotropy;
+      return tex;
+    }
+
+    function createContactShadowTexture() {
+      const sz = 256;
+      const c = document.createElement('canvas');
+      c.width = sz; c.height = sz;
+      const ctx = c.getContext('2d');
+      const g = ctx.createRadialGradient(sz / 2, sz / 2, 10, sz / 2, sz / 2, sz / 2);
+      g.addColorStop(0.0, 'rgba(6, 10, 18, 0.62)');
+      g.addColorStop(0.45, 'rgba(6, 10, 18, 0.34)');
+      g.addColorStop(0.78, 'rgba(6, 10, 18, 0.08)');
+      g.addColorStop(1.0, 'rgba(6, 10, 18, 0.0)');
+      ctx.fillStyle = g;
+      ctx.fillRect(0, 0, sz, sz);
+      return new THREE.CanvasTexture(c);
+    }
+
     const floorGroup = new THREE.Group();
     scene.add(floorGroup);
 
+    const deckMap = createTurntableDeckTextures();
     const darkPad = new THREE.Mesh(
-      new THREE.CylinderGeometry(76, 84, 4.0, 64),
-      new THREE.MeshStandardMaterial({ color: 0x0b1222, roughness: 0.32, metalness: 0.72 })
+      new THREE.CylinderGeometry(84, 94, 4.4, 72),
+      new THREE.MeshPhysicalMaterial({
+        color: 0xdbe4f0, map: deckMap, roughness: 0.34, metalness: 0.68,
+        clearcoat: 0.38, clearcoatRoughness: 0.22, envMapIntensity: 0.95
+      })
     );
-    darkPad.position.y = -2.0;
+    darkPad.position.y = -2.2;
     darkPad.receiveShadow = true;
     floorGroup.add(darkPad);
 
+    // Outer recessed bevelled pedestal collar
+    const padTrim = new THREE.Mesh(
+      new THREE.TorusGeometry(85.2, 1.35, 16, 84),
+      new THREE.MeshPhysicalMaterial({ color: 0x334155, roughness: 0.28, metalness: 0.88, clearcoat: 0.3 })
+    );
+    padTrim.rotation.x = Math.PI / 2;
+    padTrim.position.y = -0.15;
+    floorGroup.add(padTrim);
+
+    // Grounded Radial Contact Shadow beneath the Mobile Suit feet
+    const contactShadowDisc = new THREE.Mesh(
+      new THREE.PlaneGeometry(108, 108),
+      new THREE.MeshBasicMaterial({
+        map: createContactShadowTexture(), transparent: true, depthWrite: false,
+        side: THREE.DoubleSide, polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1
+      })
+    );
+    contactShadowDisc.rotation.x = -Math.PI / 2;
+    contactShadowDisc.position.y = 0.06;
+    floorGroup.add(contactShadowDisc);
+
+    // Expansive Smooth Architectural Studio Floor Apron (Zero graph-paper squares!)
+    const studioApronMat = new THREE.MeshPhysicalMaterial({
+      color: 0x091120, roughness: 0.42, metalness: 0.45, clearcoat: 0.25, clearcoatRoughness: 0.35,
+      transparent: true, opacity: 0.92
+    });
+    const studioApron = new THREE.Mesh(new THREE.CircleGeometry(460, 72), studioApronMat);
+    studioApron.rotation.x = -Math.PI / 2;
+    studioApron.position.y = -4.5;
+    studioApron.receiveShadow = true;
+    floorGroup.add(studioApron);
+
     const glowRingOuter = new THREE.Mesh(
-      new THREE.RingGeometry(71, 73.2, 64),
-      new THREE.MeshBasicMaterial({ color: 0x00e5ff, side: THREE.DoubleSide, transparent: true, opacity: 0.55 })
+      new THREE.RingGeometry(81.0, 82.8, 96),
+      new THREE.MeshBasicMaterial({ color: 0x00e5ff, side: THREE.DoubleSide, transparent: true, opacity: 0.68, polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1 })
     );
     glowRingOuter.rotation.x = -Math.PI / 2;
-    glowRingOuter.position.y = 0.08;
+    glowRingOuter.position.y = 0.09;
     floorGroup.add(glowRingOuter);
 
     const glowRingInner = new THREE.Mesh(
-      new THREE.RingGeometry(46, 47.0, 64),
-      new THREE.MeshBasicMaterial({ color: 0xf59e0b, side: THREE.DoubleSide, transparent: true, opacity: 0.35 })
+      new THREE.RingGeometry(52.0, 53.0, 96),
+      new THREE.MeshBasicMaterial({ color: 0xf97316, side: THREE.DoubleSide, transparent: true, opacity: 0.48, polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1 })
     );
     glowRingInner.rotation.x = -Math.PI / 2;
-    glowRingInner.position.y = 0.08;
+    glowRingInner.position.y = 0.09;
     floorGroup.add(glowRingInner);
 
+    // Interactive Azimuth Vernier Ring (rotates smoothly with camera orbit + pulses on action!)
+    const vernierRing = new THREE.Mesh(
+      new THREE.RingGeometry(98, 99.2, 96, 1, 0, Math.PI * 1.45),
+      new THREE.MeshBasicMaterial({ color: 0x38bdf8, side: THREE.DoubleSide, transparent: true, opacity: 0.34, polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1 })
+    );
+    vernierRing.rotation.x = -Math.PI / 2;
+    vernierRing.position.y = -4.25;
+    floorGroup.add(vernierRing);
+
+    // Reactive Energy Shockwave Ring (expands on KLIK snap, Hatch Open, Stance Change!)
+    const pulseRingMat = new THREE.MeshBasicMaterial({
+      color: 0x00e5ff, side: THREE.DoubleSide, transparent: true, opacity: 0.0,
+      polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2
+    });
+    const pulseRing = new THREE.Mesh(new THREE.RingGeometry(48, 52, 72), pulseRingMat);
+    pulseRing.rotation.x = -Math.PI / 2;
+    pulseRing.position.y = 0.14;
+    floorGroup.add(pulseRing);
+    let stagePulseProgress = 1.0;
+    function triggerStagePulse(hexColor = 0x00e5ff) {
+      pulseRingMat.color.setHex(hexColor);
+      stagePulseProgress = 0.0;
+    }
+
+    // Precision Orbital CAD Halo behind Mecha (sleek interactive telemetry arcs, NOT flat grid!)
+    const studioReticleGroup = new THREE.Group();
+    studioReticleGroup.visible = false;
+    const reticleRingMat = new THREE.MeshBasicMaterial({ color: 0x475569, side: THREE.DoubleSide, transparent: true, opacity: 0.24, polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1 });
+    const retRing1 = new THREE.Mesh(new THREE.RingGeometry(108, 108.9, 96, 1, 0.2, Math.PI * 1.65), reticleRingMat);
+    retRing1.position.set(0, 98, -68);
+    studioReticleGroup.add(retRing1);
+    const retRing2 = new THREE.Mesh(new THREE.RingGeometry(138, 138.8, 96, 1, Math.PI * 0.4, Math.PI * 1.25), new THREE.MeshBasicMaterial({ color: 0xf97316, side: THREE.DoubleSide, transparent: true, opacity: 0.28, polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1 }));
+    retRing2.position.set(0, 98, -72);
+    studioReticleGroup.add(retRing2);
+    scene.add(studioReticleGroup);
+
+    // Keep gridHelper hidden by default (eliminates the flat graph-paper look!)
     const gridHelper = new THREE.GridHelper(540, 44, 0x0ea5e9, 0x132038);
-    gridHelper.position.y = -0.05;
-    gridHelper.material.transparent = true;
-    gridHelper.material.opacity = 0.28;
+    gridHelper.visible = false;
     floorGroup.add(gridHelper);
+
+    // Interactive Pointer NDC state for live parallax & light sweep
+    const pointerNdc = { x: 0, y: 0, targetX: 0, targetY: 0 };
+    window.addEventListener('pointermove', (e) => {
+      pointerNdc.targetX = (e.clientX / Math.max(window.innerWidth, 1)) * 2 - 1;
+      pointerNdc.targetY = -((e.clientY / Math.max(window.innerHeight, 1)) * 2 - 1);
+    }, { passive: true });
 
     // Starfield Backdrop
     const starPositions = new Float32Array(1800 * 3);
@@ -1408,99 +2894,206 @@
     scene.add(cyberGroup);
 
     // =========================================================================
-    // 4. SILKY-SMOOTH SATIN GUNDARIUM PBR ENGINE (ZERO ORANGE-PEEL BUMP NOISE!)
+    // 4. PROFESSIONAL AEROSPACE 1024px PBR TEXTURE SUITE & AUTOMATIC TRI-PLANAR UVs
     // =========================================================================
+    /**
+     * Procedural CAD GLB meshes exported without TEXCOORD_0 would otherwise sample (0,0) across the entire plate!
+     * Generate crisp scale-invariant cubic tri-planar UVs from (position, normal) so 1024px panel-seam normal,
+     * brushed CNC metal, and ceramic roughness maps wrap cleanly across every armor plate and bevel.
+     */
+    function ensureBoxProjectedUVs(geometry, uvScale = 0.028) {
+      if (!geometry || !geometry.attributes || !geometry.attributes.position) return;
+      if (geometry.attributes.uv && geometry.attributes.uv.count === geometry.attributes.position.count) return;
+      if (!geometry.attributes.normal) geometry.computeVertexNormals();
+      const pos = geometry.attributes.position;
+      const nrm = geometry.attributes.normal;
+      const uvs = new Float32Array(pos.count * 2);
+      for (let i = 0; i < pos.count; i++) {
+        const x = pos.getX(i), y = pos.getY(i), z = pos.getZ(i);
+        const ax = Math.abs(nrm.getX(i)), ay = Math.abs(nrm.getY(i)), az = Math.abs(nrm.getZ(i));
+        let u = 0, v = 0;
+        if (ax >= ay && ax >= az) {
+          u = z * uvScale; v = y * uvScale;
+        } else if (ay >= ax && ay >= az) {
+          u = x * uvScale; v = z * uvScale;
+        } else {
+          u = x * uvScale; v = y * uvScale;
+        }
+        uvs[i * 2] = u;
+        uvs[i * 2 + 1] = v;
+      }
+      geometry.setAttribute('uv', new THREE.BufferAttribute(uvs, 2));
+    }
+
     function createProceduralMechaPBR() {
-      const size = 512;
-
-      // A. Clean Smooth Heightfield with ONLY Recessed Master Grade Panel Lines (Zero random pixel noise!)
-      const hCanvas = document.createElement('canvas');
-      hCanvas.width = size; hCanvas.height = size;
-      const hCtx = hCanvas.getContext('2d');
-      hCtx.fillStyle = '#808080';
-      hCtx.fillRect(0, 0, size, size);
-
+      const size = 1024;
       let seed = 1337;
       const rand = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
 
-      // Fine recessed Master Grade panel seams
-      hCtx.strokeStyle = '#646464';
-      hCtx.lineWidth = 1.5;
-      hCtx.beginPath(); hCtx.moveTo(0, 256); hCtx.lineTo(size, 256); hCtx.stroke();
-      hCtx.beginPath(); hCtx.moveTo(256, 0); hCtx.lineTo(256, size); hCtx.stroke();
-      hCtx.strokeStyle = '#6e6e6e';
-      hCtx.lineWidth = 1.2;
-      hCtx.strokeRect(52, 52, 152, 116);
-      hCtx.strokeRect(304, 300, 148, 128);
-
-      // Sobel filter -> Silky-Smooth Panel-Line Normal Map (THREE.NoColorSpace!)
-      const hSrc = hCtx.getImageData(0, 0, size, size).data;
-      const nCanvas = document.createElement('canvas');
-      nCanvas.width = size; nCanvas.height = size;
-      const nCtx = nCanvas.getContext('2d');
-      const nImg = nCtx.createImageData(size, size);
-      const nd = nImg.data;
-      const sampleH = (x, y) => hSrc[(((y + size) % size) * size + ((x + size) % size)) * 4] / 255.0;
-      const strength = 0.65;
-      for (let y = 0; y < size; y++) {
-        for (let x = 0; x < size; x++) {
-          const tl = sampleH(x - 1, y - 1), t = sampleH(x, y - 1), tr = sampleH(x + 1, y - 1);
-          const l = sampleH(x - 1, y), r = sampleH(x + 1, y);
-          const bl = sampleH(x - 1, y + 1), b = sampleH(x, y + 1), br = sampleH(x + 1, y + 1);
-          const dx = (tr + 2 * r + br - tl - 2 * l - bl) * strength;
-          const dy = (bl + 2 * b + br - tl - 2 * t - tr) * strength;
-          const dz = 1.0;
-          const inv = 1.0 / Math.hypot(dx, dy, dz);
-          const idx = (y * size + x) * 4;
-          nd[idx]     = Math.round((-dx * inv * 0.5 + 0.5) * 255);
-          nd[idx + 1] = Math.round((-dy * inv * 0.5 + 0.5) * 255);
-          nd[idx + 2] = Math.round(( dz * inv * 0.5 + 0.5) * 255);
-          nd[idx + 3] = 255;
+      const heightToNormalCanvas = (hCtx, strength) => {
+        const hSrc = hCtx.getImageData(0, 0, size, size).data;
+        const nCanvas = document.createElement('canvas');
+        nCanvas.width = size; nCanvas.height = size;
+        const nCtx = nCanvas.getContext('2d');
+        const nImg = nCtx.createImageData(size, size);
+        const nd = nImg.data;
+        const sampleH = (x, y) => hSrc[(((y + size) % size) * size + ((x + size) % size)) * 4] / 255.0;
+        for (let y = 0; y < size; y++) {
+          for (let x = 0; x < size; x++) {
+            const tl = sampleH(x - 1, y - 1), t = sampleH(x, y - 1), tr = sampleH(x + 1, y - 1);
+            const l = sampleH(x - 1, y), r = sampleH(x + 1, y);
+            const bl = sampleH(x - 1, y + 1), b = sampleH(x, y + 1), br = sampleH(x + 1, y + 1);
+            const dx = (tr + 2 * r + br - tl - 2 * l - bl) * strength;
+            const dy = (bl + 2 * b + br - tl - 2 * t - tr) * strength;
+            const dz = 1.0;
+            const inv = 1.0 / Math.hypot(dx, dy, dz);
+            const idx = (y * size + x) * 4;
+            nd[idx] = Math.round((-dx * inv * 0.5 + 0.5) * 255);
+            nd[idx + 1] = Math.round((-dy * inv * 0.5 + 0.5) * 255);
+            nd[idx + 2] = Math.round((dz * inv * 0.5 + 0.5) * 255);
+            nd[idx + 3] = 255;
+          }
         }
-      }
-      nCtx.putImageData(nImg, 0, 0);
+        nCtx.putImageData(nImg, 0, 0);
+        return nCanvas;
+      };
 
-      // B. Satin Anodized Alloy Roughness Map
+      // A. MASTER-GRADE PG UNLEASHED CERAMIC-TITANIUM ARMOR HEIGHTFIELD (Panel Seams + Micro-Rivets + Hatch Insets)
+      const hCanvas = document.createElement('canvas');
+      hCanvas.width = size; hCanvas.height = size;
+      const hCtx = hCanvas.getContext('2d');
+      hCtx.fillStyle = '#848484';
+      hCtx.fillRect(0, 0, size, size);
+
+      // Subtle machined sub-panel elevation tones
+      hCtx.fillStyle = '#8a8a8a';
+      hCtx.fillRect(48, 48, 412, 396);
+      hCtx.fillStyle = '#7e7e7e';
+      hCtx.fillRect(552, 548, 420, 410);
+      hCtx.fillStyle = '#888888';
+      hCtx.fillRect(560, 56, 396, 340);
+
+      // Primary recessed Ver.Ka CNC panel-line grooves
+      hCtx.strokeStyle = '#383838';
+      hCtx.lineWidth = 3.2;
+      hCtx.beginPath(); hCtx.moveTo(0, 512); hCtx.lineTo(size, 512); hCtx.stroke();
+      hCtx.beginPath(); hCtx.moveTo(512, 0); hCtx.lineTo(512, size); hCtx.stroke();
+
+      // Secondary chamfered service-panel cutouts
+      hCtx.strokeStyle = '#484848';
+      hCtx.lineWidth = 2.4;
+      hCtx.strokeRect(48, 48, 412, 396);
+      hCtx.strokeRect(552, 548, 420, 410);
+      hCtx.strokeRect(560, 56, 396, 340);
+      hCtx.strokeRect(64, 576, 360, 290);
+
+      // Angled 45-deg aerospace technical hatch bevels & cooling louver slots
+      hCtx.strokeStyle = '#424242';
+      hCtx.lineWidth = 2.0;
+      for (let i = 0; i < 4; i++) {
+        hCtx.fillStyle = '#505050';
+        hCtx.fillRect(88 + i * 32, 92, 18, 8);
+        hCtx.fillRect(610 + i * 32, 600, 18, 8);
+      }
+      // Precision recessed micro-rivets along panel corners
+      const rivets = [
+        [72, 72], [436, 72], [72, 420], [436, 420],
+        [584, 80], [932, 80], [584, 372], [932, 372],
+        [576, 572], [948, 572], [576, 934], [948, 934],
+        [88, 600], [400, 600], [88, 842], [400, 842]
+      ];
+      hCtx.fillStyle = '#323232';
+      for (const [rx, ry] of rivets) {
+        hCtx.beginPath(); hCtx.arc(rx, ry, 4.2, 0, Math.PI * 2); hCtx.fill();
+      }
+      const nCanvas = heightToNormalCanvas(hCtx, 1.35);
+
+      // B. SATIN CERAMIC-METALLIC ROUGHNESS MAP (Fine brushed sheen variation + dark matte seams)
       const rCanvas = document.createElement('canvas');
       rCanvas.width = size; rCanvas.height = size;
       const rCtx = rCanvas.getContext('2d');
-      rCtx.fillStyle = '#686868';
+      rCtx.fillStyle = '#727272'; // ~0.45 base satin ceramic
       rCtx.fillRect(0, 0, size, size);
-      for (let i = 0; i < 80; i++) {
-        const cx = rand() * size, cy = rand() * size, rad = 28 + rand() * 64;
+      // Subtle satin lacquer sheen variance across sub-panels
+      rCtx.fillStyle = '#626262'; rCtx.fillRect(48, 48, 412, 396);
+      rCtx.fillStyle = '#7c7c7c'; rCtx.fillRect(552, 548, 420, 410);
+      for (let i = 0; i < 160; i++) {
+        const cx = rand() * size, cy = rand() * size, rad = 36 + rand() * 110;
         const g = rCtx.createRadialGradient(cx, cy, 4, cx, cy, rad);
-        const shade = 92 + Math.floor(rand() * 26);
-        g.addColorStop(0, `rgba(${shade},${shade},${shade},0.14)`);
-        g.addColorStop(1, 'rgba(104,104,104,0)');
+        const shade = 96 + Math.floor(rand() * 34);
+        g.addColorStop(0, `rgba(${shade},${shade},${shade},0.16)`);
+        g.addColorStop(1, 'rgba(114,114,114,0)');
         rCtx.fillStyle = g;
         rCtx.beginPath(); rCtx.arc(cx, cy, rad, 0, Math.PI * 2); rCtx.fill();
       }
+      // Make panel grooves matte-rough so light breaks sharply at seams
+      rCtx.strokeStyle = '#c8c8c8'; rCtx.lineWidth = 4;
+      rCtx.beginPath(); rCtx.moveTo(0, 512); rCtx.lineTo(size, 512); rCtx.stroke();
+      rCtx.beginPath(); rCtx.moveTo(512, 0); rCtx.lineTo(512, size); rCtx.stroke();
+      rCtx.lineWidth = 3;
+      rCtx.strokeRect(48, 48, 412, 396);
+      rCtx.strokeRect(552, 548, 420, 410);
 
-      // C. Clean Satin Gundarium Albedo Detail Map
+      // C. CLEAN PG UNLEASHED ALBEDO DETAIL MAP (Subtle multi-tone armor separation + crisp panel line ink!)
       const aCanvas = document.createElement('canvas');
       aCanvas.width = size; aCanvas.height = size;
       const aCtx = aCanvas.getContext('2d');
-      aCtx.fillStyle = '#f1f4f8';
+      aCtx.fillStyle = '#fafbfc';
       aCtx.fillRect(0, 0, size, size);
-      for (let i = 0; i < 75; i++) {
-        const cx = rand() * size, cy = rand() * size, rad = 26 + rand() * 72;
-        const g = aCtx.createRadialGradient(cx, cy, 4, cx, cy, rad);
-        const tone = 224 + Math.floor(rand() * 20);
-        g.addColorStop(0, `rgba(${tone},${tone + 2},${tone + 4},0.12)`);
-        g.addColorStop(1, 'rgba(241,244,248,0)');
-        aCtx.fillStyle = g;
-        aCtx.beginPath(); aCtx.arc(cx, cy, rad, 0, Math.PI * 2); aCtx.fill();
+      // Bandai RG/PG multi-tone panel modulation (extremely refined, realistic!)
+      aCtx.fillStyle = 'rgba(226, 232, 240, 0.45)'; aCtx.fillRect(552, 548, 420, 410);
+      aCtx.fillStyle = 'rgba(255, 255, 255, 0.38)'; aCtx.fillRect(48, 48, 412, 396);
+      aCtx.fillStyle = 'rgba(232, 238, 246, 0.35)'; aCtx.fillRect(64, 576, 360, 290);
+      // Ultra-clean dark slate Gundam panel-lining ink
+      aCtx.strokeStyle = 'rgba(24, 34, 52, 0.12)';
+      aCtx.lineWidth = 2.2;
+      aCtx.beginPath(); aCtx.moveTo(0, 512); aCtx.lineTo(size, 512); aCtx.stroke();
+      aCtx.beginPath(); aCtx.moveTo(512, 0); aCtx.lineTo(512, size); aCtx.stroke();
+      aCtx.strokeStyle = 'rgba(30, 41, 59, 0.09)';
+      aCtx.lineWidth = 1.8;
+      aCtx.strokeRect(48, 48, 412, 396);
+      aCtx.strokeRect(552, 548, 420, 410);
+      aCtx.strokeRect(560, 56, 396, 340);
+      aCtx.strokeRect(64, 576, 360, 290);
+      aCtx.fillStyle = 'rgba(30, 41, 59, 0.15)';
+      for (const [rx, ry] of rivets) {
+        aCtx.beginPath(); aCtx.arc(rx, ry, 3.4, 0, Math.PI * 2); aCtx.fill();
       }
-      aCtx.strokeStyle = 'rgba(38, 48, 64, 0.16)';
-      aCtx.lineWidth = 1.3;
-      aCtx.beginPath(); aCtx.moveTo(0, 256); aCtx.lineTo(size, 256); aCtx.stroke();
-      aCtx.beginPath(); aCtx.moveTo(256, 0); aCtx.lineTo(256, size); aCtx.stroke();
 
-      const makeTex = (cvs, isSRGB) => {
+      // D. CNC BRUSHED ANISOTROPIC TITANIUM/GUNMETAL INNER-FRAME TEXTURE SET
+      const mHCanvas = document.createElement('canvas');
+      mHCanvas.width = size; mHCanvas.height = size;
+      const mHCtx = mHCanvas.getContext('2d');
+      mHCtx.fillStyle = '#808080';
+      mHCtx.fillRect(0, 0, size, size);
+      for (let y = 0; y < size; y += 2) {
+        const tone = 114 + Math.floor(rand() * 28);
+        mHCtx.fillStyle = `rgb(${tone},${tone},${tone})`;
+        mHCtx.fillRect(0, y, size, 2);
+      }
+      // Machined structural truss ribs
+      mHCtx.strokeStyle = '#484848'; mHCtx.lineWidth = 4;
+      for (let x = 128; x < size; x += 256) {
+        mHCtx.beginPath(); mHCtx.moveTo(x, 0); mHCtx.lineTo(x, size); mHCtx.stroke();
+      }
+      const metalNormalCanvas = heightToNormalCanvas(mHCtx, 1.15);
+
+      const mRCanvas = document.createElement('canvas');
+      mRCanvas.width = size; mRCanvas.height = size;
+      const mRCtx = mRCanvas.getContext('2d');
+      mRCtx.fillStyle = '#525252';
+      mRCtx.fillRect(0, 0, size, size);
+      for (let y = 0; y < size; y += 3) {
+        const v = 64 + Math.floor(rand() * 44);
+        mRCtx.fillStyle = `rgb(${v},${v},${v})`;
+        mRCtx.fillRect(0, y, size, 2);
+      }
+
+      const makeTex = (cvs, isSRGB, rep = 1.0) => {
         const t = new THREE.CanvasTexture(cvs);
         t.wrapS = THREE.RepeatWrapping;
         t.wrapT = THREE.RepeatWrapping;
-        t.repeat.set(0.28, 0.28);
+        t.repeat.set(rep, rep);
         t.anisotropy = maxAnisotropy;
         t.colorSpace = isSRGB ? THREE.SRGBColorSpace : THREE.NoColorSpace;
         t.needsUpdate = true;
@@ -1508,9 +3101,11 @@
       };
 
       return {
-        normalMap: makeTex(nCanvas, false),
-        roughnessMap: makeTex(rCanvas, false),
-        albedoDetailMap: makeTex(aCanvas, true)
+        normalMap: makeTex(nCanvas, false, 0.40),
+        roughnessMap: makeTex(rCanvas, false, 0.40),
+        albedoDetailMap: makeTex(aCanvas, true, 0.40),
+        metalNormalMap: makeTex(metalNormalCanvas, false, 1.4),
+        metalRoughnessMap: makeTex(mRCanvas, false, 1.4)
       };
     }
 
@@ -1538,7 +3133,7 @@
         varying vec3 vNormal; varying vec3 vViewDir; varying float vWorldY;
         float rand(vec2 st) { return fract(sin(dot(st.xy, vec2(12.9898, 78.233))) * 43758.5453123); }
         void main() {
-          float fresnel = pow(1.0 - abs(dot(vNormal, vViewDir)), 2.5);
+          float fresnel = pow(max(1.0 - clamp(abs(dot(vNormal, vViewDir)), 0.0, 1.0), 0.0001), 2.5);
           float scanLine = smoothstep(0.3, 0.7, sin(vWorldY * 1.4 + uTime * 4.5) * 0.5 + 0.5);
           float scanIntensity = mix(0.45, 1.0, scanLine);
           float barPos = mod(uTime * 48.0, 210.0) - 10.0;
@@ -1554,13 +3149,23 @@
 
     const blueprintSolidMat = new THREE.MeshStandardMaterial({ color: 0x08142b, roughness: 0.72, metalness: 0.18 });
     const blueprintLineMat = new THREE.LineBasicMaterial({ color: 0x00e5ff, transparent: true, opacity: 0.78 });
+    const glassCutawayMat = new THREE.MeshPhysicalMaterial({
+      color: 0xcbe4f9, roughness: 0.10, metalness: 0.06,
+      transparent: true, opacity: 0.24, depthWrite: false,
+      side: THREE.DoubleSide, clearcoat: 0.85, clearcoatRoughness: 0.08, envMapIntensity: 0.90
+    });
+    const ghostShellMat = new THREE.MeshStandardMaterial({
+      color: 0x94a3b8, roughness: 0.65, metalness: 0.15,
+      transparent: true, opacity: 0.13, depthWrite: false, side: THREE.DoubleSide
+    });
 
     const ENVIRONMENTS = {
-      hangar:    { bg: 0x060b16, fog: 0x060b16, key: 0xffffff, keyI: 1.48, fill: 0x7dd3fc, fillI: 0.65, rim: 0x38bdf8, rimI: 0.95, hemiI: 0.55, envI: 0.72, stars: 0.32, cyber: false },
-      earth:     { bg: 0x071226, fog: 0x071226, key: 0xfffdf5, keyI: 1.65, fill: 0x60a5fa, fillI: 0.78, rim: 0x93c5fd, rimI: 0.95, hemiI: 0.62, envI: 0.78, stars: 0.72, cyber: false },
-      mars:      { bg: 0x16090b, fog: 0x16090b, key: 0xff8c5a, keyI: 1.65, fill: 0xd94626, fillI: 0.75, rim: 0xfb923c, rimI: 1.10, hemiI: 0.48, envI: 0.68, stars: 0.52, cyber: false },
-      lunar:     { bg: 0x05060a, fog: 0x05060a, key: 0xf8fafc, keyI: 1.75, fill: 0x475569, fillI: 0.30, rim: 0xcbd5e1, rimI: 0.80, hemiI: 0.30, envI: 0.58, stars: 0.95, cyber: false },
-      cyberpunk: { bg: 0x070217, fog: 0x070217, key: 0x6d28d9, keyI: 0.95, fill: 0xff007f, fillI: 1.75, rim: 0x00e5ff, rimI: 1.85, hemiI: 0.42, envI: 0.68, stars: 0.45, cyber: true }
+      hangar: { bg: 0x060b16, fog: 0x060b16, skyTop: 0x112240, skyMid: 0x071021, skyBot: 0x03060d, accent: 0x00e5ff, apron: 0x081122, key: 0xfffdf8, keyI: 1.72, fill: 0x7dd3fc, fillI: 0.72, rim: 0x38bdf8, rimI: 1.15, hemiI: 0.52, envI: 1.05, stars: 0.34, cyber: false, studio: false },
+      studio: { bg: 0xcbd5e1, fog: 0xcbd5e1, skyTop: 0xe6edf5, skyMid: 0xcbd5e1, skyBot: 0x94a3b8, accent: 0xf97316, apron: 0xb8c5d6, key: 0xfffaf2, keyI: 1.85, fill: 0x93c5fd, fillI: 0.78, rim: 0xf97316, rimI: 0.85, hemiI: 0.68, envI: 0.92, stars: 0.00, cyber: false, studio: true },
+      earth: { bg: 0x071226, fog: 0x071226, skyTop: 0x1e3a8a, skyMid: 0x0b1c3d, skyBot: 0x040917, accent: 0x60a5fa, apron: 0x09162e, key: 0xfffdf5, keyI: 1.78, fill: 0x60a5fa, fillI: 0.82, rim: 0x93c5fd, rimI: 1.08, hemiI: 0.58, envI: 1.08, stars: 0.72, cyber: false, studio: false },
+      mars: { bg: 0x16090b, fog: 0x16090b, skyTop: 0x451a14, skyMid: 0x1f0c0d, skyBot: 0x0d0405, accent: 0xf97316, apron: 0x1b0b0c, key: 0xff9d6e, keyI: 1.80, fill: 0xd94626, fillI: 0.78, rim: 0xfb923c, rimI: 1.25, hemiI: 0.48, envI: 0.96, stars: 0.52, cyber: false, studio: false },
+      lunar: { bg: 0x05060a, fog: 0x05060a, skyTop: 0x151b28, skyMid: 0x090c14, skyBot: 0x030408, accent: 0xcbd5e1, apron: 0x0b0e16, key: 0xf8fafc, keyI: 1.92, fill: 0x475569, fillI: 0.34, rim: 0xcbd5e1, rimI: 0.96, hemiI: 0.32, envI: 0.88, stars: 0.95, cyber: false, studio: false },
+      cyberpunk: { bg: 0x070217, fog: 0x070217, skyTop: 0x2e1065, skyMid: 0x0f0524, skyBot: 0x05010f, accent: 0xff007f, apron: 0x0d0420, key: 0x8b5cf6, keyI: 1.12, fill: 0xff007f, fillI: 1.78, rim: 0x00e5ff, rimI: 1.92, hemiI: 0.44, envI: 0.95, stars: 0.45, cyber: true, studio: false }
     };
 
     function applyEnvironment(envKey) {
@@ -1568,36 +3173,82 @@
       state.activeEnv = envKey;
       scene.background.setHex(cfg.bg);
       scene.fog.color.setHex(cfg.fog);
+      cycloramaUniforms.uTopColor.value.setHex(cfg.skyTop);
+      cycloramaUniforms.uMidColor.value.setHex(cfg.skyMid);
+      cycloramaUniforms.uBotColor.value.setHex(cfg.skyBot);
+      cycloramaUniforms.uAccentColor.value.setHex(cfg.accent);
+      cycloramaUniforms.uStudioMode.value = cfg.studio ? 1.0 : 0.0;
       keyLight.color.setHex(cfg.key); keyLight.intensity = cfg.keyI;
       fillLight.color.setHex(cfg.fill); fillLight.intensity = cfg.fillI;
       rimLight.color.setHex(cfg.rim); rimLight.intensity = cfg.rimI;
       hemiLight.intensity = cfg.hemiI;
       scene.environmentIntensity = cfg.envI;
+      pointerLight.color.setHex(cfg.accent);
+      pointerLight.intensity = cfg.studio ? 0.95 : 1.45;
       starField.material.opacity = cfg.stars;
+      starField.visible = cfg.stars > 0.01;
       cyberGroup.visible = cfg.cyber;
-      glowRingOuter.material.color.setHex(cfg.cyber ? 0xff007f : 0x00e5ff);
+      studioReticleGroup.visible = Boolean(cfg.studio);
+      studioBayGroup.visible = true;
+      bayRibMat.color.setHex(cfg.studio ? 0x64748b : 0x1e293b);
+      bayRibMat.opacity = cfg.studio ? 0.28 : 0.62;
+      bayLightStripMat.color.setHex(cfg.accent);
+      bayLightStripMat.opacity = cfg.studio ? 0.34 : 0.52;
+      studioApronMat.color.setHex(cfg.apron);
+      studioApronMat.roughness = cfg.studio ? 0.56 : 0.38;
+      studioApronMat.metalness = cfg.studio ? 0.18 : 0.52;
+      document.body.classList.toggle('studio-light-mode', Boolean(cfg.studio));
+      darkPad.material.color.setHex(cfg.studio ? 0xe2e8f0 : 0xdbe4f0);
+      darkPad.material.roughness = cfg.studio ? 0.44 : 0.32;
+      darkPad.material.metalness = cfg.studio ? 0.38 : 0.72;
+      glowRingOuter.material.color.setHex(cfg.accent);
+      glowRingInner.material.color.setHex(cfg.studio ? 0x334155 : 0xf97316);
+      vernierRing.material.color.setHex(cfg.accent);
+      if (bloomPass) bloomPass.strength = cfg.studio ? 0.05 : 0.16;
+      triggerStagePulse(cfg.accent);
     }
 
     // =========================================================================
-    // 6. BANDAI RG / VER.KA GUNPLA STUDIO PBR + EDGE/CAVITY GLSL SHADER ENGINE
+    // 6. CINEMA-GRADE PG UNLEASHED PBR + WORLD-SPACE CURVATURE & CAVITY GLSL SHADER
     // =========================================================================
     function injectGunplaStudioShader(mat, isEmissive = false) {
       if (isEmissive) return mat;
       mat.onBeforeCompile = (shader) => {
+        shader.vertexShader = shader.vertexShader.replace(
+          '#include <common>',
+          `#include <common>
+           varying vec3 vGunplaWPos;`
+        ).replace(
+          '#include <begin_vertex>',
+          `#include <begin_vertex>
+           vec4 gWp = modelMatrix * vec4(transformed, 1.0);
+           vGunplaWPos = gWp.xyz;`
+        );
         shader.fragmentShader = shader.fragmentShader.replace(
+          '#include <common>',
+          `#include <common>
+           varying vec3 vGunplaWPos;`
+        ).replace(
           '#include <dithering_fragment>',
           `
-          // 1. Screen-Space Hard-Surface Chamfer Edge Highlight & Panel-Line Crevice Definition
+          // 1. Razor-Clean Hard-Surface Chamfer Specular Catch (Substance/Cycles Bevel Edge Highlight)
           vec3 dNdx = dFdx(normal);
           vec3 dNdy = dFdy(normal);
           float edgeCurv = clamp(length(dNdx) + length(dNdy), 0.0, 1.0);
-          float bevelHighlight = smoothstep(0.07, 0.34, edgeCurv) * 0.13;
-          // 2. Vertical Hemi-Cavity Self-Occlusion under armor overhangs (helmet brow, pectorals, skirts)
+          float bevelHighlight = smoothstep(0.055, 0.28, edgeCurv) * 0.16;
+          float microCrease = smoothstep(0.32, 0.72, edgeCurv) * 0.08;
+
+          // 2. Grounded Height AO + Under-Armor Overhang Self-Occlusion (prevents flat white clay look!)
           float upDot = clamp(normal.y * 0.5 + 0.5, 0.0, 1.0);
-          float cavityAO = mix(0.76, 1.04, upDot);
-          // 3. Crisp Studio Rim Backlight for Mecha Silhouette Separation
-          float rim = pow(1.0 - clamp(abs(dot(normal, normalize(vViewPosition))), 0.0, 1.0), 3.3);
-          gl_FragColor.rgb = gl_FragColor.rgb * cavityAO + vec3(bevelHighlight) + gl_FragColor.rgb * rim * 0.15;
+          float heightBounce = mix(0.84, 1.02, smoothstep(0.0, 115.0, vGunplaWPos.y));
+          float cavityAO = mix(0.70, 1.05, upDot) * heightBounce;
+
+          // 3. Cinema Studio Anisotropic Fresnel Rim Backlight (NaN-safe clamped pow base!)
+          float ndv = clamp(abs(dot(normal, normalize(vViewPosition))), 0.0, 1.0);
+          float rim = pow(max(1.0 - ndv, 0.0001), 3.1);
+          gl_FragColor.rgb = gl_FragColor.rgb * cavityAO * (1.0 - microCrease)
+                           + vec3(bevelHighlight)
+                           + mix(gl_FragColor.rgb, vec3(0.86, 0.93, 1.0), 0.35) * rim * 0.22;
           #include <dithering_fragment>
           `
         );
@@ -1607,94 +3258,132 @@
 
     function buildCadPBRMaterial(node) {
       const n = (node.name || '').toLowerCase();
-      // Bandai Real-Grade (RG) / Ver.Ka Multi-Tone Color Separation + Matte Topcoat Armor vs Metallic Inner Frame
-      let color = 0xdce3ec, roughness = 0.50, metalness = 0.06, emissive = 0x000000, emissiveIntensity = 0.0, useDetail = true, coat = 0.12, isEmissive = false;
-      if (n.includes('twin_eyes') || n.includes('sensor_front') || n.includes('sensor_rear')) {
-        // Authentic Gundam Emerald-Green Dual Optical Cameras
-        color = 0x10f5a0; emissive = 0x00e599; emissiveIntensity = 3.2; roughness = 0.10; metalness = 0.1; useDetail = false; coat = 0.0; isEmissive = true;
+      if (n.includes('_glass')) {
+        return new THREE.MeshPhysicalMaterial({
+          color: 0xcbe8ff, roughness: 0.06, metalness: 0.04,
+          transparent: true, opacity: 0.30, depthWrite: false,
+          side: THREE.DoubleSide, clearcoat: 1.0, clearcoatRoughness: 0.05, envMapIntensity: 1.25
+        });
+      }
+      if (n.includes('_servo_accent')) {
+        return injectGunplaStudioShader(new THREE.MeshPhysicalMaterial({
+          color: 0xf97316, roughness: 0.26, metalness: 0.78,
+          normalMap: mechaPBR.metalNormalMap, normalScale: new THREE.Vector2(0.45, 0.45),
+          roughnessMap: mechaPBR.metalRoughnessMap,
+          clearcoat: 0.45, clearcoatRoughness: 0.16, envMapIntensity: 1.15
+        }), false);
+      }
+      // Authentic Classic RX-78-2 Gundam Color Palette + Satin Bandai Gunpla Lacquer vs Brushed Inner Frame
+      let color = 0xf0f2ec, roughness = 0.40, metalness = 0.06, emissive = 0x000000, emissiveIntensity = 0.0, useDetail = true, useMetalGrain = false, coat = 0.30, isEmissive = false;
+      if (n.includes('twin_eyes')) {
+        // Authentic Classic RX-78-2 Glowing Golden-Yellow Twin Eyes!
+        color = 0xfacc15; emissive = 0xf59e0b; emissiveIntensity = 2.6; roughness = 0.12; metalness = 0.1; useDetail = false; coat = 0.0; isEmissive = true;
+      } else if (n.includes('sensor_front') || n.includes('sensor_rear')) {
+        color = 0x38bdf8; emissive = 0x0ea5e9; emissiveIntensity = 2.4; roughness = 0.08; metalness = 0.1; useDetail = false; coat = 0.0; isEmissive = true;
       } else if (n.includes('thruster_glow')) {
-        color = 0x00f5ff; emissive = 0x00f5ff; emissiveIntensity = 2.8; roughness = 0.12; metalness = 0.1; useDetail = false; coat = 0.0; isEmissive = true;
-      } else if (n.includes('v_fin_crest_gem') || n.includes('chin_guard') || n.includes('cockpit_hatch') || n.includes('abdomen_core') || n.includes('plaque_red') || n.includes('toe_plate') || n.includes('heel_block')) {
-        color = 0xc81e24; roughness = 0.46; metalness = 0.10; coat = 0.14;
-      } else if (n.includes('v_fin_sub_gold') || n.includes('louvers') || n.includes('v_emblem') || n.includes('vulcan_gold')) {
-        color = 0xeab308; roughness = 0.28; metalness = 0.80; useDetail = false; coat = 0.16;
-      } else if (n.includes('subplate_blue_rg')) {
-        color = 0x2563eb; roughness = 0.48; metalness = 0.14; coat = 0.14;
-      } else if (n.includes('chest_armor_blue')) {
-        color = 0x1d4ed8; roughness = 0.48; metalness = 0.14; coat = 0.14;
+        color = 0x00f5ff; emissive = 0x00f5ff; emissiveIntensity = 2.8; roughness = 0.10; metalness = 0.1; useDetail = false; coat = 0.0; isEmissive = true;
+      } else if (n.includes('v_fin_crest_gem') || n.includes('chin_guard') || n.includes('cheek_red_trim') || n.includes('abdomen_core') || n.includes('plaque_red') || n.includes('toe_plate') || n.includes('heel_block')) {
+        color = 0xd62428; roughness = 0.36; metalness = 0.12; coat = 0.38;
+      } else if (n.includes('_yellow') || n.includes('louvers') || n.includes('v_emblem')) {
+        // Classic RX-78-2 Vibrant Federation Yellow (collar bib, chest vents, waist blocks, V-emblem!)
+        color = 0xf4b41a; roughness = 0.34; metalness = 0.16; coat = 0.34;
+      } else if (n.includes('v_fin_sub_gold') || n.includes('vulcan_gold') || n.includes('_gold')) {
+        color = 0xeab308; roughness = 0.24; metalness = 0.88; useDetail = false; useMetalGrain = true; coat = 0.38;
+      } else if (n.includes('chest_armor_blue') || n.includes('cockpit_hatch_blue') || n.includes('subplate_blue_rg')) {
+        // Authentic Classic RX-78-2 Federation Cobalt Blue (chest + central blue cockpit block!)
+        color = 0x1b64c6; roughness = 0.36; metalness = 0.14; coat = 0.38;
+      } else if (n.includes('elbow_cap_white') || n.includes('knee_cap_disc_white') || n.includes('ankle_disc_white')) {
+        color = 0xe6e9e3; roughness = 0.42; metalness = 0.08; coat = 0.26;
       } else if (n.includes('_rg_') || n.includes('rg_panel') || n.includes('rg_cuff') || n.includes('rg_subplate')) {
-        // Real-Grade Secondary Warm Mechanical Armor Grey
-        color = 0x9aa6b8; roughness = 0.52; metalness = 0.10; coat = 0.10;
-      } else if (n.includes('face_slit_dark') || n.includes('visor_recess') || n.includes('vent_duct') || n.includes('backpack_core') || n.includes('foot_sole')) {
-        color = 0x141c2b; roughness = 0.54; metalness = 0.62; useDetail = false; coat = 0.0;
+        color = 0x94a3b8; roughness = 0.44; metalness = 0.14; coat = 0.26;
+      } else if (n.includes('face_slit_dark') || n.includes('cheek_vent_dark') || n.includes('visor_recess') || n.includes('vent_duct') || n.includes('_hub_dark') || n.includes('shoulder_vent_dark')) {
+        color = 0x101824; roughness = 0.50; metalness = 0.48; useDetail = false; coat = 0.06;
+      } else if (n.includes('_trim_dark') || n.includes('sternum_dark') || n.includes('clavicle_pod_dark') || n.includes('backpack_core') || n.includes('foot_sole')) {
+        // Authentic RX-78-02 Origin Deep Slate-Blue/Gunmetal Mechanical Trim!
+        color = 0x2b3a4a; roughness = 0.42; metalness = 0.46; useDetail = false; useMetalGrain = true; coat = 0.18;
       } else if (n.includes('hydraulic') || n.includes('piston') || n.includes('thruster_bell')) {
-        color = 0xcbd5e1; roughness = 0.22; metalness = 0.90; useDetail = false; coat = 0.10;
-      } else if (n.includes('frame') || n.includes('gimbal') || n.includes('knuckle') || n.includes('pivot') || n.includes('gear') || n.includes('fist') || n.includes('socket') || n.includes('clavicle') || n.includes('humerus') || n.includes('femur') || n.includes('tibia') || n.includes('neck')) {
-        color = 0x283140; roughness = 0.36; metalness = 0.84; useDetail = false; coat = 0.06;
+        color = 0xdbe4ef; roughness = 0.18; metalness = 0.94; useDetail = false; useMetalGrain = true; coat = 0.25;
+      } else if (n.includes('frame') || n.includes('gimbal') || n.includes('knuckle') || n.includes('pivot') || n.includes('gear') || n.includes('fist') || n.includes('socket') || n.includes('clavicle') || n.includes('humerus') || n.includes('femur') || n.includes('tibia') || n.includes('neck') || n.includes('drum')) {
+        color = 0x2c3442; roughness = 0.36; metalness = 0.72; useDetail = false; useMetalGrain = true; coat = 0.16;
       }
       return injectGunplaStudioShader(new THREE.MeshPhysicalMaterial({
         color, roughness, metalness, emissive, emissiveIntensity,
         map: useDetail ? mechaPBR.albedoDetailMap : null,
-        normalMap: useDetail ? mechaPBR.normalMap : null,
-        normalScale: new THREE.Vector2(0.06, 0.06),
-        roughnessMap: useDetail ? mechaPBR.roughnessMap : null,
+        normalMap: useDetail ? mechaPBR.normalMap : (useMetalGrain ? mechaPBR.metalNormalMap : null),
+        normalScale: useDetail ? new THREE.Vector2(0.18, 0.18) : new THREE.Vector2(0.45, 0.45),
+        roughnessMap: useDetail ? mechaPBR.roughnessMap : (useMetalGrain ? mechaPBR.metalRoughnessMap : null),
         clearcoat: coat,
-        clearcoatRoughness: 0.34,
-        envMapIntensity: 0.82
+        clearcoatRoughness: 0.22,
+        envMapIntensity: useMetalGrain ? 1.05 : 0.88
       }), isEmissive);
     }
 
     function buildZeonEnemyPBRMaterial(node, spec) {
       const n = (node.name || '').toLowerCase();
-      let color = spec.packColors.primary, roughness = 0.50, metalness = 0.12, emissive = 0x000000, emissiveIntensity = 0.0, useDetail = true, coat = 0.14, isEmissive = false;
+      if (n.includes('_glass')) {
+        return new THREE.MeshPhysicalMaterial({
+          color: 0xcbe8ff, roughness: 0.06, metalness: 0.04,
+          transparent: true, opacity: 0.30, depthWrite: false,
+          side: THREE.DoubleSide, clearcoat: 1.0, clearcoatRoughness: 0.05, envMapIntensity: 1.25
+        });
+      }
+      if (n.includes('_servo_accent')) {
+        return injectGunplaStudioShader(new THREE.MeshPhysicalMaterial({
+          color: 0xf97316, roughness: 0.26, metalness: 0.78,
+          normalMap: mechaPBR.metalNormalMap, normalScale: new THREE.Vector2(0.45, 0.45),
+          roughnessMap: mechaPBR.metalRoughnessMap,
+          clearcoat: 0.45, clearcoatRoughness: 0.16, envMapIntensity: 1.15
+        }), false);
+      }
+      let color = spec.packColors.primary, roughness = 0.44, metalness = 0.16, emissive = 0x000000, emissiveIntensity = 0.0, useDetail = true, useMetalGrain = false, coat = 0.34, isEmissive = false;
 
       if (n.includes('mono_eye_glow')) {
         color = spec.monoEyeColor || 0xff2268;
         emissive = spec.monoEyeColor || 0xff2268;
-        emissiveIntensity = 4.0; roughness = 0.10; metalness = 0.05; useDetail = false; coat = 0.0; isEmissive = true;
+        emissiveIntensity = 4.0; roughness = 0.08; metalness = 0.05; useDetail = false; coat = 0.0; isEmissive = true;
       } else if (n.includes('mono_eye_bezel')) {
-        color = 0x64748b; roughness = 0.26; metalness = 0.88; useDetail = false; coat = 0.10;
+        color = 0x64748b; roughness = 0.24; metalness = 0.90; useDetail = false; useMetalGrain = true; coat = 0.20;
       } else if (n.includes('heat_saber_glow') || n.includes('hawk_blade_glow')) {
-        color = 0xff7a1a; emissive = 0xff4500; emissiveIntensity = 2.8; roughness = 0.22; metalness = 0.20; useDetail = false; coat = 0.0; isEmissive = true;
+        color = 0xff7a1a; emissive = 0xff4500; emissiveIntensity = 2.8; roughness = 0.20; metalness = 0.20; useDetail = false; coat = 0.0; isEmissive = true;
       } else if (n.includes('belly_emitter_glow')) {
         color = 0xffcc33; emissive = 0xff9900; emissiveIntensity = 2.8; roughness = 0.18; metalness = 0.25; useDetail = false; coat = 0.0; isEmissive = true;
       } else if (n.includes('track_rail')) {
-        color = 0x05070b; roughness = 0.72; metalness = 0.25; useDetail = false; coat = 0.0;
+        color = 0x05070b; roughness = 0.65; metalness = 0.30; useDetail = false; coat = 0.0;
       } else if (n.includes('_gold') || n.includes('trim_gold') || n.includes('cannon_gold') || n.includes('crest_gold')) {
-        color = 0xeab308; roughness = 0.28; metalness = 0.82; useDetail = false; coat = 0.16;
+        color = 0xeab308; roughness = 0.24; metalness = 0.88; useDetail = false; useMetalGrain = true; coat = 0.38;
       } else if (n.includes('thruster') || n.includes('jet_')) {
         color = n.includes('gold') ? 0xd9a21b : 0x64748b;
-        roughness = 0.28; metalness = 0.88; useDetail = false; coat = 0.08;
+        roughness = 0.24; metalness = 0.90; useDetail = false; useMetalGrain = true; coat = 0.20;
       } else if (n.includes('hose')) {
         color = spec.id === 'enemy_sazabi' ? 0xd9a21b : 0x3b4450;
-        roughness = 0.42; metalness = spec.id === 'enemy_sazabi' ? 0.78 : 0.52; useDetail = false; coat = 0.0;
+        roughness = 0.36; metalness = spec.id === 'enemy_sazabi' ? 0.84 : 0.62; useDetail = false; useMetalGrain = true; coat = 0.12;
       } else if (n.includes('hawk_head_purple')) {
-        color = 0x52396e; roughness = 0.48; metalness = 0.34;
+        color = 0x52396e; roughness = 0.42; metalness = 0.38; coat = 0.32;
       } else if (n.includes('olive_dark')) {
-        color = 0x36482c; roughness = 0.54; metalness = 0.10;
+        color = 0x36482c; roughness = 0.46; metalness = 0.14;
       } else if (n.includes('_navy')) {
-        color = 0x172b4d; roughness = 0.50; metalness = 0.14;
+        color = 0x172b4d; roughness = 0.42; metalness = 0.20; coat = 0.36;
       } else if (n.includes('_oxblood')) {
-        color = 0x5c0d14; roughness = 0.44; metalness = 0.18; coat = 0.18;
-      } else if (n.includes('_obsidian') || n.includes('_dark') || n.includes('_frame') || n.includes('socket') || n.includes('_mg_') || n.includes('_rifle_')) {
-        color = 0x202733; roughness = 0.40; metalness = 0.76; useDetail = false; coat = 0.06;
+        color = 0x5c0d14; roughness = 0.38; metalness = 0.22; coat = 0.40;
+      } else if (n.includes('_obsidian') || n.includes('_dark') || n.includes('_frame') || n.includes('socket') || n.includes('_mg_') || n.includes('_rifle_') || n.includes('drum')) {
+        color = 0x202733; roughness = 0.32; metalness = 0.86; useDetail = false; useMetalGrain = true; coat = 0.16;
       } else if (n.includes('_maroon')) {
-        color = 0xa31621; roughness = 0.42; metalness = 0.18; coat = 0.22;
+        color = 0xa31621; roughness = 0.36; metalness = 0.22; coat = 0.44;
       } else if (n.includes('_blue')) {
-        color = 0x2b6cb0; roughness = 0.48; metalness = 0.14;
+        color = 0x2b6cb0; roughness = 0.42; metalness = 0.18; coat = 0.38;
       } else if (n.includes('_olive') || n.includes('zaku_')) {
-        color = 0x687d56; roughness = 0.52; metalness = 0.10;
+        color = 0x687d56; roughness = 0.46; metalness = 0.14;
       }
 
       return injectGunplaStudioShader(new THREE.MeshPhysicalMaterial({
         color, roughness, metalness, emissive, emissiveIntensity,
         map: useDetail ? mechaPBR.albedoDetailMap : null,
-        normalMap: useDetail ? mechaPBR.normalMap : null,
-        normalScale: new THREE.Vector2(0.06, 0.06),
-        roughnessMap: useDetail ? mechaPBR.roughnessMap : null,
+        normalMap: useDetail ? mechaPBR.normalMap : (useMetalGrain ? mechaPBR.metalNormalMap : null),
+        normalScale: useDetail ? new THREE.Vector2(0.15, 0.15) : new THREE.Vector2(0.62, 0.62),
+        roughnessMap: useDetail ? mechaPBR.roughnessMap : (useMetalGrain ? mechaPBR.metalRoughnessMap : null),
         clearcoat: coat,
-        clearcoatRoughness: 0.30,
-        envMapIntensity: 0.84
+        clearcoatRoughness: 0.22,
+        envMapIntensity: useMetalGrain ? 1.15 : 0.96
       }), isEmissive);
     }
 
@@ -1723,6 +3412,18 @@
       const spec = UNIT_REGISTRY[unitId] || UNIT_REGISTRY.vanguard_rx;
       const pc = spec.packColors;
       const n = (node.name || '').toLowerCase();
+      if (n.includes('_glass')) {
+        return new THREE.MeshPhysicalMaterial({
+          color: 0xbae6fd, roughness: 0.08, metalness: 0.05,
+          transparent: true, opacity: 0.34, depthWrite: false,
+          side: THREE.DoubleSide, clearcoat: 0.90, clearcoatRoughness: 0.06, envMapIntensity: 0.95
+        });
+      }
+      if (n.includes('_servo_accent')) {
+        return injectGunplaStudioShader(new THREE.MeshPhysicalMaterial({
+          color: 0xf97316, roughness: 0.30, metalness: 0.68, clearcoat: 0.22, clearcoatRoughness: 0.24, envMapIntensity: 0.85
+        }), false);
+      }
 
       let color = pc.frame, roughness = 0.42, metalness = 0.68, emissive = 0x000000, emissiveIntensity = 0.0, useArmorDetail = true;
 
@@ -1748,12 +3449,12 @@
       return injectGunplaStudioShader(new THREE.MeshPhysicalMaterial({
         color, roughness, metalness, emissive, emissiveIntensity,
         map: useArmorDetail ? mechaPBR.albedoDetailMap : null,
-        normalMap: useArmorDetail ? mechaPBR.normalMap : null,
-        normalScale: new THREE.Vector2(0.06, 0.06),
-        roughnessMap: useArmorDetail ? mechaPBR.roughnessMap : null,
-        clearcoat: useArmorDetail ? 0.14 : 0.06,
-        clearcoatRoughness: 0.30,
-        envMapIntensity: 0.82
+        normalMap: useArmorDetail ? mechaPBR.normalMap : mechaPBR.metalNormalMap,
+        normalScale: useArmorDetail ? new THREE.Vector2(0.40, 0.40) : new THREE.Vector2(0.58, 0.58),
+        roughnessMap: useArmorDetail ? mechaPBR.roughnessMap : mechaPBR.metalRoughnessMap,
+        clearcoat: useArmorDetail ? 0.34 : 0.18,
+        clearcoatRoughness: 0.22,
+        envMapIntensity: useArmorDetail ? 0.96 : 1.14
       }), isEmissive);
     }
 
@@ -1806,21 +3507,21 @@
       const lSign = -rSign;
 
       const zero = new THREE.Vector3(0, 0, 0);
-      const pelvis   = makePivot('Rig_Pelvis',            0.0, 102.0, 0.0, model,   zero);
-      const torso    = makePivot('Rig_Torso',             0.0, 114.0, 0.0, pelvis,  pelvis.userData.worldOrigin);
-      const head     = makePivot('Rig_Head',              0.0, 155.0, 0.0, torso,   torso.userData.worldOrigin);
+      const pelvis = makePivot('Rig_Pelvis', 0.0, 102.0, 0.0, model, zero);
+      const torso = makePivot('Rig_Torso', 0.0, 114.0, 0.0, pelvis, pelvis.userData.worldOrigin);
+      const head = makePivot('Rig_Head', 0.0, 155.0, 0.0, torso, torso.userData.worldOrigin);
 
-      const armR     = makePivot('Rig_Arm_R',     rSign * 31.0, 145.0, 0.0, torso,   torso.userData.worldOrigin);
-      const forearmR = makePivot('Rig_Forearm_R', rSign * 34.5, 116.5, 1.5, armR,    armR.userData.worldOrigin);
+      const armR = makePivot('Rig_Arm_R', rSign * 31.0, 145.0, 0.0, torso, torso.userData.worldOrigin);
+      const forearmR = makePivot('Rig_Forearm_R', rSign * 34.5, 116.5, 1.5, armR, armR.userData.worldOrigin);
 
-      const armL     = makePivot('Rig_Arm_L',     lSign * 31.0, 145.0, 0.0, torso,   torso.userData.worldOrigin);
-      const forearmL = makePivot('Rig_Forearm_L', lSign * 34.5, 116.5, 1.5, armL,    armL.userData.worldOrigin);
+      const armL = makePivot('Rig_Arm_L', lSign * 31.0, 145.0, 0.0, torso, torso.userData.worldOrigin);
+      const forearmL = makePivot('Rig_Forearm_L', lSign * 34.5, 116.5, 1.5, armL, armL.userData.worldOrigin);
 
-      const legR     = makePivot('Rig_Leg_R',     rSign * 15.0,  96.0, 0.0, pelvis,  pelvis.userData.worldOrigin);
-      const shinR    = makePivot('Rig_Shin_R',    rSign * 17.5,  60.5, 0.5, legR,    legR.userData.worldOrigin);
+      const legR = makePivot('Rig_Leg_R', rSign * 15.0, 96.0, 0.0, pelvis, pelvis.userData.worldOrigin);
+      const shinR = makePivot('Rig_Shin_R', rSign * 17.5, 60.5, 0.5, legR, legR.userData.worldOrigin);
 
-      const legL     = makePivot('Rig_Leg_L',     lSign * 15.0,  96.0, 0.0, pelvis,  pelvis.userData.worldOrigin);
-      const shinL    = makePivot('Rig_Shin_L',    lSign * 17.5,  60.5, 0.5, legL,    legL.userData.worldOrigin);
+      const legL = makePivot('Rig_Leg_L', lSign * 15.0, 96.0, 0.0, pelvis, pelvis.userData.worldOrigin);
+      const shinL = makePivot('Rig_Shin_L', lSign * 17.5, 60.5, 0.5, legL, legL.userData.worldOrigin);
 
       const rig = {
         pelvis, torso, head, armR, forearmR, armL, forearmL, legR, shinR, legL, shinL,
@@ -1838,10 +3539,10 @@
         const gc = mesh.userData.geomCenter || new THREE.Vector3();
         // Pure 3D spatial side classification guarantees zero cross-body parenting!
         const isRight = (gc.x * rSign) > 1.5;
-        const isLeft  = (gc.x * lSign) > 1.5;
+        const isLeft = (gc.x * lSign) > 1.5;
 
         let targetGroup = torso;
-        if (n.includes('forearm') || n.includes('gauntlet') || n.includes('rg_cuff') || n.includes('fist') || n.includes('hand') || n.includes('wrist') || n.includes('elbow') || n.includes('mg_') || n.includes('hawk') || n.includes('saber') || n.includes('rifle') || (n.includes('shield') && !n.includes('shoulder') && gc.y < 125.0)) {
+        if (n.includes('forearm') || n.includes('gauntlet') || n.includes('rg_cuff') || n.includes('fist') || n.includes('hand') || n.includes('wrist') || n.includes('elbow') || n.includes('mg_') || n.includes('hawk') || (!n.includes('backpack') && n.includes('saber')) || n.includes('rifle') || (n.includes('shield') && !n.includes('shoulder') && gc.y < 125.0)) {
           targetGroup = isRight ? forearmR : (isLeft ? forearmL : torso);
         } else if (!n.includes('shield') && !n.includes('hawk') && (n.includes('head') || n.includes('helmet') || n.includes('jaw') || n.includes('v_fin') || n.includes('mono_eye') || n.includes('visor') || n.includes('snout') || n.includes('chin') || n.includes('cheek') || n.includes('crest') || n.includes('commander_fin') || n.includes('commander_blade') || n.includes('neck') || n.includes('vulcan_gold'))) {
           targetGroup = head;
@@ -2103,6 +3804,40 @@
       state.blueprintEdges = [];
     }
 
+    function isInternalMechanicalNode(node) {
+      const n = (node.name || '').toLowerCase();
+      return (
+        n.includes('frame') || n.includes('gear') || n.includes('servo_accent') ||
+        n.includes('piston') || n.includes('hydraulic') || n.includes('damper') ||
+        n.includes('reactor') || n.includes('mono_eye') || n.includes('twin_eyes') ||
+        n.includes('adapter_') || n.includes('bolt') || n.includes('dovetail') ||
+        n.includes('knuckle') || n.includes('pivot') || n.includes('gimbal') ||
+        n.includes('thruster') || n.includes('nozzle') || n.includes('hose') ||
+        n.includes('heat_rod') || n.includes('emitter')
+      );
+    }
+
+    function matchesIsolatedZone(node, zoneKey) {
+      if (!zoneKey) return true;
+      // Check if mesh belongs to the isolated socket wrapper or chassis region
+      let cur = node;
+      while (cur) {
+        const cn = (cur.name || '').toLowerCase();
+        if (cn.includes(`socketwrapper_${zoneKey}`) || cn.includes(`bilateralcontainer_${zoneKey}`)) return true;
+        cur = cur.parent;
+      }
+      const n = (node.name || '').toLowerCase();
+      if (zoneKey === 'head_sensor') return n.includes('head') || n.includes('mono_eye') || n.includes('v_fin') || n.includes('vulcan');
+      if (zoneKey === 'chest_armor') return n.includes('chest') || n.includes('cockpit') || n.includes('torso') || n.includes('abdomen') || n.includes('reactor') || n.includes('chobham');
+      if (zoneKey === 'shoulder_pods') return n.includes('pauldron') || n.includes('shoulder');
+      if (zoneKey === 'dorsal_pack') return n.includes('backpack') || n.includes('dorsal') || n.includes('wing') || n.includes('fin_binder') || n.includes('tank');
+      if (zoneKey === 'aux_weapon') return n.includes('rifle') || n.includes('_mg_') || n.includes('saber') || n.includes('heat_rod') || n.includes('forearm_r');
+      if (zoneKey === 'aux_shield') return n.includes('shield') || n.includes('hawk') || n.includes('forearm_l');
+      if (zoneKey === 'waist_ordnance') return n.includes('pelvis') || n.includes('waist') || n.includes('skirt') || n.includes('hip') || n.includes('xiphias');
+      if (zoneKey === 'leg_thrusters') return n.includes('calf') || n.includes('shin') || n.includes('knee') || n.includes('thigh') || n.includes('foot') || n.includes('boot');
+      return false;
+    }
+
     function applyRenderMode(mode) {
       state.renderMode = mode;
       clearBlueprintEdges();
@@ -2112,10 +3847,24 @@
         if (!node.isMesh || !node.userData.origMaterial) return;
         const orig = node.userData.origMaterial;
 
+        if (state.isolatedZone && !matchesIsolatedZone(node, state.isolatedZone)) {
+          node.material = ghostShellMat;
+          return;
+        }
+
         if (mode === 'standard') {
           if (Array.isArray(orig)) orig.forEach(m => { m.wireframe = false; });
           else orig.wireframe = false;
           node.material = orig;
+        } else if (mode === 'glass') {
+          // Teardown PG Unleashed Glass Cutaway: Outer shells turn smoked polycarbonate, inner skeleton & gears stay 100% solid!
+          if (isInternalMechanicalNode(node)) {
+            if (Array.isArray(orig)) orig.forEach(m => { m.wireframe = false; });
+            else orig.wireframe = false;
+            node.material = orig;
+          } else {
+            node.material = glassCutawayMat;
+          }
         } else if (mode === 'hologram') {
           node.material = hologramMaterial;
         } else if (mode === 'xray') {
@@ -2134,6 +3883,17 @@
       document.querySelectorAll('[data-render-mode]').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.renderMode === mode);
       });
+    }
+
+    function setIsolatedZone(zoneKey) {
+      state.isolatedZone = (state.isolatedZone === zoneKey) ? null : zoneKey;
+      const isoBtn = document.getElementById('btn-dock-isolate');
+      if (isoBtn) isoBtn.classList.toggle('active', Boolean(state.isolatedZone));
+      applyRenderMode(state.renderMode);
+      if (state.isolatedZone === 'head_sensor') setCameraPreset('head');
+      else if (state.isolatedZone === 'dorsal_pack') setCameraPreset('dorsal');
+      else if (state.isolatedZone === 'chest_armor') setCameraPreset('front');
+      else if (!state.isolatedZone) setCameraPreset('heroic');
     }
 
     // =========================================================================
@@ -2203,64 +3963,71 @@
       const sw = Math.sin(t * 1.1);
 
       if (stance === 'RifleBurst') {
+        // 🎯 Beam Aim: Raises right weapon arm (-0.28 armR + -0.35 forearmR + 0.05 torso/pelvis = -0.58 rad)
+        // to exactly cancel the +0.58 rad (+33.2 deg) rest wrist pitch -> DEAD-LEVEL HORIZONTAL AIM along +Z on ALL models!
         // 🎯 Beam Aim: Raises right weapon arm (-0.44 armR + -0.38 forearmR + 0.04 torso + 0.02 pelvis = -0.76 rad = -43.54 deg)
         // to exactly cancel the +0.76 rad (+43.54 deg) rest wrist pitch -> DEAD-LEVEL HORIZONTAL AIM at chest height on ALL 4 models!
         const recoil = Math.pow(Math.max(0, Math.sin(t * 7.5)), 4) * 0.05;
         lerpPosY(rig.pelvis, -2.0 + br * 0.4);
         lerpRot(rig.pelvis, 0.02, -s * 0.10, 0);
-        lerpRot(rig.torso,  0.04 - recoil * 0.3, s * 0.12, 0);
-        lerpRot(rig.head,   0.02, -s * 0.03 + sw * 0.03, 0);
-        lerpRot(rig.armR,  -0.44 + recoil * 0.5, -s * 0.04, s * 0.08);
+        lerpRot(rig.torso, 0.03 - recoil * 0.3, s * 0.12, 0);
+        lerpRot(rig.torso, 0.04 - recoil * 0.3, s * 0.12, 0);
+        lerpRot(rig.head, 0.02, -s * 0.03 + sw * 0.03, 0);
+        lerpRot(rig.armR, -0.28 + recoil * 0.5, -s * 0.04, s * 0.08);
+        lerpRot(rig.forearmR, -0.35 + recoil * 0.7, 0, 0);
+        lerpRot(rig.armL, -0.20, -s * 0.08, -s * 0.15);
+        lerpRot(rig.forearmL, -0.26, 0, 0);
+        lerpRot(rig.armR, -0.44 + recoil * 0.5, -s * 0.04, s * 0.08);
         lerpRot(rig.forearmR, -0.38 + recoil * 0.7, 0, 0);
-        lerpRot(rig.armL,  -0.22, -s * 0.08, -s * 0.15);
+        lerpRot(rig.armL, -0.22, -s * 0.08, -s * 0.15);
         lerpRot(rig.forearmL, -0.28, 0, 0);
-        lerpRot(rig.legR,   0.14, 0, s * 0.05);
+        lerpRot(rig.legR, 0.14, 0, s * 0.05);
         lerpRot(rig.shinR, -0.16, 0, 0);
-        lerpRot(rig.legL,  -0.16, 0, -s * 0.05);
-        lerpRot(rig.shinL,  0.16, 0, 0);
+        lerpRot(rig.legL, -0.16, 0, -s * 0.05);
+        lerpRot(rig.shinL, 0.16, 0, 0);
       } else if (stance === 'ShieldGuard') {
         // 🛡️ Shield Guard: Left forearm shield angled forward-inward across chest, right weapon braced at flank
         lerpPosY(rig.pelvis, -3.0 + br * 0.4);
         lerpRot(rig.pelvis, 0.05, s * 0.18, 0);
-        lerpRot(rig.torso,  0.06, -s * 0.22, 0);
-        lerpRot(rig.head,  -0.04, s * 0.08, 0);
-        lerpRot(rig.armL,  -0.44, s * 0.28, -s * 0.12);
+        lerpRot(rig.torso, 0.06, -s * 0.22, 0);
+        lerpRot(rig.head, -0.04, s * 0.08, 0);
+        lerpRot(rig.armL, -0.44, s * 0.28, -s * 0.12);
         lerpRot(rig.forearmL, -0.42, s * 0.18, 0);
-        lerpRot(rig.armR,  -0.16, 0, s * 0.14);
+        lerpRot(rig.armR, -0.16, 0, s * 0.14);
         lerpRot(rig.forearmR, -0.30, 0, 0);
-        lerpRot(rig.legL,  -0.20, 0, -s * 0.05);
-        lerpRot(rig.shinL,  0.22, 0, 0);
-        lerpRot(rig.legR,   0.18, 0, s * 0.05);
+        lerpRot(rig.legL, -0.20, 0, -s * 0.05);
+        lerpRot(rig.shinL, 0.22, 0, 0);
+        lerpRot(rig.legR, 0.18, 0, s * 0.05);
         lerpRot(rig.shinR, -0.16, 0, 0);
       } else if (stance === 'BoostJump') {
         // 🚀 AMBAC Boost: High-G Aerial / Orbital Thruster Hover Pose with outward-splayed limbs
         const hover = Math.sin(t * 2.8) * 3.5;
         lerpPosY(rig.pelvis, 8.5 + hover);
         lerpRot(rig.pelvis, 0.12, sw * 0.06, 0);
-        lerpRot(rig.torso,  0.10, -sw * 0.05, 0);
-        lerpRot(rig.head,  -0.12, sw * 0.10, 0);
-        lerpRot(rig.armR,  -0.24, 0, s * 0.18);
+        lerpRot(rig.torso, 0.10, -sw * 0.05, 0);
+        lerpRot(rig.head, -0.12, sw * 0.10, 0);
+        lerpRot(rig.armR, -0.24, 0, s * 0.18);
         lerpRot(rig.forearmR, -0.34, 0, 0);
-        lerpRot(rig.armL,  -0.22, 0, -s * 0.18);
+        lerpRot(rig.armL, -0.22, 0, -s * 0.18);
         lerpRot(rig.forearmL, -0.32, 0, 0);
-        lerpRot(rig.legR,  -0.30, 0, s * 0.05);
-        lerpRot(rig.shinR,  0.46, 0, 0);
-        lerpRot(rig.legL,  -0.16, 0, -s * 0.05);
-        lerpRot(rig.shinL,  0.30, 0, 0);
+        lerpRot(rig.legR, -0.30, 0, s * 0.05);
+        lerpRot(rig.shinR, 0.46, 0, 0);
+        lerpRot(rig.legL, -0.16, 0, -s * 0.05);
+        lerpRot(rig.shinL, 0.30, 0, 0);
       } else if (stance === 'MeleeSlash') {
         // ⚔️ Saber Cleave: Dynamic Close-Quarters Heat Saber / Beam Slash
         const slash = Math.sin(t * 3.2);
         lerpPosY(rig.pelvis, -2.0 + Math.abs(slash) * 1.2);
         lerpRot(rig.pelvis, 0.04, s * slash * 0.14, 0);
-        lerpRot(rig.torso,  0.06, -s * slash * 0.26, 0);
-        lerpRot(rig.head,  -0.03, s * slash * 0.12, 0);
-        lerpRot(rig.armR,  -0.36 + slash * 0.26, -s * 0.08, s * 0.16);
+        lerpRot(rig.torso, 0.06, -s * slash * 0.26, 0);
+        lerpRot(rig.head, -0.03, s * slash * 0.12, 0);
+        lerpRot(rig.armR, -0.36 + slash * 0.26, -s * 0.08, s * 0.16);
         lerpRot(rig.forearmR, -0.32 + slash * 0.18, 0, 0);
-        lerpRot(rig.armL,  -0.14, 0, -s * 0.16);
+        lerpRot(rig.armL, -0.14, 0, -s * 0.16);
         lerpRot(rig.forearmL, -0.34, 0, 0);
-        lerpRot(rig.legR,  -0.22, 0, s * 0.05);
-        lerpRot(rig.shinR,  0.24, 0, 0);
-        lerpRot(rig.legL,   0.18, 0, -s * 0.05);
+        lerpRot(rig.legR, -0.22, 0, s * 0.05);
+        lerpRot(rig.shinR, 0.24, 0, 0);
+        lerpRot(rig.legL, 0.18, 0, -s * 0.05);
         lerpRot(rig.shinL, -0.16, 0, 0);
       } else if (stance === 'PatrolMarch') {
         // 🦿 Combat Stride: Heavy Bipedal March Cycle
@@ -2268,30 +4035,30 @@
         const c = Math.cos(t * 3.6);
         lerpPosY(rig.pelvis, Math.abs(c) * 1.8 - 1.0);
         lerpRot(rig.pelvis, 0.03, w * 0.07, 0);
-        lerpRot(rig.torso,  0.04, -w * 0.10, 0);
-        lerpRot(rig.head,   0.0,  w * 0.05, 0);
-        lerpRot(rig.armR,  -0.10 + w * 0.22, 0, s * 0.08);
+        lerpRot(rig.torso, 0.04, -w * 0.10, 0);
+        lerpRot(rig.head, 0.0, w * 0.05, 0);
+        lerpRot(rig.armR, -0.10 + w * 0.22, 0, s * 0.08);
         lerpRot(rig.forearmR, -0.24 + Math.max(0, -w) * 0.16, 0, 0);
-        lerpRot(rig.armL,  -0.10 - w * 0.22, 0, -s * 0.08);
+        lerpRot(rig.armL, -0.10 - w * 0.22, 0, -s * 0.08);
         lerpRot(rig.forearmL, -0.24 + Math.max(0, w) * 0.16, 0, 0);
-        lerpRot(rig.legR,  -w * 0.32, 0, 0);
-        lerpRot(rig.shinR,  Math.max(0, w) * 0.40, 0, 0);
-        lerpRot(rig.legL,   w * 0.32, 0, 0);
-        lerpRot(rig.shinL,  Math.max(0, -w) * 0.40, 0, 0);
+        lerpRot(rig.legR, -w * 0.32, 0, 0);
+        lerpRot(rig.shinR, Math.max(0, w) * 0.40, 0, 0);
+        lerpRot(rig.legL, w * 0.32, 0, 0);
+        lerpRot(rig.shinL, Math.max(0, -w) * 0.40, 0, 0);
       } else {
         // ⚓ Sentinel: Heroic Katoki Ver.Ka Ready Stance & Optical Scan
         lerpPosY(rig.pelvis, br * 0.7);
         lerpRot(rig.pelvis, 0, sw * 0.03, 0);
-        lerpRot(rig.torso,  br * 0.025, -sw * 0.05, 0);
-        lerpRot(rig.head,   br * 0.02, Math.sin(t * 0.85) * 0.14, 0);
-        lerpRot(rig.armR,  -0.10 + br * 0.025, 0, s * 0.06);
+        lerpRot(rig.torso, br * 0.025, -sw * 0.05, 0);
+        lerpRot(rig.head, br * 0.02, Math.sin(t * 0.85) * 0.14, 0);
+        lerpRot(rig.armR, -0.10 + br * 0.025, 0, s * 0.06);
         lerpRot(rig.forearmR, -0.18 + br * 0.025, 0, 0);
-        lerpRot(rig.armL,  -0.08 + br * 0.025, 0, -s * 0.06);
+        lerpRot(rig.armL, -0.08 + br * 0.025, 0, -s * 0.06);
         lerpRot(rig.forearmL, -0.16 + br * 0.025, 0, 0);
-        lerpRot(rig.legR,   0, 0, 0);
-        lerpRot(rig.shinR,  0, 0, 0);
-        lerpRot(rig.legL,   0, 0, 0);
-        lerpRot(rig.shinL,  0, 0, 0);
+        lerpRot(rig.legR, 0, 0, 0);
+        lerpRot(rig.shinR, 0, 0, 0);
+        lerpRot(rig.legL, 0, 0, 0);
+        lerpRot(rig.shinL, 0, 0, 0);
       }
     }
 
@@ -2349,10 +4116,13 @@
           scaledBox.getCenter(scaledCenter);
           model.position.set(-scaledCenter.x, -scaledBox.min.y, -scaledCenter.z);
 
+          state.gearNodes = [];
+          state.hingeNodes = [];
           model.traverse(node => {
             if (node.isMesh) {
               node.castShadow = true;
               node.receiveShadow = true;
+              if (node.geometry) ensureBoxProjectedUVs(node.geometry, 0.026);
               if (spec.isZeonEnemy) {
                 node.material = buildZeonEnemyPBRMaterial(node, spec);
               } else {
@@ -2364,6 +4134,16 @@
                 node.userData.geomCenter = new THREE.Vector3();
                 node.geometry.boundingBox.getCenter(node.userData.geomCenter);
               }
+              const ln = (node.name || '').toLowerCase();
+              if (ln.includes('_gear_')) {
+                const gc = node.userData.geomCenter || new THREE.Vector3();
+                const dirSign = ln.includes('pinion') ? -1.42 : 1.0;
+                state.gearNodes.push({ node, center: gc.clone(), dirSign, angle: 0 });
+              }
+              if (ln.includes('chest_cockpit_hatch') || ln.includes('chest_vent_duct') || ln.includes('chest_vent_louvers') || ln.includes('zaku_chest_center') || ln.includes('gouf_chest_center') || ln.includes('sazabi_chest_front')) {
+                const sideDir = ln.endsWith('_r') ? 1 : (ln.endsWith('_l') ? -1 : 0);
+                state.hingeNodes.push({ node, sideDir, basePos: null, baseRot: null });
+              }
               state.chassisParts.push(node);
             }
           });
@@ -2371,6 +4151,26 @@
           // Bind all meshes into the 11-Bone Hierarchical Kinematic Rig!
           state.kinematicRig = buildProceduralKinematicRig(model, spec);
           mechaRoot.add(model);
+
+          // Record post-rig local rest position/rotation for smooth hinged petal animations & axle-centered gear spin!
+          state.hingeNodes.forEach(h => {
+            const c = h.node.userData.geomCenter;
+            if (h.node.geometry && c && c.lengthSq() > 0.01) {
+              h.node.geometry.translate(-c.x, -c.y, -c.z);
+              h.node.position.add(c);
+              if (h.node.userData.initialPosition) h.node.userData.initialPosition.add(c);
+            }
+            h.basePos = h.node.position.clone();
+            h.baseRot = h.node.rotation.clone();
+          });
+          state.gearNodes.forEach(g => {
+            const c = g.center;
+            if (g.node.geometry && c && c.lengthSq() > 0.01) {
+              g.node.geometry.translate(-c.x, -c.y, -c.z);
+              g.node.position.add(c);
+              if (g.node.userData.initialPosition) g.node.userData.initialPosition.add(c);
+            }
+          });
 
           // Mount 8-Zone Full-Body Gunpla Adapter Sockets onto the Kinematic Bones!
           state.socketRig = buildSocketRigForUnit(model, spec, state.kinematicRig);
@@ -2598,6 +4398,7 @@
           if (nm.includes('dovetail')) return;
           node.castShadow = true;
           node.receiveShadow = true;
+          if (node.geometry) ensureBoxProjectedUVs(node.geometry, 0.032);
           node.material = buildPackPBRMaterial(node, state.activeUnitId);
           node.userData.origMaterial = node.material;
           node.geometry.computeBoundingBox();
@@ -2724,9 +4525,9 @@
       h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507) ^ Math.imul(h2 ^ (h2 >>> 13), 3266489909);
       h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^ Math.imul(h1 ^ (h1 >>> 13), 3266489909);
       const seedHex = (h1 >>> 0).toString(16).padStart(8, '0') + (h2 >>> 0).toString(16).padStart(8, '0') +
-                      ((h1 ^ 0x5a5a5a5a) >>> 0).toString(16).padStart(8, '0') + ((h2 ^ 0xa5a5a5a5) >>> 0).toString(16).padStart(8, '0') +
-                      ((h1 * 31) >>> 0).toString(16).padStart(8, '0') + ((h2 * 17) >>> 0).toString(16).padStart(8, '0') +
-                      ((h1 ^ h2) >>> 0).toString(16).padStart(8, '0') + ((~h1) >>> 0).toString(16).padStart(8, '0');
+        ((h1 ^ 0x5a5a5a5a) >>> 0).toString(16).padStart(8, '0') + ((h2 ^ 0xa5a5a5a5) >>> 0).toString(16).padStart(8, '0') +
+        ((h1 * 31) >>> 0).toString(16).padStart(8, '0') + ((h2 * 17) >>> 0).toString(16).padStart(8, '0') +
+        ((h1 ^ h2) >>> 0).toString(16).padStart(8, '0') + ((~h1) >>> 0).toString(16).padStart(8, '0');
       const tag4 = seedHex.slice(0, 4).toUpperCase();
       const b0 = parseInt(seedHex.slice(0, 2), 16) / 255.0;
       const b1 = parseInt(seedHex.slice(2, 4), 16) / 255.0;
@@ -2740,14 +4541,14 @@
       const sz = +(0.92 + b2 * 0.22).toFixed(3);
 
       const zoneTitleMap = {
-        head_sensor:    `HD-${tag4} Cranial ${Math.round(55 + b0 * 25)}mm Vulcan & Psycho-Crest`,
-        chest_armor:    `CH-${tag4} Chobham Reactive Breastplate & I-Field Gen`,
-        shoulder_pods:  `SH-${tag4} Twin ${Math.round(6 + b0 * 6)}-Tube Missile & Vernier Pauldrons`,
-        dorsal_pack:    `MP-${tag4} Variable-Geometry High-Mobility Striker Pack`,
-        aux_weapon:     `BR-${tag4} High-Output ${(4.2 + b0 * 3.5).toFixed(1)}MW Long-Barrel Beam Rifle`,
-        aux_shield:     `SD-${tag4} Gundarium Phase-Composite Hexagonal Shield`,
+        head_sensor: `HD-${tag4} Cranial ${Math.round(55 + b0 * 25)}mm Vulcan & Psycho-Crest`,
+        chest_armor: `CH-${tag4} Chobham Reactive Breastplate & I-Field Gen`,
+        shoulder_pods: `SH-${tag4} Twin ${Math.round(6 + b0 * 6)}-Tube Missile & Vernier Pauldrons`,
+        dorsal_pack: `MP-${tag4} Variable-Geometry High-Mobility Striker Pack`,
+        aux_weapon: `BR-${tag4} High-Output ${(4.2 + b0 * 3.5).toFixed(1)}MW Long-Barrel Beam Rifle`,
+        aux_shield: `SD-${tag4} Gundarium Phase-Composite Hexagonal Shield`,
         waist_ordnance: `WS-${tag4} Xiphias Mach-${(7.5 + b1 * 2.4).toFixed(1)} Folding Hip Railguns`,
-        leg_thrusters:  `LG-${tag4} FA-78 Dual Calf Missile & Supersonic Boosters`
+        leg_thrusters: `LG-${tag4} FA-78 Dual Calf Missile & Supersonic Boosters`
       };
 
       const newPart = {
@@ -2824,6 +4625,7 @@
     }
 
     // =========================================================================
+    // 12. VECTOR-ALIGNED EXPLODED VIEW (FOR ALL 4 UNITS & 8-ZONE PAYLOADS)
     // 12. VECTOR-ALIGNED STAGGERED EXPLODED VIEW (TEARDOWN QUINTIC LAYERS)
     // Outer 8-zone armor & modular packs separate BEFORE inner skeleton tiers
     // using quintic smoothstep curves so parts never interpenetrate!
@@ -2842,6 +4644,7 @@
       if (state.socketRig && state.snapAnimations.length === 0) {
         Object.values(state.socketRig).forEach(sock => {
           const sign = sock.slideSign || -1.0;
+          sock.payloadContainer.position.z = sock.dockedZ + sign * factor * 28.0;
           sock.payloadContainer.position.z = sock.dockedZ + sign * fTier0 * 28.0;
         });
       }
@@ -2856,10 +4659,19 @@
 
         if (node.userData.isModularPack) {
           dir.set(sideSign * 0.45, 0.15, -0.45);
+          node.position.copy(init).addScaledVector(dir, factor * 20.0);
           node.position.copy(init).addScaledVector(dir, fTier0 * 24.0);
           return;
         }
 
+        if (n.includes('head') || n.includes('v_fin') || n.includes('mono_eye')) dir.set(0, 0.85, 0.25);
+        else if (n.includes('chest') || n.includes('cockpit') || n.includes('abdomen')) dir.set(0, 0.15, 0.95);
+        else if (n.includes('pauldron') || n.includes('arm') || n.includes('forearm') || n.includes('shield') || n.includes('rifle') || n.includes('elbow') || n.includes('fist')) dir.set((sideSign || 1) * 1.1, 0.12, 0.15);
+        else if (n.includes('foot') || n.includes('sole') || n.includes('ankle')) dir.set(sideSign * 0.45, -0.85, 0.25);
+        else if (n.includes('shin') || n.includes('calf') || n.includes('knee') || n.includes('tibia')) dir.set(sideSign * 0.65, -0.45, 0.2);
+        else if (n.includes('thigh') || n.includes('femur') || n.includes('hip')) dir.set(sideSign * 0.75, -0.15, 0);
+        else if (n.includes('backpack') || n.includes('wing') || n.includes('cannon') || n.includes('booster') || n.includes('tank') || n.includes('rotodome') || n.includes('fin_binder') || n.includes('vernier')) dir.set(sideSign * 0.35, 0.15, -1.25);
+        else dir.set(sideSign * 0.35, 0.25, -0.35);
         let tierFactor = fTier2;
         if (n.includes('head') || n.includes('v_fin') || n.includes('mono_eye')) {
           dir.set(0, 0.85, 0.25);
@@ -2887,6 +4699,7 @@
           tierFactor = fTier3;
         }
 
+        node.position.copy(init).addScaledVector(dir, factor * 36.0);
         node.position.copy(init).addScaledVector(dir, tierFactor * 36.0);
       });
     }
@@ -2951,6 +4764,122 @@
       btnAnimPlay.classList.toggle('active', state.animPlaying);
     });
 
+    // Teardown Phase 5 Controls: Hinged Hatch Open, 3D Callout Leaders, Ghost Isolate & Interactive Auto-Tour
+    const btnHatchOpen = document.getElementById('btn-hatch-open');
+    const btnDockHatch = document.getElementById('btn-dock-hatch');
+    const btnDockIsolate = document.getElementById('btn-dock-isolate');
+    const btnCallouts = document.getElementById('btn-callouts');
+    const btnAutoTour = document.getElementById('btn-auto-tour');
+    const calloutLayer = document.getElementById('callout-layer');
+    const calloutSvg = document.getElementById('callout-svg');
+    const calloutNodesEl = document.getElementById('callout-nodes');
+
+    function setHatchOpen(open) {
+      state.hatchOpen = Boolean(open);
+      btnHatchOpen?.classList.toggle('active', state.hatchOpen);
+      btnDockHatch?.classList.toggle('active', state.hatchOpen);
+      mechaRoot.traverse(node => {
+        if (!node.isMesh || !node.userData.origMaterial) return;
+        const ln = (node.name || '').toLowerCase();
+        if (ln.includes('chest_armor_blue') || ln.includes('chest_sternum_dark') || ln.includes('zaku_chest_olive') || ln.includes('gouf_chest_navy') || ln.includes('sazabi_chest_crimson')) {
+          if (state.renderMode === 'standard' && !state.isolatedZone) {
+            node.material = state.hatchOpen ? glassCutawayMat : node.userData.origMaterial;
+          }
+        }
+      });
+      triggerStagePulse(state.hatchOpen ? 0xf97316 : 0x00e5ff);
+      showToast(state.hatchOpen ? '🔓 Maintenance Hatch OPEN — Internal 3-Gear Reactor Core Exposed!' : '🔒 Maintenance Hatch SEALED');
+    }
+    btnHatchOpen?.addEventListener('click', () => setHatchOpen(!state.hatchOpen));
+    btnDockHatch?.addEventListener('click', () => setHatchOpen(!state.hatchOpen));
+
+    btnDockIsolate?.addEventListener('click', () => {
+      const targetZone = state.isolatedZone ? state.isolatedZone : (state.activeCategory !== 'all' ? state.activeCategory : 'chest_armor');
+      setIsolatedZone(targetZone);
+      showToast(state.isolatedZone ? `👻 Ghost Shell Active — Isolating ${BODY_ZONES[state.isolatedZone]?.label || state.isolatedZone}` : '◆ Full Solid Chassis Restored');
+    });
+
+    function setCalloutsVisible(visible) {
+      state.showCallouts = Boolean(visible);
+      btnCallouts?.classList.toggle('active', state.showCallouts);
+      calloutLayer?.classList.toggle('visible', state.showCallouts);
+      if (state.showCallouts) updateCalloutLeaders();
+    }
+    btnCallouts?.addEventListener('click', () => setCalloutsVisible(!state.showCallouts));
+
+    function setAutoTour(enabled) {
+      state.autoTour = Boolean(enabled);
+      state.autoTourTimer = 0.0;
+      btnAutoTour?.classList.toggle('active', state.autoTour);
+      if (state.autoTour) {
+        showToast('🎬 Interactive Auto-Tour Started (Drag or Click anytime to take control)');
+      }
+    }
+    btnAutoTour?.addEventListener('click', () => setAutoTour(!state.autoTour));
+
+    // Instant User Handoff (Teardown live.js rule: any pointer drag, wheel, or key hands control to user!)
+    const handoffToUser = () => {
+      if (state.autoTour) {
+        setAutoTour(false);
+        showToast('✋ Manual Control Active');
+      }
+    };
+    canvas.addEventListener('pointerdown', handoffToUser, { passive: true });
+    canvas.addEventListener('wheel', handoffToUser, { passive: true });
+    window.addEventListener('keydown', (e) => { if (e.key !== 'Escape') handoffToUser(); });
+
+    const CALLOUT_ANCHORS = [
+      { id: 'c_optics', world: [0, 165, 10], screenDx: -145, screenDy: -34, title: 'OPTICAL SENSOR ARRAY', sub: () => UNIT_REGISTRY[state.activeUnitId]?.isZeonEnemy ? 'RECESSED MONO-EYE • IR RIM' : 'DUAL GOLDEN CAM • TRACKING' },
+      { id: 'c_reactor', world: [0, 138, 12], screenDx: 155, screenDy: -28, title: 'MINOVSKY 3-GEAR CORE', sub: () => state.hatchOpen ? 'HATCH OPEN • 20T/14T SPIN' : (state.renderMode === 'glass' ? 'GLASS CUTAWAY • EXPOSED' : 'HATCH SEALED') },
+      { id: 'c_servo', world: [34, 118, 2], screenDx: 150, screenDy: 16, title: 'ROTARY SERVO DRUM', sub: () => '6-BOLT ANODIZED COLLAR' },
+      { id: 'c_weapon', world: [35, 88, 20], screenDx: 150, screenDy: 46, title: 'ADP-HP11 TRIGGER LATCH', sub: () => state.activeStance === 'RifleBurst' ? 'BEAM AIM • 0.0° LEVEL' : 'PALM ADAPTER • LOCKED' },
+      { id: 'c_shield', world: [-42, 102, 4], screenDx: -155, screenDy: 24, title: 'ADP-HP07 C-CLAMP STRUT', sub: () => 'OUTWARD NORMAL • 0.0mm CLIP' },
+      { id: 'c_knee', world: [-16, 63, 6], screenDx: -148, screenDy: 58, title: 'DOUBLE-PIVOT KNEE DRUM', sub: () => 'TEARDOWN HYDRAULIC DAMPER' }
+    ];
+    const _projVec = new THREE.Vector3();
+    function updateCalloutLeaders() {
+      if (!state.showCallouts || !calloutSvg || !calloutNodesEl) return;
+      const w = window.innerWidth, h = window.innerHeight;
+      const rSign = state.kinematicRig?.rSign || 1.0;
+      let svgHtml = '';
+      let nodesHtml = '';
+      const isStudio = state.activeEnv === 'studio';
+      const strokeCol = isStudio ? '#ea580c' : '#38bdf8';
+      const dotCol = '#f97316';
+      // Measure exact open side-drawer bounds + half-pill safety margin so NO callout card EVER clips!
+      const leftRect = (state.menus.left && !state.menus.allHidden && leftDrawer) ? leftDrawer.getBoundingClientRect() : null;
+      const rightRect = ((state.menus.right || state.menus.scene) && !state.menus.allHidden && rightStack) ? rightStack.getBoundingClientRect() : null;
+      const cardHalfW = 104;
+      const minX = (leftRect && w > 960 && leftRect.right > 40) ? (leftRect.right + cardHalfW + 16) : (cardHalfW + 12);
+      const maxX = (rightRect && w > 960 && rightRect.left < w - 40) ? (rightRect.left - cardHalfW - 16) : (w - cardHalfW - 12);
+      for (const a of CALLOUT_ANCHORS) {
+        _projVec.set(a.world[0] * rSign, a.world[1], a.world[2]);
+        _projVec.project(camera);
+        if (_projVec.z > 1.0) continue;
+        const sx = (_projVec.x * 0.5 + 0.5) * w;
+        const sy = (-_projVec.y * 0.5 + 0.5) * h;
+        const lx = Math.max(minX, Math.min(maxX, sx + a.screenDx));
+        const ly = Math.max(88, Math.min(h - 98, sy + a.screenDy));
+        // Precision CAD elbow leader line (anchor -> knee -> tag)
+        const kx = sx + (lx - sx) * 0.42;
+        svgHtml += `<polyline points="${sx.toFixed(1)},${sy.toFixed(1)} ${kx.toFixed(1)},${ly.toFixed(1)} ${lx.toFixed(1)},${ly.toFixed(1)}" fill="none" stroke="${strokeCol}" stroke-width="1.35" opacity="0.88" />`
+          + `<circle cx="${sx.toFixed(1)}" cy="${sy.toFixed(1)}" r="4.8" fill="none" stroke="${dotCol}" stroke-width="1.2" opacity="0.65" />`
+          + `<circle cx="${sx.toFixed(1)}" cy="${sy.toFixed(1)}" r="2.6" fill="${dotCol}" />`;
+        nodesHtml += `<div class="callout-tag" style="left:${lx.toFixed(1)}px;top:${ly.toFixed(1)}px;"><span class="c-dot"></span>${a.title}<span class="c-sub">${a.sub()}</span></div>`;
+      }
+      calloutSvg.innerHTML = svgHtml;
+      calloutNodesEl.innerHTML = nodesHtml;
+    }
+
+    const AUTO_TOUR_STAGES = [
+      () => { applyEnvironment('studio'); applyRenderMode('standard'); setHatchOpen(false); setCalloutsVisible(true); playAnimation('Sentinel'); setCameraPreset('heroic'); },
+      () => { setHatchOpen(true); setCameraPreset('front'); },
+      () => { applyRenderMode('glass'); setCameraPreset('heroic'); },
+      () => { applyRenderMode('standard'); setHatchOpen(false); playAnimation('RifleBurst'); setCameraPreset('heroic'); },
+      () => { sliderExploded.value = '65'; sliderExploded.dispatchEvent(new Event('input', { bubbles: true })); },
+      () => { sliderExploded.value = '0'; sliderExploded.dispatchEvent(new Event('input', { bubbles: true })); applyEnvironment('hangar'); setCalloutsVisible(false); setCameraPreset('heroic'); }
+    ];
+
     document.getElementById('btn-toggle-drawer-size')?.addEventListener('click', (e) => {
       state.isDrawerExpanded = !state.isDrawerExpanded;
       leftDrawer.classList.toggle('expanded', state.isDrawerExpanded);
@@ -2982,6 +4911,11 @@
       camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth, window.innerHeight);
       if (composer) composer.setSize(window.innerWidth, window.innerHeight);
+      if (gtaoPass) gtaoPass.setSize(window.innerWidth, window.innerHeight);
+      if (window.innerWidth <= 960 && (state.menus.left || state.menus.right || state.menus.scene)) {
+        state.menus.left = false; state.menus.right = false; state.menus.scene = false;
+        syncMenuVisibility();
+      }
     });
 
     // =========================================================================
@@ -3072,7 +5006,7 @@
         ];
 
         this._bindUi();
-        setTimeout(() => { this._renderTrackBuffer(0).catch(() => {}); }, 250);
+        setTimeout(() => { this._renderTrackBuffer(0).catch(() => { }); }, 250);
       }
 
       _midi(m) { return 440.0 * Math.pow(2.0, (m - 69.0) / 12.0); }
@@ -3094,7 +5028,7 @@
         try {
           this._initCtx();
           if (!this.ctx) return;
-          if (this.ctx.state === 'suspended') this.ctx.resume().catch(() => {});
+          if (this.ctx.state === 'suspended') this.ctx.resume().catch(() => { });
           const now = this.ctx.currentTime;
 
           const len = Math.floor(this.ctx.sampleRate * 0.032);
@@ -3132,14 +5066,14 @@
           g3.gain.exponentialRampToValueAtTime(0.001, now + 0.036);
           pin.connect(g3); g3.connect(this.sfxGain);
           pin.start(now + 0.012); pin.stop(now + 0.04);
-        } catch (_) {}
+        } catch (_) { }
       }
 
       playGunplaUnlatch() {
         try {
           this._initCtx();
           if (!this.ctx) return;
-          if (this.ctx.state === 'suspended') this.ctx.resume().catch(() => {});
+          if (this.ctx.state === 'suspended') this.ctx.resume().catch(() => { });
           const now = this.ctx.currentTime;
           const osc = this.ctx.createOscillator();
           const g = this.ctx.createGain();
@@ -3150,7 +5084,7 @@
           g.gain.exponentialRampToValueAtTime(0.001, now + 0.06);
           osc.connect(g); g.connect(this.sfxGain);
           osc.start(now); osc.stop(now + 0.065);
-        } catch (_) {}
+        } catch (_) { }
       }
 
       async _renderTrackBuffer(idx) {
@@ -3285,7 +5219,7 @@
       async start() {
         this._initCtx();
         if (!this.ctx) return;
-        if (this.ctx.state === 'suspended') await this.ctx.resume().catch(() => {});
+        if (this.ctx.state === 'suspended') await this.ctx.resume().catch(() => { });
         const buf = await this._renderTrackBuffer(this.trackIndex);
         if (!buf) return;
         this._stopSource();
@@ -3297,7 +5231,7 @@
 
       _stopSource() {
         if (this.currentSource) {
-          try { this.currentSource.stop(); this.currentSource.disconnect(); } catch (_) {}
+          try { this.currentSource.stop(); this.currentSource.disconnect(); } catch (_) { }
           this.currentSource = null;
         }
       }
@@ -3377,7 +5311,7 @@
       renderInventory();
       await loadUnit('vanguard_rx');
       if (typeof renderer.compileAsync === 'function') {
-        renderer.compileAsync(scene, camera).catch(() => {});
+        renderer.compileAsync(scene, camera).catch(() => { });
       } else {
         renderer.compile(scene, camera);
       }
@@ -3461,7 +5395,82 @@
         neonTorus.rotation.y = elapsed * 0.5;
         neonTorus.rotation.x = Math.sin(elapsed * 0.7) * 0.35;
       }
+
+      // Interactive Architectural Cyclorama, Cursor Light Sweep, Parallax Gantry & Live Azimuth Ring!
+      pointerNdc.x += (pointerNdc.targetX - pointerNdc.x) * Math.min(1.0, delta * 5.0);
+      pointerNdc.y += (pointerNdc.targetY - pointerNdc.y) * Math.min(1.0, delta * 5.0);
+      cycloramaUniforms.uTime.value = elapsed;
+      cycloramaUniforms.uPointer.value.set(pointerNdc.x, pointerNdc.y);
+      pointerLight.position.set(pointerNdc.x * 165, 130 + pointerNdc.y * 55, 170);
+      const camAz = Math.atan2(camera.position.x, camera.position.z);
+      vernierRing.rotation.z = -camAz + elapsed * 0.06;
+      if (studioReticleGroup.visible) {
+        retRing1.rotation.z = elapsed * 0.08 + pointerNdc.x * 0.14;
+        retRing2.rotation.z = -elapsed * 0.11 - pointerNdc.y * 0.12;
+      }
+      for (let i = 0; i < studioBayRibs.length; i++) {
+        const rib = studioBayRibs[i];
+        rib.position.x = rib.userData.baseX - pointerNdc.x * 14.0;
+      }
+      if (stagePulseProgress < 1.0) {
+        stagePulseProgress = Math.min(1.0, stagePulseProgress + delta * 1.45);
+        const s = 1.0 + stagePulseProgress * 2.2;
+        pulseRing.scale.set(s, s, 1);
+        pulseRingMat.opacity = (1.0 - stagePulseProgress) * 0.65;
+      } else {
+        pulseRingMat.opacity = 0.0;
+      }
+
+      // 4. Teardown Phase 5: Hinged Maintenance Hatch / Petal Open + Spinning Internal 3-Gear Spur Train!
+      const hatchTarget = state.hatchOpen ? 1.0 : 0.0;
+      state.hatchProgress += (hatchTarget - state.hatchProgress) * Math.min(1.0, delta * 6.5);
+      const hp = teardownSmoother(state.hatchProgress);
+      if (state.hingeNodes.length > 0 && state.explodedFactor < 0.05) {
+        for (const h of state.hingeNodes) {
+          if (!h.basePos || !h.baseRot) continue;
+          if (h.sideDir === 0) {
+            // Central cockpit hatch hinges smoothly forward-downward to expose internal 3-gear reactor core!
+            h.node.position.set(h.basePos.x, h.basePos.y - hp * 3.8, h.basePos.z + hp * 9.5);
+            h.node.rotation.set(h.baseRot.x + hp * 0.88, h.baseRot.y, h.baseRot.z);
+          } else {
+            // Bilateral chest vent petals swing radially outward like Pelagos OC-8 Mantle Open!
+            h.node.position.set(h.basePos.x + h.sideDir * hp * 6.8, h.basePos.y, h.basePos.z + hp * 5.2);
+            h.node.rotation.set(h.baseRot.x, h.baseRot.y + h.sideDir * hp * 0.78, h.baseRot.z);
+          }
+        }
+      }
+      if (state.gearNodes.length > 0 && (state.animPlaying || state.hatchOpen || state.renderMode === 'glass')) {
+        const spinRate = state.hatchOpen ? 2.4 : 0.85;
+        for (const g of state.gearNodes) {
+          g.angle += delta * spinRate * g.dirSign;
+          g.node.rotation.z = g.angle;
+        }
+      }
+
+      // 5. Interactive Auto-Tour Demo Controller (cycles showcase beats until user touches viewport)
+      if (state.autoTour) {
+        state.autoTourTimer += delta;
+        if (state.autoTourTimer >= 4.2) {
+          state.autoTourTimer = 0.0;
+          state.autoTourStep = (state.autoTourStep + 1) % AUTO_TOUR_STAGES.length;
+          AUTO_TOUR_STAGES[state.autoTourStep]();
+        }
+      }
+
+      // 6. Auto-Fallback GPU Quality Tier Monitor (steps down if FPS < 24 over 3s)
+      if (!window._fpsMon) window._fpsMon = { frames: 0, acc: 0 };
+      window._fpsMon.frames += 1;
+      window._fpsMon.acc += delta;
+      if (window._fpsMon.acc >= 3.0) {
+        const avgFps = window._fpsMon.frames / window._fpsMon.acc;
+        window._fpsMon.frames = 0;
+        window._fpsMon.acc = 0;
+        if (avgFps < 24.0 && state.gpuTier === 'HIGH') applyGpuQualityTier('MED');
+        else if (avgFps < 20.0 && state.gpuTier === 'MED') applyGpuQualityTier('LOW');
+      }
+
       controls.update();
+      if (state.showCallouts) updateCalloutLeaders();
       if (composer) composer.render();
       else renderer.render(scene, camera);
     }

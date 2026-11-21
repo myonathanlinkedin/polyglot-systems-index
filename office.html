@@ -45,7 +45,7 @@
       }, true);
     })();
   </script>
-  <meta name="description" content="Interactive 3D Isometric Virtual Office depicting autonomous male and female engineers and research scientists working 24/7 on 560 verified modules and 234 research papers." />
+  <meta name="description" content="Interactive 3D Isometric Virtual Office depicting autonomous male and female engineers and research scientists working 24/7 on 562 verified modules and 234 research papers." />
   <meta name="author" content="Mateus Yonathan" />
   <link rel="canonical" href="https://myonathanlinkedin.github.io/office.html" />
   <link rel="icon" href="https://myonathanlinkedin.github.io/assets/avatar.png" type="image/png" />
@@ -639,7 +639,7 @@
       <span class="brand-pulse-dot" title="24/7 Agentic Autonomous Pipeline Active"></span>
       <span class="brand-title">MATEUS YONATHAN // LAB</span>
       <span class="ticker-sep mobile-hide-telemetry">•</span>
-      <span class="mobile-hide-telemetry">Mods: <strong id="stat-modules">560</strong></span>
+      <span class="mobile-hide-telemetry">Mods: <strong id="stat-modules">562</strong></span>
       <span class="ticker-sep mobile-hide-telemetry">•</span>
       <span class="mobile-hide-telemetry">Papers: <strong id="stat-papers">234</strong></span>
       <span class="ticker-sep">•</span>
@@ -696,7 +696,7 @@
         <button type="button" class="drawer-close" id="btn-close-office-help" title="Close Guide">✕</button>
       </div>
       <div style="font-size:0.82rem;line-height:1.65;color:#cbd5e1;display:grid;gap:9px;margin-top:8px;">
-        <p><strong>What Is This?</strong> Welcome to the interactive 3D exhibition space of the <strong>24/7 Agentic Autonomous Lab</strong>. This virtual studio showcases our 24/7 open-source software engineering and academic research publications (560 public modules &amp; 234 Research Papers) in real time.</p>
+        <p><strong>What Is This?</strong> Welcome to the interactive 3D exhibition space of the <strong>24/7 Agentic Autonomous Lab</strong>. This virtual studio showcases our 24/7 open-source software engineering and academic research publications (562 public modules &amp; 234 Research Papers) in real time.</p>
         <p><strong>7 Divisions You Can Visit:</strong><br/>
         • <strong>💻 Systems Architecture:</strong> Showcases newly released algorithms and data structures across 14 programming languages.<br/>
         • <strong>📄 Research Paper Wing:</strong> Displays published Research Papers and Mini-Papers with executive summaries and Scholar Preprints.<br/>
@@ -705,9 +705,10 @@
         • <strong>☕ Executive Lounge &amp; Kitchen Bar:</strong> Social hub where researchers sit down for coffee, snacks, and daily research discussions.<br/>
         • <strong>🤖 3D Gundam &amp; Mecha Robotics Wing (Right Wing):</strong> Houses the giant 3.6m RX-78 Vanguard Gundam prototype on an illuminated catapult gantry alongside our 2 dedicated Mecha CAD &amp; AMBAC Kinematics engineers. Click the Giant Gundam to open the Mecha Hangar modal and launch <code>mecha.html</code>!</p>
         <p><strong>How to Explore (Visitor Controls):</strong><br/>
-        • <strong>Click Any Character or Desk:</strong> Opens the portfolio summary card on the right with direct links to open the Scholar Preprint or view GitHub code.<br/>
+        • <strong>Free Camera Move / Pan (Left, Right, Up, Down):</strong> Click <code>✋ Pan: OFF</code> in the bottom dock to turn <strong>Left-Drag / 1-Finger Drag</strong> into free camera panning, use the on-screen <code>⬅ ⬆ ⬇ ➡</code> buttons, press <code>WASD</code> / <code>Arrow Keys</code>, or hold <strong>Right-Click Drag</strong> / <strong>Shift + Left-Drag</strong> (2-finger drag on touchscreens) anytime!<br/>
+        • <strong>Click Any Character or Desk:</strong> Opens the portfolio summary card on the right with direct links to open the Scholar Preprint, 3D Gundam Hangar, or GitHub code.<br/>
         • <strong><code>💬 Hide / Show</code> Button on Characters:</strong> Toggle any individual character's overhead conversation bubble on or off.<br/>
-        • <strong>Show / Hide Panels:</strong> Use <code>☰ Left</code>, <code>📋 Right</code>, and <code>🎛️ Bottom</code> in the top bar (or the <code>✕</code> buttons) to show or hide the left panel, right panel, bottom camera dock, and live notification bar anytime.</p>
+        • <strong>Show / Hide Panels:</strong> Use <code>☰ Left</code>, <code>📋 Right</code>, and <code>🎛️ Bottom</code> in the top bar (or the <code>✕</code> buttons) to show or hide panels anytime.</p>
       </div>
     </div>
   </div>
@@ -913,6 +914,11 @@
     </div>
 
     <nav id="hud-bottom" class="glass-panel" aria-label="Isometric Camera & Desk Controls">
+      <button type="button" class="cam-btn" id="btn-pan-mode" data-cam="toggle-pan" title="Toggle Left-Drag / 1-Finger Touch between Orbit Rotate and Free Pan Move (Left/Right/Up/Down)">✋ Pan: OFF</button>
+      <button type="button" class="cam-btn" data-cam="pan-left" title="Move Camera Left (Arrow Left / A)">⬅</button>
+      <button type="button" class="cam-btn" data-cam="pan-up" title="Move Camera Up (Arrow Up / W)">⬆</button>
+      <button type="button" class="cam-btn" data-cam="pan-down" title="Move Camera Down (Arrow Down / S)">⬇</button>
+      <button type="button" class="cam-btn" data-cam="pan-right" title="Move Camera Right (Arrow Right / D)">➡</button>
       <button type="button" class="cam-btn" data-cam="rot-left" title="Rotate Isometric View Left">⇦ Rot L</button>
       <button type="button" class="cam-btn" data-cam="rot-right" title="Rotate Isometric View Right">⇨ Rot R</button>
       <button type="button" class="cam-btn" data-cam="zoom-in" title="Zoom In to Character Detail">🔍 Zoom In</button>
@@ -2134,22 +2140,29 @@ class IsometricSceneEngine {
     this.controls.dampingFactor = 0.08;
     this.controls.enablePan = true;
     this.controls.screenSpacePanning = true;
-    this.controls.panSpeed = 1.0;
+    this.controls.panSpeed = 1.25;
     this.controls.minZoom = spatialCfg.camera.min_zoom;
     this.controls.maxZoom = spatialCfg.camera.max_zoom;
     this.controls.minPolarAngle = Math.PI * 0.14;
     this.controls.maxPolarAngle = Math.PI * 0.44;
     this.controls.autoRotate = false;
     this.controls.autoRotateSpeed = 0.45;
+    this.interactionMode = 'orbit'; // 'orbit' (Left=Rotate, Right/Mid/Shift=Pan) or 'pan' (Left/1-Finger=Pan, Right=Rotate)
     this.controls.mouseButtons = {
       LEFT: THREE.MOUSE.ROTATE,
-      MIDDLE: THREE.MOUSE.DOLLY,
+      MIDDLE: THREE.MOUSE.PAN,
       RIGHT: THREE.MOUSE.PAN,
     };
     this.controls.touches = {
       ONE: THREE.TOUCH.ROTATE,
       TWO: THREE.TOUCH.DOLLY_PAN,
     };
+    this._panKeys = { up: false, down: false, left: false, right: false };
+    this._panDelta = new THREE.Vector3();
+    this._camRight = new THREE.Vector3();
+    this._camUp = new THREE.Vector3();
+    this._panBounds = { minX: -16.0, maxX: 22.0, minY: -1.5, maxY: 11.0, minZ: -16.0, maxZ: 22.0 };
+    this._bindKeyboardPan();
 
     this.canvas.addEventListener('contextmenu', (e) => e.preventDefault());
     this.isFloorRugsVisible = true;
@@ -2269,6 +2282,89 @@ class IsometricSceneEngine {
     this.isWarping = true;
   }
 
+  setInteractionMode(mode) {
+    this.interactionMode = (mode === 'pan') ? 'pan' : 'orbit';
+    if (this.interactionMode === 'pan') {
+      this.controls.mouseButtons = {
+        LEFT: THREE.MOUSE.PAN,
+        MIDDLE: THREE.MOUSE.PAN,
+        RIGHT: THREE.MOUSE.ROTATE,
+      };
+      this.controls.touches = {
+        ONE: THREE.TOUCH.PAN,
+        TWO: THREE.TOUCH.DOLLY_ROTATE,
+      };
+      this.canvas.style.cursor = 'move';
+    } else {
+      this.controls.mouseButtons = {
+        LEFT: THREE.MOUSE.ROTATE,
+        MIDDLE: THREE.MOUSE.PAN,
+        RIGHT: THREE.MOUSE.PAN,
+      };
+      this.controls.touches = {
+        ONE: THREE.TOUCH.ROTATE,
+        TWO: THREE.TOUCH.DOLLY_PAN,
+      };
+      this.canvas.style.cursor = 'grab';
+    }
+    return this.interactionMode;
+  }
+
+  _bindKeyboardPan() {
+    const isTypingTarget = (el) => el && ['INPUT', 'TEXTAREA', 'SELECT'].includes(el.tagName);
+    window.addEventListener('keydown', (e) => {
+      if (isTypingTarget(document.activeElement)) return;
+      const k = e.key.toLowerCase();
+      if (k === 'arrowleft' || k === 'a') { this._panKeys.left = true; e.preventDefault(); }
+      else if (k === 'arrowright' || k === 'd') { this._panKeys.right = true; e.preventDefault(); }
+      else if (k === 'arrowup' || k === 'w') { this._panKeys.up = true; e.preventDefault(); }
+      else if (k === 'arrowdown' || k === 's') { this._panKeys.down = true; e.preventDefault(); }
+    });
+    window.addEventListener('keyup', (e) => {
+      const k = e.key.toLowerCase();
+      if (k === 'arrowleft' || k === 'a') this._panKeys.left = false;
+      else if (k === 'arrowright' || k === 'd') this._panKeys.right = false;
+      else if (k === 'arrowup' || k === 'w') this._panKeys.up = false;
+      else if (k === 'arrowdown' || k === 's') this._panKeys.down = false;
+    });
+    window.addEventListener('blur', () => {
+      this._panKeys.left = this._panKeys.right = this._panKeys.up = this._panKeys.down = false;
+    });
+  }
+
+  _clampPanTarget() {
+    const b = this._panBounds;
+    const tx = this.controls.target.x;
+    const ty = this.controls.target.y;
+    const tz = this.controls.target.z;
+    const cx = Math.max(b.minX, Math.min(b.maxX, tx));
+    const cy = Math.max(b.minY, Math.min(b.maxY, ty));
+    const cz = Math.max(b.minZ, Math.min(b.maxZ, tz));
+    if (cx !== tx || cy !== ty || cz !== tz) {
+      this.camera.position.x += (cx - tx);
+      this.camera.position.y += (cy - ty);
+      this.camera.position.z += (cz - tz);
+      this.controls.target.set(cx, cy, cz);
+    }
+  }
+
+  /**
+   * Smoothly pans the isometric camera Left/Right/Up/Down in screen space!
+   * dx > 0 moves view Right, dy > 0 moves view Up.
+   */
+  panByScreen(dx, dy) {
+    this.isWarping = false;
+    const zoomScale = 1.0 / Math.max(this.camera.zoom || 1.0, 0.35);
+    this._camRight.setFromMatrixColumn(this.camera.matrixWorld, 0).normalize();
+    this._camUp.setFromMatrixColumn(this.camera.matrixWorld, 1).normalize();
+    this._panDelta.set(0, 0, 0)
+      .addScaledVector(this._camRight, dx * zoomScale)
+      .addScaledVector(this._camUp, dy * zoomScale);
+    this.controls.target.add(this._panDelta);
+    this.camera.position.add(this._panDelta);
+    this._clampPanTarget();
+  }
+
   rotateAzimuth(deltaRad) {
     this.isWarping = false;
     this.warpOffset.copy(this.camera.position).sub(this.controls.target);
@@ -2282,6 +2378,12 @@ class IsometricSceneEngine {
   }
 
   update(elapsed) {
+    // Smooth 60 FPS continuous keyboard pan (Arrow Keys or WASD)
+    const kx = (this._panKeys.right ? 1 : 0) - (this._panKeys.left ? 1 : 0);
+    const ky = (this._panKeys.up ? 1 : 0) - (this._panKeys.down ? 1 : 0);
+    if (kx !== 0 || ky !== 0) {
+      this.panByScreen(kx * 0.28, ky * 0.28);
+    }
     if (this.isWarping) {
       this.controls.target.lerp(this.warpTarget, 0.11);
       this._tmpDesiredPos.copy(this.controls.target).add(this.warpOffset);
@@ -2299,6 +2401,7 @@ class IsometricSceneEngine {
       }
     }
     this.controls.update();
+    this._clampPanTarget();
     if (this.billboardAnimator && typeof this.billboardAnimator.update === 'function') {
       this.billboardAnimator.update(typeof elapsed === 'number' ? elapsed : (performance.now() * 0.001));
     }
@@ -5505,7 +5608,8 @@ class OfficeRaycasterEngine {
       this.pointer.y = -(e.clientY / Math.max(1, window.innerHeight)) * 2 + 1;
       this.raycaster.setFromCamera(this.pointer, this.camera);
       const hits = this.raycaster.intersectObjects(this.hitProxies, false);
-      this.canvas.style.cursor = hits.length > 0 ? 'pointer' : 'grab';
+      const defaultCur = (window.__officeSceneEngine && window.__officeSceneEngine.interactionMode === 'pan') ? 'move' : 'grab';
+      this.canvas.style.cursor = hits.length > 0 ? 'pointer' : defaultCur;
     });
 
     this.canvas.addEventListener('pointerdown', (e) => {
@@ -6758,17 +6862,49 @@ class LabBossaAudioEngine {
       }
 
       _bindBottomDockEvents() {
+        // Support hold-to-pan continuously on the directional pan buttons (Left / Right / Up / Down)
+        let holdPanTimer = null;
+        const stopHoldPan = () => {
+          if (holdPanTimer) { clearInterval(holdPanTimer); holdPanTimer = null; }
+        };
+        window.addEventListener('pointerup', stopHoldPan);
+        window.addEventListener('pointercancel', stopHoldPan);
+
+        const execPanCmd = (camCmd, step) => {
+          if (camCmd === 'pan-left') this.sceneEngine.panByScreen(-step, 0);
+          else if (camCmd === 'pan-right') this.sceneEngine.panByScreen(step, 0);
+          else if (camCmd === 'pan-up') this.sceneEngine.panByScreen(0, step);
+          else if (camCmd === 'pan-down') this.sceneEngine.panByScreen(0, -step);
+        };
+
         document.querySelectorAll('#hud-bottom .cam-btn').forEach((btn) => {
+          const camCmd = btn.dataset.cam;
+          if (camCmd && camCmd.startsWith('pan-')) {
+            btn.addEventListener('pointerdown', (e) => {
+              e.preventDefault();
+              execPanCmd(camCmd, 1.35);
+              stopHoldPan();
+              holdPanTimer = setInterval(() => execPanCmd(camCmd, 0.55), 40);
+            });
+            btn.addEventListener('pointerleave', stopHoldPan);
+            return;
+          }
+
           btn.addEventListener('click', () => {
             const zoneId = btn.dataset.zone;
-            const camCmd = btn.dataset.cam;
 
             if (zoneId) {
               this.selectZone(zoneId);
               return;
             }
 
-            if (camCmd === 'rot-left') {
+            if (camCmd === 'toggle-pan') {
+              const nextMode = this.sceneEngine.interactionMode === 'pan' ? 'orbit' : 'pan';
+              this.sceneEngine.setInteractionMode(nextMode);
+              const isPan = nextMode === 'pan';
+              btn.classList.toggle('active', isPan);
+              btn.textContent = isPan ? '✋ Pan: ON' : '✋ Pan: OFF';
+            } else if (camCmd === 'rot-left') {
               this.sceneEngine.rotateAzimuth(Math.PI / 6);
             } else if (camCmd === 'rot-right') {
               this.sceneEngine.rotateAzimuth(-Math.PI / 6);
