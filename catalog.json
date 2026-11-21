@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Stratum-TreeIndex Spatial Index for Multidimensional Bounding Boxes",
+    "language": "C++",
+    "folder": "cpp",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "cpp-systems-core",
+    "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261121_170112_stratum-treeindex_spatial_inde",
+    "source_file": "main",
+    "timestamp": "2026-11-21T17:01:29.606567+00:00",
+    "dir_name": "20261121_170112_stratum-treeindex_spatial_inde"
+  },
+  {
     "topic": "Verifying formal models of Raft implementations",
     "language": "Java",
     "folder": "java",
@@ -361,17 +372,6 @@
     "source_file": "main",
     "timestamp": "2026-11-19T05:02:47.272710+00:00",
     "dir_name": "20261119_050233_design_a_notification_system"
-  },
-  {
-    "topic": "Stratum-TreeIndex Spatial Index for Multidimensional Bounding Boxes",
-    "language": "Python",
-    "folder": "python",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "python-advanced-lab",
-    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261119_050134_stratum-treeindex_spatial_inde",
-    "source_file": "main",
-    "timestamp": "2026-11-19T05:01:48.761518+00:00",
-    "dir_name": "20261119_050134_stratum-treeindex_spatial_inde"
   },
   {
     "topic": "Advanced Algorithms",
