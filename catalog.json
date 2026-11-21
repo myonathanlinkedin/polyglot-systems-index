@@ -1,5 +1,27 @@
 [
   {
+    "topic": "Runge-Kutta 4th Order Numerical ODE Integrator",
+    "language": "C#",
+    "folder": "csharp",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "csharp-enterprise-lab",
+    "source_link": "https://github.com/myonathanlinkedin/csharp-enterprise-lab/tree/main/algorithms/20261121_230114_runge-kutta_4th_order_numerica",
+    "source_file": "main",
+    "timestamp": "2026-11-21T23:01:36.318362+00:00",
+    "dir_name": "20261121_230114_runge-kutta_4th_order_numerica"
+  },
+  {
+    "topic": "Aggron: Aggressive Compression of Agentic KV Caches during Head-of-Line Stalls in the",
+    "language": "Ruby",
+    "folder": "ruby",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "ruby-algorithms-lab",
+    "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261121_210255_aggron__aggressive_compression",
+    "source_file": "main",
+    "timestamp": "2026-11-21T21:03:09.431648+00:00",
+    "dir_name": "20261121_210255_aggron__aggressive_compression"
+  },
+  {
     "topic": "Fast Fourier Transform (Cooley-Tukey Radix-2) Signal Processing",
     "language": "C++",
     "folder": "cpp",
@@ -405,17 +427,6 @@
     "source_file": "main",
     "timestamp": "2026-11-19T03:02:56.150302+00:00",
     "dir_name": "20261119_030243_advanced_algorithms"
-  },
-  {
-    "topic": "Runge-Kutta 4th Order Numerical ODE Integrator",
-    "language": "Java",
-    "folder": "java",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "java-enterprise-patterns",
-    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261119_020110_runge-kutta_4th_order_numerica",
-    "source_file": "main",
-    "timestamp": "2026-11-19T02:01:25.215646+00:00",
-    "dir_name": "20261119_020110_runge-kutta_4th_order_numerica"
   },
   {
     "topic": "Sexp Matrix",
