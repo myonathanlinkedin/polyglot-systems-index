@@ -45,7 +45,7 @@
       }, true);
     })();
   </script>
-  <meta name="description" content="Interactive 3D Isometric Virtual Office depicting autonomous male and female engineers and research scientists working 24/7 on 560 verified modules and 233 research papers." />
+  <meta name="description" content="Interactive 3D Isometric Virtual Office depicting autonomous male and female engineers and research scientists working 24/7 on 561 verified modules and 233 research papers." />
   <meta name="author" content="Mateus Yonathan" />
   <link rel="canonical" href="https://myonathanlinkedin.github.io/office.html" />
   <link rel="icon" href="https://myonathanlinkedin.github.io/assets/avatar.png" type="image/png" />
@@ -639,7 +639,7 @@
       <span class="brand-pulse-dot" title="24/7 Agentic Autonomous Pipeline Active"></span>
       <span class="brand-title">MATEUS YONATHAN // LAB</span>
       <span class="ticker-sep mobile-hide-telemetry">•</span>
-      <span class="mobile-hide-telemetry">Mods: <strong id="stat-modules">560</strong></span>
+      <span class="mobile-hide-telemetry">Mods: <strong id="stat-modules">561</strong></span>
       <span class="ticker-sep mobile-hide-telemetry">•</span>
       <span class="mobile-hide-telemetry">Papers: <strong id="stat-papers">233</strong></span>
       <span class="ticker-sep">•</span>
@@ -696,7 +696,7 @@
         <button type="button" class="drawer-close" id="btn-close-office-help" title="Close Guide">✕</button>
       </div>
       <div style="font-size:0.82rem;line-height:1.65;color:#cbd5e1;display:grid;gap:9px;margin-top:8px;">
-        <p><strong>What Is This?</strong> Welcome to the interactive 3D exhibition space of the <strong>24/7 Agentic Autonomous Lab</strong>. This virtual studio showcases our 24/7 open-source software engineering and academic research publications (560 public modules &amp; 233 Research Papers) in real time.</p>
+        <p><strong>What Is This?</strong> Welcome to the interactive 3D exhibition space of the <strong>24/7 Agentic Autonomous Lab</strong>. This virtual studio showcases our 24/7 open-source software engineering and academic research publications (561 public modules &amp; 233 Research Papers) in real time.</p>
         <p><strong>7 Divisions You Can Visit:</strong><br/>
         • <strong>💻 Systems Architecture:</strong> Showcases newly released algorithms and data structures across 14 programming languages.<br/>
         • <strong>📄 Research Paper Wing:</strong> Displays published Research Papers and Mini-Papers with executive summaries and Scholar Preprints.<br/>
@@ -1155,6 +1155,170 @@ function buildFloorGridTexture(isLight = true, showRugs = true) {
   return tex;
 }
 
+function buildMechaFloorTexture(isLight = true) {
+  const canvas = document.createElement('canvas');
+  canvas.width = 1024;
+  canvas.height = 1024;
+  const ctx = canvas.getContext('2d');
+
+  // Aerospace Titanium Hangar Deck Base (Distinct Industrial Geometric Motif vs Main Marble Floor)
+  ctx.fillStyle = isLight ? '#cbd5e1' : '#0b1220';
+  ctx.fillRect(0, 0, 1024, 1024);
+
+  const cols = 6;
+  const rows = 10;
+  const stepX = 1024 / cols;
+  const stepY = 1024 / rows;
+
+  // 1. Interlocking Beveled Titanium Hangar Plates + Embossed Hex-Grid Micro-Motif
+  for (let gx = 0; gx < cols; gx++) {
+    for (let gy = 0; gy < rows; gy++) {
+      const tx = gx * stepX;
+      const ty = gy * stepY;
+      const alt = (gx + gy) % 2 === 0;
+
+      const grad = ctx.createLinearGradient(tx, ty, tx + stepX, ty + stepY);
+      if (isLight) {
+        if (alt) {
+          grad.addColorStop(0.0, '#eef2f7');
+          grad.addColorStop(0.5, '#e2e8f0');
+          grad.addColorStop(1.0, '#d5dee9');
+        } else {
+          grad.addColorStop(0.0, '#e5ebf4');
+          grad.addColorStop(0.5, '#d8e1ee');
+          grad.addColorStop(1.0, '#cbd6e6');
+        }
+      } else {
+        if (alt) {
+          grad.addColorStop(0.0, '#223047');
+          grad.addColorStop(0.5, '#192437');
+          grad.addColorStop(1.0, '#121b2b');
+        } else {
+          grad.addColorStop(0.0, '#1b273b');
+          grad.addColorStop(0.5, '#141e2f');
+          grad.addColorStop(1.0, '#0f1726');
+        }
+      }
+      ctx.fillStyle = grad;
+      ctx.fillRect(tx + 3, ty + 3, stepX - 6, stepY - 6);
+
+      // Diagonal brushed aerospace tread / hex-cell pattern inside each panel
+      ctx.save();
+      ctx.beginPath();
+      ctx.rect(tx + 5, ty + 5, stepX - 10, stepY - 10);
+      ctx.clip();
+
+      if (alt) {
+        // Subtle hexagonal honeycomb tech-mesh embossing
+        ctx.strokeStyle = isLight ? 'rgba(71, 85, 105, 0.16)' : 'rgba(56, 189, 248, 0.14)';
+        ctx.lineWidth = 1.2;
+        const r = 16;
+        const h = r * Math.sqrt(3);
+        for (let hx = tx - r; hx < tx + stepX + r; hx += r * 1.5) {
+          const colIdx = Math.round((hx - tx) / (r * 1.5));
+          const yOff = (colIdx % 2) * (h * 0.5);
+          for (let hy = ty - h; hy < ty + stepY + h; hy += h) {
+            ctx.beginPath();
+            for (let k = 0; k < 6; k++) {
+              const ang = (Math.PI / 3) * k;
+              const px = hx + r * 0.85 * Math.cos(ang);
+              const py = hy + yOff + r * 0.85 * Math.sin(ang);
+              if (k === 0) ctx.moveTo(px, py);
+              else ctx.lineTo(px, py);
+            }
+            ctx.closePath();
+            ctx.stroke();
+          }
+        }
+      } else {
+        // Precision diagonal industrial diamond-plate grip ribs
+        ctx.strokeStyle = isLight ? 'rgba(100, 116, 139, 0.18)' : 'rgba(239, 68, 68, 0.14)';
+        ctx.lineWidth = 1.6;
+        for (let d = -stepY; d < stepX + stepY; d += 18) {
+          ctx.beginPath();
+          ctx.moveTo(tx + d, ty + 6);
+          ctx.lineTo(tx + d + 14, ty + 20);
+          ctx.stroke();
+          ctx.beginPath();
+          ctx.moveTo(tx + d + 8, ty + stepY - 22);
+          ctx.lineTo(tx + d + 22, ty + stepY - 8);
+          ctx.stroke();
+        }
+      }
+      ctx.restore();
+
+      // Inner chamfer bevel highlight
+      ctx.strokeStyle = isLight ? 'rgba(255, 255, 255, 0.78)' : 'rgba(148, 163, 184, 0.22)';
+      ctx.lineWidth = 1.5;
+      ctx.strokeRect(tx + 4, ty + 4, stepX - 8, stepY - 8);
+
+      // 4 Machined Corner Hex Bolts per Titanium Deck Plate
+      const boltOff = 11;
+      const bPts = [
+        [tx + boltOff, ty + boltOff],
+        [tx + stepX - boltOff, ty + boltOff],
+        [tx + boltOff, ty + stepY - boltOff],
+        [tx + stepX - boltOff, ty + stepY - boltOff],
+      ];
+      ctx.fillStyle = isLight ? 'rgba(71, 85, 105, 0.50)' : 'rgba(148, 163, 184, 0.42)';
+      for (let b = 0; b < bPts.length; b++) {
+        ctx.beginPath();
+        ctx.arc(bPts[b][0], bPts[b][1], 3.0, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+  }
+
+  // 2. Recessed Hangar Structural Seams
+  ctx.strokeStyle = isLight ? 'rgba(51, 65, 85, 0.42)' : 'rgba(2, 6, 23, 0.85)';
+  ctx.lineWidth = 3.0;
+  for (let i = 0; i <= cols; i++) {
+    const px = i * stepX;
+    ctx.beginPath(); ctx.moveTo(px, 0); ctx.lineTo(px, 1024); ctx.stroke();
+  }
+  for (let j = 0; j <= rows; j++) {
+    const py = j * stepY;
+    ctx.beginPath(); ctx.moveTo(0, py); ctx.lineTo(1024, py); ctx.stroke();
+  }
+
+  // 3. Technical Conduit Channels & Catapult Bay Alignment Reticle
+  const bayCx = 1024 * 0.68;
+  const bayCy = 1024 * 0.47;
+  ctx.strokeStyle = isLight ? 'rgba(239, 68, 68, 0.34)' : 'rgba(248, 113, 113, 0.38)';
+  ctx.lineWidth = 4.0;
+  ctx.setLineDash([16, 10]);
+  ctx.beginPath();
+  ctx.arc(bayCx, bayCy, 195, 0, Math.PI * 2);
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  // Utility floor power conduits linking West desks to East Gundam Gantry
+  ctx.strokeStyle = isLight ? 'rgba(14, 116, 144, 0.32)' : 'rgba(56, 189, 248, 0.32)';
+  ctx.lineWidth = 3.5;
+  ctx.beginPath();
+  ctx.moveTo(160, 290); ctx.lineTo(bayCx - 140, 290); ctx.lineTo(bayCx - 70, bayCy);
+  ctx.moveTo(160, 770); ctx.lineTo(bayCx - 140, 770); ctx.lineTo(bayCx - 70, bayCy);
+  ctx.stroke();
+
+  // 4. Perimeter Hangar Caution Hazard Chevron Border (Industrial Robotics Aesthetic)
+  const margin = 20;
+  ctx.save();
+  ctx.strokeStyle = isLight ? 'rgba(220, 38, 38, 0.45)' : 'rgba(248, 113, 113, 0.50)';
+  ctx.lineWidth = 6;
+  ctx.strokeRect(margin, margin, 1024 - margin * 2, 1024 - margin * 2);
+  ctx.strokeStyle = isLight ? 'rgba(245, 158, 11, 0.45)' : 'rgba(251, 191, 36, 0.45)';
+  ctx.lineWidth = 4;
+  ctx.setLineDash([22, 18]);
+  ctx.strokeRect(margin + 10, margin + 10, 1024 - (margin + 10) * 2, 1024 - (margin + 10) * 2);
+  ctx.setLineDash([]);
+  ctx.restore();
+
+  const tex = new THREE.CanvasTexture(canvas);
+  tex.colorSpace = THREE.SRGBColorSpace;
+  tex.anisotropy = 4;
+  return tex;
+}
+
 function drawBox(ctx, x, y, w, h, r, fill, stroke, strokeW) {
   ctx.beginPath();
   if (ctx.roundRect) {
@@ -1513,53 +1677,63 @@ class BillboardHUDAnimator {
     const curShift = this.shifts[curIdx];
     const nextShift = this.shifts[nextIdx];
 
-    // Card A: CURRENT SHIFT (ON-DUTY)
+    // Card A: CURRENT SHIFT (ON-DUTY — ALL 7 DIVISIONS INCLUDING 2 GUNDAM/MECHA ENGINEERS)
     const cAX = 918, cAY = 18, cAW = 646, cAH = 192;
     drawBox(ctx, cAX, cAY, cAW, cAH, 10, 'rgba(6, 78, 59, 0.65)', '#10b981', 2.2);
 
     // Badge Header
-    drawBox(ctx, cAX + 14, cAY + 10, cAW - 28, 34, 7, 'rgba(16, 185, 129, 0.35)', '#34d399', 1.4);
+    drawBox(ctx, cAX + 14, cAY + 8, cAW - 28, 30, 7, 'rgba(16, 185, 129, 0.35)', '#34d399', 1.4);
     ctx.fillStyle = '#ffffff';
-    ctx.font = '900 17px monospace';
-    ctx.fillText('🕒 ON-DUTY • SHIFT ' + curShift.id + '/4: ' + curShift.name.toUpperCase() + ' (' + curShift.hours + ')', cAX + 24, cAY + 33);
+    ctx.font = '900 16px monospace';
+    ctx.fillText('🕒 ON-DUTY • SHIFT ' + curShift.id + '/4: ' + curShift.name.toUpperCase() + ' (' + curShift.hours + ')', cAX + 22, cAY + 28);
 
-    // Active Engineer Names
+    // Active Engineer Names (Row 1: Leads, Row 2: Core Team, Row 3: 2 Gundam/Mecha Specialists)
     ctx.fillStyle = '#ffffff';
-    ctx.font = 'bold 19px system-ui, -apple-system, sans-serif';
-    ctx.fillText('👤 ' + curShift.team[0] + '   •   👤 ' + curShift.team[1], cAX + 22, cAY + 78);
+    ctx.font = 'bold 17.5px system-ui, -apple-system, sans-serif';
+    ctx.fillText('👤 ' + curShift.team[0] + '   •   👤 ' + curShift.team[1], cAX + 20, cAY + 62);
     ctx.fillStyle = '#e2e8f0';
-    ctx.font = 'bold 16px system-ui, -apple-system, sans-serif';
-    ctx.fillText('👤 ' + curShift.team[2] + '   •   👤 ' + curShift.team[3] + (curShift.team[4] ? '   •   👤 ' + curShift.team[4] : ''), cAX + 22, cAY + 116);
+    ctx.font = 'bold 15px system-ui, -apple-system, sans-serif';
+    ctx.fillText('👤 ' + curShift.team[2] + '  •  👤 ' + curShift.team[3] + (curShift.team[4] ? '  •  👤 ' + curShift.team[4] : ''), cAX + 20, cAY + 89);
+    if (curShift.team[5] || curShift.team[6]) {
+      ctx.fillStyle = '#fca5a5';
+      ctx.font = 'bold 15.5px system-ui, -apple-system, sans-serif';
+      ctx.fillText('🤖 ' + (curShift.team[5] || '') + (curShift.team[6] ? '   •   🤖 ' + curShift.team[6] : '') + '  [GUNDAM BAY]', cAX + 20, cAY + 117);
+    }
 
     // Verification status with green light
-    drawBox(ctx, cAX + 14, cAY + 140, cAW - 28, 38, 7, 'rgba(15, 23, 42, 0.70)', '#059669', 1.4);
+    drawBox(ctx, cAX + 14, cAY + 136, cAW - 28, 38, 7, 'rgba(15, 23, 42, 0.70)', '#059669', 1.4);
     ctx.fillStyle = '#34d399';
-    ctx.font = 'bold 15px monospace';
-    ctx.fillText('🟢 100% ATTENDED • BIOMETRIC FINGERPRINT VERIFIED', cAX + 26, cAY + 164);
+    ctx.font = 'bold 14.5px monospace';
+    ctx.fillText('🟢 7/7 ATTENDED • BIOMETRIC FINGERPRINT VERIFIED', cAX + 24, cAY + 160);
 
-    // Card B: NEXT ROTATION (STANDBY)
+    // Card B: NEXT ROTATION (STANDBY — ALL 7 DIVISIONS INCLUDING 2 GUNDAM/MECHA ENGINEERS)
     const cBX = 1580, cBY = 18, cBW = 646, cBH = 192;
     drawBox(ctx, cBX, cBY, cBW, cBH, 10, 'rgba(30, 58, 138, 0.55)', '#38bdf8', 2.2);
 
     // Badge Header
-    drawBox(ctx, cBX + 14, cBY + 10, cBW - 28, 34, 7, 'rgba(56, 189, 248, 0.30)', '#7dd3fc', 1.4);
+    drawBox(ctx, cBX + 14, cBY + 8, cBW - 28, 30, 7, 'rgba(56, 189, 248, 0.30)', '#7dd3fc', 1.4);
     ctx.fillStyle = '#ffffff';
-    ctx.font = '900 17px monospace';
-    ctx.fillText('⏭ UPCOMING • SHIFT ' + nextShift.id + '/4: ' + nextShift.name.toUpperCase() + ' (' + nextShift.hours + ')', cBX + 24, cBY + 33);
+    ctx.font = '900 16px monospace';
+    ctx.fillText('⏭ UPCOMING • SHIFT ' + nextShift.id + '/4: ' + nextShift.name.toUpperCase() + ' (' + nextShift.hours + ')', cBX + 22, cBY + 28);
 
-    // Standby Engineer Names
+    // Standby Engineer Names (Row 1: Leads, Row 2: Core Team, Row 3: 2 Gundam/Mecha Specialists)
     ctx.fillStyle = '#ffffff';
-    ctx.font = 'bold 19px system-ui, -apple-system, sans-serif';
-    ctx.fillText('⏳ ' + nextShift.team[0] + '   •   ⏳ ' + nextShift.team[1], cBX + 22, cBY + 78);
+    ctx.font = 'bold 17.5px system-ui, -apple-system, sans-serif';
+    ctx.fillText('⏳ ' + nextShift.team[0] + '   •   ⏳ ' + nextShift.team[1], cBX + 20, cBY + 62);
     ctx.fillStyle = '#cbd5e1';
-    ctx.font = 'bold 16px system-ui, -apple-system, sans-serif';
-    ctx.fillText('⏳ ' + nextShift.team[2] + '   •   ⏳ ' + nextShift.team[3] + (nextShift.team[4] ? '   •   ⏳ ' + nextShift.team[4] : ''), cBX + 22, cBY + 116);
+    ctx.font = 'bold 15px system-ui, -apple-system, sans-serif';
+    ctx.fillText('⏳ ' + nextShift.team[2] + '  •  ⏳ ' + nextShift.team[3] + (nextShift.team[4] ? '  •  ⏳ ' + nextShift.team[4] : ''), cBX + 20, cBY + 89);
+    if (nextShift.team[5] || nextShift.team[6]) {
+      ctx.fillStyle = '#fde68a';
+      ctx.font = 'bold 15.5px system-ui, -apple-system, sans-serif';
+      ctx.fillText('🤖 ' + (nextShift.team[5] || '') + (nextShift.team[6] ? '   •   🤖 ' + nextShift.team[6] : '') + '  [GUNDAM BAY]', cBX + 20, cBY + 117);
+    }
 
     // Verification status
-    drawBox(ctx, cBX + 14, cBY + 140, cBW - 28, 38, 7, 'rgba(15, 23, 42, 0.70)', '#0284c7', 1.4);
+    drawBox(ctx, cBX + 14, cBY + 136, cBW - 28, 38, 7, 'rgba(15, 23, 42, 0.70)', '#0284c7', 1.4);
     ctx.fillStyle = '#7dd3fc';
-    ctx.font = 'bold 15px monospace';
-    ctx.fillText('🕒 DETERMINISTIC ROTATION • NOT RANDOM', cBX + 26, cBY + 164);
+    ctx.font = 'bold 14.5px monospace';
+    ctx.fillText('🕒 7-DIVISION DETERMINISTIC ROTATION • 24/7 OPS', cBX + 24, cBY + 160);
 
     // 7. SECTION 3: 3 METRIC BOXES (FULL HEIGHT & EXPANDED) (x: 2244 to 2760)
     const divX = 2242;
@@ -1738,8 +1912,6 @@ class CutawayRoomBuilder {
     shellParts.push(createColoredPart(new THREE.BoxGeometry(7.2, 0.36, 12.0), '#cbd5e1', 12.6, -0.19, -1.5));
     shellParts.push(createColoredPart(new THREE.BoxGeometry(7.36, 0.08, 12.16), '#94a3b8', 12.6, -0.35, -1.5));
     shellParts.push(createColoredPart(new THREE.BoxGeometry(7.0, 0.024, 11.8), '#1e293b', 12.6, 0.012, -1.5));
-    // Hangar metallic tactical deck inlay
-    shellParts.push(createColoredPart(new THREE.BoxGeometry(6.6, 0.028, 11.4), '#f1f5f9', 12.6, 0.016, -1.5));
     // North Cutaway Wall for Mecha Wing (-Z = -7.5) with Panoramic Ribbon Window
     shellParts.push(createColoredPart(new THREE.BoxGeometry(7.2, 1.15, T), '#f8fafc', 12.6, 0.575, -7.5));
     shellParts.push(createColoredPart(new THREE.BoxGeometry(7.2, 0.85, T), '#f8fafc', 12.6, H - 0.425, -7.5));
@@ -1776,6 +1948,19 @@ class CutawayRoomBuilder {
     floorMesh.position.y = 0.005;
     floorMesh.receiveShadow = true;
     scene.add(floorMesh);
+
+    // East Wing C: Custom Aerospace Titanium Hex-Grid & Industrial Hangar Deck Floor (Distinct Motif vs Main Marble!)
+    const mechaFloorGeo = new THREE.PlaneGeometry(6.92, 11.72);
+    mechaFloorGeo.rotateX(-Math.PI / 2);
+    const mechaFloorMat = new THREE.MeshStandardMaterial({
+      map: buildMechaFloorTexture(true),
+      roughness: 0.42,
+      metalness: 0.22,
+    });
+    const mechaFloorMesh = new THREE.Mesh(mechaFloorGeo, mechaFloorMat);
+    mechaFloorMesh.position.set(12.6, 0.029, -1.5);
+    mechaFloorMesh.receiveShadow = true;
+    scene.add(mechaFloorMesh);
 
     // Floor Zone Box Plates for Telescope Garden, Floor 2 God's Eye Deck & Ground Bunker
     const makeZonePlate = (w, d, fill, stroke, title, isL) => {
@@ -1818,10 +2003,10 @@ class CutawayRoomBuilder {
     const gndZone = makeZonePlate(5.2, 3.8, gndFill, 'rgba(5, 150, 105, 0.50)', 'GROUND HARDWARE & GPU SERVER LAB', isLight);
     gndZone.position.set(-4.6, 0.030, 12.80);
     scene.add(gndZone);
-    // 4. Zone 10: Right-Side 3D Gundam & Mecha Robotics Hangar Wing Floor Plate
-    const mechaFill = isLight ? 'rgba(254, 226, 226, 0.24)' : 'rgba(153, 27, 27, 0.20)';
+    // 4. Zone 10: Right-Side 3D Gundam & Mecha Robotics Hangar Wing Floor Plate (ultra-light tint so titanium hex-grid motif shines!)
+    const mechaFill = isLight ? 'rgba(239, 68, 68, 0.06)' : 'rgba(153, 27, 27, 0.08)';
     const mechaZone = makeZonePlate(6.6, 11.4, mechaFill, 'rgba(239, 68, 68, 0.58)', '3D GUNDAM & MECHA ROBOTICS HANGAR', isLight);
-    mechaZone.position.set(12.6, 0.034, -1.30);
+    mechaZone.position.set(12.6, 0.036, -1.30);
     scene.add(mechaZone);
     const zonePlates = [teleZone, godsZone, gndZone, mechaZone];
 
@@ -1898,7 +2083,7 @@ class CutawayRoomBuilder {
     );
     scene.add(glassMesh);
 
-    return { floorMat, shellMesh, zonePlates, billboardAnimator };
+    return { floorMat, mechaFloorMat, shellMesh, zonePlates, billboardAnimator };
   }
 }
 
@@ -2052,6 +2237,12 @@ class IsometricSceneEngine {
       this.roomHandles.floorMat.map = buildFloorGridTexture(this.isLightTheme, this.isFloorRugsVisible);
       this.roomHandles.floorMat.needsUpdate = true;
       if (oldMap) oldMap.dispose();
+    }
+    if (this.roomHandles && this.roomHandles.mechaFloorMat) {
+      const oldMechaMap = this.roomHandles.mechaFloorMat.map;
+      this.roomHandles.mechaFloorMat.map = buildMechaFloorTexture(this.isLightTheme);
+      this.roomHandles.mechaFloorMat.needsUpdate = true;
+      if (oldMechaMap) oldMechaMap.dispose();
     }
     return this.isLightTheme;
   }
@@ -3647,6 +3838,29 @@ class OfficeAnimationEngine {
     const isStartSofa = (Math.abs(startPos[2] - 2.32) < 0.25 && Math.abs(startPos[0]) < 1.15);
     const isEndSofa = (Math.abs(endPos[2] - 2.32) < 0.25 && Math.abs(endPos[0]) < 1.15);
 
+    // Clean portal corridor routing when crossing between Main Office (X < 8.8) and East Gundam Wing (X > 9.0)
+    const startInMechaWing = startPos[0] > 9.0;
+    const endInMechaWing = endPos[0] > 9.0;
+    if (startInMechaWing !== endInMechaWing) {
+      const portalX = 9.0;
+      const portalZ = -0.45; // Wide open center of East Portal Archway (clears desks at Z=-3.75 and Z=+2.65)
+      const midAisleX = startInMechaWing ? 9.65 : 3.25;
+      const destAisleX = endInMechaWing ? 9.65 : (endPos[0] < 0 ? -3.55 : 3.25);
+      if (p < 0.24) {
+        const t = p / 0.24;
+        return [startPos[0] + (midAisleX - startPos[0]) * t, startPos[2] + (portalZ - startPos[2]) * t];
+      } else if (p < 0.52) {
+        const t = (p - 0.24) / 0.28;
+        return [midAisleX + (portalX - midAisleX) * t, portalZ];
+      } else if (p < 0.78) {
+        const t = (p - 0.52) / 0.26;
+        return [portalX + (destAisleX - portalX) * t, portalZ + (endPos[2] - portalZ) * t];
+      } else {
+        const t = (p - 0.78) / 0.22;
+        return [destAisleX + (endPos[0] - destAisleX) * t, endPos[2]];
+      }
+    }
+
     // Deflect East Aisle in North sector to x = 3.65 (guaranteeing > 0.60m clearance from Water Dispenser at x = 2.82)
     const aisleStartX = startPos[0] < 0 ? -3.55 : (startPos[2] < -3.5 ? 3.65 : 3.25);
     const aisleEndX = endPos[0] < 0 ? -3.55 : (endPos[2] < -3.5 ? 3.65 : 3.25);
@@ -3767,12 +3981,20 @@ class OfficeAnimationEngine {
         const catHighTech = [];
         const catDesk = [];
         const catAmenities = [];
-        const catMecha = [];
+        const catMechaBay = [];
+        const catMechaCross = [];
 
         for (let idx = 0; idx < discCount; idx++) {
-          const name = discList[idx].spot_name || '';
+          const d = discList[idx];
+          const name = d.spot_name || '';
+          const involvesMecha = (
+            d.speaker_a === 'worker_mecha' || d.speaker_b === 'worker_mecha' || d.speaker_c === 'worker_mecha' ||
+            d.speaker_a === 'worker_mecha_rig' || d.speaker_b === 'worker_mecha_rig' || d.speaker_c === 'worker_mecha_rig'
+          );
           if (name.includes('Gundam') || name.includes('Mecha') || name.includes('Zone 10')) {
-            catMecha.push(idx);
+            catMechaBay.push(idx);
+          } else if (involvesMecha) {
+            catMechaCross.push(idx);
           } else if (name.includes('War-Room') || name.includes('Bundaran') || name.includes('Round Table') || name.includes('Sofa')) {
             catMeeting.push(idx);
           } else if (name.includes("God's Eye") || name.includes('Server Diagnostic') || name.includes('GPU') || name.includes('Bunker')) {
@@ -3796,13 +4018,15 @@ class OfficeAnimationEngine {
         shuffleList(catHighTech);
         shuffleList(catDesk);
         shuffleList(catAmenities);
-        shuffleList(catMecha);
+        shuffleList(catMechaBay);
+        shuffleList(catMechaCross);
 
         const interleaved = [];
-        const maxLen = Math.max(catMeeting.length, catHighTech.length, catDesk.length, catAmenities.length, catMecha.length);
+        const maxLen = Math.max(catMeeting.length, catHighTech.length, catDesk.length, catAmenities.length, catMechaBay.length, catMechaCross.length);
         for (let i = 0; i < maxLen; i++) {
           const roundCats = [];
-          if (catMecha.length > 0) roundCats.push(catMecha[i % catMecha.length]);
+          if (catMechaBay.length > 0) roundCats.push(catMechaBay[i % catMechaBay.length]);
+          if (catMechaCross.length > 0) roundCats.push(catMechaCross[i % catMechaCross.length]);
           if (catMeeting.length > 0) roundCats.push(catMeeting[i % catMeeting.length]);
           if (catHighTech.length > 0) roundCats.push(catHighTech[i % catHighTech.length]);
           if (catDesk.length > 0) roundCats.push(catDesk[i % catDesk.length]);
@@ -6706,23 +6930,35 @@ class LabBossaAudioEngine {
         worker_mecha: 'Kenji',
         worker_mecha_rig: 'Reina',
       };
-      const nameReplacements = {};
-      for (const [wid, defName] of Object.entries(defaultNames)) {
-        if (activeRoster[wid]) {
-          const cleanName = activeRoster[wid].name.replace(/^Dr[.][ ]*/, '');
-          nameReplacements[defName] = cleanName.split(' ')[0];
-        }
-      }
-      if (payload.daily_discussions) {
-        for (const disc of payload.daily_discussions) {
-          for (const [oldN, newN] of Object.entries(nameReplacements)) {
-            if (oldN !== newN) {
-              if (disc.line_a) disc.line_a = disc.line_a.split(oldN).join(newN);
-              if (disc.line_b) disc.line_b = disc.line_b.split(oldN).join(newN);
-            }
+      const applyDiscussionShiftNames = (rosterObj, targetDiscs) => {
+        const nameReplacements = {};
+        for (const [wid, defName] of Object.entries(defaultNames)) {
+          if (rosterObj[wid]) {
+            const cleanName = rosterObj[wid].name.replace(/^Dr[.][ ]*/, '');
+            nameReplacements[defName] = cleanName.split(' ')[0];
           }
         }
-      }
+        const allDiscs = Array.isArray(targetDiscs) ? targetDiscs : (payload.daily_discussions || []);
+        for (const disc of allDiscs) {
+          if (disc._raw_line_a === undefined && disc.line_a) disc._raw_line_a = disc.line_a;
+          if (disc._raw_line_b === undefined && disc.line_b) disc._raw_line_b = disc.line_b;
+          if (disc._raw_line_c === undefined && disc.line_c) disc._raw_line_c = disc.line_c;
+          let la = disc._raw_line_a || disc.line_a || '';
+          let lb = disc._raw_line_b || disc.line_b || '';
+          let lc = disc._raw_line_c || disc.line_c || '';
+          for (const [oldN, newN] of Object.entries(nameReplacements)) {
+            if (oldN !== newN) {
+              if (la) la = la.split(oldN).join(newN);
+              if (lb) lb = lb.split(oldN).join(newN);
+              if (lc) lc = lc.split(oldN).join(newN);
+            }
+          }
+          if (disc.line_a) disc.line_a = la;
+          if (disc.line_b) disc.line_b = lb;
+          if (disc.line_c) disc.line_c = lc;
+        }
+      };
+      applyDiscussionShiftNames(activeRoster, payload.daily_discussions);
       const hwWorker = workers.find((w) => w.id === 'worker_hardware') || {};
 
       const sceneEngine = new IsometricSceneEngine(canvas, spatialCfg);
@@ -6811,6 +7047,9 @@ class LabBossaAudioEngine {
           }
         }
 
+        // Re-sync discussion speech lines with new shift roster names (including 2 Mecha specialists)
+        applyDiscussionShiftNames(curRoster, animEngine ? animEngine.dailyDiscussions : payload.daily_discussions);
+
         // Instantly update character outfits to current shift's colors
         StylizedCharacterFactory.applyShiftOutfit(characterBundle, activeShiftIdx);
         if (sceneEngine.billboardAnimator) {
@@ -6872,9 +7111,9 @@ class LabBossaAudioEngine {
           if (items.length === 0) return;
 
           const spots = [
-            { name: 'Center War-Room Table', spot_pos: [0, 0, -1.65], pos_a: [0, 0, -2.95], pos_b: [-1.32, 0, -1.65], pos_c: [1.32, 0, -1.65], rot_a: 0.0, rot_b: 1.5708, rot_c: -1.5708, posture: 'seated', speaker_a: 'worker_lounge', speaker_b: 'worker_kernel', speaker_c: 'worker_research' },
-            { name: 'Executive Lounge Sofa', spot_pos: [0, 0, 2.32], pos_a: [-0.60, 0, 2.32], pos_b: [0, 0, 2.32], pos_c: [0.60, 0, 2.32], rot_a: 3.1416, rot_b: 3.1416, rot_c: 3.1416, posture: 'seated', speaker_a: 'worker_hardware', speaker_b: 'worker_lounge', speaker_c: 'worker_release' },
-            { name: 'Espresso & Smoothie Bar', spot_pos: [-0.30, 0, -4.51], pos_a: [-1.35, 0, -4.51], pos_b: [0.75, 0, -4.51], rot_a: 3.05, rot_b: 3.23, posture: 'seated_stool', speaker_a: 'worker_lounge', speaker_b: 'worker_release' }
+            { name: 'Center War-Room Table', spot_pos: [0, 0, -1.65], pos_a: [0, 0, -2.95], pos_b: [-1.32, 0, -1.65], pos_c: [1.32, 0, -1.65], rot_a: 0.0, rot_b: 1.5708, rot_c: -1.5708, posture: 'seated', speaker_a: 'worker_lounge', speaker_b: 'worker_kernel', speaker_c: 'worker_mecha' },
+            { name: 'Executive Lounge Sofa', spot_pos: [0, 0, 2.32], pos_a: [-0.60, 0, 2.32], pos_b: [0, 0, 2.32], pos_c: [0.60, 0, 2.32], rot_a: 3.1416, rot_b: 3.1416, rot_c: 3.1416, posture: 'seated', speaker_a: 'worker_hardware', speaker_b: 'worker_mecha_rig', speaker_c: 'worker_release' },
+            { name: 'Zone 10: Giant RX-78 Gundam Gantry Bay', spot_pos: [12.35, 0, -1.80], pos_a: [11.95, 0, -2.55], pos_b: [11.85, 0, -1.05], rot_a: 1.15, rot_b: 1.85, posture: 'mecha_gantry_calibration', speaker_a: 'worker_mecha', speaker_b: 'worker_research' }
           ];
 
           const liveDiscs = items.map((story, idx) => {
