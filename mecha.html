@@ -7,11 +7,11 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
-  <title>Mateus Yonathan | 3D Gundam-Like Mecha Hangar — 8-Zone Full-Body Gunpla Customization Lab</title>
+  <title>Mateus Yonathan | Agentic Autonomous Mecha Kits — 3D Engineering Hangar</title>
   <meta name="description"
-    content="Interactive 3D Gundam-Like Mecha Engineering Hangar by Mateus Yonathan. Full-body 8-zone modular Gunpla customization (Head, Chest, Shoulders, Backpack, Weapons, Shield, Waist Railguns, Leg Boosters), physical snap-fit adapters with KLIK lock mechanics, and live 60fps kinematic combat stances." />
+    content="Interactive Agentic Autonomous Mecha Kits 3D Engineering Hangar by Mateus Yonathan. Full-body 8-zone modular Gunpla customization (Head, Chest, Shoulders, Backpack, Weapons, Shield, Waist Binders, Leg Boosters), physical snap-fit adapters with KLIK lock mechanics, and live 60fps kinematic combat stances." />
   <meta name="keywords"
-    content="Mateus Yonathan, Gundam-Like Mecha Hangar, 3D WebGL Three.js, Full-Body Gunpla Customization, Autonomous Agentic CAD, UHIS 26-Station Hardpoints, Systems Engineering Lab" />
+    content="Mateus Yonathan, Agentic Autonomous Mecha Kits, Gundam-Like Mecha Hangar, 3D WebGL Three.js, Full-Body Gunpla Customization, Autonomous Agentic CAD, UHIS 26-Station Hardpoints, Systems Engineering Lab" />
   <meta name="author" content="Mateus Yonathan" />
   <meta name="application-name" content="Mateus Yonathan" />
   <link rel="canonical" href="https://myonathanlinkedin.github.io/mecha.html" />
@@ -23,15 +23,15 @@
   <meta property="og:site_name" content="Mateus Yonathan" />
   <meta property="og:url" content="https://myonathanlinkedin.github.io/mecha.html" />
   <meta property="og:title"
-    content="Mateus Yonathan | 3D Gundam-Like Mecha Hangar — 8-Zone Full-Body Customization Lab" />
+    content="Mateus Yonathan | Agentic Autonomous Mecha Kits — 3D Engineering Hangar" />
   <meta property="og:description"
-    content="Autonomous 3D Gundam-Like Mecha Engineering Hangar featuring full-body 8-zone Gunpla snap-fit adapters, smooth Auto-Normal Mobile Suits, zero-duplicate agentic synthesis, and 60fps combat stances." />
+    content="Agentic Autonomous Mecha Kits 3D Engineering Hangar featuring full-body 8-zone Gunpla snap-fit adapters, smooth Auto-Normal Mobile Suits, zero-duplicate agentic synthesis, and 60fps combat stances." />
   <meta property="og:image" content="https://myonathanlinkedin.github.io/assets/avatar.png" />
-  <meta property="og:image:alt" content="Mateus Yonathan — 3D Gundam-Like Mecha Hangar" />
+  <meta property="og:image:alt" content="Mateus Yonathan — Agentic Autonomous Mecha Kits" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://myonathanlinkedin.github.io/mecha.html" />
-  <meta name="twitter:title" content="Mateus Yonathan | 3D Gundam-Like Mecha Hangar" />
+  <meta name="twitter:title" content="Mateus Yonathan | Agentic Autonomous Mecha Kits" />
   <meta name="twitter:description"
     content="Autonomous 3D Gundam-Like Mecha Hangar by Mateus Yonathan with 8-zone full-body Gunpla snap-fit customization and 26-station UHIS kitbashing." />
   <meta name="twitter:image" content="https://myonathanlinkedin.github.io/assets/avatar.png" />
@@ -229,13 +229,13 @@
 
     .glass-hud {
       background: var(--bg-panel);
-      backdrop-filter: blur(18px) saturate(180%);
-      -webkit-backdrop-filter: blur(18px) saturate(180%);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       border: 1px solid var(--border-panel);
       border-radius: 12px;
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.07);
       pointer-events: auto;
-      transition: transform 0.34s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.28s ease, width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.24s ease, width 0.26s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     /* Hidden panel utility states for Show/Hide & Show/Hide All */
@@ -750,28 +750,20 @@
       font-size: 11px;
     }
 
-    /* 8-Zone Body Customization Filter Chips */
+    /* 8-Zone Body Customization Filter Chips — Crisp Multi-Row Wrap (Zero Stiff Horizontal Scroll!) */
     .category-chips-scroll {
       display: flex;
+      flex-wrap: wrap;
       gap: 4px;
-      overflow-x: auto;
-      padding-bottom: 3px;
-    }
-
-    .category-chips-scroll::-webkit-scrollbar {
-      height: 3px;
-    }
-
-    .category-chips-scroll::-webkit-scrollbar-thumb {
-      background: rgba(0, 229, 255, 0.3);
-      border-radius: 3px;
+      overflow: visible;
+      padding-bottom: 2px;
     }
 
     .cat-chip {
       font-family: var(--font-mono);
-      font-size: 8.6px;
+      font-size: 8.3px;
       font-weight: 700;
-      padding: 3px 6px;
+      padding: 3.5px 6px;
       border-radius: 5px;
       border: 1px solid rgba(255, 255, 255, 0.1);
       background: rgba(0, 0, 0, 0.35);
@@ -779,6 +771,7 @@
       cursor: pointer;
       white-space: nowrap;
       transition: all 0.15s;
+      flex: 0 1 auto;
     }
 
     .cat-chip.active {
@@ -1600,16 +1593,90 @@
     }
 
     /* Mobile & Tablet Ergonomic Layout — Zero Bottom Overlap Guarantee */
+    /* Mobile & Tablet Ergonomic Layout — Sleek 2-Row Top Bar + Zero Bottom Overlap */
     @media (max-width: 960px) {
       #nav-header {
         top: 8px;
         left: 8px;
         right: 8px;
         max-width: none;
+        display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+        align-items: center;
+        justify-content: flex-start;
         padding: 6px 8px;
         gap: 4px 6px;
+        gap: 5px 5px;
+      }
+
+      #nav-header .nav-sep {
+        display: none;
+      }
+
+      #nav-header .nav-mobile-break {
+        display: block !important;
+        order: 4;
+        flex: 0 0 100%;
+        height: 0;
+      }
+
+      #nav-header .brand-title {
+        order: 1;
+        flex: 1 1 0;
+        min-width: 0;
+        gap: 4px;
+        font-size: 7.0px;
+        letter-spacing: 0.1px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      #nav-header .brand-title .status-orb {
+        width: 5px;
+        height: 5px;
+        flex-shrink: 0;
+      }
+
+      #nav-header .nav-home-btn {
+        order: 2;
+        padding: 3px 6px;
+        font-size: 8.2px;
+      }
+
+      #nav-header #btn-hide-top {
+        order: 3;
+        width: 22px;
+        height: 22px;
+      }
+
+      #nav-header #nav-3d-pages {
+        order: 5;
+        flex: 1 1 0;
+        min-width: 0;
+        padding: 3.5px 5px;
+        font-size: 8.1px;
+      }
+
+      #nav-header #btn-open-guide {
+        order: 6;
+        padding: 3.5px 5px;
+        font-size: 8.1px;
+      }
+
+      #nav-header #btn-bgm-toggle {
+        order: 7;
+        padding: 3.5px 5px;
+        font-size: 8.1px;
+      }
+
+      #nav-header #btn-bgm-track {
+        order: 8;
+        padding: 3.5px 5px;
+        font-size: 8.1px;
+        max-width: 78px;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
 
       #btn-restore-top {
@@ -1720,15 +1787,16 @@
   <!-- Top-Left Clean Navigation: Author Brand + Main Page + 3D Pages Dropdown + Guide + Battle BGM + Close ✕ -->
   <header id="nav-header" class="glass-hud">
     <a href="https://github.com/myonathanlinkedin" target="_blank" rel="noopener noreferrer" class="brand-title"
-      title="Mateus Yonathan — Agentic Autonomous Systems Lab">
+      title="Mateus Yonathan — Agentic Autonomous Mecha Kits & 3D Engineering Lab">
       <span class="status-orb"></span>
-      <span>MATEUS YONATHAN <span class="sep-slash">//</span> <span class="accent">MECHA HANGAR</span></span>
+      <span>MATEUS YONATHAN <span class="sep-slash">//</span> <span class="accent">AGENTIC AUTONOMOUS KITS</span></span>
     </a>
     <span class="nav-sep"></span>
     <a href="index.html" class="nav-home-btn" title="Return to Main Portfolio Page">🏠 Main Page</a>
+    <span class="nav-mobile-break" style="display:none;"></span>
     <select id="nav-3d-pages" class="nav-select" aria-label="Switch 3D Interactive Pages"
       onchange="if(this.value){window.location.href=this.value;}">
-      <option value="" selected>🤖 3D Gundam-Like Hangar</option>
+      <option value="" selected>🤖 3D Agentic Mecha Kits</option>
       <option value="office.html">🏢 3D Virtual Office (24/7)</option>
       <option value="constellation.html">🌌 3D Knowledge Constellation</option>
     </select>
@@ -1748,7 +1816,7 @@
           <div>
             <div
               style="font-family:var(--font-display);font-size:13px;font-weight:800;color:var(--accent-cyan);letter-spacing:1.2px;">
-              AUTONOMOUS 3D GUNDAM-LIKE ENGINEERING HANGAR
+              AGENTIC AUTONOMOUS MECHA KITS HANGAR
             </div>
             <div style="font-family:var(--font-mono);font-size:9.3px;color:var(--text-muted);margin-top:2px;">
               FULL-BODY 8-ZONE GUNPLA SNAP-FIT ADAPTERS • ZERO-DUPLICATE AGENTIC SYNTHESIS • 60FPS COMBAT RIG
@@ -1776,16 +1844,16 @@
         </div>
         <div class="guide-card">
           <h4>⚔️ UNIFIED HERO &amp; ZEON MONO-EYE ROSTER</h4>
-          <p>Cohesive Auto-Smooth Gundam-Universe roster: Federation Hero <strong>RX-78 VANGUARD</strong> alongside
+          <p>Cohesive Auto-Smooth Mecha-Universe roster: Federation Hero <strong>RX-78 VANGUARD</strong> alongside
             authentic Zeon &amp; Neo-Zeon Mono-Eye enemies (<strong>MS-06Z Zaku-II</strong>, <strong>MS-07B
               Gouf</strong>, <strong>MSN-04S Sazabi</strong>) — all rigged with 11 kinematic bones and 6 live combat
             stances.</p>
         </div>
         <div class="guide-card">
-          <h4>🧬 AGENTIC ZERO-DUPLICATE SYNTHESIZER</h4>
-          <p>Every catalog part carries a unique SHA-256 cryptographic seed and parametric CAD genome. Click <strong>🧬
-              +AGENT SYNTH</strong> anytime to autonomously compile a brand-new, non-duplicate 3D modular part in real
-            time.</p>
+          <h4>🎲 1-CLICK RANDOM TACTICAL BUILD</h4>
+          <p>Click <strong>🎲 RANDOM BUILD</strong> anytime to automatically assemble a fresh multi-zone combat
+            loadout (mixing Aero, Heavy Siege, Psycho-Fin, CQC Breacher, or Recon builds) paired with a matching
+            60fps combat stance.</p>
         </div>
         <div class="guide-card">
           <h4>✕ PANEL CLOSE &amp; CINEMA HUD CONTROLS</h4>
@@ -1818,14 +1886,14 @@
   <!-- Left Drawer: Unified 4-Unit Roster + 8-Zone Full-Body Snap-Fit Modular Parts Catalog -->
   <aside id="left-drawer" class="glass-hud">
     <div class="drawer-title">
-      <span>GUNDAM-UNIVERSE ROSTER (4 UNITS)</span>
+      <span>MECHA-UNIVERSE ROSTER (4 UNITS)</span>
       <div class="title-actions">
         <button id="btn-toggle-drawer-size" class="icon-toggle-btn" title="Expand / Compact Grid">⛶</button>
         <button id="btn-hide-left" class="panel-close-x" title="Close Parts Panel">✕</button>
       </div>
     </div>
 
-    <!-- Unified 4-Unit Gundam-Universe Roster (1 Smooth Hero RX-78 Vanguard + 3 Smooth Zeon Mono-Eye Enemies) -->
+    <!-- Unified 4-Unit Mecha-Universe Roster (1 Smooth Hero RX-78 Vanguard + 3 Smooth Zeon Mono-Eye Enemies) -->
     <div id="unit-roster" class="unit-roster">
       <button class="unit-btn active hero" data-unit="vanguard_rx">
         <span>⚔️ RX-78 VANGUARD</span>
@@ -1846,19 +1914,19 @@
     </div>
 
     <div class="section-divider-label">
-      <span>8-ZONE FULL-BODY CUSTOMIZATION</span>
+      <span>8-ZONE AGENTIC AUTONOMOUS KITS</span>
       <span style="color: var(--accent-gold);">🔌 SNAP-FIT "KLIK!"</span>
     </div>
 
-    <!-- 1-Click Full Armor Loadout + Live Agentic Zero-Duplicate Part Synthesizer -->
+    <!-- 1-Click Full Armor Loadout + Smart Multi-Zone Tactical Loadout Randomizer -->
     <div class="quick-loadout-row">
       <button id="btn-full-armor" class="loadout-btn full-armor"
         title="Snap on a complete 8-zone Full-Armor loadout across Head, Chest, Shoulders, Back, Arms, Waist &amp; Legs">
         ⚡ FULL ARMOR (8-ZONE)
       </button>
       <button id="btn-agentic-synth" class="loadout-btn agent-synth"
-        title="Autonomously synthesize a brand-new unique non-duplicate 3D part with SHA-256 seed genome">
-        🧬 +AGENT SYNTH
+        title="Randomize a fresh multi-zone tactical loadout (weapons, shields, backpacks, armor &amp; combat stance)">
+        🎲 RANDOM BUILD
       </button>
       <button id="btn-clear-loadout" class="loadout-btn clear-all" title="Dismount all equipped parts">
         🧹 CLEAR
@@ -1895,7 +1963,7 @@
         <option value="HP-00">HP-00 Dorsal Backpack &amp; Wing Binders</option>
         <option value="HP-11">HP-11 Right Arm Primary Weapon</option>
         <option value="HP-07">HP-07 Left Forearm Composite Shield</option>
-        <option value="HP-13">HP-13/17 Waist Hip Folding Railguns</option>
+        <option value="HP-13">HP-13/17 Waist Side-Skirt Armored Binders</option>
         <option value="HP-24">HP-24/26 Leg Calf Booster &amp; Missile Pods</option>
       </select>
       <select id="parts-sort" class="hud-dropdown" style="max-width: 108px;">
@@ -2079,20 +2147,14 @@
     </div>
   </footer>
 
-  <!-- Three.js Studio WebGL Engine -->
+  <!-- Three.js Lightweight 60FPS Mobile-First WebGL Engine -->
   <script type="module">
     import * as THREE from 'three';
     import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
     import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-    import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
-    import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
-    import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
-    import { GTAOPass } from 'three/addons/postprocessing/GTAOPass.js';
-    import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
-    import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
 
     // =========================================================================
-    // 1. UNIFIED 4-UNIT GUNDAM-UNIVERSE ROSTER (LOADED FROM PUBLIC 'mecha-assets' REPO!)
+    // 1. UNIFIED 4-UNIT MECHA-UNIVERSE ROSTER (LOADED FROM PUBLIC 'mecha-assets' REPO!)
     // =========================================================================
     const MECHA_ASSETS_CDN = 'https://raw.githubusercontent.com/myonathanlinkedin/mecha-assets/main';
 
@@ -2107,7 +2169,7 @@
       glbUrl: `${MECHA_ASSETS_CDN}/models/baselines/baseline_gundam_frame_v1.glb`,
       isZeonEnemy: false,
       hasNativeHandsEmpty: true,
-      dorsalZ: -23.5,
+      dorsalZ: -22.2,
       defaultStance: 'Sentinel',
       packColors: {
         primary: 0xc4cedb,    // Eye-comfortable Satin Gundarium Grey-White (zero blinding glare!)
@@ -2408,32 +2470,36 @@
     syncMenuVisibility();
 
     // =========================================================================
-    // 3. THREE.JS STUDIO RENDERER, EYE-COMFORTABLE EXPOSURE & CONTROLLED BLOOM
+    // 3. LIGHTWEIGHT 1-PASS 60FPS WEBGL RENDERER (SMOOTH ON LOW-END GPUs & PHONES!)
     // =========================================================================
-    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    const isMobileViewport = () => window.innerWidth <= 960 || /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent || '');
+    const renderer = new THREE.WebGLRenderer({
+      canvas,
+      antialias: !isMobileViewport(),
+      powerPreference: 'high-performance',
+      stencil: false
+    });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, isMobileViewport() ? 1.0 : 1.5));
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.shadowMap.enabled = true;
-    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    renderer.shadowMap.enabled = false; // Zero per-frame shadow-map pass (crisp grounded contactShadowDisc instead!)
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 0.90; // Balanced studio exposure so RX-78 white armor never glares!
+    renderer.toneMappingExposure = 0.92;
 
-    const maxAnisotropy = Math.min(renderer.capabilities.getMaxAnisotropy(), 8);
+    const maxAnisotropy = Math.min(renderer.capabilities.getMaxAnisotropy(), 4);
 
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(0x060b16);
     scene.fog = new THREE.FogExp2(0x060b16, 0.00075);
 
-    // Cinema-Grade Multi-Softbox Studio HDRI Environment (replaces flat RoomEnvironment!)
+    // Lightweight Pre-Integrated Studio Softbox IBL (runs ONCE in <6ms; zero per-frame cost!)
     function createCinemaSoftboxEnvMap(ren) {
       const pmrem = new THREE.PMREMGenerator(ren);
       pmrem.compileEquirectangularShader();
       const envScene = new THREE.Scene();
       envScene.background = new THREE.Color(0x0b1220);
 
-      // Gradient studio cyclorama shell inside PMREM for smooth metallic horizons
       const envDome = new THREE.Mesh(
-        new THREE.SphereGeometry(48, 32, 24),
+        new THREE.SphereGeometry(48, 24, 16),
         new THREE.ShaderMaterial({
           side: THREE.BackSide,
           vertexShader: `varying vec3 vDir; void main(){ vDir = normalize(position); gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0); }`,
@@ -2441,9 +2507,9 @@
             varying vec3 vDir;
             void main() {
               float y = vDir.y * 0.5 + 0.5;
-              vec3 low = vec3(0.05, 0.08, 0.13);
-              vec3 mid = vec3(0.18, 0.24, 0.34);
-              vec3 top = vec3(0.58, 0.66, 0.78);
+              vec3 low = vec3(0.06, 0.09, 0.14);
+              vec3 mid = vec3(0.20, 0.26, 0.36);
+              vec3 top = vec3(0.60, 0.68, 0.80);
               vec3 col = mix(low, mid, smoothstep(0.15, 0.50, y));
               col = mix(col, top, smoothstep(0.52, 0.96, y));
               gl_FragColor = vec4(col, 1.0);
@@ -2453,7 +2519,6 @@
       );
       envScene.add(envDome);
 
-      // 4 High-Contrast Automotive/Aerospace Softbox Light Panels
       const addSoftbox = (w, h, color, pos, lookAt) => {
         const m = new THREE.Mesh(
           new THREE.PlaneGeometry(w, h),
@@ -2463,24 +2528,24 @@
         m.lookAt(...lookAt);
         envScene.add(m);
       };
-      addSoftbox(28, 12, new THREE.Color(4.2, 4.1, 3.9), [0, 26, 10], [0, 0, 0]);       // Overhead Main Key Softbox
-      addSoftbox(10, 26, new THREE.Color(1.9, 2.8, 4.2), [-28, 11, 16], [0, 4, 0]);     // Left Cool Aerospace Strip
-      addSoftbox(10, 22, new THREE.Color(3.6, 2.4, 1.4), [28, 10, -14], [0, 4, 0]);     // Right Warm Titanium Kicker
-      addSoftbox(22, 6, new THREE.Color(2.4, 2.7, 3.2), [0, 14, -28], [0, 2, 0]);      // Back Rim Strip
+      addSoftbox(28, 12, new THREE.Color(4.0, 3.9, 3.8), [0, 26, 10], [0, 0, 0]);
+      addSoftbox(10, 26, new THREE.Color(1.9, 2.7, 4.0), [-28, 11, 16], [0, 4, 0]);
+      addSoftbox(10, 22, new THREE.Color(3.4, 2.3, 1.4), [28, 10, -14], [0, 4, 0]);
+      addSoftbox(22, 6, new THREE.Color(2.4, 2.7, 3.2), [0, 14, -28], [0, 2, 0]);
 
-      const tex = pmrem.fromScene(envScene, 0.028).texture;
+      const tex = pmrem.fromScene(envScene, 0.035).texture;
       pmrem.dispose();
       return tex;
     }
     scene.environment = createCinemaSoftboxEnvMap(renderer);
-    scene.environmentIntensity = 1.05;
+    scene.environmentIntensity = 1.0;
 
     const camera = new THREE.PerspectiveCamera(38, window.innerWidth / window.innerHeight, 1.0, 2200.0);
     camera.position.set(115, 110, 240);
 
     const controls = new OrbitControls(camera, canvas);
     controls.enableDamping = true;
-    controls.dampingFactor = 0.05;
+    controls.dampingFactor = 0.06;
     controls.target.set(0, 92, 0);
     controls.maxPolarAngle = Math.PI / 2 + 0.06;
     controls.minDistance = 42;
@@ -2488,50 +2553,24 @@
     controls.autoRotate = state.autoRotate;
     controls.autoRotateSpeed = 0.72;
 
-    // GPU Quality Tiers (Phase 4.3 — inspired by teardown live.js TIERS)
+    // Single-Pass Adaptive DPR Tiers (ZERO EffectComposer / ZERO GTAO / ZERO Bloom / ZERO Real-Time ShadowMap!)
     const GPU_TIERS = {
-      HIGH: { dpr: Math.min(window.devicePixelRatio || 1, 1.5), gtao: true, gtaoSamples: 12, shadowSize: 2048 },
-      MED: { dpr: Math.min(window.devicePixelRatio || 1, 1.0), gtao: true, gtaoSamples: 6, shadowSize: 1024 },
-      LOW: { dpr: 1.0, gtao: false, gtaoSamples: 0, shadowSize: 512 }
+      HIGH: { dpr: Math.min(window.devicePixelRatio || 1, 1.5), label: 'FAST • 1-PASS' },
+      MED: { dpr: Math.min(window.devicePixelRatio || 1, 1.15), label: 'ECO • 1-PASS' },
+      LOW: { dpr: 1.0, label: 'MOBILE • 1-PASS' }
     };
     const detectInitialGpuTier = () => {
       try {
+        if (isMobileViewport()) return 'LOW';
         const gl = renderer.getContext();
         const dbg = gl.getExtension('WEBGL_debug_renderer_info');
         const ren = dbg ? String(gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL) || '') : '';
-        if (/swiftshader|llvmpipe|software|mesa/i.test(ren) || window.innerWidth < 780) return 'LOW';
-        if (/intel|uhd|iris|mali|adreno/i.test(ren)) return 'MED';
+        if (/swiftshader|llvmpipe|software|mesa/i.test(ren)) return 'LOW';
+        if (/intel|uhd|iris|mali|adreno|apple gpu/i.test(ren)) return 'MED';
       } catch (_) { }
       return 'HIGH';
     };
     state.gpuTier = detectInitialGpuTier();
-
-    // High-threshold Bloom (1.90) + GTAO Contact Shadows (Phase 4.2 & 6.5 clippingPlanes sync!)
-    let composer = null;
-    let gtaoPass = null;
-    let bloomPass = null;
-    try {
-      composer = new EffectComposer(renderer);
-      composer.addPass(new RenderPass(scene, camera));
-      try {
-        gtaoPass = new GTAOPass(scene, camera, window.innerWidth, window.innerHeight);
-        gtaoPass.output = GTAOPass.OUTPUT.Default;
-        gtaoPass.updateGtaoMaterial({ radius: 9.5, distanceExponent: 1.8, thickness: 6.0, scale: 1.0, samples: GPU_TIERS[state.gpuTier].gtaoSamples || 8 });
-        if (gtaoPass.normalMaterial) gtaoPass.normalMaterial.clippingPlanes = renderer.clippingPlanes || [];
-        gtaoPass.enabled = GPU_TIERS[state.gpuTier].gtao;
-        composer.addPass(gtaoPass);
-      } catch (_) {
-        gtaoPass = null;
-      }
-      bloomPass = new UnrealBloomPass(
-        new THREE.Vector2(window.innerWidth, window.innerHeight),
-        0.16, 0.25, 1.90
-      );
-      composer.addPass(bloomPass);
-      composer.addPass(new OutputPass());
-    } catch (e) {
-      composer = null;
-    }
 
     const gpuTierBadge = document.getElementById('gpu-tier-badge');
     function applyGpuQualityTier(tierName) {
@@ -2539,48 +2578,27 @@
       const tCfg = GPU_TIERS[tKey];
       state.gpuTier = tKey;
       renderer.setPixelRatio(tCfg.dpr);
-      if (gtaoPass) {
-        gtaoPass.enabled = Boolean(tCfg.gtao);
-        if (tCfg.gtao && tCfg.gtaoSamples > 0) {
-          gtaoPass.updateGtaoMaterial({ samples: tCfg.gtaoSamples });
-        }
-        if (gtaoPass.normalMaterial) gtaoPass.normalMaterial.clippingPlanes = renderer.clippingPlanes || [];
-      }
-      if (gpuTierBadge) gpuTierBadge.textContent = `${tKey}${tCfg.gtao ? ' • GTAO' : ''}`;
+      if (gpuTierBadge) gpuTierBadge.textContent = tCfg.label;
     }
     applyGpuQualityTier(state.gpuTier);
 
-    // Studio & Planetary Lighting Rig
-    const hemiLight = new THREE.HemisphereLight(0xcfe8ff, 0x101828, 0.55);
+    // Lightweight 3-Point Directional + Hemisphere Studio Lighting (ZERO PointLight per-fragment overhead!)
+    const hemiLight = new THREE.HemisphereLight(0xcfe8ff, 0x101828, 0.58);
     scene.add(hemiLight);
 
-    const keyLight = new THREE.DirectionalLight(0xffffff, 1.48);
+    const keyLight = new THREE.DirectionalLight(0xffffff, 1.55);
     keyLight.position.set(130, 240, 175);
-    keyLight.castShadow = true;
-    const initShadowSz = GPU_TIERS[state.gpuTier].shadowSize;
-    keyLight.shadow.mapSize.set(initShadowSz, initShadowSz);
-    keyLight.shadow.camera.near = 20;
-    keyLight.shadow.camera.far = 700;
-    keyLight.shadow.camera.left = -160;
-    keyLight.shadow.camera.right = 160;
-    keyLight.shadow.camera.top = 240;
-    keyLight.shadow.camera.bottom = -40;
-    keyLight.shadow.bias = -0.0005;
     scene.add(keyLight);
 
-    const fillLight = new THREE.DirectionalLight(0x7dd3fc, 0.65);
+    const fillLight = new THREE.DirectionalLight(0x7dd3fc, 0.68);
     fillLight.position.set(-165, 130, 110);
     scene.add(fillLight);
 
-    const rimLight = new THREE.DirectionalLight(0x38bdf8, 0.95);
+    const rimLight = new THREE.DirectionalLight(0x38bdf8, 0.98);
     rimLight.position.set(-100, 195, -180);
     scene.add(rimLight);
 
-    const holoCoreLight = new THREE.PointLight(0x00e5ff, 0, 260);
-    holoCoreLight.position.set(0, 100, 45);
-    scene.add(holoCoreLight);
-
-    // Interactive Architectural Infinity Cyclorama Dome (replaces flat graph-paper backdrop!)
+    // Clean Interactive Infinity Cyclorama Dome (100% uncluttered backdrop — ZERO fence/pillars behind mecha!)
     const cycloramaUniforms = {
       uTopColor: { value: new THREE.Color(0x0b1528) },
       uMidColor: { value: new THREE.Color(0x060c18) },
@@ -2591,7 +2609,7 @@
       uStudioMode: { value: 0.0 }
     };
     const cycloramaDome = new THREE.Mesh(
-      new THREE.SphereGeometry(920, 48, 32),
+      new THREE.SphereGeometry(920, 28, 18),
       new THREE.ShaderMaterial({
         side: THREE.BackSide,
         depthWrite: false,
@@ -2618,20 +2636,17 @@
             vec3 col = mix(uBotColor, uMidColor, smoothstep(0.32, 0.52, h));
             col = mix(col, uTopColor, smoothstep(0.50, 0.92, h));
 
-            // Interactive mouse-tracked studio softbox light sweep across the curved cyclorama
             vec3 spotDir = normalize(vec3(uPointer.x * 0.55, 0.24 + uPointer.y * 0.25, -0.78));
             float spotDot = max(dot(normalize(vWorldDir), spotDir), 0.0);
             float softHalo = pow(max(spotDot, 0.0001), 5.0);
-            col += mix(uAccentColor * 0.20, vec3(0.16, 0.19, 0.24), uStudioMode) * softHalo;
+            col += mix(uAccentColor * 0.18, vec3(0.15, 0.18, 0.22), uStudioMode) * softHalo;
 
-            // Subtle architectural curved horizon band & animated atmospheric light wave
             float horizonBand = exp(-abs(vWorldDir.y - 0.04) * 14.0);
             float wave = 0.5 + 0.5 * sin(vWorldDir.x * 5.0 + uTime * 0.55);
-            col += uAccentColor * horizonBand * mix(0.11, 0.045, uStudioMode) * (0.7 + 0.3 * wave);
+            col += uAccentColor * horizonBand * mix(0.10, 0.04, uStudioMode) * (0.7 + 0.3 * wave);
 
-            // Subtle overhead studio skylight dome glow
             float zenith = pow(max(vWorldDir.y, 0.0001), 2.4);
-            col += mix(vec3(0.03, 0.07, 0.14), vec3(0.14, 0.16, 0.20), uStudioMode) * zenith;
+            col += mix(vec3(0.03, 0.07, 0.14), vec3(0.12, 0.14, 0.18), uStudioMode) * zenith;
             gl_FragColor = vec4(col, 1.0);
           }
         `
@@ -2639,50 +2654,9 @@
     );
     scene.add(cycloramaDome);
 
-    // Interactive Cursor-Tracked Specular Key Spotlight (reacts smoothly to pointer movement!)
-    const pointerLight = new THREE.PointLight(0x38bdf8, 1.2, 420, 1.4);
-    pointerLight.position.set(0, 140, 180);
-    scene.add(pointerLight);
-
-    // Architectural Studio Gantry Light Ribs (Parallax depth background elements!)
-    const studioBayGroup = new THREE.Group();
-    const bayRibMat = new THREE.MeshPhysicalMaterial({
-      color: 0x334155, roughness: 0.38, metalness: 0.72, clearcoat: 0.25,
-      transparent: true, opacity: 0.55
-    });
-    const bayLightStripMat = new THREE.MeshBasicMaterial({
-      color: 0x38bdf8, transparent: true, opacity: 0.42
-    });
-    const studioBayRibs = [];
-    for (let i = -2; i <= 2; i++) {
-      const ang = i * 0.34;
-      const dist = 305;
-      const rib = new THREE.Group();
-      const pillar = new THREE.Mesh(new THREE.BoxGeometry(6, 260, 14), bayRibMat);
-      pillar.position.y = 128;
-      rib.add(pillar);
-      const strip = new THREE.Mesh(new THREE.BoxGeometry(1.4, 210, 1.8), bayLightStripMat);
-      strip.position.set(0, 128, 7.6);
-      rib.add(strip);
-      rib.position.set(Math.sin(ang) * dist, 0, -Math.cos(ang) * dist + 45);
-      rib.rotation.y = -ang;
-      rib.userData.baseX = rib.position.x;
-      rib.userData.baseZ = rib.position.z;
-      studioBayGroup.add(rib);
-      studioBayRibs.push(rib);
-    }
-    // Overhead architectural curved light-bridge gantry arc
-    const gantryArc = new THREE.Mesh(
-      new THREE.TorusGeometry(240, 2.2, 12, 96, Math.PI),
-      bayRibMat
-    );
-    gantryArc.position.set(0, 12, -95);
-    studioBayGroup.add(gantryArc);
-    scene.add(studioBayGroup);
-
-    // Brushed Radial CNC Titanium Turntable Deck + Vernier Azimuth Ring + Contact Shadow
+    // Lightweight 512px CNC Titanium Turntable Deck + Vernier Azimuth Ring + Contact Shadow
     function createTurntableDeckTextures() {
-      const sz = 1024;
+      const sz = 512;
       const c = document.createElement('canvas');
       c.width = sz; c.height = sz;
       const ctx = c.getContext('2d');
@@ -2690,37 +2664,33 @@
       ctx.fillStyle = '#182235';
       ctx.fillRect(0, 0, sz, sz);
 
-      // Concentric CNC brushed lathe micro-rings
-      for (let r = 18; r < sz * 0.49; r += 3) {
-        const shade = 22 + Math.floor(Math.sin(r * 0.37) * 6 + ((r * 17) % 9));
+      for (let r = 10; r < sz * 0.49; r += 3) {
+        const shade = 22 + Math.floor(Math.sin(r * 0.5) * 6 + ((r * 17) % 9));
         ctx.strokeStyle = `rgba(${shade + 8}, ${shade + 16}, ${shade + 28}, 0.55)`;
-        ctx.lineWidth = 1.3;
+        ctx.lineWidth = 1.2;
         ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.stroke();
       }
-      // Radial aerospace deck panel joints (12 sectors)
       ctx.strokeStyle = 'rgba(148, 163, 184, 0.22)';
-      ctx.lineWidth = 2;
+      ctx.lineWidth = 1.4;
       for (let i = 0; i < 12; i++) {
         const a = (i / 12) * Math.PI * 2;
         ctx.beginPath();
-        ctx.moveTo(cx + Math.cos(a) * 90, cy + Math.sin(a) * 90);
-        ctx.lineTo(cx + Math.cos(a) * 490, cy + Math.sin(a) * 490);
+        ctx.moveTo(cx + Math.cos(a) * 45, cy + Math.sin(a) * 45);
+        ctx.lineTo(cx + Math.cos(a) * 245, cy + Math.sin(a) * 245);
         ctx.stroke();
       }
-      // Recessed precision concentric technical tracks
-      [155, 290, 415, 468].forEach((rad, idx) => {
+      [78, 145, 208, 234].forEach((rad, idx) => {
         ctx.strokeStyle = idx === 2 ? 'rgba(249, 115, 22, 0.42)' : 'rgba(56, 189, 248, 0.34)';
-        ctx.lineWidth = idx === 3 ? 3 : 1.6;
+        ctx.lineWidth = idx === 3 ? 2.0 : 1.2;
         ctx.beginPath(); ctx.arc(cx, cy, rad, 0, Math.PI * 2); ctx.stroke();
       });
-      // Outer vernier tick marks (72 ticks)
       for (let i = 0; i < 72; i++) {
         const a = (i / 72) * Math.PI * 2;
         const major = i % 6 === 0;
-        const r0 = major ? 430 : 446;
-        const r1 = 462;
+        const r0 = major ? 215 : 223;
+        const r1 = 231;
         ctx.strokeStyle = major ? 'rgba(226, 232, 240, 0.55)' : 'rgba(148, 163, 184, 0.28)';
-        ctx.lineWidth = major ? 2.4 : 1.2;
+        ctx.lineWidth = major ? 1.6 : 0.9;
         ctx.beginPath();
         ctx.moveTo(cx + Math.cos(a) * r0, cy + Math.sin(a) * r0);
         ctx.lineTo(cx + Math.cos(a) * r1, cy + Math.sin(a) * r1);
@@ -2733,12 +2703,12 @@
     }
 
     function createContactShadowTexture() {
-      const sz = 256;
+      const sz = 128;
       const c = document.createElement('canvas');
       c.width = sz; c.height = sz;
       const ctx = c.getContext('2d');
-      const g = ctx.createRadialGradient(sz / 2, sz / 2, 10, sz / 2, sz / 2, sz / 2);
-      g.addColorStop(0.0, 'rgba(6, 10, 18, 0.62)');
+      const g = ctx.createRadialGradient(sz / 2, sz / 2, 6, sz / 2, sz / 2, sz / 2);
+      g.addColorStop(0.0, 'rgba(6, 10, 18, 0.64)');
       g.addColorStop(0.45, 'rgba(6, 10, 18, 0.34)');
       g.addColorStop(0.78, 'rgba(6, 10, 18, 0.08)');
       g.addColorStop(1.0, 'rgba(6, 10, 18, 0.0)');
@@ -2752,26 +2722,22 @@
 
     const deckMap = createTurntableDeckTextures();
     const darkPad = new THREE.Mesh(
-      new THREE.CylinderGeometry(84, 94, 4.4, 72),
-      new THREE.MeshPhysicalMaterial({
-        color: 0xdbe4f0, map: deckMap, roughness: 0.34, metalness: 0.68,
-        clearcoat: 0.38, clearcoatRoughness: 0.22, envMapIntensity: 0.95
+      new THREE.CylinderGeometry(84, 94, 4.4, 48),
+      new THREE.MeshStandardMaterial({
+        color: 0xdbe4f0, map: deckMap, roughness: 0.36, metalness: 0.64, envMapIntensity: 0.92
       })
     );
     darkPad.position.y = -2.2;
-    darkPad.receiveShadow = true;
     floorGroup.add(darkPad);
 
-    // Outer recessed bevelled pedestal collar
     const padTrim = new THREE.Mesh(
-      new THREE.TorusGeometry(85.2, 1.35, 16, 84),
-      new THREE.MeshPhysicalMaterial({ color: 0x334155, roughness: 0.28, metalness: 0.88, clearcoat: 0.3 })
+      new THREE.TorusGeometry(85.2, 1.35, 10, 56),
+      new THREE.MeshStandardMaterial({ color: 0x334155, roughness: 0.30, metalness: 0.85 })
     );
     padTrim.rotation.x = Math.PI / 2;
     padTrim.position.y = -0.15;
     floorGroup.add(padTrim);
 
-    // Grounded Radial Contact Shadow beneath the Mobile Suit feet
     const contactShadowDisc = new THREE.Mesh(
       new THREE.PlaneGeometry(108, 108),
       new THREE.MeshBasicMaterial({
@@ -2783,19 +2749,16 @@
     contactShadowDisc.position.y = 0.06;
     floorGroup.add(contactShadowDisc);
 
-    // Expansive Smooth Architectural Studio Floor Apron (Zero graph-paper squares!)
-    const studioApronMat = new THREE.MeshPhysicalMaterial({
-      color: 0x091120, roughness: 0.42, metalness: 0.45, clearcoat: 0.25, clearcoatRoughness: 0.35,
-      transparent: true, opacity: 0.92
+    const studioApronMat = new THREE.MeshStandardMaterial({
+      color: 0x091120, roughness: 0.44, metalness: 0.42, transparent: true, opacity: 0.92
     });
-    const studioApron = new THREE.Mesh(new THREE.CircleGeometry(460, 72), studioApronMat);
+    const studioApron = new THREE.Mesh(new THREE.CircleGeometry(460, 48), studioApronMat);
     studioApron.rotation.x = -Math.PI / 2;
     studioApron.position.y = -4.5;
-    studioApron.receiveShadow = true;
     floorGroup.add(studioApron);
 
     const glowRingOuter = new THREE.Mesh(
-      new THREE.RingGeometry(81.0, 82.8, 96),
+      new THREE.RingGeometry(81.0, 82.8, 64),
       new THREE.MeshBasicMaterial({ color: 0x00e5ff, side: THREE.DoubleSide, transparent: true, opacity: 0.68, polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1 })
     );
     glowRingOuter.rotation.x = -Math.PI / 2;
@@ -2803,28 +2766,26 @@
     floorGroup.add(glowRingOuter);
 
     const glowRingInner = new THREE.Mesh(
-      new THREE.RingGeometry(52.0, 53.0, 96),
+      new THREE.RingGeometry(52.0, 53.0, 64),
       new THREE.MeshBasicMaterial({ color: 0xf97316, side: THREE.DoubleSide, transparent: true, opacity: 0.48, polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1 })
     );
     glowRingInner.rotation.x = -Math.PI / 2;
     glowRingInner.position.y = 0.09;
     floorGroup.add(glowRingInner);
 
-    // Interactive Azimuth Vernier Ring (rotates smoothly with camera orbit + pulses on action!)
     const vernierRing = new THREE.Mesh(
-      new THREE.RingGeometry(98, 99.2, 96, 1, 0, Math.PI * 1.45),
+      new THREE.RingGeometry(98, 99.2, 64, 1, 0, Math.PI * 1.45),
       new THREE.MeshBasicMaterial({ color: 0x38bdf8, side: THREE.DoubleSide, transparent: true, opacity: 0.34, polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1 })
     );
     vernierRing.rotation.x = -Math.PI / 2;
     vernierRing.position.y = -4.25;
     floorGroup.add(vernierRing);
 
-    // Reactive Energy Shockwave Ring (expands on KLIK snap, Hatch Open, Stance Change!)
     const pulseRingMat = new THREE.MeshBasicMaterial({
       color: 0x00e5ff, side: THREE.DoubleSide, transparent: true, opacity: 0.0,
       polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2
     });
-    const pulseRing = new THREE.Mesh(new THREE.RingGeometry(48, 52, 72), pulseRingMat);
+    const pulseRing = new THREE.Mesh(new THREE.RingGeometry(48, 52, 48), pulseRingMat);
     pulseRing.rotation.x = -Math.PI / 2;
     pulseRing.position.y = 0.14;
     floorGroup.add(pulseRing);
@@ -2834,33 +2795,26 @@
       stagePulseProgress = 0.0;
     }
 
-    // Precision Orbital CAD Halo behind Mecha (sleek interactive telemetry arcs, NOT flat grid!)
     const studioReticleGroup = new THREE.Group();
     studioReticleGroup.visible = false;
-    const reticleRingMat = new THREE.MeshBasicMaterial({ color: 0x475569, side: THREE.DoubleSide, transparent: true, opacity: 0.24, polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1 });
-    const retRing1 = new THREE.Mesh(new THREE.RingGeometry(108, 108.9, 96, 1, 0.2, Math.PI * 1.65), reticleRingMat);
+    const reticleRingMat = new THREE.MeshBasicMaterial({ color: 0x475569, side: THREE.DoubleSide, transparent: true, opacity: 0.22, polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1 });
+    const retRing1 = new THREE.Mesh(new THREE.RingGeometry(108, 108.9, 64, 1, 0.2, Math.PI * 1.65), reticleRingMat);
     retRing1.position.set(0, 98, -68);
     studioReticleGroup.add(retRing1);
-    const retRing2 = new THREE.Mesh(new THREE.RingGeometry(138, 138.8, 96, 1, Math.PI * 0.4, Math.PI * 1.25), new THREE.MeshBasicMaterial({ color: 0xf97316, side: THREE.DoubleSide, transparent: true, opacity: 0.28, polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1 }));
+    const retRing2 = new THREE.Mesh(new THREE.RingGeometry(138, 138.8, 64, 1, Math.PI * 0.4, Math.PI * 1.25), new THREE.MeshBasicMaterial({ color: 0xf97316, side: THREE.DoubleSide, transparent: true, opacity: 0.26, polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1 }));
     retRing2.position.set(0, 98, -72);
     studioReticleGroup.add(retRing2);
     scene.add(studioReticleGroup);
 
-    // Keep gridHelper hidden by default (eliminates the flat graph-paper look!)
-    const gridHelper = new THREE.GridHelper(540, 44, 0x0ea5e9, 0x132038);
-    gridHelper.visible = false;
-    floorGroup.add(gridHelper);
-
-    // Interactive Pointer NDC state for live parallax & light sweep
     const pointerNdc = { x: 0, y: 0, targetX: 0, targetY: 0 };
     window.addEventListener('pointermove', (e) => {
       pointerNdc.targetX = (e.clientX / Math.max(window.innerWidth, 1)) * 2 - 1;
       pointerNdc.targetY = -((e.clientY / Math.max(window.innerHeight, 1)) * 2 - 1);
     }, { passive: true });
 
-    // Starfield Backdrop
-    const starPositions = new Float32Array(1800 * 3);
-    for (let i = 0; i < 1800; i++) {
+    // Lightweight Starfield Backdrop (600 points — super fast on mobile!)
+    const starPositions = new Float32Array(600 * 3);
+    for (let i = 0; i < 600; i++) {
       const r = 450 + Math.random() * 680;
       const theta = Math.random() * Math.PI * 2;
       const phi = Math.acos(2 * Math.random() - 1);
@@ -2880,13 +2834,13 @@
     const cyberGroup = new THREE.Group();
     cyberGroup.visible = false;
     const neonTorus = new THREE.Mesh(
-      new THREE.TorusGeometry(42, 1.5, 16, 64),
+      new THREE.TorusGeometry(42, 1.5, 12, 48),
       new THREE.MeshBasicMaterial({ color: 0xff007f })
     );
     neonTorus.position.set(-125, 125, -110);
     cyberGroup.add(neonTorus);
     const neonPillar = new THREE.Mesh(
-      new THREE.CylinderGeometry(1.5, 1.5, 130, 16),
+      new THREE.CylinderGeometry(1.5, 1.5, 130, 12),
       new THREE.MeshBasicMaterial({ color: 0x00e5ff })
     );
     neonPillar.position.set(130, 115, -90);
@@ -2894,13 +2848,8 @@
     scene.add(cyberGroup);
 
     // =========================================================================
-    // 4. PROFESSIONAL AEROSPACE 1024px PBR TEXTURE SUITE & AUTOMATIC TRI-PLANAR UVs
+    // 4. ULTRA-FAST 256px PROCEDURAL PANEL-LINE MAP (<2ms INIT, ZERO SOBEL FREEZE!)
     // =========================================================================
-    /**
-     * Procedural CAD GLB meshes exported without TEXCOORD_0 would otherwise sample (0,0) across the entire plate!
-     * Generate crisp scale-invariant cubic tri-planar UVs from (position, normal) so 1024px panel-seam normal,
-     * brushed CNC metal, and ceramic roughness maps wrap cleanly across every armor plate and bevel.
-     */
     function ensureBoxProjectedUVs(geometry, uvScale = 0.028) {
       if (!geometry || !geometry.attributes || !geometry.attributes.position) return;
       if (geometry.attributes.uv && geometry.attributes.uv.count === geometry.attributes.position.count) return;
@@ -2926,187 +2875,35 @@
     }
 
     function createProceduralMechaPBR() {
-      const size = 1024;
-      let seed = 1337;
-      const rand = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
-
-      const heightToNormalCanvas = (hCtx, strength) => {
-        const hSrc = hCtx.getImageData(0, 0, size, size).data;
-        const nCanvas = document.createElement('canvas');
-        nCanvas.width = size; nCanvas.height = size;
-        const nCtx = nCanvas.getContext('2d');
-        const nImg = nCtx.createImageData(size, size);
-        const nd = nImg.data;
-        const sampleH = (x, y) => hSrc[(((y + size) % size) * size + ((x + size) % size)) * 4] / 255.0;
-        for (let y = 0; y < size; y++) {
-          for (let x = 0; x < size; x++) {
-            const tl = sampleH(x - 1, y - 1), t = sampleH(x, y - 1), tr = sampleH(x + 1, y - 1);
-            const l = sampleH(x - 1, y), r = sampleH(x + 1, y);
-            const bl = sampleH(x - 1, y + 1), b = sampleH(x, y + 1), br = sampleH(x + 1, y + 1);
-            const dx = (tr + 2 * r + br - tl - 2 * l - bl) * strength;
-            const dy = (bl + 2 * b + br - tl - 2 * t - tr) * strength;
-            const dz = 1.0;
-            const inv = 1.0 / Math.hypot(dx, dy, dz);
-            const idx = (y * size + x) * 4;
-            nd[idx] = Math.round((-dx * inv * 0.5 + 0.5) * 255);
-            nd[idx + 1] = Math.round((-dy * inv * 0.5 + 0.5) * 255);
-            nd[idx + 2] = Math.round((dz * inv * 0.5 + 0.5) * 255);
-            nd[idx + 3] = 255;
-          }
-        }
-        nCtx.putImageData(nImg, 0, 0);
-        return nCanvas;
-      };
-
-      // A. MASTER-GRADE PG UNLEASHED CERAMIC-TITANIUM ARMOR HEIGHTFIELD (Panel Seams + Micro-Rivets + Hatch Insets)
-      const hCanvas = document.createElement('canvas');
-      hCanvas.width = size; hCanvas.height = size;
-      const hCtx = hCanvas.getContext('2d');
-      hCtx.fillStyle = '#848484';
-      hCtx.fillRect(0, 0, size, size);
-
-      // Subtle machined sub-panel elevation tones
-      hCtx.fillStyle = '#8a8a8a';
-      hCtx.fillRect(48, 48, 412, 396);
-      hCtx.fillStyle = '#7e7e7e';
-      hCtx.fillRect(552, 548, 420, 410);
-      hCtx.fillStyle = '#888888';
-      hCtx.fillRect(560, 56, 396, 340);
-
-      // Primary recessed Ver.Ka CNC panel-line grooves
-      hCtx.strokeStyle = '#383838';
-      hCtx.lineWidth = 3.2;
-      hCtx.beginPath(); hCtx.moveTo(0, 512); hCtx.lineTo(size, 512); hCtx.stroke();
-      hCtx.beginPath(); hCtx.moveTo(512, 0); hCtx.lineTo(512, size); hCtx.stroke();
-
-      // Secondary chamfered service-panel cutouts
-      hCtx.strokeStyle = '#484848';
-      hCtx.lineWidth = 2.4;
-      hCtx.strokeRect(48, 48, 412, 396);
-      hCtx.strokeRect(552, 548, 420, 410);
-      hCtx.strokeRect(560, 56, 396, 340);
-      hCtx.strokeRect(64, 576, 360, 290);
-
-      // Angled 45-deg aerospace technical hatch bevels & cooling louver slots
-      hCtx.strokeStyle = '#424242';
-      hCtx.lineWidth = 2.0;
-      for (let i = 0; i < 4; i++) {
-        hCtx.fillStyle = '#505050';
-        hCtx.fillRect(88 + i * 32, 92, 18, 8);
-        hCtx.fillRect(610 + i * 32, 600, 18, 8);
-      }
-      // Precision recessed micro-rivets along panel corners
-      const rivets = [
-        [72, 72], [436, 72], [72, 420], [436, 420],
-        [584, 80], [932, 80], [584, 372], [932, 372],
-        [576, 572], [948, 572], [576, 934], [948, 934],
-        [88, 600], [400, 600], [88, 842], [400, 842]
-      ];
-      hCtx.fillStyle = '#323232';
-      for (const [rx, ry] of rivets) {
-        hCtx.beginPath(); hCtx.arc(rx, ry, 4.2, 0, Math.PI * 2); hCtx.fill();
-      }
-      const nCanvas = heightToNormalCanvas(hCtx, 1.35);
-
-      // B. SATIN CERAMIC-METALLIC ROUGHNESS MAP (Fine brushed sheen variation + dark matte seams)
-      const rCanvas = document.createElement('canvas');
-      rCanvas.width = size; rCanvas.height = size;
-      const rCtx = rCanvas.getContext('2d');
-      rCtx.fillStyle = '#727272'; // ~0.45 base satin ceramic
-      rCtx.fillRect(0, 0, size, size);
-      // Subtle satin lacquer sheen variance across sub-panels
-      rCtx.fillStyle = '#626262'; rCtx.fillRect(48, 48, 412, 396);
-      rCtx.fillStyle = '#7c7c7c'; rCtx.fillRect(552, 548, 420, 410);
-      for (let i = 0; i < 160; i++) {
-        const cx = rand() * size, cy = rand() * size, rad = 36 + rand() * 110;
-        const g = rCtx.createRadialGradient(cx, cy, 4, cx, cy, rad);
-        const shade = 96 + Math.floor(rand() * 34);
-        g.addColorStop(0, `rgba(${shade},${shade},${shade},0.16)`);
-        g.addColorStop(1, 'rgba(114,114,114,0)');
-        rCtx.fillStyle = g;
-        rCtx.beginPath(); rCtx.arc(cx, cy, rad, 0, Math.PI * 2); rCtx.fill();
-      }
-      // Make panel grooves matte-rough so light breaks sharply at seams
-      rCtx.strokeStyle = '#c8c8c8'; rCtx.lineWidth = 4;
-      rCtx.beginPath(); rCtx.moveTo(0, 512); rCtx.lineTo(size, 512); rCtx.stroke();
-      rCtx.beginPath(); rCtx.moveTo(512, 0); rCtx.lineTo(512, size); rCtx.stroke();
-      rCtx.lineWidth = 3;
-      rCtx.strokeRect(48, 48, 412, 396);
-      rCtx.strokeRect(552, 548, 420, 410);
-
-      // C. CLEAN PG UNLEASHED ALBEDO DETAIL MAP (Subtle multi-tone armor separation + crisp panel line ink!)
+      const size = 256;
       const aCanvas = document.createElement('canvas');
       aCanvas.width = size; aCanvas.height = size;
       const aCtx = aCanvas.getContext('2d');
       aCtx.fillStyle = '#fafbfc';
       aCtx.fillRect(0, 0, size, size);
-      // Bandai RG/PG multi-tone panel modulation (extremely refined, realistic!)
-      aCtx.fillStyle = 'rgba(226, 232, 240, 0.45)'; aCtx.fillRect(552, 548, 420, 410);
-      aCtx.fillStyle = 'rgba(255, 255, 255, 0.38)'; aCtx.fillRect(48, 48, 412, 396);
-      aCtx.fillStyle = 'rgba(232, 238, 246, 0.35)'; aCtx.fillRect(64, 576, 360, 290);
-      // Ultra-clean dark slate Gundam panel-lining ink
-      aCtx.strokeStyle = 'rgba(24, 34, 52, 0.12)';
-      aCtx.lineWidth = 2.2;
-      aCtx.beginPath(); aCtx.moveTo(0, 512); aCtx.lineTo(size, 512); aCtx.stroke();
-      aCtx.beginPath(); aCtx.moveTo(512, 0); aCtx.lineTo(512, size); aCtx.stroke();
+      // Subtle MG multi-tone armor separation + ultra-crisp panel ink (zero heavy normal-map fetches!)
+      aCtx.fillStyle = 'rgba(226, 232, 240, 0.42)'; aCtx.fillRect(138, 136, 105, 104);
+      aCtx.fillStyle = 'rgba(255, 255, 255, 0.35)'; aCtx.fillRect(12, 12, 104, 100);
+      aCtx.fillStyle = 'rgba(232, 238, 246, 0.32)'; aCtx.fillRect(16, 144, 90, 74);
+      aCtx.strokeStyle = 'rgba(24, 34, 52, 0.13)';
+      aCtx.lineWidth = 1.1;
+      aCtx.beginPath(); aCtx.moveTo(0, 128); aCtx.lineTo(size, 128); aCtx.stroke();
+      aCtx.beginPath(); aCtx.moveTo(128, 0); aCtx.lineTo(128, size); aCtx.stroke();
       aCtx.strokeStyle = 'rgba(30, 41, 59, 0.09)';
-      aCtx.lineWidth = 1.8;
-      aCtx.strokeRect(48, 48, 412, 396);
-      aCtx.strokeRect(552, 548, 420, 410);
-      aCtx.strokeRect(560, 56, 396, 340);
-      aCtx.strokeRect(64, 576, 360, 290);
-      aCtx.fillStyle = 'rgba(30, 41, 59, 0.15)';
-      for (const [rx, ry] of rivets) {
-        aCtx.beginPath(); aCtx.arc(rx, ry, 3.4, 0, Math.PI * 2); aCtx.fill();
-      }
+      aCtx.lineWidth = 0.9;
+      aCtx.strokeRect(12, 12, 104, 100);
+      aCtx.strokeRect(138, 136, 105, 104);
+      aCtx.strokeRect(140, 14, 100, 86);
+      aCtx.strokeRect(16, 144, 90, 74);
 
-      // D. CNC BRUSHED ANISOTROPIC TITANIUM/GUNMETAL INNER-FRAME TEXTURE SET
-      const mHCanvas = document.createElement('canvas');
-      mHCanvas.width = size; mHCanvas.height = size;
-      const mHCtx = mHCanvas.getContext('2d');
-      mHCtx.fillStyle = '#808080';
-      mHCtx.fillRect(0, 0, size, size);
-      for (let y = 0; y < size; y += 2) {
-        const tone = 114 + Math.floor(rand() * 28);
-        mHCtx.fillStyle = `rgb(${tone},${tone},${tone})`;
-        mHCtx.fillRect(0, y, size, 2);
-      }
-      // Machined structural truss ribs
-      mHCtx.strokeStyle = '#484848'; mHCtx.lineWidth = 4;
-      for (let x = 128; x < size; x += 256) {
-        mHCtx.beginPath(); mHCtx.moveTo(x, 0); mHCtx.lineTo(x, size); mHCtx.stroke();
-      }
-      const metalNormalCanvas = heightToNormalCanvas(mHCtx, 1.15);
-
-      const mRCanvas = document.createElement('canvas');
-      mRCanvas.width = size; mRCanvas.height = size;
-      const mRCtx = mRCanvas.getContext('2d');
-      mRCtx.fillStyle = '#525252';
-      mRCtx.fillRect(0, 0, size, size);
-      for (let y = 0; y < size; y += 3) {
-        const v = 64 + Math.floor(rand() * 44);
-        mRCtx.fillStyle = `rgb(${v},${v},${v})`;
-        mRCtx.fillRect(0, y, size, 2);
-      }
-
-      const makeTex = (cvs, isSRGB, rep = 1.0) => {
-        const t = new THREE.CanvasTexture(cvs);
-        t.wrapS = THREE.RepeatWrapping;
-        t.wrapT = THREE.RepeatWrapping;
-        t.repeat.set(rep, rep);
-        t.anisotropy = maxAnisotropy;
-        t.colorSpace = isSRGB ? THREE.SRGBColorSpace : THREE.NoColorSpace;
-        t.needsUpdate = true;
-        return t;
-      };
-
-      return {
-        normalMap: makeTex(nCanvas, false, 0.40),
-        roughnessMap: makeTex(rCanvas, false, 0.40),
-        albedoDetailMap: makeTex(aCanvas, true, 0.40),
-        metalNormalMap: makeTex(metalNormalCanvas, false, 1.4),
-        metalRoughnessMap: makeTex(mRCanvas, false, 1.4)
-      };
+      const t = new THREE.CanvasTexture(aCanvas);
+      t.wrapS = THREE.RepeatWrapping;
+      t.wrapT = THREE.RepeatWrapping;
+      t.repeat.set(0.40, 0.40);
+      t.anisotropy = maxAnisotropy;
+      t.colorSpace = THREE.SRGBColorSpace;
+      t.needsUpdate = true;
+      return { albedoDetailMap: t };
     }
 
     const mechaPBR = createProceduralMechaPBR();
@@ -3149,10 +2946,10 @@
 
     const blueprintSolidMat = new THREE.MeshStandardMaterial({ color: 0x08142b, roughness: 0.72, metalness: 0.18 });
     const blueprintLineMat = new THREE.LineBasicMaterial({ color: 0x00e5ff, transparent: true, opacity: 0.78 });
-    const glassCutawayMat = new THREE.MeshPhysicalMaterial({
-      color: 0xcbe4f9, roughness: 0.10, metalness: 0.06,
-      transparent: true, opacity: 0.24, depthWrite: false,
-      side: THREE.DoubleSide, clearcoat: 0.85, clearcoatRoughness: 0.08, envMapIntensity: 0.90
+    const glassCutawayMat = new THREE.MeshStandardMaterial({
+      color: 0xcbe4f9, roughness: 0.14, metalness: 0.12,
+      transparent: true, opacity: 0.26, depthWrite: false,
+      side: THREE.DoubleSide, envMapIntensity: 1.05
     });
     const ghostShellMat = new THREE.MeshStandardMaterial({
       color: 0x94a3b8, roughness: 0.65, metalness: 0.15,
@@ -3183,17 +2980,10 @@
       rimLight.color.setHex(cfg.rim); rimLight.intensity = cfg.rimI;
       hemiLight.intensity = cfg.hemiI;
       scene.environmentIntensity = cfg.envI;
-      pointerLight.color.setHex(cfg.accent);
-      pointerLight.intensity = cfg.studio ? 0.95 : 1.45;
       starField.material.opacity = cfg.stars;
       starField.visible = cfg.stars > 0.01;
       cyberGroup.visible = cfg.cyber;
       studioReticleGroup.visible = Boolean(cfg.studio);
-      studioBayGroup.visible = true;
-      bayRibMat.color.setHex(cfg.studio ? 0x64748b : 0x1e293b);
-      bayRibMat.opacity = cfg.studio ? 0.28 : 0.62;
-      bayLightStripMat.color.setHex(cfg.accent);
-      bayLightStripMat.opacity = cfg.studio ? 0.34 : 0.52;
       studioApronMat.color.setHex(cfg.apron);
       studioApronMat.roughness = cfg.studio ? 0.56 : 0.38;
       studioApronMat.metalness = cfg.studio ? 0.18 : 0.52;
@@ -3204,51 +2994,32 @@
       glowRingOuter.material.color.setHex(cfg.accent);
       glowRingInner.material.color.setHex(cfg.studio ? 0x334155 : 0xf97316);
       vernierRing.material.color.setHex(cfg.accent);
-      if (bloomPass) bloomPass.strength = cfg.studio ? 0.05 : 0.16;
       triggerStagePulse(cfg.accent);
     }
 
     // =========================================================================
-    // 6. CINEMA-GRADE PG UNLEASHED PBR + WORLD-SPACE CURVATURE & CAVITY GLSL SHADER
+    // 6. SHARED CACHED MeshStandardMaterial POOL (137 MESHES -> ~14 MATS & 2 SHADERS!)
     // =========================================================================
+    const MECHA_MAT_CACHE = new Map();
+
     function injectGunplaStudioShader(mat, isEmissive = false) {
       if (isEmissive) return mat;
+      mat.customProgramCacheKey = () => 'gunpla_std_fast_v2';
       mat.onBeforeCompile = (shader) => {
-        shader.vertexShader = shader.vertexShader.replace(
-          '#include <common>',
-          `#include <common>
-           varying vec3 vGunplaWPos;`
-        ).replace(
-          '#include <begin_vertex>',
-          `#include <begin_vertex>
-           vec4 gWp = modelMatrix * vec4(transformed, 1.0);
-           vGunplaWPos = gWp.xyz;`
-        );
         shader.fragmentShader = shader.fragmentShader.replace(
-          '#include <common>',
-          `#include <common>
-           varying vec3 vGunplaWPos;`
-        ).replace(
           '#include <dithering_fragment>',
           `
-          // 1. Razor-Clean Hard-Surface Chamfer Specular Catch (Substance/Cycles Bevel Edge Highlight)
           vec3 dNdx = dFdx(normal);
           vec3 dNdy = dFdy(normal);
           float edgeCurv = clamp(length(dNdx) + length(dNdy), 0.0, 1.0);
-          float bevelHighlight = smoothstep(0.055, 0.28, edgeCurv) * 0.16;
-          float microCrease = smoothstep(0.32, 0.72, edgeCurv) * 0.08;
-
-          // 2. Grounded Height AO + Under-Armor Overhang Self-Occlusion (prevents flat white clay look!)
+          float bevelHighlight = smoothstep(0.06, 0.28, edgeCurv) * 0.13;
           float upDot = clamp(normal.y * 0.5 + 0.5, 0.0, 1.0);
-          float heightBounce = mix(0.84, 1.02, smoothstep(0.0, 115.0, vGunplaWPos.y));
-          float cavityAO = mix(0.70, 1.05, upDot) * heightBounce;
-
-          // 3. Cinema Studio Anisotropic Fresnel Rim Backlight (NaN-safe clamped pow base!)
+          float cavityAO = mix(0.76, 1.04, upDot);
           float ndv = clamp(abs(dot(normal, normalize(vViewPosition))), 0.0, 1.0);
-          float rim = pow(max(1.0 - ndv, 0.0001), 3.1);
-          gl_FragColor.rgb = gl_FragColor.rgb * cavityAO * (1.0 - microCrease)
+          float rim = pow(max(1.0 - ndv, 0.0001), 3.0);
+          gl_FragColor.rgb = gl_FragColor.rgb * cavityAO
                            + vec3(bevelHighlight)
-                           + mix(gl_FragColor.rgb, vec3(0.86, 0.93, 1.0), 0.35) * rim * 0.22;
+                           + mix(gl_FragColor.rgb, vec3(0.86, 0.93, 1.0), 0.35) * rim * 0.18;
           #include <dithering_fragment>
           `
         );
@@ -3256,206 +3027,182 @@
       return mat;
     }
 
+    function getSharedMechaMaterial(cfg) {
+      const key = `${cfg.color.toString(16)}_${Math.round((cfg.roughness ?? 0.4) * 100)}_${Math.round((cfg.metalness ?? 0.1) * 100)}_${(cfg.emissive ?? 0).toString(16)}_${Math.round((cfg.emissiveIntensity ?? 0) * 10)}_${cfg.useDetail ? 1 : 0}_${cfg.isEmissive ? 1 : 0}_${cfg.transparent ? 1 : 0}`;
+      if (MECHA_MAT_CACHE.has(key)) return MECHA_MAT_CACHE.get(key);
+      const mat = new THREE.MeshStandardMaterial({
+        color: cfg.color,
+        roughness: cfg.roughness ?? 0.40,
+        metalness: cfg.metalness ?? 0.10,
+        emissive: cfg.emissive ?? 0x000000,
+        emissiveIntensity: cfg.emissiveIntensity ?? 0.0,
+        map: cfg.useDetail ? mechaPBR.albedoDetailMap : null,
+        transparent: Boolean(cfg.transparent),
+        opacity: cfg.opacity ?? 1.0,
+        depthWrite: cfg.transparent ? false : true,
+        side: cfg.transparent ? THREE.DoubleSide : THREE.FrontSide,
+        envMapIntensity: cfg.envMapIntensity ?? 0.92
+      });
+      if (!cfg.transparent && !cfg.isEmissive) {
+        injectGunplaStudioShader(mat, false);
+      }
+      MECHA_MAT_CACHE.set(key, mat);
+      return mat;
+    }
+
     function buildCadPBRMaterial(node) {
       const n = (node.name || '').toLowerCase();
       if (n.includes('_glass')) {
-        return new THREE.MeshPhysicalMaterial({
-          color: 0xcbe8ff, roughness: 0.06, metalness: 0.04,
-          transparent: true, opacity: 0.30, depthWrite: false,
-          side: THREE.DoubleSide, clearcoat: 1.0, clearcoatRoughness: 0.05, envMapIntensity: 1.25
-        });
+        return getSharedMechaMaterial({ color: 0xcbe8ff, roughness: 0.12, metalness: 0.12, transparent: true, opacity: 0.30, envMapIntensity: 1.1 });
       }
       if (n.includes('_servo_accent')) {
-        return injectGunplaStudioShader(new THREE.MeshPhysicalMaterial({
-          color: 0xf97316, roughness: 0.26, metalness: 0.78,
-          normalMap: mechaPBR.metalNormalMap, normalScale: new THREE.Vector2(0.45, 0.45),
-          roughnessMap: mechaPBR.metalRoughnessMap,
-          clearcoat: 0.45, clearcoatRoughness: 0.16, envMapIntensity: 1.15
-        }), false);
+        // Sleek brushed anodized titanium-steel (no loud orange rings on classic RX-78-2 joints!)
+        return getSharedMechaMaterial({ color: 0x64748b, roughness: 0.28, metalness: 0.82, envMapIntensity: 1.05 });
       }
-      // Authentic Classic RX-78-2 Gundam Color Palette + Satin Bandai Gunpla Lacquer vs Brushed Inner Frame
-      let color = 0xf0f2ec, roughness = 0.40, metalness = 0.06, emissive = 0x000000, emissiveIntensity = 0.0, useDetail = true, useMetalGrain = false, coat = 0.30, isEmissive = false;
+      let color = 0xf0f2ec, roughness = 0.38, metalness = 0.08, emissive = 0x000000, emissiveIntensity = 0.0, useDetail = true, isEmissive = false;
       if (n.includes('twin_eyes')) {
-        // Authentic Classic RX-78-2 Glowing Golden-Yellow Twin Eyes!
-        color = 0xfacc15; emissive = 0xf59e0b; emissiveIntensity = 2.6; roughness = 0.12; metalness = 0.1; useDetail = false; coat = 0.0; isEmissive = true;
+        color = 0xfacc15; emissive = 0xf59e0b; emissiveIntensity = 1.9; roughness = 0.15; metalness = 0.1; useDetail = false; isEmissive = true;
       } else if (n.includes('sensor_front') || n.includes('sensor_rear')) {
-        color = 0x38bdf8; emissive = 0x0ea5e9; emissiveIntensity = 2.4; roughness = 0.08; metalness = 0.1; useDetail = false; coat = 0.0; isEmissive = true;
+        color = 0x38bdf8; emissive = 0x0ea5e9; emissiveIntensity = 1.8; roughness = 0.12; metalness = 0.1; useDetail = false; isEmissive = true;
       } else if (n.includes('thruster_glow')) {
-        color = 0x00f5ff; emissive = 0x00f5ff; emissiveIntensity = 2.8; roughness = 0.10; metalness = 0.1; useDetail = false; coat = 0.0; isEmissive = true;
+        color = 0x00f5ff; emissive = 0x00f5ff; emissiveIntensity = 2.0; roughness = 0.12; metalness = 0.1; useDetail = false; isEmissive = true;
       } else if (n.includes('v_fin_crest_gem') || n.includes('chin_guard') || n.includes('cheek_red_trim') || n.includes('abdomen_core') || n.includes('plaque_red') || n.includes('toe_plate') || n.includes('heel_block')) {
-        color = 0xd62428; roughness = 0.36; metalness = 0.12; coat = 0.38;
+        color = 0xd62428; roughness = 0.34; metalness = 0.14;
       } else if (n.includes('_yellow') || n.includes('louvers') || n.includes('v_emblem')) {
-        // Classic RX-78-2 Vibrant Federation Yellow (collar bib, chest vents, waist blocks, V-emblem!)
-        color = 0xf4b41a; roughness = 0.34; metalness = 0.16; coat = 0.34;
+        color = 0xf4b41a; roughness = 0.34; metalness = 0.18;
       } else if (n.includes('v_fin_sub_gold') || n.includes('vulcan_gold') || n.includes('_gold')) {
-        color = 0xeab308; roughness = 0.24; metalness = 0.88; useDetail = false; useMetalGrain = true; coat = 0.38;
+        color = 0xeab308; roughness = 0.24; metalness = 0.86; useDetail = false;
       } else if (n.includes('chest_armor_blue') || n.includes('cockpit_hatch_blue') || n.includes('subplate_blue_rg')) {
-        // Authentic Classic RX-78-2 Federation Cobalt Blue (chest + central blue cockpit block!)
-        color = 0x1b64c6; roughness = 0.36; metalness = 0.14; coat = 0.38;
+        color = 0x1b64c6; roughness = 0.34; metalness = 0.16;
       } else if (n.includes('elbow_cap_white') || n.includes('knee_cap_disc_white') || n.includes('ankle_disc_white')) {
-        color = 0xe6e9e3; roughness = 0.42; metalness = 0.08; coat = 0.26;
+        color = 0xe6e9e3; roughness = 0.40; metalness = 0.08;
       } else if (n.includes('_rg_') || n.includes('rg_panel') || n.includes('rg_cuff') || n.includes('rg_subplate')) {
-        color = 0x94a3b8; roughness = 0.44; metalness = 0.14; coat = 0.26;
+        color = 0x94a3b8; roughness = 0.42; metalness = 0.16;
       } else if (n.includes('face_slit_dark') || n.includes('cheek_vent_dark') || n.includes('visor_recess') || n.includes('vent_duct') || n.includes('_hub_dark') || n.includes('shoulder_vent_dark')) {
-        color = 0x101824; roughness = 0.50; metalness = 0.48; useDetail = false; coat = 0.06;
+        color = 0x101824; roughness = 0.50; metalness = 0.45; useDetail = false;
       } else if (n.includes('_trim_dark') || n.includes('sternum_dark') || n.includes('clavicle_pod_dark') || n.includes('backpack_core') || n.includes('foot_sole')) {
-        // Authentic RX-78-02 Origin Deep Slate-Blue/Gunmetal Mechanical Trim!
-        color = 0x2b3a4a; roughness = 0.42; metalness = 0.46; useDetail = false; useMetalGrain = true; coat = 0.18;
+        color = 0x2b3a4a; roughness = 0.40; metalness = 0.48; useDetail = false;
       } else if (n.includes('hydraulic') || n.includes('piston') || n.includes('thruster_bell')) {
-        color = 0xdbe4ef; roughness = 0.18; metalness = 0.94; useDetail = false; useMetalGrain = true; coat = 0.25;
+        color = 0xdbe4ef; roughness = 0.20; metalness = 0.90; useDetail = false;
       } else if (n.includes('frame') || n.includes('gimbal') || n.includes('knuckle') || n.includes('pivot') || n.includes('gear') || n.includes('fist') || n.includes('socket') || n.includes('clavicle') || n.includes('humerus') || n.includes('femur') || n.includes('tibia') || n.includes('neck') || n.includes('drum')) {
-        color = 0x2c3442; roughness = 0.36; metalness = 0.72; useDetail = false; useMetalGrain = true; coat = 0.16;
+        color = 0x2c3442; roughness = 0.36; metalness = 0.72; useDetail = false;
       }
-      return injectGunplaStudioShader(new THREE.MeshPhysicalMaterial({
-        color, roughness, metalness, emissive, emissiveIntensity,
-        map: useDetail ? mechaPBR.albedoDetailMap : null,
-        normalMap: useDetail ? mechaPBR.normalMap : (useMetalGrain ? mechaPBR.metalNormalMap : null),
-        normalScale: useDetail ? new THREE.Vector2(0.18, 0.18) : new THREE.Vector2(0.45, 0.45),
-        roughnessMap: useDetail ? mechaPBR.roughnessMap : (useMetalGrain ? mechaPBR.metalRoughnessMap : null),
-        clearcoat: coat,
-        clearcoatRoughness: 0.22,
-        envMapIntensity: useMetalGrain ? 1.05 : 0.88
-      }), isEmissive);
+      return getSharedMechaMaterial({ color, roughness, metalness, emissive, emissiveIntensity, useDetail, isEmissive });
     }
 
     function buildZeonEnemyPBRMaterial(node, spec) {
       const n = (node.name || '').toLowerCase();
       if (n.includes('_glass')) {
-        return new THREE.MeshPhysicalMaterial({
-          color: 0xcbe8ff, roughness: 0.06, metalness: 0.04,
-          transparent: true, opacity: 0.30, depthWrite: false,
-          side: THREE.DoubleSide, clearcoat: 1.0, clearcoatRoughness: 0.05, envMapIntensity: 1.25
-        });
+        return getSharedMechaMaterial({ color: 0xcbe8ff, roughness: 0.12, metalness: 0.12, transparent: true, opacity: 0.30, envMapIntensity: 1.1 });
       }
       if (n.includes('_servo_accent')) {
-        return injectGunplaStudioShader(new THREE.MeshPhysicalMaterial({
-          color: 0xf97316, roughness: 0.26, metalness: 0.78,
-          normalMap: mechaPBR.metalNormalMap, normalScale: new THREE.Vector2(0.45, 0.45),
-          roughnessMap: mechaPBR.metalRoughnessMap,
-          clearcoat: 0.45, clearcoatRoughness: 0.16, envMapIntensity: 1.15
-        }), false);
+        return getSharedMechaMaterial({ color: 0xf97316, roughness: 0.28, metalness: 0.78, envMapIntensity: 1.05 });
       }
-      let color = spec.packColors.primary, roughness = 0.44, metalness = 0.16, emissive = 0x000000, emissiveIntensity = 0.0, useDetail = true, useMetalGrain = false, coat = 0.34, isEmissive = false;
-
+      let color = spec.packColors.primary, roughness = 0.42, metalness = 0.16, emissive = 0x000000, emissiveIntensity = 0.0, useDetail = true, isEmissive = false;
       if (n.includes('mono_eye_glow')) {
         color = spec.monoEyeColor || 0xff2268;
         emissive = spec.monoEyeColor || 0xff2268;
-        emissiveIntensity = 4.0; roughness = 0.08; metalness = 0.05; useDetail = false; coat = 0.0; isEmissive = true;
+        emissiveIntensity = 2.4; roughness = 0.10; metalness = 0.05; useDetail = false; isEmissive = true;
       } else if (n.includes('mono_eye_bezel')) {
-        color = 0x64748b; roughness = 0.24; metalness = 0.90; useDetail = false; useMetalGrain = true; coat = 0.20;
+        color = 0x64748b; roughness = 0.24; metalness = 0.88; useDetail = false;
       } else if (n.includes('heat_saber_glow') || n.includes('hawk_blade_glow')) {
-        color = 0xff7a1a; emissive = 0xff4500; emissiveIntensity = 2.8; roughness = 0.20; metalness = 0.20; useDetail = false; coat = 0.0; isEmissive = true;
+        color = 0xff7a1a; emissive = 0xff4500; emissiveIntensity = 2.2; roughness = 0.20; metalness = 0.20; useDetail = false; isEmissive = true;
       } else if (n.includes('belly_emitter_glow')) {
-        color = 0xffcc33; emissive = 0xff9900; emissiveIntensity = 2.8; roughness = 0.18; metalness = 0.25; useDetail = false; coat = 0.0; isEmissive = true;
+        color = 0xffcc33; emissive = 0xff9900; emissiveIntensity = 2.2; roughness = 0.18; metalness = 0.25; useDetail = false; isEmissive = true;
       } else if (n.includes('track_rail')) {
-        color = 0x05070b; roughness = 0.65; metalness = 0.30; useDetail = false; coat = 0.0;
+        color = 0x05070b; roughness = 0.65; metalness = 0.30; useDetail = false;
       } else if (n.includes('_gold') || n.includes('trim_gold') || n.includes('cannon_gold') || n.includes('crest_gold')) {
-        color = 0xeab308; roughness = 0.24; metalness = 0.88; useDetail = false; useMetalGrain = true; coat = 0.38;
+        color = 0xeab308; roughness = 0.24; metalness = 0.86; useDetail = false;
       } else if (n.includes('thruster') || n.includes('jet_')) {
-        color = n.includes('gold') ? 0xd9a21b : 0x64748b;
-        roughness = 0.24; metalness = 0.90; useDetail = false; useMetalGrain = true; coat = 0.20;
+        color = n.includes('gold') ? 0xd9a21b : 0x64748b; roughness = 0.26; metalness = 0.86; useDetail = false;
       } else if (n.includes('hose')) {
-        color = spec.id === 'enemy_sazabi' ? 0xd9a21b : 0x3b4450;
-        roughness = 0.36; metalness = spec.id === 'enemy_sazabi' ? 0.84 : 0.62; useDetail = false; useMetalGrain = true; coat = 0.12;
+        color = spec.id === 'enemy_sazabi' ? 0xd9a21b : 0x3b4450; roughness = 0.36; metalness = spec.id === 'enemy_sazabi' ? 0.82 : 0.62; useDetail = false;
       } else if (n.includes('hawk_head_purple')) {
-        color = 0x52396e; roughness = 0.42; metalness = 0.38; coat = 0.32;
+        color = 0x52396e; roughness = 0.42; metalness = 0.38;
       } else if (n.includes('olive_dark')) {
         color = 0x36482c; roughness = 0.46; metalness = 0.14;
       } else if (n.includes('_navy')) {
-        color = 0x172b4d; roughness = 0.42; metalness = 0.20; coat = 0.36;
+        color = 0x172b4d; roughness = 0.40; metalness = 0.20;
       } else if (n.includes('_oxblood')) {
-        color = 0x5c0d14; roughness = 0.38; metalness = 0.22; coat = 0.40;
+        color = 0x5c0d14; roughness = 0.36; metalness = 0.22;
       } else if (n.includes('_obsidian') || n.includes('_dark') || n.includes('_frame') || n.includes('socket') || n.includes('_mg_') || n.includes('_rifle_') || n.includes('drum')) {
-        color = 0x202733; roughness = 0.32; metalness = 0.86; useDetail = false; useMetalGrain = true; coat = 0.16;
+        color = 0x202733; roughness = 0.34; metalness = 0.82; useDetail = false;
       } else if (n.includes('_maroon')) {
-        color = 0xa31621; roughness = 0.36; metalness = 0.22; coat = 0.44;
+        color = 0xa31621; roughness = 0.36; metalness = 0.22;
       } else if (n.includes('_blue')) {
-        color = 0x2b6cb0; roughness = 0.42; metalness = 0.18; coat = 0.38;
+        color = 0x2b6cb0; roughness = 0.40; metalness = 0.18;
       } else if (n.includes('_olive') || n.includes('zaku_')) {
-        color = 0x687d56; roughness = 0.46; metalness = 0.14;
+        color = 0x687d56; roughness = 0.44; metalness = 0.14;
       }
-
-      return injectGunplaStudioShader(new THREE.MeshPhysicalMaterial({
-        color, roughness, metalness, emissive, emissiveIntensity,
-        map: useDetail ? mechaPBR.albedoDetailMap : null,
-        normalMap: useDetail ? mechaPBR.normalMap : (useMetalGrain ? mechaPBR.metalNormalMap : null),
-        normalScale: useDetail ? new THREE.Vector2(0.15, 0.15) : new THREE.Vector2(0.62, 0.62),
-        roughnessMap: useDetail ? mechaPBR.roughnessMap : (useMetalGrain ? mechaPBR.metalRoughnessMap : null),
-        clearcoat: coat,
-        clearcoatRoughness: 0.22,
-        envMapIntensity: useMetalGrain ? 1.15 : 0.96
-      }), isEmissive);
+      return getSharedMechaMaterial({ color, roughness, metalness, emissive, emissiveIntensity, useDetail, isEmissive });
     }
 
     function buildAdapterMaterial(node) {
       const n = (node.name || '').toLowerCase();
       if (n.includes('gold') || n.includes('detent')) {
-        return new THREE.MeshPhysicalMaterial({
-          color: 0xf59e0b, roughness: 0.28, metalness: 0.84,
-          emissive: 0x78350f, emissiveIntensity: 0.25, clearcoat: 0.15, envMapIntensity: 0.85
-        });
+        return getSharedMechaMaterial({ color: 0xf59e0b, roughness: 0.28, metalness: 0.82, emissive: 0x78350f, emissiveIntensity: 0.2 });
       }
       if (n.includes('peg')) {
-        return new THREE.MeshStandardMaterial({
-          color: 0x94a3b8, roughness: 0.26, metalness: 0.88, envMapIntensity: 0.90
-        });
+        return getSharedMechaMaterial({ color: 0x94a3b8, roughness: 0.26, metalness: 0.86 });
       }
-      return new THREE.MeshPhysicalMaterial({
-        color: 0x1e2530, roughness: 0.42, metalness: 0.74,
-        normalMap: mechaPBR.normalMap, normalScale: new THREE.Vector2(0.07, 0.07),
-        roughnessMap: mechaPBR.roughnessMap,
-        clearcoat: 0.12, clearcoatRoughness: 0.32, envMapIntensity: 0.80
-      });
+      return getSharedMechaMaterial({ color: 0x1e2530, roughness: 0.40, metalness: 0.72 });
     }
+
+    // Dedicated Unlit Radiant 3-Layer Crimson-Pink Beam Saber Plasma Materials (ZERO Bloom pass needed!)
+    const beamSaberCoreMat = new THREE.MeshBasicMaterial({
+      color: 0xfff0f6, toneMapped: false
+    });
+    const beamSaberMidMat = new THREE.MeshBasicMaterial({
+      color: 0xff175c, transparent: true, opacity: 0.78,
+      depthWrite: false, blending: THREE.AdditiveBlending, toneMapped: false
+    });
+    const beamSaberHaloMat = new THREE.MeshBasicMaterial({
+      color: 0xff004c, transparent: true, opacity: 0.34,
+      depthWrite: false, blending: THREE.AdditiveBlending, side: THREE.DoubleSide, toneMapped: false
+    });
 
     function buildPackPBRMaterial(node, unitId = state.activeUnitId) {
       const spec = UNIT_REGISTRY[unitId] || UNIT_REGISTRY.vanguard_rx;
       const pc = spec.packColors;
       const n = (node.name || '').toLowerCase();
+      if (n.includes('core_laser') || n.includes('blade_core_pink')) {
+        return beamSaberCoreMat;
+      }
+      if (n.includes('mid_laser') || n.includes('aura_pink_glass')) {
+        return beamSaberMidMat;
+      }
+      if (n.includes('halo_laser')) {
+        return beamSaberHaloMat;
+      }
+      if (n.includes('hilt_white')) {
+        return getSharedMechaMaterial({ color: 0xf0f2ec, roughness: 0.34, metalness: 0.10, useDetail: false });
+      }
       if (n.includes('_glass')) {
-        return new THREE.MeshPhysicalMaterial({
-          color: 0xbae6fd, roughness: 0.08, metalness: 0.05,
-          transparent: true, opacity: 0.34, depthWrite: false,
-          side: THREE.DoubleSide, clearcoat: 0.90, clearcoatRoughness: 0.06, envMapIntensity: 0.95
-        });
+        return getSharedMechaMaterial({ color: 0xbae6fd, roughness: 0.12, metalness: 0.10, transparent: true, opacity: 0.34, envMapIntensity: 1.0 });
       }
       if (n.includes('_servo_accent')) {
-        return injectGunplaStudioShader(new THREE.MeshPhysicalMaterial({
-          color: 0xf97316, roughness: 0.30, metalness: 0.68, clearcoat: 0.22, clearcoatRoughness: 0.24, envMapIntensity: 0.85
-        }), false);
+        return getSharedMechaMaterial({ color: 0x64748b, roughness: 0.30, metalness: 0.78 });
       }
-
-      let color = pc.frame, roughness = 0.42, metalness = 0.68, emissive = 0x000000, emissiveIntensity = 0.0, useArmorDetail = true;
-
+      let color = pc.frame, roughness = 0.40, metalness = 0.65, emissive = 0x000000, emissiveIntensity = 0.0, useDetail = true;
       if (n.includes('optic_cyan') || n.includes('plasma_core_cyan') || n.includes('lens_emerald')) {
-        color = pc.optic; emissive = pc.optic; emissiveIntensity = 2.8; roughness = 0.12; metalness = 0.1; useArmorDetail = false;
+        color = pc.optic; emissive = pc.optic; emissiveIntensity = 2.0; roughness = 0.12; metalness = 0.1; useDetail = false;
       } else if (n.includes('gold') || n.includes('blade') || n.includes('intake') || n.includes('cross_gold') || n.includes('vane') || n.includes('pin_gold') || n.includes('lock_gold') || n.includes('drum_gold') || n.includes('coupling_gold')) {
-        color = pc.gold; roughness = 0.26; metalness = 0.84; useArmorDetail = false;
+        color = pc.gold; roughness = 0.26; metalness = 0.84; useDetail = false;
       } else if (n.includes('adapter_') || n.includes('dovetail') || n.includes('bracket') || n.includes('clamp') || n.includes('rack_arm') || n.includes('yoke') || n.includes('grip') || n.includes('epac') || n.includes('gimbal') || n.includes('collar')) {
-        color = 0x222b38; roughness = 0.36; metalness = 0.82; useArmorDetail = false;
+        color = 0x222b38; roughness = 0.36; metalness = 0.80; useDetail = false;
       } else if (n.includes('shield_core_red') || n.includes('tank') || n.includes('booster') || n.includes('hatch_red') || n.includes('era_block')) {
-        color = pc.accent; roughness = 0.38; metalness = 0.24;
+        color = pc.accent; roughness = 0.36; metalness = 0.22;
       } else if (n.includes('fuselage') || n.includes('rack') || n.includes('core_chassis') || n.includes('hub_core') || n.includes('pylon') || n.includes('breach') || n.includes('missile_bay')) {
-        color = pc.secondary; roughness = 0.38; metalness = 0.28;
+        color = pc.secondary; roughness = 0.36; metalness = 0.26;
       } else if (n.includes('wing') || n.includes('disc') || n.includes('shield_frame') || n.includes('fin_binder') || n.includes('tower_shield') || n.includes('rudder') || n.includes('pectoral_armor') || n.includes('pod')) {
-        color = pc.primary; roughness = 0.42; metalness = 0.16;
+        color = pc.primary; roughness = 0.40; metalness = 0.14;
       } else if (n.includes('bell') || n.includes('thruster') || n.includes('vernier') || n.includes('nozzle')) {
-        color = 0x526072; roughness = 0.26; metalness = 0.88; emissive = pc.optic; emissiveIntensity = 0.12; useArmorDetail = false;
+        color = 0x526072; roughness = 0.26; metalness = 0.86; emissive = pc.optic; emissiveIntensity = 0.12; useDetail = false;
       } else if (n.includes('barrel') || n.includes('receiver') || n.includes('sleeve') || n.includes('cylinder') || n.includes('stake') || n.includes('rail')) {
-        color = 0x334155; roughness = 0.34; metalness = 0.82; useArmorDetail = false;
+        color = 0x334155; roughness = 0.34; metalness = 0.80; useDetail = false;
       }
-
       const isEmissive = n.includes('optic_cyan') || n.includes('plasma_core_cyan') || n.includes('lens_emerald');
-      return injectGunplaStudioShader(new THREE.MeshPhysicalMaterial({
-        color, roughness, metalness, emissive, emissiveIntensity,
-        map: useArmorDetail ? mechaPBR.albedoDetailMap : null,
-        normalMap: useArmorDetail ? mechaPBR.normalMap : mechaPBR.metalNormalMap,
-        normalScale: useArmorDetail ? new THREE.Vector2(0.40, 0.40) : new THREE.Vector2(0.58, 0.58),
-        roughnessMap: useArmorDetail ? mechaPBR.roughnessMap : mechaPBR.metalRoughnessMap,
-        clearcoat: useArmorDetail ? 0.34 : 0.18,
-        clearcoatRoughness: 0.22,
-        envMapIntensity: useArmorDetail ? 0.96 : 1.14
-      }), isEmissive);
+      return getSharedMechaMaterial({ color, roughness, metalness, emissive, emissiveIntensity, useDetail, isEmissive });
     }
 
     // =========================================================================
@@ -3564,7 +3311,7 @@
         mesh.userData.pivotOrigin = origin.clone();
         targetGroup.add(mesh);
 
-        if (n.includes('mono_eye_glow') || n.includes('mono_eye_bezel')) {
+        if (n.includes('mono_eye_glow') || n.includes('mono_eye_bezel') || n.includes('mono_eye_ir_rim') || (n.includes('mono_eye') && !n.includes('track'))) {
           state.monoEyeNodes.push(mesh);
         }
         if (n.includes('zaku_mg_') || n.includes('gouf_saber_') || n.includes('gouf_heat_saber') || n.includes('sazabi_rifle_')) {
@@ -3595,7 +3342,6 @@
         const clone = state.adapterTemplate.clone(true);
         clone.traverse(n => {
           if (n.isMesh) {
-            n.castShadow = true; n.receiveShadow = true;
             n.material = buildAdapterMaterial(n);
             n.userData.origMaterial = n.material;
             n.userData.isAdapterHardware = true;
@@ -3711,7 +3457,7 @@
           worldPos: [0.0, 141.5, spec.dorsalZ || -24.5],
           rot: [0, 0, 0],
           scale: 1.0,
-          dockedZ: -8.0,
+          dockedZ: -5.4,
           slideSign: -1.0,
           alwaysVisible: true
         }),
@@ -3841,7 +3587,6 @@
     function applyRenderMode(mode) {
       state.renderMode = mode;
       clearBlueprintEdges();
-      holoCoreLight.intensity = (mode === 'hologram') ? 4.0 : 0.0;
 
       mechaRoot.traverse(node => {
         if (!node.isMesh || !node.userData.origMaterial) return;
@@ -4120,8 +3865,6 @@
           state.hingeNodes = [];
           model.traverse(node => {
             if (node.isMesh) {
-              node.castShadow = true;
-              node.receiveShadow = true;
               if (node.geometry) ensureBoxProjectedUVs(node.geometry, 0.026);
               if (spec.isZeonEnemy) {
                 node.material = buildZeonEnemyPBRMaterial(node, spec);
@@ -4135,7 +3878,7 @@
                 node.geometry.boundingBox.getCenter(node.userData.geomCenter);
               }
               const ln = (node.name || '').toLowerCase();
-              if (ln.includes('_gear_')) {
+              if (ln.includes('chest_gear_') || ln.includes('dorsal_gear_')) {
                 const gc = node.userData.geomCenter || new THREE.Vector3();
                 const dirSign = ln.includes('pinion') ? -1.42 : 1.0;
                 state.gearNodes.push({ node, center: gc.clone(), dirSign, angle: 0 });
@@ -4396,8 +4139,6 @@
         children.forEach(node => {
           const nm = (node.name || '').toLowerCase();
           if (nm.includes('dovetail')) return;
-          node.castShadow = true;
-          node.receiveShadow = true;
           if (node.geometry) ensureBoxProjectedUVs(node.geometry, 0.032);
           node.material = buildPackPBRMaterial(node, state.activeUnitId);
           node.userData.origMaterial = node.material;
@@ -4426,8 +4167,7 @@
               node.visible = false;
               return;
             }
-            node.castShadow = true;
-            node.receiveShadow = true;
+            if (node.geometry) ensureBoxProjectedUVs(node.geometry, 0.032);
             node.material = buildPackPBRMaterial(node, state.activeUnitId);
             node.userData.origMaterial = node.material;
             node.geometry.computeBoundingBox();
@@ -4505,90 +4245,57 @@
       showToast('🧹 Dismounted All 8 Body Zones');
     }
 
-    // Live Agentic Zero-Duplicate Parametric Part Synthesizer (Generates a brand-new SHA-256 seed-unique part in the browser!)
+    // Smart Multi-Zone Tactical Build Randomizer (Cycles Distinct Gundam Combat Archetypes Across All 8 Zones!)
     async function synthesizeLiveAgenticPart() {
-      if (!state.catalog?.modular_parts) return;
-      const zones = Object.keys(BODY_ZONES);
-      const targetZone = state.activeCategory !== 'all' && BODY_ZONES[state.activeCategory]
-        ? state.activeCategory
-        : zones[(state.catalog.modular_parts.length + state.agenticSynthNonce) % zones.length];
+      if (!state.catalog?.modular_parts || state.catalog.modular_parts.length === 0) return;
+
+      const presets = [
+        { name: 'Heavy Siege Assault', stance: 'RifleBurst', zones: ['dorsal_pack', 'aux_weapon', 'aux_shield', 'shoulder_pods', 'chest_armor', 'waist_ordnance', 'leg_thrusters'] },
+        { name: 'High-Mobility Interceptor', stance: 'BoostJump', zones: ['dorsal_pack', 'aux_weapon', 'head_sensor', 'leg_thrusters', 'waist_ordnance'] },
+        { name: 'Close-Quarters Beam Saber Duelist', stance: 'MeleeSlash', zones: ['aux_weapon', 'aux_shield', 'chest_armor', 'shoulder_pods', 'head_sensor', 'dorsal_pack'] },
+        { name: 'Tactical Recon Vanguard', stance: 'Sentinel', zones: ['dorsal_pack', 'head_sensor', 'aux_weapon', 'aux_shield', 'leg_thrusters'] },
+        { name: 'Full-Armor Saber Striker', stance: 'MeleeSlash', zones: ['head_sensor', 'chest_armor', 'shoulder_pods', 'dorsal_pack', 'aux_weapon', 'aux_shield', 'waist_ordnance', 'leg_thrusters'] }
+      ];
+      const build = presets[state.agenticSynthNonce % presets.length];
       state.agenticSynthNonce++;
 
-      // Deterministic cryptographic SHA-256-like hex derivation from timestamp + zone + nonce
-      const rawStr = `${Date.now()}_${targetZone}_${state.agenticSynthNonce}_GXM_UC2026`;
-      let h1 = 0xdeadbeef ^ rawStr.length, h2 = 0x41c6ce57 ^ rawStr.length;
-      for (let i = 0; i < rawStr.length; i++) {
-        const ch = rawStr.charCodeAt(i);
-        h1 = Math.imul(h1 ^ ch, 2654435761);
-        h2 = Math.imul(h2 ^ ch, 1597334677);
-      }
-      h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507) ^ Math.imul(h2 ^ (h2 >>> 13), 3266489909);
-      h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^ Math.imul(h1 ^ (h1 >>> 13), 3266489909);
-      const seedHex = (h1 >>> 0).toString(16).padStart(8, '0') + (h2 >>> 0).toString(16).padStart(8, '0') +
-        ((h1 ^ 0x5a5a5a5a) >>> 0).toString(16).padStart(8, '0') + ((h2 ^ 0xa5a5a5a5) >>> 0).toString(16).padStart(8, '0') +
-        ((h1 * 31) >>> 0).toString(16).padStart(8, '0') + ((h2 * 17) >>> 0).toString(16).padStart(8, '0') +
-        ((h1 ^ h2) >>> 0).toString(16).padStart(8, '0') + ((~h1) >>> 0).toString(16).padStart(8, '0');
-      const tag4 = seedHex.slice(0, 4).toUpperCase();
-      const b0 = parseInt(seedHex.slice(0, 2), 16) / 255.0;
-      const b1 = parseInt(seedHex.slice(2, 4), 16) / 255.0;
-      const b2 = parseInt(seedHex.slice(4, 6), 16) / 255.0;
+      const prevIds = Array.from(state.equippedPacks.keys());
+      prevIds.forEach(id => dismountPart(id, true));
 
-      // Pick template archetype in that body zone and apply unique parametric genome scaling
-      const template = state.catalog.modular_parts.find(p => resolvePartSlotGroup(p) === targetZone) || state.catalog.modular_parts[0];
-      const zMeta = BODY_ZONES[targetZone];
-      const sx = +(0.90 + b0 * 0.24).toFixed(3);
-      const sy = +(0.90 + b1 * 0.26).toFixed(3);
-      const sz = +(0.92 + b2 * 0.22).toFixed(3);
-
-      const zoneTitleMap = {
-        head_sensor: `HD-${tag4} Cranial ${Math.round(55 + b0 * 25)}mm Vulcan & Psycho-Crest`,
-        chest_armor: `CH-${tag4} Chobham Reactive Breastplate & I-Field Gen`,
-        shoulder_pods: `SH-${tag4} Twin ${Math.round(6 + b0 * 6)}-Tube Missile & Vernier Pauldrons`,
-        dorsal_pack: `MP-${tag4} Variable-Geometry High-Mobility Striker Pack`,
-        aux_weapon: `BR-${tag4} High-Output ${(4.2 + b0 * 3.5).toFixed(1)}MW Long-Barrel Beam Rifle`,
-        aux_shield: `SD-${tag4} Gundarium Phase-Composite Hexagonal Shield`,
-        waist_ordnance: `WS-${tag4} Xiphias Mach-${(7.5 + b1 * 2.4).toFixed(1)} Folding Hip Railguns`,
-        leg_thrusters: `LG-${tag4} FA-78 Dual Calf Missile & Supersonic Boosters`
-      };
-
-      const newPart = {
-        part_id: `agentic_${targetZone}_${seedHex.slice(0, 6)}`,
-        serial_number: `GXM-SYN-${tag4}`,
-        name: zoneTitleMap[targetZone] || `AG-${tag4} Agentic Modular Unit`,
-        category: template.category,
-        primary_hardpoint: zMeta.hp,
-        slot_group: targetZone,
-        adapter_id: zMeta.adapterId,
-        entropy_seed: seedHex,
-        synthesis_origin: 'live_agentic_parametric_genome',
-        _genomeScale: [sx, sy, sz],
-        compatible_hardpoints: template.compatible_hardpoints,
-        structural_specs: {
-          mass_kg: Math.round(template.structural_specs.mass_kg * ((sx + sy + sz) / 3.0)),
-          primary_material: 'gundarium_alloy_gamma',
-          center_of_mass: [0, 48, -22]
-        },
-        cad_mesh_definition: {
-          format: 'binary_gltf_glb',
-          asset_reference: {
-            relative_url: template.cad_mesh_definition.asset_reference.relative_url,
-            sha256_hash: seedHex,
-            file_size_bytes: template.cad_mesh_definition.asset_reference.file_size_bytes
-          }
-        },
-        telemetry_and_lore: {
-          operational_role: `Autonomously synthesized ${zMeta.short} module (Genome scale ${sx}×${sy}×${sz}, Seed ${seedHex.slice(0, 8)}).`,
-          reactor_power_draw_kw: Math.round((template.telemetry_and_lore?.reactor_power_draw_kw || 250) * (0.9 + b1 * 0.3)),
-          vernier_thrust_kgf: Math.round((template.telemetry_and_lore?.vernier_thrust_kgf || 0) * (0.9 + b0 * 0.35))
+      const allParts = state.catalog.modular_parts;
+      const pickRandom = (arr) => arr[Math.floor(Math.random() * arr.length)];
+      let mountedCount = 0;
+      for (const z of build.zones) {
+        const candidates = allParts.filter(p => resolvePartSlotGroup(p) === z);
+        if (candidates.length === 0) continue;
+        let chosen = null;
+        if ((build.name.includes('Saber')) && z === 'aux_weapon') {
+          chosen = candidates.find(p => p.part_id === 'weapon_beam_saber_rx') || pickRandom(candidates);
+        } else if (build.name === 'Close-Quarters Beam Saber Duelist' && z === 'aux_shield') {
+          chosen = candidates.find(p => p.part_id === 'mission_pack_type_c_cqc') || pickRandom(candidates);
+        } else if (build.name === 'Heavy Siege Assault' && z === 'dorsal_pack') {
+          chosen = candidates.find(p => p.part_id === 'mission_pack_type_h_artillery') || pickRandom(candidates);
+        } else if (build.name === 'High-Mobility Interceptor' && z === 'dorsal_pack') {
+          chosen = candidates.find(p => p.part_id === 'propulsion_vernier_wing_pod' || p.part_id === 'mission_pack_type_s_space') || pickRandom(candidates);
+        } else if (build.name === 'Tactical Recon Vanguard' && z === 'dorsal_pack') {
+          chosen = candidates.find(p => p.part_id === 'mission_pack_type_e_recon') || pickRandom(candidates);
+        } else {
+          chosen = pickRandom(candidates);
         }
-      };
+        if (chosen) {
+          await mountPartOnAdapter(chosen, true);
+          mountedCount++;
+        }
+      }
 
-      state.catalog.modular_parts.unshift(newPart);
-      await mountPartOnAdapter(newPart, false);
+      playAnimation(build.stance);
       renderInventory();
       updateTelemetry();
       applyRenderMode(state.renderMode);
-      showToast(`🧬 [NEW AGENTIC PART] ${newPart.serial_number} Synthesized & Locked onto ${zMeta.label}!`, true);
+      applyExplodedDisplacement(state.explodedFactor);
+      battleAudio.playGunplaSnapClick();
+      triggerStagePulse(0x00e5ff);
+      showToast(`🎲 [RANDOM BUILD] ${build.name} — ${mountedCount} Modules + ${build.stance} Stance!`, true);
     }
 
     function updateTelemetry() {
@@ -4837,9 +4544,13 @@
       { id: 'c_knee', world: [-16, 63, 6], screenDx: -148, screenDy: 58, title: 'DOUBLE-PIVOT KNEE DRUM', sub: () => 'TEARDOWN HYDRAULIC DAMPER' }
     ];
     const _projVec = new THREE.Vector3();
-    function updateCalloutLeaders() {
+    let _lastCalloutSig = '';
+    function updateCalloutLeaders(force = false) {
       if (!state.showCallouts || !calloutSvg || !calloutNodesEl) return;
       const w = window.innerWidth, h = window.innerHeight;
+      const sig = `${Math.round(camera.position.x * 2)},${Math.round(camera.position.y * 2)},${Math.round(camera.position.z * 2)},${Math.round(controls.target.y)},${w}x${h},${state.hatchOpen ? 1 : 0},${state.renderMode},${state.activeStance},${state.activeEnv},${state.activeUnitId},${state.menus.left ? 1 : 0},${state.menus.right ? 1 : 0},${state.menus.allHidden ? 1 : 0}`;
+      if (!force && sig === _lastCalloutSig) return;
+      _lastCalloutSig = sig;
       const rSign = state.kinematicRig?.rSign || 1.0;
       let svgHtml = '';
       let nodesHtml = '';
@@ -4910,12 +4621,11 @@
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth, window.innerHeight);
-      if (composer) composer.setSize(window.innerWidth, window.innerHeight);
-      if (gtaoPass) gtaoPass.setSize(window.innerWidth, window.innerHeight);
       if (window.innerWidth <= 960 && (state.menus.left || state.menus.right || state.menus.scene)) {
         state.menus.left = false; state.menus.right = false; state.menus.scene = false;
         syncMenuVisibility();
       }
+      if (state.showCallouts) updateCalloutLeaders(true);
     });
 
     // =========================================================================
@@ -5281,6 +4991,16 @@
         controls.target.set(tx, ty, tz);
         controls.update();
       },
+      getPerfStats: () => ({
+        programs: renderer.info.programs?.length || 0,
+        cachedMaterials: MECHA_MAT_CACHE.size,
+        drawCalls: renderer.info.render.calls,
+        triangles: renderer.info.render.triangles,
+        geometries: renderer.info.memory.geometries,
+        textures: renderer.info.memory.textures,
+        dpr: renderer.getPixelRatio(),
+        gpuTier: state.gpuTier
+      }),
       getSocketInfo: () => ({
         activeUnit: state.activeUnitId,
         activeStance: state.activeStance,
@@ -5396,21 +5116,16 @@
         neonTorus.rotation.x = Math.sin(elapsed * 0.7) * 0.35;
       }
 
-      // Interactive Architectural Cyclorama, Cursor Light Sweep, Parallax Gantry & Live Azimuth Ring!
+      // Interactive Infinity Cyclorama Light Sweep & Live Azimuth Ring (1-Pass Ultra-Fast!)
       pointerNdc.x += (pointerNdc.targetX - pointerNdc.x) * Math.min(1.0, delta * 5.0);
       pointerNdc.y += (pointerNdc.targetY - pointerNdc.y) * Math.min(1.0, delta * 5.0);
       cycloramaUniforms.uTime.value = elapsed;
       cycloramaUniforms.uPointer.value.set(pointerNdc.x, pointerNdc.y);
-      pointerLight.position.set(pointerNdc.x * 165, 130 + pointerNdc.y * 55, 170);
       const camAz = Math.atan2(camera.position.x, camera.position.z);
       vernierRing.rotation.z = -camAz + elapsed * 0.06;
       if (studioReticleGroup.visible) {
         retRing1.rotation.z = elapsed * 0.08 + pointerNdc.x * 0.14;
         retRing2.rotation.z = -elapsed * 0.11 - pointerNdc.y * 0.12;
-      }
-      for (let i = 0; i < studioBayRibs.length; i++) {
-        const rib = studioBayRibs[i];
-        rib.position.x = rib.userData.baseX - pointerNdc.x * 14.0;
       }
       if (stagePulseProgress < 1.0) {
         stagePulseProgress = Math.min(1.0, stagePulseProgress + delta * 1.45);
@@ -5429,11 +5144,9 @@
         for (const h of state.hingeNodes) {
           if (!h.basePos || !h.baseRot) continue;
           if (h.sideDir === 0) {
-            // Central cockpit hatch hinges smoothly forward-downward to expose internal 3-gear reactor core!
             h.node.position.set(h.basePos.x, h.basePos.y - hp * 3.8, h.basePos.z + hp * 9.5);
             h.node.rotation.set(h.baseRot.x + hp * 0.88, h.baseRot.y, h.baseRot.z);
           } else {
-            // Bilateral chest vent petals swing radially outward like Pelagos OC-8 Mantle Open!
             h.node.position.set(h.basePos.x + h.sideDir * hp * 6.8, h.basePos.y, h.basePos.z + hp * 5.2);
             h.node.rotation.set(h.baseRot.x, h.baseRot.y + h.sideDir * hp * 0.78, h.baseRot.z);
           }
@@ -5457,7 +5170,7 @@
         }
       }
 
-      // 6. Auto-Fallback GPU Quality Tier Monitor (steps down if FPS < 24 over 3s)
+      // 6. Auto-Fallback Adaptive DPR Monitor (steps down if FPS < 30 over 3s)
       if (!window._fpsMon) window._fpsMon = { frames: 0, acc: 0 };
       window._fpsMon.frames += 1;
       window._fpsMon.acc += delta;
@@ -5465,14 +5178,13 @@
         const avgFps = window._fpsMon.frames / window._fpsMon.acc;
         window._fpsMon.frames = 0;
         window._fpsMon.acc = 0;
-        if (avgFps < 24.0 && state.gpuTier === 'HIGH') applyGpuQualityTier('MED');
-        else if (avgFps < 20.0 && state.gpuTier === 'MED') applyGpuQualityTier('LOW');
+        if (avgFps < 30.0 && state.gpuTier === 'HIGH') applyGpuQualityTier('MED');
+        else if (avgFps < 24.0 && state.gpuTier === 'MED') applyGpuQualityTier('LOW');
       }
 
       controls.update();
-      if (state.showCallouts) updateCalloutLeaders();
-      if (composer) composer.render();
-      else renderer.render(scene, camera);
+      if (state.showCallouts) updateCalloutLeaders(false);
+      renderer.render(scene, camera);
     }
 
     bootstrap();
