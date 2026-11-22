@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Memory Pool Block Allocator with Free List",
+    "language": "Rust",
+    "folder": "rust",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "rust-algorithms",
+    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261122_230229_memory_pool_block_allocator_wi",
+    "source_file": "main",
+    "timestamp": "2026-11-22T23:02:47.331390+00:00",
+    "dir_name": "20261122_230229_memory_pool_block_allocator_wi"
+  },
+  {
     "topic": "Cuckoo Filter High-Efficiency Deletion Structure",
     "language": "PHP",
     "folder": "php",
@@ -372,17 +383,6 @@
     "source_file": "main",
     "timestamp": "2026-11-20T23:02:33.968623+00:00",
     "dir_name": "20261120_230205_starmpi-svd__distributed-memor"
-  },
-  {
-    "topic": "Memory Pool Block Allocator with Free List",
-    "language": "C++",
-    "folder": "cpp",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "cpp-systems-core",
-    "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261120_210157_memory_pool_block_allocator_wi",
-    "source_file": "main",
-    "timestamp": "2026-11-20T21:02:13.358902+00:00",
-    "dir_name": "20261120_210157_memory_pool_block_allocator_wi"
   },
   {
     "topic": "Conjugate Gradient Linear System Solver",
