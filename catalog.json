@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Trie Prefix Tree for Auto-Completion with Frequency Ranking",
+    "language": "Haskell",
+    "folder": "haskell",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "haskell-functional-core",
+    "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261122_170107_trie_prefix_tree_for_auto-comp",
+    "source_file": "main",
+    "timestamp": "2026-11-22T17:01:21.472224+00:00",
+    "dir_name": "20261122_170107_trie_prefix_tree_for_auto-comp"
+  },
+  {
     "topic": "Two-Phase Commit Protocol Coordinator and Participant State Machine",
     "language": "C",
     "folder": "c",
@@ -328,17 +339,6 @@
     "source_file": "main",
     "timestamp": "2026-11-20T23:02:33.968623+00:00",
     "dir_name": "20261120_230205_starmpi-svd__distributed-memor"
-  },
-  {
-    "topic": "Trie Prefix Tree for Auto-Completion with Frequency Ranking",
-    "language": "PHP",
-    "folder": "php",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "php-backend-core",
-    "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261120_230127_trie_prefix_tree_for_auto-comp",
-    "source_file": "main",
-    "timestamp": "2026-11-20T23:01:40.415988+00:00",
-    "dir_name": "20261120_230127_trie_prefix_tree_for_auto-comp"
   },
   {
     "topic": "Memory Pool Block Allocator with Free List",
