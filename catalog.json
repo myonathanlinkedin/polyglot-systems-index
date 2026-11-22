@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Actor Model Concurrency Engine with Mailbox Processing",
+    "language": "C++",
+    "folder": "cpp",
+    "category": "\ud83c\udf10 Distributed Systems & Consensus",
+    "spoke_repo": "cpp-systems-core",
+    "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261122_170239_actor_model_concurrency_engine",
+    "source_file": "main",
+    "timestamp": "2026-11-22T17:02:53.908760+00:00",
+    "dir_name": "20261122_170239_actor_model_concurrency_engine"
+  },
+  {
     "topic": "Trie Prefix Tree for Auto-Completion with Frequency Ranking",
     "language": "Haskell",
     "folder": "haskell",
@@ -922,17 +933,6 @@
     "source_file": "main",
     "timestamp": "2026-11-14T13:02:46.520721+00:00",
     "dir_name": "20261114_130233_treap_randomized_binary_search"
-  },
-  {
-    "topic": "Actor Model Concurrency Engine with Mailbox Processing",
-    "language": "Java",
-    "folder": "java",
-    "category": "\ud83c\udf10 Distributed Systems & Consensus",
-    "spoke_repo": "java-enterprise-patterns",
-    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261114_090257_actor_model_concurrency_engine",
-    "source_file": "main",
-    "timestamp": "2026-11-14T09:03:12.993619+00:00",
-    "dir_name": "20261114_090257_actor_model_concurrency_engine"
   },
   {
     "topic": "Self-Balancing AVL Tree with Aether-Graph",
@@ -3210,6 +3210,17 @@
     "source_file": "main",
     "timestamp": "2026-10-18T09:01:29.392888+00:00",
     "dir_name": "20261018_090129_a__heuristic_pathfinding_with"
+  },
+  {
+    "topic": "Actor Model Concurrency Engine with Mailbox Processing",
+    "language": "Java",
+    "folder": "java",
+    "category": "\ud83c\udf10 Distributed Systems & Consensus",
+    "spoke_repo": "java-enterprise-patterns",
+    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261018_070226_actor_model_concurrency_engine",
+    "source_file": "main",
+    "timestamp": "2026-10-18T07:02:26.827973+00:00",
+    "dir_name": "20261018_070226_actor_model_concurrency_engine"
   },
   {
     "topic": "Custom Buddy Memory Allocation System",
