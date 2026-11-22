@@ -1966,8 +1966,9 @@
         <option value="HP-13">HP-13/17 Waist Side-Skirt Armored Binders</option>
         <option value="HP-24">HP-24/26 Leg Calf Booster &amp; Missile Pods</option>
       </select>
-      <select id="parts-sort" class="hud-dropdown" style="max-width: 108px;">
-        <option value="default">Sort: Default</option>
+      <select id="parts-sort" class="hud-dropdown" style="max-width: 118px;">
+        <option value="newest">Sort: Newest ↓</option>
+        <option value="oldest">Oldest ↑</option>
         <option value="zone">By Body Zone</option>
         <option value="name_asc">Name A-Z</option>
         <option value="mass_asc">Mass (Light)</option>
@@ -2333,7 +2334,7 @@
       searchQuery: '',
       activeCategory: 'all',
       activeStation: 'all',
-      activeSort: 'default',
+      activeSort: 'newest',
       equippedOnly: false,
       isDrawerExpanded: false,
       menus: {
@@ -4002,7 +4003,10 @@
         return true;
       });
 
-      if (state.activeSort === 'zone') {
+      if (state.activeSort === 'newest' || state.activeSort === 'default') {
+        filtered.reverse();
+      } else if (state.activeSort === 'zone') {
+        filtered.reverse();
         filtered.sort((a, b) => (BODY_ZONES[resolvePartSlotGroup(a)]?.order || 9) - (BODY_ZONES[resolvePartSlotGroup(b)]?.order || 9));
       } else if (state.activeSort === 'name_asc') {
         filtered.sort((a, b) => a.name.localeCompare(b.name));
