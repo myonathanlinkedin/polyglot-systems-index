@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Singular Value Decomposition (SVD) for Low-Rank Approximation",
+    "language": "Ruby",
+    "folder": "ruby",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "ruby-algorithms-lab",
+    "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261122_200109_singular_value_decomposition",
+    "source_file": "main",
+    "timestamp": "2026-11-22T20:01:22.666395+00:00",
+    "dir_name": "20261122_200109_singular_value_decomposition"
+  },
+  {
     "topic": "Improved Bounds for Directed SSSP in Sparse and Intermediate-Density Graphs",
     "language": "TypeScript",
     "folder": "typescript",
@@ -1681,17 +1692,6 @@
     "source_file": "main",
     "timestamp": "2026-11-03T03:02:47.216495+00:00",
     "dir_name": "20261103_030247_actor_model_concurrency_engine"
-  },
-  {
-    "topic": "Singular Value Decomposition (SVD) for Low-Rank Approximation",
-    "language": "Python",
-    "folder": "python",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "python-advanced-lab",
-    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261102_170223_singular_value_decomposition",
-    "source_file": "main",
-    "timestamp": "2026-11-02T17:02:23.458519+00:00",
-    "dir_name": "20261102_170223_singular_value_decomposition"
   },
   {
     "topic": "Topological Sort with Cycle Detection in Directed Graphs",
