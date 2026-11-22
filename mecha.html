@@ -318,7 +318,7 @@
       background: rgba(0, 229, 255, 0.16);
     }
 
-    /* Top-Left Clean Navigation: Single-Row Author Brand + 1 Main Page Link + 1 All-3D-Pages Dropdown + Guide & Battle BGM + Close ✕ */
+    /* Top-Left Clean Navigation: Single-Row Author Brand + 1 Main Page Link + 1 All-3D-Pages Dropdown + Loadouts & Guide & Battle BGM + Close ✕ */
     #nav-header {
       position: fixed;
       top: 12px;
@@ -328,9 +328,9 @@
       align-items: center;
       gap: 6px;
       padding: 6px 10px;
-      max-width: calc(100vw - 410px);
-      flex-wrap: nowrap;
-      overflow: hidden;
+      max-width: calc(100vw - 400px);
+      flex-wrap: wrap;
+      box-sizing: border-box;
     }
 
     .brand-title {
@@ -345,6 +345,11 @@
       gap: 6px;
       white-space: nowrap;
       transition: color 0.18s;
+      flex-shrink: 0;
+    }
+
+    .brand-text-short {
+      display: none;
     }
 
     .brand-title:hover {
@@ -833,6 +838,7 @@
     .items-scroll {
       flex: 1;
       overflow-y: auto;
+      overflow-x: hidden;
       display: flex;
       flex-direction: column;
       gap: 6px;
@@ -848,11 +854,16 @@
 
     .items-scroll::-webkit-scrollbar {
       width: 4px;
+      height: 0px;
     }
 
     .items-scroll::-webkit-scrollbar-thumb {
       background: rgba(0, 229, 255, 0.25);
       border-radius: 4px;
+    }
+
+    .items-scroll::-webkit-scrollbar-corner {
+      background: transparent;
     }
 
     .part-card {
@@ -981,6 +992,7 @@
       gap: 8px;
       pointer-events: none;
       overflow-y: auto;
+      overflow-x: hidden;
       padding-right: 2px;
     }
 
@@ -992,11 +1004,16 @@
 
     #right-stack::-webkit-scrollbar {
       width: 3px;
+      height: 0px;
     }
 
     #right-stack::-webkit-scrollbar-thumb {
       background: rgba(0, 229, 255, 0.25);
       border-radius: 3px;
+    }
+
+    #right-stack::-webkit-scrollbar-corner {
+      background: transparent;
     }
 
     #right-drawer,
@@ -1448,6 +1465,389 @@
       line-height: 1.48;
     }
 
+    /* =========================================================================
+       HANGAR LOADOUT VAULT // CUSTOM GUNPLA CONFIG MANAGER (LOCAL STORAGE)
+       ========================================================================= */
+    #loadout-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 185;
+      background: rgba(2, 6, 20, 0.78);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    #loadout-backdrop.open {
+      display: flex;
+    }
+
+    #loadout-modal {
+      width: min(840px, 96vw);
+      max-height: 88vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      padding: 18px 20px;
+      background: rgba(9, 15, 30, 0.96);
+      border: 1px solid rgba(0, 229, 255, 0.4);
+      border-radius: 16px;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.8), 0 0 32px rgba(0, 229, 255, 0.15);
+    }
+
+    .loadout-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(0, 229, 255, 0.22);
+      padding-bottom: 12px;
+      margin-bottom: 12px;
+      flex-shrink: 0;
+    }
+
+    .loadout-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 8px 12px;
+      margin-bottom: 12px;
+      flex-shrink: 0;
+    }
+
+    .loadout-save-box {
+      display: flex;
+      gap: 8px;
+      flex: 1 1 320px;
+    }
+
+    .loadout-save-box input {
+      flex: 1 1 auto;
+      background: rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(0, 229, 255, 0.3);
+      border-radius: 6px;
+      padding: 6px 10px;
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      outline: none;
+      transition: border-color 0.18s, box-shadow 0.18s;
+    }
+
+    .loadout-save-box input:focus {
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 8px rgba(0, 229, 255, 0.35);
+    }
+
+    .loadout-tool-pills {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .tool-pill {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 700;
+      color: #cbd5e1;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 6px;
+      padding: 5px 9px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.18s;
+    }
+
+    .tool-pill:hover {
+      color: var(--accent-cyan);
+      border-color: var(--accent-cyan);
+      background: rgba(0, 229, 255, 0.12);
+    }
+
+    .loadout-filter-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      flex-shrink: 0;
+    }
+
+    .filter-unit-chips {
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+    }
+
+    .filter-chip {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 700;
+      color: #94a3b8;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 6px;
+      padding: 3.5px 8px;
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+
+    .filter-chip.active {
+      color: #000;
+      background: var(--accent-cyan);
+      border-color: var(--accent-cyan);
+      font-weight: 800;
+    }
+
+    .loadout-search {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 6px;
+      padding: 4px 10px;
+      color: #fff;
+      font-size: 9.5px;
+      font-family: var(--font-mono);
+      outline: none;
+      min-width: 170px;
+    }
+
+    .loadout-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 10px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding-right: 4px;
+      max-height: calc(88vh - 210px);
+      scrollbar-width: thin;
+    }
+
+    .loadout-grid::-webkit-scrollbar {
+      width: 4px;
+      height: 0px;
+    }
+
+    .loadout-grid::-webkit-scrollbar-thumb {
+      background: rgba(0, 229, 255, 0.25);
+      border-radius: 4px;
+    }
+
+    .loadout-grid::-webkit-scrollbar-corner {
+      background: transparent;
+    }
+
+    .preset-card {
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(0, 229, 255, 0.22);
+      border-radius: 12px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: all 0.2s;
+      position: relative;
+    }
+
+    .preset-card:hover {
+      border-color: var(--accent-cyan);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 14px rgba(0, 229, 255, 0.15);
+    }
+
+    .preset-card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .preset-unit-badge {
+      font-family: var(--font-display);
+      font-size: 8.5px;
+      font-weight: 800;
+      padding: 2.5px 6px;
+      border-radius: 4px;
+      letter-spacing: 0.6px;
+      white-space: nowrap;
+    }
+
+    .preset-unit-badge.hero {
+      background: rgba(0, 229, 255, 0.18);
+      border: 1px solid var(--accent-cyan);
+      color: var(--accent-cyan);
+    }
+
+    .preset-unit-badge.zaku {
+      background: rgba(34, 197, 94, 0.18);
+      border: 1px solid #22c55e;
+      color: #22c55e;
+    }
+
+    .preset-unit-badge.gouf {
+      background: rgba(59, 130, 246, 0.18);
+      border: 1px solid #3b82f6;
+      color: #60a5fa;
+    }
+
+    .preset-unit-badge.sazabi {
+      background: rgba(239, 68, 68, 0.18);
+      border: 1px solid #ef4444;
+      color: #f87171;
+    }
+
+    .preset-title-wrap {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .preset-title {
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 800;
+      color: #f8fafc;
+      letter-spacing: 0.6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .preset-title:hover {
+      color: var(--accent-cyan);
+    }
+
+    .preset-title-edit-input {
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid var(--accent-cyan);
+      border-radius: 4px;
+      padding: 3px 6px;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 10.5px;
+      font-weight: 800;
+      width: 100%;
+      outline: none;
+    }
+
+    .preset-date {
+      font-family: var(--font-mono);
+      font-size: 8px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .preset-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      align-items: center;
+    }
+
+    .preset-tag {
+      font-family: var(--font-mono);
+      font-size: 8px;
+      font-weight: 700;
+      color: #94a3b8;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      padding: 2px 5px;
+    }
+
+    .preset-slots-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 6px;
+      padding: 6px;
+    }
+
+    .preset-slot-pill {
+      font-family: var(--font-mono);
+      font-size: 8px;
+      padding: 2px 5px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .preset-slot-pill.active {
+      color: var(--accent-gold);
+      border-color: rgba(251, 191, 36, 0.4);
+      background: rgba(251, 191, 36, 0.1);
+    }
+
+    .preset-card-actions {
+      display: flex;
+      gap: 6px;
+      margin-top: 4px;
+      align-items: center;
+    }
+
+    .btn-equip-preset {
+      flex: 1 1 auto;
+      font-family: var(--font-display);
+      font-size: 9.5px;
+      font-weight: 800;
+      color: #000;
+      background: var(--accent-cyan);
+      border: 1px solid var(--accent-cyan);
+      border-radius: 6px;
+      padding: 6px 10px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      letter-spacing: 0.8px;
+      transition: all 0.18s;
+      box-shadow: 0 0 10px rgba(0, 229, 255, 0.25);
+    }
+
+    .btn-equip-preset:hover {
+      background: #38bdf8;
+      box-shadow: 0 0 16px rgba(0, 229, 255, 0.5);
+    }
+
+    .btn-preset-icon {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      color: #cbd5e1;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 6px;
+      padding: 6px 8px;
+      cursor: pointer;
+      transition: all 0.18s;
+      flex-shrink: 0;
+    }
+
+    .btn-preset-icon:hover {
+      color: var(--accent-cyan);
+      border-color: var(--accent-cyan);
+      background: rgba(0, 229, 255, 0.12);
+    }
+
+    .btn-preset-icon.delete:hover {
+      color: #ef4444;
+      border-color: #ef4444;
+      background: rgba(239, 68, 68, 0.15);
+    }
+
     .mecha-toast {
       position: fixed;
       bottom: 72px;
@@ -1557,6 +1957,30 @@
       box-shadow: 0 8px 26px rgba(0, 0, 0, 0.6), 0 0 20px rgba(16, 185, 129, 0.35);
     }
 
+    /* Full-Screen Wallpaper Camera Shutter Flash Overlay */
+    #shutter-flash {
+      position: fixed;
+      inset: 0;
+      z-index: 300;
+      background: #ffffff;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.28s ease-out;
+    }
+
+    #shutter-flash.flash {
+      opacity: 0.82;
+      transition: none;
+    }
+
+    body.wallpaper-capture-clean .corner-marker,
+    body.wallpaper-capture-clean #hud-vis-bar,
+    body.wallpaper-capture-clean #callout-layer,
+    body.wallpaper-capture-clean #btn-restore-top {
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+
     .nav-action-pill {
       font-family: var(--font-mono);
       font-size: 9.2px;
@@ -1587,7 +2011,17 @@
       background: rgba(16, 185, 129, 0.16);
     }
 
-    @media (max-width: 1220px) {
+    .pill-short {
+      display: none;
+    }
+
+    @media (max-width: 1380px) {
+      .brand-text-full {
+        display: none !important;
+      }
+      .brand-text-short {
+        display: inline !important;
+      }
       #nav-header {
         flex-wrap: wrap;
         max-width: calc(100vw - 380px);
@@ -1602,7 +2036,8 @@
       .glass-hud,
       #loading-overlay,
       #inspect-toast,
-      .guide-modal-card {
+      .guide-modal-card,
+      #loadout-modal {
         backdrop-filter: none !important;
         -webkit-backdrop-filter: none !important;
         background: rgba(7, 13, 25, 0.93) !important;
@@ -1617,11 +2052,9 @@
         max-width: none;
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
         align-items: center;
         justify-content: flex-start;
         padding: 6px 8px;
-        gap: 4px 6px;
         gap: 5px 5px;
       }
 
@@ -1638,13 +2071,14 @@
 
       #nav-header .brand-title {
         order: 1;
-        flex: 1 1 0;
+        flex: 1 1 auto;
         min-width: 0;
         gap: 4px;
-        font-size: 7.0px;
-        letter-spacing: 0.1px;
+        font-size: 8.2px;
+        letter-spacing: 0.2px;
         overflow: hidden;
         text-overflow: ellipsis;
+        white-space: nowrap;
       }
 
       #nav-header .brand-title .status-orb {
@@ -1657,41 +2091,61 @@
         order: 2;
         padding: 3px 6px;
         font-size: 8.2px;
+        flex-shrink: 0;
       }
 
       #nav-header #btn-hide-top {
         order: 3;
         width: 22px;
         height: 22px;
+        flex-shrink: 0;
       }
 
       #nav-header #nav-3d-pages {
         order: 5;
-        flex: 1 1 0;
-        min-width: 0;
+        flex: 1 1 115px;
+        min-width: 96px;
         padding: 3.5px 5px;
         font-size: 8.1px;
+      }
+
+      #nav-header #btn-open-loadouts {
+        order: 6;
+        padding: 3.5px 6px;
+        font-size: 8.1px;
+        flex-shrink: 0;
+      }
+
+      #nav-header #btn-wallpaper-shot {
+        order: 7;
+        padding: 3.5px 6px;
+        font-size: 8.1px;
+        flex-shrink: 0;
       }
 
       #nav-header #btn-open-guide {
-        order: 6;
-        padding: 3.5px 5px;
+        order: 8;
+        padding: 3.5px 6px;
         font-size: 8.1px;
+        flex-shrink: 0;
       }
 
       #nav-header #btn-bgm-toggle {
-        order: 7;
-        padding: 3.5px 5px;
+        order: 9;
+        padding: 3.5px 6px;
         font-size: 8.1px;
+        flex-shrink: 0;
       }
 
       #nav-header #btn-bgm-track {
-        order: 8;
-        padding: 3.5px 5px;
+        order: 10;
+        padding: 3.5px 6px;
         font-size: 8.1px;
-        max-width: 78px;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        max-width: none;
+        overflow: visible;
+        white-space: nowrap;
+        box-sizing: border-box;
+        flex-shrink: 0;
       }
 
       #btn-restore-top {
@@ -1750,19 +2204,19 @@
       }
 
       #left-drawer {
-        top: 76px;
+        top: 84px;
         left: 8px;
         right: 8px;
-        bottom: 132px;
+        bottom: 136px;
         width: auto;
         max-width: none;
       }
 
       #right-stack {
-        top: 76px;
+        top: 84px;
         left: 8px;
         right: 8px;
-        bottom: 132px;
+        bottom: 136px;
         width: auto;
         max-width: none;
       }
@@ -1773,6 +2227,35 @@
 
       .guide-grid {
         grid-template-columns: 1fr;
+      }
+
+      .loadout-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .loadout-save-box {
+        flex: 1 1 100%;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .pill-full {
+        display: none !important;
+      }
+      .pill-short {
+        display: inline !important;
+      }
+      #nav-header #nav-3d-pages {
+        flex: 1 1 100px;
+        font-size: 7.9px;
+      }
+      #nav-header .nav-action-pill {
+        padding: 3.5px 6px;
+        font-size: 7.9px;
+        gap: 3px;
+      }
+      #nav-header #btn-bgm-track {
+        max-width: none;
       }
     }
   </style>
@@ -1799,12 +2282,13 @@
   <!-- Floating Restore Top Bar Pill (Only visible when Top Navigation is closed with ✕) -->
   <button id="btn-restore-top" title="Show Top Navigation Bar">▼ Show Top Bar</button>
 
-  <!-- Top-Left Clean Navigation: Author Brand + Main Page + 3D Pages Dropdown + Guide + Battle BGM + Close ✕ -->
+  <!-- Top-Left Clean Navigation: Author Brand + Main Page + 3D Pages Dropdown + Kit Loadouts + Guide + Battle BGM + Close ✕ -->
   <header id="nav-header" class="glass-hud">
     <a href="https://github.com/myonathanlinkedin" target="_blank" rel="noopener noreferrer" class="brand-title"
       title="Mateus Yonathan — Agentic Autonomous Mecha Kits & 3D Engineering Lab">
       <span class="status-orb"></span>
-      <span>MATEUS YONATHAN <span class="sep-slash">//</span> <span class="accent">AGENTIC AUTONOMOUS KITS</span></span>
+      <span class="brand-text-full">MATEUS YONATHAN <span class="sep-slash">//</span> <span class="accent">AGENTIC AUTONOMOUS KITS</span></span>
+      <span class="brand-text-short">M. YONATHAN <span class="sep-slash">//</span> <span class="accent">KITS</span></span>
     </a>
     <span class="nav-sep"></span>
     <a href="index.html" class="nav-home-btn" title="Return to Main Portfolio Page">🏠 Main Page</a>
@@ -1816,6 +2300,8 @@
       <option value="constellation.html">🌌 3D Knowledge Constellation</option>
     </select>
     <span class="nav-sep"></span>
+    <button id="btn-open-loadouts" class="nav-action-pill" title="Hangar Custom Kit Presets (Save &amp; Load in Browser LocalStorage)">💾 <span class="pill-full">Kit Loadouts</span><span class="pill-short">Loadouts</span></button>
+    <button id="btn-wallpaper-shot" class="nav-action-pill" style="border-color:rgba(0,229,255,0.45);color:var(--accent-cyan);" title="Capture Full-Screen Zero-HUD HD Wallpaper (Hotkey: P)">📸 <span class="pill-full">Wallpaper</span><span class="pill-short">Wall</span></button>
     <button id="btn-open-guide" class="nav-action-pill" title="About this Autonomous Agentic Hangar">ℹ️ Guide</button>
     <button id="btn-bgm-toggle" class="nav-action-pill" title="Toggle Mecha Battle Background Music">🔇 BGM</button>
     <button id="btn-bgm-track" class="nav-action-pill" title="Switch Mecha Battle Track">🎵 Track</button>
@@ -1886,6 +2372,62 @@
       </div>
     </div>
   </div>
+
+  <!-- Hangar Loadout Vault & Custom Kit Presets Modal (Local Storage) -->
+  <div id="loadout-backdrop" role="dialog" aria-modal="true" aria-label="Hangar Loadout Vault & Custom Kit Presets">
+    <div id="loadout-modal" class="glass-hud">
+      <div class="loadout-header">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="font-size:22px;">💾</span>
+          <div>
+            <div
+              style="font-family:var(--font-display);font-size:13px;font-weight:800;color:var(--accent-cyan);letter-spacing:1.2px;">
+              HANGAR LOADOUT VAULT // CUSTOM KIT MANAGER
+            </div>
+            <div style="font-family:var(--font-mono);font-size:9.3px;color:var(--text-muted);margin-top:2px;">
+              BROWSER LOCAL STORAGE • INFINITE CUSTOM GUNPLA BUILDS • 1-CLICK HOT-SWAP, RENAME &amp; BACKUP
+            </div>
+          </div>
+        </div>
+        <button id="btn-close-loadouts" class="panel-close-x" title="Close Loadout Vault">✕</button>
+      </div>
+
+      <!-- Quick Action Toolbar -->
+      <div class="loadout-toolbar">
+        <div class="loadout-save-box">
+          <input type="text" id="input-preset-name" placeholder="Enter Custom Kit Name (e.g. RX-78 Full Armor Kai)..." maxlength="48" />
+          <button id="btn-save-new-preset" class="btn-equip-preset" style="flex:0 0 auto;padding:6px 12px;" title="Save current suit &amp; equipped parts as a new preset">
+            💾 Save Current Build
+          </button>
+        </div>
+        <div class="loadout-tool-pills">
+          <button id="btn-export-presets" class="tool-pill" title="Export all presets to JSON file">📤 Backup JSON</button>
+          <label for="input-import-presets" class="tool-pill" title="Import presets from JSON file" style="cursor:pointer;margin:0;">
+            📥 Import JSON
+            <input type="file" id="input-import-presets" accept=".json" style="display:none;" />
+          </label>
+          <button id="btn-reset-starter-presets" class="tool-pill" title="Reset starter default builds">↺ Reset Starters</button>
+        </div>
+      </div>
+
+      <!-- Filter & Search Bar -->
+      <div class="loadout-filter-bar">
+        <div class="filter-unit-chips" id="filter-unit-chips">
+          <button class="filter-chip active" data-unit="all">All Suits (<span id="count-all-units">0</span>)</button>
+          <button class="filter-chip" data-unit="vanguard_rx">⚔️ RX-78</button>
+          <button class="filter-chip" data-unit="enemy_zaku">👁️ Zaku-II</button>
+          <button class="filter-chip" data-unit="enemy_gouf">⚡ Gouf</button>
+          <button class="filter-chip" data-unit="enemy_sazabi">🔥 Sazabi</button>
+        </div>
+        <input type="search" id="input-search-presets" class="loadout-search" placeholder="🔍 Search saved builds..." />
+      </div>
+
+      <!-- Scrollable Presets Grid -->
+      <div id="loadout-presets-list" class="loadout-grid">
+        <!-- Rendered dynamically by JavaScript -->
+      </div>
+    </div>
+  </div>
   <div id="mecha-toast" class="mecha-toast"></div>
 
   <!-- Persistent Application Menu Visibility Bar (Show/Hide & Show/Hide All) -->
@@ -1945,6 +2487,16 @@
       </button>
       <button id="btn-clear-loadout" class="loadout-btn clear-all" title="Dismount all equipped parts">
         🧹 CLEAR
+      </button>
+    </div>
+
+    <!-- Hangar Custom Loadout Quick Access -->
+    <div class="custom-vault-row" style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:6px 0 8px;">
+      <button id="btn-drawer-save-build" class="loadout-btn" style="background:rgba(0, 229, 255, 0.16);border-color:var(--accent-cyan);color:#fff;font-weight:700;" title="Save current Mecha build to local browser storage">
+        💾 SAVE CONFIG
+      </button>
+      <button id="btn-drawer-open-vault" class="loadout-btn" style="background:rgba(168, 85, 247, 0.18);border-color:#a855f7;color:#fff;font-weight:700;" title="Open Kit Loadout Manager">
+        📂 VAULT (<span id="vault-count-badge">0</span>)
       </button>
     </div>
 
@@ -2159,9 +2711,13 @@
       <button id="btn-dock-hatch" class="action-btn" title="Open Hinged Chest/Reactor Petals">🔓 HATCH</button>
       <button id="btn-dock-isolate" class="action-btn" title="Toggle Ghost Shell Zone Isolation">👻 ISOLATE</button>
       <button id="btn-reset-view" class="action-btn" title="Auto-Fit Reset Camera">↺ FIT</button>
+      <button id="btn-dock-wallpaper" class="action-btn" style="border-color: rgba(0, 229, 255, 0.5); color: var(--accent-cyan);" title="Capture Full-Screen Zero-HUD HD Wallpaper (Hotkey: P)">📸 WALLPAPER</button>
       <button id="btn-hide-bottom" class="panel-close-x" title="Close Bottom Dock">✕</button>
     </div>
   </footer>
+
+  <!-- Camera Shutter Flash Overlay for Full-Screen Wallpaper Capture -->
+  <div id="shutter-flash" aria-hidden="true"></div>
 
   <!-- Three.js Lightweight 60FPS Mobile-First WebGL Engine -->
   <script type="module">
@@ -4818,23 +5374,115 @@
     canvas.addEventListener('wheel', handoffToUser, { passive: true });
     window.addEventListener('keydown', (e) => { if (e.key !== 'Escape') handoffToUser(); });
 
+    function _shortCalloutName(partId) {
+      if (!partId || !state.catalog?.modular_parts) return '';
+      const p = state.catalog.modular_parts.find(x => x.part_id === partId);
+      if (!p || !p.name) return '';
+      const raw = String(p.name).trim();
+      return raw.length > 26 ? raw.slice(0, 25).trim() + '…' : raw;
+    }
+
     const CALLOUT_ANCHORS = [
-      { id: 'c_optics', world: [0, 165, 10], screenDx: -145, screenDy: -34, title: 'OPTICAL SENSOR ARRAY', sub: () => UNIT_REGISTRY[state.activeUnitId]?.isZeonEnemy ? 'RECESSED MONO-EYE • IR RIM' : 'DUAL GOLDEN CAM • TRACKING' },
-      { id: 'c_reactor', world: [0, 138, 12], screenDx: 155, screenDy: -28, title: 'MINOVSKY 3-GEAR CORE', sub: () => state.hatchOpen ? 'HATCH OPEN • 20T/14T SPIN' : (state.renderMode === 'glass' ? 'GLASS CUTAWAY • EXPOSED' : 'HATCH SEALED') },
-      { id: 'c_servo', world: [34, 118, 2], screenDx: 150, screenDy: 16, title: 'ROTARY SERVO DRUM', sub: () => '6-BOLT ANODIZED COLLAR' },
-      { id: 'c_weapon', world: [35, 88, 20], screenDx: 150, screenDy: 46, title: 'ADP-HP11 TRIGGER LATCH', sub: () => state.activeStance === 'RifleBurst' ? 'BEAM AIM • 0.0° LEVEL' : 'PALM ADAPTER • LOCKED' },
-      { id: 'c_shield', world: [-42, 102, 4], screenDx: -155, screenDy: 24, title: 'ADP-HP07 C-CLAMP STRUT', sub: () => 'OUTWARD NORMAL • 0.0mm CLIP' },
-      { id: 'c_knee', world: [-16, 63, 6], screenDx: -148, screenDy: 58, title: 'DOUBLE-PIVOT KNEE DRUM', sub: () => 'TEARDOWN HYDRAULIC DAMPER' }
+      {
+        id: 'c_optics',
+        getWorld: (out) => {
+          const rig = state.kinematicRig;
+          if (rig?.head) { out.set(0, 10, 9); rig.head.localToWorld(out); return out; }
+          return out.set(0, 165, 10);
+        },
+        screenDx: -155, screenDy: -34,
+        title: () => state.slotOccupancy.head_sensor ? `HEAD: ${_shortCalloutName(state.slotOccupancy.head_sensor)}` : 'OPTICAL SENSOR ARRAY',
+        sub: () => state.slotOccupancy.head_sensor
+          ? 'ADP-HP01 CRANIAL • LOCKED'
+          : (UNIT_REGISTRY[state.activeUnitId]?.isZeonEnemy ? 'RECESSED MONO-EYE • IR RIM' : 'DUAL GOLDEN CAM • TRACKING')
+      },
+      {
+        id: 'c_reactor',
+        getWorld: (out) => {
+          const rig = state.kinematicRig;
+          if (rig?.torso) { out.set(0, 24, 12); rig.torso.localToWorld(out); return out; }
+          return out.set(0, 138, 12);
+        },
+        screenDx: 160, screenDy: -28,
+        title: () => state.slotOccupancy.chest_armor
+          ? `CHEST: ${_shortCalloutName(state.slotOccupancy.chest_armor)}`
+          : (UNIT_REGISTRY[state.activeUnitId]?.isZeonEnemy ? 'ZEON REACTOR CORE' : 'MINOVSKY 3-GEAR CORE'),
+        sub: () => state.hatchOpen
+          ? (UNIT_REGISTRY[state.activeUnitId]?.isZeonEnemy ? 'HATCH OPEN • CORE EXPOSED' : 'HATCH OPEN • 20T/14T SPIN')
+          : (state.slotOccupancy.chest_armor ? 'ADP-HP09 PECTORAL • LOCKED' : (state.renderMode === 'glass' ? 'GLASS CUTAWAY • EXPOSED' : 'HATCH SEALED'))
+      },
+      {
+        id: 'c_servo',
+        getWorld: (out) => {
+          const rig = state.kinematicRig;
+          if (state.slotOccupancy.shoulder_pods && rig?.armR) {
+            out.set((rig.rSign || 1) * 4, 6, 0); rig.armR.localToWorld(out); return out;
+          }
+          if (rig?.forearmR) { out.set(0, 0, 0); rig.forearmR.localToWorld(out); return out; }
+          return out.set(34 * (rig?.rSign || 1), 116, 2);
+        },
+        screenDx: 155, screenDy: 14,
+        title: () => state.slotOccupancy.shoulder_pods ? `SHOULDER: ${_shortCalloutName(state.slotOccupancy.shoulder_pods)}` : 'ROTARY SERVO DRUM',
+        sub: () => state.slotOccupancy.shoulder_pods ? 'ADP-HP03 PAULDRON • LOCKED' : '6-BOLT ANODIZED COLLAR'
+      },
+      {
+        id: 'c_weapon',
+        getWorld: (out) => {
+          const sock = state.socketRig?.aux_weapon?.socketRoot;
+          if (sock) { sock.getWorldPosition(out); return out; }
+          const rig = state.kinematicRig;
+          if (rig?.forearmR) { out.set(0, -26, 2); rig.forearmR.localToWorld(out); return out; }
+          return out.set(35 * (rig?.rSign || 1), 88, 4);
+        },
+        screenDx: 155, screenDy: 44,
+        title: () => state.slotOccupancy.aux_weapon ? `WEAPON: ${_shortCalloutName(state.slotOccupancy.aux_weapon)}` : 'ADP-HP11 PALM SOCKET',
+        sub: () => state.slotOccupancy.aux_weapon
+          ? (state.activeStance === 'RifleBurst' ? 'BEAM AIM • LOCKED' : 'PALM ADAPTER • LOCKED')
+          : 'STANDBY • NO WEAPON EQUIPPED'
+      },
+      {
+        id: 'c_shield',
+        getWorld: (out) => {
+          const sock = state.socketRig?.aux_shield?.socketRoot;
+          if (sock) { sock.getWorldPosition(out); return out; }
+          const rig = state.kinematicRig;
+          if (rig?.forearmL) { out.set(0, -14, 0); rig.forearmL.localToWorld(out); return out; }
+          return out.set(-38 * (rig?.rSign || 1), 102, 2);
+        },
+        screenDx: -160, screenDy: 24,
+        title: () => state.slotOccupancy.aux_shield ? `SHIELD: ${_shortCalloutName(state.slotOccupancy.aux_shield)}` : 'ADP-HP07 FOREARM MOUNT',
+        sub: () => state.slotOccupancy.aux_shield ? 'OUTWARD NORMAL • LOCKED' : 'STANDBY • NO SHIELD EQUIPPED'
+      },
+      {
+        id: 'c_knee',
+        getWorld: (out) => {
+          const rig = state.kinematicRig;
+          if (state.slotOccupancy.leg_thrusters && rig?.shinL) {
+            out.set((rig.lSign || -1) * 8, -18, 0); rig.shinL.localToWorld(out); return out;
+          }
+          if (rig?.shinL) { out.set(0, 2, 6); rig.shinL.localToWorld(out); return out; }
+          return out.set(-16 * (rig?.rSign || 1), 62, 6);
+        },
+        screenDx: -155, screenDy: 56,
+        title: () => state.slotOccupancy.leg_thrusters ? `LEGS: ${_shortCalloutName(state.slotOccupancy.leg_thrusters)}` : 'DOUBLE-PIVOT KNEE DRUM',
+        sub: () => state.slotOccupancy.leg_thrusters ? 'ADP-HP24 CALF POD • LOCKED' : 'TEARDOWN HYDRAULIC DAMPER'
+      }
     ];
     const _projVec = new THREE.Vector3();
     let _lastCalloutSig = '';
+    let _lastCalloutFrameTs = 0;
     function updateCalloutLeaders(force = false) {
       if (!state.showCallouts || !calloutSvg || !calloutNodesEl) return;
+      const nowTs = performance.now();
+      // Live bone tracking at ~30Hz while animated so dots stay 100% locked onto moving hands/limbs!
+      if (!force && state.animPlaying && (nowTs - _lastCalloutFrameTs) < 33) return;
       const w = window.innerWidth, h = window.innerHeight;
-      const sig = `${Math.round(camera.position.x * 2)},${Math.round(camera.position.y * 2)},${Math.round(camera.position.z * 2)},${Math.round(controls.target.y)},${w}x${h},${state.hatchOpen ? 1 : 0},${state.renderMode},${state.activeStance},${state.activeEnv},${state.activeUnitId},${state.menus.left ? 1 : 0},${state.menus.right ? 1 : 0},${state.menus.allHidden ? 1 : 0}`;
-      if (!force && sig === _lastCalloutSig) return;
+      const occSig = Object.values(state.slotOccupancy).map(v => v || '').join('|');
+      const sig = `${Math.round(camera.position.x * 2)},${Math.round(camera.position.y * 2)},${Math.round(camera.position.z * 2)},${Math.round(controls.target.y)},${w}x${h},${state.hatchOpen ? 1 : 0},${state.renderMode},${state.activeStance},${state.activeEnv},${state.activeUnitId},${state.menus.left ? 1 : 0},${state.menus.right ? 1 : 0},${state.menus.allHidden ? 1 : 0},${Math.round(state.explodedFactor * 100)},${occSig}`;
+      if (!force && !state.animPlaying && sig === _lastCalloutSig) return;
       _lastCalloutSig = sig;
-      const rSign = state.kinematicRig?.rSign || 1.0;
+      _lastCalloutFrameTs = nowTs;
+      if (state.chassisModel) state.chassisModel.updateWorldMatrix(true, true);
       let svgHtml = '';
       let nodesHtml = '';
       const isStudio = state.activeEnv === 'studio';
@@ -4843,23 +5491,26 @@
       // Measure exact open side-drawer bounds + half-pill safety margin so NO callout card EVER clips!
       const leftRect = (state.menus.left && !state.menus.allHidden && leftDrawer) ? leftDrawer.getBoundingClientRect() : null;
       const rightRect = ((state.menus.right || state.menus.scene) && !state.menus.allHidden && rightStack) ? rightStack.getBoundingClientRect() : null;
-      const cardHalfW = 104;
+      const cardHalfW = 112;
       const minX = (leftRect && w > 960 && leftRect.right > 40) ? (leftRect.right + cardHalfW + 16) : (cardHalfW + 12);
       const maxX = (rightRect && w > 960 && rightRect.left < w - 40) ? (rightRect.left - cardHalfW - 16) : (w - cardHalfW - 12);
       for (const a of CALLOUT_ANCHORS) {
-        _projVec.set(a.world[0] * rSign, a.world[1], a.world[2]);
+        a.getWorld(_projVec);
         _projVec.project(camera);
         if (_projVec.z > 1.0) continue;
         const sx = (_projVec.x * 0.5 + 0.5) * w;
         const sy = (-_projVec.y * 0.5 + 0.5) * h;
-        const lx = Math.max(minX, Math.min(maxX, sx + a.screenDx));
+        const dxSign = sx < (w * 0.5) ? -1 : 1;
+        const dx = Math.abs(a.screenDx) * dxSign;
+        const lx = Math.max(minX, Math.min(maxX, sx + dx));
         const ly = Math.max(88, Math.min(h - 98, sy + a.screenDy));
         // Precision CAD elbow leader line (anchor -> knee -> tag)
         const kx = sx + (lx - sx) * 0.42;
+        const titleTxt = typeof a.title === 'function' ? a.title() : a.title;
         svgHtml += `<polyline points="${sx.toFixed(1)},${sy.toFixed(1)} ${kx.toFixed(1)},${ly.toFixed(1)} ${lx.toFixed(1)},${ly.toFixed(1)}" fill="none" stroke="${strokeCol}" stroke-width="1.35" opacity="0.88" />`
           + `<circle cx="${sx.toFixed(1)}" cy="${sy.toFixed(1)}" r="4.8" fill="none" stroke="${dotCol}" stroke-width="1.2" opacity="0.65" />`
           + `<circle cx="${sx.toFixed(1)}" cy="${sy.toFixed(1)}" r="2.6" fill="${dotCol}" />`;
-        nodesHtml += `<div class="callout-tag" style="left:${lx.toFixed(1)}px;top:${ly.toFixed(1)}px;"><span class="c-dot"></span>${a.title}<span class="c-sub">${a.sub()}</span></div>`;
+        nodesHtml += `<div class="callout-tag" style="left:${lx.toFixed(1)}px;top:${ly.toFixed(1)}px;"><span class="c-dot"></span>${escapePresetHtml(titleTxt)}<span class="c-sub">${escapePresetHtml(a.sub())}</span></div>`;
       }
       calloutSvg.innerHTML = svgHtml;
       calloutNodesEl.innerHTML = nodesHtml;
@@ -4940,6 +5591,523 @@
     document.getElementById('btn-dismiss-guide')?.addEventListener('click', closeGuide);
     guideBackdrop?.addEventListener('click', (e) => { if (e.target === guideBackdrop) closeGuide(); });
     window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeGuide(); });
+
+    // =========================================================================
+    // 14B. HANGAR LOADOUT VAULT // CUSTOM GUNPLA CONFIG MANAGER (LOCAL STORAGE)
+    // =========================================================================
+    const loadoutBackdrop = document.getElementById('loadout-backdrop');
+    const loadoutPresetsList = document.getElementById('loadout-presets-list');
+    const inputPresetName = document.getElementById('input-preset-name');
+    const btnSaveNewPreset = document.getElementById('btn-save-new-preset');
+    const inputSearchPresets = document.getElementById('input-search-presets');
+    const countAllUnits = document.getElementById('count-all-units');
+    const vaultCountBadge = document.getElementById('vault-count-badge');
+    const filterUnitChips = document.getElementById('filter-unit-chips');
+    const inputImportPresets = document.getElementById('input-import-presets');
+    const btnExportPresets = document.getElementById('btn-export-presets');
+    const btnResetStarterPresets = document.getElementById('btn-reset-starter-presets');
+
+    const STORAGE_KEY_PRESETS = 'mecha_hangar_custom_presets_v1';
+
+    let activeFilterUnit = 'all';
+    let activePresetSearch = '';
+
+    const STARTER_PRESETS = [
+      {
+        id: 'starter_rx78_full_armor',
+        name: 'RX-78 Full Armor Heavy Strike',
+        unitId: 'vanguard_rx',
+        unitName: 'RX-78 VANGUARD',
+        stance: 'Sentinel',
+        renderMode: 'standard',
+        env: 'hangar',
+        createdAt: Date.now() - 3600000,
+        updatedAt: Date.now() - 3600000,
+        slots: {
+          head_sensor: 'head_vulcan_crest_pod',
+          chest_armor: 'chest_chobham_reactive_armor',
+          shoulder_pods: 'shoulder_missile_pauldron_pods',
+          dorsal_pack: 'mission_pack_type_h_artillery',
+          aux_weapon: 'weapon_beam_rifle_rx',
+          aux_shield: 'armor_tower_shield_fed',
+          waist_ordnance: 'waist_xiphias_hip_railguns',
+          leg_thrusters: 'leg_calf_vernier_missile_pods'
+        }
+      },
+      {
+        id: 'starter_zaku_commander',
+        name: 'MS-06Z Heavy Barrage Commander',
+        unitId: 'enemy_zaku',
+        unitName: 'MS-06Z ZAKU-II',
+        stance: 'RifleBurst',
+        renderMode: 'standard',
+        env: 'hangar',
+        createdAt: Date.now() - 2400000,
+        updatedAt: Date.now() - 2400000,
+        slots: {
+          head_sensor: 'llm_head_commander_crest',
+          dorsal_pack: 'mission_pack_type_a_aero',
+          aux_weapon: 'llm_weapon_hyper_bazooka',
+          aux_shield: 'llm_shield_twin_gatling',
+          shoulder_pods: 'llm_shoulder_rail_cannons',
+          chest_armor: 'llm_chest_reactive_plastron',
+          waist_ordnance: 'llm_waist_plasma_skirts',
+          leg_thrusters: 'llm_leg_overboost_verniers'
+        }
+      },
+      {
+        id: 'starter_gouf_duelist',
+        name: 'MS-07B Gouf Beam Blade Duelist',
+        unitId: 'enemy_gouf',
+        unitName: 'MS-07B GOUF',
+        stance: 'MeleeSlash',
+        renderMode: 'standard',
+        env: 'hangar',
+        createdAt: Date.now() - 1200000,
+        updatedAt: Date.now() - 1200000,
+        slots: {
+          aux_weapon: 'llm_weapon_beam_naginata',
+          aux_shield: 'mission_pack_type_c_cqc',
+          dorsal_pack: 'mission_pack_type_a_aero',
+          chest_armor: 'chest_chobham_reactive_armor',
+          leg_thrusters: 'llm_leg_overboost_verniers'
+        }
+      },
+      {
+        id: 'starter_sazabi_dreadnought',
+        name: 'MSN-04S Neo-Zeon Dreadnought Kai',
+        unitId: 'enemy_sazabi',
+        unitName: 'MSN-04S SAZABI',
+        stance: 'BoostJump',
+        renderMode: 'standard',
+        env: 'hangar',
+        createdAt: Date.now() - 600000,
+        updatedAt: Date.now() - 600000,
+        slots: {
+          head_sensor: 'llm_head_commander_crest',
+          dorsal_pack: 'mission_pack_type_s_space',
+          aux_weapon: 'weapon_beam_rifle_rx',
+          aux_shield: 'armor_tower_shield_fed',
+          shoulder_pods: 'shoulder_missile_pauldron_pods',
+          chest_armor: 'llm_chest_reactive_plastron',
+          waist_ordnance: 'waist_xiphias_hip_railguns',
+          leg_thrusters: 'leg_calf_vernier_missile_pods'
+        }
+      }
+    ];
+
+    function escapePresetHtml(str) {
+      return String(str || '').replace(/[&<>"']/g, (ch) => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      }[ch]));
+    }
+
+    function getSavedPresets() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY_PRESETS);
+        if (raw === null) {
+          savePresetsToStorage(STARTER_PRESETS);
+          return [...STARTER_PRESETS];
+        }
+        const parsed = JSON.parse(raw);
+        if (Array.isArray(parsed)) return parsed;
+        return [...STARTER_PRESETS];
+      } catch (err) {
+        console.warn('Failed to parse saved presets from localStorage:', err);
+        return [...STARTER_PRESETS];
+      }
+    }
+
+    function savePresetsToStorage(presets) {
+      try {
+        localStorage.setItem(STORAGE_KEY_PRESETS, JSON.stringify(presets));
+      } catch (err) {
+        console.error('Error saving presets to localStorage:', err);
+      }
+      updateVaultBadges(presets);
+    }
+
+    function updateVaultBadges(presets = null) {
+      const list = presets || getSavedPresets();
+      if (vaultCountBadge) vaultCountBadge.textContent = list.length;
+      if (countAllUnits) countAllUnits.textContent = list.length;
+    }
+
+    function openLoadoutModal() {
+      loadoutBackdrop?.classList.add('open');
+      renderPresetsList();
+    }
+
+    function closeLoadoutModal() {
+      loadoutBackdrop?.classList.remove('open');
+    }
+
+    function saveCurrentBuildAsPreset(customName = '') {
+      const unitSpec = UNIT_REGISTRY[state.activeUnitId] || UNIT_REGISTRY.vanguard_rx;
+      const presets = getSavedPresets();
+      const defaultName = customName.trim() || `${unitSpec.name} Custom Loadout #${presets.length + 1}`;
+
+      const slots = {};
+      const slotKeys = ['head_sensor', 'chest_armor', 'shoulder_pods', 'dorsal_pack', 'aux_weapon', 'aux_shield', 'waist_ordnance', 'leg_thrusters'];
+      slotKeys.forEach(k => {
+        slots[k] = state.slotOccupancy[k] || null;
+      });
+
+      const newPreset = {
+        id: 'preset_' + Date.now() + '_' + Math.random().toString(36).substring(2, 6),
+        name: defaultName,
+        unitId: state.activeUnitId,
+        unitName: unitSpec.name,
+        stance: state.activeStance,
+        renderMode: state.renderMode,
+        env: state.activeEnv,
+        slots,
+        createdAt: Date.now(),
+        updatedAt: Date.now()
+      };
+
+      presets.unshift(newPreset);
+      savePresetsToStorage(presets);
+      if (inputPresetName) inputPresetName.value = '';
+      renderPresetsList();
+      showToast(`💾 SAVED TO VAULT: "${newPreset.name}"`, true);
+      battleAudio?.playGunplaSnapClick();
+      return newPreset;
+    }
+
+    async function equipPreset(presetId) {
+      const presets = getSavedPresets();
+      const preset = presets.find(p => p.id === presetId);
+      if (!preset) return;
+
+      closeLoadoutModal();
+      showToast(`⚡ Hot-swapping to "${preset.name}"...`);
+
+      // 1. Switch suit if different
+      if (state.activeUnitId !== preset.unitId) {
+        await loadUnit(preset.unitId);
+      } else {
+        clearAllEquippedParts();
+      }
+
+      // 2. Apply Stance, Environment, and Render Mode
+      if (preset.stance) playAnimation(preset.stance);
+      if (preset.env) applyEnvironment(preset.env);
+      if (preset.renderMode) applyRenderMode(preset.renderMode);
+
+      // 3. Mount all saved parts with invariant guarantee
+      const myBatchToken = ++state.batchLoadToken;
+      const allParts = state.catalog?.modular_parts || [];
+
+      for (const [zone, partId] of Object.entries(preset.slots || {})) {
+        if (!partId) continue;
+        if (state.batchLoadToken !== myBatchToken) return;
+        const candidate = allParts.find(p => p.part_id === partId || p.concept_slug === partId);
+        if (candidate && !state.equippedPacks.has(candidate.part_id)) {
+          await mountPartOnAdapter(candidate, false);
+        }
+      }
+
+      if (state.batchLoadToken !== myBatchToken) return;
+      enforceSinglePartPerSlotInvariant();
+      renderInventory();
+      updateTelemetry();
+      applyRenderMode(state.renderMode);
+      applyExplodedDisplacement(state.explodedFactor);
+      battleAudio?.playGunplaSnapClick();
+      triggerStagePulse(0x00e5ff);
+      showToast(`⚡ [KLIK!] LOADED CONFIG: "${preset.name}"`, true);
+    }
+
+    function renamePreset(presetId, newName) {
+      const trimmed = newName.trim();
+      if (!trimmed) return;
+      const presets = getSavedPresets();
+      const p = presets.find(x => x.id === presetId);
+      if (p) {
+        p.name = trimmed;
+        p.updatedAt = Date.now();
+        savePresetsToStorage(presets);
+        renderPresetsList();
+        showToast(`✏️ Renamed to "${trimmed}"`);
+      }
+    }
+
+    function duplicatePreset(presetId) {
+      const presets = getSavedPresets();
+      const orig = presets.find(x => x.id === presetId);
+      if (!orig) return;
+      const copy = JSON.parse(JSON.stringify(orig));
+      copy.id = 'preset_' + Date.now() + '_' + Math.random().toString(36).substring(2, 6);
+      copy.name = `${orig.name} (Copy)`;
+      copy.createdAt = Date.now();
+      copy.updatedAt = Date.now();
+      presets.unshift(copy);
+      savePresetsToStorage(presets);
+      renderPresetsList();
+      showToast(`📋 Duplicated: "${copy.name}"`);
+    }
+
+    function deletePreset(presetId) {
+      let presets = getSavedPresets();
+      const target = presets.find(x => x.id === presetId);
+      if (!target) return;
+      if (!confirm(`Delete preset "${target.name}"?`)) return;
+      presets = presets.filter(x => x.id !== presetId);
+      savePresetsToStorage(presets);
+      renderPresetsList();
+      showToast(`🗑️ Deleted: "${target.name}"`);
+    }
+
+    function exportPresetsAsJson() {
+      const presets = getSavedPresets();
+      const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(presets, null, 2));
+      const a = document.createElement('a');
+      a.setAttribute('href', dataStr);
+      a.setAttribute('download', `mecha_hangar_presets_${Date.now()}.json`);
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      showToast(`📤 Exported ${presets.length} Presets to JSON!`);
+    }
+
+    function importPresetsFromJson(e) {
+      const file = e.target.files?.[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        try {
+          const imported = JSON.parse(event.target.result);
+          if (!Array.isArray(imported)) {
+            alert('Invalid backup format. Expected a JSON array.');
+            return;
+          }
+          const current = getSavedPresets();
+          const merged = [...imported, ...current];
+          const seen = new Set();
+          const clean = [];
+          merged.forEach(p => {
+            if (p.id && !seen.has(p.id)) {
+              seen.add(p.id);
+              clean.push(p);
+            }
+          });
+          savePresetsToStorage(clean);
+          renderPresetsList();
+          showToast(`📥 Successfully Imported ${imported.length} Presets!`, true);
+        } catch (err) {
+          alert('Failed to parse imported JSON file: ' + err.message);
+        }
+      };
+      reader.readAsText(file);
+      e.target.value = '';
+    }
+
+    function renderPresetsList() {
+      if (!loadoutPresetsList) return;
+      const presets = getSavedPresets();
+      updateVaultBadges(presets);
+
+      let filtered = presets;
+      if (activeFilterUnit !== 'all') {
+        filtered = filtered.filter(p => p.unitId === activeFilterUnit);
+      }
+      if (activePresetSearch.trim()) {
+        const q = activePresetSearch.toLowerCase();
+        filtered = filtered.filter(p => p.name.toLowerCase().includes(q) || (p.unitName && p.unitName.toLowerCase().includes(q)));
+      }
+
+      if (filtered.length === 0) {
+        loadoutPresetsList.innerHTML = `
+          <div style="grid-column: 1/-1; text-align: center; padding: 36px 18px; color: var(--text-muted); background: rgba(0,0,0,0.3); border: 1px dashed rgba(255,255,255,0.12); border-radius: 12px;">
+            <div style="font-size: 28px; margin-bottom: 8px;">📂</div>
+            <div style="font-family: var(--font-display); font-size: 12px; color: #cbd5e1; font-weight: 700;">No Matching Custom Presets Found</div>
+            <div style="font-family: var(--font-mono); font-size: 9.5px; margin-top: 4px;">Click "💾 Save Current Build" above to snapshot your active mecha kit!</div>
+          </div>
+        `;
+        return;
+      }
+
+      const slotIconMap = {
+        head_sensor: '👑 Head',
+        chest_armor: '🛡️ Chest',
+        shoulder_pods: '🚀 Shoulders',
+        dorsal_pack: '🎒 Pack',
+        aux_weapon: '🔫 Weapon',
+        aux_shield: '🔰 Shield',
+        waist_ordnance: '⚡ Waist',
+        leg_thrusters: '🦵 Legs'
+      };
+
+      loadoutPresetsList.innerHTML = filtered.map(p => {
+        const dateStr = new Date(p.createdAt || Date.now()).toLocaleDateString(undefined, { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+        const unitClass = p.unitId === 'vanguard_rx' ? 'hero' : p.unitId === 'enemy_zaku' ? 'zaku' : p.unitId === 'enemy_gouf' ? 'gouf' : 'sazabi';
+        const unitName = p.unitName || (p.unitId === 'vanguard_rx' ? 'RX-78 VANGUARD' : p.unitId === 'enemy_zaku' ? 'MS-06Z ZAKU-II' : p.unitId === 'enemy_gouf' ? 'MS-07B GOUF' : 'MSN-04S SAZABI');
+
+        const slots = p.slots || {};
+        const equippedCount = Object.values(slots).filter(Boolean).length;
+
+        const slotPills = Object.entries(slotIconMap).map(([slotKey, label]) => {
+          const isEquipped = !!slots[slotKey];
+          const partId = slots[slotKey] || '';
+          return `<span class="preset-slot-pill ${isEquipped ? 'active' : ''}" title="${label}: ${partId || 'None'}">${label}</span>`;
+        }).join('');
+
+        return `
+          <div class="preset-card" data-preset-id="${escapePresetHtml(p.id)}">
+            <div class="preset-card-top">
+              <span class="preset-unit-badge ${unitClass}">${escapePresetHtml(unitName)}</span>
+              <span class="preset-date">${escapePresetHtml(dateStr)}</span>
+            </div>
+            <div class="preset-title-wrap" id="preset-title-wrap-${escapePresetHtml(p.id)}">
+              <div class="preset-title" title="Click to rename inline" onclick="window.__mechaStartInlineRename('${escapePresetHtml(p.id)}')">
+                <span>${escapePresetHtml(p.name)}</span>
+                <span style="font-size: 10px; opacity: 0.6;">✏️</span>
+              </div>
+            </div>
+            <div class="preset-meta-row">
+              <span class="preset-tag">🤺 ${escapePresetHtml(p.stance || 'Sentinel')}</span>
+              <span class="preset-tag" style="color:var(--accent-gold);border-color:rgba(251,191,36,0.3);">⚡ ${equippedCount}/8 Slots</span>
+            </div>
+            <div class="preset-slots-grid">
+              ${slotPills}
+            </div>
+            <div class="preset-card-actions">
+              <button class="btn-equip-preset" onclick="window.__mechaEquipPreset('${escapePresetHtml(p.id)}')" title="Equip this custom kit in the 3D scene">
+                ⚡ EQUIP BUILD
+              </button>
+              <button class="btn-preset-icon" onclick="window.__mechaOverwritePreset('${escapePresetHtml(p.id)}')" title="Update this preset with your current 3D kit">
+                🔄
+              </button>
+              <button class="btn-preset-icon" onclick="window.__mechaStartInlineRename('${escapePresetHtml(p.id)}')" title="Rename preset">
+                ✏️
+              </button>
+              <button class="btn-preset-icon" onclick="window.__mechaDuplicatePreset('${escapePresetHtml(p.id)}')" title="Duplicate preset">
+                📋
+              </button>
+              <button class="btn-preset-icon delete" onclick="window.__mechaDeletePreset('${escapePresetHtml(p.id)}')" title="Delete preset">
+                🗑️
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function overwritePresetWithCurrent(presetId) {
+      const presets = getSavedPresets();
+      const target = presets.find(x => x.id === presetId);
+      if (!target) return;
+      const unitSpec = UNIT_REGISTRY[state.activeUnitId] || UNIT_REGISTRY.vanguard_rx;
+      const slots = {};
+      ['head_sensor', 'chest_armor', 'shoulder_pods', 'dorsal_pack', 'aux_weapon', 'aux_shield', 'waist_ordnance', 'leg_thrusters'].forEach(k => {
+        slots[k] = state.slotOccupancy[k] || null;
+      });
+      target.unitId = state.activeUnitId;
+      target.unitName = unitSpec.name;
+      target.stance = state.activeStance;
+      target.renderMode = state.renderMode;
+      target.env = state.activeEnv;
+      target.slots = slots;
+      target.updatedAt = Date.now();
+      savePresetsToStorage(presets);
+      renderPresetsList();
+      battleAudio?.playGunplaSnapClick();
+      showToast(`🔄 UPDATED CONFIG: "${target.name}"`, true);
+    }
+
+    // Window globals for inline onclick handlers in generated preset cards
+    window.__mechaEquipPreset = (id) => equipPreset(id);
+    window.__mechaOverwritePreset = (id) => overwritePresetWithCurrent(id);
+    window.__mechaDuplicatePreset = (id) => duplicatePreset(id);
+    window.__mechaDeletePreset = (id) => deletePreset(id);
+    window.__mechaStartInlineRename = (id) => {
+      const presets = getSavedPresets();
+      const p = presets.find(x => x.id === id);
+      const wrap = document.getElementById(`preset-title-wrap-${id}`);
+      if (!p || !wrap) return;
+      wrap.innerHTML = `
+        <div style="display:flex;gap:5px;align-items:center;">
+          <input type="text" class="preset-title-edit-input" id="inline-rename-${escapePresetHtml(id)}" value="${escapePresetHtml(p.name)}" maxlength="48" />
+          <button class="btn-preset-icon" style="padding:3px 7px;color:#34d399;border-color:#34d399;" onclick="window.__mechaCommitInlineRename('${escapePresetHtml(id)}')" title="Save name">✓</button>
+          <button class="btn-preset-icon" style="padding:3px 7px;" onclick="window.__mechaCancelInlineRename()" title="Cancel">✕</button>
+        </div>
+      `;
+      const inp = document.getElementById(`inline-rename-${id}`);
+      if (inp) {
+        inp.focus();
+        inp.select();
+        inp.addEventListener('keydown', (ev) => {
+          if (ev.key === 'Enter') { ev.preventDefault(); window.__mechaCommitInlineRename(id); }
+          else if (ev.key === 'Escape') { ev.preventDefault(); ev.stopPropagation(); window.__mechaCancelInlineRename(); }
+        });
+      }
+    };
+    window.__mechaCommitInlineRename = (id) => {
+      const inp = document.getElementById(`inline-rename-${id}`);
+      if (inp && inp.value.trim()) renamePreset(id, inp.value.trim());
+      else renderPresetsList();
+    };
+    window.__mechaCancelInlineRename = () => renderPresetsList();
+
+    // Bind Loadout UI controls
+    document.getElementById('btn-open-loadouts')?.addEventListener('click', openLoadoutModal);
+    document.getElementById('btn-close-loadouts')?.addEventListener('click', closeLoadoutModal);
+    document.getElementById('btn-drawer-open-vault')?.addEventListener('click', openLoadoutModal);
+    document.getElementById('btn-drawer-save-build')?.addEventListener('click', () => {
+      openLoadoutModal();
+      const unitSpec = UNIT_REGISTRY[state.activeUnitId] || UNIT_REGISTRY.vanguard_rx;
+      if (inputPresetName) {
+        inputPresetName.value = `${unitSpec.name} Custom #${getSavedPresets().length + 1}`;
+        inputPresetName.focus();
+        inputPresetName.select();
+      }
+    });
+    btnSaveNewPreset?.addEventListener('click', () => {
+      const name = inputPresetName?.value || '';
+      saveCurrentBuildAsPreset(name);
+    });
+    inputPresetName?.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const name = inputPresetName?.value || '';
+        saveCurrentBuildAsPreset(name);
+      }
+    });
+    btnExportPresets?.addEventListener('click', exportPresetsAsJson);
+    inputImportPresets?.addEventListener('change', importPresetsFromJson);
+    btnResetStarterPresets?.addEventListener('click', () => {
+      if (confirm('Reset custom builds back to the 4 default Bandai starter kits?')) {
+        savePresetsToStorage(STARTER_PRESETS);
+        renderPresetsList();
+        showToast('↺ Restored 4 Starter Gunpla Presets!', true);
+      }
+    });
+
+    filterUnitChips?.addEventListener('click', (e) => {
+      const chip = e.target.closest('.filter-chip');
+      if (!chip) return;
+      filterUnitChips.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      activeFilterUnit = chip.dataset.unit || 'all';
+      renderPresetsList();
+    });
+
+    inputSearchPresets?.addEventListener('input', (e) => {
+      activePresetSearch = e.target.value;
+      renderPresetsList();
+    });
+
+    loadoutBackdrop?.addEventListener('click', (e) => {
+      if (e.target === loadoutBackdrop) closeLoadoutModal();
+    });
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && loadoutBackdrop?.classList.contains('open')) {
+        closeLoadoutModal();
+      }
+    });
+
+    // Initialize vault count on startup
+    updateVaultBadges();
 
     class MechaBattleAudioEngine {
       constructor(toggleBtn, trackBtn) {
@@ -5248,12 +6416,20 @@
           this.toggleBtn.classList.toggle('playing', this.isPlaying);
           this.toggleBtn.textContent = this.isPlaying ? '🔊 BGM' : '🔇 BGM';
         }
-        if (this.trackBtn) this.trackBtn.textContent = `🎵 ${this.tracks[this.trackIndex].shortName}`;
+        if (this.trackBtn) {
+          const isMobile = window.innerWidth <= 640;
+          const track = this.tracks[this.trackIndex];
+          const mobileLabels = ['Sortie', 'Zero-G', 'Launch'];
+          const shortWord = isMobile ? (mobileLabels[this.trackIndex] || track.shortName.split(' ')[0]) : track.shortName;
+          this.trackBtn.textContent = `🎵 ${shortWord}`;
+          this.trackBtn.title = `Switch Mecha Battle Track (Current: ${track.name})`;
+        }
       }
 
       _bindUi() {
         this.toggleBtn?.addEventListener('click', () => this.toggle());
         this.trackBtn?.addEventListener('click', () => this.nextTrack());
+        window.addEventListener('resize', () => this._updateUi());
         this._updateUi();
       }
     }
@@ -5263,10 +6439,136 @@
       document.getElementById('btn-bgm-track')
     );
 
+    // =========================================================================
+    // 15. FULL-SCREEN ZERO-HUD HD WALLPAPER CAPTURE (HIDE-ALL + AUTO DOWNLOAD)
+    // =========================================================================
+    const shutterFlashEl = document.getElementById('shutter-flash');
+    let isCapturingWallpaper = false;
+
+    async function captureFullscreenWallpaper() {
+      if (isCapturingWallpaper) return;
+      isCapturingWallpaper = true;
+
+      const wasAllHidden = state.menus.allHidden;
+      try {
+        // 1. Visual Full-Screen Hide-All Cinema Moment + Camera Shutter Flash
+        document.body.classList.add('wallpaper-capture-clean');
+        if (!wasAllHidden) toggleAllMenus();
+
+        if (shutterFlashEl) {
+          shutterFlashEl.classList.add('flash');
+          requestAnimationFrame(() => requestAnimationFrame(() => shutterFlashEl.classList.remove('flash')));
+        }
+        battleAudio?.playGunplaSnapClick();
+
+        // 2. Compute Crisp Native Full-Screen Monitor / Phone Wallpaper Resolution
+        const maxTex = Math.min(renderer.capabilities?.maxTextureSize || 4096, 4096);
+        const sw = Math.max(window.screen?.width || 1920, 360);
+        const sh = Math.max(window.screen?.height || 1080, 360);
+        const screenDpr = Math.min(window.devicePixelRatio || 1, 2);
+        let targetW, targetH;
+        if (sw >= sh) {
+          const ratio = sw / sh;
+          targetW = Math.min(maxTex, 3840, Math.max(Math.round(sw * screenDpr), 1920));
+          targetH = Math.max(720, Math.round(targetW / ratio));
+        } else {
+          const ratio = sw / sh;
+          targetH = Math.min(maxTex, 2560, Math.max(Math.round(sh * screenDpr), 1920));
+          targetW = Math.max(720, Math.round(targetH * ratio));
+        }
+
+        // 3. Synchronously Render Pure 3D WebGL Frame (0% HUD, 0% UI Chrome!)
+        const prevW = window.innerWidth;
+        const prevH = window.innerHeight;
+        const prevAspect = camera.aspect;
+        const prevDpr = renderer.getPixelRatio();
+        let dataUrl = null;
+        try {
+          camera.aspect = targetW / targetH;
+          camera.updateProjectionMatrix();
+          renderer.setPixelRatio(1);
+          renderer.setSize(targetW, targetH, false);
+          renderer.render(scene, camera);
+          dataUrl = renderer.domElement.toDataURL('image/png');
+        } finally {
+          camera.aspect = prevAspect;
+          camera.updateProjectionMatrix();
+          renderer.setPixelRatio(prevDpr);
+          renderer.setSize(prevW, prevH, false);
+          renderer.render(scene, camera);
+        }
+
+        if (!dataUrl) throw new Error('Canvas export returned empty image');
+
+        const unitSpec = UNIT_REGISTRY[state.activeUnitId] || UNIT_REGISTRY.vanguard_rx;
+        const safeUnit = unitSpec.name.replace(/[^a-zA-Z0-9]+/g, '_').replace(/^_|_$/g, '');
+        const now = new Date();
+        const pad2 = (n) => String(n).padStart(2, '0');
+        const ts = `${now.getFullYear()}${pad2(now.getMonth() + 1)}${pad2(now.getDate())}_${pad2(now.getHours())}${pad2(now.getMinutes())}${pad2(now.getSeconds())}`;
+        const fileName = `Mecha_Wallpaper_${safeUnit}_${targetW}x${targetH}_${ts}.png`;
+
+        // 4. Instant Download (or Native Share Sheet on Mobile for Direct "Use as Wallpaper")
+        let sharedOnMobile = false;
+        if (isMobileViewport() && navigator.share && navigator.canShare) {
+          try {
+            const resp = await fetch(dataUrl);
+            const blob = await resp.blob();
+            const file = new File([blob], fileName, { type: 'image/png' });
+            if (navigator.canShare({ files: [file] })) {
+              await navigator.share({
+                files: [file],
+                title: `${unitSpec.name} — 3D Mecha Wallpaper (${targetW}×${targetH})`,
+                text: 'Full-Screen Zero-HUD 3D Mecha Wallpaper'
+              });
+              sharedOnMobile = true;
+            }
+          } catch (shareErr) {
+            if (shareErr && shareErr.name === 'AbortError') sharedOnMobile = false;
+          }
+        }
+
+        if (!sharedOnMobile) {
+          const link = document.createElement('a');
+          link.href = dataUrl;
+          link.download = fileName;
+          document.body.appendChild(link);
+          link.click();
+          link.remove();
+        }
+
+        // 5. Smoothly Restore HUD after Brief Full-Screen Preview Moment
+        setTimeout(() => {
+          document.body.classList.remove('wallpaper-capture-clean');
+          if (!wasAllHidden && state.menus.allHidden) toggleAllMenus();
+          showToast(
+            sharedOnMobile
+              ? `📸 Wallpaper Ready (${targetW}×${targetH})!`
+              : `📸 Wallpaper Saved (${targetW}×${targetH})! Klik kanan file → Set as Desktop Background`,
+            true
+          );
+          isCapturingWallpaper = false;
+        }, 700);
+      } catch (err) {
+        console.error('Wallpaper capture failed:', err);
+        document.body.classList.remove('wallpaper-capture-clean');
+        if (!wasAllHidden && state.menus.allHidden) toggleAllMenus();
+        showToast('⚠️ Failed to capture wallpaper PNG');
+        isCapturingWallpaper = false;
+      }
+    }
+
+    document.getElementById('btn-wallpaper-shot')?.addEventListener('click', captureFullscreenWallpaper);
+    document.getElementById('btn-dock-wallpaper')?.addEventListener('click', captureFullscreenWallpaper);
+    window.addEventListener('keydown', (e) => {
+      if (document.activeElement && ['INPUT', 'SELECT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
+      if (e.key === 'p' || e.key === 'P') captureFullscreenWallpaper();
+    });
+
     // Expose Debug/QA API
     window.__mechaDebug = {
       state, loadUnit, playAnimation, setCameraPreset, applyRenderMode, applyEnvironment,
       toggleAllMenus, toggleSingleMenu, toggleEquipPart, equipFullBodyLoadout, clearAllEquippedParts, synthesizeLiveAgenticPart,
+      openLoadoutModal, closeLoadoutModal, saveCurrentBuildAsPreset, equipPreset, getSavedPresets, captureFullscreenWallpaper,
       equipPartById: async (partId) => {
         const p = state.catalog?.modular_parts?.find(x => x.part_id === partId);
         if (p) await toggleEquipPart(p);
