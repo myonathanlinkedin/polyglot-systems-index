@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Inkling-2-Mini in 5.4 GB Memory",
+    "language": "Ruby",
+    "folder": "ruby",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "ruby-algorithms-lab",
+    "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261122_050124_inkling-2-mini_in_5_4_gb_memor",
+    "source_file": "main",
+    "timestamp": "2026-11-22T05:01:38.252158+00:00",
+    "dir_name": "20261122_050124_inkling-2-mini_in_5_4_gb_memor"
+  },
+  {
     "topic": "From Skiplists to B+ Trees: Making Valkey Sorted Sets More Memory Efficient",
     "language": "PHP",
     "folder": "php",
