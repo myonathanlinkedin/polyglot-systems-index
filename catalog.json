@@ -1,5 +1,16 @@
 [
   {
+    "topic": "From Skiplists to B+ Trees: Making Valkey Sorted Sets More Memory Efficient",
+    "language": "PHP",
+    "folder": "php",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "php-backend-core",
+    "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261122_030234_from_skiplists_to_b__trees__ma",
+    "source_file": "main",
+    "timestamp": "2026-11-22T03:02:48.501908+00:00",
+    "dir_name": "20261122_030234_from_skiplists_to_b__trees__ma"
+  },
+  {
     "topic": "Cache-Oblivious Matrix Transposition Algorithm",
     "language": "C++",
     "folder": "cpp",
