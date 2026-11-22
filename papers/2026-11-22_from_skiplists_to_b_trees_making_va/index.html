@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>From Skiplists to B+ Trees: A Memory-Efficient Sorted Set for PHP | Mateus Yonathan</title>
+  <title>From Skiplists to B+ Trees: Memory-Efficient Sorted Set Implementation in PHP | Mateus Yonathan</title>
 
   <!-- Google Scholar Highwire Press Meta Tags (Strict Standards) -->
-  <meta name="citation_title" content="From Skiplists to B+ Trees: A Memory-Efficient Sorted Set for PHP" />
+  <meta name="citation_title" content="From Skiplists to B+ Trees: Memory-Efficient Sorted Set Implementation in PHP" />
   <meta name="citation_author" content="Mateus Yonathan" />
   <meta name="citation_publication_date" content="2026/11/22" />
   <meta name="citation_date" content="2026/11/22" />
@@ -19,7 +19,7 @@
   <meta name="citation_keywords" content="PHP, Agentic Systems, Agentic AI, Autonomous Verification, Systems Programming, Algorithms, Data Structures, Research Paper" />
 
   <!-- Dublin Core Metadata Set -->
-  <meta name="DC.title" content="From Skiplists to B+ Trees: A Memory-Efficient Sorted Set for PHP" />
+  <meta name="DC.title" content="From Skiplists to B+ Trees: Memory-Efficient Sorted Set Implementation in PHP" />
   <meta name="DC.creator" content="Mateus Yonathan" />
   <meta name="DC.issued" content="2026-11-22" />
   <meta name="DC.publisher" content="Polyglot Systems Lab" />
@@ -27,10 +27,10 @@
   <meta name="DC.language" content="en" />
   <meta name="DC.subject" content="Agentic Systems, PHP, Algorithms, Autonomous Verification" />
   <meta name="DC.identifier" content="https://myonathanlinkedin.github.io/papers/2026-11-22_from_skiplists_to_b_trees_making_va/" />
-  <meta name="DC.description" content="We present a PHP implementation that transforms a skiplist-based sorted set into a B+ tree, achieving superior memory locality while preserving logarithmic search, insertion, and deletion costs. The design retains the skiplist&#x27;s simplicity but reorganizes nodes into a height-balanced B+ tree with leaf linkage for efficient range queries. Formal invariants guarantee that all leaves reside at the same depth and that each internal node contains between ⌈ m/2 ⌉ and m children, where m is the order. Empirical evaluation on an Intel(R) Xeon(R) 6975P-C single-core Linux host yields a mean latency of 29 806 µs and a throughput of 33 550 ops/s for 30 benchmark iterations." />
+  <meta name="DC.description" content="We present a PHP implementation that transforms a skiplist-based sorted set into a B+ tree to reduce memory overhead while preserving logarithmic search performance. The design leverages contiguous array storage for keys and values, linked leaf nodes for range queries, and a configurable order parameter that governs node fan-out. We formally prove that the tree remains strictly height-balanced, guaranteeing h ≤ ⌈ log_m/2 n ⌉ where m is the node order and n the number of keys. Empirical evaluation in our research evaluation environment,." />
 
   <!-- SEO & Social Rich Cards -->
-  <meta name="description" content="Agentic autonomous systems research preprint: We present a PHP implementation that transforms a skiplist-based sorted set into a B+ tree, achieving superior memory locality while preserv" />
+  <meta name="description" content="Agentic autonomous systems research preprint: We present a PHP implementation that transforms a skiplist-based sorted set into a B+ tree to reduce memory overhead while preserving logari" />
   <meta name="keywords" content="PHP, Agentic Systems, Agentic AI, Mateus Yonathan, Autonomous Systems Research, Algorithms, Polyglot Systems Lab" />
   <meta name="author" content="Mateus Yonathan" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
@@ -38,8 +38,8 @@
   <link rel="sitemap" type="application/xml" title="Sitemap" href="https://myonathanlinkedin.github.io/sitemap.xml" />
 
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="From Skiplists to B+ Trees: A Memory-Efficient Sorted Set for PHP" />
-  <meta property="og:description" content="Agentic autonomous systems research preprint: We present a PHP implementation that transforms a skiplist-based sorted set into a B+ tree, achieving superior memory locality while preserving logarithmic search, insertion, and d" />
+  <meta property="og:title" content="From Skiplists to B+ Trees: Memory-Efficient Sorted Set Implementation in PHP" />
+  <meta property="og:description" content="Agentic autonomous systems research preprint: We present a PHP implementation that transforms a skiplist-based sorted set into a B+ tree to reduce memory overhead while preserving logarithmic search performance. The design lev" />
   <meta property="og:url" content="https://myonathanlinkedin.github.io/papers/2026-11-22_from_skiplists_to_b_trees_making_va/" />
   <meta property="og:image" content="https://raw.githubusercontent.com/myonathanlinkedin/mini-papers/main/papers/2026-11-22_from_skiplists_to_b_trees_making_va/preview/page_1.png" />
   <meta property="og:site_name" content="Polyglot Systems Lab" />
@@ -47,8 +47,8 @@
   <meta property="article:author" content="Mateus Yonathan" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="From Skiplists to B+ Trees: A Memory-Efficient Sorted Set for PHP" />
-  <meta name="twitter:description" content="Agentic autonomous systems research preprint: We present a PHP implementation that transforms a skiplist-based sorted set into a B+ tree, achieving superior memory locality while preserving logarithmic search, insertion, and d" />
+  <meta name="twitter:title" content="From Skiplists to B+ Trees: Memory-Efficient Sorted Set Implementation in PHP" />
+  <meta name="twitter:description" content="Agentic autonomous systems research preprint: We present a PHP implementation that transforms a skiplist-based sorted set into a B+ tree to reduce memory overhead while preserving logarithmic search performance. The design lev" />
   <meta name="twitter:image" content="https://raw.githubusercontent.com/myonathanlinkedin/mini-papers/main/papers/2026-11-22_from_skiplists_to_b_trees_making_va/preview/page_1.png" />
 
   <!-- Google Favicons -->
@@ -60,8 +60,8 @@
 {
   "@context": "https://schema.org",
   "@type": "ScholarlyArticle",
-  "headline": "From Skiplists to B+ Trees: A Memory-Efficient Sorted Set for PHP",
-  "name": "From Skiplists to B+ Trees: A Memory-Efficient Sorted Set for PHP",
+  "headline": "From Skiplists to B+ Trees: Memory-Efficient Sorted Set Implementation in PHP",
+  "name": "From Skiplists to B+ Trees: Memory-Efficient Sorted Set Implementation in PHP",
   "author": {
     "@type": "Person",
     "name": "Mateus Yonathan",
@@ -82,7 +82,7 @@
     "name": "Polyglot Systems Lab",
     "url": "https://myonathanlinkedin.github.io/"
   },
-  "description": "We present a PHP implementation that transforms a skiplist-based sorted set into a B+ tree, achieving superior memory locality while preserving logarithmic search, insertion, and deletion costs. The design retains the skiplist's simplicity but reorganizes nodes into a height-balanced B+ tree with leaf linkage for efficient range queries. Formal invariants guarantee that all leaves reside at the same depth and that each internal node contains between \u2308 m/2 \u2309 and m children, where m is the order. Empirical evaluation on an Intel(R) Xeon(R) 6975P-C single-core Linux host yields a mean latency of 29 806 \u00b5s and a throughput of 33 550 ops/s for 30 benchmark iterations.",
+  "description": "We present a PHP implementation that transforms a skiplist-based sorted set into a B+ tree to reduce memory overhead while preserving logarithmic search performance. The design leverages contiguous array storage for keys and values, linked leaf nodes for range queries, and a configurable order parameter that governs node fan-out. We formally prove that the tree remains strictly height-balanced, guaranteeing h \u2264 \u2308 log_m/2 n \u2309 where m is the node order and n the number of keys. Empirical evaluation in our research evaluation environment,.",
   "mainEntityOfPage": "https://myonathanlinkedin.github.io/papers/2026-11-22_from_skiplists_to_b_trees_making_va/",
   "url": "https://myonathanlinkedin.github.io/papers/2026-11-22_from_skiplists_to_b_trees_making_va/",
   "encoding": {
@@ -428,7 +428,7 @@
         <span class="badge badge-date">Published: 2026-11-22</span>
       </div>
 
-      <h1>From Skiplists to B+ Trees: A Memory-Efficient Sorted Set for PHP</h1>
+      <h1>From Skiplists to B+ Trees: Memory-Efficient Sorted Set Implementation in PHP</h1>
 
       <div class="byline">
         Authored by <strong>Mateus Yonathan</strong> &middot; Principal Investigator &amp; Systems Engineer<br />
@@ -461,7 +461,7 @@
           </svg>
           Abstract
         </div>
-        <p class="abstract-text">We present a PHP implementation that transforms a skiplist-based sorted set into a B+ tree, achieving superior memory locality while preserving logarithmic search, insertion, and deletion costs. The design retains the skiplist&#x27;s simplicity but reorganizes nodes into a height-balanced B+ tree with leaf linkage for efficient range queries. Formal invariants guarantee that all leaves reside at the same depth and that each internal node contains between ⌈ m/2 ⌉ and m children, where m is the order. Empirical evaluation on an Intel(R) Xeon(R) 6975P-C single-core Linux host yields a mean latency of 29 806 µs and a throughput of 33 550 ops/s for 30 benchmark iterations.</p>
+        <p class="abstract-text">We present a PHP implementation that transforms a skiplist-based sorted set into a B+ tree to reduce memory overhead while preserving logarithmic search performance. The design leverages contiguous array storage for keys and values, linked leaf nodes for range queries, and a configurable order parameter that governs node fan-out. We formally prove that the tree remains strictly height-balanced, guaranteeing h ≤ ⌈ log_m/2 n ⌉ where m is the node order and n the number of keys. Empirical evaluation in our research evaluation environment,.</p>
         
       </section>
       
@@ -474,7 +474,7 @@
           Manuscript Page 1 Preview
         </div>
         <div style="background:#ffffff;border-radius:0.5rem;padding:0.75rem;border:1px solid rgba(56,189,248,0.35);overflow:hidden;">
-          <img src="https://raw.githubusercontent.com/myonathanlinkedin/mini-papers/main/papers/2026-11-22_from_skiplists_to_b_trees_making_va/preview/page_1.png" alt="From Skiplists to B+ Trees: A Memory-Efficient Sorted Set for PHP Preview" style="width:100%;height:auto;display:block;" loading="lazy" />
+          <img src="https://raw.githubusercontent.com/myonathanlinkedin/mini-papers/main/papers/2026-11-22_from_skiplists_to_b_trees_making_va/preview/page_1.png" alt="From Skiplists to B+ Trees: Memory-Efficient Sorted Set Implementation in PHP Preview" style="width:100%;height:auto;display:block;" loading="lazy" />
         </div>
       </section>
 
@@ -502,7 +502,7 @@
           Bibliographic Citation (BibTeX)
         </div>
         <pre class="bibtex" id="bibtex-block">@article{yonathan2026_2026_11_22_from_skiplists_to_b_trees_making_va,
-  title={From Skiplists to B+ Trees: A Memory-Efficient Sorted Set for PHP},
+  title={From Skiplists to B+ Trees: Memory-Efficient Sorted Set Implementation in PHP},
   author={Yonathan, Mateus},
   journal={Polyglot Systems Lab Agentic Research Preprints},
   year={2026},
