@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Cache-Oblivious Matrix Transposition Algorithm",
+    "language": "Rust",
+    "folder": "rust",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "rust-algorithms",
+    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261122_080107_cache-oblivious_matrix_transpo",
+    "source_file": "main",
+    "timestamp": "2026-11-22T08:01:25.794815+00:00",
+    "dir_name": "20261122_080107_cache-oblivious_matrix_transpo"
+  },
+  {
     "topic": "From Skiplists to B+ Trees: Making Aether-Cache Sorted Sets More Memory Efficient",
     "language": "PHP",
     "folder": "php",
@@ -42,17 +53,6 @@
     "source_file": "main",
     "timestamp": "2026-11-22T03:02:48.501908+00:00",
     "dir_name": "20261122_030234_from_skiplists_to_b__trees__ma"
-  },
-  {
-    "topic": "Cache-Oblivious Matrix Transposition Algorithm",
-    "language": "C++",
-    "folder": "cpp",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "cpp-systems-core",
-    "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261122_020139_cache-oblivious_matrix_transpo",
-    "source_file": "main",
-    "timestamp": "2026-11-22T02:01:53.876687+00:00",
-    "dir_name": "20261122_020139_cache-oblivious_matrix_transpo"
   },
   {
     "topic": "Copy-on-Write Vector Memory Buffer Management",
@@ -4783,6 +4783,17 @@
     "source_file": "main",
     "timestamp": "2026-10-10T05:06:48.547428+00:00",
     "dir_name": "20261010_050648_communication_between_the_comp"
+  },
+  {
+    "topic": "Cache-Oblivious Matrix Transposition Algorithm",
+    "language": "C++",
+    "folder": "cpp",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "cpp-systems-core",
+    "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261010_050240_cache-oblivious_matrix_transpo",
+    "source_file": "main",
+    "timestamp": "2026-10-10T05:02:40.906803+00:00",
+    "dir_name": "20261010_050240_cache-oblivious_matrix_transpo"
   },
   {
     "topic": "Vector Clock Distributed Event Ordering Mechanism",
