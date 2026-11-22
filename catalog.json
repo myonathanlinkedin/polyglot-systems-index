@@ -1,5 +1,38 @@
 [
   {
+    "topic": "From Skiplists to B+ Trees: Making Aether-Cache Sorted Sets More Memory Efficient",
+    "language": "PHP",
+    "folder": "php",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "php-backend-core",
+    "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261122_070253_from_skiplists_to_b__trees__ma",
+    "source_file": "main",
+    "timestamp": "2026-11-22T07:03:05.618205+00:00",
+    "dir_name": "20261122_070253_from_skiplists_to_b__trees__ma"
+  },
+  {
+    "topic": "Safe Optimistic Lock Coupling",
+    "language": "Swift",
+    "folder": "swift",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "swift-systems-lab",
+    "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261122_050204_safe_optimistic_lock_coupling",
+    "source_file": "main",
+    "timestamp": "2026-11-22T05:02:21.255086+00:00",
+    "dir_name": "20261122_050204_safe_optimistic_lock_coupling"
+  },
+  {
+    "topic": "Inkling-2-Mini in 5.4 GB Memory",
+    "language": "Ruby",
+    "folder": "ruby",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "ruby-algorithms-lab",
+    "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261122_050124_inkling-2-mini_in_5_4_gb_memor",
+    "source_file": "main",
+    "timestamp": "2026-11-22T05:01:38.252158+00:00",
+    "dir_name": "20261122_050124_inkling-2-mini_in_5_4_gb_memor"
+  },
+  {
     "topic": "From Skiplists to B+ Trees: Making Valkey Sorted Sets More Memory Efficient",
     "language": "PHP",
     "folder": "php",
@@ -812,17 +845,6 @@
     "source_file": "main",
     "timestamp": "2026-11-15T05:01:44.054788+00:00",
     "dir_name": "20261115_050130_thread-safe_bounded_blocking_q"
-  },
-  {
-    "topic": "Safe Optimistic Lock Coupling",
-    "language": "C#",
-    "folder": "csharp",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "csharp-enterprise-lab",
-    "source_link": "https://github.com/myonathanlinkedin/csharp-enterprise-lab/tree/main/algorithms/20261115_020129_safe_optimistic_lock_coupling",
-    "source_file": "main",
-    "timestamp": "2026-11-15T02:01:52.701097+00:00",
-    "dir_name": "20261115_020129_safe_optimistic_lock_coupling"
   },
   {
     "topic": "Least Recently Used (LRU) Cache with Doubly Linked List",
