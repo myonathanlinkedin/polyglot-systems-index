@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Thinflow: Organizing HPC Benchmarking Campaigns as Rerunnable Directory Trees",
+    "language": "Kotlin",
+    "folder": "kotlin",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "kotlin-systems-core",
+    "source_link": "https://github.com/myonathanlinkedin/kotlin-systems-core/tree/main/algorithms/20261122_140132_thinflow__organizing_hpc_bench",
+    "source_file": "main",
+    "timestamp": "2026-11-22T14:01:57.035093+00:00",
+    "dir_name": "20261122_140132_thinflow__organizing_hpc_bench"
+  },
+  {
     "topic": "Bloom Filter with Chronos-Hash Hash Functions",
     "language": "TypeScript",
     "folder": "typescript",
