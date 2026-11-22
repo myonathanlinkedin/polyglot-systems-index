@@ -4097,8 +4097,10 @@
         packModel = part._proceduralBuilder();
       } else {
         const cdnBase = state.catalog?.asset_cdn_base_url || MECHA_ASSETS_CDN;
-        const shaTag = (part.cad_mesh_definition?.asset_reference?.sha256_hash || Date.now().toString()).slice(0, 12);
-        const modelUrl = `${cdnBase}/${part.cad_mesh_definition.asset_reference.relative_url}?v=${shaTag}`;
+        const assetRef = part.cad_mesh_definition?.asset_reference || {};
+        const relUrl = assetRef.relative_url || assetRef.mesh_url || `models/parts/${part.part_id}.glb`;
+        const shaTag = (assetRef.sha256_hash || Date.now().toString()).slice(0, 12);
+        const modelUrl = `${cdnBase}/${relUrl}?v=${shaTag}`;
         const gltf = await new Promise((res, rej) => gltfLoader.load(modelUrl, res, undefined, rej));
         packModel = gltf.scene;
       }
@@ -4111,7 +4113,18 @@
       const lSign = state.kinematicRig?.lSign || -1.0;
       // On Zeon suits (rSign = -1, lSign = +1), right hand is at -X and outer left forearm faces +X,
       // so mirror X on hand/forearm modular parts and temporarily hide the native hand weapon/shield!
+      function resolveWeaponGripType(part) {
+        if (part?.weapon_grip_type) return part.weapon_grip_type;
+        const txt = `${part?.part_id || ''} ${part?.name || ''}`.toLowerCase();
+        if (/(saber|naginata|sword|blade|knife|dagger|axe|hawk|lance|spear|halberd)/.test(txt)) {
+          return 'melee_hilt_grip';
+        }
+        return 'firearm_pistol_grip';
+      }
+
       if (slotGroup === 'aux_weapon') {
+        const gripType = resolveWeaponGripType(part);
+        packModel.userData.weaponGripType = gripType;
         if (rSign < 0) packModel.scale.x *= -1;
         if (state.kinematicRig?.nativeRightWeaponMeshes) {
           state.kinematicRig.nativeRightWeaponMeshes.forEach(m => { m.visible = false; });
