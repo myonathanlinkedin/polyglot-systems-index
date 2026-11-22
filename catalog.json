@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Suffix Automaton for Linear-Time Substring Indexing",
+    "language": "C#",
+    "folder": "csharp",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "csharp-enterprise-lab",
+    "source_link": "https://github.com/myonathanlinkedin/csharp-enterprise-lab/tree/main/algorithms/20261122_110121_suffix_automaton_for_linear-ti",
+    "source_file": "main",
+    "timestamp": "2026-11-22T11:01:44.482619+00:00",
+    "dir_name": "20261122_110121_suffix_automaton_for_linear-ti"
+  },
+  {
     "topic": "Exact guarantees and faster algorithms for k-rollercoasters",
     "language": "Go",
     "folder": "go",
@@ -1032,17 +1043,6 @@
     "source_file": "main",
     "timestamp": "2026-11-13T03:03:18.617236+00:00",
     "dir_name": "20261113_030253_cuckoo_filter_high-efficiency"
-  },
-  {
-    "topic": "Suffix Automaton for Linear-Time Substring Indexing",
-    "language": "TypeScript",
-    "folder": "typescript",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "typescript-design-patterns",
-    "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261113_010224_suffix_automaton_for_linear-ti",
-    "source_file": "main",
-    "timestamp": "2026-11-13T01:02:37.112143+00:00",
-    "dir_name": "20261113_010224_suffix_automaton_for_linear-ti"
   },
   {
     "topic": "Creating Diagrams and Graphs Using Modern CSS",
