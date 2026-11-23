@@ -1,5 +1,16 @@
 [
   {
+    "topic": "A* Heuristic Pathfinding with Dynamic Obstacle Cost",
+    "language": "Zig",
+    "folder": "zig",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "zig-systems-lab",
+    "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261123_020114_a__heuristic_pathfinding_with",
+    "source_file": "main",
+    "timestamp": "2026-11-23T02:01:29.955827+00:00",
+    "dir_name": "20261123_020114_a__heuristic_pathfinding_with"
+  },
+  {
     "topic": "Gossip Protocol Node Failure Detector",
     "language": "Go",
     "folder": "go",
@@ -1197,17 +1208,6 @@
     "source_file": "main",
     "timestamp": "2026-11-10T11:01:31.166175+00:00",
     "dir_name": "20261110_110115_the_distributed_systems_error"
-  },
-  {
-    "topic": "A* Heuristic Pathfinding with Dynamic Obstacle Cost",
-    "language": "Go",
-    "folder": "go",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "go-concurrency-lab",
-    "source_link": "https://github.com/myonathanlinkedin/go-concurrency-lab/tree/main/algorithms/20261110_080133_a__heuristic_pathfinding_with",
-    "source_file": "main",
-    "timestamp": "2026-11-10T08:01:50.592481+00:00",
-    "dir_name": "20261110_080133_a__heuristic_pathfinding_with"
   },
   {
     "topic": "Kruskal Minimum Spanning Tree with Disjoint-Set Union",
