@@ -4550,6 +4550,7 @@
         rSign, lSign,
         nativeRightWeaponMeshes: [],
         nativeLeftHoldMeshes: [],
+        nativeBackpackMeshes: [],
         backpackSaberHilts: { r: null, l: null }
       };
       state.monoEyeNodes = [];
@@ -4595,6 +4596,20 @@
         }
         if (n.includes('zaku_hawk_') || n.includes('gouf_knight_shield') || n.includes('gouf_shield_mount') || n.includes('sazabi_shield_')) {
           rig.nativeLeftHoldMeshes.push(mesh);
+        }
+        // Detachable stock Mobile Suit backpack (automatically hidden when equipping a custom dorsal_pack
+        // so custom Striker/mission backpacks replace the stock backpack cleanly instead of double-stacking!)
+        if (
+          n.includes('backpack') ||
+          n.includes('hp00_dorsal_socket') ||
+          n.includes('zaku_thruster_') ||
+          n.includes('gouf_thruster_') ||
+          n.includes('sazabi_funnel_') ||
+          n.includes('sazabi_tank_') ||
+          n.includes('sazabi_vernier_') ||
+          n.includes('sazabi_booster_')
+        ) {
+          rig.nativeBackpackMeshes.push(mesh);
         }
         if (n.includes('backpack_saber_hilt_r')) {
           rig.backpackSaberHilts.r = mesh;
@@ -4732,11 +4747,11 @@
           alwaysVisible: false
         }),
 
-        // 4. DORSAL BACKPACK / STRIKER PACK ZONE (HP-00 — native Mobile Suit backpack IS the adapter directly!)
+        // 4. DORSAL BACKPACK / STRIKER PACK ZONE (HP-00 — replaces stock backpack flush against torso backplate!)
         dorsal_pack: createPhysicalAdapterSocket(rig.torso, {
           slotGroup: 'dorsal_pack',
           adapterId: 'ADP-HP00-DORSAL',
-          worldPos: [0.0, 141.5, spec.dorsalZ || -19.0],
+          worldPos: [0.0, 141.5, spec.isZeonEnemy ? -10.8 : -8.5],
           rot: [0, 0, 0],
           scale: 1.0,
           dockedZ: 0.0,
@@ -5652,8 +5667,9 @@
       }
       if (entry.slotGroup === 'aux_weapon') {
         const bpR = state.kinematicRig?.backpackSaberHilts?.r;
+        const hasDorsal = !!(state.slotOccupancy.dorsal_pack && state.equippedPacks.has(state.slotOccupancy.dorsal_pack));
         if (bpR) {
-          bpR.visible = true;
+          bpR.visible = !hasDorsal;
           if (bpR.userData.initialPosition) bpR.position.copy(bpR.userData.initialPosition);
           bpR.rotation.set(0, 0, 0);
         }
@@ -5661,6 +5677,9 @@
       }
       if (entry.slotGroup === 'aux_shield' && state.kinematicRig?.nativeLeftHoldMeshes) {
         state.kinematicRig.nativeLeftHoldMeshes.forEach(m => { m.visible = true; });
+      }
+      if (entry.slotGroup === 'dorsal_pack' && state.kinematicRig?.nativeBackpackMeshes) {
+        state.kinematicRig.nativeBackpackMeshes.forEach(m => { m.visible = true; });
       }
       state.chassisParts = state.chassisParts.filter(n => n.parent !== null);
       state.equippedPacks.delete(partId);
@@ -5758,6 +5777,11 @@
         if (lSign > 0) packModel.scale.x *= -1;
         if (state.kinematicRig?.nativeLeftHoldMeshes) {
           state.kinematicRig.nativeLeftHoldMeshes.forEach(m => { m.visible = false; });
+        }
+      } else if (slotGroup === 'dorsal_pack') {
+        // Detach/hide stock Mobile Suit backpack so custom Striker/mission pack docks cleanly onto torso backplate!
+        if (state.kinematicRig?.nativeBackpackMeshes) {
+          state.kinematicRig.nativeBackpackMeshes.forEach(m => { m.visible = false; });
         }
       }
 
@@ -5864,14 +5888,15 @@
 
       if (slotGroup === 'aux_weapon') {
         socket.payloadContainer.visible = true;
+        const hasDorsalNow = !!(state.slotOccupancy.dorsal_pack && state.equippedPacks.has(state.slotOccupancy.dorsal_pack));
         if (bpRightHilt) {
           if (bpRightHilt.userData.initialPosition) bpRightHilt.position.copy(bpRightHilt.userData.initialPosition);
           bpRightHilt.rotation.set(0, 0, 0);
         }
         if (silent) {
-          if (bpRightHilt) bpRightHilt.visible = !isMeleeGrip;
+          if (bpRightHilt) bpRightHilt.visible = !isMeleeGrip && !hasDorsalNow;
           socket.payloadContainer.position.z = socket.dockedZ;
-        } else if (isMeleeGrip && bpRightHilt) {
+        } else if (isMeleeGrip && bpRightHilt && !hasDorsalNow) {
           // Canonical RX-78 Backpack Beam Saber Draw: arm reaches back over right shoulder, plucks right white hilt from rack, sweeps overhead & ignites blade!
           const bladeMeshes = collectBladeMeshes();
           bladeMeshes.forEach(b => {
@@ -5900,7 +5925,7 @@
             startForearmRx: state.kinematicRig ? state.kinematicRig.forearmR.rotation.x : -0.18
           };
         } else {
-          if (bpRightHilt) bpRightHilt.visible = true;
+          if (bpRightHilt) bpRightHilt.visible = !hasDorsalNow;
           const bladeMeshes = isMeleeGrip ? collectBladeMeshes() : [];
           bladeMeshes.forEach(b => {
             b.mesh.scale[b.axis] = 0.02;
@@ -5983,12 +6008,16 @@
       if (state.kinematicRig?.nativeRightWeaponMeshes) {
         state.kinematicRig.nativeRightWeaponMeshes.forEach(m => { m.visible = !hasAuxWeapon; });
       }
+      const hasDorsalPack = !!state.slotOccupancy.dorsal_pack && state.equippedPacks.has(state.slotOccupancy.dorsal_pack);
+      if (state.kinematicRig?.nativeBackpackMeshes) {
+        state.kinematicRig.nativeBackpackMeshes.forEach(m => { m.visible = !hasDorsalPack; });
+      }
       const auxWeaponEntry = hasAuxWeapon ? state.equippedPacks.get(state.slotOccupancy.aux_weapon) : null;
       const isMeleeHeld = !!(auxWeaponEntry && resolveWeaponGripType(auxWeaponEntry.part) === 'melee_hilt_grip');
       const isReachingBackpack = state.weaponDrawAnim?.mode === 'backpack_saber_draw' && !state.weaponDrawAnim.swapped;
       const bpR = state.kinematicRig?.backpackSaberHilts?.r;
       if (bpR && !isReachingBackpack) {
-        bpR.visible = !isMeleeHeld;
+        bpR.visible = !isMeleeHeld && !hasDorsalPack;
         if (bpR.visible && bpR.userData.initialPosition) {
           bpR.position.copy(bpR.userData.initialPosition);
         }
