@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Conflict-free Replicated Data Type (CRDT) PN-Counter",
+    "language": "Rust",
+    "folder": "rust",
+    "category": "\ud83c\udf10 Distributed Systems & Consensus",
+    "spoke_repo": "rust-algorithms",
+    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261123_070216_conflict-free_replicated_data",
+    "source_file": "main",
+    "timestamp": "2026-11-23T07:02:33.934280+00:00",
+    "dir_name": "20261123_070216_conflict-free_replicated_data"
+  },
+  {
     "topic": "Memory Pool Block Allocator with Free List",
     "language": "C++",
     "folder": "cpp",
@@ -724,17 +735,6 @@
     "source_file": "main",
     "timestamp": "2026-11-17T13:02:45.366088+00:00",
     "dir_name": "20261117_130228_zero-copy_byte_packet_ring_buf"
-  },
-  {
-    "topic": "Conflict-free Replicated Data Type (CRDT) PN-Counter",
-    "language": "Go",
-    "folder": "go",
-    "category": "\ud83c\udf10 Distributed Systems & Consensus",
-    "spoke_repo": "go-concurrency-lab",
-    "source_link": "https://github.com/myonathanlinkedin/go-concurrency-lab/tree/main/algorithms/20261117_090249_conflict-free_replicated_data",
-    "source_file": "main",
-    "timestamp": "2026-11-17T09:03:11.393242+00:00",
-    "dir_name": "20261117_090249_conflict-free_replicated_data"
   },
   {
     "topic": "Chronos-Canvas in the memory of other programs",
