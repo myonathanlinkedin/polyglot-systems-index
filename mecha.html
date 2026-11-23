@@ -9,7 +9,7 @@
   <meta http-equiv="Expires" content="0" />
   <title>Mateus Yonathan | Agentic Autonomous Mecha Kits — 3D Engineering Hangar</title>
   <meta name="description"
-    content="Interactive Agentic Autonomous Mecha Kits 3D Engineering Hangar by Mateus Yonathan. Full-body 8-zone modular Gunpla customization (Head, Chest, Shoulders, Backpack, Weapons, Shield, Waist Binders, Leg Boosters), physical snap-fit adapters with KLIK lock mechanics, and live 60fps kinematic combat stances." />
+    content="Interactive Agentic Autonomous Mecha Kits 3D Engineering Hangar by Mateus Yonathan. Full-body 8-zone modular Gunpla customization (Head, Chest, Shoulders, Backpack, Weapons, Shield, Waist Binders, Leg Boosters), physical snap-fit adapters with CLICK lock mechanics, and live 60fps kinematic combat stances." />
   <meta name="keywords"
     content="Mateus Yonathan, Agentic Autonomous Mecha Kits, Gundam-Like Mecha Hangar, 3D WebGL Three.js, Full-Body Gunpla Customization, Autonomous Agentic CAD, UHIS 26-Station Hardpoints, Systems Engineering Lab" />
   <meta name="author" content="Mateus Yonathan" />
@@ -1399,7 +1399,7 @@
       color: var(--accent-cyan);
     }
 
-    /* Info Guide Modal & Tactile KLIK Toast */
+    /* Info Guide Modal & Tactile CLICK Toast */
     #guide-backdrop {
       display: none;
       position: fixed;
@@ -1951,7 +1951,7 @@
       transform: translateX(-50%) translateY(0);
     }
 
-    .mecha-toast.klik {
+    .mecha-toast.click {
       border-color: #34d399;
       color: #6ee7b7;
       box-shadow: 0 8px 26px rgba(0, 0, 0, 0.6), 0 0 20px rgba(16, 185, 129, 0.35);
@@ -2332,7 +2332,7 @@
           Minutes Missions (30MM)</em>, <em>Gundam Breaker 4</em>, and <em>FA-78-1 Full Armor Gundam</em>, you can
         customize <strong>all 8 anatomical body zones</strong> (Head, Chest, Shoulders, Backpack, Right Weapon, Left
         Shield, Waist Railguns, and Leg Boosters) with physical Gunpla snap-fit adapters and tactile
-        <strong>"KLIK!"</strong> lock feedback.
+        <strong>"CLICK!"</strong> lock feedback.
       </p>
 
       <div class="guide-grid">
@@ -2472,7 +2472,7 @@
 
     <div class="section-divider-label">
       <span>8-ZONE AGENTIC AUTONOMOUS KITS</span>
-      <span style="color: var(--accent-gold);">🔌 SNAP-FIT "KLIK!"</span>
+      <span style="color: var(--accent-gold);white-space:nowrap;">🔌 SNAP-FIT "CLICK!"</span>
     </div>
 
     <!-- 1-Click Full Armor Loadout + Smart Multi-Zone Tactical Loadout Randomizer -->
@@ -2742,7 +2742,7 @@
       glbUrl: `${MECHA_ASSETS_CDN}/models/baselines/baseline_gundam_frame_v1.glb`,
       isZeonEnemy: false,
       hasNativeHandsEmpty: true,
-      dorsalZ: -22.2,
+      dorsalZ: -19.0,
       defaultStance: 'Sentinel',
       packColors: {
         primary: 0xc4cedb,    // Eye-comfortable Satin Gundarium Grey-White (zero blinding glare!)
@@ -2769,7 +2769,7 @@
         glbUrl: `${MECHA_ASSETS_CDN}/models/enemies/enemy_zaku_ms06.glb`,
         isZeonEnemy: true,
         hasNativeHandsEmpty: false,
-        dorsalZ: -26.5,
+        dorsalZ: -22.8,
         monoEyeColor: 0xff2268,
         monoEyeCenterY: 165.0,
         monoEyeTrackZ: 1.0,
@@ -2796,7 +2796,7 @@
         glbUrl: `${MECHA_ASSETS_CDN}/models/enemies/enemy_gouf_ms07.glb`,
         isZeonEnemy: true,
         hasNativeHandsEmpty: false,
-        dorsalZ: -26.5,
+        dorsalZ: -22.8,
         monoEyeColor: 0xff2266,
         monoEyeCenterY: 165.0,
         monoEyeTrackZ: 1.0,
@@ -2823,7 +2823,7 @@
         glbUrl: `${MECHA_ASSETS_CDN}/models/enemies/enemy_sazabi_msn04.glb`,
         isZeonEnemy: true,
         hasNativeHandsEmpty: false,
-        dorsalZ: -27.5,
+        dorsalZ: -24.4,
         monoEyeColor: 0x22ff88,
         monoEyeCenterY: 165.0,
         monoEyeTrackZ: 1.2,
@@ -4061,16 +4061,17 @@
           alwaysVisible: false
         }),
 
-        // 4. DORSAL BACKPACK / STRIKER PACK ZONE (HP-00)
+        // 4. DORSAL BACKPACK / STRIKER PACK ZONE (HP-00 — native Mobile Suit backpack IS the adapter directly!)
         dorsal_pack: createPhysicalAdapterSocket(rig.torso, {
           slotGroup: 'dorsal_pack',
           adapterId: 'ADP-HP00-DORSAL',
-          worldPos: [0.0, 141.5, spec.dorsalZ || -24.5],
+          worldPos: [0.0, 141.5, spec.dorsalZ || -19.0],
           rot: [0, 0, 0],
           scale: 1.0,
-          dockedZ: -5.4,
+          dockedZ: 0.0,
           slideSign: -1.0,
-          alwaysVisible: true
+          showBracket: false,
+          alwaysVisible: false
         }),
 
         // 5. RIGHT MANIPULATOR FIST / PRIMARY WEAPON ZONE (HP-11 — Palm Trigger-Latch Adapter!)
@@ -4754,11 +4755,6 @@
         const adapterId = part.adapter_id || zMeta.adapterId;
         const seedShort = (part.entropy_seed || part.cad_mesh_definition?.asset_reference?.sha256_hash || 'a7f39c12').slice(0, 8);
 
-        const refFirst = Array.isArray(part.reference_sources) && part.reference_sources.length > 0 ? part.reference_sources[0] : null;
-        const refPill = refFirst && refFirst.url
-          ? `<a class="spec-pill" href="${refFirst.url}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" style="color:var(--accent-cyan);text-decoration:none;border-color:rgba(0,229,255,0.38);" title="Canonical reference: ${refFirst.title || refFirst.url}">📚 ${refFirst.source || 'REF'}</a>`
-          : '';
-
         const card = document.createElement('div');
         card.className = `part-card ${isEquipped ? 'equipped' : ''}`;
         card.setAttribute('data-part-id', part.part_id);
@@ -4776,7 +4772,6 @@
             <span class="spec-pill adapter">🔌 ${adapterId}</span>
             <span class="spec-pill seed">🧬 ${seedShort}</span>
             <span class="spec-pill">⚖️ ${(part.structural_specs.mass_kg / 1000).toFixed(1)}t</span>
-            ${refPill}
           </div>
         `;
         card.addEventListener('click', () => toggleEquipPart(part));
@@ -5061,7 +5056,7 @@
       applyRenderMode(state.renderMode);
       applyExplodedDisplacement(state.explodedFactor);
       battleAudio.playGunplaSnapClick();
-      showToast('⚡ [KLIK! ×8] FULL-BODY 8-ZONE ARMOR & ORDNANCE LOADOUT LOCKED!', true);
+      showToast('⚡ [CLICK! ×8] FULL-BODY 8-ZONE ARMOR & ORDNANCE LOADOUT LOCKED!', true);
     }
 
     function clearAllEquippedParts() {
@@ -5568,16 +5563,16 @@
     });
 
     // =========================================================================
-    // 14. INFO GUIDE MODAL + GUNDAM BATTLE BGM + TACTILE GUNPLA "KLIK!" SFX
+    // 14. INFO GUIDE MODAL + GUNDAM BATTLE BGM + TACTILE GUNPLA "CLICK!" SFX
     // =========================================================================
     const guideBackdrop = document.getElementById('guide-backdrop');
     const toastEl = document.getElementById('mecha-toast');
     let toastTimer = null;
 
-    function showToast(msg, isKlik = false) {
+    function showToast(msg, isClick = false) {
       if (!toastEl) return;
       toastEl.textContent = msg;
-      toastEl.classList.toggle('klik', !!isKlik);
+      toastEl.classList.toggle('click', !!isClick);
       toastEl.classList.add('visible');
       if (toastTimer) clearTimeout(toastTimer);
       toastTimer = setTimeout(() => toastEl.classList.remove('visible'), 2800);
@@ -5816,7 +5811,7 @@
       applyExplodedDisplacement(state.explodedFactor);
       battleAudio?.playGunplaSnapClick();
       triggerStagePulse(0x00e5ff);
-      showToast(`⚡ [KLIK!] LOADED CONFIG: "${preset.name}"`, true);
+      showToast(`⚡ [CLICK!] LOADED CONFIG: "${preset.name}"`, true);
     }
 
     function renamePreset(presetId, newName) {
@@ -6543,7 +6538,7 @@
           showToast(
             sharedOnMobile
               ? `📸 Wallpaper Ready (${targetW}×${targetH})!`
-              : `📸 Wallpaper Saved (${targetW}×${targetH})! Klik kanan file → Set as Desktop Background`,
+              : `📸 Wallpaper Saved (${targetW}×${targetH})! Right-click file → Set as Desktop Background`,
             true
           );
           isCapturingWallpaper = false;
@@ -6660,7 +6655,7 @@
         }
       }
 
-      // 3. 3-Stage Gunpla Slide-In + Physical Detent Recoil + "KLIK!" Ring Burst
+      // 3. 3-Stage Gunpla Slide-In + Physical Detent Recoil + "CLICK!" Ring Burst
       if (state.snapAnimations.length > 0) {
         for (let i = state.snapAnimations.length - 1; i >= 0; i--) {
           const anim = state.snapAnimations[i];
@@ -6679,7 +6674,7 @@
               sock.lockRing.visible = true;
               sock.lockRing.scale.setScalar(0.85);
               sock.lockRing.material.opacity = 0.95;
-              showToast(`🔒 [KLIK!] ${anim.adapterId} Locked — ${anim.partName}`, true);
+              showToast(`🔒 [CLICK!] ${anim.adapterId} Locked — ${anim.partName}`, true);
             }
 
             const rt = Math.min(1.0, (anim.elapsed - anim.slideDur) / anim.recoilDur);
