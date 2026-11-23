@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Memory Pool Block Allocator with Free List",
+    "language": "C++",
+    "folder": "cpp",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "cpp-systems-core",
+    "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261123_050216_memory_pool_block_allocator_wi",
+    "source_file": "main",
+    "timestamp": "2026-11-23T05:02:31.766835+00:00",
+    "dir_name": "20261123_050216_memory_pool_block_allocator_wi"
+  },
+  {
     "topic": "Dijkstra Shortest Path with Fibonacci Heap Priority Queue",
     "language": "Go",
     "folder": "go",
@@ -42,17 +53,6 @@
     "source_file": "main",
     "timestamp": "2026-11-23T01:03:07.780390+00:00",
     "dir_name": "20261123_010247_gossip_protocol_node_failure_d"
-  },
-  {
-    "topic": "Memory Pool Block Allocator with Free List",
-    "language": "Rust",
-    "folder": "rust",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "rust-algorithms",
-    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261122_230229_memory_pool_block_allocator_wi",
-    "source_file": "main",
-    "timestamp": "2026-11-22T23:02:47.331390+00:00",
-    "dir_name": "20261122_230229_memory_pool_block_allocator_wi"
   },
   {
     "topic": "Cuckoo Filter High-Efficiency Deletion Structure",

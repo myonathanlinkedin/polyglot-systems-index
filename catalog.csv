@@ -1,9 +1,9 @@
 Index,Topic,Language,Domain Category,Spoke Repository,Source File,Timestamp UTC
-001,Dijkstra Shortest Path with Fibonacci Heap Priority Queue,Go,⚡ Low-Latency & Memory Systems,go-concurrency-lab,main,2026-11-23T05:01:32.751791+00:00
-002,Sliding Window Rate Limiter with Distributed Token Bucket,C++,🌐 Distributed Systems & Consensus,cpp-systems-core,main,2026-11-23T03:02:54.845265+00:00
-003,A* Heuristic Pathfinding with Dynamic Obstacle Cost,Zig,🧠 Computational AI & Math Engines,zig-systems-lab,main,2026-11-23T02:01:29.955827+00:00
-004,Gossip Protocol Node Failure Detector,Go,🌐 Distributed Systems & Consensus,go-concurrency-lab,main,2026-11-23T01:03:07.780390+00:00
-005,Memory Pool Block Allocator with Free List,Rust,⚡ Low-Latency & Memory Systems,rust-algorithms,main,2026-11-22T23:02:47.331390+00:00
+001,Memory Pool Block Allocator with Free List,C++,⚡ Low-Latency & Memory Systems,cpp-systems-core,main,2026-11-23T05:02:31.766835+00:00
+002,Dijkstra Shortest Path with Fibonacci Heap Priority Queue,Go,⚡ Low-Latency & Memory Systems,go-concurrency-lab,main,2026-11-23T05:01:32.751791+00:00
+003,Sliding Window Rate Limiter with Distributed Token Bucket,C++,🌐 Distributed Systems & Consensus,cpp-systems-core,main,2026-11-23T03:02:54.845265+00:00
+004,A* Heuristic Pathfinding with Dynamic Obstacle Cost,Zig,🧠 Computational AI & Math Engines,zig-systems-lab,main,2026-11-23T02:01:29.955827+00:00
+005,Gossip Protocol Node Failure Detector,Go,🌐 Distributed Systems & Consensus,go-concurrency-lab,main,2026-11-23T01:03:07.780390+00:00
 006,Cuckoo Filter High-Efficiency Deletion Structure,PHP,🧠 Computational AI & Math Engines,php-backend-core,main,2026-11-22T23:01:22.008300+00:00
 007,Two-Phase Commit Protocol Coordinator and Participant State Machine,Java,🌐 Distributed Systems & Consensus,java-enterprise-patterns,main,2026-11-22T21:02:27.301477+00:00
 008,Singular Value Decomposition (SVD) for Low-Rank Approximation,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main,2026-11-22T20:01:22.666395+00:00
