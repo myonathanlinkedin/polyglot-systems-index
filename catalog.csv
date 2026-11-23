@@ -1,64 +1,64 @@
 Index,Topic,Language,Domain Category,Spoke Repository,Source File,Timestamp UTC
-001,Treap Randomized Binary Search Tree with Heap Priorities,C++,🧠 Computational AI & Math Engines,cpp-systems-core,main,2026-11-23T08:02:04.152231+00:00
-002,Conflict-free Replicated Data Type (CRDT) PN-Counter,Rust,🌐 Distributed Systems & Consensus,rust-algorithms,main,2026-11-23T07:02:33.934280+00:00
-003,Memory Pool Block Allocator with Free List,C++,⚡ Low-Latency & Memory Systems,cpp-systems-core,main,2026-11-23T05:02:31.766835+00:00
-004,Dijkstra Shortest Path with Fibonacci Heap Priority Queue,Go,⚡ Low-Latency & Memory Systems,go-concurrency-lab,main,2026-11-23T05:01:32.751791+00:00
-005,Sliding Window Rate Limiter with Distributed Token Bucket,C++,🌐 Distributed Systems & Consensus,cpp-systems-core,main,2026-11-23T03:02:54.845265+00:00
-006,A* Heuristic Pathfinding with Dynamic Obstacle Cost,Zig,🧠 Computational AI & Math Engines,zig-systems-lab,main,2026-11-23T02:01:29.955827+00:00
-007,Gossip Protocol Node Failure Detector,Go,🌐 Distributed Systems & Consensus,go-concurrency-lab,main,2026-11-23T01:03:07.780390+00:00
-008,Cuckoo Filter High-Efficiency Deletion Structure,PHP,🧠 Computational AI & Math Engines,php-backend-core,main,2026-11-22T23:01:22.008300+00:00
-009,Two-Phase Commit Protocol Coordinator and Participant State Machine,Java,🌐 Distributed Systems & Consensus,java-enterprise-patterns,main,2026-11-22T21:02:27.301477+00:00
-010,Singular Value Decomposition (SVD) for Low-Rank Approximation,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main,2026-11-22T20:01:22.666395+00:00
-011,Improved Bounds for Directed SSSP in Sparse and Intermediate-Density Graphs,TypeScript,🧠 Computational AI & Math Engines,typescript-design-patterns,main,2026-11-22T19:02:56.119440+00:00
-012,Actor Model Concurrency Engine with Mailbox Processing,C++,🌐 Distributed Systems & Consensus,cpp-systems-core,main,2026-11-22T17:02:53.908760+00:00
-013,Trie Prefix Tree for Auto-Completion with Frequency Ranking,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main,2026-11-22T17:01:21.472224+00:00
-014,Thinflow: Organizing HPC Benchmarking Campaigns as Rerunnable Directory Trees,Kotlin,🧠 Computational AI & Math Engines,kotlin-systems-core,main,2026-11-22T14:01:57.035093+00:00
-015,Bloom Filter with Chronos-Hash Hash Functions,TypeScript,🌐 Distributed Systems & Consensus,typescript-design-patterns,main,2026-11-22T13:02:45.454437+00:00
-016,Distributed Consistent Hashing Router with Virtual Nodes,Java,🌐 Distributed Systems & Consensus,java-enterprise-patterns,main,2026-11-22T11:02:28.156608+00:00
-017,Suffix Automaton for Linear-Time Substring Indexing,C#,⚡ Low-Latency & Memory Systems,csharp-enterprise-lab,main,2026-11-22T11:01:44.482619+00:00
-018,Exact guarantees and faster algorithms for k-rollercoasters,Go,🧠 Computational AI & Math Engines,go-concurrency-lab,main,2026-11-22T09:02:20.102840+00:00
-019,Cache-Oblivious Matrix Transposition Algorithm,Rust,⚡ Low-Latency & Memory Systems,rust-algorithms,main,2026-11-22T08:01:25.794815+00:00
-020,From Skiplists to B+ Trees: Making Aether-Cache Sorted Sets More Memory Efficient,PHP,⚡ Low-Latency & Memory Systems,php-backend-core,main,2026-11-22T07:03:05.618205+00:00
-021,Safe Optimistic Lock Coupling,Swift,⚡ Low-Latency & Memory Systems,swift-systems-lab,main,2026-11-22T05:02:21.255086+00:00
-022,Inkling-2-Mini in 5.4 GB Memory,Ruby,⚡ Low-Latency & Memory Systems,ruby-algorithms-lab,main,2026-11-22T05:01:38.252158+00:00
-023,From Skiplists to B+ Trees: Making Valkey Sorted Sets More Memory Efficient,PHP,⚡ Low-Latency & Memory Systems,php-backend-core,main,2026-11-22T03:02:48.501908+00:00
-024,Copy-on-Write Vector Memory Buffer Management,Kotlin,⚡ Low-Latency & Memory Systems,kotlin-systems-core,main,2026-11-22T01:02:28.723597+00:00
-025,Tic-Tac-Toe Minimax Algorithm in Java,Java,🧠 Computational AI & Math Engines,java-enterprise-patterns,main,2026-11-21T23:02:31.092988+00:00
-026,Runge-Kutta 4th Order Numerical ODE Integrator,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main,2026-11-21T23:01:36.318362+00:00
-027,Aggron: Aggressive Compression of Agentic KV Caches during Head-of-Line Stalls in the,Ruby,⚡ Low-Latency & Memory Systems,ruby-algorithms-lab,main,2026-11-21T21:03:09.431648+00:00
-028,Fast Fourier Transform (Cooley-Tukey Radix-2) Signal Processing,C++,🧠 Computational AI & Math Engines,cpp-systems-core,main,2026-11-21T20:01:17.949482+00:00
-029,Tic-Tac-Toe Minimax Algorithm in Chronos-Compute,PHP,🧠 Computational AI & Math Engines,php-backend-core,main,2026-11-21T19:02:12.054600+00:00
-030,Stratum-TreeIndex Spatial Index for Multidimensional Bounding Boxes,C++,🧠 Computational AI & Math Engines,cpp-systems-core,main,2026-11-21T17:01:29.606567+00:00
-031,Verifying formal models of Raft implementations,Java,🌐 Distributed Systems & Consensus,java-enterprise-patterns,main,2026-11-21T15:02:29.599706+00:00
-032,Efficient Classical Algorithms for Ground Energy Estimation of Fermions with,Swift,🧠 Computational AI & Math Engines,swift-systems-lab,main,2026-11-21T13:03:06.710244+00:00
-033,Count-Min Sketch Heavy Hitters Frequency Estimator,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main,2026-11-21T11:02:24.984618+00:00
-034,Aho-Corasick Multi-Pattern String Searching Automaton,C++,⚡ Low-Latency & Memory Systems,cpp-systems-core,main,2026-11-21T09:02:43.678329+00:00
-035,HyperLogLog Cardinality Estimation Algorithm,Kotlin,🧠 Computational AI & Math Engines,kotlin-systems-core,main,2026-11-21T08:01:27.689518+00:00
-036,TideCache: Efficient Hybrid LLM Serving with Transparent Cache Management and Layer-Wise,Java,⚡ Low-Latency & Memory Systems,java-enterprise-patterns,main,2026-11-21T07:02:27.705809+00:00
-037,The Cost of Virtual Memory: TLBs and Effective Memory Access Time,C,⚡ Low-Latency & Memory Systems,c-lowlevel-systems,main,2026-11-21T05:02:28.958051+00:00
-038,LSM-Tree MemTable and SSTable Flush Compaction Engine,PHP,🌐 Distributed Systems & Consensus,php-backend-core,main,2026-11-21T05:01:18.737838+00:00
-039,Supporting FOSS projects to transition to memory safe tech,C#,⚡ Low-Latency & Memory Systems,csharp-enterprise-lab,main,2026-11-21T03:02:34.648850+00:00
-040,Self-Balancing AVL Tree with Chronos-Topology,Kotlin,🧠 Computational AI & Math Engines,kotlin-systems-core,main,2026-11-21T02:01:51.131462+00:00
-041,StarMPI-SVD: Distributed-Memory Parallel Star-M Tensor SVD,Go,🌐 Distributed Systems & Consensus,go-concurrency-lab,main,2026-11-20T23:02:33.968623+00:00
-042,Conjugate Gradient Linear System Solver,C++,🧠 Computational AI & Math Engines,cpp-systems-core,main,2026-11-20T20:01:31.035962+00:00
-043,Storage Engines Explained: B-Tree vs LSM Tree,C#,🌐 Distributed Systems & Consensus,csharp-enterprise-lab,main,2026-11-20T17:04:20.676352+00:00
-044,Skip List Aether-Index,C,🧠 Computational AI & Math Engines,c-lowlevel-systems,main,2026-11-20T15:03:00.408301+00:00
-045,Merkle Tree Verification and Proof Generator,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-11-20T08:01:26.825178+00:00
-046,How the European Commission rolled out Matrix to more than 40k staff,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-11-20T07:02:34.755094+00:00
-047,High-Throughput Aether-Cache Ring Buffer Pattern,Zig,⚡ Low-Latency & Memory Systems,zig-systems-lab,main,2026-11-20T05:02:59.815086+00:00
-048,Even Faster Algorithms for Bounded Integer Programming,TypeScript,🧠 Computational AI & Math Engines,typescript-design-patterns,main,2026-11-19T21:03:06.586608+00:00
-049,It s all about the allocator,C++,⚡ Low-Latency & Memory Systems,cpp-systems-core,main,2026-11-19T20:01:27.810969+00:00
-050,"A Principled Approach to Concurrency, Nondeterminism, and Asynchrony in Choreographies",Haskell,⚡ Low-Latency & Memory Systems,haskell-functional-core,main,2026-11-19T19:04:10.499377+00:00
-051,Build Your Own Stack-Based Bytecode Virtual Machine in C,C,🧠 Computational AI & Math Engines,c-lowlevel-systems,main,2026-11-19T17:05:48.632232+00:00
-052,Simulated Annealing Optimization for Combinatorial Graphs,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main,2026-11-19T15:02:36.630361+00:00
-053,B-Tree Multiway Balanced Search Tree Node Splitter,Swift,🧠 Computational AI & Math Engines,swift-systems-lab,main,2026-11-19T14:01:51.890953+00:00
-054,K-D Tree Spatial Partitioning and Nearest Neighbor Search,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-11-19T09:04:04.123499+00:00
-055,The Traveling Salesman Problem: From 19th Century Puzzles to Genetic Algorithms,Go,🧠 Computational AI & Math Engines,go-concurrency-lab,main,2026-11-19T08:02:02.223984+00:00
-056,"Design a Notification System: Queues, Retries and Fan-out",PHP,⚡ Low-Latency & Memory Systems,php-backend-core,main,2026-11-19T05:02:47.272710+00:00
-057,Advanced Algorithms,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main,2026-11-19T03:02:56.150302+00:00
-058,Sexp Matrix,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-11-19T01:02:32.442463+00:00
-059,Lakegres: Vector search on existing Open/Hudi/Iceberg tables,Swift,🧠 Computational AI & Math Engines,swift-systems-lab,main,2026-11-18T20:02:09.150420+00:00
-060,Vector Clock Distributed Event Ordering Mechanism,Rust,🌐 Distributed Systems & Consensus,rust-algorithms,main,2026-11-18T13:03:49.210831+00:00
+001,Vector Clock Distributed Event Ordering Mechanism,Go,🌐 Distributed Systems & Consensus,go-concurrency-lab,main,2026-11-23T09:03:54.608211+00:00
+002,Treap Randomized Binary Search Tree with Heap Priorities,C++,🧠 Computational AI & Math Engines,cpp-systems-core,main,2026-11-23T08:02:04.152231+00:00
+003,Conflict-free Replicated Data Type (CRDT) PN-Counter,Rust,🌐 Distributed Systems & Consensus,rust-algorithms,main,2026-11-23T07:02:33.934280+00:00
+004,Memory Pool Block Allocator with Free List,C++,⚡ Low-Latency & Memory Systems,cpp-systems-core,main,2026-11-23T05:02:31.766835+00:00
+005,Dijkstra Shortest Path with Fibonacci Heap Priority Queue,Go,⚡ Low-Latency & Memory Systems,go-concurrency-lab,main,2026-11-23T05:01:32.751791+00:00
+006,Sliding Window Rate Limiter with Distributed Token Bucket,C++,🌐 Distributed Systems & Consensus,cpp-systems-core,main,2026-11-23T03:02:54.845265+00:00
+007,A* Heuristic Pathfinding with Dynamic Obstacle Cost,Zig,🧠 Computational AI & Math Engines,zig-systems-lab,main,2026-11-23T02:01:29.955827+00:00
+008,Gossip Protocol Node Failure Detector,Go,🌐 Distributed Systems & Consensus,go-concurrency-lab,main,2026-11-23T01:03:07.780390+00:00
+009,Cuckoo Filter High-Efficiency Deletion Structure,PHP,🧠 Computational AI & Math Engines,php-backend-core,main,2026-11-22T23:01:22.008300+00:00
+010,Two-Phase Commit Protocol Coordinator and Participant State Machine,Java,🌐 Distributed Systems & Consensus,java-enterprise-patterns,main,2026-11-22T21:02:27.301477+00:00
+011,Singular Value Decomposition (SVD) for Low-Rank Approximation,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main,2026-11-22T20:01:22.666395+00:00
+012,Improved Bounds for Directed SSSP in Sparse and Intermediate-Density Graphs,TypeScript,🧠 Computational AI & Math Engines,typescript-design-patterns,main,2026-11-22T19:02:56.119440+00:00
+013,Actor Model Concurrency Engine with Mailbox Processing,C++,🌐 Distributed Systems & Consensus,cpp-systems-core,main,2026-11-22T17:02:53.908760+00:00
+014,Trie Prefix Tree for Auto-Completion with Frequency Ranking,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main,2026-11-22T17:01:21.472224+00:00
+015,Thinflow: Organizing HPC Benchmarking Campaigns as Rerunnable Directory Trees,Kotlin,🧠 Computational AI & Math Engines,kotlin-systems-core,main,2026-11-22T14:01:57.035093+00:00
+016,Bloom Filter with Chronos-Hash Hash Functions,TypeScript,🌐 Distributed Systems & Consensus,typescript-design-patterns,main,2026-11-22T13:02:45.454437+00:00
+017,Distributed Consistent Hashing Router with Virtual Nodes,Java,🌐 Distributed Systems & Consensus,java-enterprise-patterns,main,2026-11-22T11:02:28.156608+00:00
+018,Suffix Automaton for Linear-Time Substring Indexing,C#,⚡ Low-Latency & Memory Systems,csharp-enterprise-lab,main,2026-11-22T11:01:44.482619+00:00
+019,Exact guarantees and faster algorithms for k-rollercoasters,Go,🧠 Computational AI & Math Engines,go-concurrency-lab,main,2026-11-22T09:02:20.102840+00:00
+020,Cache-Oblivious Matrix Transposition Algorithm,Rust,⚡ Low-Latency & Memory Systems,rust-algorithms,main,2026-11-22T08:01:25.794815+00:00
+021,From Skiplists to B+ Trees: Making Aether-Cache Sorted Sets More Memory Efficient,PHP,⚡ Low-Latency & Memory Systems,php-backend-core,main,2026-11-22T07:03:05.618205+00:00
+022,Safe Optimistic Lock Coupling,Swift,⚡ Low-Latency & Memory Systems,swift-systems-lab,main,2026-11-22T05:02:21.255086+00:00
+023,Inkling-2-Mini in 5.4 GB Memory,Ruby,⚡ Low-Latency & Memory Systems,ruby-algorithms-lab,main,2026-11-22T05:01:38.252158+00:00
+024,From Skiplists to B+ Trees: Making Valkey Sorted Sets More Memory Efficient,PHP,⚡ Low-Latency & Memory Systems,php-backend-core,main,2026-11-22T03:02:48.501908+00:00
+025,Copy-on-Write Vector Memory Buffer Management,Kotlin,⚡ Low-Latency & Memory Systems,kotlin-systems-core,main,2026-11-22T01:02:28.723597+00:00
+026,Tic-Tac-Toe Minimax Algorithm in Java,Java,🧠 Computational AI & Math Engines,java-enterprise-patterns,main,2026-11-21T23:02:31.092988+00:00
+027,Runge-Kutta 4th Order Numerical ODE Integrator,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main,2026-11-21T23:01:36.318362+00:00
+028,Aggron: Aggressive Compression of Agentic KV Caches during Head-of-Line Stalls in the,Ruby,⚡ Low-Latency & Memory Systems,ruby-algorithms-lab,main,2026-11-21T21:03:09.431648+00:00
+029,Fast Fourier Transform (Cooley-Tukey Radix-2) Signal Processing,C++,🧠 Computational AI & Math Engines,cpp-systems-core,main,2026-11-21T20:01:17.949482+00:00
+030,Tic-Tac-Toe Minimax Algorithm in Chronos-Compute,PHP,🧠 Computational AI & Math Engines,php-backend-core,main,2026-11-21T19:02:12.054600+00:00
+031,Stratum-TreeIndex Spatial Index for Multidimensional Bounding Boxes,C++,🧠 Computational AI & Math Engines,cpp-systems-core,main,2026-11-21T17:01:29.606567+00:00
+032,Verifying formal models of Raft implementations,Java,🌐 Distributed Systems & Consensus,java-enterprise-patterns,main,2026-11-21T15:02:29.599706+00:00
+033,Efficient Classical Algorithms for Ground Energy Estimation of Fermions with,Swift,🧠 Computational AI & Math Engines,swift-systems-lab,main,2026-11-21T13:03:06.710244+00:00
+034,Count-Min Sketch Heavy Hitters Frequency Estimator,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main,2026-11-21T11:02:24.984618+00:00
+035,Aho-Corasick Multi-Pattern String Searching Automaton,C++,⚡ Low-Latency & Memory Systems,cpp-systems-core,main,2026-11-21T09:02:43.678329+00:00
+036,HyperLogLog Cardinality Estimation Algorithm,Kotlin,🧠 Computational AI & Math Engines,kotlin-systems-core,main,2026-11-21T08:01:27.689518+00:00
+037,TideCache: Efficient Hybrid LLM Serving with Transparent Cache Management and Layer-Wise,Java,⚡ Low-Latency & Memory Systems,java-enterprise-patterns,main,2026-11-21T07:02:27.705809+00:00
+038,The Cost of Virtual Memory: TLBs and Effective Memory Access Time,C,⚡ Low-Latency & Memory Systems,c-lowlevel-systems,main,2026-11-21T05:02:28.958051+00:00
+039,LSM-Tree MemTable and SSTable Flush Compaction Engine,PHP,🌐 Distributed Systems & Consensus,php-backend-core,main,2026-11-21T05:01:18.737838+00:00
+040,Supporting FOSS projects to transition to memory safe tech,C#,⚡ Low-Latency & Memory Systems,csharp-enterprise-lab,main,2026-11-21T03:02:34.648850+00:00
+041,Self-Balancing AVL Tree with Chronos-Topology,Kotlin,🧠 Computational AI & Math Engines,kotlin-systems-core,main,2026-11-21T02:01:51.131462+00:00
+042,StarMPI-SVD: Distributed-Memory Parallel Star-M Tensor SVD,Go,🌐 Distributed Systems & Consensus,go-concurrency-lab,main,2026-11-20T23:02:33.968623+00:00
+043,Conjugate Gradient Linear System Solver,C++,🧠 Computational AI & Math Engines,cpp-systems-core,main,2026-11-20T20:01:31.035962+00:00
+044,Storage Engines Explained: B-Tree vs LSM Tree,C#,🌐 Distributed Systems & Consensus,csharp-enterprise-lab,main,2026-11-20T17:04:20.676352+00:00
+045,Skip List Aether-Index,C,🧠 Computational AI & Math Engines,c-lowlevel-systems,main,2026-11-20T15:03:00.408301+00:00
+046,Merkle Tree Verification and Proof Generator,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-11-20T08:01:26.825178+00:00
+047,How the European Commission rolled out Matrix to more than 40k staff,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-11-20T07:02:34.755094+00:00
+048,High-Throughput Aether-Cache Ring Buffer Pattern,Zig,⚡ Low-Latency & Memory Systems,zig-systems-lab,main,2026-11-20T05:02:59.815086+00:00
+049,Even Faster Algorithms for Bounded Integer Programming,TypeScript,🧠 Computational AI & Math Engines,typescript-design-patterns,main,2026-11-19T21:03:06.586608+00:00
+050,It s all about the allocator,C++,⚡ Low-Latency & Memory Systems,cpp-systems-core,main,2026-11-19T20:01:27.810969+00:00
+051,"A Principled Approach to Concurrency, Nondeterminism, and Asynchrony in Choreographies",Haskell,⚡ Low-Latency & Memory Systems,haskell-functional-core,main,2026-11-19T19:04:10.499377+00:00
+052,Build Your Own Stack-Based Bytecode Virtual Machine in C,C,🧠 Computational AI & Math Engines,c-lowlevel-systems,main,2026-11-19T17:05:48.632232+00:00
+053,Simulated Annealing Optimization for Combinatorial Graphs,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main,2026-11-19T15:02:36.630361+00:00
+054,B-Tree Multiway Balanced Search Tree Node Splitter,Swift,🧠 Computational AI & Math Engines,swift-systems-lab,main,2026-11-19T14:01:51.890953+00:00
+055,K-D Tree Spatial Partitioning and Nearest Neighbor Search,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-11-19T09:04:04.123499+00:00
+056,The Traveling Salesman Problem: From 19th Century Puzzles to Genetic Algorithms,Go,🧠 Computational AI & Math Engines,go-concurrency-lab,main,2026-11-19T08:02:02.223984+00:00
+057,"Design a Notification System: Queues, Retries and Fan-out",PHP,⚡ Low-Latency & Memory Systems,php-backend-core,main,2026-11-19T05:02:47.272710+00:00
+058,Advanced Algorithms,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main,2026-11-19T03:02:56.150302+00:00
+059,Sexp Matrix,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-11-19T01:02:32.442463+00:00
+060,Lakegres: Vector search on existing Open/Hudi/Iceberg tables,Swift,🧠 Computational AI & Math Engines,swift-systems-lab,main,2026-11-18T20:02:09.150420+00:00
 061,Skip List Chronos-Index,Go,🧠 Computational AI & Math Engines,go-concurrency-lab,main,2026-11-18T11:02:54.805609+00:00
 062,Finite State Machine Tokenizer and Lexical Parser,TypeScript,🧠 Computational AI & Math Engines,typescript-design-patterns,main,2026-11-18T11:01:55.184889+00:00
 063,Lock-Free Concurrent Ring Buffer Data Structure,Zig,⚡ Low-Latency & Memory Systems,zig-systems-lab,main,2026-11-18T05:01:53.310140+00:00
@@ -401,168 +401,167 @@ Index,Topic,Language,Domain Category,Spoke Repository,Source File,Timestamp UTC
 400,LMAX Disruptor Ring Buffer Pattern,C#,⚡ Low-Latency & Memory Systems,csharp-enterprise-lab,main,2026-10-11T03:02:33.259007+00:00
 401,Self-Balancing AVL Tree with Full Rotation Engine,Zig,🧠 Computational AI & Math Engines,zig-systems-lab,main,2026-10-11T02:05:05.885740+00:00
 402,Count-Min Sketch Heavy Hitters Frequency Estimator,Zig,🧠 Computational AI & Math Engines,zig-systems-lab,main,2026-10-11T02:02:00.150833+00:00
-403,Vector Clock Distributed Event Ordering Mechanism,Go,🌐 Distributed Systems & Consensus,go-concurrency-lab,main,2026-10-11T01:56:28.226488+00:00
-404,Safe Optimistic Lock Coupling,Haskell,⚡ Low-Latency & Memory Systems,haskell-functional-core,main,2026-10-11T01:06:16.814009+00:00
-405,Kruskal Minimum Spanning Tree with Disjoint-Set Union,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-10-11T01:04:20.322325+00:00
-406,Suffix Automaton for Linear-Time Substring Indexing,Rust,⚡ Low-Latency & Memory Systems,rust-algorithms,main,2026-10-11T01:01:40.557886+00:00
-407,Thread-Safe Bounded Blocking Queue with Condition Variables,C++,⚡ Low-Latency & Memory Systems,cpp-systems-core,main,2026-10-11T00:54:14.867191+00:00
-408,Dijkstra Shortest Path with Fibonacci Heap Priority Queue,C++,⚡ Low-Latency & Memory Systems,cpp-systems-core,main,2026-10-11T00:50:58.650732+00:00
-409,Lock-Free Concurrent Ring Buffer Data Structure,C,⚡ Low-Latency & Memory Systems,c-lowlevel-systems,main,2026-10-11T00:40:14.781243+00:00
-410,Suffix Automaton for Linear-Time Substring Indexing,PHP,⚡ Low-Latency & Memory Systems,php-backend-core,main,2026-10-11T00:02:15.797134+00:00
-411,Runge-Kutta 4th Order Numerical ODE Integrator,Kotlin,🧠 Computational AI & Math Engines,kotlin-systems-core,main,2026-10-10T23:58:49.381323+00:00
-412,Topological Sort with Cycle Detection in Directed Graphs,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main,2026-10-10T23:07:57.273590+00:00
-413,Hopcroft-Karp Bipartite Matching Algorithm,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main,2026-10-10T23:05:17.727333+00:00
-414,Conflict-free Replicated Data Type (CRDT) PN-Counter,C#,🌐 Distributed Systems & Consensus,csharp-enterprise-lab,main,2026-10-10T22:52:26.268362+00:00
-415,Huffman Coding Lossless Compression and Decompression,C,🧠 Computational AI & Math Engines,c-lowlevel-systems,main,2026-10-10T22:37:12.724974+00:00
-416,"Designing Search & Autocomplete: Inverted Index, Trie, Ranking & Scale",Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-10-10T22:02:29.770551+00:00
-417,Balanced Bipartite Partitioning Algorithm,TypeScript,🧠 Computational AI & Math Engines,typescript-design-patterns,main,2026-10-10T21:11:11.501426+00:00
-418,Thread-Safe Bounded Blocking Queue with Condition Variables,Zig,⚡ Low-Latency & Memory Systems,zig-systems-lab,main,2026-10-10T20:02:23.301358+00:00
-419,Trie Prefix Tree for Auto-Completion with Frequency Ranking,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main,2026-10-10T19:09:36.591060+00:00
-420,Pipeline Filter Stream Processing Architecture,Swift,🧠 Computational AI & Math Engines,swift-systems-lab,main,2026-10-10T19:04:42.629293+00:00
-421,Custom Buddy Memory Allocation System,Haskell,⚡ Low-Latency & Memory Systems,haskell-functional-core,main,2026-10-10T18:33:07.711371+00:00
-422,Zero-Dependency Lexical JSON Parser,TypeScript,🧠 Computational AI & Math Engines,typescript-design-patterns,main,2026-10-10T18:02:05.669129+00:00
-423,Vector Clock Distributed Event Ordering Mechanism,C#,🌐 Distributed Systems & Consensus,csharp-enterprise-lab,main,2026-10-10T17:48:22.386310+00:00
-424,I Built a Spell Checker to Watch an Algorithm Think,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-10-10T17:02:10.969020+00:00
-425,Bytecode Virtual Machine with Stack Evaluation Engine,PHP,🧠 Computational AI & Math Engines,php-backend-core,main,2026-10-10T15:05:19.636892+00:00
-426,Two-Phase Commit Protocol Coordinator and Participant State Machine,Kotlin,🌐 Distributed Systems & Consensus,kotlin-systems-core,main,2026-10-10T15:02:34.238527+00:00
-427,Kruskal Minimum Spanning Tree with Disjoint-Set Union,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main,2026-10-10T14:01:57.419469+00:00
-428,LMAX Disruptor Ring Buffer Pattern,Java,⚡ Low-Latency & Memory Systems,java-enterprise-patterns,main,2026-10-10T13:07:56.814220+00:00
-429,Self-Balancing AVL Tree with Full Rotation Engine,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main,2026-10-10T13:04:38.749123+00:00
-430,Kruskal Minimum Spanning Tree with Disjoint-Set Union,Zig,🧠 Computational AI & Math Engines,zig-systems-lab,main,2026-10-10T12:09:30.149693+00:00
-431,Hopcroft-Karp Bipartite Matching Algorithm,Kotlin,🧠 Computational AI & Math Engines,kotlin-systems-core,main,2026-10-10T11:05:42.430674+00:00
-432,Copy-on-Write Vector Memory Buffer Management,Ruby,⚡ Low-Latency & Memory Systems,ruby-algorithms-lab,main,2026-10-10T11:02:06.483421+00:00
-433,Hopcroft-Karp Bipartite Matching Algorithm,Zig,🧠 Computational AI & Math Engines,zig-systems-lab,main,2026-10-10T09:07:10.478539+00:00
-434,Aho-Corasick Multi-Pattern String Searching Automaton,Rust,⚡ Low-Latency & Memory Systems,rust-algorithms,main,2026-10-10T09:02:12.656163+00:00
-435,Adding Go s defer to the TypeScript Compiler,TypeScript,🧠 Computational AI & Math Engines,typescript-design-patterns,main,2026-10-10T06:02:03.832890+00:00
-436,"Communication Between the Compiler, the Build System, and Beyond",C,🧠 Computational AI & Math Engines,c-lowlevel-systems,main,2026-10-10T05:06:48.547428+00:00
-437,Cache-Oblivious Matrix Transposition Algorithm,C++,⚡ Low-Latency & Memory Systems,cpp-systems-core,main,2026-10-10T05:02:40.906803+00:00
-438,Vector Clock Distributed Event Ordering Mechanism,Java,🌐 Distributed Systems & Consensus,java-enterprise-patterns,main,2026-10-09T23:07:21.853920+00:00
-439,Two-Phase Commit Protocol Coordinator and Participant State Machine,PHP,🌐 Distributed Systems & Consensus,php-backend-core,main,2026-10-09T23:05:17.707320+00:00
-440,Training Text-to-Image Models Without a VAE,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main,2026-10-09T21:02:26.722706+00:00
-441,Two-Phase Commit Protocol Coordinator and Participant State Machine,C++,🌐 Distributed Systems & Consensus,cpp-systems-core,main,2026-10-09T17:05:55.459745+00:00
-442,Merkle Tree Verification and Proof Generator,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main,2026-10-09T17:02:21.478826+00:00
-443,Singular Value Decomposition (SVD) for Low-Rank Approximation,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-10-09T16:21:10.192713+00:00
-444,Singular Value Decomposition (SVD) for Low-Rank Approximation,Zig,🧠 Computational AI & Math Engines,zig-systems-lab,main,2026-10-09T16:15:58.360579+00:00
-445,Kruskal Minimum Spanning Tree with Disjoint-Set Union,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main,2026-10-09T16:09:39.984066+00:00
-446,HyperLogLog Cardinality Estimation Algorithm,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main,2026-10-09T16:07:18.251426+00:00
-447,Cuckoo Filter High-Efficiency Deletion Structure,Zig,🧠 Computational AI & Math Engines,zig-systems-lab,main,2026-10-09T15:54:39.410613+00:00
-448,Lamport Logical Timestamp Synchronization Engine,Go,🧠 Computational AI & Math Engines,go-concurrency-lab,main,2026-10-09T15:49:30.565404+00:00
-449,A* Heuristic Pathfinding with Dynamic Obstacle Cost,Java,🧠 Computational AI & Math Engines,java-enterprise-patterns,main,2026-10-09T15:47:10.971776+00:00
-450,Trie Prefix Tree for Auto-Completion with Frequency Ranking,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-10-09T15:42:15.504250+00:00
-451,Lamport Logical Timestamp Synchronization Engine,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main,2026-10-09T15:08:06.087160+00:00
-452,Count-Min Sketch Heavy Hitters Frequency Estimator,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main,2026-10-09T15:02:45.222597+00:00
-453,Red-Black Tree with Deterministic Balance Assertions,Java,🧠 Computational AI & Math Engines,java-enterprise-patterns,main,2026-10-09T14:50:51.242673+00:00
-454,Bytecode Virtual Machine with Stack Evaluation Engine,C,🧠 Computational AI & Math Engines,c-lowlevel-systems,main,2026-10-09T14:43:34.229214+00:00
-455,Bit-Parallel Levenshtein Distance Matrix Engine,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-10-09T14:38:57.073095+00:00
-456,Custom Buddy Memory Allocation System,PHP,⚡ Low-Latency & Memory Systems,php-backend-core,main,2026-10-09T14:34:33.675018+00:00
-457,Dijkstra Shortest Path with Fibonacci Heap Priority Queue,Haskell,⚡ Low-Latency & Memory Systems,haskell-functional-core,main,2026-10-09T14:27:06.098251+00:00
-458,Safe Optimistic Lock Coupling,Ruby,⚡ Low-Latency & Memory Systems,ruby-algorithms-lab,main,2026-10-09T14:08:26.781465+00:00
-459,Zero-Copy Byte Packet Ring Buffer Dispatcher,Zig,⚡ Low-Latency & Memory Systems,zig-systems-lab,main,2026-10-09T13:46:55.211598+00:00
-460,"A minimal kernel in Swift, running in QEMU",Swift,🧠 Computational AI & Math Engines,swift-systems-lab,main,2026-10-09T13:32:08.767178+00:00
-461,Self-Balancing AVL Tree with Full Rotation Engine,TypeScript,🧠 Computational AI & Math Engines,typescript-design-patterns,main,2026-10-09T12:50:14.609770+00:00
-462,Once: Cache CLI Commands,C,⚡ Low-Latency & Memory Systems,c-lowlevel-systems,main,2026-10-09T12:02:05.586052+00:00
-463,Sentinel: The Command Plane,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-10-09T11:20:30.216935+00:00
-464,Stimulate TRIE data structure,Kotlin,🧠 Computational AI & Math Engines,kotlin-systems-core,main,2026-10-09T11:02:15.016534+00:00
-465,Escaping Degeneracy by Following Shadow Edges,PHP,🧠 Computational AI & Math Engines,php-backend-core,main,2026-10-09T10:02:50.726774+00:00
-466,Capturing a Moving Target on Star Graphs by Two Communicating Mobile Agents,Ruby,⚡ Low-Latency & Memory Systems,ruby-algorithms-lab,main,2026-10-09T09:02:06.455091+00:00
-467,Faster Planar Graph Algorithms for Connectivity Problems via Meanders,TypeScript,🧠 Computational AI & Math Engines,typescript-design-patterns,main,2026-10-09T08:04:31.170608+00:00
-468,The Geometry of Hierarchical Navigation: Accuracy and Query Cost for Point Process Input,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-10-09T08:02:26.021498+00:00
-469,Coupling Independence Implies Zero-Freeness,Swift,⚡ Low-Latency & Memory Systems,swift-systems-lab,main,2026-10-09T07:02:06.540408+00:00
-470,Deterministic Approximation of the Total Variation Distance Between Spin Systems,Kotlin,🧠 Computational AI & Math Engines,kotlin-systems-core,main,2026-10-09T05:38:53.945382+00:00
-471,Parallel Edge Ranking of Trees,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main,2026-10-09T05:25:06.493650+00:00
-472,An ETH-based quasipolynomial lower bound for Dualization,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main,2026-10-09T05:22:49.406657+00:00
-473,Efficient Recovery of Latent Coordinate Structure from Sparse Observations of the,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main,2026-10-09T05:07:12.315092+00:00
-474,Improved Approximations for Vehicle Routing with Nonuniform Speeds,PHP,🧠 Computational AI & Math Engines,php-backend-core,main,2026-10-09T05:02:21.708269+00:00
-475,Quantitative Verification of Infinite-State Networks,Java,🧠 Computational AI & Math Engines,java-enterprise-patterns,main,2026-10-09T04:57:02.989341+00:00
-476,A* Heuristic Pathfinding with Dynamic Obstacle Cost,Swift,🧠 Computational AI & Math Engines,swift-systems-lab,main,2026-10-09T04:47:29.635126+00:00
-477,Recursive DNS Query Resolver and Packet Parser,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-10-09T04:40:36.338357+00:00
-478,A Refined Analysis for Matroid Secretary with Submodular Objectives,PHP,🧠 Computational AI & Math Engines,php-backend-core,main,2026-10-09T04:02:16.281343+00:00
-479,The Deutsch-Jozsa Algorithm Explained: Quantum Complexity & Qiskit,Kotlin,🧠 Computational AI & Math Engines,kotlin-systems-core,main,2026-10-09T03:07:35.400156+00:00
-480,Custom Buddy Memory Allocation System,Ruby,⚡ Low-Latency & Memory Systems,ruby-algorithms-lab,main,2026-10-09T03:05:26.988614+00:00
-481,New Contraction Bounds for Multidimensional Asymptotic Consensus in Dynamic Networks,C#,🌐 Distributed Systems & Consensus,csharp-enterprise-lab,main,2026-10-09T03:02:10.282735+00:00
-482,Safe Optimistic Lock Coupling,TypeScript,⚡ Low-Latency & Memory Systems,typescript-design-patterns,main,2026-10-09T02:02:04.358236+00:00
-483,Client-Side Directed Acyclic Graph Task Runner,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main,2026-10-09T00:07:29.391085+00:00
-484,Truly Sub-3ⁿ Min-Sum Subset Convolution and Join Ordering,Kotlin,⚡ Low-Latency & Memory Systems,kotlin-systems-core,main,2026-10-09T00:04:37.138800+00:00
-485,Attention via Black-Box Vector Search,C++,🧠 Computational AI & Math Engines,cpp-systems-core,main,2026-10-09T00:02:12.702780+00:00
-486,Min-Plus Convolution Lower Bounds via a Higher-Order BSG Theorem,PHP,🧠 Computational AI & Math Engines,php-backend-core,main,2026-10-08T23:05:39.803473+00:00
-487,A Terminal Protocol for Program Status (OSC 7501),Kotlin,🧠 Computational AI & Math Engines,kotlin-systems-core,main,2026-10-08T23:03:00.905909+00:00
-488,Polynomial Kernels for Interval Completion,C,🧠 Computational AI & Math Engines,c-lowlevel-systems,main,2026-10-08T21:04:49.939549+00:00
-489,Efficient Heuristics and Machine Learning Approach for Fault Characterization in,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-08T21:01:59.163185+00:00
-490,Cloud Infrastructure Resource Allocation Scheduler,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main,2026-10-08T20:02:11.064118+00:00
-491,Color Coding for the Sherrington-Kirkpatrick Model,PHP,⚡ Low-Latency & Memory Systems,php-backend-core,main,2026-10-08T19:10:45.173815+00:00
-492,Sub-1-Bit LLM Compression via Latent Factorization,Rust,🌐 Distributed Systems & Consensus,rust-algorithms,main,2026-10-08T19:07:51.158739+00:00
-493,"Agent Memory as Source Code: A DSL for Neurons, Synapses and a Hash-Chained Ledger",Ruby,⚡ Low-Latency & Memory Systems,ruby-algorithms-lab,main,2026-10-08T19:02:12.515222+00:00
-494,LOCAA: An Agentic System for Automated Lossy Compressor Tuning,Kotlin,🧠 Computational AI & Math Engines,kotlin-systems-core,main,2026-10-08T17:13:18.933509+00:00
-495,Copy-on-Write Vector Memory Buffer Management,Swift,⚡ Low-Latency & Memory Systems,swift-systems-lab,main,2026-10-08T17:10:13.002569+00:00
-496,Red-Black Tree with Deterministic Balance Assertions,TypeScript,🧠 Computational AI & Math Engines,typescript-design-patterns,main,2026-10-08T17:02:25.698407+00:00
-497,Continuation Passing Coroutine State Engine,Zig,🧠 Computational AI & Math Engines,zig-systems-lab,main,2026-10-08T16:02:25.984252+00:00
-498,Fast Almost-Uniform Sampling of Random k-SAT Solutions,TypeScript,🧠 Computational AI & Math Engines,typescript-design-patterns,main,2026-10-08T15:07:56.622452+00:00
-499,52 Possibilities. 5 Cards. No Guessing. Here’s the Algorithm.,PHP,🧠 Computational AI & Math Engines,php-backend-core,main,2026-10-08T15:05:36.015977+00:00
-500,Bulletproof Idempotency in Distributed Payment Systems: Beyond the Client Header,C#,🌐 Distributed Systems & Consensus,csharp-enterprise-lab,main,2026-10-08T14:09:15.752196+00:00
-501,On the Cyclic Assumption of the Cow-Path Search Algorithm,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-10-08T14:06:51.844041+00:00
-502,The Cache Stampede Problem: Why a Popular Cache Key Can Take Down Your Backend,Ruby,⚡ Low-Latency & Memory Systems,ruby-algorithms-lab,main,2026-10-08T13:55:07.855464+00:00
-503,Rectangular matrix multiplication from shared-leg entropy,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-08T13:51:18.574044+00:00
-504,Linear Scan Register Allocation Algorithm,Zig,🧠 Computational AI & Math Engines,zig-systems-lab,main,2026-10-08T13:48:47.774793+00:00
-505,The Multiple Unicast Conjecture is False,TypeScript,🧠 Computational AI & Math Engines,typescript-design-patterns,main,2026-10-08T13:12:59.624561+00:00
-506,"What Actually Happens During Garbage Collection: Tri-Color Marking, Write Barriers, and",TypeScript,⚡ Low-Latency & Memory Systems,typescript-design-patterns,main,2026-10-08T13:06:53.488640+00:00
-507,How Dijkstra s Algorithm Finds the Fastest Route,TypeScript,🧠 Computational AI & Math Engines,typescript-design-patterns,main,2026-10-08T13:04:32.474981+00:00
-508,Subset Sum via Partial Match,PHP,🧠 Computational AI & Math Engines,php-backend-core,main,2026-10-08T13:02:20.760506+00:00
-509,Reimplementing a Trie Reminded Me How Autocomplete Actually Works,TypeScript,🧠 Computational AI & Math Engines,typescript-design-patterns,main,2026-10-08T12:43:08.575594+00:00
-510,Symmetric Submodular Minimization from Comparisons,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-10-08T12:13:53.042459+00:00
-511,Etcd - Distributed reliable key-value store for the most critical data of a distributed,C#,🌐 Distributed Systems & Consensus,csharp-enterprise-lab,main,2026-10-08T12:05:29.443271+00:00
-512,Actor Model Concurrency Engine with Mailbox Processing,C#,🌐 Distributed Systems & Consensus,csharp-enterprise-lab,main,2026-10-08T04:07:37.807578+00:00
-513,Count-Min Sketch Heavy Hitters Frequency Estimator,PHP,🧠 Computational AI & Math Engines,php-backend-core,main,2026-10-08T02:05:18.261179+00:00
-514,Lamport Logical Timestamp Synchronization Engine,Kotlin,🧠 Computational AI & Math Engines,kotlin-systems-core,main,2026-10-07T13:20:37.627350+00:00
-515,Cuckoo Filter High-Efficiency Deletion Structure,Kotlin,🧠 Computational AI & Math Engines,kotlin-systems-core,main,2026-10-07T12:06:52.998534+00:00
-516,CYK Parsing Algorithm for Context-Free Grammars,C++,🧠 Computational AI & Math Engines,cpp-systems-core,main,2026-10-07T11:58:44.178832+00:00
-517,Skip List Probabilistic Search and Insertion Engine,Swift,🧠 Computational AI & Math Engines,swift-systems-lab,main,2026-10-07T11:40:40.391224+00:00
-518,Suffix Automaton for Linear-Time Substring Indexing,Go,⚡ Low-Latency & Memory Systems,go-concurrency-lab,main,2026-10-07T11:05:06.753165+00:00
-519,Suffix Automaton for Linear-Time Substring Indexing,Haskell,⚡ Low-Latency & Memory Systems,haskell-functional-core,main,2026-10-07T11:01:47.927193+00:00
-520,Trie Prefix Tree for Auto-Completion with Frequency Ranking,C++,🧠 Computational AI & Math Engines,cpp-systems-core,main,2026-10-07T10:44:01.832067+00:00
-521,HyperLogLog Cardinality Estimation Algorithm,C,🧠 Computational AI & Math Engines,c-lowlevel-systems,main,2026-10-07T09:40:04.353541+00:00
-522,LSM-Tree MemTable and SSTable Flush Compaction Engine,Ruby,🌐 Distributed Systems & Consensus,ruby-algorithms-lab,main,2026-10-07T06:00:32.280058+00:00
-523,Count-Min Sketch Heavy Hitters Frequency Estimator,C++,🧠 Computational AI & Math Engines,cpp-systems-core,main,2026-10-07T04:02:34.146134+00:00
-524,Count-Min Sketch Heavy Hitters Frequency Estimator,Swift,🧠 Computational AI & Math Engines,swift-systems-lab,main,2026-10-07T00:32:07.926490+00:00
-525,Bytecode Virtual Machine with Stack Evaluation Engine,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main,2026-10-06T19:42:25.207438+00:00
-526,Sliding Window Rate Limiter with Distributed Token Bucket,Java,🌐 Distributed Systems & Consensus,java-enterprise-patterns,main,2026-10-06T19:01:04.833341+00:00
-527,Huffman Coding Lossless Compression and Decompression,Go,🧠 Computational AI & Math Engines,go-concurrency-lab,main,2026-10-06T18:48:11.938077+00:00
-528,Copy-on-Write Vector Memory Buffer Management,Zig,⚡ Low-Latency & Memory Systems,zig-systems-lab,main,2026-10-06T18:18:56.770302+00:00
-529,Bytecode Virtual Machine with Stack Evaluation Engine,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main,2026-10-06T16:57:15.781103+00:00
-530,Topological Sort with Cycle Detection in Directed Graphs,PHP,🧠 Computational AI & Math Engines,php-backend-core,main,2026-10-06T16:49:26.223451+00:00
-531,Skip List Probabilistic Search and Insertion Engine,C++,🧠 Computational AI & Math Engines,cpp-systems-core,main,2026-10-06T16:12:00.247514+00:00
-532,Suffix Automaton for Linear-Time Substring Indexing,Kotlin,⚡ Low-Latency & Memory Systems,kotlin-systems-core,main,2026-10-06T12:32:17.335579+00:00
-533,Lamport Logical Timestamp Synchronization Engine,C,🧠 Computational AI & Math Engines,c-lowlevel-systems,main,2026-10-06T11:15:17.366531+00:00
-534,Trie Prefix Tree for Auto-Completion with Frequency Ranking,Swift,🧠 Computational AI & Math Engines,swift-systems-lab,main,2026-10-06T10:52:34.790454+00:00
-535,Huffman Coding Lossless Compression and Decompression,Zig,🧠 Computational AI & Math Engines,zig-systems-lab,main,2026-10-06T10:18:07.936473+00:00
-536,Cuckoo Filter High-Efficiency Deletion Structure,C++,🧠 Computational AI & Math Engines,cpp-systems-core,main,2026-10-06T10:15:13.803717+00:00
-537,Custom Buddy Memory Allocation System,Swift,⚡ Low-Latency & Memory Systems,swift-systems-lab,main,2026-10-06T09:15:34.913380+00:00
-538,Tarjan Strongly Connected Components Search in Directed Graphs,C++,🧠 Computational AI & Math Engines,cpp-systems-core,main,2026-10-06T09:12:26.659705+00:00
-539,Bounded Space Random Walks and Graph Connectivity Engine,Zig,🧠 Computational AI & Math Engines,zig-systems-lab,main,2026-10-06T05:31:01.398163+00:00
-540,Lossless Streaming Compression and Retrieval Engine,PHP,🧠 Computational AI & Math Engines,php-backend-core,main,2026-10-06T05:28:11.126581+00:00
-541,Coordinate Matrix Transformation Grid,TypeScript,🧠 Computational AI & Math Engines,typescript-design-patterns,main,2026-10-06T04:32:33.033649+00:00
-542,Hybrid Classical State Optimization and Matrix Acceleration Engine,Zig,🧠 Computational AI & Math Engines,zig-systems-lab,main,2026-10-06T04:30:33.306894+00:00
-543,Robust Streaming Buffer Management and Replenishment Bounds,Rust,⚡ Low-Latency & Memory Systems,rust-algorithms,main,2026-10-06T04:02:13.695966+00:00
-544,Principal Component Analysis with Linear-Time Matrix Decompositions,C,🧠 Computational AI & Math Engines,c-lowlevel-systems,main,2026-10-06T03:21:54.850731+00:00
-545,Tiled GPU Matrix Computation and Memory Kernel Model,Rust,⚡ Low-Latency & Memory Systems,rust-algorithms,main,2026-10-06T02:46:59.557404+00:00
-546,Treap Randomized Binary Search Tree with Heap Priorities,Go,🧠 Computational AI & Math Engines,go-concurrency-lab,main,2026-10-06T00:21:56.543123+00:00
-547,Trie Prefix Tree for Auto-Completion with Frequency Ranking,Go,🧠 Computational AI & Math Engines,go-concurrency-lab,main,2026-10-06T00:19:21.048621+00:00
-548,Count-Min Sketch Heavy Hitters Frequency Estimator,C,🧠 Computational AI & Math Engines,c-lowlevel-systems,main,2026-10-06T00:17:16.278057+00:00
-549,Custom Buddy Memory Allocation System,C,⚡ Low-Latency & Memory Systems,c-lowlevel-systems,main,2026-10-05T22:46:59.147132+00:00
-550,Topological Sort with Cycle Detection in Directed Graphs,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main,2026-10-05T09:50:52.247616+00:00
-551,Merkle Tree Verification and Proof Generator,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-05T07:37:13.382984+00:00
-552,Copy-on-Write Vector Memory Buffer Management,C,⚡ Low-Latency & Memory Systems,c-lowlevel-systems,main,2026-10-05T07:00:31.082369+00:00
-553,Raft Consensus Protocol Leader Election State Engine,C++,🌐 Distributed Systems & Consensus,cpp-systems-core,main,2026-10-05T06:56:42.252397+00:00
-554,Thread-Safe Bounded Blocking Queue with Condition Variables,Go,⚡ Low-Latency & Memory Systems,go-concurrency-lab,main,2026-10-05T06:54:46.526937+00:00
-555,Vector Clock Distributed Event Ordering Mechanism,C++,🌐 Distributed Systems & Consensus,cpp-systems-core,main,2026-10-05T06:42:58.919879+00:00
-556,Actor Model Concurrency Engine with Mailbox Processing,Go,🌐 Distributed Systems & Consensus,go-concurrency-lab,main,2026-10-05T06:39:39.370164+00:00
-557,Topological Sort with Cycle Detection in Directed Graphs,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-10-05T06:27:58.306261+00:00
-558,Topological Sort with Cycle Detection in Directed Graphs,C++,🧠 Computational AI & Math Engines,cpp-systems-core,main,2026-10-05T06:26:54.481909+00:00
-559,Two-Phase Commit Protocol Coordinator and Participant State Machine,Ruby,🌐 Distributed Systems & Consensus,ruby-algorithms-lab,main,2026-10-05T06:24:27.116491+00:00
-560,Bit-Parallel Levenshtein Distance Matrix Engine,Go,🧠 Computational AI & Math Engines,go-concurrency-lab,main,2026-10-05T06:20:07.603680+00:00
-561,Red-Black Tree with Deterministic Balance Assertions,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-10-05T06:17:04.288384+00:00
-562,Aho-Corasick Multi-Pattern String Searching Automaton,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-10-05T06:16:01.817018+00:00
-563,Self-Balancing AVL Tree with Full Rotation Engine,C++,🧠 Computational AI & Math Engines,cpp-systems-core,main,2026-10-05T05:43:15.516853+00:00
-564,Bloom Filter with MurmurHash3 Hash Functions,Go,🌐 Distributed Systems & Consensus,go-concurrency-lab,main,2026-10-05T05:40:36.425598+00:00
-565,LSM-Tree MemTable and SSTable Flush Compaction Engine,Rust,🌐 Distributed Systems & Consensus,rust-algorithms,main,2026-10-05T05:37:54.951640+00:00
-566,Finite State Machine Tokenizer and Lexical Parser,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-05T05:22:01.190630+00:00
-567,Fast Fourier Transform (Cooley-Tukey Radix-2) Signal Processing,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main,2026-10-05T04:58:28.975279+00:00
+403,Safe Optimistic Lock Coupling,Haskell,⚡ Low-Latency & Memory Systems,haskell-functional-core,main,2026-10-11T01:06:16.814009+00:00
+404,Kruskal Minimum Spanning Tree with Disjoint-Set Union,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-10-11T01:04:20.322325+00:00
+405,Suffix Automaton for Linear-Time Substring Indexing,Rust,⚡ Low-Latency & Memory Systems,rust-algorithms,main,2026-10-11T01:01:40.557886+00:00
+406,Thread-Safe Bounded Blocking Queue with Condition Variables,C++,⚡ Low-Latency & Memory Systems,cpp-systems-core,main,2026-10-11T00:54:14.867191+00:00
+407,Dijkstra Shortest Path with Fibonacci Heap Priority Queue,C++,⚡ Low-Latency & Memory Systems,cpp-systems-core,main,2026-10-11T00:50:58.650732+00:00
+408,Lock-Free Concurrent Ring Buffer Data Structure,C,⚡ Low-Latency & Memory Systems,c-lowlevel-systems,main,2026-10-11T00:40:14.781243+00:00
+409,Suffix Automaton for Linear-Time Substring Indexing,PHP,⚡ Low-Latency & Memory Systems,php-backend-core,main,2026-10-11T00:02:15.797134+00:00
+410,Runge-Kutta 4th Order Numerical ODE Integrator,Kotlin,🧠 Computational AI & Math Engines,kotlin-systems-core,main,2026-10-10T23:58:49.381323+00:00
+411,Topological Sort with Cycle Detection in Directed Graphs,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main,2026-10-10T23:07:57.273590+00:00
+412,Hopcroft-Karp Bipartite Matching Algorithm,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main,2026-10-10T23:05:17.727333+00:00
+413,Conflict-free Replicated Data Type (CRDT) PN-Counter,C#,🌐 Distributed Systems & Consensus,csharp-enterprise-lab,main,2026-10-10T22:52:26.268362+00:00
+414,Huffman Coding Lossless Compression and Decompression,C,🧠 Computational AI & Math Engines,c-lowlevel-systems,main,2026-10-10T22:37:12.724974+00:00
+415,"Designing Search & Autocomplete: Inverted Index, Trie, Ranking & Scale",Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-10-10T22:02:29.770551+00:00
+416,Balanced Bipartite Partitioning Algorithm,TypeScript,🧠 Computational AI & Math Engines,typescript-design-patterns,main,2026-10-10T21:11:11.501426+00:00
+417,Thread-Safe Bounded Blocking Queue with Condition Variables,Zig,⚡ Low-Latency & Memory Systems,zig-systems-lab,main,2026-10-10T20:02:23.301358+00:00
+418,Trie Prefix Tree for Auto-Completion with Frequency Ranking,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main,2026-10-10T19:09:36.591060+00:00
+419,Pipeline Filter Stream Processing Architecture,Swift,🧠 Computational AI & Math Engines,swift-systems-lab,main,2026-10-10T19:04:42.629293+00:00
+420,Custom Buddy Memory Allocation System,Haskell,⚡ Low-Latency & Memory Systems,haskell-functional-core,main,2026-10-10T18:33:07.711371+00:00
+421,Zero-Dependency Lexical JSON Parser,TypeScript,🧠 Computational AI & Math Engines,typescript-design-patterns,main,2026-10-10T18:02:05.669129+00:00
+422,Vector Clock Distributed Event Ordering Mechanism,C#,🌐 Distributed Systems & Consensus,csharp-enterprise-lab,main,2026-10-10T17:48:22.386310+00:00
+423,I Built a Spell Checker to Watch an Algorithm Think,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-10-10T17:02:10.969020+00:00
+424,Bytecode Virtual Machine with Stack Evaluation Engine,PHP,🧠 Computational AI & Math Engines,php-backend-core,main,2026-10-10T15:05:19.636892+00:00
+425,Two-Phase Commit Protocol Coordinator and Participant State Machine,Kotlin,🌐 Distributed Systems & Consensus,kotlin-systems-core,main,2026-10-10T15:02:34.238527+00:00
+426,Kruskal Minimum Spanning Tree with Disjoint-Set Union,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main,2026-10-10T14:01:57.419469+00:00
+427,LMAX Disruptor Ring Buffer Pattern,Java,⚡ Low-Latency & Memory Systems,java-enterprise-patterns,main,2026-10-10T13:07:56.814220+00:00
+428,Self-Balancing AVL Tree with Full Rotation Engine,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main,2026-10-10T13:04:38.749123+00:00
+429,Kruskal Minimum Spanning Tree with Disjoint-Set Union,Zig,🧠 Computational AI & Math Engines,zig-systems-lab,main,2026-10-10T12:09:30.149693+00:00
+430,Hopcroft-Karp Bipartite Matching Algorithm,Kotlin,🧠 Computational AI & Math Engines,kotlin-systems-core,main,2026-10-10T11:05:42.430674+00:00
+431,Copy-on-Write Vector Memory Buffer Management,Ruby,⚡ Low-Latency & Memory Systems,ruby-algorithms-lab,main,2026-10-10T11:02:06.483421+00:00
+432,Hopcroft-Karp Bipartite Matching Algorithm,Zig,🧠 Computational AI & Math Engines,zig-systems-lab,main,2026-10-10T09:07:10.478539+00:00
+433,Aho-Corasick Multi-Pattern String Searching Automaton,Rust,⚡ Low-Latency & Memory Systems,rust-algorithms,main,2026-10-10T09:02:12.656163+00:00
+434,Adding Go s defer to the TypeScript Compiler,TypeScript,🧠 Computational AI & Math Engines,typescript-design-patterns,main,2026-10-10T06:02:03.832890+00:00
+435,"Communication Between the Compiler, the Build System, and Beyond",C,🧠 Computational AI & Math Engines,c-lowlevel-systems,main,2026-10-10T05:06:48.547428+00:00
+436,Cache-Oblivious Matrix Transposition Algorithm,C++,⚡ Low-Latency & Memory Systems,cpp-systems-core,main,2026-10-10T05:02:40.906803+00:00
+437,Vector Clock Distributed Event Ordering Mechanism,Java,🌐 Distributed Systems & Consensus,java-enterprise-patterns,main,2026-10-09T23:07:21.853920+00:00
+438,Two-Phase Commit Protocol Coordinator and Participant State Machine,PHP,🌐 Distributed Systems & Consensus,php-backend-core,main,2026-10-09T23:05:17.707320+00:00
+439,Training Text-to-Image Models Without a VAE,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main,2026-10-09T21:02:26.722706+00:00
+440,Two-Phase Commit Protocol Coordinator and Participant State Machine,C++,🌐 Distributed Systems & Consensus,cpp-systems-core,main,2026-10-09T17:05:55.459745+00:00
+441,Merkle Tree Verification and Proof Generator,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main,2026-10-09T17:02:21.478826+00:00
+442,Singular Value Decomposition (SVD) for Low-Rank Approximation,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-10-09T16:21:10.192713+00:00
+443,Singular Value Decomposition (SVD) for Low-Rank Approximation,Zig,🧠 Computational AI & Math Engines,zig-systems-lab,main,2026-10-09T16:15:58.360579+00:00
+444,Kruskal Minimum Spanning Tree with Disjoint-Set Union,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main,2026-10-09T16:09:39.984066+00:00
+445,HyperLogLog Cardinality Estimation Algorithm,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main,2026-10-09T16:07:18.251426+00:00
+446,Cuckoo Filter High-Efficiency Deletion Structure,Zig,🧠 Computational AI & Math Engines,zig-systems-lab,main,2026-10-09T15:54:39.410613+00:00
+447,Lamport Logical Timestamp Synchronization Engine,Go,🧠 Computational AI & Math Engines,go-concurrency-lab,main,2026-10-09T15:49:30.565404+00:00
+448,A* Heuristic Pathfinding with Dynamic Obstacle Cost,Java,🧠 Computational AI & Math Engines,java-enterprise-patterns,main,2026-10-09T15:47:10.971776+00:00
+449,Trie Prefix Tree for Auto-Completion with Frequency Ranking,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-10-09T15:42:15.504250+00:00
+450,Lamport Logical Timestamp Synchronization Engine,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main,2026-10-09T15:08:06.087160+00:00
+451,Count-Min Sketch Heavy Hitters Frequency Estimator,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main,2026-10-09T15:02:45.222597+00:00
+452,Red-Black Tree with Deterministic Balance Assertions,Java,🧠 Computational AI & Math Engines,java-enterprise-patterns,main,2026-10-09T14:50:51.242673+00:00
+453,Bytecode Virtual Machine with Stack Evaluation Engine,C,🧠 Computational AI & Math Engines,c-lowlevel-systems,main,2026-10-09T14:43:34.229214+00:00
+454,Bit-Parallel Levenshtein Distance Matrix Engine,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-10-09T14:38:57.073095+00:00
+455,Custom Buddy Memory Allocation System,PHP,⚡ Low-Latency & Memory Systems,php-backend-core,main,2026-10-09T14:34:33.675018+00:00
+456,Dijkstra Shortest Path with Fibonacci Heap Priority Queue,Haskell,⚡ Low-Latency & Memory Systems,haskell-functional-core,main,2026-10-09T14:27:06.098251+00:00
+457,Safe Optimistic Lock Coupling,Ruby,⚡ Low-Latency & Memory Systems,ruby-algorithms-lab,main,2026-10-09T14:08:26.781465+00:00
+458,Zero-Copy Byte Packet Ring Buffer Dispatcher,Zig,⚡ Low-Latency & Memory Systems,zig-systems-lab,main,2026-10-09T13:46:55.211598+00:00
+459,"A minimal kernel in Swift, running in QEMU",Swift,🧠 Computational AI & Math Engines,swift-systems-lab,main,2026-10-09T13:32:08.767178+00:00
+460,Self-Balancing AVL Tree with Full Rotation Engine,TypeScript,🧠 Computational AI & Math Engines,typescript-design-patterns,main,2026-10-09T12:50:14.609770+00:00
+461,Once: Cache CLI Commands,C,⚡ Low-Latency & Memory Systems,c-lowlevel-systems,main,2026-10-09T12:02:05.586052+00:00
+462,Sentinel: The Command Plane,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-10-09T11:20:30.216935+00:00
+463,Stimulate TRIE data structure,Kotlin,🧠 Computational AI & Math Engines,kotlin-systems-core,main,2026-10-09T11:02:15.016534+00:00
+464,Escaping Degeneracy by Following Shadow Edges,PHP,🧠 Computational AI & Math Engines,php-backend-core,main,2026-10-09T10:02:50.726774+00:00
+465,Capturing a Moving Target on Star Graphs by Two Communicating Mobile Agents,Ruby,⚡ Low-Latency & Memory Systems,ruby-algorithms-lab,main,2026-10-09T09:02:06.455091+00:00
+466,Faster Planar Graph Algorithms for Connectivity Problems via Meanders,TypeScript,🧠 Computational AI & Math Engines,typescript-design-patterns,main,2026-10-09T08:04:31.170608+00:00
+467,The Geometry of Hierarchical Navigation: Accuracy and Query Cost for Point Process Input,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-10-09T08:02:26.021498+00:00
+468,Coupling Independence Implies Zero-Freeness,Swift,⚡ Low-Latency & Memory Systems,swift-systems-lab,main,2026-10-09T07:02:06.540408+00:00
+469,Deterministic Approximation of the Total Variation Distance Between Spin Systems,Kotlin,🧠 Computational AI & Math Engines,kotlin-systems-core,main,2026-10-09T05:38:53.945382+00:00
+470,Parallel Edge Ranking of Trees,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main,2026-10-09T05:25:06.493650+00:00
+471,An ETH-based quasipolynomial lower bound for Dualization,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main,2026-10-09T05:22:49.406657+00:00
+472,Efficient Recovery of Latent Coordinate Structure from Sparse Observations of the,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main,2026-10-09T05:07:12.315092+00:00
+473,Improved Approximations for Vehicle Routing with Nonuniform Speeds,PHP,🧠 Computational AI & Math Engines,php-backend-core,main,2026-10-09T05:02:21.708269+00:00
+474,Quantitative Verification of Infinite-State Networks,Java,🧠 Computational AI & Math Engines,java-enterprise-patterns,main,2026-10-09T04:57:02.989341+00:00
+475,A* Heuristic Pathfinding with Dynamic Obstacle Cost,Swift,🧠 Computational AI & Math Engines,swift-systems-lab,main,2026-10-09T04:47:29.635126+00:00
+476,Recursive DNS Query Resolver and Packet Parser,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-10-09T04:40:36.338357+00:00
+477,A Refined Analysis for Matroid Secretary with Submodular Objectives,PHP,🧠 Computational AI & Math Engines,php-backend-core,main,2026-10-09T04:02:16.281343+00:00
+478,The Deutsch-Jozsa Algorithm Explained: Quantum Complexity & Qiskit,Kotlin,🧠 Computational AI & Math Engines,kotlin-systems-core,main,2026-10-09T03:07:35.400156+00:00
+479,Custom Buddy Memory Allocation System,Ruby,⚡ Low-Latency & Memory Systems,ruby-algorithms-lab,main,2026-10-09T03:05:26.988614+00:00
+480,New Contraction Bounds for Multidimensional Asymptotic Consensus in Dynamic Networks,C#,🌐 Distributed Systems & Consensus,csharp-enterprise-lab,main,2026-10-09T03:02:10.282735+00:00
+481,Safe Optimistic Lock Coupling,TypeScript,⚡ Low-Latency & Memory Systems,typescript-design-patterns,main,2026-10-09T02:02:04.358236+00:00
+482,Client-Side Directed Acyclic Graph Task Runner,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main,2026-10-09T00:07:29.391085+00:00
+483,Truly Sub-3ⁿ Min-Sum Subset Convolution and Join Ordering,Kotlin,⚡ Low-Latency & Memory Systems,kotlin-systems-core,main,2026-10-09T00:04:37.138800+00:00
+484,Attention via Black-Box Vector Search,C++,🧠 Computational AI & Math Engines,cpp-systems-core,main,2026-10-09T00:02:12.702780+00:00
+485,Min-Plus Convolution Lower Bounds via a Higher-Order BSG Theorem,PHP,🧠 Computational AI & Math Engines,php-backend-core,main,2026-10-08T23:05:39.803473+00:00
+486,A Terminal Protocol for Program Status (OSC 7501),Kotlin,🧠 Computational AI & Math Engines,kotlin-systems-core,main,2026-10-08T23:03:00.905909+00:00
+487,Polynomial Kernels for Interval Completion,C,🧠 Computational AI & Math Engines,c-lowlevel-systems,main,2026-10-08T21:04:49.939549+00:00
+488,Efficient Heuristics and Machine Learning Approach for Fault Characterization in,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-08T21:01:59.163185+00:00
+489,Cloud Infrastructure Resource Allocation Scheduler,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main,2026-10-08T20:02:11.064118+00:00
+490,Color Coding for the Sherrington-Kirkpatrick Model,PHP,⚡ Low-Latency & Memory Systems,php-backend-core,main,2026-10-08T19:10:45.173815+00:00
+491,Sub-1-Bit LLM Compression via Latent Factorization,Rust,🌐 Distributed Systems & Consensus,rust-algorithms,main,2026-10-08T19:07:51.158739+00:00
+492,"Agent Memory as Source Code: A DSL for Neurons, Synapses and a Hash-Chained Ledger",Ruby,⚡ Low-Latency & Memory Systems,ruby-algorithms-lab,main,2026-10-08T19:02:12.515222+00:00
+493,LOCAA: An Agentic System for Automated Lossy Compressor Tuning,Kotlin,🧠 Computational AI & Math Engines,kotlin-systems-core,main,2026-10-08T17:13:18.933509+00:00
+494,Copy-on-Write Vector Memory Buffer Management,Swift,⚡ Low-Latency & Memory Systems,swift-systems-lab,main,2026-10-08T17:10:13.002569+00:00
+495,Red-Black Tree with Deterministic Balance Assertions,TypeScript,🧠 Computational AI & Math Engines,typescript-design-patterns,main,2026-10-08T17:02:25.698407+00:00
+496,Continuation Passing Coroutine State Engine,Zig,🧠 Computational AI & Math Engines,zig-systems-lab,main,2026-10-08T16:02:25.984252+00:00
+497,Fast Almost-Uniform Sampling of Random k-SAT Solutions,TypeScript,🧠 Computational AI & Math Engines,typescript-design-patterns,main,2026-10-08T15:07:56.622452+00:00
+498,52 Possibilities. 5 Cards. No Guessing. Here’s the Algorithm.,PHP,🧠 Computational AI & Math Engines,php-backend-core,main,2026-10-08T15:05:36.015977+00:00
+499,Bulletproof Idempotency in Distributed Payment Systems: Beyond the Client Header,C#,🌐 Distributed Systems & Consensus,csharp-enterprise-lab,main,2026-10-08T14:09:15.752196+00:00
+500,On the Cyclic Assumption of the Cow-Path Search Algorithm,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-10-08T14:06:51.844041+00:00
+501,The Cache Stampede Problem: Why a Popular Cache Key Can Take Down Your Backend,Ruby,⚡ Low-Latency & Memory Systems,ruby-algorithms-lab,main,2026-10-08T13:55:07.855464+00:00
+502,Rectangular matrix multiplication from shared-leg entropy,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-08T13:51:18.574044+00:00
+503,Linear Scan Register Allocation Algorithm,Zig,🧠 Computational AI & Math Engines,zig-systems-lab,main,2026-10-08T13:48:47.774793+00:00
+504,The Multiple Unicast Conjecture is False,TypeScript,🧠 Computational AI & Math Engines,typescript-design-patterns,main,2026-10-08T13:12:59.624561+00:00
+505,"What Actually Happens During Garbage Collection: Tri-Color Marking, Write Barriers, and",TypeScript,⚡ Low-Latency & Memory Systems,typescript-design-patterns,main,2026-10-08T13:06:53.488640+00:00
+506,How Dijkstra s Algorithm Finds the Fastest Route,TypeScript,🧠 Computational AI & Math Engines,typescript-design-patterns,main,2026-10-08T13:04:32.474981+00:00
+507,Subset Sum via Partial Match,PHP,🧠 Computational AI & Math Engines,php-backend-core,main,2026-10-08T13:02:20.760506+00:00
+508,Reimplementing a Trie Reminded Me How Autocomplete Actually Works,TypeScript,🧠 Computational AI & Math Engines,typescript-design-patterns,main,2026-10-08T12:43:08.575594+00:00
+509,Symmetric Submodular Minimization from Comparisons,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-10-08T12:13:53.042459+00:00
+510,Etcd - Distributed reliable key-value store for the most critical data of a distributed,C#,🌐 Distributed Systems & Consensus,csharp-enterprise-lab,main,2026-10-08T12:05:29.443271+00:00
+511,Actor Model Concurrency Engine with Mailbox Processing,C#,🌐 Distributed Systems & Consensus,csharp-enterprise-lab,main,2026-10-08T04:07:37.807578+00:00
+512,Count-Min Sketch Heavy Hitters Frequency Estimator,PHP,🧠 Computational AI & Math Engines,php-backend-core,main,2026-10-08T02:05:18.261179+00:00
+513,Lamport Logical Timestamp Synchronization Engine,Kotlin,🧠 Computational AI & Math Engines,kotlin-systems-core,main,2026-10-07T13:20:37.627350+00:00
+514,Cuckoo Filter High-Efficiency Deletion Structure,Kotlin,🧠 Computational AI & Math Engines,kotlin-systems-core,main,2026-10-07T12:06:52.998534+00:00
+515,CYK Parsing Algorithm for Context-Free Grammars,C++,🧠 Computational AI & Math Engines,cpp-systems-core,main,2026-10-07T11:58:44.178832+00:00
+516,Skip List Probabilistic Search and Insertion Engine,Swift,🧠 Computational AI & Math Engines,swift-systems-lab,main,2026-10-07T11:40:40.391224+00:00
+517,Suffix Automaton for Linear-Time Substring Indexing,Go,⚡ Low-Latency & Memory Systems,go-concurrency-lab,main,2026-10-07T11:05:06.753165+00:00
+518,Suffix Automaton for Linear-Time Substring Indexing,Haskell,⚡ Low-Latency & Memory Systems,haskell-functional-core,main,2026-10-07T11:01:47.927193+00:00
+519,Trie Prefix Tree for Auto-Completion with Frequency Ranking,C++,🧠 Computational AI & Math Engines,cpp-systems-core,main,2026-10-07T10:44:01.832067+00:00
+520,HyperLogLog Cardinality Estimation Algorithm,C,🧠 Computational AI & Math Engines,c-lowlevel-systems,main,2026-10-07T09:40:04.353541+00:00
+521,LSM-Tree MemTable and SSTable Flush Compaction Engine,Ruby,🌐 Distributed Systems & Consensus,ruby-algorithms-lab,main,2026-10-07T06:00:32.280058+00:00
+522,Count-Min Sketch Heavy Hitters Frequency Estimator,C++,🧠 Computational AI & Math Engines,cpp-systems-core,main,2026-10-07T04:02:34.146134+00:00
+523,Count-Min Sketch Heavy Hitters Frequency Estimator,Swift,🧠 Computational AI & Math Engines,swift-systems-lab,main,2026-10-07T00:32:07.926490+00:00
+524,Bytecode Virtual Machine with Stack Evaluation Engine,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main,2026-10-06T19:42:25.207438+00:00
+525,Sliding Window Rate Limiter with Distributed Token Bucket,Java,🌐 Distributed Systems & Consensus,java-enterprise-patterns,main,2026-10-06T19:01:04.833341+00:00
+526,Huffman Coding Lossless Compression and Decompression,Go,🧠 Computational AI & Math Engines,go-concurrency-lab,main,2026-10-06T18:48:11.938077+00:00
+527,Copy-on-Write Vector Memory Buffer Management,Zig,⚡ Low-Latency & Memory Systems,zig-systems-lab,main,2026-10-06T18:18:56.770302+00:00
+528,Bytecode Virtual Machine with Stack Evaluation Engine,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main,2026-10-06T16:57:15.781103+00:00
+529,Topological Sort with Cycle Detection in Directed Graphs,PHP,🧠 Computational AI & Math Engines,php-backend-core,main,2026-10-06T16:49:26.223451+00:00
+530,Skip List Probabilistic Search and Insertion Engine,C++,🧠 Computational AI & Math Engines,cpp-systems-core,main,2026-10-06T16:12:00.247514+00:00
+531,Suffix Automaton for Linear-Time Substring Indexing,Kotlin,⚡ Low-Latency & Memory Systems,kotlin-systems-core,main,2026-10-06T12:32:17.335579+00:00
+532,Lamport Logical Timestamp Synchronization Engine,C,🧠 Computational AI & Math Engines,c-lowlevel-systems,main,2026-10-06T11:15:17.366531+00:00
+533,Trie Prefix Tree for Auto-Completion with Frequency Ranking,Swift,🧠 Computational AI & Math Engines,swift-systems-lab,main,2026-10-06T10:52:34.790454+00:00
+534,Huffman Coding Lossless Compression and Decompression,Zig,🧠 Computational AI & Math Engines,zig-systems-lab,main,2026-10-06T10:18:07.936473+00:00
+535,Cuckoo Filter High-Efficiency Deletion Structure,C++,🧠 Computational AI & Math Engines,cpp-systems-core,main,2026-10-06T10:15:13.803717+00:00
+536,Custom Buddy Memory Allocation System,Swift,⚡ Low-Latency & Memory Systems,swift-systems-lab,main,2026-10-06T09:15:34.913380+00:00
+537,Tarjan Strongly Connected Components Search in Directed Graphs,C++,🧠 Computational AI & Math Engines,cpp-systems-core,main,2026-10-06T09:12:26.659705+00:00
+538,Bounded Space Random Walks and Graph Connectivity Engine,Zig,🧠 Computational AI & Math Engines,zig-systems-lab,main,2026-10-06T05:31:01.398163+00:00
+539,Lossless Streaming Compression and Retrieval Engine,PHP,🧠 Computational AI & Math Engines,php-backend-core,main,2026-10-06T05:28:11.126581+00:00
+540,Coordinate Matrix Transformation Grid,TypeScript,🧠 Computational AI & Math Engines,typescript-design-patterns,main,2026-10-06T04:32:33.033649+00:00
+541,Hybrid Classical State Optimization and Matrix Acceleration Engine,Zig,🧠 Computational AI & Math Engines,zig-systems-lab,main,2026-10-06T04:30:33.306894+00:00
+542,Robust Streaming Buffer Management and Replenishment Bounds,Rust,⚡ Low-Latency & Memory Systems,rust-algorithms,main,2026-10-06T04:02:13.695966+00:00
+543,Principal Component Analysis with Linear-Time Matrix Decompositions,C,🧠 Computational AI & Math Engines,c-lowlevel-systems,main,2026-10-06T03:21:54.850731+00:00
+544,Tiled GPU Matrix Computation and Memory Kernel Model,Rust,⚡ Low-Latency & Memory Systems,rust-algorithms,main,2026-10-06T02:46:59.557404+00:00
+545,Treap Randomized Binary Search Tree with Heap Priorities,Go,🧠 Computational AI & Math Engines,go-concurrency-lab,main,2026-10-06T00:21:56.543123+00:00
+546,Trie Prefix Tree for Auto-Completion with Frequency Ranking,Go,🧠 Computational AI & Math Engines,go-concurrency-lab,main,2026-10-06T00:19:21.048621+00:00
+547,Count-Min Sketch Heavy Hitters Frequency Estimator,C,🧠 Computational AI & Math Engines,c-lowlevel-systems,main,2026-10-06T00:17:16.278057+00:00
+548,Custom Buddy Memory Allocation System,C,⚡ Low-Latency & Memory Systems,c-lowlevel-systems,main,2026-10-05T22:46:59.147132+00:00
+549,Topological Sort with Cycle Detection in Directed Graphs,C#,🧠 Computational AI & Math Engines,csharp-enterprise-lab,main,2026-10-05T09:50:52.247616+00:00
+550,Merkle Tree Verification and Proof Generator,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-05T07:37:13.382984+00:00
+551,Copy-on-Write Vector Memory Buffer Management,C,⚡ Low-Latency & Memory Systems,c-lowlevel-systems,main,2026-10-05T07:00:31.082369+00:00
+552,Raft Consensus Protocol Leader Election State Engine,C++,🌐 Distributed Systems & Consensus,cpp-systems-core,main,2026-10-05T06:56:42.252397+00:00
+553,Thread-Safe Bounded Blocking Queue with Condition Variables,Go,⚡ Low-Latency & Memory Systems,go-concurrency-lab,main,2026-10-05T06:54:46.526937+00:00
+554,Vector Clock Distributed Event Ordering Mechanism,C++,🌐 Distributed Systems & Consensus,cpp-systems-core,main,2026-10-05T06:42:58.919879+00:00
+555,Actor Model Concurrency Engine with Mailbox Processing,Go,🌐 Distributed Systems & Consensus,go-concurrency-lab,main,2026-10-05T06:39:39.370164+00:00
+556,Topological Sort with Cycle Detection in Directed Graphs,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-10-05T06:27:58.306261+00:00
+557,Topological Sort with Cycle Detection in Directed Graphs,C++,🧠 Computational AI & Math Engines,cpp-systems-core,main,2026-10-05T06:26:54.481909+00:00
+558,Two-Phase Commit Protocol Coordinator and Participant State Machine,Ruby,🌐 Distributed Systems & Consensus,ruby-algorithms-lab,main,2026-10-05T06:24:27.116491+00:00
+559,Bit-Parallel Levenshtein Distance Matrix Engine,Go,🧠 Computational AI & Math Engines,go-concurrency-lab,main,2026-10-05T06:20:07.603680+00:00
+560,Red-Black Tree with Deterministic Balance Assertions,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-10-05T06:17:04.288384+00:00
+561,Aho-Corasick Multi-Pattern String Searching Automaton,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-10-05T06:16:01.817018+00:00
+562,Self-Balancing AVL Tree with Full Rotation Engine,C++,🧠 Computational AI & Math Engines,cpp-systems-core,main,2026-10-05T05:43:15.516853+00:00
+563,Bloom Filter with MurmurHash3 Hash Functions,Go,🌐 Distributed Systems & Consensus,go-concurrency-lab,main,2026-10-05T05:40:36.425598+00:00
+564,LSM-Tree MemTable and SSTable Flush Compaction Engine,Rust,🌐 Distributed Systems & Consensus,rust-algorithms,main,2026-10-05T05:37:54.951640+00:00
+565,Finite State Machine Tokenizer and Lexical Parser,Python,🧠 Computational AI & Math Engines,python-advanced-lab,main,2026-10-05T05:22:01.190630+00:00
+566,Fast Fourier Transform (Cooley-Tukey Radix-2) Signal Processing,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main,2026-10-05T04:58:28.975279+00:00
