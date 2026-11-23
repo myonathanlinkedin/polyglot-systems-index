@@ -2723,8 +2723,9 @@
       </div>
       <div class="toggle-row" style="font-size: 9px; color: var(--text-muted); padding-top: 2px;">
         <span>GPU Quality Tier</span>
-        <span id="gpu-tier-badge"
-          style="font-family: var(--font-mono); color: var(--accent-cyan); font-weight: 700;">AUTO</span>
+        <button id="gpu-tier-badge" type="button"
+          title="Click to cycle ULTRA (RTX/GTAO/Bloom/Shadows) / BALANCED / ECO 1-PASS"
+          style="background: rgba(0,229,255,0.12); border: 1px solid rgba(0,229,255,0.35); border-radius: 4px; padding: 1px 6px; cursor: pointer; font-family: var(--font-mono); font-size: 9px; color: var(--accent-cyan); font-weight: 700;">AUTO</button>
       </div>
     </aside>
   </div>
@@ -2765,7 +2766,14 @@
     import * as THREE from 'three';
     import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
     import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+    import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
     import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
+    import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+    import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+    import { GTAOPass } from 'three/addons/postprocessing/GTAOPass.js';
+    import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+    import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+    import { Reflector } from 'three/addons/objects/Reflector.js';
 
     // =========================================================================
     // 1. UNIFIED 4-UNIT MECHA-UNIVERSE ROSTER (LOADED FROM PUBLIC 'mecha-assets' REPO!)
@@ -3088,28 +3096,30 @@
     syncMenuVisibility();
 
     // =========================================================================
-    // 3. LIGHTWEIGHT 1-PASS 60FPS WEBGL RENDERER (SMOOTH ON LOW-END GPUs & PHONES!)
+    // 3. TIERED CINEMA WEBGL2 RENDERER (ULTRA RTX / BALANCED / 60FPS MOBILE FAST)
     // =========================================================================
     const isMobileViewport = () => window.innerWidth <= 960 || /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent || '');
+    const isCoarseMobile = isMobileViewport();
     const renderer = new THREE.WebGLRenderer({
       canvas,
-      antialias: !isMobileViewport(),
+      antialias: !isCoarseMobile,
       powerPreference: 'high-performance',
       stencil: false
     });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, isMobileViewport() ? 1.0 : 1.5));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, isCoarseMobile ? 1.0 : 1.5));
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.shadowMap.enabled = false; // Zero per-frame shadow-map pass (crisp grounded contactShadowDisc instead!)
-    renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 0.96;
+    renderer.shadowMap.enabled = !isCoarseMobile;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    renderer.toneMapping = THREE.AgXToneMapping;
+    renderer.toneMappingExposure = 0.94;
 
     const maxAnisotropy = Math.min(renderer.capabilities.getMaxAnisotropy(), 4);
 
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(0x07101c);
-    scene.fog = new THREE.FogExp2(0x07101c, 0.00070);
+    scene.fog = new THREE.FogExp2(0x07101c, 0.00062);
 
-    // Lightweight Pre-Integrated Bandai Metal-Build Studio Softbox IBL (runs ONCE in <6ms; zero per-frame cost!)
+    // Instant Procedural Studio Softbox IBL on Frame 0 + Seamless Async Upgrade to RTX-Forged Float32 .hdr!
     function createCinemaSoftboxEnvMap(ren) {
       const pmrem = new THREE.PMREMGenerator(ren);
       pmrem.compileEquirectangularShader();
@@ -3148,11 +3158,10 @@
         m.lookAt(...lookAt);
         envScene.add(m);
       };
-      // Overhead key softbox + crisp vertical side specular strips (produces realistic Metal Build bands on armor & gunmetal!)
-      addSoftbox(30, 14, new THREE.Color(4.8, 4.65, 4.45), [4, 28, 12], [0, 0, 0]);
-      addSoftbox(9, 30, new THREE.Color(2.4, 3.3, 4.6), [-28, 12, 16], [0, 4, 0]);
-      addSoftbox(9, 28, new THREE.Color(4.0, 3.0, 2.0), [28, 12, 10], [0, 4, 0]);
-      addSoftbox(26, 7, new THREE.Color(3.0, 3.6, 4.4), [0, 16, -28], [0, 2, 0]);
+      addSoftbox(30, 14, new THREE.Color(5.2, 5.0, 4.7), [4, 28, 12], [0, 0, 0]);
+      addSoftbox(9, 30, new THREE.Color(2.6, 3.6, 5.0), [-28, 12, 16], [0, 4, 0]);
+      addSoftbox(9, 28, new THREE.Color(4.2, 3.2, 2.2), [28, 12, 10], [0, 4, 0]);
+      addSoftbox(26, 7, new THREE.Color(3.4, 4.0, 4.9), [0, 16, -28], [0, 2, 0]);
       addSoftbox(22, 10, new THREE.Color(0.32, 0.46, 0.62), [0, -24, 8], [0, 0, 0]);
 
       const tex = pmrem.fromScene(envScene, 0.032).texture;
@@ -3161,7 +3170,32 @@
       return tex;
     }
     scene.environment = createCinemaSoftboxEnvMap(renderer);
-    scene.environmentIntensity = 1.18;
+    scene.environmentIntensity = 0.56;
+
+    // Async load RTX-Forged Float32 Studio Softbox HDRI (zero frame-0 stall; instant upgrade once ready)
+    (function loadForgedStudioHDRI() {
+      const rgbeLoader = new RGBELoader();
+      const applyHdr = (hdrTex) => {
+        try {
+          const pmrem = new THREE.PMREMGenerator(renderer);
+          pmrem.compileEquirectangularShader();
+          const prevEnv = scene.environment;
+          const envRT = pmrem.fromEquirectangular(hdrTex);
+          scene.environment = envRT.texture;
+          hdrTex.dispose();
+          pmrem.dispose();
+          if (prevEnv && prevEnv.dispose) prevEnv.dispose();
+        } catch (_) { }
+      };
+      rgbeLoader.load(
+        `${MECHA_ASSETS_CDN}/textures/studio_mecha_softbox_1k.hdr`,
+        applyHdr,
+        undefined,
+        () => {
+          rgbeLoader.load('assets/mecha/textures/studio_mecha_softbox_1k.hdr', applyHdr, undefined, () => { });
+        }
+      );
+    })();
 
     const camera = new THREE.PerspectiveCamera(38, window.innerWidth / window.innerHeight, 1.0, 2200.0);
     camera.position.set(115, 110, 240);
@@ -3176,24 +3210,110 @@
     controls.autoRotate = state.autoRotate;
     controls.autoRotateSpeed = 0.72;
 
-    // Single-Pass Adaptive DPR Tiers (ZERO EffectComposer / ZERO GTAO / ZERO Bloom / ZERO Real-Time ShadowMap!)
+    // 3-Point Directional + Hemisphere Studio Lighting + Soft Shadow Camera on Key Light
+    const hemiLight = new THREE.HemisphereLight(0xb8d4f0, 0x090f1a, isCoarseMobile ? 0.52 : 0.34);
+    scene.add(hemiLight);
+
+    const keyLight = new THREE.DirectionalLight(0xfff6ea, 1.48);
+    keyLight.position.set(125, 235, 165);
+    keyLight.castShadow = !isCoarseMobile;
+    keyLight.shadow.mapSize.set(2048, 2048);
+    keyLight.shadow.camera.near = 40;
+    keyLight.shadow.camera.far = 540;
+    keyLight.shadow.camera.left = -98;
+    keyLight.shadow.camera.right = 98;
+    keyLight.shadow.camera.top = 205;
+    keyLight.shadow.camera.bottom = -25;
+    keyLight.shadow.bias = -0.00045;
+    keyLight.shadow.normalBias = 0.65;
+    keyLight.shadow.radius = 2.6;
+    scene.add(keyLight);
+
+    const fillLight = new THREE.DirectionalLight(0x7cc4fa, 0.44);
+    fillLight.position.set(-165, 130, 110);
+    fillLight.visible = !isCoarseMobile;
+    scene.add(fillLight);
+
+    const rimLight = new THREE.DirectionalLight(0x9bd8ff, 0.96);
+    rimLight.position.set(-100, 195, -180);
+    scene.add(rimLight);
+
+    // Tiered Post-Processing Composer (ULTRA RTX = GTAO + Selective HDR Bloom + AgX OutputPass; BALANCED = Bloom + Shadows; LOW = 1-Pass Fast!)
+    let composer = null;
+    let gtaoPass = null;
+    let bloomPass = null;
+    let usePostComposer = false;
+
+    function initCinemaPostProcessing() {
+      if (isCoarseMobile || composer) return;
+      try {
+        const w = Math.max(window.innerWidth, 1);
+        const h = Math.max(window.innerHeight, 1);
+        const rt = new THREE.WebGLRenderTarget(w, h, {
+          type: THREE.HalfFloatType,
+          samples: renderer.capabilities.isWebGL2 ? 4 : 0
+        });
+        composer = new EffectComposer(renderer, rt);
+        composer.setPixelRatio(renderer.getPixelRatio());
+        composer.setSize(w, h);
+
+        const renderPass = new RenderPass(scene, camera);
+        composer.addPass(renderPass);
+
+        gtaoPass = new GTAOPass(scene, camera, w, h);
+        gtaoPass.output = GTAOPass.OUTPUT.Default;
+        gtaoPass.updateGtaoMaterial({
+          radius: 7.5,
+          distanceExponent: 1.75,
+          thickness: 10.0,
+          scale: 1.15,
+          samples: 12
+        });
+        gtaoPass.updatePdMaterial({
+          lumaPhi: 8.0,
+          depthPhi: 2.0,
+          normalPhi: 3.0,
+          radius: 4,
+          samples: 8
+        });
+        composer.addPass(gtaoPass);
+
+        // Strictly Selective HDR Bloom: threshold = 2.10 guarantees white/painted armor NEVER blooms,
+        // while emissive eyes, mono-eyes, plasma sabers & glowing vents (> 3.5) get a crisp cinema optical halo!
+        bloomPass = new UnrealBloomPass(new THREE.Vector2(w, h), 0.28, 0.30, 2.10);
+        composer.addPass(bloomPass);
+
+        const outputPass = new OutputPass();
+        composer.addPass(outputPass);
+      } catch (e) {
+        composer = null;
+        gtaoPass = null;
+        bloomPass = null;
+        usePostComposer = false;
+      }
+    }
+
+    // Adaptive 3-Tier GPU Architecture (RTX 4090M / dGPU = ULTRA; Mid/iGPU = BALANCED; Mobile/Software = 60FPS 1-PASS)
     const GPU_TIERS = {
-      HIGH: { dpr: Math.min(window.devicePixelRatio || 1, 1.5), label: 'FAST • 1-PASS' },
-      MED: { dpr: Math.min(window.devicePixelRatio || 1, 1.15), label: 'ECO • 1-PASS' },
-      LOW: { dpr: 1.0, label: 'MOBILE • 1-PASS' }
+      HIGH: { dpr: Math.min(window.devicePixelRatio || 1, 1.5), label: 'ULTRA • RTX', shadows: true, shadowSize: 2048, gtao: true, bloom: true, reflector: true },
+      MED: { dpr: Math.min(window.devicePixelRatio || 1, 1.15), label: 'BALANCED', shadows: true, shadowSize: 1024, gtao: false, bloom: true, reflector: false },
+      LOW: { dpr: 1.0, label: isCoarseMobile ? 'MOBILE • 1-PASS' : 'ECO • 1-PASS', shadows: false, shadowSize: 512, gtao: false, bloom: false, reflector: false }
     };
     const detectInitialGpuTier = () => {
       try {
-        if (isMobileViewport()) return 'LOW';
+        if (isCoarseMobile) return 'LOW';
         const gl = renderer.getContext();
         const dbg = gl.getExtension('WEBGL_debug_renderer_info');
         const ren = dbg ? String(gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL) || '') : '';
         if (/swiftshader|llvmpipe|software|mesa/i.test(ren)) return 'LOW';
-        if (/intel|uhd|iris|mali|adreno|apple gpu/i.test(ren)) return 'MED';
+        if (/intel|uhd|iris|mali|adreno/i.test(ren) && !/rtx|gtx|radeon|apple/i.test(ren)) return 'MED';
       } catch (_) { }
       return 'HIGH';
     };
     state.gpuTier = detectInitialGpuTier();
+
+    let turntableReflector = null;
+    let turntableGlossVeil = null;
 
     const gpuTierBadge = document.getElementById('gpu-tier-badge');
     function applyGpuQualityTier(tierName) {
@@ -3201,28 +3321,63 @@
       const tCfg = GPU_TIERS[tKey];
       state.gpuTier = tKey;
       renderer.setPixelRatio(tCfg.dpr);
+      renderer.shadowMap.enabled = tCfg.shadows;
+      keyLight.castShadow = tCfg.shadows;
+      if (tCfg.shadows && keyLight.shadow.mapSize.width !== tCfg.shadowSize) {
+        keyLight.shadow.mapSize.set(tCfg.shadowSize, tCfg.shadowSize);
+        if (keyLight.shadow.map) { keyLight.shadow.map.dispose(); keyLight.shadow.map = null; }
+      }
+      if ((tCfg.gtao || tCfg.bloom) && !isCoarseMobile) {
+        initCinemaPostProcessing();
+      }
+      usePostComposer = Boolean(composer && (tCfg.gtao || tCfg.bloom));
+      if (composer) {
+        composer.setPixelRatio(tCfg.dpr);
+        composer.setSize(Math.max(window.innerWidth, 1), Math.max(window.innerHeight, 1));
+      }
+      if (gtaoPass) gtaoPass.enabled = Boolean(tCfg.gtao);
+      if (bloomPass) bloomPass.enabled = Boolean(tCfg.bloom);
+      if (turntableReflector) turntableReflector.visible = Boolean(tCfg.reflector && state.renderMode === 'standard' && state.activeEnv !== 'studio');
+      if (turntableGlossVeil) turntableGlossVeil.visible = Boolean(tCfg.reflector && state.renderMode === 'standard' && state.activeEnv !== 'studio');
       if (gpuTierBadge) gpuTierBadge.textContent = tCfg.label;
     }
-    applyGpuQualityTier(state.gpuTier);
 
-    // Lightweight 3-Point Directional + Hemisphere Studio Lighting (ZERO PointLight per-fragment overhead!)
-    // Root-Cause Mobile FPS Fix #3: On mobile, disable redundant 3rd directional light (fillLight) and balance with hemiLight -> -33% per-fragment BRDF cost!
-    const isCoarseMobile = isMobileViewport();
-    const hemiLight = new THREE.HemisphereLight(0xcfe8ff, 0x101828, isCoarseMobile ? 0.78 : 0.58);
-    scene.add(hemiLight);
+    if (gpuTierBadge) {
+      gpuTierBadge.addEventListener('click', () => {
+        const order = ['HIGH', 'MED', 'LOW'];
+        const nxt = order[(order.indexOf(state.gpuTier) + 1) % order.length];
+        applyGpuQualityTier(nxt);
+        showToast(`🖥️ GPU Tier: ${GPU_TIERS[nxt].label}`, true);
+      });
+    }
 
-    const keyLight = new THREE.DirectionalLight(0xffffff, 1.55);
-    keyLight.position.set(130, 240, 175);
-    scene.add(keyLight);
+    function syncPostPassForMode() {
+      const tCfg = GPU_TIERS[state.gpuTier] || GPU_TIERS.LOW;
+      const isStd = state.renderMode === 'standard';
+      const isHolo = state.renderMode === 'hologram';
+      if (gtaoPass) gtaoPass.enabled = Boolean(tCfg.gtao && isStd);
+      if (bloomPass) bloomPass.enabled = Boolean(tCfg.bloom && (isStd || isHolo));
+      usePostComposer = Boolean(composer && ((gtaoPass && gtaoPass.enabled) || (bloomPass && bloomPass.enabled)));
+      const showRefl = Boolean(tCfg.reflector && isStd && state.activeEnv !== 'studio');
+      if (turntableReflector) turntableReflector.visible = showRefl;
+      if (turntableGlossVeil) turntableGlossVeil.visible = showRefl;
+    }
 
-    const fillLight = new THREE.DirectionalLight(0x7dd3fc, 0.68);
-    fillLight.position.set(-165, 130, 110);
-    fillLight.visible = !isCoarseMobile;
-    scene.add(fillLight);
+    function renderActiveFrame() {
+      if (usePostComposer && composer) {
+        composer.render();
+      } else {
+        renderer.render(scene, camera);
+      }
+    }
 
-    const rimLight = new THREE.DirectionalLight(0x38bdf8, 0.98);
-    rimLight.position.set(-100, 195, -180);
-    scene.add(rimLight);
+    function resizeCinemaPipeline(w, h) {
+      if (composer) {
+        composer.setSize(w, h);
+        if (gtaoPass) gtaoPass.setSize(w, h);
+        if (bloomPass) bloomPass.setSize(w, h);
+      }
+    }
 
     // Clean Interactive Infinity Cyclorama Dome (100% uncluttered backdrop — ZERO fence/pillars behind mecha!)
     // Root-Cause Mobile FPS Fix #4: Zero transcendental ops (pow/exp/sin) per fragment on mobile sky dome!
@@ -3383,13 +3538,88 @@
 
     const deckMap = createTurntableDeckTextures();
     const darkPad = new THREE.Mesh(
-      new THREE.CylinderGeometry(84, 94, 4.4, 48),
+      new THREE.CylinderGeometry(84, 94, 4.4, 56),
       new THREE.MeshStandardMaterial({
-        color: 0xdbe4f0, map: deckMap, roughness: 0.36, metalness: 0.64, envMapIntensity: 0.92
+        color: 0xdbe4f0, map: deckMap, roughness: 0.34, metalness: 0.72, envMapIntensity: 1.05
       })
     );
     darkPad.position.y = -2.2;
+    darkPad.receiveShadow = true;
     floorGroup.add(darkPad);
+
+    // Glossy Dark Spun-Steel Studio Planar Reflection (ULTRA RTX Tier — soft mirrored boots/legs on turntable!)
+    if (!isCoarseMobile) {
+      try {
+        turntableReflector = new Reflector(new THREE.CircleGeometry(82.4, 56), {
+          clipBias: 0.005,
+          textureWidth: 512,
+          textureHeight: 512,
+          color: 0x3b4a60
+        });
+        turntableReflector.rotation.x = -Math.PI / 2;
+        turntableReflector.position.y = 0.015;
+        turntableReflector.visible = false;
+        floorGroup.add(turntableReflector);
+
+        turntableGlossVeil = new THREE.Mesh(
+          new THREE.CircleGeometry(83.2, 56),
+          new THREE.MeshPhysicalMaterial({
+            color: 0x162234,
+            map: deckMap,
+            roughness: 0.28,
+            metalness: 0.80,
+            clearcoat: 0.45,
+            clearcoatRoughness: 0.24,
+            transparent: true,
+            opacity: 0.72,
+            depthWrite: false,
+            polygonOffset: true,
+            polygonOffsetFactor: -1,
+            polygonOffsetUnits: -1
+          })
+        );
+        turntableGlossVeil.rotation.x = -Math.PI / 2;
+        turntableGlossVeil.position.y = 0.028;
+        turntableGlossVeil.receiveShadow = true;
+        turntableGlossVeil.visible = false;
+        floorGroup.add(turntableGlossVeil);
+      } catch (_) {
+        turntableReflector = null;
+        turntableGlossVeil = null;
+      }
+    }
+
+    // Async upgrade turntable with RTX-forged radial spun-steel albedo & roughness maps
+    (function loadForgedTurntableMaps() {
+      const tl = new THREE.TextureLoader();
+      const loadWithFallback = (fileName, isSRGB, onDone) => {
+        const cfg = (t) => {
+          t.anisotropy = maxAnisotropy;
+          t.colorSpace = isSRGB ? THREE.SRGBColorSpace : THREE.NoColorSpace;
+          t.needsUpdate = true;
+          onDone(t);
+        };
+        tl.load(`${MECHA_ASSETS_CDN}/textures/${fileName}`, cfg, undefined, () => {
+          tl.load(`assets/mecha/textures/${fileName}`, cfg, undefined, () => { });
+        });
+      };
+      loadWithFallback('turntable_steel.webp', true, (t) => {
+        darkPad.material.map = t;
+        darkPad.material.needsUpdate = true;
+        if (turntableGlossVeil) {
+          turntableGlossVeil.material.map = t;
+          turntableGlossVeil.material.needsUpdate = true;
+        }
+      });
+      loadWithFallback('turntable_roughness.webp', false, (t) => {
+        darkPad.material.roughnessMap = t;
+        darkPad.material.needsUpdate = true;
+        if (turntableGlossVeil) {
+          turntableGlossVeil.material.roughnessMap = t;
+          turntableGlossVeil.material.needsUpdate = true;
+        }
+      });
+    })();
 
     const padTrim = new THREE.Mesh(
       new THREE.TorusGeometry(85.2, 1.35, 10, 56),
@@ -3411,12 +3641,16 @@
     floorGroup.add(contactShadowDisc);
 
     const studioApronMat = new THREE.MeshStandardMaterial({
-      color: 0x091120, roughness: 0.44, metalness: 0.42, transparent: true, opacity: 0.92
+      color: 0x050911, roughness: 0.90, metalness: 0.08, envMapIntensity: 0.22, transparent: true, opacity: 0.96
     });
     const studioApron = new THREE.Mesh(new THREE.CircleGeometry(460, 48), studioApronMat);
     studioApron.rotation.x = -Math.PI / 2;
     studioApron.position.y = -4.5;
+    studioApron.receiveShadow = true;
     floorGroup.add(studioApron);
+
+    // Activate initial GPU quality tier now that turntable & lighting are initialized
+    applyGpuQualityTier(state.gpuTier);
 
     const glowRingOuter = new THREE.Mesh(
       new THREE.RingGeometry(81.0, 82.8, 64),
@@ -3699,14 +3933,97 @@
       return {
         albedoDetailMap: mkTex(aCanvas, true, 0.40),
         roughnessMap: mkTex(rCanvas, false, 0.40),
+        normalMap: null,
         bumpMap: mkTex(bCanvas, false, 0.40),
+        metalNormalMap: null,
         metalRoughnessMap: metalTex,
         metalBumpMap: metalTex,
-        polymerRoughnessMap: mkTex(pCanvas, false, 1.85)
+        polymerRoughnessMap: mkTex(pCanvas, false, 1.85),
+        decalsAtlas: null
       };
     }
 
     const mechaPBR = createProceduralMechaPBR();
+
+    // Ensures every loaded or procedural BufferGeometry exposes `aBakedMask` (R=Raytraced AO, G=Convex Edge, B=Concave Cavity)
+    // while removing `color` so Three.js built-in vertexColors never corrupts canonical unit hues.
+    function ensureBakedMaskAttribute(geometry) {
+      if (!geometry || !geometry.attributes || !geometry.attributes.position) return;
+      if (geometry.attributes.aBakedMask) return;
+      if (geometry.attributes.color) {
+        geometry.setAttribute('aBakedMask', geometry.attributes.color);
+        geometry.deleteAttribute('color');
+        return;
+      }
+      const n = geometry.attributes.position.count;
+      const arr = new Uint8Array(n * 4);
+      for (let i = 0; i < n; i++) {
+        arr[i * 4] = 255;     // R = 1.0 open AO
+        arr[i * 4 + 1] = 0;   // G = 0.0 no convex edge chip
+        arr[i * 4 + 2] = 0;   // B = 0.0 no concave cavity
+        arr[i * 4 + 3] = 255; // A = 1.0
+      }
+      geometry.setAttribute('aBakedMask', new THREE.BufferAttribute(arr, 4, true));
+    }
+
+    // Async upgrade to RTX 4090M GPU-forged 2K Normal/Roughness/Detail Maps + Ver.Ka Decal Atlas
+    const _decalMaterialsToRefresh = [];
+    (function loadForgedStudioTextures() {
+      const tl = new THREE.TextureLoader();
+      const loadMap = (fileName, isSRGB, rep, onReady) => {
+        const setup = (t) => {
+          t.wrapS = isSRGB && fileName.includes('decals') ? THREE.ClampToEdgeWrapping : THREE.RepeatWrapping;
+          t.wrapT = isSRGB && fileName.includes('decals') ? THREE.ClampToEdgeWrapping : THREE.RepeatWrapping;
+          if (!fileName.includes('decals')) t.repeat.set(rep, rep);
+          t.anisotropy = maxAnisotropy;
+          t.colorSpace = isSRGB ? THREE.SRGBColorSpace : THREE.NoColorSpace;
+          t.needsUpdate = true;
+          onReady(t);
+        };
+        tl.load(`${MECHA_ASSETS_CDN}/textures/${fileName}`, setup, undefined, () => {
+          tl.load(`assets/mecha/textures/${fileName}`, setup, undefined, () => { });
+        });
+      };
+
+      const refreshArmorMats = () => {
+        MECHA_MAT_CACHE.forEach((mat) => {
+          const mc = mat.userData?.materialClass;
+          if (mc === 'armor_white' || mc === 'armor_painted' || mc === 'armor_gloss') {
+            if (mat.map) mat.map = mechaPBR.albedoDetailMap;
+            if (mat.roughnessMap) mat.roughnessMap = mechaPBR.roughnessMap;
+            if (mechaPBR.normalMap) {
+              mat.normalMap = mechaPBR.normalMap;
+              mat.normalScale = new THREE.Vector2(0.72, 0.72);
+              mat.bumpMap = null;
+            }
+            mat.needsUpdate = true;
+          } else if (mc === 'metal_brushed' || mc === 'metal_gold' || mc === 'metal_gunmetal') {
+            if (mat.roughnessMap) mat.roughnessMap = mechaPBR.metalRoughnessMap;
+            if (mechaPBR.metalNormalMap) {
+              mat.normalMap = mechaPBR.metalNormalMap;
+              mat.normalScale = new THREE.Vector2(0.36, 0.36);
+              mat.bumpMap = null;
+            }
+            mat.needsUpdate = true;
+          }
+        });
+      };
+
+      loadMap('armor_albedo_detail.webp', true, 0.34, (t) => { mechaPBR.albedoDetailMap = t; refreshArmorMats(); });
+      loadMap('armor_normal.webp', false, 0.34, (t) => { mechaPBR.normalMap = t; refreshArmorMats(); });
+      loadMap('armor_roughness.webp', false, 0.34, (t) => { mechaPBR.roughnessMap = t; refreshArmorMats(); });
+      loadMap('metal_brushed_normal.webp', false, 0.95, (t) => { mechaPBR.metalNormalMap = t; refreshArmorMats(); });
+      loadMap('metal_brushed_rough.webp', false, 0.95, (t) => { mechaPBR.metalRoughnessMap = t; refreshArmorMats(); });
+      loadMap('mecha_decals_atlas.webp', true, 1.0, (t) => {
+        t.flipY = true;
+        mechaPBR.decalsAtlas = t;
+        for (const dm of _decalMaterialsToRefresh) {
+          dm.map = t;
+          dm.opacity = 0.94;
+          dm.needsUpdate = true;
+        }
+      });
+    })();
 
     // =========================================================================
     // 5. CUSTOM GLSL FRESNEL HOLOGRAM SHADER & LIGHTING PRESETS
@@ -3757,12 +4074,12 @@
     });
 
     const ENVIRONMENTS = {
-      hangar: { bg: 0x07101c, fog: 0x07101c, skyTop: 0x10253a, skyMid: 0x081523, skyBot: 0x040911, accent: 0x38bdf8, apron: 0x08121f, hemiSky: 0xdbeeff, hemiGnd: 0x121b2b, key: 0xfff8ef, keyI: 1.92, fill: 0x7dd3fc, fillI: 0.76, rim: 0x93d8ff, rimI: 1.42, hemiI: 0.56, envI: 1.18, stars: 0.30, cyber: false, studio: false },
-      studio: { bg: 0xcbd5e1, fog: 0xcbd5e1, skyTop: 0xe6edf5, skyMid: 0xcbd5e1, skyBot: 0x94a3b8, accent: 0xf97316, apron: 0xb8c5d6, hemiSky: 0xf8fafc, hemiGnd: 0x475569, key: 0xfffaf2, keyI: 1.95, fill: 0x93c5fd, fillI: 0.80, rim: 0xf97316, rimI: 0.92, hemiI: 0.70, envI: 0.98, stars: 0.00, cyber: false, studio: true },
-      earth: { bg: 0x071226, fog: 0x071226, skyTop: 0x1e3a8a, skyMid: 0x0b1c3d, skyBot: 0x040917, accent: 0x60a5fa, apron: 0x09162e, hemiSky: 0xcce4ff, hemiGnd: 0x101c33, key: 0xfffdf5, keyI: 1.88, fill: 0x60a5fa, fillI: 0.84, rim: 0x93c5fd, rimI: 1.24, hemiI: 0.58, envI: 1.16, stars: 0.72, cyber: false, studio: false },
-      mars: { bg: 0x16090b, fog: 0x16090b, skyTop: 0x451a14, skyMid: 0x1f0c0d, skyBot: 0x0d0405, accent: 0xf97316, apron: 0x1b0b0c, hemiSky: 0xffd2b8, hemiGnd: 0x241010, key: 0xffa67a, keyI: 1.90, fill: 0xd94626, fillI: 0.80, rim: 0xfb923c, rimI: 1.38, hemiI: 0.50, envI: 1.04, stars: 0.52, cyber: false, studio: false },
-      lunar: { bg: 0x05060a, fog: 0x05060a, skyTop: 0x151b28, skyMid: 0x090c14, skyBot: 0x030408, accent: 0xcbd5e1, apron: 0x0b0e16, hemiSky: 0xe2e8f0, hemiGnd: 0x0b0f18, key: 0xf8fafc, keyI: 2.04, fill: 0x475569, fillI: 0.36, rim: 0xdbeafe, rimI: 1.18, hemiI: 0.34, envI: 0.96, stars: 0.95, cyber: false, studio: false },
-      cyberpunk: { bg: 0x070217, fog: 0x070217, skyTop: 0x2e1065, skyMid: 0x0f0524, skyBot: 0x05010f, accent: 0xff007f, apron: 0x0d0420, hemiSky: 0xc4b5fd, hemiGnd: 0x1c0a33, key: 0x8b5cf6, keyI: 1.24, fill: 0xff007f, fillI: 1.82, rim: 0x00e5ff, rimI: 2.04, hemiI: 0.46, envI: 1.06, stars: 0.45, cyber: true, studio: false }
+      hangar: { bg: 0x050b14, fog: 0x050b14, skyTop: 0x0c1a2c, skyMid: 0x06101c, skyBot: 0x03070e, accent: 0x38bdf8, apron: 0x040810, hemiSky: 0xb8d4f0, hemiGnd: 0x0a111e, key: 0xfff6ea, keyI: 1.50, fill: 0x7cc4fa, fillI: 0.46, rim: 0x9bd8ff, rimI: 0.96, hemiI: 0.34, envI: 0.56, stars: 0.24, cyber: false, studio: false },
+      studio: { bg: 0xcbd5e1, fog: 0xcbd5e1, skyTop: 0xe6edf5, skyMid: 0xcbd5e1, skyBot: 0x94a3b8, accent: 0xf97316, apron: 0xb8c5d6, hemiSky: 0xf8fafc, hemiGnd: 0x475569, key: 0xfffaf2, keyI: 1.58, fill: 0x93c5fd, fillI: 0.54, rim: 0xf97316, rimI: 0.72, hemiI: 0.52, envI: 0.52, stars: 0.00, cyber: false, studio: true },
+      earth: { bg: 0x061022, fog: 0x061022, skyTop: 0x162f6e, skyMid: 0x091632, skyBot: 0x030712, accent: 0x60a5fa, apron: 0x060f20, hemiSky: 0xbcd8ff, hemiGnd: 0x0b1426, key: 0xfffdf5, keyI: 1.52, fill: 0x60a5fa, fillI: 0.50, rim: 0x93c5fd, rimI: 0.94, hemiI: 0.36, envI: 0.58, stars: 0.70, cyber: false, studio: false },
+      mars: { bg: 0x14080a, fog: 0x14080a, skyTop: 0x3a1510, skyMid: 0x1a0a0b, skyBot: 0x0a0304, accent: 0xf97316, apron: 0x120708, hemiSky: 0xffcfb4, hemiGnd: 0x1e0c0c, key: 0xffa67a, keyI: 1.54, fill: 0xd94626, fillI: 0.48, rim: 0xfb923c, rimI: 1.02, hemiI: 0.32, envI: 0.52, stars: 0.50, cyber: false, studio: false },
+      lunar: { bg: 0x040508, fog: 0x040508, skyTop: 0x111622, skyMid: 0x070a10, skyBot: 0x020306, accent: 0xcbd5e1, apron: 0x06080d, hemiSky: 0xdbe4f0, hemiGnd: 0x080b12, key: 0xf8fafc, keyI: 1.66, fill: 0x475569, fillI: 0.24, rim: 0xdbeafe, rimI: 0.88, hemiI: 0.22, envI: 0.48, stars: 0.95, cyber: false, studio: false },
+      cyberpunk: { bg: 0x060214, fog: 0x060214, skyTop: 0x260d54, skyMid: 0x0d041e, skyBot: 0x04010c, accent: 0xff007f, apron: 0x080316, hemiSky: 0xc4b5fd, hemiGnd: 0x18082b, key: 0x8b5cf6, keyI: 1.04, fill: 0xff007f, fillI: 1.24, rim: 0x00e5ff, rimI: 1.48, hemiI: 0.32, envI: 0.54, stars: 0.45, cyber: true, studio: false }
     };
 
     function applyEnvironment(envKey) {
@@ -3780,27 +4097,29 @@
       rimLight.color.setHex(cfg.rim); rimLight.intensity = cfg.rimI;
       if (cfg.hemiSky) hemiLight.color.setHex(cfg.hemiSky);
       if (cfg.hemiGnd) hemiLight.groundColor.setHex(cfg.hemiGnd);
-      hemiLight.intensity = isCoarseMobile ? cfg.hemiI * 1.24 : cfg.hemiI;
+      hemiLight.intensity = isCoarseMobile ? cfg.hemiI * 1.35 : cfg.hemiI;
       scene.environmentIntensity = cfg.envI * RENDER_ENHANCEMENT_CONFIG.envReflectionIntensity;
       starField.material.opacity = cfg.stars;
       starField.visible = cfg.stars > 0.01;
       cyberGroup.visible = cfg.cyber;
       studioReticleGroup.visible = Boolean(cfg.studio);
       studioApronMat.color.setHex(cfg.apron);
-      studioApronMat.roughness = cfg.studio ? 0.56 : 0.34;
-      studioApronMat.metalness = cfg.studio ? 0.18 : 0.58;
+      studioApronMat.roughness = cfg.studio ? 0.62 : 0.90;
+      studioApronMat.metalness = cfg.studio ? 0.14 : 0.08;
+      studioApronMat.envMapIntensity = cfg.studio ? 0.35 : 0.22;
       document.body.classList.toggle('studio-light-mode', Boolean(cfg.studio));
-      darkPad.material.color.setHex(cfg.studio ? 0xe2e8f0 : 0xd0dce9);
+      darkPad.material.color.setHex(cfg.studio ? 0xd8e1ec : 0xaab8c8);
       darkPad.material.roughness = cfg.studio ? 0.44 : 0.28;
       darkPad.material.metalness = cfg.studio ? 0.38 : 0.78;
       glowRingOuter.material.color.setHex(cfg.accent);
       glowRingInner.material.color.setHex(cfg.studio ? 0x334155 : 0xf97316);
       vernierRing.material.color.setHex(cfg.accent);
+      if (typeof syncPostPassForMode === 'function') syncPostPassForMode();
       triggerStagePulse(cfg.accent);
     }
 
     // =========================================================================
-    // 6. SHARED CACHED PBR MATERIAL POOL (MeshPhysicalMaterial desktop / Standard mobile)
+    // 6. SHARED CACHED PBR MATERIAL POOL (RTX-Baked COLOR_0 + Gunpla Studio v4)
     // =========================================================================
     const MECHA_MAT_CACHE = new Map();
 
@@ -3808,33 +4127,108 @@
       if (materialClass === 'emissive' || materialClass === 'glass_optic') return mat;
       const isMetal = materialClass === 'metal_brushed' || materialClass === 'metal_gold' || materialClass === 'metal_gunmetal';
       const isPolymer = materialClass === 'polymer_matte';
-      const edgeGain = isPolymer ? 0.05 : (isMetal ? 0.19 : 0.14);
-      const rimGain = isPolymer ? 0.09 : (isMetal ? 0.25 : 0.20);
-      const aoLo = (isPolymer ? 0.72 : 0.68).toFixed(3);
-      const aoHi = (isMetal ? 1.07 : 1.04).toFixed(3);
-      const cacheTag = `gunpla_pbr_studio_v3_${isMetal ? 'm' : (isPolymer ? 'p' : 'a')}`;
+      const isWhite = materialClass === 'armor_white';
+      const isGloss = materialClass === 'armor_gloss';
+      // Crisp, restrained metallic bevel edge-wear strictly on sharp corners (NEVER blotching flat/curved panels!)
+      const edgeChipStrength = isPolymer ? 0.02 : (isMetal ? 0.18 : (isWhite ? 0.20 : (isGloss ? 0.16 : 0.22)));
+      const cavityWashStrength = isPolymer ? 0.28 : (isMetal ? 0.46 : (isWhite ? 0.42 : 0.48));
+      const rimGain = isPolymer ? 0.04 : (isMetal ? 0.14 : 0.09);
+      const cacheTag = `gunpla_pbr_studio_v4_${materialClass}`;
       mat.customProgramCacheKey = () => cacheTag;
       mat.onBeforeCompile = (shader) => {
-        shader.fragmentShader = shader.fragmentShader.replace(
-          '#include <dithering_fragment>',
-          `
-          vec3 dNdx = dFdx(normal);
-          vec3 dNdy = dFdy(normal);
-          float edgeCurv = clamp(length(dNdx) + length(dNdy), 0.0, 1.0);
-          float bevelEdge = smoothstep(0.045, 0.26, edgeCurv);
-          float upDot = clamp(normal.y * 0.5 + 0.5, 0.0, 1.0);
-          float cavityAO = mix(${aoLo}, ${aoHi}, upDot) * (1.0 - smoothstep(0.28, 0.75, edgeCurv) * 0.10);
-          float ndv = clamp(abs(dot(normal, normalize(vViewPosition))), 0.0, 1.0);
-          float fresnelRim = pow(max(1.0 - ndv, 0.0001), 3.1);
-          vec3 edgeTint = mix(gl_FragColor.rgb * 1.35 + vec3(0.18), vec3(0.92, 0.96, 1.0), ${isMetal ? '0.68' : '0.44'});
-          vec3 rimTint = mix(gl_FragColor.rgb, vec3(0.84, 0.94, 1.0), ${isMetal ? '0.52' : '0.38'});
-          float microSheen = 0.985 + 0.03 * sin(normal.x * 26.0 + normal.z * 21.0);
-          gl_FragColor.rgb = gl_FragColor.rgb * cavityAO * microSheen
-                           + edgeTint * bevelEdge * ${edgeGain.toFixed(3)}
-                           + rimTint * fresnelRim * ${rimGain.toFixed(3)};
-          #include <dithering_fragment>
-          `
-        );
+        shader.vertexShader = shader.vertexShader
+          .replace(
+            '#include <common>',
+            `#include <common>
+            attribute vec4 aBakedMask;
+            varying vec3 vBakedMask;
+            varying vec3 vMechaWorldPos;`
+          )
+          .replace(
+            '#include <begin_vertex>',
+            `#include <begin_vertex>
+            vBakedMask = aBakedMask.rgb;
+            vMechaWorldPos = (modelMatrix * vec4(transformed, 1.0)).xyz;`
+          );
+
+        shader.fragmentShader = shader.fragmentShader
+          .replace(
+            '#include <common>',
+            `#include <common>
+            varying vec3 vBakedMask;
+            varying vec3 vMechaWorldPos;
+            float mechaHash31(vec3 p) {
+              p = fract(p * 0.1031);
+              p += dot(p, p.yzx + 33.33);
+              return fract((p.x + p.y) * p.z);
+            }
+            float mechaNoise3(vec3 p) {
+              vec3 i = floor(p);
+              vec3 f = fract(p);
+              f = f * f * (3.0 - 2.0 * f);
+              float n000 = mechaHash31(i);
+              float n100 = mechaHash31(i + vec3(1.0, 0.0, 0.0));
+              float n010 = mechaHash31(i + vec3(0.0, 1.0, 0.0));
+              float n110 = mechaHash31(i + vec3(1.0, 1.0, 0.0));
+              float n001 = mechaHash31(i + vec3(0.0, 0.0, 1.0));
+              float n101 = mechaHash31(i + vec3(1.0, 0.0, 1.0));
+              float n011 = mechaHash31(i + vec3(0.0, 1.0, 1.0));
+              float n111 = mechaHash31(i + vec3(1.0, 1.0, 1.0));
+              return mix(
+                mix(mix(n000, n100, f.x), mix(n010, n110, f.x), f.y),
+                mix(mix(n001, n101, f.x), mix(n011, n111, f.x), f.y),
+                f.z
+              );
+            }`
+          )
+          .replace(
+            '#include <color_fragment>',
+            `#include <color_fragment>
+            float mAO = clamp(vBakedMask.r, 0.14, 1.0);
+            float mConvex = clamp(vBakedMask.g, 0.0, 1.0);
+            float mCavity = clamp(vBakedMask.b, 0.0, 1.0);
+            float wearN1 = mechaNoise3(vMechaWorldPos * 0.55);
+            float wearN2 = mechaNoise3(vMechaWorldPos * 2.15);
+            float wearFbm = wearN1 * 0.55 + wearN2 * 0.45;
+            // Strict high-curvature threshold (mConvex > 0.72) -> micro metallic chipping ONLY on sharp armor bevel edges!
+            float sharpCorner = smoothstep(0.72, 0.96, mConvex);
+            float mEdgeChip = sharpCorner * smoothstep(0.46, 0.86, wearFbm) * ${edgeChipStrength.toFixed(3)};
+            // Deep recessed enamel panel-wash & crevice darkening strictly inside cavities and occluded seams
+            float mCreviceGrime = clamp(mCavity * 0.82 + pow(1.0 - mAO, 1.6) * 0.72, 0.0, 1.0) * (0.78 + 0.28 * wearN1) * ${cavityWashStrength.toFixed(3)};
+            diffuseColor.rgb = mix(diffuseColor.rgb, diffuseColor.rgb * 0.34, mCreviceGrime);
+            vec3 chipTint = ${isWhite ? 'vec3(0.32, 0.36, 0.42)' : 'min(diffuseColor.rgb * 1.45 + vec3(0.24), vec3(0.92))'};
+            diffuseColor.rgb = mix(diffuseColor.rgb, chipTint, mEdgeChip);`
+          )
+          .replace(
+            '#include <roughnessmap_fragment>',
+            `#include <roughnessmap_fragment>
+            roughnessFactor = clamp(roughnessFactor + mCreviceGrime * 0.32 - mEdgeChip * 0.28 + (wearN2 - 0.5) * 0.04, 0.10, 0.96);`
+          )
+          .replace(
+            '#include <metalnessmap_fragment>',
+            `#include <metalnessmap_fragment>
+            metalnessFactor = clamp(mix(metalnessFactor, ${isMetal ? '0.96' : '0.78'}, mEdgeChip * 0.85) * (1.0 - mCreviceGrime * 0.28), 0.0, 0.98);`
+          )
+          .replace(
+            '#include <aomap_fragment>',
+            `#include <aomap_fragment>
+            float bakedAoFactor = mix(0.16, 1.0, pow(mAO, 1.45)) * (1.0 - mCavity * 0.28);
+            reflectedLight.indirectDiffuse *= bakedAoFactor;
+            #if defined( USE_ENVMAP ) && defined( STANDARD )
+              float bakedDotNV = saturate( dot( geometryNormal, geometryViewDir ) );
+              reflectedLight.indirectSpecular *= computeSpecularOcclusion( bakedDotNV, bakedAoFactor, material.roughness );
+            #endif`
+          )
+          .replace(
+            '#include <dithering_fragment>',
+            `
+            float ndv = clamp(abs(dot(normal, normalize(vViewPosition))), 0.0, 1.0);
+            float fresnelRim = pow(max(1.0 - ndv, 0.0001), 3.6);
+            vec3 rimTint = mix(gl_FragColor.rgb, vec3(0.76, 0.88, 1.0), ${isMetal ? '0.50' : '0.32'});
+            gl_FragColor.rgb += rimTint * fresnelRim * ${rimGain.toFixed(3)} * mAO;
+            #include <dithering_fragment>
+            `
+          );
       };
       return mat;
     }
@@ -3852,12 +4246,14 @@
       const isArmor = mClass === 'armor_white' || mClass === 'armor_painted' || mClass === 'armor_gloss';
       const isMetal = mClass === 'metal_brushed' || mClass === 'metal_gold' || mClass === 'metal_gunmetal';
       const isPolymer = mClass === 'polymer_matte';
-      const envI = (cfg.envMapIntensity ?? (isMetal ? 1.32 : (mClass === 'armor_gloss' ? 1.24 : (isPolymer ? 0.62 : (cfg.transparent ? 1.40 : 1.12))))) * RENDER_ENHANCEMENT_CONFIG.envReflectionIntensity;
+      const envI = (cfg.envMapIntensity ?? (isMetal ? 1.38 : (mClass === 'armor_gloss' ? 1.28 : (isPolymer ? 0.58 : (cfg.transparent ? 1.40 : 1.14))))) * RENDER_ENHANCEMENT_CONFIG.envReflectionIntensity;
 
       const key = `${mClass}_${cfg.color.toString(16)}_${Math.round(baseRough * 100)}_${Math.round(baseMetal * 100)}_${(cfg.emissive ?? 0).toString(16)}_${Math.round(baseEmissiveI * 10)}_${cfg.useDetail ? 1 : 0}_${cfg.isEmissive ? 1 : 0}_${cfg.transparent ? 1 : 0}`;
       if (MECHA_MAT_CACHE.has(key)) return MECHA_MAT_CACHE.get(key);
 
       const useDetailMap = Boolean(cfg.useDetail) && !cfg.transparent && !cfg.isEmissive;
+      const hasArmorNorm = useDetailMap && Boolean(mechaPBR.normalMap);
+      const hasMetalNorm = isMetal && Boolean(mechaPBR.metalNormalMap);
       const commonOpts = {
         color: cfg.color,
         roughness: baseRough,
@@ -3866,8 +4262,10 @@
         emissiveIntensity: baseEmissiveI,
         map: useDetailMap ? mechaPBR.albedoDetailMap : null,
         roughnessMap: useDetailMap ? mechaPBR.roughnessMap : (isMetal ? mechaPBR.metalRoughnessMap : (isPolymer ? mechaPBR.polymerRoughnessMap : null)),
-        bumpMap: useDetailMap ? mechaPBR.bumpMap : (isMetal ? mechaPBR.metalBumpMap : null),
-        bumpScale: (useDetailMap ? 0.15 : (isMetal ? 0.07 : 0.0)) * RENDER_ENHANCEMENT_CONFIG.surfaceDetailIntensity,
+        normalMap: hasArmorNorm ? mechaPBR.normalMap : (hasMetalNorm ? mechaPBR.metalNormalMap : null),
+        normalScale: new THREE.Vector2(hasArmorNorm ? 0.72 : (hasMetalNorm ? 0.36 : 0.0), hasArmorNorm ? 0.72 : (hasMetalNorm ? 0.36 : 0.0)),
+        bumpMap: (hasArmorNorm || hasMetalNorm) ? null : (useDetailMap ? mechaPBR.bumpMap : (isMetal ? mechaPBR.metalBumpMap : null)),
+        bumpScale: (hasArmorNorm || hasMetalNorm) ? 0.0 : ((useDetailMap ? 0.16 : (isMetal ? 0.07 : 0.0)) * RENDER_ENHANCEMENT_CONFIG.surfaceDetailIntensity),
         transparent: Boolean(cfg.transparent),
         opacity: cfg.opacity ?? 1.0,
         depthWrite: cfg.transparent ? false : true,
@@ -3878,12 +4276,12 @@
       let mat;
       if (!isCoarseMobile && !cfg.isEmissive) {
         const ccScale = RENDER_ENHANCEMENT_CONFIG.clearcoatIntensity;
-        let clearcoat = 0.0, clearcoatRoughness = 0.30, reflectivity = 0.52;
-        if (mClass === 'armor_gloss') { clearcoat = 0.78 * ccScale; clearcoatRoughness = 0.14; reflectivity = 0.75; }
-        else if (mClass === 'armor_painted') { clearcoat = 0.46 * ccScale; clearcoatRoughness = 0.22; reflectivity = 0.62; }
-        else if (mClass === 'armor_white') { clearcoat = 0.34 * ccScale; clearcoatRoughness = 0.26; reflectivity = 0.56; }
-        else if (mClass === 'glass_optic') { clearcoat = 1.0 * ccScale; clearcoatRoughness = 0.06; reflectivity = 0.92; }
-        else if (isMetal) { clearcoat = 0.14 * ccScale; clearcoatRoughness = 0.32; reflectivity = 0.85; }
+        let clearcoat = 0.0, clearcoatRoughness = 0.30, reflectivity = 0.56;
+        if (mClass === 'armor_gloss') { clearcoat = 0.80 * ccScale; clearcoatRoughness = 0.14; reflectivity = 0.82; }
+        else if (mClass === 'armor_painted') { clearcoat = 0.56 * ccScale; clearcoatRoughness = 0.19; reflectivity = 0.68; }
+        else if (mClass === 'armor_white') { clearcoat = 0.36 * ccScale; clearcoatRoughness = 0.26; reflectivity = 0.58; }
+        else if (mClass === 'glass_optic') { clearcoat = 1.0 * ccScale; clearcoatRoughness = 0.06; reflectivity = 0.94; }
+        else if (isMetal) { clearcoat = 0.18 * ccScale; clearcoatRoughness = 0.30; reflectivity = 0.88; }
         mat = new THREE.MeshPhysicalMaterial({
           ...commonOpts,
           clearcoat,
@@ -3893,6 +4291,7 @@
       } else {
         mat = new THREE.MeshStandardMaterial(commonOpts);
       }
+      mat.userData.materialClass = mClass;
 
       if (!cfg.transparent && !cfg.isEmissive) {
         injectGunplaStudioShader(mat, mClass);
@@ -3912,19 +4311,19 @@
       }
       let color = 0xf0f2ec, roughness = 0.38, metalness = 0.08, emissive = 0x000000, emissiveIntensity = 0.0, useDetail = true, isEmissive = false, materialClass = 'armor_white';
       if (n.includes('twin_eyes')) {
-        color = 0xfacc15; emissive = 0xf59e0b; emissiveIntensity = 2.1; roughness = 0.14; metalness = 0.10; useDetail = false; isEmissive = true; materialClass = 'emissive';
+        color = 0xfef08a; emissive = 0xf59e0b; emissiveIntensity = 5.2; roughness = 0.12; metalness = 0.08; useDetail = false; isEmissive = true; materialClass = 'emissive';
       } else if (n.includes('sensor_front') || n.includes('sensor_rear')) {
-        color = 0x38bdf8; emissive = 0x0ea5e9; emissiveIntensity = 1.95; roughness = 0.12; metalness = 0.10; useDetail = false; isEmissive = true; materialClass = 'emissive';
+        color = 0x7dd3fc; emissive = 0x0ea5e9; emissiveIntensity = 4.2; roughness = 0.12; metalness = 0.10; useDetail = false; isEmissive = true; materialClass = 'emissive';
       } else if (n.includes('thruster_glow')) {
-        color = 0x00f5ff; emissive = 0x00f5ff; emissiveIntensity = 2.15; roughness = 0.12; metalness = 0.10; useDetail = false; isEmissive = true; materialClass = 'emissive';
+        color = 0x38f8ff; emissive = 0x00e5ff; emissiveIntensity = 4.6; roughness = 0.12; metalness = 0.10; useDetail = false; isEmissive = true; materialClass = 'emissive';
       } else if (n.includes('v_fin_crest_gem') || n.includes('chin_guard') || n.includes('cheek_red_trim') || n.includes('abdomen_core') || n.includes('plaque_red') || n.includes('toe_plate') || n.includes('heel_block')) {
-        color = 0xd62428; roughness = 0.33; metalness = 0.14; materialClass = 'armor_painted';
+        color = 0xd62428; roughness = 0.30; metalness = 0.18; materialClass = 'armor_painted';
       } else if (n.includes('_yellow') || n.includes('louvers') || n.includes('v_emblem')) {
-        color = 0xf4b41a; roughness = 0.30; metalness = 0.28; materialClass = 'armor_painted';
+        color = 0xf4b41a; roughness = 0.28; metalness = 0.32; materialClass = 'armor_painted';
       } else if (n.includes('v_fin_sub_gold') || n.includes('vulcan_gold') || n.includes('_gold')) {
-        color = 0xeab308; roughness = 0.22; metalness = 0.88; useDetail = false; materialClass = 'metal_gold';
+        color = 0xeab308; roughness = 0.20; metalness = 0.90; useDetail = false; materialClass = 'metal_gold';
       } else if (n.includes('chest_armor_blue') || n.includes('cockpit_hatch_blue') || n.includes('subplate_blue_rg')) {
-        color = 0x1b64c6; roughness = 0.32; metalness = 0.16; materialClass = 'armor_painted';
+        color = 0x1b64c6; roughness = 0.28; metalness = 0.24; materialClass = 'armor_gloss';
       } else if (n.includes('elbow_cap_white') || n.includes('knee_cap_disc_white') || n.includes('ankle_disc_white')) {
         color = 0xe6e9e3; roughness = 0.40; metalness = 0.08; materialClass = 'armor_white';
       } else if (n.includes('_rg_') || n.includes('rg_panel') || n.includes('rg_cuff') || n.includes('rg_subplate')) {
@@ -3955,13 +4354,13 @@
       if (n.includes('mono_eye_glow')) {
         color = spec.monoEyeColor || 0xff2268;
         emissive = spec.monoEyeColor || 0xff2268;
-        emissiveIntensity = 2.5; roughness = 0.10; metalness = 0.05; useDetail = false; isEmissive = true; materialClass = 'emissive';
+        emissiveIntensity = 5.4; roughness = 0.10; metalness = 0.05; useDetail = false; isEmissive = true; materialClass = 'emissive';
       } else if (n.includes('mono_eye_bezel')) {
         color = 0x64748b; roughness = 0.22; metalness = 0.90; useDetail = false; materialClass = 'metal_brushed';
       } else if (n.includes('heat_saber_glow') || n.includes('hawk_blade_glow')) {
-        color = 0xff7a1a; emissive = 0xff4500; emissiveIntensity = 2.3; roughness = 0.18; metalness = 0.20; useDetail = false; isEmissive = true; materialClass = 'emissive';
+        color = 0xff8a24; emissive = 0xff4500; emissiveIntensity = 5.0; roughness = 0.16; metalness = 0.20; useDetail = false; isEmissive = true; materialClass = 'emissive';
       } else if (n.includes('belly_emitter_glow')) {
-        color = 0xffcc33; emissive = 0xff9900; emissiveIntensity = 2.3; roughness = 0.16; metalness = 0.25; useDetail = false; isEmissive = true; materialClass = 'emissive';
+        color = 0xffd24d; emissive = 0xff9900; emissiveIntensity = 4.6; roughness = 0.16; metalness = 0.25; useDetail = false; isEmissive = true; materialClass = 'emissive';
       } else if (n.includes('track_rail')) {
         color = 0x05070b; roughness = 0.72; metalness = 0.16; useDetail = false; materialClass = 'polymer_matte';
       } else if (n.includes('_gold') || n.includes('trim_gold') || n.includes('cannon_gold') || n.includes('crest_gold')) {
@@ -4090,10 +4489,12 @@
       } catch (e) {
         const grp = new THREE.Group();
         const body = new THREE.Mesh(new THREE.BoxGeometry(22, 22, 8), buildAdapterMaterial({ name: 'adapter_clamp_body' }));
+        ensureBakedMaskAttribute(body.geometry);
         body.position.set(0, 0, -4);
         grp.add(body);
         state.adapterTemplate = grp;
       }
+      state.adapterTemplate.traverse?.(n => { if (n.isMesh && n.geometry) ensureBakedMaskAttribute(n.geometry); });
       return state.adapterTemplate;
     }
 
@@ -4471,6 +4872,10 @@
       clearBlueprintEdges();
 
       mechaRoot.traverse(node => {
+        if (node.userData?.isDecal) {
+          node.visible = (mode === 'standard') && (!state.isolatedZone || matchesIsolatedZone(node, state.isolatedZone));
+          return;
+        }
         if (!node.isMesh || !node.userData.origMaterial) return;
         const orig = node.userData.origMaterial;
 
@@ -4507,9 +4912,178 @@
         }
       });
 
+      if (typeof syncPostPassForMode === 'function') syncPostPassForMode();
       document.querySelectorAll('[data-render-mode]').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.renderMode === mode);
       });
+    }
+
+    // =========================================================================
+    // 7B. RAYCAST-PROJECTED CANONICAL VER.KA / ZEON / NEO-ZEON / EFSF DECALS
+    // =========================================================================
+    // Atlas 4x2 grid (flipY=true -> row 0 top = V [0.5..1.0], row 1 bottom = V [0.0..0.5]):
+    //   zeon_crest (0,0), neo_zeon (1,0), ms06 (2,0), ms07b (3,0),
+    //   msn04s (0,1), rx78_efsf (1,1), caution_red (2,1), tactical_white (3,1)
+    const DECAL_CELLS = {
+      zeon_crest: [0, 0],
+      neo_zeon: [1, 0],
+      ms06: [2, 0],
+      ms07b: [3, 0],
+      msn04s: [0, 1],
+      rx78_efsf: [1, 1],
+      caution_red: [2, 1],
+      tactical_white: [3, 1]
+    };
+
+    function createAtlasDecalGeometry(cellKey, width, height) {
+      const [col, row] = DECAL_CELLS[cellKey] || [0, 0];
+      const geo = new THREE.PlaneGeometry(width, height);
+      const u0 = col * 0.25 + 0.008;
+      const u1 = (col + 1) * 0.25 - 0.008;
+      const v1 = 1.0 - row * 0.5 - 0.01;
+      const v0 = 1.0 - (row + 1) * 0.5 + 0.01;
+      const uv = geo.attributes.uv;
+      // PlaneGeometry UV order: (0,1), (1,1), (0,0), (1,0)
+      uv.setXY(0, u0, v1);
+      uv.setXY(1, u1, v1);
+      uv.setXY(2, u0, v0);
+      uv.setXY(3, u1, v0);
+      uv.needsUpdate = true;
+      return geo;
+    }
+
+    function attachVerKaDecalsForUnit(model, rig, spec) {
+      if (!rig || !model) return;
+      model.updateMatrixWorld(true);
+      const raycaster = new THREE.Raycaster();
+
+      // Shared PBR decal material (receives studio lighting & soft shadows like painted water-slide decals!)
+      const decalMat = new THREE.MeshStandardMaterial({
+        map: mechaPBR.decalsAtlas || null,
+        color: 0xffffff,
+        roughness: 0.42,
+        metalness: 0.08,
+        transparent: true,
+        opacity: mechaPBR.decalsAtlas ? 0.94 : 0.0,
+        alphaTest: 0.06,
+        depthWrite: false,
+        polygonOffset: true,
+        polygonOffsetFactor: -3,
+        polygonOffsetUnits: -3
+      });
+      _decalMaterialsToRefresh.push(decalMat);
+
+      const unitId = spec?.id || 'vanguard_rx';
+      // Each spec: { bone, cell, origin (world-mm ray start), dir (normalized ray dir), w, h, nameTag }
+      let specs = [];
+      if (unitId === 'vanguard_rx') {
+        specs = [
+          // Shoulders: RX-78-2 / EFSF stencil + Red Ver.Ka Caution Triangle
+          { bone: rig.armR, cell: 'rx78_efsf', origin: [32.0, 146.5, 34.0], dir: [0, 0, -1], w: 12.5, h: 12.5, nameTag: 'decal_shoulder_r' },
+          { bone: rig.armL, cell: 'caution_red', origin: [-32.0, 146.5, 34.0], dir: [0, 0, -1], w: 8.5, h: 8.5, nameTag: 'decal_shoulder_l' },
+          // Forearms: subtle red Ver.Ka caution triangles
+          { bone: rig.forearmR, cell: 'caution_red', origin: [35.0, 106.0, 32.0], dir: [0, 0, -1], w: 6.2, h: 6.2, nameTag: 'decal_arm_r' },
+          { bone: rig.forearmL, cell: 'caution_red', origin: [-35.0, 106.0, 32.0], dir: [0, 0, -1], w: 6.2, h: 6.2, nameTag: 'decal_arm_l' },
+          // Shins / Ankles: iconic inverted red caution triangles (matching Image 2!)
+          { bone: rig.shinR, cell: 'caution_red', origin: [19.0, 35.0, 36.0], dir: [0, 0, -1], w: 6.8, h: 6.8, nameTag: 'decal_shin_r' },
+          { bone: rig.shinL, cell: 'caution_red', origin: [-19.0, 35.0, 36.0], dir: [0, 0, -1], w: 6.8, h: 6.8, nameTag: 'decal_shin_l' },
+          // Outer right shoulder lateral EFSF stencil
+          { bone: rig.armR, cell: 'rx78_efsf', origin: [62.0, 146.5, 0.0], dir: [-1, 0, 0], w: 12.0, h: 12.0, nameTag: 'decal_shoulder_side_r' }
+        ];
+      } else if (unitId === 'enemy_zaku') {
+        specs = [
+          // Chest: Zeon Crest on Left Pectoral (+X), MS-06 stencil on Right Pectoral (-X)
+          { bone: rig.torso, cell: 'zeon_crest', origin: [13.5, 143.0, 38.0], dir: [0, 0, -1], w: 9.2, h: 11.2, nameTag: 'decal_chest_zeon' },
+          { bone: rig.torso, cell: 'ms06', origin: [-13.5, 142.0, 38.0], dir: [0, 0, -1], w: 10.5, h: 9.0, nameTag: 'decal_chest_ms06' },
+          // Right Shoulder Shield (-X): prominent Zeon Heraldic Crest!
+          { bone: rig.armR, cell: 'zeon_crest', origin: [-68.0, 138.0, 1.0], dir: [1, 0, 0], w: 14.5, h: 18.0, nameTag: 'decal_shield_zeon' },
+          // Front skirts & Lower Calves: tactical white stripes + ankle triangle (matching Image 3!)
+          { bone: rig.pelvis, cell: 'tactical_white', origin: [11.0, 96.0, 36.0], dir: [0, 0, -1], w: 7.5, h: 8.5, nameTag: 'decal_skirt_l' },
+          { bone: rig.shinR, cell: 'tactical_white', origin: [-19.5, 25.0, 36.0], dir: [0, 0, -1], w: 7.2, h: 8.2, nameTag: 'decal_calf_r' },
+          { bone: rig.shinL, cell: 'tactical_white', origin: [19.5, 25.0, 36.0], dir: [0, 0, -1], w: 7.2, h: 8.2, nameTag: 'decal_calf_l' }
+        ];
+      } else if (unitId === 'enemy_gouf') {
+        specs = [
+          // Chest: Zeon Crest on Left (+X), MS-07B stencil on Right (-X)
+          { bone: rig.torso, cell: 'zeon_crest', origin: [14.0, 143.0, 40.0], dir: [0, 0, -1], w: 9.4, h: 11.4, nameTag: 'decal_chest_zeon' },
+          { bone: rig.torso, cell: 'ms07b', origin: [-14.0, 142.0, 40.0], dir: [0, 0, -1], w: 11.0, h: 9.2, nameTag: 'decal_chest_ms07b' },
+          // Curved Knight Shield (+X, Rig_Forearm_L): prominent Zeon Heraldic Crest!
+          { bone: rig.forearmL, cell: 'zeon_crest', origin: [74.0, 102.0, 12.0], dir: [-1, 0, -0.18], w: 16.0, h: 19.5, nameTag: 'decal_shield_zeon' },
+          // Lower Calves: white tactical triangles (matching Image 3!)
+          { bone: rig.shinR, cell: 'tactical_white', origin: [-19.5, 25.0, 38.0], dir: [0, 0, -1], w: 7.4, h: 8.4, nameTag: 'decal_calf_r' },
+          { bone: rig.shinL, cell: 'tactical_white', origin: [19.5, 25.0, 38.0], dir: [0, 0, -1], w: 7.4, h: 8.4, nameTag: 'decal_calf_l' }
+        ];
+      } else if (unitId === 'enemy_sazabi') {
+        specs = [
+          // Chest: Neo-Zeon Commander Sigil (Left +X) + MSN-04S stencil (Right -X)
+          { bone: rig.torso, cell: 'neo_zeon', origin: [15.5, 143.0, 42.0], dir: [0, 0, -1], w: 10.2, h: 12.4, nameTag: 'decal_chest_neozeon' },
+          { bone: rig.torso, cell: 'msn04s', origin: [-15.5, 142.0, 42.0], dir: [0, 0, -1], w: 11.5, h: 9.2, nameTag: 'decal_chest_msn04s' },
+          // Left Curved Commander Shield (+X, Rig_Forearm_L): iconic large Neo-Zeon Crest!
+          { bone: rig.forearmL, cell: 'neo_zeon', origin: [80.0, 104.0, 16.0], dir: [-1, 0, -0.22], w: 17.5, h: 21.5, nameTag: 'decal_shield_neozeon' },
+          // Bell-Bottom Calves & Front Skirt: white tactical markings (matching Image 3!)
+          { bone: rig.shinR, cell: 'tactical_white', origin: [-21.0, 26.0, 44.0], dir: [0, 0, -1], w: 8.0, h: 9.0, nameTag: 'decal_calf_r' },
+          { bone: rig.shinL, cell: 'tactical_white', origin: [21.0, 26.0, 44.0], dir: [0, 0, -1], w: 8.0, h: 9.0, nameTag: 'decal_calf_l' },
+          { bone: rig.armR, cell: 'tactical_white', origin: [-38.0, 147.0, 42.0], dir: [0, 0, -1], w: 7.2, h: 8.0, nameTag: 'decal_shoulder_r' }
+        ];
+      }
+
+      const upRef = new THREE.Vector3(0, 1, 0);
+      const qTarget = new THREE.Quaternion();
+      const invBoneMat = new THREE.Matrix4();
+      const normalMat = new THREE.Matrix3();
+
+      for (const ds of specs) {
+        if (!ds.bone) continue;
+        // Collect direct meshes of this bone (excluding hoses/weapons/glows) so decal locks cleanly onto armor face!
+        const targets = [];
+        ds.bone.traverse(ch => {
+          if (ch.isMesh && !ch.userData?.isDecal) {
+            const cn = (ch.name || '').toLowerCase();
+            if (!cn.includes('glow') && !cn.includes('hose') && !cn.includes('glass')) targets.push(ch);
+          }
+        });
+        if (targets.length === 0) continue;
+
+        // Convert model-local CAD ray origin into current world space (model has scaleFactor + position offset)
+        const worldOrigin = new THREE.Vector3(...ds.origin).applyMatrix4(model.matrixWorld);
+        const worldDir = new THREE.Vector3(...ds.dir).normalize().transformDirection(model.matrixWorld);
+        raycaster.set(worldOrigin, worldDir);
+        const hits = raycaster.intersectObjects(targets, false);
+        if (!hits || hits.length === 0) continue;
+
+        const hit = hits[0];
+        if (!hit.face) continue;
+
+        // World surface normal at hit point
+        normalMat.getNormalMatrix(hit.object.matrixWorld);
+        const worldNrm = hit.face.normal.clone().applyMatrix3(normalMat).normalize();
+        if (worldNrm.dot(worldDir) > 0) worldNrm.negate();
+
+        // Build clean world-space upright tangent frame for the decal quad
+        const rightAxis = new THREE.Vector3().crossVectors(upRef, worldNrm);
+        if (rightAxis.lengthSq() < 1e-4) rightAxis.set(1, 0, 0);
+        else rightAxis.normalize();
+        const trueUp = new THREE.Vector3().crossVectors(worldNrm, rightAxis).normalize();
+        const basisWorld = new THREE.Matrix4().makeBasis(rightAxis, trueUp, worldNrm);
+        qTarget.setFromRotationMatrix(basisWorld);
+
+        // Convert hit position (lifted +0.35 mm along outward normal) and orientation into ds.bone's local space!
+        const worldPos = hit.point.clone().addScaledVector(worldNrm, 0.35);
+        invBoneMat.copy(ds.bone.matrixWorld).invert();
+        const localPos = worldPos.clone().applyMatrix4(invBoneMat);
+        const boneWorldQuat = new THREE.Quaternion();
+        ds.bone.getWorldQuaternion(boneWorldQuat);
+        const localQuat = boneWorldQuat.invert().multiply(qTarget);
+
+        const dMesh = new THREE.Mesh(createAtlasDecalGeometry(ds.cell, ds.w, ds.h), decalMat);
+        dMesh.name = ds.nameTag;
+        dMesh.position.copy(localPos);
+        dMesh.quaternion.copy(localQuat);
+        dMesh.userData.isDecal = true;
+        dMesh.userData.initialPosition = localPos.clone();
+        dMesh.renderOrder = 2;
+        ds.bone.add(dMesh);
+      }
     }
 
     function setIsolatedZone(zoneKey) {
@@ -4673,15 +5247,15 @@
         lerpRot(rig.legL, w * 0.32, 0, 0);
         lerpRot(rig.shinL, Math.max(0, -w) * 0.40, 0, 0);
       } else {
-        // ⚓ Sentinel: Heroic Katoki Ver.Ka Ready Stance & Optical Scan
-        lerpPosY(rig.pelvis, br * 0.7);
-        lerpRot(rig.pelvis, 0, sw * 0.03, 0);
-        lerpRot(rig.torso, br * 0.025, -sw * 0.05, 0);
+        // ⚓ Sentinel: Symmetric Heroic Katoki Ver.Ka Ready Stance & Optical Scan (strictly bilateral arm symmetry!)
+        lerpPosY(rig.pelvis, br * 0.6);
+        lerpRot(rig.pelvis, 0, sw * 0.015, 0);
+        lerpRot(rig.torso, br * 0.02, -sw * 0.02, 0);
         lerpRot(rig.head, br * 0.02, Math.sin(t * 0.85) * 0.14, 0);
-        lerpRot(rig.armR, -0.10 + br * 0.025, 0, s * 0.06);
-        lerpRot(rig.forearmR, -0.18 + br * 0.025, 0, 0);
-        lerpRot(rig.armL, -0.08 + br * 0.025, 0, -s * 0.06);
-        lerpRot(rig.forearmL, -0.16 + br * 0.025, 0, 0);
+        lerpRot(rig.armR, -0.09 + br * 0.02, 0, s * 0.06);
+        lerpRot(rig.forearmR, -0.16 + br * 0.02, 0, 0);
+        lerpRot(rig.armL, -0.09 + br * 0.02, 0, -s * 0.06);
+        lerpRot(rig.forearmL, -0.16 + br * 0.02, 0, 0);
         lerpRot(rig.legR, 0, 0, 0);
         lerpRot(rig.shinR, 0, 0, 0);
         lerpRot(rig.legL, 0, 0, 0);
@@ -4771,19 +5345,25 @@
           state.hingeNodes = [];
           model.traverse(node => {
             if (node.isMesh) {
-              if (node.geometry) ensureBoxProjectedUVs(node.geometry, 0.026);
+              if (node.geometry) {
+                ensureBoxProjectedUVs(node.geometry, 0.026);
+                ensureBakedMaskAttribute(node.geometry);
+              }
               if (spec.isZeonEnemy) {
                 node.material = buildZeonEnemyPBRMaterial(node, spec);
               } else {
                 node.material = buildCadPBRMaterial(node);
               }
+              const ln = (node.name || '').toLowerCase();
+              const noShadow = ln.includes('_glass') || ln.includes('_glow') || ln.includes('twin_eyes') || ln.includes('sensor_');
+              node.castShadow = !noShadow;
+              node.receiveShadow = !noShadow;
               node.userData.origMaterial = node.material;
               if (node.geometry) {
                 node.geometry.computeBoundingBox();
                 node.userData.geomCenter = new THREE.Vector3();
                 node.geometry.boundingBox.getCenter(node.userData.geomCenter);
               }
-              const ln = (node.name || '').toLowerCase();
               if (ln.includes('chest_gear_') || ln.includes('dorsal_gear_')) {
                 const gc = node.userData.geomCenter || new THREE.Vector3();
                 const dirSign = ln.includes('pinion') ? -1.42 : 1.0;
@@ -4807,6 +5387,8 @@
           // Bind all meshes into the 11-Bone Hierarchical Kinematic Rig!
           state.kinematicRig = buildProceduralKinematicRig(model, spec);
           mechaRoot.add(model);
+          // Project canonical Ver.Ka / Zeon / Neo-Zeon / EFSF unit logos & warning decals cleanly onto bone armor faces!
+          attachVerKaDecalsForUnit(model, state.kinematicRig, spec);
 
           // Root-Cause Mobile FPS Fix #2: Batch static non-animated meshes per kinematic bone & shared material!
           // Collapses ~138 separate RX-78 draw calls down to ~22-28 draw calls (~82% WebGL driver overhead reduction)
@@ -4830,7 +5412,7 @@
               const byMat = new Map();
               const removable = [];
               for (const child of [...bone.children]) {
-                if (!child.isMesh || keepIndividual.has(child) || !child.geometry) continue;
+                if (!child.isMesh || child.userData?.isDecal || keepIndividual.has(child) || !child.geometry) continue;
                 const mat = child.material;
                 if (!byMat.has(mat)) byMat.set(mat, []);
                 byMat.get(mat).push(child);
@@ -4843,11 +5425,12 @@
                     const g = m.geometry.index ? m.geometry.toNonIndexed() : m.geometry.clone();
                     m.updateMatrix();
                     g.applyMatrix4(m.matrix);
-                    // Ensure matching attributes (position, normal, uv) for mergeGeometries
+                    // Ensure matching attributes (position, normal, uv, aBakedMask) for mergeGeometries!
                     if (!g.attributes.normal) g.computeVertexNormals();
                     if (!g.attributes.uv) ensureBoxProjectedUVs(g, 0.026);
+                    ensureBakedMaskAttribute(g);
                     for (const attr of Object.keys(g.attributes)) {
-                      if (attr !== 'position' && attr !== 'normal' && attr !== 'uv') g.deleteAttribute(attr);
+                      if (attr !== 'position' && attr !== 'normal' && attr !== 'uv' && attr !== 'aBakedMask') g.deleteAttribute(attr);
                     }
                     geos.push(g);
                   }
@@ -5194,8 +5777,14 @@
         children.forEach(node => {
           const nm = (node.name || '').toLowerCase();
           if (nm.includes('dovetail')) return;
-          if (node.geometry) ensureBoxProjectedUVs(node.geometry, 0.032);
+          if (node.geometry) {
+            ensureBoxProjectedUVs(node.geometry, 0.032);
+            ensureBakedMaskAttribute(node.geometry);
+          }
           node.material = buildPackPBRMaterial(node, state.activeUnitId);
+          const noSh = nm.includes('laser') || nm.includes('aura') || nm.includes('_glass') || nm.includes('optic_') || nm.includes('glow');
+          node.castShadow = !noSh;
+          node.receiveShadow = !noSh;
           node.userData.origMaterial = node.material;
           node.geometry.computeBoundingBox();
           node.userData.geomCenter = new THREE.Vector3();
@@ -5222,8 +5811,14 @@
               node.visible = false;
               return;
             }
-            if (node.geometry) ensureBoxProjectedUVs(node.geometry, 0.032);
+            if (node.geometry) {
+              ensureBoxProjectedUVs(node.geometry, 0.032);
+              ensureBakedMaskAttribute(node.geometry);
+            }
             node.material = buildPackPBRMaterial(node, state.activeUnitId);
+            const noSh = nm.includes('laser') || nm.includes('aura') || nm.includes('_glass') || nm.includes('optic_') || nm.includes('glow');
+            node.castShadow = !noSh;
+            node.receiveShadow = !noSh;
             node.userData.origMaterial = node.material;
             node.geometry.computeBoundingBox();
             node.userData.geomCenter = new THREE.Vector3();
@@ -5939,6 +6534,7 @@
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
         renderer.setSize(window.innerWidth, window.innerHeight);
+        if (typeof resizeCinemaPipeline === 'function') resizeCinemaPipeline(window.innerWidth, window.innerHeight);
         const curWidth = window.innerWidth;
         const isTypingInInput = document.activeElement && ['INPUT', 'SELECT', 'TEXTAREA'].includes(document.activeElement.tagName);
         if (!isTypingInInput && lastViewportWidth > 960 && curWidth <= 960 && (state.menus.left || state.menus.right || state.menus.scene)) {
@@ -6872,14 +7468,16 @@
           camera.updateProjectionMatrix();
           renderer.setPixelRatio(1);
           renderer.setSize(targetW, targetH, false);
-          renderer.render(scene, camera);
+          if (typeof resizeCinemaPipeline === 'function') resizeCinemaPipeline(targetW, targetH);
+          renderActiveFrame();
           dataUrl = renderer.domElement.toDataURL('image/png');
         } finally {
           camera.aspect = prevAspect;
           camera.updateProjectionMatrix();
           renderer.setPixelRatio(prevDpr);
           renderer.setSize(prevW, prevH, false);
-          renderer.render(scene, camera);
+          if (typeof resizeCinemaPipeline === 'function') resizeCinemaPipeline(prevW, prevH);
+          renderActiveFrame();
         }
 
         if (!dataUrl) throw new Error('Canvas export returned empty image');
@@ -6950,7 +7548,7 @@
 
     // Expose Debug/QA API
     window.__mechaDebug = {
-      state, renderConfig: RENDER_ENHANCEMENT_CONFIG, loadUnit, playAnimation, setCameraPreset, applyRenderMode, applyEnvironment,
+      state, renderConfig: RENDER_ENHANCEMENT_CONFIG, applyGpuQualityTier, loadUnit, playAnimation, setCameraPreset, applyRenderMode, applyEnvironment,
       toggleAllMenus, toggleSingleMenu, toggleEquipPart, equipFullBodyLoadout, clearAllEquippedParts, synthesizeLiveAgenticPart,
       openLoadoutModal, closeLoadoutModal, saveCurrentBuildAsPreset, equipPreset, getSavedPresets, captureFullscreenWallpaper,
       equipPartById: async (partId) => {
@@ -7307,7 +7905,7 @@
 
       controls.update();
       if (state.showCallouts) updateCalloutLeaders(false);
-      renderer.render(scene, camera);
+      renderActiveFrame();
     }
 
     bootstrap();
