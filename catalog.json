@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Raft Consensus Protocol Leader Election State Engine",
+    "language": "Rust",
+    "folder": "rust",
+    "category": "\ud83c\udf10 Distributed Systems & Consensus",
+    "spoke_repo": "rust-algorithms",
+    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261123_170150_raft_consensus_protocol_leader",
+    "source_file": "main",
+    "timestamp": "2026-11-23T17:02:10.682113+00:00",
+    "dir_name": "20261123_170150_raft_consensus_protocol_leader"
+  },
+  {
     "topic": "HyperLogLog Cardinality Estimation Algorithm",
     "language": "Zig",
     "folder": "zig",
@@ -1386,17 +1397,6 @@
     "dir_name": "20261108_020129_counting_over_unbreakable_deco"
   },
   {
-    "topic": "Raft Consensus Protocol Leader Election State Engine",
-    "language": "Java",
-    "folder": "java",
-    "category": "\ud83c\udf10 Distributed Systems & Consensus",
-    "spoke_repo": "java-enterprise-patterns",
-    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261107_230142_raft_consensus_protocol_leader",
-    "source_file": "main",
-    "timestamp": "2026-11-07T23:01:57.053815+00:00",
-    "dir_name": "20261107_230142_raft_consensus_protocol_leader"
-  },
-  {
     "topic": "The Flash C Compiler",
     "language": "Kotlin",
     "folder": "kotlin",
@@ -2594,6 +2594,17 @@
     "source_file": "main",
     "timestamp": "2026-10-24T05:01:32.845762+00:00",
     "dir_name": "20261024_050132_bytecode_virtual_machine_with"
+  },
+  {
+    "topic": "Raft Consensus Protocol Leader Election State Engine",
+    "language": "Java",
+    "folder": "java",
+    "category": "\ud83c\udf10 Distributed Systems & Consensus",
+    "spoke_repo": "java-enterprise-patterns",
+    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261024_010144_raft_consensus_protocol_leader",
+    "source_file": "main",
+    "timestamp": "2026-10-24T01:01:44.781150+00:00",
+    "dir_name": "20261024_010144_raft_consensus_protocol_leader"
   },
   {
     "topic": "Peak-Aware One-Way Trading: Competitive and Learning-Augmented Algorithms for Energy",
