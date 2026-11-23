@@ -6808,19 +6808,19 @@
         const tSwing = anim.totalDur; // 0.96s
 
         if (t < tReach) {
-          // Phase 1: Reach back over right shoulder toward right white backpack saber hilt
+          // Phase 1: Reach UPWARD over top of right shoulder toward right white backpack saber hilt
           const u = smooth(t / tReach);
           rig.armR.rotation.set(
-            lerp(anim.startArmRx, 2.64, u),
+            lerp(anim.startArmRx, -3.64, u),
             lerp(anim.startArmRy, -0.22 * s, u),
-            lerp(anim.startArmRz, -0.34 * s, u) + Math.sin(u * Math.PI) * 0.28 * s
+            lerp(anim.startArmRz, -0.32 * s, u) + Math.sin(u * Math.PI) * 0.24 * s
           );
-          rig.forearmR.rotation.x = lerp(anim.startForearmRx, -1.28, u);
+          rig.forearmR.rotation.x = lerp(anim.startForearmRx, -1.24, u);
           rig.torso.rotation.y += (-0.22 * s * u - rig.torso.rotation.y) * 0.65;
           rig.torso.rotation.x += (-0.06 * u - rig.torso.rotation.x) * 0.65;
           rig.head.rotation.y += (0.18 * s * u - rig.head.rotation.y) * 0.65;
         } else if (t < tPull) {
-          // Phase 2: Unclip & pull white cylinder out of backpack rack
+          // Phase 2: Unclip & pull white cylinder UP out of backpack rack
           const u = smooth((t - tReach) / (tPull - tReach));
           if (!anim.unclipped) {
             anim.unclipped = true;
@@ -6830,12 +6830,12 @@
             const base = anim.bpHilt.userData.initialPosition;
             anim.bpHilt.position.set(base.x + 2.5 * u, base.y + 11.5 * u, base.z - 4.5 * u);
           }
-          rig.armR.rotation.set(lerp(2.64, 3.08, u), -0.22 * s, lerp(-0.34 * s, -0.26 * s, u));
-          rig.forearmR.rotation.x = lerp(-1.28, -0.92, u);
+          rig.armR.rotation.set(lerp(-3.64, -3.20, u), -0.22 * s, lerp(-0.32 * s, -0.24 * s, u));
+          rig.forearmR.rotation.x = lerp(-1.24, -0.88, u);
           rig.torso.rotation.y += (-0.22 * s * (1 - 0.3 * u) - rig.torso.rotation.y) * 0.7;
           rig.head.rotation.y += (0.18 * s * (1 - 0.3 * u) - rig.head.rotation.y) * 0.7;
         } else {
-          // Phase 3: Pluck complete -> swap handheld saber in, swing overhead forward & ignite plasma blade!
+          // Phase 3: Pluck complete -> swap handheld saber in, swing overhead DOWN-FORWARD & ignite plasma blade!
           if (!anim.swapped) {
             anim.swapped = true;
             if (anim.bpHilt) {
@@ -6860,11 +6860,11 @@
           }
           const u = smooth((t - tPull) / (tSwing - tPull));
           rig.armR.rotation.set(
-            lerp(3.08, Math.PI * 2 - 0.34, u),
+            lerp(-3.20, -0.34, u),
             lerp(-0.22 * s, 0.0, u),
-            lerp(-0.26 * s, 0.12 * s, u)
+            lerp(-0.24 * s, 0.12 * s, u)
           );
-          rig.forearmR.rotation.x = lerp(-0.92, -0.24, u);
+          rig.forearmR.rotation.x = lerp(-0.88, -0.24, u);
           rig.torso.rotation.y += (Math.sin(u * Math.PI) * 0.16 * s - rig.torso.rotation.y) * 0.65;
 
           const igniteStart = tPull + 0.12;
