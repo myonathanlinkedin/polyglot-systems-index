@@ -1,5 +1,16 @@
 [
   {
+    "topic": "HyperLogLog Cardinality Estimation Algorithm",
+    "language": "Swift",
+    "folder": "swift",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "swift-systems-lab",
+    "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261123_170247_hyperloglog_cardinality_estima",
+    "source_file": "main",
+    "timestamp": "2026-11-23T17:03:06.460312+00:00",
+    "dir_name": "20261123_170247_hyperloglog_cardinality_estima"
+  },
+  {
     "topic": "Raft Consensus Protocol Leader Election State Engine",
     "language": "Rust",
     "folder": "rust",
@@ -9,17 +20,6 @@
     "source_file": "main",
     "timestamp": "2026-11-23T17:02:10.682113+00:00",
     "dir_name": "20261123_170150_raft_consensus_protocol_leader"
-  },
-  {
-    "topic": "HyperLogLog Cardinality Estimation Algorithm",
-    "language": "Zig",
-    "folder": "zig",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "zig-systems-lab",
-    "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261123_150214_hyperloglog_cardinality_estima",
-    "source_file": "main",
-    "timestamp": "2026-11-23T15:02:28.997962+00:00",
-    "dir_name": "20261123_150214_hyperloglog_cardinality_estima"
   },
   {
     "topic": "Trie Prefix Tree for Auto-Completion with Frequency Ranking",

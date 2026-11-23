@@ -1,6 +1,6 @@
 Index,Topic,Language,Domain Category,Spoke Repository,Source File,Timestamp UTC
-001,Raft Consensus Protocol Leader Election State Engine,Rust,🌐 Distributed Systems & Consensus,rust-algorithms,main,2026-11-23T17:02:10.682113+00:00
-002,HyperLogLog Cardinality Estimation Algorithm,Zig,🧠 Computational AI & Math Engines,zig-systems-lab,main,2026-11-23T15:02:28.997962+00:00
+001,HyperLogLog Cardinality Estimation Algorithm,Swift,🧠 Computational AI & Math Engines,swift-systems-lab,main,2026-11-23T17:03:06.460312+00:00
+002,Raft Consensus Protocol Leader Election State Engine,Rust,🌐 Distributed Systems & Consensus,rust-algorithms,main,2026-11-23T17:02:10.682113+00:00
 003,Trie Prefix Tree for Auto-Completion with Frequency Ranking,C,🧠 Computational AI & Math Engines,c-lowlevel-systems,main,2026-11-23T14:01:32.241064+00:00
 004,Pratt Top-Down Operator Precedence Expression Parser,TypeScript,🧠 Computational AI & Math Engines,typescript-design-patterns,main,2026-11-23T13:07:46.059962+00:00
 005,Cache-Oblivious Matrix Transposition Algorithm,Rust,⚡ Low-Latency & Memory Systems,rust-algorithms,main,2026-11-23T11:02:29.052496+00:00
