@@ -22,8 +22,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Mateus Yonathan" />
   <meta property="og:url" content="https://myonathanlinkedin.github.io/mecha.html" />
-  <meta property="og:title"
-    content="Mateus Yonathan | Agentic Autonomous Mecha Kits — 3D Engineering Hangar" />
+  <meta property="og:title" content="Mateus Yonathan | Agentic Autonomous Mecha Kits — 3D Engineering Hangar" />
   <meta property="og:description"
     content="Agentic Autonomous Mecha Kits 3D Engineering Hangar featuring full-body 8-zone Gunpla snap-fit adapters, smooth Auto-Normal Mobile Suits, zero-duplicate agentic synthesis, and 60fps combat stances." />
   <meta property="og:image" content="https://myonathanlinkedin.github.io/assets/avatar.png" />
@@ -2019,9 +2018,11 @@
       .brand-text-full {
         display: none !important;
       }
+
       .brand-text-short {
         display: inline !important;
       }
+
       #nav-header {
         flex-wrap: wrap;
         max-width: calc(100vw - 380px);
@@ -2030,7 +2031,9 @@
 
     /* Mobile & Tablet Ergonomic Layout — Zero Bottom Overlap Guarantee */
     /* Mobile & Tablet Ergonomic Layout — Sleek 2-Row Top Bar + Zero Bottom Overlap */
-    @media (max-width: 960px), (pointer: coarse) {
+    @media (max-width: 960px),
+    (pointer: coarse) {
+
       /* Root-Cause Mobile FPS Fix #1: Disable backdrop-filter blur over live 60fps WebGL canvas!
          Prevents tile-based mobile GPU (Adreno/Mali/Apple) full-screen framebuffer readback + Gaussian blur stalls every frame. */
       .glass-hud,
@@ -2242,18 +2245,22 @@
       .pill-full {
         display: none !important;
       }
+
       .pill-short {
         display: inline !important;
       }
+
       #nav-header #nav-3d-pages {
         flex: 1 1 100px;
         font-size: 7.9px;
       }
+
       #nav-header .nav-action-pill {
         padding: 3.5px 6px;
         font-size: 7.9px;
         gap: 3px;
       }
+
       #nav-header #btn-bgm-track {
         max-width: none;
       }
@@ -2287,8 +2294,10 @@
     <a href="https://github.com/myonathanlinkedin" target="_blank" rel="noopener noreferrer" class="brand-title"
       title="Mateus Yonathan — Agentic Autonomous Mecha Kits & 3D Engineering Lab">
       <span class="status-orb"></span>
-      <span class="brand-text-full">MATEUS YONATHAN <span class="sep-slash">//</span> <span class="accent">AGENTIC AUTONOMOUS KITS</span></span>
-      <span class="brand-text-short">M. YONATHAN <span class="sep-slash">//</span> <span class="accent">KITS</span></span>
+      <span class="brand-text-full">MATEUS YONATHAN <span class="sep-slash">//</span> <span class="accent">AGENTIC
+          AUTONOMOUS KITS</span></span>
+      <span class="brand-text-short">M. YONATHAN <span class="sep-slash">//</span> <span
+          class="accent">KITS</span></span>
     </a>
     <span class="nav-sep"></span>
     <a href="index.html" class="nav-home-btn" title="Return to Main Portfolio Page">🏠 Main Page</a>
@@ -2300,8 +2309,13 @@
       <option value="constellation.html">🌌 3D Knowledge Constellation</option>
     </select>
     <span class="nav-sep"></span>
-    <button id="btn-open-loadouts" class="nav-action-pill" title="Hangar Custom Kit Presets (Save &amp; Load in Browser LocalStorage)">💾 <span class="pill-full">Kit Loadouts</span><span class="pill-short">Loadouts</span></button>
-    <button id="btn-wallpaper-shot" class="nav-action-pill" style="border-color:rgba(0,229,255,0.45);color:var(--accent-cyan);" title="Capture Full-Screen Zero-HUD HD Wallpaper (Hotkey: P)">📸 <span class="pill-full">Wallpaper</span><span class="pill-short">Wall</span></button>
+    <button id="btn-open-loadouts" class="nav-action-pill"
+      title="Hangar Custom Kit Presets (Save &amp; Load in Browser LocalStorage)">💾 <span class="pill-full">Kit
+        Loadouts</span><span class="pill-short">Loadouts</span></button>
+    <button id="btn-wallpaper-shot" class="nav-action-pill"
+      style="border-color:rgba(0,229,255,0.45);color:var(--accent-cyan);"
+      title="Capture Full-Screen Zero-HUD HD Wallpaper (Hotkey: P)">📸 <span class="pill-full">Wallpaper</span><span
+        class="pill-short">Wall</span></button>
     <button id="btn-open-guide" class="nav-action-pill" title="About this Autonomous Agentic Hangar">ℹ️ Guide</button>
     <button id="btn-bgm-toggle" class="nav-action-pill" title="Toggle Mecha Battle Background Music">🔇 BGM</button>
     <button id="btn-bgm-track" class="nav-action-pill" title="Switch Mecha Battle Track">🎵 Track</button>
@@ -2395,18 +2409,23 @@
       <!-- Quick Action Toolbar -->
       <div class="loadout-toolbar">
         <div class="loadout-save-box">
-          <input type="text" id="input-preset-name" placeholder="Enter Custom Kit Name (e.g. RX-78 Full Armor Kai)..." maxlength="48" />
-          <button id="btn-save-new-preset" class="btn-equip-preset" style="flex:0 0 auto;padding:6px 12px;" title="Save current suit &amp; equipped parts as a new preset">
+          <input type="text" id="input-preset-name" placeholder="Enter Custom Kit Name (e.g. RX-78 Full Armor Kai)..."
+            maxlength="48" />
+          <button id="btn-save-new-preset" class="btn-equip-preset" style="flex:0 0 auto;padding:6px 12px;"
+            title="Save current suit &amp; equipped parts as a new preset">
             💾 Save Current Build
           </button>
         </div>
         <div class="loadout-tool-pills">
-          <button id="btn-export-presets" class="tool-pill" title="Export all presets to JSON file">📤 Backup JSON</button>
-          <label for="input-import-presets" class="tool-pill" title="Import presets from JSON file" style="cursor:pointer;margin:0;">
+          <button id="btn-export-presets" class="tool-pill" title="Export all presets to JSON file">📤 Backup
+            JSON</button>
+          <label for="input-import-presets" class="tool-pill" title="Import presets from JSON file"
+            style="cursor:pointer;margin:0;">
             📥 Import JSON
             <input type="file" id="input-import-presets" accept=".json" style="display:none;" />
           </label>
-          <button id="btn-reset-starter-presets" class="tool-pill" title="Reset starter default builds">↺ Reset Starters</button>
+          <button id="btn-reset-starter-presets" class="tool-pill" title="Reset starter default builds">↺ Reset
+            Starters</button>
         </div>
       </div>
 
@@ -2492,10 +2511,14 @@
 
     <!-- Hangar Custom Loadout Quick Access -->
     <div class="custom-vault-row" style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:6px 0 8px;">
-      <button id="btn-drawer-save-build" class="loadout-btn" style="background:rgba(0, 229, 255, 0.16);border-color:var(--accent-cyan);color:#fff;font-weight:700;" title="Save current Mecha build to local browser storage">
+      <button id="btn-drawer-save-build" class="loadout-btn"
+        style="background:rgba(0, 229, 255, 0.16);border-color:var(--accent-cyan);color:#fff;font-weight:700;"
+        title="Save current Mecha build to local browser storage">
         💾 SAVE CONFIG
       </button>
-      <button id="btn-drawer-open-vault" class="loadout-btn" style="background:rgba(168, 85, 247, 0.18);border-color:#a855f7;color:#fff;font-weight:700;" title="Open Kit Loadout Manager">
+      <button id="btn-drawer-open-vault" class="loadout-btn"
+        style="background:rgba(168, 85, 247, 0.18);border-color:#a855f7;color:#fff;font-weight:700;"
+        title="Open Kit Loadout Manager">
         📂 VAULT (<span id="vault-count-badge">0</span>)
       </button>
     </div>
@@ -2511,13 +2534,20 @@
     <div id="category-chips" class="category-chips-scroll">
       <button class="cat-chip active" data-category="all">ALL (<span id="cat-count-all">0</span>)</button>
       <button class="cat-chip" data-category="head_sensor">👑 HEAD (<span id="cat-count-head_sensor">0</span>)</button>
-      <button class="cat-chip" data-category="chest_armor">🛡️ CHEST (<span id="cat-count-chest_armor">0</span>)</button>
-      <button class="cat-chip" data-category="shoulder_pods">🚀 SHOULDER (<span id="cat-count-shoulder_pods">0</span>)</button>
-      <button class="cat-chip" data-category="dorsal_pack">🎒 BACKPACK (<span id="cat-count-dorsal_pack">0</span>)</button>
-      <button class="cat-chip" data-category="aux_weapon">🔫 R-WEAPON (<span id="cat-count-aux_weapon">0</span>)</button>
-      <button class="cat-chip" data-category="aux_shield">🔰 L-SHIELD (<span id="cat-count-aux_shield">0</span>)</button>
-      <button class="cat-chip" data-category="waist_ordnance">⚡ WAIST (<span id="cat-count-waist_ordnance">0</span>)</button>
-      <button class="cat-chip" data-category="leg_thrusters">🦵 LEGS (<span id="cat-count-leg_thrusters">0</span>)</button>
+      <button class="cat-chip" data-category="chest_armor">🛡️ CHEST (<span
+          id="cat-count-chest_armor">0</span>)</button>
+      <button class="cat-chip" data-category="shoulder_pods">🚀 SHOULDER (<span
+          id="cat-count-shoulder_pods">0</span>)</button>
+      <button class="cat-chip" data-category="dorsal_pack">🎒 BACKPACK (<span
+          id="cat-count-dorsal_pack">0</span>)</button>
+      <button class="cat-chip" data-category="aux_weapon">🔫 R-WEAPON (<span
+          id="cat-count-aux_weapon">0</span>)</button>
+      <button class="cat-chip" data-category="aux_shield">🔰 L-SHIELD (<span
+          id="cat-count-aux_shield">0</span>)</button>
+      <button class="cat-chip" data-category="waist_ordnance">⚡ WAIST (<span
+          id="cat-count-waist_ordnance">0</span>)</button>
+      <button class="cat-chip" data-category="leg_thrusters">🦵 LEGS (<span
+          id="cat-count-leg_thrusters">0</span>)</button>
     </div>
 
     <!-- Hardpoint Station & Sort Controls -->
@@ -2711,7 +2741,9 @@
       <button id="btn-dock-hatch" class="action-btn" title="Open Hinged Chest/Reactor Petals">🔓 HATCH</button>
       <button id="btn-dock-isolate" class="action-btn" title="Toggle Ghost Shell Zone Isolation">👻 ISOLATE</button>
       <button id="btn-reset-view" class="action-btn" title="Auto-Fit Reset Camera">↺ FIT</button>
-      <button id="btn-dock-wallpaper" class="action-btn" style="border-color: rgba(0, 229, 255, 0.5); color: var(--accent-cyan);" title="Capture Full-Screen Zero-HUD HD Wallpaper (Hotkey: P)">📸 WALLPAPER</button>
+      <button id="btn-dock-wallpaper" class="action-btn"
+        style="border-color: rgba(0, 229, 255, 0.5); color: var(--accent-cyan);"
+        title="Capture Full-Screen Zero-HUD HD Wallpaper (Hotkey: P)">📸 WALLPAPER</button>
       <button id="btn-hide-bottom" class="panel-close-x" title="Close Bottom Dock">✕</button>
     </div>
   </footer>
@@ -2883,6 +2915,7 @@
       activeStance: 'Sentinel',
       adapterTemplate: null,
       snapAnimations: [],
+      weaponDrawAnim: null,
       agenticSynthNonce: 1,
       renderMode: 'standard',
       activeEnv: 'hangar',
@@ -3719,11 +3752,11 @@
       } else if (n.includes('hawk_head_purple')) {
         color = 0x52396e; roughness = 0.42; metalness = 0.38;
       } else if (n.includes('olive_dark')) {
-        color = 0x36482c; roughness = 0.46; metalness = 0.14;
+        color = 0x3b5030; roughness = 0.44; metalness = 0.14;
       } else if (n.includes('_navy')) {
-        color = 0x172b4d; roughness = 0.40; metalness = 0.20;
+        color = 0x1e4a8c; roughness = 0.38; metalness = 0.18;
       } else if (n.includes('_oxblood')) {
-        color = 0x5c0d14; roughness = 0.36; metalness = 0.22;
+        color = 0x6b1018; roughness = 0.36; metalness = 0.20;
       } else if (n.includes('_obsidian') || n.includes('_dark') || n.includes('_frame') || n.includes('socket') || n.includes('_mg_') || n.includes('_rifle_') || n.includes('drum')) {
         color = 0x202733; roughness = 0.34; metalness = 0.82; useDetail = false;
       } else if (n.includes('_maroon')) {
@@ -3892,7 +3925,8 @@
         pelvis, torso, head, armR, forearmR, armL, forearmL, legR, shinR, legL, shinL,
         rSign, lSign,
         nativeRightWeaponMeshes: [],
-        nativeLeftHoldMeshes: []
+        nativeLeftHoldMeshes: [],
+        backpackSaberHilts: { r: null, l: null }
       };
       state.monoEyeNodes = [];
 
@@ -3937,6 +3971,12 @@
         }
         if (n.includes('zaku_hawk_') || n.includes('gouf_knight_shield') || n.includes('gouf_shield_mount') || n.includes('sazabi_shield_')) {
           rig.nativeLeftHoldMeshes.push(mesh);
+        }
+        if (n.includes('backpack_saber_hilt_r')) {
+          rig.backpackSaberHilts.r = mesh;
+        }
+        if (n.includes('backpack_saber_hilt_l')) {
+          rig.backpackSaberHilts.l = mesh;
         }
       });
 
@@ -4453,6 +4493,7 @@
 
       clearBlueprintEdges();
       state.snapAnimations = [];
+      state.weaponDrawAnim = null;
 
       if (state.chassisModel) {
         mechaRoot.remove(state.chassisModel);
@@ -4554,7 +4595,9 @@
               ...(state.monoEyeNodes || []),
               ...(state.kinematicRig.nativeRightWeaponMeshes || []),
               ...(state.kinematicRig.nativeLeftHoldMeshes || []),
-            ]);
+              state.kinematicRig.backpackSaberHilts?.r,
+              state.kinematicRig.backpackSaberHilts?.l,
+            ].filter(Boolean));
             const rigBones = [
               state.kinematicRig.pelvis, state.kinematicRig.torso, state.kinematicRig.head,
               state.kinematicRig.armR, state.kinematicRig.forearmR, state.kinematicRig.armL, state.kinematicRig.forearmL,
@@ -4801,6 +4844,15 @@
       if (entry.slotGroup === 'aux_weapon' && state.kinematicRig?.nativeRightWeaponMeshes) {
         state.kinematicRig.nativeRightWeaponMeshes.forEach(m => { m.visible = true; });
       }
+      if (entry.slotGroup === 'aux_weapon') {
+        const bpR = state.kinematicRig?.backpackSaberHilts?.r;
+        if (bpR) {
+          bpR.visible = true;
+          if (bpR.userData.initialPosition) bpR.position.copy(bpR.userData.initialPosition);
+          bpR.rotation.set(0, 0, 0);
+        }
+        if (!silent) state.weaponDrawAnim = null;
+      }
       if (entry.slotGroup === 'aux_shield' && state.kinematicRig?.nativeLeftHoldMeshes) {
         state.kinematicRig.nativeLeftHoldMeshes.forEach(m => { m.visible = true; });
       }
@@ -4966,7 +5018,95 @@
       state.slotOccupancy[slotGroup] = part.part_id;
       enforceSinglePartPerSlotInvariant();
 
-      if (silent) {
+      const bpRightHilt = state.kinematicRig?.backpackSaberHilts?.r || null;
+      const isMeleeGrip = (slotGroup === 'aux_weapon' && packModel.userData.weaponGripType === 'melee_hilt_grip');
+      const collectBladeMeshes = () => {
+        const list = [];
+        packModel.traverse(node => {
+          if (!node.isMesh || !node.visible) return;
+          const nm = (node.name || '').toLowerCase();
+          if (nm.includes('_laser') || nm.includes('blade') || nm.includes('saber_core') || nm.includes('saber_mid') || nm.includes('saber_halo') || nm.includes('edge_glow') || nm.includes('beam_edge')) {
+            if (!node.geometry.boundingBox) node.geometry.computeBoundingBox();
+            const bb = node.geometry.boundingBox;
+            const sz = bb.max.z - bb.min.z;
+            const sy = bb.max.y - bb.min.y;
+            const axis = (sz >= sy) ? 'z' : 'y';
+            const baseCoord = axis === 'z' ? bb.min.z : bb.min.y;
+            list.push({
+              mesh: node,
+              axis,
+              baseCoord,
+              initPos: node.userData.initialPosition ? node.userData.initialPosition.clone() : node.position.clone()
+            });
+          }
+        });
+        return list;
+      };
+
+      if (slotGroup === 'aux_weapon') {
+        socket.payloadContainer.visible = true;
+        if (bpRightHilt) {
+          if (bpRightHilt.userData.initialPosition) bpRightHilt.position.copy(bpRightHilt.userData.initialPosition);
+          bpRightHilt.rotation.set(0, 0, 0);
+        }
+        if (silent) {
+          if (bpRightHilt) bpRightHilt.visible = !isMeleeGrip;
+          socket.payloadContainer.position.z = socket.dockedZ;
+        } else if (isMeleeGrip && bpRightHilt) {
+          // Canonical RX-78 Backpack Beam Saber Draw: arm reaches back over right shoulder, plucks right white hilt from rack, sweeps overhead & ignites blade!
+          const bladeMeshes = collectBladeMeshes();
+          bladeMeshes.forEach(b => {
+            b.mesh.visible = false;
+            b.mesh.scale[b.axis] = 0.02;
+            b.mesh.position[b.axis] = b.initPos[b.axis] + b.baseCoord * 0.98;
+          });
+          bpRightHilt.visible = true;
+          socket.payloadContainer.visible = false;
+          socket.payloadContainer.position.z = socket.dockedZ;
+          state.snapAnimations = state.snapAnimations.filter(a => a.socket !== socket);
+          state.weaponDrawAnim = {
+            mode: 'backpack_saber_draw',
+            socket,
+            bpHilt: bpRightHilt,
+            bladeMeshes,
+            partName: part.name,
+            adapterId,
+            elapsed: 0,
+            totalDur: 0.96,
+            unclipped: false,
+            swapped: false,
+            startArmRx: state.kinematicRig ? state.kinematicRig.armR.rotation.x : -0.10,
+            startArmRy: state.kinematicRig ? state.kinematicRig.armR.rotation.y : 0.0,
+            startArmRz: state.kinematicRig ? state.kinematicRig.armR.rotation.z : 0.06,
+            startForearmRx: state.kinematicRig ? state.kinematicRig.forearmR.rotation.x : -0.18
+          };
+        } else {
+          if (bpRightHilt) bpRightHilt.visible = true;
+          const bladeMeshes = isMeleeGrip ? collectBladeMeshes() : [];
+          bladeMeshes.forEach(b => {
+            b.mesh.scale[b.axis] = 0.02;
+            b.mesh.position[b.axis] = b.initPos[b.axis] + b.baseCoord * 0.98;
+          });
+          socket.payloadContainer.position.z = socket.dockedZ;
+          state.snapAnimations = state.snapAnimations.filter(a => a.socket !== socket);
+          state.weaponDrawAnim = {
+            mode: 'side_arm_draw',
+            socket,
+            bpHilt: null,
+            bladeMeshes,
+            partName: part.name,
+            adapterId,
+            elapsed: 0,
+            totalDur: 0.56,
+            unclipped: false,
+            swapped: false,
+            startArmRx: state.kinematicRig ? state.kinematicRig.armR.rotation.x : -0.10,
+            startArmRy: state.kinematicRig ? state.kinematicRig.armR.rotation.y : 0.0,
+            startArmRz: state.kinematicRig ? state.kinematicRig.armR.rotation.z : 0.06,
+            startForearmRx: state.kinematicRig ? state.kinematicRig.forearmR.rotation.x : -0.18
+          };
+        }
+      } else if (silent) {
         socket.payloadContainer.position.z = socket.dockedZ;
       } else {
         const startOffset = (socket.slideSign || -1.0) * 32.0;
@@ -5049,12 +5189,13 @@
     async function equipFullBodyLoadout() {
       if (!state.catalog?.modular_parts) return;
       const myBatchToken = ++state.batchLoadToken;
+      state.weaponDrawAnim = null;
       const zonesOrder = ['head_sensor', 'chest_armor', 'shoulder_pods', 'dorsal_pack', 'aux_weapon', 'aux_shield', 'waist_ordnance', 'leg_thrusters'];
       for (const z of zonesOrder) {
         if (state.batchLoadToken !== myBatchToken) return;
         const candidate = state.catalog.modular_parts.find(p => resolvePartSlotGroup(p) === z);
         if (candidate && !state.equippedPacks.has(candidate.part_id)) {
-          await mountPartOnAdapter(candidate, false);
+          await mountPartOnAdapter(candidate, true);
         }
       }
       if (state.batchLoadToken !== myBatchToken) return;
@@ -5082,6 +5223,7 @@
     async function synthesizeLiveAgenticPart() {
       if (!state.catalog?.modular_parts || state.catalog.modular_parts.length === 0) return;
       const myBatchToken = ++state.batchLoadToken;
+      state.weaponDrawAnim = null;
 
       const presets = [
         { name: 'Heavy Siege Assault', stance: 'RifleBurst', zones: ['dorsal_pack', 'aux_weapon', 'aux_shield', 'shoulder_pods', 'chest_armor', 'waist_ordnance', 'leg_thrusters'] },
@@ -5125,14 +5267,14 @@
       if (state.batchLoadToken !== myBatchToken) return;
       enforceSinglePartPerSlotInvariant();
 
-      playAnimation(build.stance);
+      // RANDOM BUILD preserves the Gundam's current combat stance / movement scene untouched!
       renderInventory();
       updateTelemetry();
       applyRenderMode(state.renderMode);
       applyExplodedDisplacement(state.explodedFactor);
       battleAudio.playGunplaSnapClick();
       triggerStagePulse(0x00e5ff);
-      showToast(`🎲 [RANDOM BUILD] ${build.name} — ${mountedCount} Modules + ${build.stance} Stance!`, true);
+      showToast(`🎲 [RANDOM BUILD] ${build.name} — ${mountedCount} Modules Mounted!`, true);
     }
 
     function updateTelemetry() {
@@ -5800,6 +5942,7 @@
 
       // 3. Mount all saved parts with invariant guarantee
       const myBatchToken = ++state.batchLoadToken;
+      state.weaponDrawAnim = null;
       const allParts = state.catalog?.modular_parts || [];
 
       for (const [zone, partId] of Object.entries(preset.slots || {})) {
@@ -5807,7 +5950,7 @@
         if (state.batchLoadToken !== myBatchToken) return;
         const candidate = allParts.find(p => p.part_id === partId || p.concept_slug === partId);
         if (candidate && !state.equippedPacks.has(candidate.part_id)) {
-          await mountPartOnAdapter(candidate, false);
+          await mountPartOnAdapter(candidate, true);
         }
       }
 
@@ -6631,6 +6774,151 @@
     }
 
     const clock = new THREE.Clock();
+    function updateWeaponDrawAnimation(rig, delta) {
+      const anim = state.weaponDrawAnim;
+      if (!anim || !rig) return;
+      const s = rig.rSign || 1.0;
+      const smooth = (x) => {
+        const c = Math.max(0, Math.min(1, x));
+        return c * c * (3 - 2 * c);
+      };
+      const lerp = (a, b, u) => a + (b - a) * u;
+
+      anim.elapsed += delta;
+      const t = anim.elapsed;
+
+      if (anim.mode === 'backpack_saber_draw') {
+        const tReach = 0.34;
+        const tPull = 0.50;
+        const tSwing = anim.totalDur; // 0.96s
+
+        if (t < tReach) {
+          // Phase 1: Reach back over right shoulder toward right white backpack saber hilt
+          const u = smooth(t / tReach);
+          rig.armR.rotation.set(
+            lerp(anim.startArmRx, 2.64, u),
+            lerp(anim.startArmRy, -0.22 * s, u),
+            lerp(anim.startArmRz, -0.34 * s, u) + Math.sin(u * Math.PI) * 0.28 * s
+          );
+          rig.forearmR.rotation.x = lerp(anim.startForearmRx, -1.28, u);
+          rig.torso.rotation.y += (-0.22 * s * u - rig.torso.rotation.y) * 0.65;
+          rig.torso.rotation.x += (-0.06 * u - rig.torso.rotation.x) * 0.65;
+          rig.head.rotation.y += (0.18 * s * u - rig.head.rotation.y) * 0.65;
+        } else if (t < tPull) {
+          // Phase 2: Unclip & pull white cylinder out of backpack rack
+          const u = smooth((t - tReach) / (tPull - tReach));
+          if (!anim.unclipped) {
+            anim.unclipped = true;
+            battleAudio.playGunplaUnlatch();
+          }
+          if (anim.bpHilt && anim.bpHilt.userData.initialPosition) {
+            const base = anim.bpHilt.userData.initialPosition;
+            anim.bpHilt.position.set(base.x + 2.5 * u, base.y + 11.5 * u, base.z - 4.5 * u);
+          }
+          rig.armR.rotation.set(lerp(2.64, 3.08, u), -0.22 * s, lerp(-0.34 * s, -0.26 * s, u));
+          rig.forearmR.rotation.x = lerp(-1.28, -0.92, u);
+          rig.torso.rotation.y += (-0.22 * s * (1 - 0.3 * u) - rig.torso.rotation.y) * 0.7;
+          rig.head.rotation.y += (0.18 * s * (1 - 0.3 * u) - rig.head.rotation.y) * 0.7;
+        } else {
+          // Phase 3: Pluck complete -> swap handheld saber in, swing overhead forward & ignite plasma blade!
+          if (!anim.swapped) {
+            anim.swapped = true;
+            if (anim.bpHilt) {
+              anim.bpHilt.visible = false;
+              if (anim.bpHilt.userData.initialPosition) {
+                anim.bpHilt.position.copy(anim.bpHilt.userData.initialPosition);
+              }
+            }
+            anim.socket.payloadContainer.visible = true;
+            state.snapAnimations.push({
+              socket: anim.socket,
+              startOffset: 0.0,
+              partName: anim.partName,
+              adapterId: anim.adapterId,
+              elapsed: 0.0,
+              slideDur: 0.0,
+              recoilDur: 0.08,
+              ringDur: 0.34,
+              clicked: false
+            });
+            showToast(`⚔️ [SABER DRAW] Unclipped Backpack Hilt — ${anim.partName}`, true);
+          }
+          const u = smooth((t - tPull) / (tSwing - tPull));
+          rig.armR.rotation.set(
+            lerp(3.08, Math.PI * 2 - 0.34, u),
+            lerp(-0.22 * s, 0.0, u),
+            lerp(-0.26 * s, 0.12 * s, u)
+          );
+          rig.forearmR.rotation.x = lerp(-0.92, -0.24, u);
+          rig.torso.rotation.y += (Math.sin(u * Math.PI) * 0.16 * s - rig.torso.rotation.y) * 0.65;
+
+          const igniteStart = tPull + 0.12;
+          if (t >= igniteStart) {
+            const ignite = 0.02 + 0.98 * smooth((t - igniteStart) / (tSwing - igniteStart - 0.04));
+            for (const b of anim.bladeMeshes) {
+              b.mesh.visible = true;
+              b.mesh.scale[b.axis] = ignite;
+              b.mesh.position[b.axis] = b.initPos[b.axis] + b.baseCoord * (1.0 - ignite);
+            }
+          }
+        }
+
+        if (t >= tSwing) {
+          rig.armR.rotation.x = -0.34;
+          for (const b of anim.bladeMeshes) {
+            b.mesh.visible = true;
+            b.mesh.scale[b.axis] = 1.0;
+            b.mesh.position.copy(b.initPos);
+          }
+          anim.socket.payloadContainer.visible = true;
+          state.weaponDrawAnim = null;
+        }
+      } else {
+        // Side-arm / tactical weapon draw for firearms and non-Vanguard units
+        const tCock = 0.22;
+        const tSnap = anim.totalDur; // 0.56s
+        if (t < tCock) {
+          const u = smooth(t / tCock);
+          if (!anim.unclipped) {
+            anim.unclipped = true;
+            battleAudio.playGunplaUnlatch();
+          }
+          rig.armR.rotation.set(lerp(anim.startArmRx, 0.28, u), anim.startArmRy, lerp(anim.startArmRz, 0.14 * s, u));
+          rig.forearmR.rotation.x = lerp(anim.startForearmRx, -0.68, u);
+        } else {
+          if (!anim.swapped) {
+            anim.swapped = true;
+            state.snapAnimations.push({
+              socket: anim.socket,
+              startOffset: 0.0,
+              partName: anim.partName,
+              adapterId: anim.adapterId,
+              elapsed: 0.0,
+              slideDur: 0.0,
+              recoilDur: 0.08,
+              ringDur: 0.34,
+              clicked: false
+            });
+          }
+          const u = smooth((t - tCock) / (tSnap - tCock));
+          rig.armR.rotation.set(lerp(0.28, -0.32, u), 0.0, lerp(0.14 * s, 0.08 * s, u));
+          rig.forearmR.rotation.x = lerp(-0.68, -0.30, u);
+          const ignite = 0.02 + 0.98 * u;
+          for (const b of anim.bladeMeshes) {
+            b.mesh.scale[b.axis] = ignite;
+            b.mesh.position[b.axis] = b.initPos[b.axis] + b.baseCoord * (1.0 - ignite);
+          }
+        }
+        if (t >= tSnap) {
+          for (const b of anim.bladeMeshes) {
+            b.mesh.scale[b.axis] = 1.0;
+            b.mesh.position.copy(b.initPos);
+          }
+          state.weaponDrawAnim = null;
+        }
+      }
+    }
+
     function animate() {
       requestAnimationFrame(animate);
       if (document.hidden) return; // Zero GPU/battery waste when phone screen or tab is backgrounded
@@ -6640,6 +6928,9 @@
       // 1. Live 11-Bone Hierarchical Kinematic Combat Stance Animation on ALL 4 Mobile Suits!
       if (state.kinematicRig && state.animPlaying && state.explodedFactor < 0.05) {
         updateKinematicRigPose(state.kinematicRig, state.activeStance, elapsed, delta);
+      }
+      if (state.kinematicRig && state.weaponDrawAnim && state.explodedFactor < 0.05) {
+        updateWeaponDrawAnimation(state.kinematicRig, delta);
       }
 
       // 2. Live Iconic Zeon / Neo-Zeon Recessed Internal Mono-Eye Scanner Animation (Orbits strictly INSIDE visor cavity!)
