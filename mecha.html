@@ -3875,11 +3875,18 @@
       const armL = makePivot('Rig_Arm_L', lSign * 31.0, 145.0, 0.0, torso, torso.userData.worldOrigin);
       const forearmL = makePivot('Rig_Forearm_L', lSign * 34.5, 116.5, 1.5, armL, armL.userData.worldOrigin);
 
-      const legR = makePivot('Rig_Leg_R', rSign * 15.0, 96.0, 0.0, pelvis, pelvis.userData.worldOrigin);
-      const shinR = makePivot('Rig_Shin_R', rSign * 17.5, 60.5, 0.5, legR, legR.userData.worldOrigin);
+      const isSazabiRig = spec?.id === 'enemy_sazabi';
+      const hipRigX = spec?.isZeonEnemy ? (isSazabiRig ? 14.8 : 13.5) : 14.4;
+      const hipRigY = spec?.isZeonEnemy ? 94.5 : 96.0;
+      const kneeRigX = spec?.isZeonEnemy ? (isSazabiRig ? 18.0 : 16.7) : 17.4;
+      const kneeRigY = spec?.isZeonEnemy ? 60.5 : 63.2;
+      const kneeRigZ = spec?.isZeonEnemy ? 0.5 : 0.2;
 
-      const legL = makePivot('Rig_Leg_L', lSign * 15.0, 96.0, 0.0, pelvis, pelvis.userData.worldOrigin);
-      const shinL = makePivot('Rig_Shin_L', lSign * 17.5, 60.5, 0.5, legL, legL.userData.worldOrigin);
+      const legR = makePivot('Rig_Leg_R', rSign * hipRigX, hipRigY, 0.0, pelvis, pelvis.userData.worldOrigin);
+      const shinR = makePivot('Rig_Shin_R', rSign * kneeRigX, kneeRigY, kneeRigZ, legR, legR.userData.worldOrigin);
+
+      const legL = makePivot('Rig_Leg_L', lSign * hipRigX, hipRigY, 0.0, pelvis, pelvis.userData.worldOrigin);
+      const shinL = makePivot('Rig_Shin_L', lSign * kneeRigX, kneeRigY, kneeRigZ, legL, legL.userData.worldOrigin);
 
       const rig = {
         pelvis, torso, head, armR, forearmR, armL, forearmL, legR, shinR, legL, shinL,
@@ -4338,43 +4345,43 @@
         lerpRot(rig.forearmR, -0.38 + recoil * 0.7, 0, 0);
         lerpRot(rig.armL, -0.22, -s * 0.08, -s * 0.15);
         lerpRot(rig.forearmL, -0.28, 0, 0);
-        lerpRot(rig.legR, 0.14, 0, s * 0.05);
-        lerpRot(rig.shinR, -0.16, 0, 0);
-        lerpRot(rig.legL, -0.16, 0, -s * 0.05);
-        lerpRot(rig.shinL, 0.16, 0, 0);
+        lerpRot(rig.legR, 0.12, 0, s * 0.05);
+        lerpRot(rig.shinR, 0.06, 0, 0);
+        lerpRot(rig.legL, -0.14, 0, -s * 0.05);
+        lerpRot(rig.shinL, 0.14, 0, 0);
       } else if (stance === 'ShieldGuard') {
         // 🛡️ Shield Guard: Left forearm shield angled forward-inward across chest, right weapon braced at flank
-        lerpPosY(rig.pelvis, -3.0 + br * 0.4);
-        lerpRot(rig.pelvis, 0.05, s * 0.18, 0);
-        lerpRot(rig.torso, 0.06, -s * 0.22, 0);
+        lerpPosY(rig.pelvis, -2.5 + br * 0.4);
+        lerpRot(rig.pelvis, 0.04, s * 0.16, 0);
+        lerpRot(rig.torso, 0.05, -s * 0.20, 0);
         lerpRot(rig.head, -0.04, s * 0.08, 0);
         lerpRot(rig.armL, -0.44, s * 0.28, -s * 0.12);
         lerpRot(rig.forearmL, -0.42, s * 0.18, 0);
         lerpRot(rig.armR, -0.16, 0, s * 0.14);
         lerpRot(rig.forearmR, -0.30, 0, 0);
-        lerpRot(rig.legL, -0.20, 0, -s * 0.05);
-        lerpRot(rig.shinL, 0.22, 0, 0);
-        lerpRot(rig.legR, 0.18, 0, s * 0.05);
-        lerpRot(rig.shinR, -0.16, 0, 0);
+        lerpRot(rig.legL, -0.16, 0, -s * 0.05);
+        lerpRot(rig.shinL, 0.18, 0, 0);
+        lerpRot(rig.legR, 0.12, 0, s * 0.05);
+        lerpRot(rig.shinR, 0.06, 0, 0);
       } else if (stance === 'BoostJump') {
-        // 🚀 AMBAC Boost: High-G Aerial / Orbital Thruster Hover Pose with outward-splayed limbs
+        // 🚀 AMBAC Boost: Symmetric High-G Aerial / Orbital Thruster Hover Pose with outward-splayed limbs
         const hover = Math.sin(t * 2.8) * 3.5;
         lerpPosY(rig.pelvis, 8.5 + hover);
-        lerpRot(rig.pelvis, 0.12, sw * 0.06, 0);
-        lerpRot(rig.torso, 0.10, -sw * 0.05, 0);
-        lerpRot(rig.head, -0.12, sw * 0.10, 0);
+        lerpRot(rig.pelvis, 0.10, sw * 0.05, 0);
+        lerpRot(rig.torso, 0.08, -sw * 0.04, 0);
+        lerpRot(rig.head, -0.10, sw * 0.08, 0);
         lerpRot(rig.armR, -0.24, 0, s * 0.18);
         lerpRot(rig.forearmR, -0.34, 0, 0);
         lerpRot(rig.armL, -0.22, 0, -s * 0.18);
         lerpRot(rig.forearmL, -0.32, 0, 0);
-        lerpRot(rig.legR, -0.30, 0, s * 0.05);
-        lerpRot(rig.shinR, 0.46, 0, 0);
-        lerpRot(rig.legL, -0.16, 0, -s * 0.05);
-        lerpRot(rig.shinL, 0.30, 0, 0);
+        lerpRot(rig.legR, -0.22, 0, s * 0.06);
+        lerpRot(rig.shinR, 0.34, 0, 0);
+        lerpRot(rig.legL, -0.22, 0, -s * 0.06);
+        lerpRot(rig.shinL, 0.34, 0, 0);
       } else if (stance === 'MeleeSlash') {
         // ⚔️ Saber Cleave: Dynamic Close-Quarters Heat Saber / Beam Slash
         const slash = Math.sin(t * 3.2);
-        lerpPosY(rig.pelvis, -2.0 + Math.abs(slash) * 1.2);
+        lerpPosY(rig.pelvis, -2.0 + Math.abs(slash) * 1.0);
         lerpRot(rig.pelvis, 0.04, s * slash * 0.14, 0);
         lerpRot(rig.torso, 0.06, -s * slash * 0.26, 0);
         lerpRot(rig.head, -0.03, s * slash * 0.12, 0);
@@ -4382,10 +4389,10 @@
         lerpRot(rig.forearmR, -0.32 + slash * 0.18, 0, 0);
         lerpRot(rig.armL, -0.14, 0, -s * 0.16);
         lerpRot(rig.forearmL, -0.34, 0, 0);
-        lerpRot(rig.legR, -0.22, 0, s * 0.05);
-        lerpRot(rig.shinR, 0.24, 0, 0);
-        lerpRot(rig.legL, 0.18, 0, -s * 0.05);
-        lerpRot(rig.shinL, -0.16, 0, 0);
+        lerpRot(rig.legR, -0.16, 0, s * 0.05);
+        lerpRot(rig.shinR, 0.18, 0, 0);
+        lerpRot(rig.legL, 0.12, 0, -s * 0.05);
+        lerpRot(rig.shinL, 0.06, 0, 0);
       } else if (stance === 'PatrolMarch') {
         // 🦿 Combat Stride: Heavy Bipedal March Cycle
         const w = Math.sin(t * 3.6);
@@ -4493,7 +4500,8 @@
           const scaledBox = new THREE.Box3().setFromObject(model);
           const scaledCenter = new THREE.Vector3();
           scaledBox.getCenter(scaledCenter);
-          model.position.set(-scaledCenter.x, -scaledBox.min.y, -scaledCenter.z);
+          // Keep anatomical pelvis/leg centerline at X=0 so asymmetric handheld shield/gun never shifts non-Vanguard legs off-center!
+          model.position.set(0.0, -scaledBox.min.y, -scaledCenter.z);
 
           state.gearNodes = [];
           state.hingeNodes = [];
