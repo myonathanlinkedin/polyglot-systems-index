@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Treap Randomized Binary Search Tree with Heap Priorities",
+    "language": "C++",
+    "folder": "cpp",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "cpp-systems-core",
+    "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261123_080147_treap_randomized_binary_search",
+    "source_file": "main",
+    "timestamp": "2026-11-23T08:02:04.152231+00:00",
+    "dir_name": "20261123_080147_treap_randomized_binary_search"
+  },
+  {
     "topic": "Conflict-free Replicated Data Type (CRDT) PN-Counter",
     "language": "Rust",
     "folder": "rust",
@@ -977,17 +988,6 @@
     "source_file": "main",
     "timestamp": "2026-11-14T14:01:47.854707+00:00",
     "dir_name": "20261114_140135_you_could_have_invented_transf"
-  },
-  {
-    "topic": "Treap Randomized Binary Search Tree with Heap Priorities",
-    "language": "C++",
-    "folder": "cpp",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "cpp-systems-core",
-    "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261114_130233_treap_randomized_binary_search",
-    "source_file": "main",
-    "timestamp": "2026-11-14T13:02:46.520721+00:00",
-    "dir_name": "20261114_130233_treap_randomized_binary_search"
   },
   {
     "topic": "Self-Balancing AVL Tree with Aether-Graph",
