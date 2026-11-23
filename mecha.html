@@ -4867,6 +4867,16 @@
       }
     }
 
+    function resolveWeaponGripType(part) {
+      const explicit = part?.weapon_grip_type || part?.cad_mesh_definition?.weapon_grip_type;
+      if (explicit) return explicit;
+      const txt = `${part?.part_id || ''} ${part?.name || ''}`.toLowerCase();
+      if (/(saber|naginata|sword|blade|knife|dagger|axe|hawk|lance|spear|halberd|glaive|mace|hammer|scythe|katana|rapier|tomahawk|pike|trident|buster)/.test(txt)) {
+        return 'melee_hilt_grip';
+      }
+      return 'firearm_pistol_grip';
+    }
+
     async function mountPartOnAdapter(part, silent = false) {
       if (!state.socketRig) return;
       const slotGroup = resolvePartSlotGroup(part);
@@ -4931,15 +4941,6 @@
       const lSign = state.kinematicRig?.lSign || -1.0;
       // On Zeon suits (rSign = -1, lSign = +1), right hand is at -X and outer left forearm faces +X,
       // so mirror X on hand/forearm modular parts and temporarily hide the native hand weapon/shield!
-      function resolveWeaponGripType(part) {
-        if (part?.weapon_grip_type) return part.weapon_grip_type;
-        const txt = `${part?.part_id || ''} ${part?.name || ''}`.toLowerCase();
-        if (/(saber|naginata|sword|blade|knife|dagger|axe|hawk|lance|spear|halberd|glaive|mace|hammer|scythe)/.test(txt)) {
-          return 'melee_hilt_grip';
-        }
-        return 'firearm_pistol_grip';
-      }
-
       if (slotGroup === 'aux_weapon') {
         const gripType = resolveWeaponGripType(part);
         packModel.userData.weaponGripType = gripType;
@@ -5163,6 +5164,16 @@
       const hasAuxWeapon = !!state.slotOccupancy.aux_weapon && state.equippedPacks.has(state.slotOccupancy.aux_weapon);
       if (state.kinematicRig?.nativeRightWeaponMeshes) {
         state.kinematicRig.nativeRightWeaponMeshes.forEach(m => { m.visible = !hasAuxWeapon; });
+      }
+      const auxWeaponEntry = hasAuxWeapon ? state.equippedPacks.get(state.slotOccupancy.aux_weapon) : null;
+      const isMeleeHeld = !!(auxWeaponEntry && resolveWeaponGripType(auxWeaponEntry.part) === 'melee_hilt_grip');
+      const isReachingBackpack = state.weaponDrawAnim?.mode === 'backpack_saber_draw' && !state.weaponDrawAnim.swapped;
+      const bpR = state.kinematicRig?.backpackSaberHilts?.r;
+      if (bpR && !isReachingBackpack) {
+        bpR.visible = !isMeleeHeld;
+        if (bpR.visible && bpR.userData.initialPosition) {
+          bpR.position.copy(bpR.userData.initialPosition);
+        }
       }
       const hasAuxShield = !!state.slotOccupancy.aux_shield && state.equippedPacks.has(state.slotOccupancy.aux_shield);
       if (state.kinematicRig?.nativeLeftHoldMeshes) {
@@ -5696,18 +5707,22 @@
     partsSort?.addEventListener('change', (e) => { state.activeSort = e.target.value; renderInventory(); });
     btnEquippedOnly?.addEventListener('click', () => { state.equippedOnly = !state.equippedOnly; renderInventory(); });
 
-    // Root-Cause Mobile FPS Fix #5: Debounce mobile resize (prevents WebGL framebuffer stall when mobile URL bar slides up/down!)
+    // Root-Cause Mobile FPS Fix #5: Debounce mobile resize & NEVER auto-close drawers when virtual keyboard opens for search input!
     let resizeDebounceTimer = null;
+    let lastViewportWidth = window.innerWidth;
     window.addEventListener('resize', () => {
       clearTimeout(resizeDebounceTimer);
       resizeDebounceTimer = setTimeout(() => {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
         renderer.setSize(window.innerWidth, window.innerHeight);
-        if (window.innerWidth <= 960 && (state.menus.left || state.menus.right || state.menus.scene)) {
+        const curWidth = window.innerWidth;
+        const isTypingInInput = document.activeElement && ['INPUT', 'SELECT', 'TEXTAREA'].includes(document.activeElement.tagName);
+        if (!isTypingInInput && lastViewportWidth > 960 && curWidth <= 960 && (state.menus.left || state.menus.right || state.menus.scene)) {
           state.menus.left = false; state.menus.right = false; state.menus.scene = false;
           syncMenuVisibility();
         }
+        lastViewportWidth = curWidth;
         if (state.showCallouts) updateCalloutLeaders(true);
       }, 150);
     });

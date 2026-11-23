@@ -1,16 +1,5 @@
 [
   {
-    "topic": "Cache-Oblivious Matrix Transposition Algorithm",
-    "language": "Rust",
-    "folder": "rust",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "rust-algorithms",
-    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261123_110213_cache-oblivious_matrix_transpo",
-    "source_file": "main",
-    "timestamp": "2026-11-23T11:02:29.052496+00:00",
-    "dir_name": "20261123_110213_cache-oblivious_matrix_transpo"
-  },
-  {
     "topic": "Conflict-free Replicated Data Type (CRDT) PN-Counter",
     "language": "Java",
     "folder": "java",
@@ -218,6 +207,17 @@
     "source_file": "main",
     "timestamp": "2026-11-22T09:02:20.102840+00:00",
     "dir_name": "20261122_090154_exact_guarantees_and_faster_al"
+  },
+  {
+    "topic": "Cache-Oblivious Matrix Transposition Algorithm",
+    "language": "Rust",
+    "folder": "rust",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "rust-algorithms",
+    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261122_080107_cache-oblivious_matrix_transpo",
+    "source_file": "main",
+    "timestamp": "2026-11-22T08:01:25.794815+00:00",
+    "dir_name": "20261122_080107_cache-oblivious_matrix_transpo"
   },
   {
     "topic": "From Skiplists to B+ Trees: Making Aether-Cache Sorted Sets More Memory Efficient",
