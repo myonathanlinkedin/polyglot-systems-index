@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Red-Black Tree with Deterministic Balance Assertions",
+    "language": "Haskell",
+    "folder": "haskell",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "haskell-functional-core",
+    "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261123_200107_red-black_tree_with_determinis",
+    "source_file": "main",
+    "timestamp": "2026-11-23T20:01:25.498546+00:00",
+    "dir_name": "20261123_200107_red-black_tree_with_determinis"
+  },
+  {
     "topic": "Zero-Copy Byte Packet Ring Buffer Dispatcher",
     "language": "Zig",
     "folder": "zig",
@@ -1672,17 +1683,6 @@
     "dir_name": "20261103_230247_zero-copy_byte_packet_ring_buf"
   },
   {
-    "topic": "Red-Black Tree with Deterministic Balance Assertions",
-    "language": "Python",
-    "folder": "python",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "python-advanced-lab",
-    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261103_070259_red-black_tree_with_determinis",
-    "source_file": "main",
-    "timestamp": "2026-11-03T07:02:59.072119+00:00",
-    "dir_name": "20261103_070259_red-black_tree_with_determinis"
-  },
-  {
     "topic": "Actor Model Concurrency Engine with Mailbox Processing",
     "language": "Python",
     "folder": "python",
@@ -1703,6 +1703,17 @@
     "source_file": "main",
     "timestamp": "2026-11-02T13:01:18.159699+00:00",
     "dir_name": "20261102_130118_topological_sort_with_cycle_de"
+  },
+  {
+    "topic": "Red-Black Tree with Deterministic Balance Assertions",
+    "language": "Python",
+    "folder": "python",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "python-advanced-lab",
+    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261102_110118_red-black_tree_with_determinis",
+    "source_file": "main",
+    "timestamp": "2026-11-02T11:01:18.500893+00:00",
+    "dir_name": "20261102_110118_red-black_tree_with_determinis"
   },
   {
     "topic": "A Better Lower Bound for Sublinear Metric Steiner Tree",
