@@ -889,6 +889,25 @@
       background: rgba(16, 185, 129, 0.11);
     }
 
+    @keyframes deepLinkPulse {
+      0%, 100% {
+        border-color: #fbbf24;
+        box-shadow: 0 0 0 1px rgba(251, 191, 36, 0.65), 0 0 18px rgba(251, 191, 36, 0.42), inset 0 0 14px rgba(251, 191, 36, 0.16);
+      }
+      50% {
+        border-color: #00e5ff;
+        box-shadow: 0 0 0 2px rgba(0, 229, 255, 0.8), 0 0 24px rgba(0, 229, 255, 0.52), inset 0 0 18px rgba(0, 229, 255, 0.22);
+      }
+    }
+
+    .part-card.deep-link-highlight,
+    .unit-btn.deep-link-highlight {
+      border-color: #fbbf24 !important;
+      background: linear-gradient(135deg, rgba(251, 191, 36, 0.22), rgba(16, 185, 129, 0.18)) !important;
+      animation: deepLinkPulse 1.8s ease-in-out infinite;
+      position: relative;
+    }
+
     .part-card-top {
       display: flex;
       justify-content: space-between;
@@ -2961,6 +2980,7 @@
       activeStation: 'all',
       activeSort: 'newest',
       equippedOnly: false,
+      highlightedPartId: null,
       isDrawerExpanded: false,
       menus: {
         top: true, left: true, right: true, scene: true, bottom: true,
@@ -4551,6 +4571,7 @@
         nativeRightWeaponMeshes: [],
         nativeLeftHoldMeshes: [],
         nativeBackpackMeshes: [],
+        nativeLowerPropellantMeshes: [],
         backpackSaberHilts: { r: null, l: null }
       };
       state.monoEyeNodes = [];
@@ -4607,9 +4628,19 @@
           n.includes('sazabi_funnel_') ||
           n.includes('sazabi_tank_') ||
           n.includes('sazabi_vernier_') ||
-          n.includes('sazabi_booster_')
+          n.includes('sazabi_booster_') ||
+          (n.includes('sazabi_thruster_') && !n.includes('shoulder'))
         ) {
           rig.nativeBackpackMeshes.push(mesh);
+        }
+        // Lower dorsal propellant tanks & rocket cones that hang down into the rear-waist envelope:
+        // automatically hidden when EITHER dorsal_pack OR waist_ordnance is equipped so Sazabi's stock
+        // rear rocket tanks/cones never overlap with waist_ordnance pods or dorsal packs!
+        if (
+          n.includes('sazabi_tank_') ||
+          (n.includes('sazabi_thruster_') && !n.includes('shoulder'))
+        ) {
+          rig.nativeLowerPropellantMeshes.push(mesh);
         }
         if (n.includes('backpack_saber_hilt_r')) {
           rig.backpackSaberHilts.r = mesh;
@@ -4788,11 +4819,11 @@
           alwaysVisible: false
         }),
 
-        // 7. WAIST / HIP FOLDING RAILGUNS ZONE (HP-13/17 — seated right on the actual waist belt line Y=109.5mm!)
-        waist_ordnance: createPhysicalAdapterSocket(rig.pelvis, {
+        // 7. WAIST / HIP FOLDING RAILGUNS ZONE (HP-13/17 — seated 0.0mm flush directly behind the red lower torso above the waist!)
+        waist_ordnance: createPhysicalAdapterSocket(rig.torso, {
           slotGroup: 'waist_ordnance',
           adapterId: 'ADP-HP13-WAIST',
-          worldPos: [0.0, 109.5, 0.0],
+          worldPos: [0.0, 115.5, spec.isZeonEnemy ? 1.2 : 2.2],
           rot: [0, 0, 0],
           scale: isSazabi ? 1.12 : 1.0,
           dockedZ: 0.0,
@@ -5415,6 +5446,7 @@
               ...(state.monoEyeNodes || []),
               ...(state.kinematicRig.nativeRightWeaponMeshes || []),
               ...(state.kinematicRig.nativeLeftHoldMeshes || []),
+              ...(state.kinematicRig.nativeBackpackMeshes || []),
               state.kinematicRig.backpackSaberHilts?.r,
               state.kinematicRig.backpackSaberHilts?.l,
             ].filter(Boolean));
@@ -5627,9 +5659,11 @@
         const adapterId = part.adapter_id || zMeta.adapterId;
         const seedShort = (part.entropy_seed || part.cad_mesh_definition?.asset_reference?.sha256_hash || 'a7f39c12').slice(0, 8);
 
+        const isHighlighted = state.highlightedPartId === part.part_id;
         const card = document.createElement('div');
-        card.className = `part-card ${isEquipped ? 'equipped' : ''}`;
+        card.className = `part-card ${isEquipped ? 'equipped' : ''} ${isHighlighted ? 'deep-link-highlight' : ''}`.trim();
         card.setAttribute('data-part-id', part.part_id);
+        card.setAttribute('data-serial-number', part.serial_number || '');
         card.innerHTML = `
           <div class="part-card-top">
             <div class="part-name-group">
@@ -5680,6 +5714,10 @@
       }
       if (entry.slotGroup === 'dorsal_pack' && state.kinematicRig?.nativeBackpackMeshes) {
         state.kinematicRig.nativeBackpackMeshes.forEach(m => { m.visible = true; });
+      }
+      if (entry.slotGroup === 'waist_ordnance' && state.kinematicRig?.nativeLowerPropellantMeshes) {
+        const hasDorsal = !!(state.slotOccupancy.dorsal_pack && state.equippedPacks.has(state.slotOccupancy.dorsal_pack));
+        state.kinematicRig.nativeLowerPropellantMeshes.forEach(m => { m.visible = !hasDorsal; });
       }
       state.chassisParts = state.chassisParts.filter(n => n.parent !== null);
       state.equippedPacks.delete(partId);
@@ -5782,6 +5820,11 @@
         // Detach/hide stock Mobile Suit backpack so custom Striker/mission pack docks cleanly onto torso backplate!
         if (state.kinematicRig?.nativeBackpackMeshes) {
           state.kinematicRig.nativeBackpackMeshes.forEach(m => { m.visible = false; });
+        }
+      } else if (slotGroup === 'waist_ordnance') {
+        // Hide hanging lower propellant tanks/thrusters on Sazabi so they never overlap with waist_ordnance pods!
+        if (state.kinematicRig?.nativeLowerPropellantMeshes) {
+          state.kinematicRig.nativeLowerPropellantMeshes.forEach(m => { m.visible = false; });
         }
       }
 
@@ -6009,8 +6052,12 @@
         state.kinematicRig.nativeRightWeaponMeshes.forEach(m => { m.visible = !hasAuxWeapon; });
       }
       const hasDorsalPack = !!state.slotOccupancy.dorsal_pack && state.equippedPacks.has(state.slotOccupancy.dorsal_pack);
+      const hasWaistOrdnance = !!state.slotOccupancy.waist_ordnance && state.equippedPacks.has(state.slotOccupancy.waist_ordnance);
       if (state.kinematicRig?.nativeBackpackMeshes) {
         state.kinematicRig.nativeBackpackMeshes.forEach(m => { m.visible = !hasDorsalPack; });
+      }
+      if (state.kinematicRig?.nativeLowerPropellantMeshes) {
+        state.kinematicRig.nativeLowerPropellantMeshes.forEach(m => { m.visible = !hasDorsalPack && !hasWaistOrdnance; });
       }
       const auxWeaponEntry = hasAuxWeapon ? state.equippedPacks.get(state.slotOccupancy.aux_weapon) : null;
       const isMeleeHeld = !!(auxWeaponEntry && resolveWeaponGripType(auxWeaponEntry.part) === 'melee_hilt_grip');
@@ -7620,6 +7667,124 @@
     // =========================================================================
     // 15. BOOTSTRAP & 60FPS KINEMATIC STANCE / MONO-EYE / SNAP-DETENT ENGINE
     // =========================================================================
+    function resolveDeepLinkUnitId(rawUnit) {
+      const u = String(rawUnit || '').trim().toLowerCase();
+      if (!u) return 'vanguard_rx';
+      if (UNIT_REGISTRY[u]) return UNIT_REGISTRY[u].id;
+      if (u.includes('sazabi') || u.includes('msn-04') || u.includes('msn04')) return 'enemy_sazabi';
+      if (u.includes('gouf') || u.includes('ms-07') || u.includes('ms07')) return 'enemy_gouf';
+      if (u.includes('zaku') || u.includes('ms-06') || u.includes('ms06')) return 'enemy_zaku';
+      return 'vanguard_rx';
+    }
+
+    function findDeepLinkedCatalogPart(params) {
+      const allParts = state.catalog?.modular_parts || [];
+      if (allParts.length === 0) return null;
+      const partIdQ = String(params.get('part') || params.get('part_id') || params.get('item') || '').trim().toLowerCase();
+      const serialQ = String(params.get('serial') || params.get('code') || '').trim().toLowerCase();
+      const nameQ = String(params.get('q') || params.get('search') || params.get('topic') || '').trim().toLowerCase();
+
+      if (partIdQ) {
+        const exactId = allParts.find(p => String(p.part_id || '').toLowerCase() === partIdQ);
+        if (exactId) return exactId;
+        const exactSerialFromPart = allParts.find(p => String(p.serial_number || '').toLowerCase() === partIdQ);
+        if (exactSerialFromPart) return exactSerialFromPart;
+      }
+      if (serialQ) {
+        const exactSerial = allParts.find(p => String(p.serial_number || '').toLowerCase() === serialQ);
+        if (exactSerial) return exactSerial;
+      }
+      const needle = partIdQ || serialQ || nameQ;
+      if (!needle) return null;
+      return allParts.find(p => {
+        const pid = String(p.part_id || '').toLowerCase();
+        const ser = String(p.serial_number || '').toLowerCase();
+        const nm = String(p.name || '').toLowerCase();
+        return pid.includes(needle) || ser.includes(needle) || nm.includes(needle) || needle.includes(nm);
+      }) || null;
+    }
+
+    async function applyDeepLinkFromUrl() {
+      const rawSearch = window.location.search || (window.location.hash.includes('?') ? window.location.hash.slice(window.location.hash.indexOf('?')) : window.location.hash.replace(/^#/, ''));
+      const params = new URLSearchParams(rawSearch);
+      const hasParams = Array.from(params.keys()).length > 0;
+      const targetUnitId = resolveDeepLinkUnitId(params.get('unit') || params.get('chassis'));
+
+      await loadUnit(targetUnitId);
+
+      if (!hasParams) return;
+
+      // Ensure left catalog drawer is open so user sees the highlighted item
+      if (state.menus.allHidden && typeof toggleAllMenus === 'function') {
+        toggleAllMenus();
+      } else if (!state.menus.left && typeof toggleSingleMenu === 'function') {
+        toggleSingleMenu('left');
+      }
+
+      const targetPart = findDeepLinkedCatalogPart(params);
+      if (targetPart) {
+        state.highlightedPartId = targetPart.part_id;
+        state.activeCategory = 'all';
+        state.activeStation = 'all';
+        state.equippedOnly = false;
+        state.searchQuery = '';
+        if (partsSearchInput) partsSearchInput.value = '';
+        if (btnClearSearch) btnClearSearch.style.display = 'none';
+        if (stationFilter) stationFilter.value = 'all';
+        categoryChips?.querySelectorAll('.cat-chip').forEach(c => {
+          c.classList.toggle('active', c.dataset.category === 'all');
+        });
+
+        if (!state.equippedPacks.has(targetPart.part_id)) {
+          await mountPartOnAdapter(targetPart, false);
+        }
+        enforceSinglePartPerSlotInvariant();
+        renderInventory();
+        updateTelemetry();
+        applyRenderMode(state.renderMode);
+        applyExplodedDisplacement(state.explodedFactor);
+
+        const sg = resolvePartSlotGroup(targetPart);
+        const zMeta = BODY_ZONES[sg] || BODY_ZONES.dorsal_pack;
+        if (inspectTitle) inspectTitle.innerText = `${targetPart.serial_number || 'GXM-CAD'} // ${targetPart.name}`;
+        if (inspectBody) {
+          inspectBody.innerHTML = `<span style="color:var(--accent-gold);font-weight:700;">[PORTFOLIO REFERENCED MODULE — EQUIPPED]</span><br>` +
+            `Zone: <b>${zMeta.label}</b> • Adapter: <b>${targetPart.adapter_id || zMeta.adapterId}</b> • Mass: <b>${(targetPart.structural_specs.mass_kg / 1000).toFixed(1)}t</b><br>` +
+            `${targetPart.telemetry_and_lore?.operational_role || ''}`;
+        }
+
+        requestAnimationFrame(() => {
+          const cardEl = partsList?.querySelector(`.part-card[data-part-id="${targetPart.part_id}"]`);
+          if (cardEl) {
+            cardEl.classList.add('deep-link-highlight');
+            cardEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        });
+
+        showToast(`🎯 [EQUIPPED & HIGHLIGHTED] ${targetPart.name} (${targetPart.serial_number})`, true);
+      } else if (params.get('loadout') === 'full') {
+        await equipFullBodyLoadout();
+      } else if (params.get('unit') || params.get('chassis')) {
+        document.querySelectorAll('#unit-roster .unit-btn').forEach(btn => {
+          btn.classList.toggle('deep-link-highlight', btn.dataset.unit === targetUnitId);
+        });
+      }
+
+      const stanceParam = params.get('stance');
+      if (stanceParam && PROCEDURAL_STANCES.some(s => s.id.toLowerCase() === stanceParam.toLowerCase())) {
+        const matchedStance = PROCEDURAL_STANCES.find(s => s.id.toLowerCase() === stanceParam.toLowerCase());
+        if (matchedStance) playAnimation(matchedStance.id);
+      }
+      const modeParam = (params.get('mode') || '').trim().toLowerCase();
+      if (modeParam && ['standard', 'glass', 'wireframe', 'xray', 'matcap'].includes(modeParam)) {
+        applyRenderMode(modeParam);
+      }
+      const hatchParam = (params.get('hatch') || '').trim().toLowerCase();
+      if (hatchParam === 'open' || hatchParam === '1' || hatchParam === 'true') {
+        if (typeof setHatchOpen === 'function') setHatchOpen(true, true);
+      }
+    }
+
     async function bootstrap() {
       try {
         const res = await fetch(`${MECHA_ASSETS_CDN}/data/mecha_catalog.json?t=${Date.now()}`, { cache: 'no-store' });
@@ -7630,7 +7795,7 @@
         state.catalog = await res.json();
       }
       renderInventory();
-      await loadUnit('vanguard_rx');
+      await applyDeepLinkFromUrl();
       if (typeof renderer.compileAsync === 'function') {
         renderer.compileAsync(scene, camera).catch(() => { });
       } else {
