@@ -4572,6 +4572,7 @@
         nativeLeftHoldMeshes: [],
         nativeBackpackMeshes: [],
         nativeLowerPropellantMeshes: [],
+        nativeShoulderShieldMeshes: [],
         backpackSaberHilts: { r: null, l: null }
       };
       state.monoEyeNodes = [];
@@ -4641,6 +4642,12 @@
           (n.includes('sazabi_thruster_') && !n.includes('shoulder'))
         ) {
           rig.nativeLowerPropellantMeshes.push(mesh);
+        }
+        // Detachable Zaku-II right shoulder shield & hinge bracket:
+        // Visible in default MS-06 loadout, automatically detached whenever custom shoulder_pods
+        // are equipped so the over-pauldron saddle clamp seats 100% flush onto Zaku's shoulder armor!
+        if (n.includes('zaku_shoulder_shield') || n.includes('zaku_shield_hinge')) {
+          rig.nativeShoulderShieldMeshes.push(mesh);
         }
         if (n.includes('backpack_saber_hilt_r')) {
           rig.backpackSaberHilts.r = mesh;
@@ -4729,8 +4736,11 @@
       const rSign = rig.rSign || 1.0;
       const lSign = rig.lSign || -1.0;
       const isSazabi = spec.id === 'enemy_sazabi';
+      const isGouf = spec.id === 'enemy_gouf';
       const headHeightY = isSazabi ? 166.5 : 165.0;
-      const chestFrontZ = isSazabi ? 19.2 : (spec.isZeonEnemy ? 17.8 : 15.6);
+      // Calibrated per-unit torso front face Z so chest_armor sternum & pectoral adapters bite 1.5..2.0mm solidly
+      // into the chestplate (0.0mm top-down & side air gap!) while outer Chobham plates stand cleanly proud!
+      const chestFrontZ = isSazabi ? 15.8 : (isGouf ? 14.0 : (spec.isZeonEnemy ? 13.0 : 12.6));
       const fistX = rSign * (isSazabi ? 37.6 : (spec.isZeonEnemy ? 34.8 : 36.2));
       const fistY = isSazabi ? 88.0 : 88.8;
       const fistZ = spec.isZeonEnemy ? 9.8 : 8.2;
@@ -4848,12 +4858,18 @@
 
       // Attach dedicated bilateral limb containers onto armR/armL and shinR/shinL so shoulder & leg pods articulate independently with each limb!
       // Note: In cad_compiler.py, _r is at +X and _l is at -X. On Zeon units (rSign = -1), armR is at -X and armL is at +X.
-      const shOutX = isSazabi ? 4.8 : (spec.isZeonEnemy ? 3.2 : 0.0);
+      // On Zaku-II, once zaku_shoulder_shield detaches for custom shoulder_pods, armR's bare shoulder cowl (X_outer=-39.5, Y_top=154.0)
+      // matches RX-78 width directly (shOutR = 0.0, shYR = 146.5) for a 0.0mm flush clamp fit with zero hole/gap!
+      const isZaku = spec.id === 'enemy_zaku';
+      const shOutR = isSazabi ? 4.8 : (isZaku ? 0.0 : (spec.isZeonEnemy ? 3.2 : 0.0));
+      const shOutL = isSazabi ? 4.8 : (spec.isZeonEnemy ? 3.2 : 0.0);
+      const shYR = isZaku ? 146.5 : 148.0;
+      const shYL = 148.0;
       const shR = new THREE.Group();
-      shR.position.set((rSign * shOutX) - rig.armR.userData.worldOrigin.x, 148.0 - rig.armR.userData.worldOrigin.y, 0.0 - rig.armR.userData.worldOrigin.z);
+      shR.position.set((rSign * shOutR) - rig.armR.userData.worldOrigin.x, shYR - rig.armR.userData.worldOrigin.y, 0.0 - rig.armR.userData.worldOrigin.z);
       rig.armR.add(shR);
       const shL = new THREE.Group();
-      shL.position.set((lSign * shOutX) - rig.armL.userData.worldOrigin.x, 148.0 - rig.armL.userData.worldOrigin.y, 0.0 - rig.armL.userData.worldOrigin.z);
+      shL.position.set((lSign * shOutL) - rig.armL.userData.worldOrigin.x, shYL - rig.armL.userData.worldOrigin.y, 0.0 - rig.armL.userData.worldOrigin.z);
       rig.armL.add(shL);
       sockets.shoulder_pods.bilateralRightContainer = shR;
       sockets.shoulder_pods.bilateralLeftContainer = shL;
@@ -5129,6 +5145,12 @@
         dMesh.userData.initialPosition = localPos.clone();
         dMesh.renderOrder = 2;
         ds.bone.add(dMesh);
+        // Bind shield decals to their parent detachable shield group so decals never float when shields detach!
+        if (unitId === 'enemy_zaku' && ds.nameTag === 'decal_shield_zeon') {
+          rig.nativeShoulderShieldMeshes.push(dMesh);
+        } else if ((unitId === 'enemy_gouf' || unitId === 'enemy_sazabi') && ds.nameTag.startsWith('decal_shield_')) {
+          rig.nativeLeftHoldMeshes.push(dMesh);
+        }
       }
     }
 
@@ -5357,9 +5379,9 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_skirts360');
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_hose2pack');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
-        gltfLoader.load(bustUrl, async (gltf) => {
+        const onGltfReady = async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
             gltf.scene?.traverse?.(n => { if (n.geometry) n.geometry.dispose(); });
             resolve(null);
@@ -5447,6 +5469,8 @@
               ...(state.kinematicRig.nativeRightWeaponMeshes || []),
               ...(state.kinematicRig.nativeLeftHoldMeshes || []),
               ...(state.kinematicRig.nativeBackpackMeshes || []),
+              ...(state.kinematicRig.nativeLowerPropellantMeshes || []),
+              ...(state.kinematicRig.nativeShoulderShieldMeshes || []),
               state.kinematicRig.backpackSaberHilts?.r,
               state.kinematicRig.backpackSaberHilts?.l,
             ].filter(Boolean));
@@ -5555,11 +5579,16 @@
           loadingOverlay.style.opacity = '0';
           setTimeout(() => { loadingOverlay.style.display = 'none'; }, 350);
           resolve(model);
-        }, undefined, (err) => {
+        };
+        const onGltfError = (err) => {
           console.error('Error loading unit GLB:', err);
           loadingLabel.innerText = 'ERROR LOADING MODEL ASSET';
           reject(err);
-        });
+        };
+        fetch(bustUrl, { cache: 'no-store' })
+          .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.arrayBuffer(); })
+          .then(buf => gltfLoader.parse(buf, '', onGltfReady, onGltfError))
+          .catch(() => gltfLoader.load(bustUrl, onGltfReady, undefined, onGltfError));
       });
     }
 
@@ -5719,6 +5748,9 @@
         const hasDorsal = !!(state.slotOccupancy.dorsal_pack && state.equippedPacks.has(state.slotOccupancy.dorsal_pack));
         state.kinematicRig.nativeLowerPropellantMeshes.forEach(m => { m.visible = !hasDorsal; });
       }
+      if (entry.slotGroup === 'shoulder_pods' && state.kinematicRig?.nativeShoulderShieldMeshes) {
+        state.kinematicRig.nativeShoulderShieldMeshes.forEach(m => { m.visible = true; });
+      }
       state.chassisParts = state.chassisParts.filter(n => n.parent !== null);
       state.equippedPacks.delete(partId);
       if (state.slotOccupancy[entry.slotGroup] === partId) {
@@ -5767,7 +5799,10 @@
         const relUrl = assetRef.relative_url || assetRef.mesh_url || `models/parts/${part.part_id}.glb`;
         const shaTag = (assetRef.sha256_hash || Date.now().toString()).slice(0, 12);
         const modelUrl = `${cdnBase}/${relUrl}?v=${shaTag}`;
-        const gltf = await new Promise((res, rej) => gltfLoader.load(modelUrl, res, undefined, rej));
+        const glbResp = await fetch(modelUrl, { cache: 'no-store' });
+        if (!glbResp.ok) throw new Error(`GLB HTTP ${glbResp.status}: ${modelUrl}`);
+        const glbBuf = await glbResp.arrayBuffer();
+        const gltf = await new Promise((res, rej) => gltfLoader.parse(glbBuf, '', res, rej));
         packModel = gltf.scene;
       }
 
@@ -5825,6 +5860,11 @@
         // Hide hanging lower propellant tanks/thrusters on Sazabi so they never overlap with waist_ordnance pods!
         if (state.kinematicRig?.nativeLowerPropellantMeshes) {
           state.kinematicRig.nativeLowerPropellantMeshes.forEach(m => { m.visible = false; });
+        }
+      } else if (slotGroup === 'shoulder_pods') {
+        // Detach Zaku-II stock shoulder shield so custom shoulder_pods clamp 100% flush onto the shoulder armor!
+        if (state.kinematicRig?.nativeShoulderShieldMeshes) {
+          state.kinematicRig.nativeShoulderShieldMeshes.forEach(m => { m.visible = false; });
         }
       }
 
@@ -6072,6 +6112,10 @@
       const hasAuxShield = !!state.slotOccupancy.aux_shield && state.equippedPacks.has(state.slotOccupancy.aux_shield);
       if (state.kinematicRig?.nativeLeftHoldMeshes) {
         state.kinematicRig.nativeLeftHoldMeshes.forEach(m => { m.visible = !hasAuxShield; });
+      }
+      const hasShoulderPods = !!state.slotOccupancy.shoulder_pods && state.equippedPacks.has(state.slotOccupancy.shoulder_pods);
+      if (state.kinematicRig?.nativeShoulderShieldMeshes) {
+        state.kinematicRig.nativeShoulderShieldMeshes.forEach(m => { m.visible = !hasShoulderPods; });
       }
       state.chassisParts = state.chassisParts.filter(n => n.parent !== null);
     }
@@ -7787,11 +7831,11 @@
 
     async function bootstrap() {
       try {
-        const res = await fetch(`${MECHA_ASSETS_CDN}/data/mecha_catalog.json?t=${Date.now()}`, { cache: 'no-store' });
-        if (!res.ok) throw new Error('Public mecha-assets catalog not reachable');
+        const res = await fetch(`data/mecha_catalog.json?t=${Date.now()}`, { cache: 'no-store' });
+        if (!res.ok) throw new Error('Local mecha catalog not reachable');
         state.catalog = await res.json();
       } catch {
-        const res = await fetch('data/mecha_catalog.json', { cache: 'no-store' });
+        const res = await fetch(`${MECHA_ASSETS_CDN}/data/mecha_catalog.json?t=${Date.now()}`, { cache: 'no-store' });
         state.catalog = await res.json();
       }
       renderInventory();
