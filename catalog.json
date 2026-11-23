@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Pratt Top-Down Operator Precedence Expression Parser",
+    "language": "TypeScript",
+    "folder": "typescript",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "typescript-design-patterns",
+    "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261123_130729_pratt_top-down_operator_preced",
+    "source_file": "main",
+    "timestamp": "2026-11-23T13:07:46.059962+00:00",
+    "dir_name": "20261123_130729_pratt_top-down_operator_preced"
+  },
+  {
     "topic": "Cache-Oblivious Matrix Transposition Algorithm",
     "language": "Rust",
     "folder": "rust",
@@ -1065,17 +1076,6 @@
     "source_file": "main",
     "timestamp": "2026-11-13T20:02:33.460551+00:00",
     "dir_name": "20261113_200218_tarjan_strongly_connected_comp"
-  },
-  {
-    "topic": "Pratt Top-Down Operator Precedence Expression Parser",
-    "language": "TypeScript",
-    "folder": "typescript",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "typescript-design-patterns",
-    "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261113_190257_pratt_top-down_operator_preced",
-    "source_file": "main",
-    "timestamp": "2026-11-13T19:03:13.041739+00:00",
-    "dir_name": "20261113_190257_pratt_top-down_operator_preced"
   },
   {
     "topic": "Sharp Algorithms",
