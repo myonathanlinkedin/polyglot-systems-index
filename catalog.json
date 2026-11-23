@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Trie Prefix Tree for Auto-Completion with Frequency Ranking",
+    "language": "C",
+    "folder": "c",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "c-lowlevel-systems",
+    "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261123_140116_trie_prefix_tree_for_auto-comp",
+    "source_file": "main",
+    "timestamp": "2026-11-23T14:01:32.241064+00:00",
+    "dir_name": "20261123_140116_trie_prefix_tree_for_auto-comp"
+  },
+  {
     "topic": "Pratt Top-Down Operator Precedence Expression Parser",
     "language": "TypeScript",
     "folder": "typescript",
@@ -163,17 +174,6 @@
     "source_file": "main",
     "timestamp": "2026-11-22T17:02:53.908760+00:00",
     "dir_name": "20261122_170239_actor_model_concurrency_engine"
-  },
-  {
-    "topic": "Trie Prefix Tree for Auto-Completion with Frequency Ranking",
-    "language": "Haskell",
-    "folder": "haskell",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "haskell-functional-core",
-    "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261122_170107_trie_prefix_tree_for_auto-comp",
-    "source_file": "main",
-    "timestamp": "2026-11-22T17:01:21.472224+00:00",
-    "dir_name": "20261122_170107_trie_prefix_tree_for_auto-comp"
   },
   {
     "topic": "Thinflow: Organizing HPC Benchmarking Campaigns as Rerunnable Directory Trees",
