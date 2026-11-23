@@ -4747,11 +4747,11 @@
           alwaysVisible: false
         }),
 
-        // 4. DORSAL BACKPACK / STRIKER PACK ZONE (HP-00 — replaces stock backpack flush against torso backplate!)
+        // 4. DORSAL BACKPACK / STRIKER PACK ZONE (HP-00 — replaces stock backpack 0.0mm flush against torso backplate!)
         dorsal_pack: createPhysicalAdapterSocket(rig.torso, {
           slotGroup: 'dorsal_pack',
           adapterId: 'ADP-HP00-DORSAL',
-          worldPos: [0.0, 141.5, spec.isZeonEnemy ? -10.8 : -8.5],
+          worldPos: [0.0, 141.5, spec.isZeonEnemy ? -9.6 : -7.6],
           rot: [0, 0, 0],
           scale: 1.0,
           dockedZ: 0.0,
@@ -4788,11 +4788,11 @@
           alwaysVisible: false
         }),
 
-        // 7. WAIST / HIP FOLDING RAILGUNS ZONE (HP-13/17)
+        // 7. WAIST / HIP FOLDING RAILGUNS ZONE (HP-13/17 — seated right on the actual waist belt line Y=109.5mm!)
         waist_ordnance: createPhysicalAdapterSocket(rig.pelvis, {
           slotGroup: 'waist_ordnance',
           adapterId: 'ADP-HP13-WAIST',
-          worldPos: [0.0, 101.5, 0.0],
+          worldPos: [0.0, 109.5, 0.0],
           rot: [0, 0, 0],
           scale: isSazabi ? 1.12 : 1.0,
           dockedZ: 0.0,
@@ -5326,7 +5326,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent(state.catalog?.last_synthesized_utc || Date.now());
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_skirts360');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         gltfLoader.load(bustUrl, async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
