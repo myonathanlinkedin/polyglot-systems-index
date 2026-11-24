@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Distributed Consistent Hashing Router with Virtual Nodes",
+    "language": "C++",
+    "folder": "cpp",
+    "category": "\ud83c\udf10 Distributed Systems & Consensus",
+    "spoke_repo": "cpp-systems-core",
+    "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261124_170329_distributed_consistent_hashing",
+    "source_file": "main",
+    "timestamp": "2026-11-24T17:03:49.742415+00:00",
+    "dir_name": "20261124_170329_distributed_consistent_hashing"
+  },
+  {
     "topic": "Build Your Own Stack-Based Bytecode Virtual Machine in C",
     "language": "C",
     "folder": "c",
@@ -317,17 +328,6 @@
     "source_file": "main",
     "timestamp": "2026-11-22T13:02:45.454437+00:00",
     "dir_name": "20261122_130232_bloom_filter_with_chronos-hash"
-  },
-  {
-    "topic": "Distributed Consistent Hashing Router with Virtual Nodes",
-    "language": "Java",
-    "folder": "java",
-    "category": "\ud83c\udf10 Distributed Systems & Consensus",
-    "spoke_repo": "java-enterprise-patterns",
-    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261122_110212_distributed_consistent_hashing",
-    "source_file": "main",
-    "timestamp": "2026-11-22T11:02:28.156608+00:00",
-    "dir_name": "20261122_110212_distributed_consistent_hashing"
   },
   {
     "topic": "Suffix Automaton for Linear-Time Substring Indexing",
