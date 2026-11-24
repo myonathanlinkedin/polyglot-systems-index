@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Hopcroft-Karp Bipartite Matching Algorithm",
+    "language": "C",
+    "folder": "c",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "c-lowlevel-systems",
+    "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261124_190226_hopcroft-karp_bipartite_matchi",
+    "source_file": "main",
+    "timestamp": "2026-11-24T19:02:42.337173+00:00",
+    "dir_name": "20261124_190226_hopcroft-karp_bipartite_matchi"
+  },
+  {
     "topic": "Distributed Consistent Hashing Router with Virtual Nodes",
     "language": "C++",
     "folder": "cpp",
@@ -108,17 +119,6 @@
     "source_file": "main",
     "timestamp": "2026-11-24T03:03:08.614440+00:00",
     "dir_name": "20261124_030253_aho-corasick_multi-pattern_str"
-  },
-  {
-    "topic": "Hopcroft-Karp Bipartite Matching Algorithm",
-    "language": "Ruby",
-    "folder": "ruby",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "ruby-algorithms-lab",
-    "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261124_010211_hopcroft-karp_bipartite_matchi",
-    "source_file": "main",
-    "timestamp": "2026-11-24T01:02:27.683384+00:00",
-    "dir_name": "20261124_010211_hopcroft-karp_bipartite_matchi"
   },
   {
     "topic": "A* Heuristic Pathfinding with Dynamic Obstacle Cost",
