@@ -5008,16 +5008,22 @@
       const lSign = rig.lSign || -1.0;
       const isSazabi = spec.id === 'enemy_sazabi';
       const isGouf = spec.id === 'enemy_gouf';
-      const headHeightY = isSazabi ? 166.5 : 165.0;
+      const isZaku = spec.id === 'enemy_zaku';
+      // Per-unit calibrated raw-mm anatomical socket coordinates (RX-78 Vanguard kept 100% canonical;
+      // Zaku-II, Gouf & Sazabi calibrated to exact measured outer dome/pectoral/pauldron/calf/forearm bounds!)
+      const headHeightY = isSazabi ? 168.0 : (isGouf ? 169.8 : (isZaku ? 169.8 : 165.0));
+      const headScale = isSazabi ? 1.15 : (isGouf ? 1.20 : (isZaku ? 1.18 : 1.0));
       // Calibrated per-unit torso front face Z so chest_armor sternum & pectoral adapters bite 1.5..2.0mm solidly
       // into the chestplate (0.0mm top-down & side air gap!) while outer Chobham plates stand cleanly proud!
-      const chestFrontZ = isSazabi ? 15.8 : (isGouf ? 14.0 : (spec.isZeonEnemy ? 13.0 : 12.6));
-      const fistX = rSign * (isSazabi ? 37.6 : (spec.isZeonEnemy ? 34.8 : 36.2));
-      const fistY = isSazabi ? 88.0 : 88.8;
-      const fistZ = spec.isZeonEnemy ? 9.8 : 8.2;
-      const forearmOuterX = lSign * (isSazabi ? 43.2 : (spec.isZeonEnemy ? 40.8 : 40.5));
+      const chestFrontZ = isSazabi ? 15.8 : (isGouf ? 14.0 : (isZaku ? 13.0 : 12.6));
+      const chestScale = isSazabi ? 1.10 : (isGouf ? 1.06 : (isZaku ? 1.04 : 1.0));
+      const dorsalBackZ = isSazabi ? -10.8 : (isGouf ? -10.4 : (isZaku ? -9.6 : -7.6));
+      const fistX = rSign * (isSazabi ? 37.6 : (isGouf ? 34.8 : (isZaku ? 34.5 : 36.2)));
+      const fistY = isSazabi ? 88.0 : (spec.isZeonEnemy ? 88.5 : 88.8);
+      const fistZ = isSazabi ? 9.5 : (spec.isZeonEnemy ? 9.6 : 8.2);
+      const forearmOuterX = lSign * (isSazabi ? 42.4 : (isGouf ? 38.9 : (isZaku ? 38.2 : 40.5)));
       const forearmOuterY = 103.5;
-      const forearmOuterZ = spec.isZeonEnemy ? 4.4 : 3.8;
+      const forearmOuterZ = isSazabi ? 4.4 : (spec.isZeonEnemy ? 4.2 : 3.8);
 
       const sockets = {
         // 1. HEAD / CRANIAL SENSOR & VULCAN ZONE (HP-01/02)
@@ -5026,7 +5032,7 @@
           adapterId: 'ADP-HP01-CRANIAL',
           worldPos: [0.0, headHeightY, 0.0],
           rot: [0, 0, 0],
-          scale: isSazabi ? 1.05 : 1.0,
+          scale: headScale,
           dockedZ: 0.0,
           slideSign: 1.0,
           showBracket: false,
@@ -5039,7 +5045,7 @@
           adapterId: 'ADP-HP09-PECTORAL',
           worldPos: [0.0, 141.0, chestFrontZ],
           rot: [0, 0, 0],
-          scale: isSazabi ? 1.08 : 1.0,
+          scale: chestScale,
           dockedZ: 0.0,
           slideSign: 1.0,
           showBracket: false,
@@ -5063,7 +5069,7 @@
         dorsal_pack: createPhysicalAdapterSocket(rig.torso, {
           slotGroup: 'dorsal_pack',
           adapterId: 'ADP-HP00-DORSAL',
-          worldPos: [0.0, 141.5, spec.isZeonEnemy ? -9.6 : -7.6],
+          worldPos: [0.0, 141.5, dorsalBackZ],
           rot: [0, 0, 0],
           scale: 1.0,
           dockedZ: 0.0,
@@ -5107,11 +5113,11 @@
           adapterId: 'ADP-HP13-WAIST',
           worldPos: [
             0.0,
-            isSazabi ? 117.6 : (isGouf ? 116.8 : (spec.isZeonEnemy ? 116.8 : (spec.id === 'rival_frame' ? 112.4 : 111.8))),
-            isSazabi ? -1.6 : (spec.isZeonEnemy ? -0.4 : (spec.id === 'rival_frame' ? 1.0 : 2.2))
+            isSazabi ? 117.6 : (isGouf ? 116.8 : (isZaku ? 116.6 : (spec.id === 'rival_frame' ? 112.4 : 111.8))),
+            isSazabi ? -2.2 : (isGouf ? -0.8 : (isZaku ? -0.6 : (spec.id === 'rival_frame' ? 1.0 : 2.2)))
           ],
           rot: [0, 0, 0],
-          scale: isSazabi ? 1.12 : 1.0,
+          scale: isSazabi ? 1.15 : (isGouf ? 1.08 : (isZaku ? 1.06 : 1.0)),
           dockedZ: 0.0,
           slideSign: 1.0,
           showBracket: false,
@@ -5133,14 +5139,11 @@
       };
 
       // Attach dedicated bilateral limb containers onto armR/armL and shinR/shinL so shoulder & leg pods articulate independently with each limb!
-      // Note: In cad_compiler.py, _r is at +X and _l is at -X. On Zeon units (rSign = -1), armR is at -X and armL is at +X.
-      // On Zaku-II, once zaku_shoulder_shield detaches for custom shoulder_pods, armR's bare shoulder cowl (X_outer=-39.5, Y_top=154.0)
-      // matches RX-78 width directly (shOutR = 0.0, shYR = 146.5) for a 0.0mm flush clamp fit with zero hole/gap!
-      const isZaku = spec.id === 'enemy_zaku';
-      const shOutR = isSazabi ? 4.8 : (isZaku ? 0.0 : (spec.isZeonEnemy ? 3.2 : 0.0));
-      const shOutL = isSazabi ? 4.8 : (spec.isZeonEnemy ? 3.2 : 0.0);
-      const shYR = isZaku ? 146.5 : 148.0;
-      const shYL = 148.0;
+      // Calibrated to exact measured outer pauldron X at clamp height (RX-78=40.6, Zaku R=39.5/L=45.8, Gouf=46.2, Sazabi=49.0) & outer calf X (RX-78=29.8, Zaku=33.0, Gouf=33.8, Sazabi=38.9)!
+      const shOutR = isSazabi ? 8.4 : (isGouf ? 5.6 : (isZaku ? 0.0 : 0.0));
+      const shOutL = isSazabi ? 8.4 : (isGouf ? 5.6 : (isZaku ? 5.2 : 0.0));
+      const shYR = isSazabi ? 151.5 : (isGouf ? 149.5 : (isZaku ? 146.5 : 148.0));
+      const shYL = isSazabi ? 151.5 : (isGouf ? 149.5 : (isZaku ? 149.5 : 148.0));
       const shR = new THREE.Group();
       shR.position.set((rSign * shOutR) - rig.armR.userData.worldOrigin.x, shYR - rig.armR.userData.worldOrigin.y, 0.0 - rig.armR.userData.worldOrigin.z);
       rig.armR.add(shR);
@@ -5150,12 +5153,13 @@
       sockets.shoulder_pods.bilateralRightContainer = shR;
       sockets.shoulder_pods.bilateralLeftContainer = shL;
 
-      const legOutX = isSazabi ? 3.8 : (spec.isZeonEnemy ? 1.2 : 0.0);
+      const legOutX = isSazabi ? 8.8 : (isGouf ? 4.0 : (isZaku ? 3.2 : 0.0));
+      const legOutZ = isSazabi ? -6.0 : (isGouf ? -3.0 : (isZaku ? -2.2 : -1.0));
       const legRCont = new THREE.Group();
-      legRCont.position.set((rSign * legOutX) - rig.shinR.userData.worldOrigin.x, 38.0 - rig.shinR.userData.worldOrigin.y, -1.0 - rig.shinR.userData.worldOrigin.z);
+      legRCont.position.set((rSign * legOutX) - rig.shinR.userData.worldOrigin.x, 38.0 - rig.shinR.userData.worldOrigin.y, legOutZ - rig.shinR.userData.worldOrigin.z);
       rig.shinR.add(legRCont);
       const legLCont = new THREE.Group();
-      legLCont.position.set((lSign * legOutX) - rig.shinL.userData.worldOrigin.x, 38.0 - rig.shinL.userData.worldOrigin.y, -1.0 - rig.shinL.userData.worldOrigin.z);
+      legLCont.position.set((lSign * legOutX) - rig.shinL.userData.worldOrigin.x, 38.0 - rig.shinL.userData.worldOrigin.y, legOutZ - rig.shinL.userData.worldOrigin.z);
       rig.shinL.add(legLCont);
       sockets.leg_thrusters.bilateralRightContainer = legRCont;
       sockets.leg_thrusters.bilateralLeftContainer = legLCont;
@@ -5708,7 +5712,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_pguframe');
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261124_r3');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         const onGltfReady = async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
