@@ -3802,9 +3802,9 @@
     // =========================================================================
     // 4. ULTRA-FAST 256px PROCEDURAL PANEL-LINE MAP (<2ms INIT, ZERO SOBEL FREEZE!)
     // =========================================================================
-    function ensureBoxProjectedUVs(geometry, uvScale = 0.028) {
+    function ensureBoxProjectedUVs(geometry, uvScale = 0.028, forceRebuild = false) {
       if (!geometry || !geometry.attributes || !geometry.attributes.position) return;
-      if (geometry.attributes.uv && geometry.attributes.uv.count === geometry.attributes.position.count) return;
+      if (!forceRebuild && geometry.attributes.uv && geometry.attributes.uv.count === geometry.attributes.position.count) return;
       if (!geometry.attributes.normal) geometry.computeVertexNormals();
       const pos = geometry.attributes.position;
       const nrm = geometry.attributes.normal;
@@ -3824,6 +3824,7 @@
         uvs[i * 2 + 1] = v;
       }
       geometry.setAttribute('uv', new THREE.BufferAttribute(uvs, 2));
+      geometry.attributes.uv.needsUpdate = true;
     }
 
     // Centralized, backward-compatible PBR & Studio Rendering Configuration (Bandai Metal Build / PG Unleashed studio defaults)
@@ -3841,7 +3842,7 @@
     };
 
     function createProceduralMechaPBR() {
-      const size = isCoarseMobile ? 256 : 512;
+      const size = 512;
       const scale = size / 256;
       let seed = 1337;
       const nextRand = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
@@ -3877,18 +3878,18 @@
         aCtx.lineTo(rx + Math.cos(ang) * len, ry + Math.sin(ang) * len);
         aCtx.stroke();
       }
-      // Crisp Gunpla panel ink lines + corner micro-fastener dots
-      aCtx.strokeStyle = 'rgba(18, 26, 40, 0.17)';
-      aCtx.lineWidth = 1.05 * scale;
+      // Crisp Gunpla panel ink lines + corner micro-fastener dots (high readability on bright & light armor!)
+      aCtx.strokeStyle = 'rgba(18, 26, 40, 0.28)';
+      aCtx.lineWidth = 1.15 * scale;
       aCtx.beginPath(); aCtx.moveTo(0, 128 * scale); aCtx.lineTo(size, 128 * scale); aCtx.stroke();
       aCtx.beginPath(); aCtx.moveTo(128 * scale, 0); aCtx.lineTo(128 * scale, size); aCtx.stroke();
-      aCtx.strokeStyle = 'rgba(24, 34, 52, 0.12)';
-      aCtx.lineWidth = 0.85 * scale;
+      aCtx.strokeStyle = 'rgba(24, 34, 52, 0.20)';
+      aCtx.lineWidth = 0.95 * scale;
       aCtx.strokeRect(12 * scale, 12 * scale, 104 * scale, 100 * scale);
       aCtx.strokeRect(138 * scale, 136 * scale, 105 * scale, 104 * scale);
       aCtx.strokeRect(140 * scale, 14 * scale, 100 * scale, 86 * scale);
       aCtx.strokeRect(16 * scale, 144 * scale, 90 * scale, 74 * scale);
-      aCtx.fillStyle = 'rgba(22, 32, 48, 0.18)';
+      aCtx.fillStyle = 'rgba(22, 32, 48, 0.28)';
       [[18, 18], [110, 18], [18, 106], [110, 106], [144, 142], [236, 142], [144, 234], [236, 234]].forEach(([px, py]) => {
         aCtx.beginPath(); aCtx.arc(px * scale, py * scale, 1.3 * scale, 0, Math.PI * 2); aCtx.fill();
       });
@@ -4047,7 +4048,7 @@
             if (mat.roughnessMap) mat.roughnessMap = mechaPBR.roughnessMap;
             if (mechaPBR.normalMap) {
               mat.normalMap = mechaPBR.normalMap;
-              mat.normalScale = new THREE.Vector2(0.72, 0.72);
+              mat.normalScale = new THREE.Vector2(0.88, 0.88);
               mat.bumpMap = null;
             }
             mat.needsUpdate = true;
@@ -4055,7 +4056,7 @@
             if (mat.roughnessMap) mat.roughnessMap = mechaPBR.metalRoughnessMap;
             if (mechaPBR.metalNormalMap) {
               mat.normalMap = mechaPBR.metalNormalMap;
-              mat.normalScale = new THREE.Vector2(0.36, 0.36);
+              mat.normalScale = new THREE.Vector2(0.54, 0.54);
               mat.bumpMap = null;
             }
             mat.needsUpdate = true;
@@ -4063,11 +4064,11 @@
         });
       };
 
-      loadMap('armor_albedo_detail.webp', true, 0.34, (t) => { mechaPBR.albedoDetailMap = t; refreshArmorMats(); });
-      loadMap('armor_normal.webp', false, 0.34, (t) => { mechaPBR.normalMap = t; refreshArmorMats(); });
-      loadMap('armor_roughness.webp', false, 0.34, (t) => { mechaPBR.roughnessMap = t; refreshArmorMats(); });
-      loadMap('metal_brushed_normal.webp', false, 0.95, (t) => { mechaPBR.metalNormalMap = t; refreshArmorMats(); });
-      loadMap('metal_brushed_rough.webp', false, 0.95, (t) => { mechaPBR.metalRoughnessMap = t; refreshArmorMats(); });
+      loadMap('armor_albedo_detail.webp', true, 0.46, (t) => { mechaPBR.albedoDetailMap = t; refreshArmorMats(); });
+      loadMap('armor_normal.webp', false, 0.46, (t) => { mechaPBR.normalMap = t; refreshArmorMats(); });
+      loadMap('armor_roughness.webp', false, 0.46, (t) => { mechaPBR.roughnessMap = t; refreshArmorMats(); });
+      loadMap('metal_brushed_normal.webp', false, 1.15, (t) => { mechaPBR.metalNormalMap = t; refreshArmorMats(); });
+      loadMap('metal_brushed_rough.webp', false, 1.15, (t) => { mechaPBR.metalRoughnessMap = t; refreshArmorMats(); });
       loadMap('mecha_decals_atlas.webp', true, 1.0, (t) => {
         t.flipY = true;
         mechaPBR.decalsAtlas = t;
@@ -4183,11 +4184,13 @@
       const isPolymer = materialClass === 'polymer_matte';
       const isWhite = materialClass === 'armor_white';
       const isGloss = materialClass === 'armor_gloss';
-      // Crisp, restrained metallic bevel edge-wear strictly on sharp corners (NEVER blotching flat/curved panels!)
-      const edgeChipStrength = isPolymer ? 0.02 : (isMetal ? 0.18 : (isWhite ? 0.20 : (isGloss ? 0.16 : 0.22)));
-      const cavityWashStrength = isPolymer ? 0.28 : (isMetal ? 0.46 : (isWhite ? 0.42 : 0.48));
-      const rimGain = isPolymer ? 0.04 : (isMetal ? 0.14 : 0.09);
-      const cacheTag = `gunpla_pbr_studio_v4_${materialClass}`;
+      // Bandai Metal Build Studio v5: Triplanar Micro-Grain + Metallic Flake + Screen-Space Bevel Catchlight + Cavity Enamel Wash
+      const edgeChipStrength = isPolymer ? 0.04 : (isMetal ? 0.24 : (isWhite ? 0.22 : (isGloss ? 0.22 : 0.26)));
+      const cavityWashStrength = isPolymer ? 0.32 : (isMetal ? 0.50 : (isWhite ? 0.44 : 0.52));
+      const flakeStrength = isPolymer ? 0.0 : (isGloss ? 0.14 : (isMetal ? 0.11 : (isWhite ? 0.04 : 0.07)));
+      const grainStrength = isPolymer ? 0.11 : (isMetal ? 0.14 : 0.085);
+      const rimGain = isPolymer ? 0.05 : (isMetal ? 0.18 : (isGloss ? 0.15 : 0.11));
+      const cacheTag = `gunpla_pbr_studio_v6_lumadapt_${materialClass}`;
       mat.customProgramCacheKey = () => cacheTag;
       mat.onBeforeCompile = (shader) => {
         shader.vertexShader = shader.vertexShader
@@ -4196,13 +4199,15 @@
             `#include <common>
             attribute vec4 aBakedMask;
             varying vec3 vBakedMask;
-            varying vec3 vMechaWorldPos;`
+            varying vec3 vMechaWorldPos;
+            varying vec3 vMechaWorldNormal;`
           )
           .replace(
             '#include <begin_vertex>',
             `#include <begin_vertex>
             vBakedMask = aBakedMask.rgb;
-            vMechaWorldPos = (modelMatrix * vec4(transformed, 1.0)).xyz;`
+            vMechaWorldPos = (modelMatrix * vec4(transformed, 1.0)).xyz;
+            vMechaWorldNormal = normalize(mat3(modelMatrix) * objectNormal);`
           );
 
         shader.fragmentShader = shader.fragmentShader
@@ -4211,6 +4216,7 @@
             `#include <common>
             varying vec3 vBakedMask;
             varying vec3 vMechaWorldPos;
+            varying vec3 vMechaWorldNormal;
             float mechaHash31(vec3 p) {
               p = fract(p * 0.1031);
               p += dot(p, p.yzx + 33.33);
@@ -4236,37 +4242,76 @@
             }`
           )
           .replace(
+            '#include <map_fragment>',
+            `#ifdef USE_MAP
+              vec4 sampledDiffuseColor = texture2D( map, vMapUv );
+              // Luminance-Adaptive Panel-Line Ink Boost: prevents bright white/silver/yellow/orange/cyan/green
+              // albedos from washing out subtle 2K panel lines & rivets under ACES Filmic highlights!
+              float mPreLum = dot(diffuseColor.rgb, vec3(0.299, 0.587, 0.114));
+              float mInkGain = 1.0 + smoothstep(0.22, 0.78, mPreLum) * 2.15;
+              sampledDiffuseColor.rgb = pow(max(sampledDiffuseColor.rgb, vec3(0.001)), vec3(mInkGain));
+              diffuseColor *= sampledDiffuseColor;
+            #endif`
+          )
+          .replace(
             '#include <color_fragment>',
             `#include <color_fragment>
             float mAO = clamp(vBakedMask.r, 0.14, 1.0);
             float mConvex = clamp(vBakedMask.g, 0.0, 1.0);
             float mCavity = clamp(vBakedMask.b, 0.0, 1.0);
-            float wearN1 = mechaNoise3(vMechaWorldPos * 0.55);
-            float wearN2 = mechaNoise3(vMechaWorldPos * 2.15);
-            float wearFbm = wearN1 * 0.55 + wearN2 * 0.45;
-            // Strict high-curvature threshold (mConvex > 0.72) -> micro metallic chipping ONLY on sharp armor bevel edges!
-            float sharpCorner = smoothstep(0.72, 0.96, mConvex);
-            float mEdgeChip = sharpCorner * smoothstep(0.46, 0.86, wearFbm) * ${edgeChipStrength.toFixed(3)};
-            // Deep recessed enamel panel-wash & crevice darkening strictly inside cavities and occluded seams
-            float mCreviceGrime = clamp(mCavity * 0.82 + pow(1.0 - mAO, 1.6) * 0.72, 0.0, 1.0) * (0.78 + 0.28 * wearN1) * ${cavityWashStrength.toFixed(3)};
-            diffuseColor.rgb = mix(diffuseColor.rgb, diffuseColor.rgb * 0.34, mCreviceGrime);
-            vec3 chipTint = ${isWhite ? 'vec3(0.32, 0.36, 0.42)' : 'min(diffuseColor.rgb * 1.45 + vec3(0.24), vec3(0.92))'};
+            vec3 mWN = normalize(vMechaWorldNormal);
+            float mBaseLum = dot(diffuseColor.rgb, vec3(0.299, 0.587, 0.114));
+            float mBright = smoothstep(0.28, 0.72, mBaseLum);
+
+            // Multi-scale world-space triplanar micro-surface fields (readable across dark, medium AND bright colors!)
+            float macroTone = mechaNoise3(vMechaWorldPos * 0.19);
+            float wearN1 = mechaNoise3(vMechaWorldPos * 0.65);
+            float wearN2 = mechaNoise3(vMechaWorldPos * 2.60);
+            float microGrain = mechaNoise3(vMechaWorldPos * ${isMetal ? 'vec3(0.55, 5.8, 0.55)' : (isPolymer ? 'vec3(7.5)' : 'vec3(4.2)')});
+            float flakeSparkle = smoothstep(0.76, 0.98, mechaHash31(floor(vMechaWorldPos * 8.5)));
+            float wearFbm = wearN1 * 0.52 + wearN2 * 0.48;
+
+            // Real-time screen-space geometric bevel detection (lights up machined chamfers even on compact modular boxes/fins!)
+            float screenCurv = clamp((length(dFdx(mWN)) + length(dFdy(mWN))) * 1.45, 0.0, 1.0);
+            float bakedEdge = smoothstep(0.66, 0.94, mConvex);
+            float bevelEdge = smoothstep(0.16, 0.58, screenCurv);
+            float sharpCorner = max(bakedEdge, bevelEdge * 0.82);
+            float mEdgeChip = sharpCorner * (0.45 + 0.55 * smoothstep(0.30, 0.82, wearFbm)) * ${edgeChipStrength.toFixed(3)};
+
+            // Luminance-adaptive contrast: keep bright surfaces below ACES clipping shoulder & amplify dark micro-grain/panel shifts!
+            float toneAmp = mix(0.11, 0.21, mBright);
+            float grainAmp = mix(${(grainStrength * 0.75).toFixed(3)}, ${(grainStrength * 1.55).toFixed(3)}, mBright);
+            float brightHeadroom = mix(1.0, 0.86, mBright);
+            float toneMod = brightHeadroom * (1.0 + (macroTone - 0.5) * toneAmp + (microGrain - 0.5) * grainAmp);
+            diffuseColor.rgb *= toneMod;
+            // Suppress additive sparkle on bright colors so highlights never wash out texture detail
+            diffuseColor.rgb += (diffuseColor.rgb * 0.38 + vec3(0.18)) * flakeSparkle * ${flakeStrength.toFixed(3)} * (1.0 - mBright * 0.72);
+
+            // Deep recessed enamel panel-wash & crevice darkening (stronger on bright armor so grooves read sharply!)
+            float mCreviceGrime = clamp(mCavity * 0.86 + pow(1.0 - mAO, 1.48) * 0.78, 0.0, 1.0) * (0.80 + 0.28 * wearN1) * ${cavityWashStrength.toFixed(3)} * (1.0 + mBright * 0.35);
+            diffuseColor.rgb = mix(diffuseColor.rgb, diffuseColor.rgb * 0.26, clamp(mCreviceGrime, 0.0, 0.88));
+            // On bright armor, bevel edge wear exposes crisp dark primer/graphite instead of white-on-white blowout!
+            vec3 darkChipTint = vec3(0.24, 0.28, 0.34);
+            vec3 lightChipTint = min(diffuseColor.rgb * 1.45 + vec3(0.22), vec3(0.90));
+            vec3 chipTint = mix(lightChipTint, darkChipTint, ${isWhite ? '1.0' : 'mBright'});
             diffuseColor.rgb = mix(diffuseColor.rgb, chipTint, mEdgeChip);`
           )
           .replace(
             '#include <roughnessmap_fragment>',
             `#include <roughnessmap_fragment>
-            roughnessFactor = clamp(roughnessFactor + mCreviceGrime * 0.32 - mEdgeChip * 0.28 + (wearN2 - 0.5) * 0.04, 0.10, 0.96);`
+            float mGrainRough = (microGrain - 0.5) * ${(grainStrength * 1.45).toFixed(3)} + (wearN2 - 0.5) * 0.075;
+            float mBrightRoughFloor = mix(0.08, 0.24, mBright);
+            roughnessFactor = clamp(roughnessFactor + mCreviceGrime * 0.34 - mEdgeChip * 0.22 - flakeSparkle * ${(flakeStrength * 0.50).toFixed(3)} * (1.0 - mBright * 0.65) + mGrainRough, mBrightRoughFloor, 0.96);`
           )
           .replace(
             '#include <metalnessmap_fragment>',
             `#include <metalnessmap_fragment>
-            metalnessFactor = clamp(mix(metalnessFactor, ${isMetal ? '0.96' : '0.78'}, mEdgeChip * 0.85) * (1.0 - mCreviceGrime * 0.28), 0.0, 0.98);`
+            metalnessFactor = clamp(mix(metalnessFactor, ${isMetal ? '0.96' : '0.82'}, mEdgeChip * 0.85) * (1.0 - mCreviceGrime * 0.26) + flakeSparkle * ${(flakeStrength * 0.60).toFixed(3)} * (1.0 - mBright * 0.65), 0.0, 0.98);`
           )
           .replace(
             '#include <aomap_fragment>',
             `#include <aomap_fragment>
-            float bakedAoFactor = mix(0.16, 1.0, pow(mAO, 1.45)) * (1.0 - mCavity * 0.28);
+            float bakedAoFactor = mix(0.16, 1.0, pow(mAO, 1.45)) * (1.0 - mCavity * 0.30);
             reflectedLight.indirectDiffuse *= bakedAoFactor;
             #if defined( USE_ENVMAP ) && defined( STANDARD )
               float bakedDotNV = saturate( dot( geometryNormal, geometryViewDir ) );
@@ -4277,9 +4322,10 @@
             '#include <dithering_fragment>',
             `
             float ndv = clamp(abs(dot(normal, normalize(vViewPosition))), 0.0, 1.0);
-            float fresnelRim = pow(max(1.0 - ndv, 0.0001), 3.6);
-            vec3 rimTint = mix(gl_FragColor.rgb, vec3(0.76, 0.88, 1.0), ${isMetal ? '0.50' : '0.32'});
-            gl_FragColor.rgb += rimTint * fresnelRim * ${rimGain.toFixed(3)} * mAO;
+            float fresnelRim = pow(max(1.0 - ndv, 0.0001), 3.2);
+            float rimAtten = 1.0 - mBright * 0.65;
+            vec3 rimTint = mix(gl_FragColor.rgb, vec3(0.80, 0.90, 1.0), ${isMetal ? '0.52' : (isGloss ? '0.44' : '0.32')});
+            gl_FragColor.rgb += rimTint * fresnelRim * ${rimGain.toFixed(3)} * rimAtten * mAO;
             #include <dithering_fragment>
             `
           );
@@ -4300,7 +4346,7 @@
       const isArmor = mClass === 'armor_white' || mClass === 'armor_painted' || mClass === 'armor_gloss';
       const isMetal = mClass === 'metal_brushed' || mClass === 'metal_gold' || mClass === 'metal_gunmetal';
       const isPolymer = mClass === 'polymer_matte';
-      const envI = (cfg.envMapIntensity ?? (isMetal ? 1.38 : (mClass === 'armor_gloss' ? 1.28 : (isPolymer ? 0.58 : (cfg.transparent ? 1.40 : 1.14))))) * RENDER_ENHANCEMENT_CONFIG.envReflectionIntensity;
+      const envI = (cfg.envMapIntensity ?? (isMetal ? 1.44 : (mClass === 'armor_gloss' ? 1.38 : (isPolymer ? 0.62 : (cfg.transparent ? 1.42 : 1.18))))) * RENDER_ENHANCEMENT_CONFIG.envReflectionIntensity;
 
       const key = `${mClass}_${cfg.color.toString(16)}_${Math.round(baseRough * 100)}_${Math.round(baseMetal * 100)}_${(cfg.emissive ?? 0).toString(16)}_${Math.round(baseEmissiveI * 10)}_${cfg.useDetail ? 1 : 0}_${cfg.isEmissive ? 1 : 0}_${cfg.transparent ? 1 : 0}`;
       if (MECHA_MAT_CACHE.has(key)) return MECHA_MAT_CACHE.get(key);
@@ -4317,9 +4363,9 @@
         map: useDetailMap ? mechaPBR.albedoDetailMap : null,
         roughnessMap: useDetailMap ? mechaPBR.roughnessMap : (isMetal ? mechaPBR.metalRoughnessMap : (isPolymer ? mechaPBR.polymerRoughnessMap : null)),
         normalMap: hasArmorNorm ? mechaPBR.normalMap : (hasMetalNorm ? mechaPBR.metalNormalMap : null),
-        normalScale: new THREE.Vector2(hasArmorNorm ? 0.72 : (hasMetalNorm ? 0.36 : 0.0), hasArmorNorm ? 0.72 : (hasMetalNorm ? 0.36 : 0.0)),
+        normalScale: new THREE.Vector2(hasArmorNorm ? 0.88 : (hasMetalNorm ? 0.54 : 0.0), hasArmorNorm ? 0.88 : (hasMetalNorm ? 0.54 : 0.0)),
         bumpMap: (hasArmorNorm || hasMetalNorm) ? null : (useDetailMap ? mechaPBR.bumpMap : (isMetal ? mechaPBR.metalBumpMap : null)),
-        bumpScale: (hasArmorNorm || hasMetalNorm) ? 0.0 : ((useDetailMap ? 0.16 : (isMetal ? 0.07 : 0.0)) * RENDER_ENHANCEMENT_CONFIG.surfaceDetailIntensity),
+        bumpScale: (hasArmorNorm || hasMetalNorm) ? 0.0 : ((useDetailMap ? 0.24 : (isMetal ? 0.12 : 0.0)) * RENDER_ENHANCEMENT_CONFIG.surfaceDetailIntensity),
         transparent: Boolean(cfg.transparent),
         opacity: cfg.opacity ?? 1.0,
         depthWrite: cfg.transparent ? false : true,
@@ -4328,14 +4374,15 @@
       };
 
       let mat;
-      if (!isCoarseMobile && !cfg.isEmissive) {
+      if (!cfg.isEmissive) {
+        // Enable MeshPhysicalMaterial clearcoat on BOTH Desktop & Mobile (materials are pooled in MECHA_MAT_CACHE!)
         const ccScale = RENDER_ENHANCEMENT_CONFIG.clearcoatIntensity;
-        let clearcoat = 0.0, clearcoatRoughness = 0.30, reflectivity = 0.56;
-        if (mClass === 'armor_gloss') { clearcoat = 0.80 * ccScale; clearcoatRoughness = 0.14; reflectivity = 0.82; }
-        else if (mClass === 'armor_painted') { clearcoat = 0.56 * ccScale; clearcoatRoughness = 0.19; reflectivity = 0.68; }
-        else if (mClass === 'armor_white') { clearcoat = 0.36 * ccScale; clearcoatRoughness = 0.26; reflectivity = 0.58; }
+        let clearcoat = 0.0, clearcoatRoughness = 0.28, reflectivity = 0.60;
+        if (mClass === 'armor_gloss') { clearcoat = 0.88 * ccScale; clearcoatRoughness = 0.12; reflectivity = 0.86; }
+        else if (mClass === 'armor_painted') { clearcoat = 0.62 * ccScale; clearcoatRoughness = 0.18; reflectivity = 0.72; }
+        else if (mClass === 'armor_white') { clearcoat = 0.44 * ccScale; clearcoatRoughness = 0.22; reflectivity = 0.64; }
         else if (mClass === 'glass_optic') { clearcoat = 1.0 * ccScale; clearcoatRoughness = 0.06; reflectivity = 0.94; }
-        else if (isMetal) { clearcoat = 0.18 * ccScale; clearcoatRoughness = 0.30; reflectivity = 0.88; }
+        else if (isMetal) { clearcoat = 0.26 * ccScale; clearcoatRoughness = 0.26; reflectivity = 0.90; }
         mat = new THREE.MeshPhysicalMaterial({
           ...commonOpts,
           clearcoat,
@@ -4454,18 +4501,58 @@
       return getSharedMechaMaterial({ color: 0x1e2530, roughness: 0.36, metalness: 0.78, materialClass: 'metal_gunmetal' });
     }
 
-    // Dedicated Unlit Radiant 3-Layer Crimson-Pink Beam Saber Plasma Materials (ZERO Bloom pass needed!)
-    const beamSaberCoreMat = new THREE.MeshBasicMaterial({
-      color: 0xfff0f6, toneMapped: false
-    });
-    const beamSaberMidMat = new THREE.MeshBasicMaterial({
-      color: 0xff175c, transparent: true, opacity: 0.78,
-      depthWrite: false, blending: THREE.AdditiveBlending, toneMapped: false
-    });
-    const beamSaberHaloMat = new THREE.MeshBasicMaterial({
-      color: 0xff004c, transparent: true, opacity: 0.34,
-      depthWrite: false, blending: THREE.AdditiveBlending, side: THREE.DoubleSide, toneMapped: false
-    });
+    // Volumetric Fresnel GLSL Plasma Beam Saber Shaders (hot white-pink core -> electric magenta plasma ripple -> soft crimson aura!)
+    function createBeamPlasmaShaderMaterial(innerHex, outerHex, opacity, corePow, isCore = false) {
+      return new THREE.ShaderMaterial({
+        uniforms: {
+          uTime: { value: 0.0 },
+          uInnerColor: { value: new THREE.Color(innerHex) },
+          uOuterColor: { value: new THREE.Color(outerHex) },
+          uOpacity: { value: opacity },
+          uCorePow: { value: corePow }
+        },
+        transparent: !isCore,
+        depthWrite: isCore,
+        blending: isCore ? THREE.NormalBlending : THREE.AdditiveBlending,
+        side: isCore ? THREE.FrontSide : THREE.DoubleSide,
+        toneMapped: false,
+        vertexShader: `
+          varying vec3 vNorm;
+          varying vec3 vViewDir;
+          varying vec3 vLocalPos;
+          void main() {
+            vLocalPos = position;
+            vNorm = normalize(normalMatrix * normal);
+            vec4 mvPos = modelViewMatrix * vec4(position, 1.0);
+            vViewDir = normalize(-mvPos.xyz);
+            gl_Position = projectionMatrix * mvPos;
+          }
+        `,
+        fragmentShader: `
+          uniform float uTime;
+          uniform vec3 uInnerColor;
+          uniform vec3 uOuterColor;
+          uniform float uOpacity;
+          uniform float uCorePow;
+          varying vec3 vNorm;
+          varying vec3 vViewDir;
+          varying vec3 vLocalPos;
+          void main() {
+            float ndv = clamp(abs(dot(normalize(vNorm), normalize(vViewDir))), 0.0, 1.0);
+            float core = pow(ndv, uCorePow);
+            float flowA = sin(vLocalPos.y * 0.55 - uTime * 9.0 + vLocalPos.z * 0.35) * 0.5 + 0.5;
+            float flowB = sin(vLocalPos.y * 1.45 - uTime * 15.0 - vLocalPos.x * 0.8) * 0.5 + 0.5;
+            float plasma = 0.82 + 0.18 * (flowA * 0.65 + flowB * 0.35);
+            vec3 col = mix(uOuterColor, uInnerColor, core) * plasma;
+            float edgeFade = ${isCore ? '1.0' : 'smoothstep(0.02, 0.55, ndv)'};
+            gl_FragColor = vec4(col, uOpacity * edgeFade);
+          }
+        `
+      });
+    }
+    const beamSaberCoreMat = createBeamPlasmaShaderMaterial(0xffffff, 0xff80b5, 1.0, 1.35, true);
+    const beamSaberMidMat = createBeamPlasmaShaderMaterial(0xffb3d6, 0xff175c, 0.82, 1.85, false);
+    const beamSaberHaloMat = createBeamPlasmaShaderMaterial(0xff4d88, 0xd90445, 0.38, 2.20, false);
 
     function buildPackPBRMaterial(node, unitId = state.activeUnitId) {
       const spec = UNIT_REGISTRY[unitId] || UNIT_REGISTRY.vanguard_rx;
@@ -4481,45 +4568,49 @@
         return beamSaberHaloMat;
       }
       if (n.includes('hilt_white')) {
-        return getSharedMechaMaterial({ color: 0xf0f2ec, roughness: 0.34, metalness: 0.10, useDetail: false, materialClass: 'armor_white' });
+        return getSharedMechaMaterial({ color: 0xcfd7e0, roughness: 0.36, metalness: 0.14, useDetail: true, materialClass: 'armor_white' });
       }
       if (n.includes('_glass')) {
-        return getSharedMechaMaterial({ color: 0xbae6fd, roughness: 0.08, metalness: 0.10, transparent: true, opacity: 0.34, envMapIntensity: 1.38, materialClass: 'glass_optic' });
+        return getSharedMechaMaterial({ color: 0xbae6fd, roughness: 0.08, metalness: 0.10, transparent: true, opacity: 0.34, envMapIntensity: 1.42, materialClass: 'glass_optic' });
       }
       if (n.includes('_servo_accent')) {
-        return getSharedMechaMaterial({ color: 0x64748b, roughness: 0.26, metalness: 0.84, materialClass: 'metal_brushed' });
+        return getSharedMechaMaterial({ color: 0x64748b, roughness: 0.24, metalness: 0.88, materialClass: 'metal_brushed' });
       }
-      let color = pc.frame, roughness = 0.38, metalness = 0.72, emissive = 0x000000, emissiveIntensity = 0.0, useDetail = true, materialClass = 'metal_gunmetal';
+      let color = pc.frame, roughness = 0.36, metalness = 0.76, emissive = 0x000000, emissiveIntensity = 0.0, useDetail = true, materialClass = 'metal_gunmetal';
       if (n.includes('psycho_emerald')) {
-        color = 0x10b981; emissive = 0x059669; emissiveIntensity = 1.95; roughness = 0.14; metalness = 0.15; useDetail = false; materialClass = 'emissive';
+        // Deep Anodized Jade-Emerald Armor (ZERO emissive washout -> razor-sharp 2K panel lines, dark grooves & metallic clearcoat!)
+        color = 0x047857; roughness = 0.26; metalness = 0.58; useDetail = true; materialClass = 'armor_gloss';
       } else if (n.includes('amber_optic')) {
-        color = 0xf59e0b; emissive = 0xd97706; emissiveIntensity = 2.0; roughness = 0.14; metalness = 0.15; useDetail = false; materialClass = 'emissive';
+        // Deep Anodized Burnt Copper-Amber Armor (ZERO emissive washout -> crisp panel lines & bevel definition!)
+        color = 0xb45309; roughness = 0.26; metalness = 0.62; useDetail = true; materialClass = 'armor_gloss';
       } else if (n.includes('titanium_silver')) {
-        color = 0xdbe4ee; roughness = 0.20; metalness = 0.90; useDetail = false; materialClass = 'metal_brushed';
+        // Satin Brushed Titanium Alloy (non-clipping albedo + 2K panel lines + CNC micro-grain!)
+        color = 0xaab7c6; roughness = 0.26; metalness = 0.86; useDetail = true; materialClass = 'metal_brushed';
       } else if (n.includes('crimson_gloss')) {
-        color = 0x9f1239; roughness = 0.24; metalness = 0.42; useDetail = true; materialClass = 'armor_gloss';
+        color = 0x9f1239; roughness = 0.22; metalness = 0.46; useDetail = true; materialClass = 'armor_gloss';
       } else if (n.includes('cobalt_anodized')) {
-        color = 0x1d4ed8; roughness = 0.26; metalness = 0.62; useDetail = true; materialClass = 'armor_gloss';
+        color = 0x1d4ed8; roughness = 0.24; metalness = 0.56; useDetail = true; materialClass = 'armor_gloss';
       } else if (n.includes('zeon_olive_coat')) {
-        color = 0x556b45; roughness = 0.44; metalness = 0.18; useDetail = true; materialClass = 'armor_painted';
+        color = 0x4d623f; roughness = 0.42; metalness = 0.22; useDetail = true; materialClass = 'armor_painted';
       } else if (n.includes('optic_cyan') || n.includes('plasma_core_cyan') || n.includes('lens_emerald')) {
-        color = pc.optic; emissive = pc.optic; emissiveIntensity = 2.1; roughness = 0.12; metalness = 0.10; useDetail = false; materialClass = 'emissive';
+        // Deep Anodized Sapphire-Cyan Optical Housing (minimal internal tint so panel lines & bevels never blow out!)
+        color = 0x0284c7; emissive = 0x0369a1; emissiveIntensity = 0.16; roughness = 0.22; metalness = 0.54; useDetail = true; materialClass = 'armor_gloss';
       } else if (n.includes('gold') || n.includes('blade') || n.includes('intake') || n.includes('cross_gold') || n.includes('vane') || n.includes('pin_gold') || n.includes('lock_gold') || n.includes('drum_gold') || n.includes('coupling_gold')) {
-        color = pc.gold; roughness = 0.23; metalness = 0.88; useDetail = false; materialClass = 'metal_gold';
+        color = 0xc99214; roughness = 0.25; metalness = 0.86; useDetail = true; materialClass = 'metal_gold';
       } else if (n.includes('grip') || n.includes('epac')) {
-        color = 0x1c232e; roughness = 0.62; metalness = 0.20; useDetail = false; materialClass = 'polymer_matte';
+        color = 0x1c232e; roughness = 0.60; metalness = 0.22; useDetail = false; materialClass = 'polymer_matte';
       } else if (n.includes('adapter_') || n.includes('dovetail') || n.includes('bracket') || n.includes('clamp') || n.includes('rack_arm') || n.includes('yoke') || n.includes('gimbal') || n.includes('collar')) {
-        color = 0x222b38; roughness = 0.34; metalness = 0.82; useDetail = false; materialClass = 'metal_gunmetal';
+        color = 0x222b38; roughness = 0.32; metalness = 0.84; useDetail = false; materialClass = 'metal_gunmetal';
       } else if (n.includes('shield_core_red') || n.includes('tank') || n.includes('booster') || n.includes('hatch_red') || n.includes('era_block')) {
-        color = pc.accent; roughness = 0.34; metalness = 0.22; materialClass = 'armor_painted';
+        color = pc.accent; roughness = 0.28; metalness = 0.28; useDetail = true; materialClass = 'armor_painted';
       } else if (n.includes('fuselage') || n.includes('rack') || n.includes('core_chassis') || n.includes('hub_core') || n.includes('pylon') || n.includes('breach') || n.includes('missile_bay')) {
-        color = pc.secondary; roughness = 0.34; metalness = 0.24; materialClass = 'armor_painted';
+        color = pc.secondary; roughness = 0.27; metalness = 0.34; useDetail = true; materialClass = 'armor_gloss';
       } else if (n.includes('wing') || n.includes('disc') || n.includes('shield_frame') || n.includes('fin_binder') || n.includes('tower_shield') || n.includes('rudder') || n.includes('pectoral_armor') || n.includes('pod')) {
-        color = pc.primary; roughness = 0.38; metalness = 0.12; materialClass = (pc.primary === 0xf0f2ec || pc.primary === 0xeef2f6) ? 'armor_white' : 'armor_painted';
+        color = pc.primary; roughness = 0.34; metalness = 0.16; useDetail = true; materialClass = (pc.primary === 0xf0f2ec || pc.primary === 0xeef2f6 || pc.primary === 0xc4cedb) ? 'armor_white' : 'armor_painted';
       } else if (n.includes('bell') || n.includes('thruster') || n.includes('vernier') || n.includes('nozzle')) {
-        color = 0x526072; roughness = 0.22; metalness = 0.90; emissive = pc.optic; emissiveIntensity = 0.16; useDetail = false; materialClass = 'metal_brushed';
+        color = 0x526072; roughness = 0.22; metalness = 0.90; emissive = pc.optic; emissiveIntensity = 0.12; useDetail = false; materialClass = 'metal_brushed';
       } else if (n.includes('barrel') || n.includes('receiver') || n.includes('sleeve') || n.includes('cylinder') || n.includes('stake') || n.includes('rail')) {
-        color = 0x334155; roughness = 0.30; metalness = 0.86; useDetail = false; materialClass = 'metal_gunmetal';
+        color = 0x334155; roughness = 0.28; metalness = 0.88; useDetail = false; materialClass = 'metal_gunmetal';
       }
       const isEmissive = materialClass === 'emissive';
       return getSharedMechaMaterial({ color, roughness, metalness, emissive, emissiveIntensity, useDetail, isEmissive, materialClass });
@@ -5205,19 +5296,19 @@
       tactical_white: [3, 1]
     };
 
-    function createAtlasDecalGeometry(cellKey, width, height) {
+    function createAtlasDecalGeometry(cellKey, width, height, segsX = 6, segsY = 6) {
       const [col, row] = DECAL_CELLS[cellKey] || [0, 0];
-      const geo = new THREE.PlaneGeometry(width, height);
+      const geo = new THREE.PlaneGeometry(width, height, segsX, segsY);
       const u0 = col * 0.25 + 0.008;
       const u1 = (col + 1) * 0.25 - 0.008;
       const v1 = 1.0 - row * 0.5 - 0.01;
       const v0 = 1.0 - (row + 1) * 0.5 + 0.01;
       const uv = geo.attributes.uv;
-      // PlaneGeometry UV order: (0,1), (1,1), (0,0), (1,0)
-      uv.setXY(0, u0, v1);
-      uv.setXY(1, u1, v1);
-      uv.setXY(2, u0, v0);
-      uv.setXY(3, u1, v0);
+      for (let i = 0; i < uv.count; i++) {
+        const u = u0 + uv.getX(i) * (u1 - u0);
+        const v = v0 + uv.getY(i) * (v1 - v0);
+        uv.setXY(i, u, v);
+      }
       uv.needsUpdate = true;
       return geo;
     }
@@ -5277,8 +5368,8 @@
           // Chest: Zeon Crest on Left (+X), MS-07B stencil on Right (-X)
           { bone: rig.torso, cell: 'zeon_crest', origin: [14.0, 143.0, 40.0], dir: [0, 0, -1], w: 9.4, h: 11.4, nameTag: 'decal_chest_zeon' },
           { bone: rig.torso, cell: 'ms07b', origin: [-14.0, 142.0, 40.0], dir: [0, 0, -1], w: 11.0, h: 9.2, nameTag: 'decal_chest_ms07b' },
-          // Curved Knight Shield (+X, Rig_Forearm_L): prominent Zeon Heraldic Crest!
-          { bone: rig.forearmL, cell: 'zeon_crest', origin: [74.0, 102.0, 12.0], dir: [-1, 0, -0.18], w: 16.0, h: 19.5, nameTag: 'decal_shield_zeon' },
+          // Curved Knight Shield (+X, Rig_Forearm_L): prominent Zeon Heraldic Crest conforming to 24-deg curve!
+          { bone: rig.forearmL, cell: 'zeon_crest', origin: [81.6, 104.5, 13.5], dir: [-0.9418, -0.3090, -0.1324], w: 15.0, h: 18.2, nameTag: 'decal_shield_zeon' },
           // Lower Calves: white tactical triangles (matching Image 3!)
           { bone: rig.shinR, cell: 'tactical_white', origin: [-19.5, 25.0, 38.0], dir: [0, 0, -1], w: 7.4, h: 8.4, nameTag: 'decal_calf_r' },
           { bone: rig.shinL, cell: 'tactical_white', origin: [19.5, 25.0, 38.0], dir: [0, 0, -1], w: 7.4, h: 8.4, nameTag: 'decal_calf_l' }
@@ -5288,8 +5379,8 @@
           // Chest: Neo-Zeon Commander Sigil (Left +X) + MSN-04S stencil (Right -X)
           { bone: rig.torso, cell: 'neo_zeon', origin: [15.5, 143.0, 42.0], dir: [0, 0, -1], w: 10.2, h: 12.4, nameTag: 'decal_chest_neozeon' },
           { bone: rig.torso, cell: 'msn04s', origin: [-15.5, 142.0, 42.0], dir: [0, 0, -1], w: 11.5, h: 9.2, nameTag: 'decal_chest_msn04s' },
-          // Left Curved Commander Shield (+X, Rig_Forearm_L): iconic large Neo-Zeon Crest!
-          { bone: rig.forearmL, cell: 'neo_zeon', origin: [86.0, 91.5, 15.5], dir: [-1, 0, -0.18], w: 16.5, h: 20.0, nameTag: 'decal_shield_neozeon' },
+          // Left Curved Commander Shield (+X, Rig_Forearm_L): seated strictly INSIDE curved gold crest adapter bezel!
+          { bone: rig.forearmL, cell: 'neo_zeon', origin: [86.4, 101.1, 14.6], dir: [-0.9418, -0.3090, -0.1324], w: 12.0, h: 14.8, nameTag: 'decal_shield_neozeon' },
           // Bell-Bottom Calves & Front Skirt: white tactical markings (matching Image 3!)
           { bone: rig.shinR, cell: 'tactical_white', origin: [-21.0, 26.0, 44.0], dir: [0, 0, -1], w: 8.0, h: 9.0, nameTag: 'decal_calf_r' },
           { bone: rig.shinL, cell: 'tactical_white', origin: [21.0, 26.0, 44.0], dir: [0, 0, -1], w: 8.0, h: 9.0, nameTag: 'decal_calf_l' },
@@ -5337,22 +5428,73 @@
         const basisWorld = new THREE.Matrix4().makeBasis(rightAxis, trueUp, worldNrm);
         qTarget.setFromRotationMatrix(basisWorld);
 
-        // Convert hit position (lifted +0.35 mm along outward normal) and orientation into ds.bone's local space!
-        const worldPos = hit.point.clone().addScaledVector(worldNrm, 0.35);
+        // Convert hit position (lifted +0.16 mm along outward normal) and orientation into ds.bone's local space,
+        // then conform EVERY vertex of the 6x6 subdivided decal grid directly onto the curved 3D armor mesh (ZERO peeling!)
+        const boneWorldScale = new THREE.Vector3();
+        ds.bone.getWorldScale(boneWorldScale);
+        const unitScale = Math.max(0.001, boneWorldScale.x);
+        const liftDist = 0.16 * unitScale;
+        const probeOffset = 8.0 * unitScale;
+        const maxConformDelta = 3.2 * unitScale;
+
+        const worldPos = hit.point.clone().addScaledVector(worldNrm, liftDist);
         invBoneMat.copy(ds.bone.matrixWorld).invert();
         const localPos = worldPos.clone().applyMatrix4(invBoneMat);
         const boneWorldQuat = new THREE.Quaternion();
         ds.bone.getWorldQuaternion(boneWorldQuat);
         const localQuat = boneWorldQuat.invert().multiply(qTarget);
 
-        const dMesh = new THREE.Mesh(createAtlasDecalGeometry(ds.cell, ds.w, ds.h), decalMat);
+        const dGeo = createAtlasDecalGeometry(ds.cell, ds.w, ds.h, 6, 6);
+        const invDecalWorldMat = new THREE.Matrix4().compose(worldPos, qTarget, boneWorldScale).invert();
+        const posAttr = dGeo.attributes.position;
+        const probeDir = worldNrm.clone().negate();
+        const probeStart = new THREE.Vector3();
+        const snappedWorld = new THREE.Vector3();
+        const snappedLocal = new THREE.Vector3();
+        const vNrm = new THREE.Vector3();
+        const vNrmMat = new THREE.Matrix3();
+        const preferredTarget = [hit.object];
+
+        for (let vi = 0; vi < posAttr.count; vi++) {
+          const lx = posAttr.getX(vi) * unitScale;
+          const ly = posAttr.getY(vi) * unitScale;
+          probeStart.copy(hit.point)
+            .addScaledVector(rightAxis, lx)
+            .addScaledVector(trueUp, ly)
+            .addScaledVector(worldNrm, probeOffset);
+          raycaster.set(probeStart, probeDir);
+          let vHits = raycaster.intersectObjects(preferredTarget, false);
+          if (!vHits || vHits.length === 0 || Math.abs(vHits[0].distance - probeOffset) > maxConformDelta) {
+            vHits = raycaster.intersectObjects(targets, false);
+          }
+          if (vHits && vHits.length > 0 && vHits[0].face && Math.abs(vHits[0].distance - probeOffset) <= maxConformDelta) {
+            const vh = vHits[0];
+            vNrmMat.getNormalMatrix(vh.object.matrixWorld);
+            vNrm.copy(vh.face.normal).applyMatrix3(vNrmMat).normalize();
+            if (vNrm.dot(probeDir) > 0) vNrm.negate();
+            snappedWorld.copy(vh.point).addScaledVector(vNrm, liftDist);
+            snappedLocal.copy(snappedWorld).applyMatrix4(invDecalWorldMat);
+            posAttr.setXYZ(vi, snappedLocal.x, snappedLocal.y, snappedLocal.z);
+          }
+        }
+        posAttr.needsUpdate = true;
+        dGeo.computeVertexNormals();
+        dGeo.computeBoundingSphere();
+
+        const dMesh = new THREE.Mesh(dGeo, decalMat);
         dMesh.name = ds.nameTag;
         dMesh.position.copy(localPos);
         dMesh.quaternion.copy(localQuat);
         dMesh.userData.isDecal = true;
         dMesh.userData.initialPosition = localPos.clone();
+        const hitBaseMeta = hit.object.userData.explodeMeta || classifyExplodeRole(
+          hit.object.name,
+          (hit.object.userData.rootGeomCenter || hit.object.userData.geomCenter || new THREE.Vector3()).x
+        );
+        dMesh.userData.explodeMeta = { ...hitBaseMeta, drawTrail: false };
         dMesh.renderOrder = 2;
         ds.bone.add(dMesh);
+        state.chassisParts.push(dMesh);
         // Bind shield decals to their parent detachable shield group so decals never float when shields detach!
         if (unitId === 'enemy_zaku' && ds.nameTag === 'decal_shield_zeon') {
           rig.nativeShoulderShieldMeshes.push(dMesh);
@@ -6104,7 +6246,7 @@
           const nm = (node.name || '').toLowerCase();
           if (nm.includes('dovetail')) return;
           if (node.geometry) {
-            ensureBoxProjectedUVs(node.geometry, 0.032);
+            ensureBoxProjectedUVs(node.geometry, 0.078, true);
             ensureBakedMaskAttribute(node.geometry);
           }
           node.material = buildPackPBRMaterial(node, state.activeUnitId);
@@ -6138,7 +6280,7 @@
               return;
             }
             if (node.geometry) {
-              ensureBoxProjectedUVs(node.geometry, 0.032);
+              ensureBoxProjectedUVs(node.geometry, 0.078, true);
               ensureBakedMaskAttribute(node.geometry);
             }
             node.material = buildPackPBRMaterial(node, state.activeUnitId);
@@ -8453,6 +8595,11 @@
 
       if (state.renderMode === 'hologram') {
         hologramMaterial.uniforms.uTime.value = elapsed;
+      }
+      if (beamSaberCoreMat.uniforms?.uTime) {
+        beamSaberCoreMat.uniforms.uTime.value = elapsed;
+        beamSaberMidMat.uniforms.uTime.value = elapsed;
+        beamSaberHaloMat.uniforms.uTime.value = elapsed;
       }
       if (cyberGroup.visible) {
         neonTorus.rotation.y = elapsed * 0.5;
