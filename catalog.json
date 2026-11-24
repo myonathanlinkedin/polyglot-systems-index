@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Arctic: A Practical Lock-Free Adaptive Radix Tree",
+    "language": "Zig",
+    "folder": "zig",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "zig-systems-lab",
+    "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261124_130245_arctic__a_practical_lock-free",
+    "source_file": "main",
+    "timestamp": "2026-11-24T13:03:02.919019+00:00",
+    "dir_name": "20261124_130245_arctic__a_practical_lock-free"
+  },
+  {
     "topic": "Conflict-free Replicated Data Type (CRDT) PN-Counter",
     "language": "C++",
     "folder": "cpp",
