@@ -1,10 +1,10 @@
 Index,Topic,Language,Domain Category,Spoke Repository,Source File,Timestamp UTC
-001,Tic-Tac-Toe Minimax Algorithm in Java,Java,🧠 Computational AI & Math Engines,java-enterprise-patterns,main,2026-11-24T11:01:30.384122+00:00
-002,Two-Phase Commit Protocol Coordinator and Participant State Machine,C#,🌐 Distributed Systems & Consensus,csharp-enterprise-lab,main,2026-11-24T09:03:02.371068+00:00
-003,Build Your Own Stack-Based Bytecode Virtual Machine in C,C,🧠 Computational AI & Math Engines,c-lowlevel-systems,main,2026-11-24T08:01:22.080196+00:00
-004,CYK Parsing Algorithm for Context-Free Grammars,Java,🧠 Computational AI & Math Engines,java-enterprise-patterns,main,2026-11-24T07:02:18.998110+00:00
-005,Aho-Corasick Multi-Pattern String Searching Automaton,C++,⚡ Low-Latency & Memory Systems,cpp-systems-core,main,2026-11-24T03:03:08.614440+00:00
-006,Conflict-free Replicated Data Type (CRDT) PN-Counter,Go,🌐 Distributed Systems & Consensus,go-concurrency-lab,main,2026-11-24T02:01:49.467944+00:00
+001,Conflict-free Replicated Data Type (CRDT) PN-Counter,C++,🌐 Distributed Systems & Consensus,cpp-systems-core,main,2026-11-24T11:02:39.847231+00:00
+002,Tic-Tac-Toe Minimax Algorithm in Java,Java,🧠 Computational AI & Math Engines,java-enterprise-patterns,main,2026-11-24T11:01:30.384122+00:00
+003,Two-Phase Commit Protocol Coordinator and Participant State Machine,C#,🌐 Distributed Systems & Consensus,csharp-enterprise-lab,main,2026-11-24T09:03:02.371068+00:00
+004,Build Your Own Stack-Based Bytecode Virtual Machine in C,C,🧠 Computational AI & Math Engines,c-lowlevel-systems,main,2026-11-24T08:01:22.080196+00:00
+005,CYK Parsing Algorithm for Context-Free Grammars,Java,🧠 Computational AI & Math Engines,java-enterprise-patterns,main,2026-11-24T07:02:18.998110+00:00
+006,Aho-Corasick Multi-Pattern String Searching Automaton,C++,⚡ Low-Latency & Memory Systems,cpp-systems-core,main,2026-11-24T03:03:08.614440+00:00
 007,Hopcroft-Karp Bipartite Matching Algorithm,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main,2026-11-24T01:02:27.683384+00:00
 008,A* Heuristic Pathfinding with Dynamic Obstacle Cost,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main,2026-11-23T23:02:40.008174+00:00
 009,Compositional Temporal Specifications for Interaction Trees,Java,🧠 Computational AI & Math Engines,java-enterprise-patterns,main,2026-11-23T23:01:29.512560+00:00
