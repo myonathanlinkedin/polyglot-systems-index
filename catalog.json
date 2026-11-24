@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Fast Fourier Transform (Cooley-Tukey Radix-2) Signal Processing",
+    "language": "Rust",
+    "folder": "rust",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "rust-algorithms",
+    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261124_200127_fast_fourier_transform__cooley",
+    "source_file": "main",
+    "timestamp": "2026-11-24T20:01:48.938243+00:00",
+    "dir_name": "20261124_200127_fast_fourier_transform__cooley"
+  },
+  {
     "topic": "Hopcroft-Karp Bipartite Matching Algorithm",
     "language": "C",
     "folder": "c",
@@ -427,17 +438,6 @@
     "source_file": "main",
     "timestamp": "2026-11-21T21:03:09.431648+00:00",
     "dir_name": "20261121_210255_aggron__aggressive_compression"
-  },
-  {
-    "topic": "Fast Fourier Transform (Cooley-Tukey Radix-2) Signal Processing",
-    "language": "C++",
-    "folder": "cpp",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "cpp-systems-core",
-    "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261121_200103_fast_fourier_transform__cooley",
-    "source_file": "main",
-    "timestamp": "2026-11-21T20:01:17.949482+00:00",
-    "dir_name": "20261121_200103_fast_fourier_transform__cooley"
   },
   {
     "topic": "Tic-Tac-Toe Minimax Algorithm in Chronos-Compute",
