@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Trie Prefix Tree for Auto-Completion with Frequency Ranking",
+    "language": "Haskell",
+    "folder": "haskell",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "haskell-functional-core",
+    "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261124_230221_trie_prefix_tree_for_auto-comp",
+    "source_file": "main",
+    "timestamp": "2026-11-24T23:02:37.521527+00:00",
+    "dir_name": "20261124_230221_trie_prefix_tree_for_auto-comp"
+  },
+  {
     "topic": "iTerm2 Arbitrary Command Execution via Kitty Image Protocol APC Response Injection",
     "language": "Haskell",
     "folder": "haskell",
@@ -75,17 +86,6 @@
     "source_file": "main",
     "timestamp": "2026-11-24T15:03:05.412198+00:00",
     "dir_name": "20261124_150246_treap_randomized_binary_search"
-  },
-  {
-    "topic": "Trie Prefix Tree for Auto-Completion with Frequency Ranking",
-    "language": "Java",
-    "folder": "java",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "java-enterprise-patterns",
-    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261124_140107_trie_prefix_tree_for_auto-comp",
-    "source_file": "main",
-    "timestamp": "2026-11-24T14:01:28.312156+00:00",
-    "dir_name": "20261124_140107_trie_prefix_tree_for_auto-comp"
   },
   {
     "topic": "Arctic: A Practical Lock-Free Adaptive Radix Tree",

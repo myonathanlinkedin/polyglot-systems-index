@@ -1,12 +1,12 @@
 Index,Topic,Language,Domain Category,Spoke Repository,Source File,Timestamp UTC
-001,iTerm2 Arbitrary Command Execution via Kitty Image Protocol APC Response Injection,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main,2026-11-24T23:02:07.708402+00:00
-002,Count-Min Sketch Heavy Hitters Frequency Estimator,Java,🧠 Computational AI & Math Engines,java-enterprise-patterns,main,2026-11-24T21:02:56.517779+00:00
-003,Fast Fourier Transform (Cooley-Tukey Radix-2) Signal Processing,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-11-24T20:01:48.938243+00:00
-004,Hopcroft-Karp Bipartite Matching Algorithm,C,🧠 Computational AI & Math Engines,c-lowlevel-systems,main,2026-11-24T19:02:42.337173+00:00
-005,Distributed Consistent Hashing Router with Virtual Nodes,C++,🌐 Distributed Systems & Consensus,cpp-systems-core,main,2026-11-24T17:03:49.742415+00:00
-006,Build Your Own Stack-Based Bytecode Virtual Machine in C,C,🧠 Computational AI & Math Engines,c-lowlevel-systems,main,2026-11-24T17:01:24.372067+00:00
-007,Treap Randomized Binary Search Tree with Heap Priorities,Swift,🧠 Computational AI & Math Engines,swift-systems-lab,main,2026-11-24T15:03:05.412198+00:00
-008,Trie Prefix Tree for Auto-Completion with Frequency Ranking,Java,🧠 Computational AI & Math Engines,java-enterprise-patterns,main,2026-11-24T14:01:28.312156+00:00
+001,Trie Prefix Tree for Auto-Completion with Frequency Ranking,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main,2026-11-24T23:02:37.521527+00:00
+002,iTerm2 Arbitrary Command Execution via Kitty Image Protocol APC Response Injection,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main,2026-11-24T23:02:07.708402+00:00
+003,Count-Min Sketch Heavy Hitters Frequency Estimator,Java,🧠 Computational AI & Math Engines,java-enterprise-patterns,main,2026-11-24T21:02:56.517779+00:00
+004,Fast Fourier Transform (Cooley-Tukey Radix-2) Signal Processing,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-11-24T20:01:48.938243+00:00
+005,Hopcroft-Karp Bipartite Matching Algorithm,C,🧠 Computational AI & Math Engines,c-lowlevel-systems,main,2026-11-24T19:02:42.337173+00:00
+006,Distributed Consistent Hashing Router with Virtual Nodes,C++,🌐 Distributed Systems & Consensus,cpp-systems-core,main,2026-11-24T17:03:49.742415+00:00
+007,Build Your Own Stack-Based Bytecode Virtual Machine in C,C,🧠 Computational AI & Math Engines,c-lowlevel-systems,main,2026-11-24T17:01:24.372067+00:00
+008,Treap Randomized Binary Search Tree with Heap Priorities,Swift,🧠 Computational AI & Math Engines,swift-systems-lab,main,2026-11-24T15:03:05.412198+00:00
 009,Arctic: A Practical Lock-Free Adaptive Radix Tree,Zig,⚡ Low-Latency & Memory Systems,zig-systems-lab,main,2026-11-24T13:03:02.919019+00:00
 010,Conflict-free Replicated Data Type (CRDT) PN-Counter,C++,🌐 Distributed Systems & Consensus,cpp-systems-core,main,2026-11-24T11:02:39.847231+00:00
 011,Tic-Tac-Toe Minimax Algorithm in Java,Java,🧠 Computational AI & Math Engines,java-enterprise-patterns,main,2026-11-24T11:01:30.384122+00:00
