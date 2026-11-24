@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Hopcroft-Karp Bipartite Matching Algorithm",
+    "language": "Ruby",
+    "folder": "ruby",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "ruby-algorithms-lab",
+    "source_link": "https://github.com/myonathanlinkedin/ruby-algorithms-lab/tree/main/algorithms/20261124_010211_hopcroft-karp_bipartite_matchi",
+    "source_file": "main",
+    "timestamp": "2026-11-24T01:02:27.683384+00:00",
+    "dir_name": "20261124_010211_hopcroft-karp_bipartite_matchi"
+  },
+  {
     "topic": "A* Heuristic Pathfinding with Dynamic Obstacle Cost",
     "language": "Haskell",
     "folder": "haskell",
@@ -1439,17 +1450,6 @@
     "source_file": "main",
     "timestamp": "2026-11-07T05:01:27.125280+00:00",
     "dir_name": "20261107_050116_memorilla__latent_semantic_mem"
-  },
-  {
-    "topic": "Hopcroft-Karp Bipartite Matching Algorithm",
-    "language": "C#",
-    "folder": "csharp",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "csharp-enterprise-lab",
-    "source_link": "https://github.com/myonathanlinkedin/csharp-enterprise-lab/tree/main/algorithms/20261107_030253_hopcroft-karp_bipartite_matchi",
-    "source_file": "main",
-    "timestamp": "2026-11-07T03:03:24.664628+00:00",
-    "dir_name": "20261107_030253_hopcroft-karp_bipartite_matchi"
   },
   {
     "topic": "A Chronos-Compiler compiler in Axiom-Interpreter, and the kernel that hung without an error",
