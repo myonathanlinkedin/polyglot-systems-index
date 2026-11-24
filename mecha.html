@@ -4739,10 +4739,15 @@
         ) {
           rig.nativeLowerPropellantMeshes.push(mesh);
         }
-        // Detachable Zaku-II right shoulder shield & hinge bracket:
-        // Visible in default MS-06 loadout, automatically detached whenever custom shoulder_pods
-        // are equipped so the over-pauldron saddle clamp seats 100% flush onto Zaku's shoulder armor!
-        if (n.includes('zaku_shoulder_shield') || n.includes('zaku_shield_hinge')) {
+        // Detachable Zaku-II right shoulder shield & Gouf/Zaku shoulder spikes/horns:
+        // Visible in default MS-06 / MS-07 loadout, automatically hidden whenever custom shoulder_pods
+        // are equipped so spikes NEVER stab through shoulder pods and clamps seat 100% flush!
+        if (
+          n.includes('zaku_shoulder_shield') ||
+          n.includes('zaku_shield_hinge') ||
+          n.includes('zaku_pauldron_horn') ||
+          n.includes('gouf_horn_')
+        ) {
           rig.nativeShoulderShieldMeshes.push(mesh);
         }
         if (n.includes('backpack_saber_hilt_r')) {
@@ -5095,14 +5100,15 @@
           alwaysVisible: false
         }),
 
-        // 7. WAIST / HIP FOLDING RAILGUNS ZONE (HP-13/17 — seated 0.0mm flush directly atop the rear waist skirt on rig.pelvis with ZERO belly gap!)
+        // 7. WAIST / HIP FOLDING RAILGUNS ZONE (HP-13/17 — seated 0.0mm flush directly ABOVE the rear waist skirt on ALL 5 units!)
+        // Calibrated per-unit rear skirt top Y: RX-78=110.0, Rival=109.0/pelvis=113.5, Zaku=111.3/belt=115.3, Gouf=111.6/belt=115.3, Sazabi=113.0/belt=115.3
         waist_ordnance: createPhysicalAdapterSocket(rig.pelvis, {
           slotGroup: 'waist_ordnance',
           adapterId: 'ADP-HP13-WAIST',
           worldPos: [
             0.0,
-            isSazabi ? 114.2 : (isGouf ? 113.0 : (spec.isZeonEnemy ? 112.8 : 111.8)),
-            isSazabi ? -0.8 : (spec.isZeonEnemy ? 0.0 : 2.2)
+            isSazabi ? 117.6 : (isGouf ? 116.8 : (spec.isZeonEnemy ? 116.8 : (spec.id === 'rival_frame' ? 112.4 : 111.8))),
+            isSazabi ? -1.6 : (spec.isZeonEnemy ? -0.4 : (spec.id === 'rival_frame' ? 1.0 : 2.2))
           ],
           rot: [0, 0, 0],
           scale: isSazabi ? 1.12 : 1.0,
