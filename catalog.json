@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Count-Min Sketch Heavy Hitters Frequency Estimator",
+    "language": "Java",
+    "folder": "java",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "java-enterprise-patterns",
+    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261124_210234_count-min_sketch_heavy_hitters",
+    "source_file": "main",
+    "timestamp": "2026-11-24T21:02:56.517779+00:00",
+    "dir_name": "20261124_210234_count-min_sketch_heavy_hitters"
+  },
+  {
     "topic": "Fast Fourier Transform (Cooley-Tukey Radix-2) Signal Processing",
     "language": "Rust",
     "folder": "rust",
@@ -482,17 +493,6 @@
     "source_file": "main",
     "timestamp": "2026-11-21T13:03:06.710244+00:00",
     "dir_name": "20261121_130251_efficient_classical_algorithms"
-  },
-  {
-    "topic": "Count-Min Sketch Heavy Hitters Frequency Estimator",
-    "language": "Haskell",
-    "folder": "haskell",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "haskell-functional-core",
-    "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261121_110211_count-min_sketch_heavy_hitters",
-    "source_file": "main",
-    "timestamp": "2026-11-21T11:02:24.984618+00:00",
-    "dir_name": "20261121_110211_count-min_sketch_heavy_hitters"
   },
   {
     "topic": "TideCache: Efficient Hybrid LLM Serving with Transparent Cache Management and Layer-Wise",
