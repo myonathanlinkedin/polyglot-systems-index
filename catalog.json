@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Trie Prefix Tree for Auto-Completion with Frequency Ranking",
+    "language": "Java",
+    "folder": "java",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "java-enterprise-patterns",
+    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261124_140107_trie_prefix_tree_for_auto-comp",
+    "source_file": "main",
+    "timestamp": "2026-11-24T14:01:28.312156+00:00",
+    "dir_name": "20261124_140107_trie_prefix_tree_for_auto-comp"
+  },
+  {
     "topic": "Arctic: A Practical Lock-Free Adaptive Radix Tree",
     "language": "Zig",
     "folder": "zig",
@@ -163,17 +174,6 @@
     "source_file": "main",
     "timestamp": "2026-11-23T17:02:10.682113+00:00",
     "dir_name": "20261123_170150_raft_consensus_protocol_leader"
-  },
-  {
-    "topic": "Trie Prefix Tree for Auto-Completion with Frequency Ranking",
-    "language": "C",
-    "folder": "c",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "c-lowlevel-systems",
-    "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261123_140116_trie_prefix_tree_for_auto-comp",
-    "source_file": "main",
-    "timestamp": "2026-11-23T14:01:32.241064+00:00",
-    "dir_name": "20261123_140116_trie_prefix_tree_for_auto-comp"
   },
   {
     "topic": "Pratt Top-Down Operator Precedence Expression Parser",
