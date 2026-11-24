@@ -4829,11 +4829,15 @@
           alwaysVisible: false
         }),
 
-        // 7. WAIST / HIP FOLDING RAILGUNS ZONE (HP-13/17 — seated 0.0mm flush directly behind the red lower torso above the waist!)
-        waist_ordnance: createPhysicalAdapterSocket(rig.torso, {
+        // 7. WAIST / HIP FOLDING RAILGUNS ZONE (HP-13/17 — seated 0.0mm flush directly atop the rear waist skirt on rig.pelvis with ZERO belly gap!)
+        waist_ordnance: createPhysicalAdapterSocket(rig.pelvis, {
           slotGroup: 'waist_ordnance',
           adapterId: 'ADP-HP13-WAIST',
-          worldPos: [0.0, 115.5, spec.isZeonEnemy ? 1.2 : 2.2],
+          worldPos: [
+            0.0,
+            isSazabi ? 114.2 : (isGouf ? 113.0 : (spec.isZeonEnemy ? 112.8 : 111.8)),
+            isSazabi ? -0.8 : (spec.isZeonEnemy ? 0.0 : 2.2)
+          ],
           rot: [0, 0, 0],
           scale: isSazabi ? 1.12 : 1.0,
           dockedZ: 0.0,
