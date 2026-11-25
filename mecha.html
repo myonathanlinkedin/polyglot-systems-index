@@ -1929,16 +1929,58 @@
       letter-spacing: 0.4px;
       line-height: 1.25;
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.42);
+      pointer-events: auto;
+      cursor: pointer;
+      user-select: none;
+      z-index: 12;
+      transition: width 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+    }
+
+    .callout-tag:hover {
+      border-color: rgba(56, 189, 248, 0.85);
+      background: rgba(12, 22, 42, 0.96);
     }
 
     .callout-tag.equipped {
       border-left-color: #38bdf8;
     }
 
+    .callout-tag.expanded {
+      width: 306px;
+      padding: 7px 11px;
+      z-index: 35;
+      background: rgba(9, 17, 34, 0.97);
+      border-color: rgba(56, 189, 248, 0.92);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.62), 0 0 14px rgba(56, 189, 248, 0.22);
+    }
+
     .callout-tag .c-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 6px;
+    }
+
+    .callout-tag .c-title {
+      flex: 1 1 auto;
+      min-width: 0;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+    }
+
+    .callout-tag .c-exp {
+      flex: 0 0 auto;
+      font-size: 9px;
+      line-height: 1;
+      color: #38bdf8;
+      opacity: 0.82;
+      transition: transform 0.16s ease;
+    }
+
+    .callout-tag.expanded .c-exp {
+      transform: rotate(180deg);
+      opacity: 1;
     }
 
     .callout-tag .c-desc {
@@ -1965,6 +2007,29 @@
       text-overflow: ellipsis;
     }
 
+    .callout-tag.expanded .c-title,
+    .callout-tag.expanded .c-desc,
+    .callout-tag.expanded .c-sub {
+      white-space: normal;
+      overflow: visible;
+      text-overflow: clip;
+      line-height: 1.38;
+    }
+
+    .callout-tag.expanded .c-desc {
+      font-size: 8.4px;
+      margin-top: 4px;
+      color: #f1f5f9;
+    }
+
+    .callout-tag.expanded .c-sub {
+      font-size: 7.6px;
+      margin-top: 5px;
+      padding-top: 4px;
+      border-top: 1px solid rgba(148, 163, 184, 0.22);
+      color: #bae6fd;
+    }
+
     .callout-tag .c-dot {
       display: inline-block;
       width: 6px;
@@ -1986,6 +2051,10 @@
         width: 152px;
         padding: 4px 6px;
         font-size: 7.4px;
+      }
+      .callout-tag.expanded {
+        width: 204px;
+        padding: 6px 8px;
       }
       .callout-tag .c-desc {
         font-size: 6.8px;
@@ -5758,7 +5827,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r21');
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r23');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         const onGltfReady = async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
@@ -7435,6 +7504,38 @@
         sub: () => 'HP-13/24 • READY FOR WAIST / LEG MODULES'
       }
     ];
+    function _equippedCalloutFullSpecs(partId, fallbackHp) {
+      const p = _getEquippedPartMeta(partId);
+      if (!p) return `${fallbackHp} • LOCKED`;
+      const parts = [p.primary_hardpoint || fallbackHp];
+      if (p.serial_number) parts.push(p.serial_number);
+      const mass = Number(p.structural_specs?.mass_kg || 0);
+      const thrust = Number(p.telemetry_and_lore?.vernier_thrust_kgf || 0);
+      const power = Number(p.telemetry_and_lore?.reactor_power_draw_kw || 0);
+      if (mass > 0) parts.push(`${mass}kg`);
+      if (thrust > 0) parts.push(`${(thrust / 1000).toFixed(0)}t THRUST`);
+      if (power > 0) parts.push(`${power}kW`);
+      return parts.join(' • ');
+    }
+
+    const _expandedCalloutIds = new Set();
+    const _calloutElMap = new Map();
+    if (calloutNodesEl) {
+      calloutNodesEl.addEventListener('pointerdown', (e) => {
+        if (e.target.closest('.callout-tag')) e.stopPropagation();
+      });
+      calloutNodesEl.addEventListener('click', (e) => {
+        const tag = e.target.closest('.callout-tag');
+        if (!tag) return;
+        e.stopPropagation();
+        const cid = tag.dataset.calloutId;
+        if (!cid) return;
+        if (_expandedCalloutIds.has(cid)) _expandedCalloutIds.delete(cid);
+        else _expandedCalloutIds.add(cid);
+        updateCalloutLeaders(true);
+      });
+    }
+
     const _projVec = new THREE.Vector3();
     let _lastCalloutSig = '';
     let _lastCalloutFrameTs = 0;
@@ -7445,7 +7546,8 @@
       if (!force && state.animPlaying && (nowTs - _lastCalloutFrameTs) < 33) return;
       const w = window.innerWidth, h = window.innerHeight;
       const occSig = Object.values(state.slotOccupancy).map(v => v || '').join('|');
-      const sig = `${Math.round(camera.position.x * 2)},${Math.round(camera.position.y * 2)},${Math.round(camera.position.z * 2)},${Math.round(controls.target.y)},${w}x${h},${state.hatchOpen ? 1 : 0},${state.renderMode},${state.activeStance},${state.activeEnv},${state.activeUnitId},${state.menus.left ? 1 : 0},${state.menus.right ? 1 : 0},${state.menus.allHidden ? 1 : 0},${Math.round(state.explodedFactor * 100)},${occSig}`;
+      const expSig = Array.from(_expandedCalloutIds).sort().join(',');
+      const sig = `${Math.round(camera.position.x * 2)},${Math.round(camera.position.y * 2)},${Math.round(camera.position.z * 2)},${Math.round(controls.target.y)},${w}x${h},${state.hatchOpen ? 1 : 0},${state.renderMode},${state.activeStance},${state.activeEnv},${state.activeUnitId},${state.menus.left ? 1 : 0},${state.menus.right ? 1 : 0},${state.menus.allHidden ? 1 : 0},${Math.round(state.explodedFactor * 100)},${occSig},${expSig}`;
       if (!force && !state.animPlaying && sig === _lastCalloutSig) return;
       _lastCalloutSig = sig;
       _lastCalloutFrameTs = nowTs;
@@ -7463,20 +7565,25 @@
       const minY = isMobile ? 86 : 84;
       const maxY = isMobile ? (h - 92) : (h - 96);
 
-      // Dynamic Mode: If >= 1 modular part is equipped, show ALL currently equipped parts (1..8) with full specs & roles;
+      // Dynamic Mode: If >= 1 modular part is equipped, show ALL currently equipped parts (1..8) with click-to-expand full specs & roles;
       // otherwise show stock baseline chassis callouts so the overlay is always meaningful!
       const equippedEntries = EQUIPPED_ZONE_CALLOUTS.filter(z => Boolean(state.slotOccupancy[z.slotGroup]));
       const activeList = equippedEntries.length > 0
         ? equippedEntries.map(z => {
             const pid = state.slotOccupancy[z.slotGroup];
+            const isExp = _expandedCalloutIds.has(z.id);
+            const meta = _getEquippedPartMeta(pid);
+            const fullName = meta?.name ? `${z.zoneLabel}: ${meta.name}` : `${z.zoneLabel}: ${pid}`;
+            const fullDesc = meta?.telemetry_and_lore?.operational_role || `${meta?.primary_hardpoint || z.hp} • ${meta?.serial_number || 'MODULAR'} • LOCKED`;
             return {
               id: z.id,
               preferredSide: z.preferredSide,
               getWorld: z.getWorld,
-              title: `${z.zoneLabel}: ${_shortCalloutName(pid, isMobile ? 19 : 26)}`,
-              desc: _equippedCalloutDesc(pid, z.hp, isMobile ? 32 : 46),
-              sub: _equippedCalloutSpecs(pid, z.hp),
-              isEquipped: true
+              title: isExp ? fullName : `${z.zoneLabel}: ${_shortCalloutName(pid, isMobile ? 19 : 26)}`,
+              desc: isExp ? fullDesc : _equippedCalloutDesc(pid, z.hp, isMobile ? 32 : 46),
+              sub: isExp ? _equippedCalloutFullSpecs(pid, z.hp) : _equippedCalloutSpecs(pid, z.hp),
+              isEquipped: true,
+              isExpanded: isExp
             };
           })
         : BASELINE_STOCK_CALLOUTS.map(b => ({
@@ -7486,7 +7593,8 @@
             title: b.title(),
             desc: b.desc(),
             sub: b.sub(),
-            isEquipped: false
+            isEquipped: false,
+            isExpanded: _expandedCalloutIds.has(b.id)
           }));
 
       // Project all active anchors to 2D screen coordinates & partition cleanly into Left vs Right columns
@@ -7520,8 +7628,9 @@
         leftCol.push(moved);
       }
 
-      // Vertical anti-overlap solver per column so ALL 8 callout cards stay crisp with ZERO overlaps!
-      const minGapY = isMobile ? 48 : 56;
+      // Vertical anti-overlap solver per column (gives expanded cards extra clearance automatically!)
+      const baseGapY = isMobile ? 48 : 56;
+      const gapBetween = (a, b) => baseGapY + ((a.item.isExpanded ? 26 : 0) + (b.item.isExpanded ? 26 : 0));
       const layoutColumn = (col) => {
         col.sort((a, b) => a.sy - b.sy);
         for (let i = 0; i < col.length; i++) {
@@ -7529,16 +7638,18 @@
         }
         // Downward pass
         for (let i = 1; i < col.length; i++) {
-          if (col[i].ly < col[i - 1].ly + minGapY) {
-            col[i].ly = col[i - 1].ly + minGapY;
+          const g = gapBetween(col[i - 1], col[i]);
+          if (col[i].ly < col[i - 1].ly + g) {
+            col[i].ly = col[i - 1].ly + g;
           }
         }
         // Clamp bottom & upward pass
         if (col.length > 0 && col[col.length - 1].ly > maxY) {
           col[col.length - 1].ly = maxY;
           for (let i = col.length - 2; i >= 0; i--) {
-            if (col[i].ly > col[i + 1].ly - minGapY) {
-              col[i].ly = col[i + 1].ly - minGapY;
+            const g = gapBetween(col[i], col[i + 1]);
+            if (col[i].ly > col[i + 1].ly - g) {
+              col[i].ly = col[i + 1].ly - g;
             }
           }
           if (col[0].ly < minY) {
@@ -7552,26 +7663,50 @@
       layoutColumn(rightCol);
 
       let svgHtml = '';
-      let nodesHtml = '';
+      const activeIds = new Set();
       const baseOffset = isMobile ? 102 : 178;
       for (const entry of [...leftCol, ...rightCol]) {
         const { item, sx, sy, side, ly } = entry;
+        activeIds.add(item.id);
+        const effHalfW = item.isExpanded ? (isMobile ? 96 : 153) : cardHalfW;
         const targetX = side < 0 ? Math.min(sx - baseOffset, minX + (isMobile ? 4 : 24)) : Math.max(sx + baseOffset, maxX - (isMobile ? 4 : 24));
-        const lx = Math.max(minX, Math.min(maxX, targetX));
-        const edgeX = lx + (side < 0 ? cardHalfW : -cardHalfW);
+        const lx = Math.max(effHalfW + 8, Math.min(w - effHalfW - 8, Math.max(minX, Math.min(maxX, targetX))));
+        const edgeX = lx + (side < 0 ? effHalfW : -effHalfW);
         const kx = sx + (edgeX - sx) * 0.45;
         const activeDotCol = item.isEquipped ? '#38bdf8' : dotCol;
         svgHtml += `<polyline points="${sx.toFixed(1)},${sy.toFixed(1)} ${kx.toFixed(1)},${ly.toFixed(1)} ${edgeX.toFixed(1)},${ly.toFixed(1)}" fill="none" stroke="${strokeCol}" stroke-width="1.35" opacity="0.88" />`
           + `<circle cx="${sx.toFixed(1)}" cy="${sy.toFixed(1)}" r="4.8" fill="none" stroke="${activeDotCol}" stroke-width="1.2" opacity="0.65" />`
           + `<circle cx="${sx.toFixed(1)}" cy="${sy.toFixed(1)}" r="2.6" fill="${activeDotCol}" />`;
-        nodesHtml += `<div class="callout-tag${item.isEquipped ? ' equipped' : ''}" style="left:${lx.toFixed(1)}px;top:${ly.toFixed(1)}px;">`
-          + `<div class="c-head"><span class="c-dot"></span>${escapePresetHtml(item.title)}</div>`
-          + (item.desc ? `<span class="c-desc">${escapePresetHtml(item.desc)}</span>` : '')
-          + `<span class="c-sub">${escapePresetHtml(item.sub)}</span>`
-          + `</div>`;
+
+        // Reuse persistent DOM nodes keyed by item.id so click-to-expand is 100% instant & never dropped during 30Hz animation!
+        let el = _calloutElMap.get(item.id);
+        if (!el) {
+          el = document.createElement('div');
+          el.dataset.calloutId = item.id;
+          el.title = 'Click to expand / collapse full details';
+          calloutNodesEl.appendChild(el);
+          _calloutElMap.set(item.id, el);
+        }
+        const cls = `callout-tag${item.isEquipped ? ' equipped' : ''}${item.isExpanded ? ' expanded' : ''}`;
+        if (el.className !== cls) el.className = cls;
+        el.style.left = `${lx.toFixed(1)}px`;
+        el.style.top = `${ly.toFixed(1)}px`;
+        const contentSig = `${item.title}||${item.desc}||${item.sub}||${item.isExpanded ? 1 : 0}`;
+        if (el.dataset.contentSig !== contentSig) {
+          el.dataset.contentSig = contentSig;
+          el.innerHTML = `<div class="c-head"><span class="c-title"><span class="c-dot"></span>${escapePresetHtml(item.title)}</span><span class="c-exp">▾</span></div>`
+            + (item.desc ? `<span class="c-desc">${escapePresetHtml(item.desc)}</span>` : '')
+            + `<span class="c-sub">${escapePresetHtml(item.sub)}</span>`;
+        }
+      }
+      // Prune callout tags no longer active (e.g. unequipped slot or switched to baseline)
+      for (const [cid, el] of _calloutElMap.entries()) {
+        if (!activeIds.has(cid)) {
+          el.remove();
+          _calloutElMap.delete(cid);
+        }
       }
       calloutSvg.innerHTML = svgHtml;
-      calloutNodesEl.innerHTML = nodesHtml;
     }
 
     const AUTO_TOUR_STAGES = [
