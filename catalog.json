@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Parallel Memory Management in Goose, C++, and Rust: An Experimental Study of Allocation",
+    "language": "C++",
+    "folder": "cpp",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "cpp-systems-core",
+    "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261125_170211_parallel_memory_management_in",
+    "source_file": "main",
+    "timestamp": "2026-11-25T17:02:35.104850+00:00",
+    "dir_name": "20261125_170211_parallel_memory_management_in"
+  },
+  {
     "topic": "Sound Distributed Runtime Verification under Incomplete Evidence",
     "language": "Java",
     "folder": "java",
