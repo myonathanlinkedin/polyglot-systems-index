@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Sound Distributed Runtime Verification under Incomplete Evidence",
+    "language": "Java",
+    "folder": "java",
+    "category": "\ud83c\udf10 Distributed Systems & Consensus",
+    "spoke_repo": "java-enterprise-patterns",
+    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261125_170139_sound_distributed_runtime_veri",
+    "source_file": "main",
+    "timestamp": "2026-11-25T17:02:06.341300+00:00",
+    "dir_name": "20261125_170139_sound_distributed_runtime_veri"
+  },
+  {
     "topic": "AetherScript: A Generative Transformer for Handwriting and Sketches",
     "language": "PHP",
     "folder": "php",
