@@ -4861,15 +4861,11 @@
         ) {
           rig.nativeLowerPropellantMeshes.push(mesh);
         }
-        // Stock detachable shoulder-mounted shields (Zaku-II right olive shield & Rival right curved tower shield):
-        // automatically hidden when equipping shoulder_pods so modular shoulder pods/wings mount cleanly onto the
-        // right shoulder cowl instead of punching a bracket through the stock shield (restored immediately on unequip!).
-        // All default head & shoulder horns/spikes remain 100% preserved!
-        if (
-          n.includes('zaku_shoulder_shield') ||
-          n.includes('zaku_shield_hinge') ||
-          n.includes('right_curved_tower_shield')
-        ) {
+        // Stock detachable Rival shoulder-mounted curved tower shield:
+        // automatically hidden when equipping shoulder_pods (restored immediately on unequip!).
+        // Zaku-II's iconic default right olive shoulder shield (`zaku_shoulder_shield_olive_r` + hinge)
+        // and ALL default head & shoulder horns/spikes remain 100% preserved!
+        if (n.includes('right_curved_tower_shield')) {
           rig.nativeShoulderShieldMeshes.push(mesh);
         }
         if (n.includes('backpack_saber_hilt_r')) {
@@ -5844,7 +5840,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r34');
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r38');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         const onGltfReady = async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
@@ -6399,10 +6395,12 @@
             rightGrp.add(node);
           }
         });
-        // GR-14 Universal Solid Zero-Gap Adaptive Shoulder Mount System (Zaku-II, Gouf, Rival Frame):
-        // Hides RX-78's square-pauldron inverted-L `adapter_shoulder_yoke` (eliminating ALL hollow C-cavities!)
-        // and builds a continuous solid gunmetal pedestal + clevis + rotary swivel drum + gold axle
-        // rooted >=2.5mm into the shoulder armor and >=1.8mm into the pod payload (0.00mm gap, 0.00mm horn clash!).
+        // GR-14/R35 Universal Samurai-Mantle / Sazabi MEKAR Outward-Flared Shoulder Mount (Gouf, Zaku-II, Rival):
+        // - Hides RX-78's square-pauldron inverted-L `adapter_shoulder_yoke` (eliminating ALL hollow C-cavities!)
+        // - Wing binders & assault ram shrouds (`isWingOrMantle`) flare OUTWARD left & right (`+sgn * 48/44 deg` roll)
+        //   with the colored armor shell ('tempurung') proudly ON TOP and thrusters/hinge tucked cleanly underneath!
+        // - Forward-firing weapon/turret pods (`!isWingOrMantle`) sit low & snug with a sleek `12 deg` outward cant!
+        // - Compact angled gunmetal hinge strut + rotary drum + gold axle connects dome/cowl solidly into inner payload root.
         const isAdaptiveShoulder = (
           slotGroup === 'shoulder_pods' &&
           (state.activeUnitId === 'enemy_gouf' || state.activeUnitId === 'enemy_zaku' || state.activeUnitId === 'rival_frame')
@@ -6413,28 +6411,28 @@
           const bridgeR = new THREE.Group();
           const bridgeL = new THREE.Group();
 
-          const addWorldBox = (bGrp, anchor, x0, x1, y0, y1, z0, z1, nm) => {
-            const w = Math.max(1.2, Math.abs(x1 - x0));
-            const h = Math.max(1.2, Math.abs(y1 - y0));
-            const d = Math.max(1.2, Math.abs(z1 - z0));
-            const pMesh = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), pedMat);
-            pMesh.name = nm;
-            pMesh.position.set(0.5 * (x0 + x1) - anchor.x, 0.5 * (y0 + y1) - anchor.y, 0.5 * (z0 + z1) - anchor.z);
-            pMesh.castShadow = true;
-            pMesh.receiveShadow = true;
-            pMesh.userData.origMaterial = pedMat;
-            pMesh.userData.initialPosition = pMesh.position.clone();
-            pMesh.userData.isModularPack = true;
-            bGrp.add(pMesh);
-            state.chassisParts.push(pMesh);
-          };
+          const addWorldAngledHinge = (bGrp, anchor, rx, ry, rz, tx, ty, tz, sfx) => {
+            const dx = tx - rx;
+            const dy = ty - ry;
+            const dist = Math.hypot(dx, dy);
+            const angRad = Math.atan2(dy, dx) - (Math.PI / 2);
+            const sMesh = new THREE.Mesh(new THREE.BoxGeometry(4.8, Math.max(3.5, dist + 2.8), 6.2), pedMat);
+            sMesh.name = `adapter_mekar_strut_dark_${sfx}`;
+            sMesh.position.set(0.5 * (rx + tx) - anchor.x, 0.5 * (ry + ty) - anchor.y, 0.5 * (rz + tz) - anchor.z);
+            sMesh.rotation.z = angRad;
+            sMesh.castShadow = true;
+            sMesh.receiveShadow = true;
+            sMesh.userData.origMaterial = pedMat;
+            sMesh.userData.initialPosition = sMesh.position.clone();
+            sMesh.userData.isModularPack = true;
+            bGrp.add(sMesh);
+            state.chassisParts.push(sMesh);
 
-          const addWorldRotaryDrum = (bGrp, anchor, cx, cy, cz, r, len, nmDark, nmGold) => {
-            const dGeo = new THREE.CylinderGeometry(r, r, len, 16);
+            const dGeo = new THREE.CylinderGeometry(2.5, 2.5, 7.6, 16);
             dGeo.rotateX(Math.PI / 2);
             const dMesh = new THREE.Mesh(dGeo, pedMat);
-            dMesh.name = nmDark;
-            dMesh.position.set(cx - anchor.x, cy - anchor.y, cz - anchor.z);
+            dMesh.name = `adapter_mekar_drum_dark_${sfx}`;
+            dMesh.position.set(tx - anchor.x, ty - anchor.y, tz - anchor.z);
             dMesh.castShadow = true;
             dMesh.receiveShadow = true;
             dMesh.userData.origMaterial = pedMat;
@@ -6443,11 +6441,11 @@
             bGrp.add(dMesh);
             state.chassisParts.push(dMesh);
 
-            const gGeo = new THREE.CylinderGeometry(r * 0.58, r * 0.58, len + 1.2, 16);
+            const gGeo = new THREE.CylinderGeometry(1.45, 1.45, 8.8, 14);
             gGeo.rotateX(Math.PI / 2);
             const gMesh = new THREE.Mesh(gGeo, goldAxleMat);
-            gMesh.name = nmGold;
-            gMesh.position.set(cx - anchor.x, cy - anchor.y, cz - anchor.z);
+            gMesh.name = `adapter_mekar_pin_gold_${sfx}`;
+            gMesh.position.set(tx - anchor.x, ty - anchor.y, tz - anchor.z);
             gMesh.castShadow = true;
             gMesh.receiveShadow = true;
             gMesh.userData.origMaterial = goldAxleMat;
@@ -6459,9 +6457,7 @@
 
           const measurePayload = (grp) => {
             let pMinY = Infinity, pMaxY = -Infinity, pInnerAbsX = Infinity;
-            const sx = Math.abs(grp.scale.x || 1);
-            const sy = Math.abs(grp.scale.y || 1);
-            const payloadMeshes = [];
+            const bbs = [];
             grp.children.forEach(c => {
               if (!c.isMesh) return;
               const nm = (c.name || '').toLowerCase();
@@ -6471,19 +6467,17 @@
               }
               if (c.geometry?.boundingBox) {
                 const bb = c.geometry.boundingBox;
-                pMinY = Math.min(pMinY, bb.min.y * sy);
-                pMaxY = Math.max(pMaxY, bb.max.y * sy);
-                pInnerAbsX = Math.min(pInnerAbsX, Math.abs(bb.min.x) * sx, Math.abs(bb.max.x) * sx);
-                payloadMeshes.push(bb);
+                pMinY = Math.min(pMinY, bb.min.y);
+                pMaxY = Math.max(pMaxY, bb.max.y);
+                pInnerAbsX = Math.min(pInnerAbsX, Math.abs(bb.min.x), Math.abs(bb.max.x));
+                bbs.push(bb);
               }
             });
-            // Measure ACTUAL inner-wall X in the lower hub attachment band (bb.min.y <= pMinY + 7.0)
-            // so upper overhanging boxes (e.g. smoke_adapter_base) never pull the hinge drum into empty air!
             let hubInnerAbsX = Infinity;
             if (Number.isFinite(pMinY)) {
-              payloadMeshes.forEach(bb => {
-                if (bb.min.y * sy <= pMinY + 7.0) {
-                  hubInnerAbsX = Math.min(hubInnerAbsX, Math.abs(bb.min.x) * sx, Math.abs(bb.max.x) * sx);
+              bbs.forEach(bb => {
+                if (bb.min.y <= pMinY + 7.5) {
+                  hubInnerAbsX = Math.min(hubInnerAbsX, Math.abs(bb.min.x), Math.abs(bb.max.x));
                 }
               });
             }
@@ -6491,10 +6485,73 @@
             return {
               pMinY,
               pMaxY,
-              pInnerAbsX: hubInnerAbsX,
+              hubInnerAbsX,
+              isWingOrMantle: pMinY < -1.0,
               isHanging: pMinY < -5.0,
-              hubLocalZ: -0.6 * Math.abs(grp.scale.z || 1)
+              bbs
             };
+          };
+
+          const applyMekarTransform = (grp, anc, m, sgn, rollDeg, lpX, lpY, lpZ, tpX, tpY, tpZ, domeCenter, domeR, hornMinYGate, gateAbsX = 42.5) => {
+            const sx = Math.abs(grp.scale.x || 1);
+            const sy = Math.abs(grp.scale.y || 1);
+            const sz = Math.abs(grp.scale.z || 1);
+            const rollRad = THREE.MathUtils.degToRad(rollDeg);
+            const cosR = Math.cos(rollRad);
+            const sinR = Math.sin(rollRad);
+
+            // Compute exact rotated world AABB corners to enforce >= +1.2mm dome clearance & horn/shield clearance!
+            let finalTpX = tpX, finalTpY = tpY;
+            const evalCorners = (cx, cy) => {
+              let minDomeClr = Infinity;
+              let minHornY = Infinity;
+              for (const bb of m.bbs) {
+                for (const bx of [bb.min.x, bb.max.x]) {
+                  for (const by of [bb.min.y, bb.max.y]) {
+                    const lx = (bx - lpX) * sx;
+                    const ly = (by - lpY) * sy;
+                    const wx = cx + (lx * cosR - ly * sinR);
+                    const wy = cy + (lx * sinR + ly * cosR);
+                    for (const bz of [bb.min.z, bb.max.z]) {
+                      const wz = tpZ + (bz - lpZ) * sz;
+                      if (domeCenter) {
+                        const d = Math.hypot(wx - domeCenter[0], wy - domeCenter[1], wz - domeCenter[2]) - domeR;
+                        if (d < minDomeClr) minDomeClr = d;
+                      }
+                      if (hornMinYGate && Math.abs(wx) > gateAbsX && wy < minHornY) {
+                        minHornY = wy;
+                      }
+                    }
+                  }
+                }
+              }
+              return { minDomeClr, minHornY };
+            };
+
+            let chk = evalCorners(finalTpX, finalTpY);
+            if (hornMinYGate && chk.minHornY < hornMinYGate) {
+              finalTpY += (hornMinYGate - chk.minHornY);
+              chk = evalCorners(finalTpX, finalTpY);
+            }
+            if (domeCenter && chk.minDomeClr < 1.2) {
+              const rx = finalTpX - domeCenter[0];
+              const ry = finalTpY - domeCenter[1];
+              const rl = Math.max(1e-4, Math.hypot(rx, ry));
+              const push = 1.2 - chk.minDomeClr;
+              finalTpX += (rx / rl) * push;
+              finalTpY += (ry / rl) * push;
+            }
+
+            // Re-parent active payload meshes into a clean pivot wrapper so roll rotates EXACTLY around (lpX, lpY, lpZ)!
+            const pivotInner = new THREE.Group();
+            pivotInner.name = 'MekarPivotInner';
+            pivotInner.position.set(-lpX, -lpY, -lpZ);
+            const rawKids = [...grp.children];
+            rawKids.forEach(ch => pivotInner.add(ch));
+            grp.add(pivotInner);
+            grp.rotation.set(0, 0, rollRad);
+            grp.position.set(finalTpX - anc.x, finalTpY - anc.y, tpZ - anc.z);
+            return [finalTpX, finalTpY, tpZ];
           };
 
           const ancR = socket.bilateralRightContainer.userData.worldAnchor || { x: 0, y: 156, z: 0, outOffset: 0 };
@@ -6508,84 +6565,66 @@
               [leftGrp, bridgeL, ancL, mL, lSign, 'l'],
             ]) {
               if (!Number.isFinite(m.pMinY)) continue;
-              // Seat EVERY Gouf shoulder pod snugly at exact clearance (+1.5mm above Y=162.1mm blue dome top,
-              // lowering high turrets/cannons down off stilts AND lifting hanging wing verniers clear of dome!)
-              const floorY = m.isHanging ? 163.8 : 163.5;
-              grp.position.y += (floorY - (anc.y + m.pMinY));
-              const wMinY = anc.y + grp.position.y + m.pMinY;
-              const wInnerX = sgn * (m.pInnerAbsX + anc.outOffset);
-              const hubZ = anc.z + m.hubLocalZ;
-              const hubY = m.isHanging ? (wMinY + 5.2) : (wMinY + 2.8);
-              const px = sgn * 34.5;
-              addWorldBox(bGrp, anc, px - 3.2, px + 3.2, 157.5, hubY + 1.5, hubZ - 3.8, hubZ + 3.8, `adapter_solid_pedestal_dark_${sfx}`);
-              addWorldBox(bGrp, anc, Math.min(px, wInnerX + sgn * 2.8), Math.max(px, wInnerX + sgn * 2.8), hubY - 2.2, hubY + 2.2, hubZ - 3.6, hubZ + 3.6, `adapter_solid_clevis_dark_${sfx}`);
-              addWorldRotaryDrum(bGrp, anc, wInnerX - sgn * 0.2, hubY, hubZ, 2.4, 8.4, `adapter_solid_drum_dark_${sfx}`, `adapter_solid_pin_gold_${sfx}`);
+              const isWM = m.isWingOrMantle;
+              const rollDeg = isWM ? (sgn * (m.isHanging ? 48.0 : 44.0)) : (-sgn * 12.0);
+              const lpX = isWM ? (sgn * m.hubInnerAbsX) : (sgn * (m.hubInnerAbsX + 3.0));
+              const lpY = isWM ? (m.pMinY + (m.isHanging ? 14.5 : 9.0)) : (m.pMinY + 2.0);
+              const tpX = isWM ? (sgn * (m.isHanging ? 40.5 : 39.0)) : (sgn * 37.5);
+              const tpY = isWM ? (m.isHanging ? 167.8 : 165.8) : 164.2;
+              const tpZ = -0.8;
+              const domeC = [sgn * 32.5, 146.5, 0.0];
+              const [fx, fy, fz] = applyMekarTransform(grp, anc, m, sgn, rollDeg, lpX, lpY, -0.6, tpX, tpY, tpZ, domeC, 15.6, 160.8);
+              addWorldAngledHinge(bGrp, anc, sgn * 34.8, 158.0, tpZ, fx, fy - 0.8, fz, sfx);
             }
           } else if (state.activeUnitId === 'enemy_zaku') {
-            // Left (+X) spiky dome: horn-free rear-upper quadrant, floor strictly above dome curve (Y>=154.8mm) + compact hinge
+            // Left (+X) spiky dome: horn-free rear-upper slope with Samurai Mantle MEKAR (tempurung on top!)
             if (Number.isFinite(mL.pMinY)) {
-              const floorL = mL.isHanging ? 154.8 : 156.5;
-              if (ancL.y + mL.pMinY < floorL) leftGrp.position.y += (floorL - (ancL.y + mL.pMinY));
-              const wMinY = ancL.y + leftGrp.position.y + mL.pMinY;
-              const wInnerX = lSign * (mL.pInnerAbsX + ancL.outOffset);
-              const hubZ = ancL.z + mL.hubLocalZ;
-              const hubY = mL.isHanging ? (wMinY + 5.2) : (wMinY + 2.4);
-              addWorldBox(bridgeL, ancL, 32.5, 39.5, 150.5, hubY + 1.6, -13.0, -5.8, 'adapter_solid_dome_plinth_dark_l');
-              addWorldBox(bridgeL, ancL, Math.min(36.0, wInnerX + 2.4), Math.max(36.0, wInnerX + 2.4), hubY - 2.2, hubY + 2.2, Math.min(-11.0, hubZ - 3.6), Math.max(-6.2, hubZ + 3.6), 'adapter_solid_clevis_dark_l');
-              addWorldRotaryDrum(bridgeL, ancL, wInnerX - 0.3, hubY, hubZ, 2.5, 8.6, 'adapter_solid_drum_dark_l', 'adapter_solid_pin_gold_l');
+              const isWM = mL.isWingOrMantle;
+              const rollDeg = isWM ? (lSign * (mL.isHanging ? 48.0 : 44.0)) : (-lSign * 12.0);
+              const lpX = isWM ? (lSign * mL.hubInnerAbsX) : (lSign * (mL.hubInnerAbsX + 3.0));
+              const lpY = isWM ? (mL.pMinY + (mL.isHanging ? 14.5 : 9.0)) : (mL.pMinY + 2.0);
+              const tpX = lSign * (isWM ? 40.0 : 37.5);
+              const tpY = isWM ? (mL.isHanging ? 166.5 : 163.5) : 162.5;
+              const tpZ = -10.0;
+              const [fx, fy, fz] = applyMekarTransform(leftGrp, ancL, mL, lSign, rollDeg, lpX, lpY, -0.6, tpX, tpY, tpZ, [31.8, 145.5, 0.0], 14.8, 0);
+              addWorldAngledHinge(bridgeL, ancL, lSign * 34.0, 154.5, -9.5, fx, fy - 0.8, fz, 'l');
             }
-            // Right (-X) flat cowl (stock olive shoulder shield detached!): mount wing/pod snugly onto cowl flank X=-39.5!
+            // Right (-X) flat cowl (stock olive shoulder shield KEPT ON!): MEKAR mantle clears shield top (Y<=159.3) cleanly!
             if (Number.isFinite(mR.pMinY)) {
-              const hubZ = ancR.z + mR.hubLocalZ;
-              if (mR.isHanging) {
-                const targetInnerAbsX = 40.4;
-                rightGrp.position.x += rSign * (targetInnerAbsX - (mR.pInnerAbsX + ancR.outOffset));
-                rightGrp.position.y += (149.5 - ancR.y);
-                const wInnerX = rSign * targetInnerAbsX;
-                const hubY = 149.5;
-                addWorldBox(bridgeR, ancR, wInnerX - 2.2, -33.5, hubY - 2.6, hubY + 2.6, hubZ - 4.0, hubZ + 4.0, 'adapter_solid_cowl_clevis_dark_r');
-                addWorldRotaryDrum(bridgeR, ancR, wInnerX + 0.4, hubY, hubZ, 2.6, 9.2, 'adapter_solid_drum_dark_r', 'adapter_solid_pin_gold_r');
-              } else {
-                if (ancR.y + mR.pMinY < 156.2) rightGrp.position.y += (156.2 - (ancR.y + mR.pMinY));
-                const wMinY = ancR.y + rightGrp.position.y + mR.pMinY;
-                const wInnerX = rSign * (mR.pInnerAbsX + ancR.outOffset);
-                const hubY = wMinY + 2.4;
-                addWorldBox(bridgeR, ancR, -38.0, -30.5, 151.0, hubY + 1.6, hubZ - 4.2, hubZ + 4.2, 'adapter_solid_cowl_pedestal_dark_r');
-                addWorldBox(bridgeR, ancR, Math.min(-34.0, wInnerX - 2.4), Math.max(-34.0, wInnerX - 2.4), hubY - 2.2, hubY + 2.2, hubZ - 3.8, hubZ + 3.8, 'adapter_solid_clevis_dark_r');
-              }
+              const isWM = mR.isWingOrMantle;
+              const rollDeg = isWM ? (rSign * (mR.isHanging ? 48.0 : 44.0)) : (-rSign * 12.0);
+              const lpX = isWM ? (rSign * mR.hubInnerAbsX) : (rSign * (mR.hubInnerAbsX + 3.0));
+              const lpY = isWM ? (mR.pMinY + (mR.isHanging ? 14.5 : 9.0)) : (mR.pMinY + 2.0);
+              const tpX = rSign * (isWM ? 37.0 : 34.5);
+              const tpY = isWM ? (mR.isHanging ? 169.8 : 166.5) : 163.5;
+              const tpZ = -0.8;
+              const [fx, fy, fz] = applyMekarTransform(rightGrp, ancR, mR, rSign, rollDeg, lpX, lpY, -0.6, tpX, tpY, tpZ, null, 0, 160.8, 34.5);
+              addWorldAngledHinge(bridgeR, ancR, rSign * 30.0, 153.5, tpZ, fx, fy - 0.8, fz, 'r');
             }
           } else if (state.activeUnitId === 'rival_frame') {
-            // Left (-X) spiky pauldron: horn-free rear-upper quadrant, floor strictly above dome curve (Y>=155.5mm) + compact hinge
+            // Left (-X) spiky pauldron: horn-free rear-upper slope with Samurai Mantle MEKAR (tempurung on top!)
             if (Number.isFinite(mL.pMinY)) {
-              const floorL = mL.isHanging ? 155.5 : 157.0;
-              if (ancL.y + mL.pMinY < floorL) leftGrp.position.y += (floorL - (ancL.y + mL.pMinY));
-              const wMinY = ancL.y + leftGrp.position.y + mL.pMinY;
-              const wInnerX = lSign * (mL.pInnerAbsX + ancL.outOffset);
-              const hubZ = ancL.z + mL.hubLocalZ;
-              const hubY = mL.isHanging ? (wMinY + 5.2) : (wMinY + 2.4);
-              addWorldBox(bridgeL, ancL, -42.0, -34.5, 151.0, hubY + 1.6, -13.6, -6.0, 'adapter_solid_dome_plinth_dark_l');
-              addWorldBox(bridgeL, ancL, Math.min(-38.0, wInnerX - 2.4), Math.max(-38.0, wInnerX - 2.4), hubY - 2.2, hubY + 2.2, Math.min(-11.4, hubZ - 3.6), Math.max(-6.4, hubZ + 3.6), 'adapter_solid_clevis_dark_l');
-              addWorldRotaryDrum(bridgeL, ancL, wInnerX + 0.3, hubY, hubZ, 2.5, 8.6, 'adapter_solid_drum_dark_l', 'adapter_solid_pin_gold_l');
+              const isWM = mL.isWingOrMantle;
+              const rollDeg = isWM ? (lSign * (mL.isHanging ? 48.0 : 44.0)) : (-lSign * 12.0);
+              const lpX = isWM ? (lSign * mL.hubInnerAbsX) : (lSign * (mL.hubInnerAbsX + 3.0));
+              const lpY = isWM ? (mL.pMinY + (mL.isHanging ? 14.5 : 9.0)) : (mL.pMinY + 2.0);
+              const tpX = lSign * (isWM ? 41.5 : 38.5);
+              const tpY = isWM ? (mL.isHanging ? 167.0 : 164.5) : 163.5;
+              const tpZ = -11.0;
+              const [fx, fy, fz] = applyMekarTransform(leftGrp, ancL, mL, lSign, rollDeg, lpX, lpY, -0.6, tpX, tpY, tpZ, [-35.8, 146.5, 0.0], 14.4, 0);
+              addWorldAngledHinge(bridgeL, ancL, lSign * 36.0, 155.5, -10.2, fx, fy - 0.8, fz, 'l');
             }
-            // Right (+X) shoulder subarm (stock curved tower shield detached!): mount wing/pod snugly onto subarm X=+43.5!
+            // Right (+X) shoulder subarm (stock curved tower shield detached!): symmetrical MEKAR mantle!
             if (Number.isFinite(mR.pMinY)) {
-              const hubZ = ancR.z + mR.hubLocalZ;
-              if (mR.isHanging) {
-                const targetInnerAbsX = 44.2;
-                rightGrp.position.x += rSign * (targetInnerAbsX - (mR.pInnerAbsX + ancR.outOffset));
-                rightGrp.position.y += (151.0 - ancR.y);
-                const wInnerX = rSign * targetInnerAbsX;
-                const hubY = 151.0;
-                addWorldBox(bridgeR, ancR, 36.5, wInnerX + 2.2, hubY - 2.6, hubY + 2.6, hubZ - 4.0, hubZ + 4.0, 'adapter_solid_cowl_clevis_dark_r');
-                addWorldRotaryDrum(bridgeR, ancR, wInnerX - 0.4, hubY, hubZ, 2.6, 9.2, 'adapter_solid_drum_dark_r', 'adapter_solid_pin_gold_r');
-              } else {
-                if (ancR.y + mR.pMinY < 159.2) rightGrp.position.y += (159.2 - (ancR.y + mR.pMinY));
-                const wMinY = ancR.y + rightGrp.position.y + mR.pMinY;
-                const wInnerX = rSign * (mR.pInnerAbsX + ancR.outOffset);
-                const hubY = wMinY + 2.4;
-                addWorldBox(bridgeR, ancR, 32.0, 40.5, 154.5, hubY + 1.6, hubZ - 4.2, hubZ + 4.2, 'adapter_solid_cowl_pedestal_dark_r');
-                addWorldBox(bridgeR, ancR, Math.min(36.0, wInnerX + 2.4), Math.max(36.0, wInnerX + 2.4), hubY - 2.2, hubY + 2.2, hubZ - 3.8, hubZ + 3.8, 'adapter_solid_clevis_dark_r');
-              }
+              const isWM = mR.isWingOrMantle;
+              const rollDeg = isWM ? (rSign * (mR.isHanging ? 48.0 : 44.0)) : (-rSign * 12.0);
+              const lpX = isWM ? (rSign * mR.hubInnerAbsX) : (rSign * (mR.hubInnerAbsX + 3.0));
+              const lpY = isWM ? (mR.pMinY + (mR.isHanging ? 14.5 : 9.0)) : (mR.pMinY + 2.0);
+              const tpX = rSign * (isWM ? 40.5 : 37.5);
+              const tpY = isWM ? (mR.isHanging ? 165.5 : 163.0) : 161.2;
+              const tpZ = -0.8;
+              const [fx, fy, fz] = applyMekarTransform(rightGrp, ancR, mR, rSign, rollDeg, lpX, lpY, -0.6, tpX, tpY, tpZ, null, 0, 0);
+              addWorldAngledHinge(bridgeR, ancR, rSign * 35.5, 155.0, tpZ, fx, fy - 0.8, fz, 'r');
             }
           }
           socket.bilateralRightContainer.add(bridgeR);
