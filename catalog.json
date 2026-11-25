@@ -1,5 +1,27 @@
 [
   {
+    "topic": "Kruskal Minimum Spanning Tree with Disjoint-Set Union",
+    "language": "Java",
+    "folder": "java",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "java-enterprise-patterns",
+    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261125_110137_kruskal_minimum_spanning_tree",
+    "source_file": "main",
+    "timestamp": "2026-11-25T11:01:55.884942+00:00",
+    "dir_name": "20261125_110137_kruskal_minimum_spanning_tree"
+  },
+  {
+    "topic": "Conjugate Gradient Linear System Solver",
+    "language": "Python",
+    "folder": "python",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "python-advanced-lab",
+    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261125_090327_conjugate_gradient_linear_syst",
+    "source_file": "main",
+    "timestamp": "2026-11-25T09:03:43.376631+00:00",
+    "dir_name": "20261125_090327_conjugate_gradient_linear_syst"
+  },
+  {
     "topic": "PenGPT: A Generative Transformer for Handwriting and Sketches",
     "language": "Go",
     "folder": "go",
@@ -625,17 +647,6 @@
     "source_file": "main",
     "timestamp": "2026-11-20T23:02:33.968623+00:00",
     "dir_name": "20261120_230205_starmpi-svd__distributed-memor"
-  },
-  {
-    "topic": "Conjugate Gradient Linear System Solver",
-    "language": "C++",
-    "folder": "cpp",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "cpp-systems-core",
-    "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261120_200115_conjugate_gradient_linear_syst",
-    "source_file": "main",
-    "timestamp": "2026-11-20T20:01:31.035962+00:00",
-    "dir_name": "20261120_200115_conjugate_gradient_linear_syst"
   },
   {
     "topic": "Storage Engines Explained: B-Tree vs LSM Tree",
@@ -1342,17 +1353,6 @@
     "dir_name": "20261110_110115_the_distributed_systems_error"
   },
   {
-    "topic": "Kruskal Minimum Spanning Tree with Disjoint-Set Union",
-    "language": "Haskell",
-    "folder": "haskell",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "haskell-functional-core",
-    "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261110_050114_kruskal_minimum_spanning_tree",
-    "source_file": "main",
-    "timestamp": "2026-11-10T05:01:26.250599+00:00",
-    "dir_name": "20261110_050114_kruskal_minimum_spanning_tree"
-  },
-  {
     "topic": "Algorithms",
     "language": "C",
     "folder": "c",
@@ -1945,17 +1945,6 @@
     "source_file": "main",
     "timestamp": "2026-11-01T13:01:22.497947+00:00",
     "dir_name": "20261101_130122_nearly-optimal_time-sample_tra"
-  },
-  {
-    "topic": "Conjugate Gradient Linear System Solver",
-    "language": "Python",
-    "folder": "python",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "python-advanced-lab",
-    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261101_110210_conjugate_gradient_linear_syst",
-    "source_file": "main",
-    "timestamp": "2026-11-01T11:02:10.632515+00:00",
-    "dir_name": "20261101_110210_conjugate_gradient_linear_syst"
   },
   {
     "topic": "A brief history of just-in-time: forty years of JIT work, from 1960\u20132000",
