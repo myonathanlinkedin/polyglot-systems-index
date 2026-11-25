@@ -1,5 +1,16 @@
 [
   {
+    "topic": "High-Throughput Disruptor Ring Buffer Pattern",
+    "language": "C#",
+    "folder": "csharp",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "csharp-enterprise-lab",
+    "source_link": "https://github.com/myonathanlinkedin/csharp-enterprise-lab/tree/main/algorithms/20261125_050319_high-throughput_disruptor_ring",
+    "source_file": "main",
+    "timestamp": "2026-11-25T05:03:46.147003+00:00",
+    "dir_name": "20261125_050319_high-throughput_disruptor_ring"
+  },
+  {
     "topic": "PenGPT: A Generative Transformer for Handwriting and Sketches",
     "language": "PHP",
     "folder": "php",
@@ -3331,17 +3342,6 @@
     "source_file": "main",
     "timestamp": "2026-10-17T17:01:32.783361+00:00",
     "dir_name": "20261017_170132_cyk_parsing_algorithm_for_cont"
-  },
-  {
-    "topic": "High-Throughput Disruptor Ring Buffer Pattern",
-    "language": "Java",
-    "folder": "java",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "java-enterprise-patterns",
-    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261017_130144_high-throughput_disruptor_ring",
-    "source_file": "main",
-    "timestamp": "2026-10-17T13:01:44.860627+00:00",
-    "dir_name": "20261017_130144_high-throughput_disruptor_ring"
   },
   {
     "topic": "Red-Black Tree with Deterministic Balance Assertions",
