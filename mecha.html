@@ -2947,7 +2947,7 @@
     // =========================================================================
     const MECHA_ASSETS_CDN = 'https://raw.githubusercontent.com/myonathanlinkedin/mecha-assets/main';
     // Immutable commit-pinned baseline CDN bypasses Fastly raw.githubusercontent.com 300s /main/ edge cache!
-    const MECHA_BASELINE_CDN = 'https://raw.githubusercontent.com/myonathanlinkedin/mecha-assets/a2808569cc8d0fe990fb98eebb9a1cd2e4d223c0';
+    const MECHA_BASELINE_CDN = 'https://raw.githubusercontent.com/myonathanlinkedin/mecha-assets/c979aa4116df05e99348073d9adfa8e568f81245';
 
     const HERO_RX78_SPEC = {
       id: 'vanguard_rx',
@@ -4517,7 +4517,7 @@
         color = 0x1b64c6; roughness = 0.28; metalness = 0.24; materialClass = 'armor_gloss';
       } else if (n.includes('cockpit_hatch_navy')) {
         color = 0x113a78; roughness = 0.34; metalness = 0.20; materialClass = 'armor_painted';
-      } else if (n.includes('shoulder_gimbal') || n.includes('humerus_clevis') || n.includes('forearm_wrist_trim')) {
+      } else if (n.includes('forearm_wrist_trim')) {
         color = 0xf0f2ec; roughness = 0.38; metalness = 0.08; useDetail = true; materialClass = 'armor_white';
       } else if (n.includes('elbow_cap_white') || n.includes('knee_cap_disc_white') || n.includes('ankle_disc_white')) {
         color = 0xe6e9e3; roughness = 0.40; metalness = 0.08; materialClass = 'armor_white';
@@ -5857,7 +5857,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r54');
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r55');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         const onGltfReady = async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
