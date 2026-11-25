@@ -4790,6 +4790,7 @@
         nativeLowerPropellantMeshes: [],
         nativeShoulderShieldMeshes: [],
         nativeHeadHornMeshes: [],
+        nativeChestVentMeshes: [],
         backpackSaberHilts: { r: null, l: null }
       };
       state.monoEyeNodes = [];
@@ -4867,6 +4868,15 @@
         // and ALL default head & shoulder horns/spikes remain 100% preserved!
         if (n.includes('right_curved_tower_shield')) {
           rig.nativeShoulderShieldMeshes.push(mesh);
+        }
+        // Vanguard-ONLY stock chest intake vents (`chest_vent_duct_r/l` & `chest_vent_louvers_r/l`):
+        // automatically detached whenever custom `chest_armor` is equipped, and restored immediately on unequip!
+        if (
+          !spec?.isZeonEnemy &&
+          spec?.id !== 'rival_frame' &&
+          (n.includes('chest_vent_duct') || n.includes('chest_vent_louvers'))
+        ) {
+          rig.nativeChestVentMeshes.push(mesh);
         }
         if (n.includes('backpack_saber_hilt_r')) {
           rig.backpackSaberHilts.r = mesh;
@@ -5131,12 +5141,12 @@
       // Zaku-II, Gouf & Sazabi calibrated to exact measured outer dome/pectoral/pauldron/calf/forearm bounds!)
       const headHeightY = isSazabi ? 168.0 : (isGouf ? 169.8 : (isZaku ? 169.8 : 165.0));
       const headScale = isSazabi ? 1.15 : (isGouf ? 1.20 : (isZaku ? 1.18 : 1.0));
-      // Calibrated per-unit torso front face Z, Y & pitch so chest_armor plates hug the EXACT body contour
-      // (RX-78 chiseled +22.8 deg lower chest apex Z=19.8 -> Y=138.2, Z=15.6, rx=+0.35 rad; Sazabi +5.2 deg contour!)
+      // Calibrated per-unit torso front face Z (Sazabi/Gouf/Zaku/Rival kept 100% canonical pre-r45;
+      // RX-78 Vanguard uses its own Vanguard-only runtime 2-facet contour jacket in 08_catalog_equip_exploded.js!)
       const isHeroRX78 = !spec.isZeonEnemy && spec.id !== 'rival_frame';
-      const chestFrontZ = isSazabi ? 15.8 : (isGouf ? 14.0 : (isZaku ? 13.0 : (isHeroRX78 ? 15.6 : 12.6)));
-      const chestFrontY = isHeroRX78 ? 138.2 : 141.0;
-      const chestPitchX = isHeroRX78 ? 0.35 : (isSazabi ? 0.09 : 0.0);
+      const chestFrontZ = isSazabi ? 15.8 : (isGouf ? 14.0 : (isZaku ? 13.0 : (isHeroRX78 ? 13.6 : 12.6)));
+      const chestFrontY = 141.0;
+      const chestPitchX = 0.0;
       const chestScale = isSazabi ? 1.10 : (isGouf ? 1.06 : (isZaku ? 1.04 : 1.0));
       const dorsalBackZ = isSazabi ? -10.8 : (isGouf ? -13.2 : (isZaku ? -9.6 : -7.6));
       const fistX = rSign * (isSazabi ? 37.6 : (isGouf ? 34.8 : (isZaku ? 34.5 : 36.2)));
@@ -5843,7 +5853,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r44');
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r47');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         const onGltfReady = async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
@@ -6824,6 +6834,73 @@
             }
           }
         }
+        // Vanguard-ONLY (RX-78) 2-Facet Full-Armor Chest Contour Adaptation:
+        // Keeps Zaku-II, Gouf, Sazabi & Rival 100% untouched (canonical pre-r45 geometry & sockets!),
+        // while wrapping Vanguard's chiseled 3-facet chest (-46.5 deg upper slope + +22.8 deg lower face)
+        // cleanly with -45.5 deg upper clavicle cowls + +19.5 deg lower pectoral armor + DEAD-LEVEL 0-deg +Z cannons!
+        if (slotGroup === 'chest_armor' && (state.activeUnitId === 'vanguard_rx' || state.activeUnitId === 'gundam_rx78')) {
+          const darkBridgeMat = getSharedMechaMaterial({ color: 0x2c3442, roughness: 0.36, metalness: 0.72, materialClass: 'metal_gunmetal' });
+          let sideArmorMat = null;
+          let centerArmorMat = null;
+          const allChestMeshes = [];
+          packModel.traverse(n => {
+            if (!n.isMesh || !n.visible) return;
+            allChestMeshes.push(n);
+            const nm = (n.name || '').toLowerCase();
+            const isNeutral = nm.includes('adapter') || nm.includes('dark') || nm.includes('gold') || nm.includes('optic') || nm.includes('barrel') || nm.includes('gunmetal');
+            const gx = Math.abs(n.userData.geomCenter?.x || 0);
+            if (!isNeutral && gx >= 6.0 && !sideArmorMat) sideArmorMat = n.material;
+            if (!isNeutral && gx < 5.5 && !centerArmorMat) centerArmorMat = n.material;
+          });
+          if (!sideArmorMat) sideArmorMat = centerArmorMat || darkBridgeMat;
+          if (!centerArmorMat) centerArmorMat = sideArmorMat;
+
+          const lowerGrp = new THREE.Group();
+          lowerGrp.name = 'VanguardLowerChestContour';
+          lowerGrp.position.set(0.0, -2.8, 1.8);
+          lowerGrp.rotation.set(0.34, 0.0, 0.0); // +19.5 deg coplanar with Vanguard's chiseled lower chest!
+          lowerGrp.scale.set(1.0, 0.94, 0.78);
+
+          const weaponGrp = new THREE.Group();
+          weaponGrp.name = 'VanguardLevelForwardWeapons';
+          weaponGrp.position.set(0.0, -2.0, 0.8); // DEAD-LEVEL 0.0 deg straight forward (+Z)!
+
+          allChestMeshes.forEach(m => {
+            const nm = (m.name || '').toLowerCase();
+            const isFwdWeapon = (
+              nm.includes('barrel') || nm.includes('muzzle') ||
+              nm.includes('emitter_bell') || nm.includes('emitter_lens') ||
+              nm.includes('reactor_core_orb') || nm.includes('reactor_gold_bezel')
+            );
+            if (isFwdWeapon) {
+              weaponGrp.add(m);
+            } else {
+              lowerGrp.add(m);
+            }
+          });
+          packModel.add(lowerGrp, weaponGrp);
+
+          const addVanguardUpperPlate = (w, h, d, mat, lx, ly, lz, rxDeg, ryDeg, nm) => {
+            const geo = new THREE.BoxGeometry(w, h, d);
+            ensureBoxProjectedUVs(geo, 0.078, true);
+            ensureBakedMaskAttribute(geo);
+            const mesh = new THREE.Mesh(geo, mat);
+            mesh.name = nm;
+            mesh.position.set(lx, ly, lz);
+            mesh.rotation.set(THREE.MathUtils.degToRad(rxDeg), THREE.MathUtils.degToRad(ryDeg), 0);
+            mesh.castShadow = true;
+            mesh.receiveShadow = true;
+            mesh.userData.origMaterial = mat;
+            mesh.userData.initialPosition = mesh.position.clone();
+            mesh.userData.isModularPack = true;
+            packModel.add(mesh);
+            state.chassisParts.push(mesh);
+          };
+          // Sleek -45.5 deg upper clavicle slope plates capping Vanguard's upper blue chest bevel cleanly!
+          addVanguardUpperPlate(10.2, 9.8, 2.2, sideArmorMat,  11.8, 7.6, 3.6, -45.5,  4.5, 'vanguard_upper_chest_slope_r');
+          addVanguardUpperPlate(10.2, 9.8, 2.2, sideArmorMat, -11.8, 7.6, 3.6, -45.5, -4.5, 'vanguard_upper_chest_slope_l');
+          addVanguardUpperPlate(10.4, 9.4, 2.4, centerArmorMat, 0.0, 7.3, 4.2, -45.5,  0.0, 'vanguard_upper_chest_center');
+        }
         socket.adapterVis.visible = true;
         socket.payloadContainer.add(packModel);
         mountedModels.push(packModel);
@@ -7027,6 +7104,13 @@
         state.kinematicRig.nativeHeadHornMeshes.forEach(m => {
           m.userData.hiddenBySwap = hasHeadSensor;
           m.visible = !hasHeadSensor;
+        });
+      }
+      const hasChestArmor = !!state.slotOccupancy.chest_armor && state.equippedPacks.has(state.slotOccupancy.chest_armor);
+      if (state.kinematicRig?.nativeChestVentMeshes) {
+        state.kinematicRig.nativeChestVentMeshes.forEach(m => {
+          m.userData.hiddenBySwap = hasChestArmor;
+          m.visible = !hasChestArmor;
         });
       }
       state.chassisParts = state.chassisParts.filter(n => n.parent !== null);
