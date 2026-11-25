@@ -2946,6 +2946,8 @@
     // 1. UNIFIED 4-UNIT MECHA-UNIVERSE ROSTER (LOADED FROM PUBLIC 'mecha-assets' REPO!)
     // =========================================================================
     const MECHA_ASSETS_CDN = 'https://raw.githubusercontent.com/myonathanlinkedin/mecha-assets/main';
+    // Immutable commit-pinned baseline CDN bypasses Fastly raw.githubusercontent.com 300s /main/ edge cache!
+    const MECHA_BASELINE_CDN = 'https://raw.githubusercontent.com/myonathanlinkedin/mecha-assets/a2808569cc8d0fe990fb98eebb9a1cd2e4d223c0';
 
     const HERO_RX78_SPEC = {
       id: 'vanguard_rx',
@@ -2955,7 +2957,7 @@
       massKg: 24500,
       reactorKw: 3450,
       baseThrust: 55500,
-      glbUrl: `${MECHA_ASSETS_CDN}/models/baselines/baseline_gundam_frame_v1.glb`,
+      glbUrl: `${MECHA_BASELINE_CDN}/models/baselines/baseline_gundam_frame_v1.glb`,
       isZeonEnemy: false,
       hasNativeHandsEmpty: true,
       dorsalZ: -19.0,
@@ -4515,6 +4517,8 @@
         color = 0x1b64c6; roughness = 0.28; metalness = 0.24; materialClass = 'armor_gloss';
       } else if (n.includes('cockpit_hatch_navy')) {
         color = 0x113a78; roughness = 0.34; metalness = 0.20; materialClass = 'armor_painted';
+      } else if (n.includes('shoulder_gimbal') || n.includes('humerus_clevis') || n.includes('forearm_wrist_trim')) {
+        color = 0xf0f2ec; roughness = 0.38; metalness = 0.08; useDetail = true; materialClass = 'armor_white';
       } else if (n.includes('elbow_cap_white') || n.includes('knee_cap_disc_white') || n.includes('ankle_disc_white')) {
         color = 0xe6e9e3; roughness = 0.40; metalness = 0.08; materialClass = 'armor_white';
       } else if (n.includes('_rg_') || n.includes('rg_panel') || n.includes('rg_cuff') || n.includes('rg_subplate')) {
@@ -5245,7 +5249,7 @@
           adapterId: 'ADP-HP13-WAIST',
           worldPos: [
             0.0,
-            isSazabi ? 117.2 : (isGouf ? 117.0 : (isZaku ? 117.0 : (spec.id === 'rival_frame' ? 115.2 : 111.8))),
+            isSazabi ? 117.2 : (isGouf ? 117.0 : (isZaku ? 117.0 : (spec.id === 'rival_frame' ? 115.2 : 115.6))),
             isSazabi ? 2.4 : (isGouf ? 2.2 : (isZaku ? 2.0 : 2.2))
           ],
           rot: [0, 0, 0],
@@ -5853,7 +5857,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r47');
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r54');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         const onGltfReady = async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
@@ -5948,6 +5952,7 @@
               ...(state.kinematicRig.nativeLowerPropellantMeshes || []),
               ...(state.kinematicRig.nativeShoulderShieldMeshes || []),
               ...(state.kinematicRig.nativeHeadHornMeshes || []),
+              ...(state.kinematicRig.nativeChestVentMeshes || []),
               state.kinematicRig.backpackSaberHilts?.r,
               state.kinematicRig.backpackSaberHilts?.l,
             ].filter(Boolean));
@@ -6245,6 +6250,12 @@
           m.visible = true;
         });
       }
+      if (entry.slotGroup === 'chest_armor' && state.kinematicRig?.nativeChestVentMeshes) {
+        state.kinematicRig.nativeChestVentMeshes.forEach(m => {
+          m.userData.hiddenBySwap = false;
+          m.visible = true;
+        });
+      }
       state.chassisParts = state.chassisParts.filter(n => n.parent !== null);
       state.equippedPacks.delete(partId);
       if (state.slotOccupancy[entry.slotGroup] === partId) {
@@ -6303,6 +6314,7 @@
       // Abort stale async download if the user clicked a newer weapon/kit or unequipped while fetching!
       if (state.slotLoadToken[slotGroup] !== myToken) {
         packModel?.traverse?.(n => { if (n.geometry) n.geometry.dispose(); });
+        enforceSinglePartPerSlotInvariant();
         return;
       }
 
@@ -6361,6 +6373,15 @@
         // All native shoulder horns/spikes remain 100% preserved.
         if (state.kinematicRig?.nativeShoulderShieldMeshes) {
           state.kinematicRig.nativeShoulderShieldMeshes.forEach(m => {
+            m.userData.hiddenBySwap = true;
+            m.visible = false;
+          });
+        }
+      } else if (slotGroup === 'chest_armor') {
+        // Detach/hide Vanguard stock chest intake vents whenever a custom chest_armor successfully mounts
+        // (restored automatically by dismountPart & enforceSinglePartPerSlotInvariant on unequip/clear/failure!).
+        if (state.kinematicRig?.nativeChestVentMeshes) {
+          state.kinematicRig.nativeChestVentMeshes.forEach(m => {
             m.userData.hiddenBySwap = true;
             m.visible = false;
           });
@@ -7118,16 +7139,22 @@
 
     async function toggleEquipPart(part) {
       state.batchLoadToken++;
-      if (state.equippedPacks.has(part.part_id)) {
-        dismountPart(part.part_id, false);
-      } else {
-        await mountPartOnAdapter(part, false);
+      try {
+        if (state.equippedPacks.has(part.part_id)) {
+          dismountPart(part.part_id, false);
+        } else {
+          await mountPartOnAdapter(part, false);
+        }
+      } catch (err) {
+        console.error('Failed to toggle/mount modular part:', part?.part_id, err);
+        showToast(`⚠️ Failed to load ${part?.name || 'modular part'} — restored stock chassis`, false);
+      } finally {
+        enforceSinglePartPerSlotInvariant();
+        renderInventory();
+        updateTelemetry();
+        applyRenderMode(state.renderMode);
+        applyExplodedDisplacement(state.explodedFactor);
       }
-      enforceSinglePartPerSlotInvariant();
-      renderInventory();
-      updateTelemetry();
-      applyRenderMode(state.renderMode);
-      applyExplodedDisplacement(state.explodedFactor);
     }
 
     // 1-Click 8-Zone Full Armor Loadout (Snaps 1 part into EVERY body zone: Head, Chest, Shoulders, Back, R-Weapon, L-Shield, Waist, Legs!)
@@ -7136,21 +7163,26 @@
       const myBatchToken = ++state.batchLoadToken;
       state.weaponDrawAnim = null;
       const zonesOrder = ['head_sensor', 'chest_armor', 'shoulder_pods', 'dorsal_pack', 'aux_weapon', 'aux_shield', 'waist_ordnance', 'leg_thrusters'];
-      for (const z of zonesOrder) {
-        if (state.batchLoadToken !== myBatchToken) return;
-        const candidate = state.catalog.modular_parts.find(p => resolvePartSlotGroup(p) === z);
-        if (candidate && !state.equippedPacks.has(candidate.part_id)) {
-          await mountPartOnAdapter(candidate, true);
+      try {
+        for (const z of zonesOrder) {
+          if (state.batchLoadToken !== myBatchToken) return;
+          const candidate = state.catalog.modular_parts.find(p => resolvePartSlotGroup(p) === z);
+          if (candidate && !state.equippedPacks.has(candidate.part_id)) {
+            await mountPartOnAdapter(candidate, true);
+          }
         }
+        if (state.batchLoadToken !== myBatchToken) return;
+        battleAudio.playGunplaSnapClick();
+        showToast('⚡ [CLICK! ×8] FULL-BODY 8-ZONE ARMOR & ORDNANCE LOADOUT LOCKED!', true);
+      } catch (err) {
+        console.error('Full-body loadout partial error:', err);
+      } finally {
+        enforceSinglePartPerSlotInvariant();
+        renderInventory();
+        updateTelemetry();
+        applyRenderMode(state.renderMode);
+        applyExplodedDisplacement(state.explodedFactor);
       }
-      if (state.batchLoadToken !== myBatchToken) return;
-      enforceSinglePartPerSlotInvariant();
-      renderInventory();
-      updateTelemetry();
-      applyRenderMode(state.renderMode);
-      applyExplodedDisplacement(state.explodedFactor);
-      battleAudio.playGunplaSnapClick();
-      showToast('⚡ [CLICK! ×8] FULL-BODY 8-ZONE ARMOR & ORDNANCE LOADOUT LOCKED!', true);
     }
 
     function clearAllEquippedParts() {
@@ -7160,6 +7192,8 @@
       enforceSinglePartPerSlotInvariant();
       renderInventory();
       updateTelemetry();
+      applyRenderMode(state.renderMode);
+      applyExplodedDisplacement(state.explodedFactor);
       battleAudio.playGunplaUnlatch();
       showToast('🧹 Dismounted All 8 Body Zones');
     }
@@ -7186,40 +7220,44 @@
       const allParts = state.catalog.modular_parts;
       const pickRandom = (arr) => arr[Math.floor(Math.random() * arr.length)];
       let mountedCount = 0;
-      for (const z of build.zones) {
+      try {
+        for (const z of build.zones) {
+          if (state.batchLoadToken !== myBatchToken) return;
+          const candidates = allParts.filter(p => resolvePartSlotGroup(p) === z);
+          if (candidates.length === 0) continue;
+          let chosen = null;
+          if ((build.name.includes('Saber')) && z === 'aux_weapon') {
+            chosen = candidates.find(p => p.part_id === 'weapon_beam_saber_rx') || pickRandom(candidates);
+          } else if (build.name === 'Close-Quarters Beam Saber Duelist' && z === 'aux_shield') {
+            chosen = candidates.find(p => p.part_id === 'mission_pack_type_c_cqc') || pickRandom(candidates);
+          } else if (build.name === 'Heavy Siege Assault' && z === 'dorsal_pack') {
+            chosen = candidates.find(p => p.part_id === 'mission_pack_type_h_artillery') || pickRandom(candidates);
+          } else if (build.name === 'High-Mobility Interceptor' && z === 'dorsal_pack') {
+            chosen = candidates.find(p => p.part_id === 'propulsion_vernier_wing_pod' || p.part_id === 'mission_pack_type_s_space') || pickRandom(candidates);
+          } else if (build.name === 'Tactical Recon Vanguard' && z === 'dorsal_pack') {
+            chosen = candidates.find(p => p.part_id === 'mission_pack_type_e_recon') || pickRandom(candidates);
+          } else {
+            chosen = pickRandom(candidates);
+          }
+          if (chosen) {
+            await mountPartOnAdapter(chosen, true);
+            mountedCount++;
+          }
+        }
         if (state.batchLoadToken !== myBatchToken) return;
-        const candidates = allParts.filter(p => resolvePartSlotGroup(p) === z);
-        if (candidates.length === 0) continue;
-        let chosen = null;
-        if ((build.name.includes('Saber')) && z === 'aux_weapon') {
-          chosen = candidates.find(p => p.part_id === 'weapon_beam_saber_rx') || pickRandom(candidates);
-        } else if (build.name === 'Close-Quarters Beam Saber Duelist' && z === 'aux_shield') {
-          chosen = candidates.find(p => p.part_id === 'mission_pack_type_c_cqc') || pickRandom(candidates);
-        } else if (build.name === 'Heavy Siege Assault' && z === 'dorsal_pack') {
-          chosen = candidates.find(p => p.part_id === 'mission_pack_type_h_artillery') || pickRandom(candidates);
-        } else if (build.name === 'High-Mobility Interceptor' && z === 'dorsal_pack') {
-          chosen = candidates.find(p => p.part_id === 'propulsion_vernier_wing_pod' || p.part_id === 'mission_pack_type_s_space') || pickRandom(candidates);
-        } else if (build.name === 'Tactical Recon Vanguard' && z === 'dorsal_pack') {
-          chosen = candidates.find(p => p.part_id === 'mission_pack_type_e_recon') || pickRandom(candidates);
-        } else {
-          chosen = pickRandom(candidates);
-        }
-        if (chosen) {
-          await mountPartOnAdapter(chosen, true);
-          mountedCount++;
-        }
+        // RANDOM BUILD preserves the Gundam's current combat stance / movement scene untouched!
+        battleAudio.playGunplaSnapClick();
+        triggerStagePulse(0x00e5ff);
+        showToast(`🎲 [RANDOM BUILD] ${build.name} — ${mountedCount} Modules Mounted!`, true);
+      } catch (err) {
+        console.error('Random build partial error:', err);
+      } finally {
+        enforceSinglePartPerSlotInvariant();
+        renderInventory();
+        updateTelemetry();
+        applyRenderMode(state.renderMode);
+        applyExplodedDisplacement(state.explodedFactor);
       }
-      if (state.batchLoadToken !== myBatchToken) return;
-      enforceSinglePartPerSlotInvariant();
-
-      // RANDOM BUILD preserves the Gundam's current combat stance / movement scene untouched!
-      renderInventory();
-      updateTelemetry();
-      applyRenderMode(state.renderMode);
-      applyExplodedDisplacement(state.explodedFactor);
-      battleAudio.playGunplaSnapClick();
-      triggerStagePulse(0x00e5ff);
-      showToast(`🎲 [RANDOM BUILD] ${build.name} — ${mountedCount} Modules Mounted!`, true);
     }
 
     function updateTelemetry() {
@@ -8340,24 +8378,28 @@
       state.weaponDrawAnim = null;
       const allParts = state.catalog?.modular_parts || [];
 
-      for (const [zone, partId] of Object.entries(preset.slots || {})) {
-        if (!partId) continue;
-        if (state.batchLoadToken !== myBatchToken) return;
-        const candidate = allParts.find(p => p.part_id === partId || p.concept_slug === partId);
-        if (candidate && !state.equippedPacks.has(candidate.part_id)) {
-          await mountPartOnAdapter(candidate, true);
+      try {
+        for (const [zone, partId] of Object.entries(preset.slots || {})) {
+          if (!partId) continue;
+          if (state.batchLoadToken !== myBatchToken) return;
+          const candidate = allParts.find(p => p.part_id === partId || p.concept_slug === partId);
+          if (candidate && !state.equippedPacks.has(candidate.part_id)) {
+            await mountPartOnAdapter(candidate, true);
+          }
         }
+        if (state.batchLoadToken !== myBatchToken) return;
+        battleAudio?.playGunplaSnapClick();
+        triggerStagePulse(0x00e5ff);
+        showToast(`⚡ [CLICK!] LOADED CONFIG: "${preset.name}"`, true);
+      } catch (err) {
+        console.error('Preset equip partial error:', err);
+      } finally {
+        enforceSinglePartPerSlotInvariant();
+        renderInventory();
+        updateTelemetry();
+        applyRenderMode(state.renderMode);
+        applyExplodedDisplacement(state.explodedFactor);
       }
-
-      if (state.batchLoadToken !== myBatchToken) return;
-      enforceSinglePartPerSlotInvariant();
-      renderInventory();
-      updateTelemetry();
-      applyRenderMode(state.renderMode);
-      applyExplodedDisplacement(state.explodedFactor);
-      battleAudio?.playGunplaSnapClick();
-      triggerStagePulse(0x00e5ff);
-      showToast(`⚡ [CLICK!] LOADED CONFIG: "${preset.name}"`, true);
     }
 
     function renamePreset(presetId, newName) {
