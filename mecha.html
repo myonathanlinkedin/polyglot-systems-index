@@ -5131,9 +5131,12 @@
       // Zaku-II, Gouf & Sazabi calibrated to exact measured outer dome/pectoral/pauldron/calf/forearm bounds!)
       const headHeightY = isSazabi ? 168.0 : (isGouf ? 169.8 : (isZaku ? 169.8 : 165.0));
       const headScale = isSazabi ? 1.15 : (isGouf ? 1.20 : (isZaku ? 1.18 : 1.0));
-      // Calibrated per-unit torso front face Z so chest_armor sternum & pectoral adapters bite 1.5..2.0mm solidly
-      // into the chestplate (0.0mm top-down & side air gap!) while outer Chobham plates stand cleanly proud!
-      const chestFrontZ = isSazabi ? 15.8 : (isGouf ? 14.0 : (isZaku ? 13.0 : 12.6));
+      // Calibrated per-unit torso front face Z, Y & pitch so chest_armor plates hug the EXACT body contour
+      // (RX-78 chiseled +22.8 deg lower chest apex Z=19.8 -> Y=138.2, Z=15.6, rx=+0.35 rad; Sazabi +5.2 deg contour!)
+      const isHeroRX78 = !spec.isZeonEnemy && spec.id !== 'rival_frame';
+      const chestFrontZ = isSazabi ? 15.8 : (isGouf ? 14.0 : (isZaku ? 13.0 : (isHeroRX78 ? 15.6 : 12.6)));
+      const chestFrontY = isHeroRX78 ? 138.2 : 141.0;
+      const chestPitchX = isHeroRX78 ? 0.35 : (isSazabi ? 0.09 : 0.0);
       const chestScale = isSazabi ? 1.10 : (isGouf ? 1.06 : (isZaku ? 1.04 : 1.0));
       const dorsalBackZ = isSazabi ? -10.8 : (isGouf ? -13.2 : (isZaku ? -9.6 : -7.6));
       const fistX = rSign * (isSazabi ? 37.6 : (isGouf ? 34.8 : (isZaku ? 34.5 : 36.2)));
@@ -5157,12 +5160,12 @@
           alwaysVisible: false
         }),
 
-        // 2. CHEST / PECTORAL CHOBHAM REACTIVE ARMOR ZONE (HP-09/10)
+        // 2. CHEST / PECTORAL CHOBHAM REACTIVE ARMOR ZONE (HP-09/10 — contour-matched pitch & depth!)
         chest_armor: createPhysicalAdapterSocket(rig.torso, {
           slotGroup: 'chest_armor',
           adapterId: 'ADP-HP09-PECTORAL',
-          worldPos: [0.0, 141.0, chestFrontZ],
-          rot: [0, 0, 0],
+          worldPos: [0.0, chestFrontY, chestFrontZ],
+          rot: [chestPitchX, 0, 0],
           scale: chestScale,
           dockedZ: 0.0,
           slideSign: 1.0,
@@ -5840,7 +5843,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r39');
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r44');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         const onGltfReady = async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
