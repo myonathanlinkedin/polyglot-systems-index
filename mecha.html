@@ -4669,6 +4669,7 @@
         nativeBackpackMeshes: [],
         nativeLowerPropellantMeshes: [],
         nativeShoulderShieldMeshes: [],
+        nativeHeadHornMeshes: [],
         backpackSaberHilts: { r: null, l: null }
       };
       state.monoEyeNodes = [];
@@ -4749,6 +4750,18 @@
           n.includes('gouf_horn_')
         ) {
           rig.nativeShoulderShieldMeshes.push(mesh);
+        }
+        // Detachable stock head horns / commander blades / V-fins across ALL units:
+        // Automatically hidden whenever a custom head_sensor part is equipped so stock cranial horns
+        // NEVER stab through or collide with custom head sensors/crowns (restored cleanly on unequip!).
+        if (
+          n.includes('sazabi_commander_blade') ||
+          n.includes('gouf_commander_fin') ||
+          n.includes('cranial_commander_blade') ||
+          n.includes('v_fin_antenna') ||
+          n.includes('head_v_fin_crest_gem')
+        ) {
+          rig.nativeHeadHornMeshes.push(mesh);
         }
         if (n.includes('backpack_saber_hilt_r')) {
           rig.backpackSaberHilts.r = mesh;
@@ -5712,7 +5725,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261124_r7');
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261124_r9');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         const onGltfReady = async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
@@ -5806,6 +5819,7 @@
               ...(state.kinematicRig.nativeBackpackMeshes || []),
               ...(state.kinematicRig.nativeLowerPropellantMeshes || []),
               ...(state.kinematicRig.nativeShoulderShieldMeshes || []),
+              ...(state.kinematicRig.nativeHeadHornMeshes || []),
               state.kinematicRig.backpackSaberHilts?.r,
               state.kinematicRig.backpackSaberHilts?.l,
             ].filter(Boolean));
@@ -6094,6 +6108,12 @@
       if (entry.slotGroup === 'shoulder_pods' && state.kinematicRig?.nativeShoulderShieldMeshes) {
         state.kinematicRig.nativeShoulderShieldMeshes.forEach(m => { m.visible = true; });
       }
+      if (entry.slotGroup === 'head_sensor' && state.kinematicRig?.nativeHeadHornMeshes) {
+        state.kinematicRig.nativeHeadHornMeshes.forEach(m => {
+          m.userData.hiddenBySwap = false;
+          m.visible = true;
+        });
+      }
       state.chassisParts = state.chassisParts.filter(n => n.parent !== null);
       state.equippedPacks.delete(partId);
       if (state.slotOccupancy[entry.slotGroup] === partId) {
@@ -6205,9 +6225,17 @@
           state.kinematicRig.nativeLowerPropellantMeshes.forEach(m => { m.visible = false; });
         }
       } else if (slotGroup === 'shoulder_pods') {
-        // Detach Zaku-II stock shoulder shield so custom shoulder_pods clamp 100% flush onto the shoulder armor!
+        // Detach Zaku-II stock shoulder shield & Gouf/Zaku shoulder spikes so custom shoulder_pods clamp 100% flush!
         if (state.kinematicRig?.nativeShoulderShieldMeshes) {
           state.kinematicRig.nativeShoulderShieldMeshes.forEach(m => { m.visible = false; });
+        }
+      } else if (slotGroup === 'head_sensor') {
+        // Detach stock head horn / commander blade / V-fin across ALL units before snapping on head_sensor parts!
+        if (state.kinematicRig?.nativeHeadHornMeshes) {
+          state.kinematicRig.nativeHeadHornMeshes.forEach(m => {
+            m.userData.hiddenBySwap = true;
+            m.visible = false;
+          });
         }
       }
 
@@ -6474,6 +6502,13 @@
         state.kinematicRig.nativeShoulderShieldMeshes.forEach(m => {
           m.userData.hiddenBySwap = hasShoulderPods;
           m.visible = !hasShoulderPods;
+        });
+      }
+      const hasHeadSensor = !!state.slotOccupancy.head_sensor && state.equippedPacks.has(state.slotOccupancy.head_sensor);
+      if (state.kinematicRig?.nativeHeadHornMeshes) {
+        state.kinematicRig.nativeHeadHornMeshes.forEach(m => {
+          m.userData.hiddenBySwap = hasHeadSensor;
+          m.visible = !hasHeadSensor;
         });
       }
       state.chassisParts = state.chassisParts.filter(n => n.parent !== null);
