@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Tic-Tac-Toe Minimax Algorithm in Java",
+    "language": "Java",
+    "folder": "java",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "java-enterprise-patterns",
+    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261125_230114_tic-tac-toe_minimax_algorithm",
+    "source_file": "main",
+    "timestamp": "2026-11-25T23:01:33.469604+00:00",
+    "dir_name": "20261125_230114_tic-tac-toe_minimax_algorithm"
+  },
+  {
     "topic": "Bit-Parallel Levenshtein Distance Stratum-Matrix",
     "language": "Python",
     "folder": "python",
@@ -273,17 +284,6 @@
     "source_file": "main",
     "timestamp": "2026-11-24T11:02:39.847231+00:00",
     "dir_name": "20261124_110221_conflict-free_replicated_data"
-  },
-  {
-    "topic": "Tic-Tac-Toe Minimax Algorithm in Java",
-    "language": "Java",
-    "folder": "java",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "java-enterprise-patterns",
-    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261124_110112_tic-tac-toe_minimax_algorithm",
-    "source_file": "main",
-    "timestamp": "2026-11-24T11:01:30.384122+00:00",
-    "dir_name": "20261124_110112_tic-tac-toe_minimax_algorithm"
   },
   {
     "topic": "Two-Phase Commit Protocol Coordinator and Participant State Machine",
