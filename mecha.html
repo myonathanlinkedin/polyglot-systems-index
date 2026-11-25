@@ -5249,21 +5249,25 @@
       };
 
       // Attach dedicated bilateral limb containers onto armR/armL and shinR/shinL so shoulder & leg pods articulate independently with each limb!
-      // Horn-Preserving Adaptive Shoulder Anchors (ZERO detached horns on Zaku-II & Gouf — 0.00mm horn overlap across all archetypes!):
+      // Horn-Preserving Adaptive Shoulder Anchors (ZERO detached horns & ZERO hollow C-gap across ALL 5 units!):
       // - RX-78 / Sazabi: standard pauldron flank saddle (RX-78 out=0 Y=148, Sazabi out=8.4 Y=151.5)
       // - Gouf (ALL 6 shoulder horns preserved): top-deck pauldron crown (inward -9.0mm, Y=164.0 above all horns Y<=159.5)
-      // - Zaku-II (ALL 3 left pauldron horns + right shield preserved): left rear-upper flank (-3.0mm, Y=157.5, Z=-12.8); right top-cowl (-4.5mm, Y=157.5, Z=-2.0)
-      const shOutR = isSazabi ? 8.4 : (isGouf ? -9.0 : (isZaku ? -4.5 : 0.0));
-      const shOutL = isSazabi ? 8.4 : (isGouf ? -9.0 : (isZaku ? -3.0 : 0.0));
-      const shYR = isSazabi ? 151.5 : (isGouf ? 164.0 : (isZaku ? 157.5 : 148.0));
-      const shYL = isSazabi ? 151.5 : (isGouf ? 164.0 : (isZaku ? 157.5 : 148.0));
-      const shZR = isZaku ? -2.0 : 0.0;
-      const shZL = isZaku ? -12.8 : 0.0;
+      // - Zaku-II (ALL 3 left pauldron horns + right shield preserved): left rear-upper flank (-3.0, Y=156.5, Z=-12.2); right top-cowl (-7.0, Y=154.5, Z=-0.8)
+      // - Rival Frame (ALL 3 left spikes + right curved tower shield preserved): left rear-upper flank (-1.5, Y=157.0, Z=-13.2); right subarm (-5.5, Y=156.5, Z=-0.8)
+      const isRival = spec.id === 'rival_frame';
+      const shOutR = isSazabi ? 8.4 : (isGouf ? -9.0 : (isZaku ? -7.0 : (isRival ? -5.5 : 0.0)));
+      const shOutL = isSazabi ? 8.4 : (isGouf ? -9.0 : (isZaku ? -3.0 : (isRival ? -1.5 : 0.0)));
+      const shYR = isSazabi ? 151.5 : (isGouf ? 164.0 : (isZaku ? 154.5 : (isRival ? 156.5 : 148.0)));
+      const shYL = isSazabi ? 151.5 : (isGouf ? 164.0 : (isZaku ? 156.5 : (isRival ? 157.0 : 148.0)));
+      const shZR = (isZaku || isRival) ? -0.8 : 0.0;
+      const shZL = isZaku ? -12.2 : (isRival ? -13.2 : 0.0);
       const shR = new THREE.Group();
       shR.position.set((rSign * shOutR) - rig.armR.userData.worldOrigin.x, shYR - rig.armR.userData.worldOrigin.y, shZR - rig.armR.userData.worldOrigin.z);
+      shR.userData.worldAnchor = { x: rSign * shOutR, y: shYR, z: shZR, outOffset: shOutR };
       rig.armR.add(shR);
       const shL = new THREE.Group();
       shL.position.set((lSign * shOutL) - rig.armL.userData.worldOrigin.x, shYL - rig.armL.userData.worldOrigin.y, shZL - rig.armL.userData.worldOrigin.z);
+      shL.userData.worldAnchor = { x: lSign * shOutL, y: shYL, z: shZL, outOffset: shOutL };
       rig.armL.add(shL);
       sockets.shoulder_pods.bilateralRightContainer = shR;
       sockets.shoulder_pods.bilateralLeftContainer = shL;
@@ -5827,7 +5831,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r23');
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r25');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         const onGltfReady = async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
@@ -6370,44 +6374,177 @@
             rightGrp.add(node);
           }
         });
-        // Horn-Preserving Adaptive Shoulder Clearance + Flush Machined Gunmetal Pedestals on Gouf & Zaku-II:
-        if (slotGroup === 'shoulder_pods' && (state.activeUnitId === 'enemy_gouf' || state.activeUnitId === 'enemy_zaku')) {
+        // GR-14 Universal Solid Zero-Gap Adaptive Shoulder Mount System (Zaku-II, Gouf, Rival Frame):
+        // Hides RX-78's square-pauldron inverted-L `adapter_shoulder_yoke` (eliminating ALL hollow C-cavities!)
+        // and builds a continuous solid gunmetal pedestal + clevis + rotary swivel drum + gold axle
+        // rooted >=2.5mm into the shoulder armor and >=1.8mm into the pod payload (0.00mm gap, 0.00mm horn clash!).
+        const isAdaptiveShoulder = (
+          slotGroup === 'shoulder_pods' &&
+          (state.activeUnitId === 'enemy_gouf' || state.activeUnitId === 'enemy_zaku' || state.activeUnitId === 'rival_frame')
+        );
+        if (isAdaptiveShoulder) {
           const pedMat = getSharedMechaMaterial({ color: 0x2c3442, roughness: 0.36, metalness: 0.72, materialClass: 'metal_gunmetal' });
-          const addPedestal = (grp, w, h, d, lx, ly, lz, nm) => {
+          const goldAxleMat = getSharedMechaMaterial({ color: 0xeab308, roughness: 0.22, metalness: 0.90, materialClass: 'metal_gold' });
+          const bridgeR = new THREE.Group();
+          const bridgeL = new THREE.Group();
+
+          const addWorldBox = (bGrp, anchor, x0, x1, y0, y1, z0, z1, nm) => {
+            const w = Math.max(1.2, Math.abs(x1 - x0));
+            const h = Math.max(1.2, Math.abs(y1 - y0));
+            const d = Math.max(1.2, Math.abs(z1 - z0));
             const pMesh = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), pedMat);
             pMesh.name = nm;
-            pMesh.position.set(lx, ly, lz);
+            pMesh.position.set(0.5 * (x0 + x1) - anchor.x, 0.5 * (y0 + y1) - anchor.y, 0.5 * (z0 + z1) - anchor.z);
             pMesh.castShadow = true;
             pMesh.receiveShadow = true;
             pMesh.userData.origMaterial = pedMat;
             pMesh.userData.initialPosition = pMesh.position.clone();
             pMesh.userData.isModularPack = true;
-            grp.add(pMesh);
+            bGrp.add(pMesh);
             state.chassisParts.push(pMesh);
           };
-          const computeMinY = (grp) => {
-            let minY = Infinity;
+
+          const addWorldRotaryDrum = (bGrp, anchor, cx, cy, cz, r, len, nmDark, nmGold) => {
+            const dGeo = new THREE.CylinderGeometry(r, r, len, 16);
+            dGeo.rotateX(Math.PI / 2);
+            const dMesh = new THREE.Mesh(dGeo, pedMat);
+            dMesh.name = nmDark;
+            dMesh.position.set(cx - anchor.x, cy - anchor.y, cz - anchor.z);
+            dMesh.castShadow = true;
+            dMesh.receiveShadow = true;
+            dMesh.userData.origMaterial = pedMat;
+            dMesh.userData.initialPosition = dMesh.position.clone();
+            dMesh.userData.isModularPack = true;
+            bGrp.add(dMesh);
+            state.chassisParts.push(dMesh);
+
+            const gGeo = new THREE.CylinderGeometry(r * 0.58, r * 0.58, len + 1.2, 16);
+            gGeo.rotateX(Math.PI / 2);
+            const gMesh = new THREE.Mesh(gGeo, goldAxleMat);
+            gMesh.name = nmGold;
+            gMesh.position.set(cx - anchor.x, cy - anchor.y, cz - anchor.z);
+            gMesh.castShadow = true;
+            gMesh.receiveShadow = true;
+            gMesh.userData.origMaterial = goldAxleMat;
+            gMesh.userData.initialPosition = gMesh.position.clone();
+            gMesh.userData.isModularPack = true;
+            bGrp.add(gMesh);
+            state.chassisParts.push(gMesh);
+          };
+
+          const measurePayload = (grp) => {
+            let pMinY = Infinity, pMaxY = -Infinity, pInnerAbsX = Infinity;
+            const sx = Math.abs(grp.scale.x || 1);
+            const sy = Math.abs(grp.scale.y || 1);
             grp.children.forEach(c => {
-              if (c.isMesh && c.geometry?.boundingBox) {
-                minY = Math.min(minY, c.geometry.boundingBox.min.y * (grp.scale.y || 1));
+              if (!c.isMesh) return;
+              const nm = (c.name || '').toLowerCase();
+              if (nm.includes('adapter_shoulder_yoke') || nm.includes('adapter_shoulder_pin_gold')) {
+                c.visible = false;
+                return;
+              }
+              if (c.geometry?.boundingBox) {
+                const bb = c.geometry.boundingBox;
+                pMinY = Math.min(pMinY, bb.min.y * sy);
+                pMaxY = Math.max(pMaxY, bb.max.y * sy);
+                pInnerAbsX = Math.min(pInnerAbsX, Math.abs(bb.min.x) * sx, Math.abs(bb.max.x) * sx);
               }
             });
-            return minY;
+            return { pMinY, pMaxY, pInnerAbsX, isHanging: pMinY < -5.0, hubLocalZ: -0.8 * Math.abs(grp.scale.z || 1) };
           };
-          const minYR = computeMinY(rightGrp);
-          const minYL = computeMinY(leftGrp);
+
+          const ancR = socket.bilateralRightContainer.userData.worldAnchor || { x: 0, y: 156, z: 0, outOffset: 0 };
+          const ancL = socket.bilateralLeftContainer.userData.worldAnchor || { x: 0, y: 156, z: 0, outOffset: 0 };
+          const mR = measurePayload(rightGrp);
+          const mL = measurePayload(leftGrp);
+
           if (state.activeUnitId === 'enemy_gouf') {
-            // Clamp long hanging wings cleanly above Gouf main outer horn (Y<=159.5) while base sits on top deck (Y=164.0)
-            if (minYR < -5.0) rightGrp.position.y += (160.2 - minYR - 164.0);
-            if (minYL < -5.0) leftGrp.position.y += (160.2 - minYL - 164.0);
-            addPedestal(leftGrp, 9.0, 5.8, 8.8, 41.0, -3.2 - leftGrp.position.y, 0.0, 'adapter_top_deck_pedestal_dark_l');
-            addPedestal(rightGrp, 9.0, 5.8, 8.8, -41.0, -3.2 - rightGrp.position.y, 0.0, 'adapter_top_deck_pedestal_dark_r');
+            for (const [grp, bGrp, anc, m, sgn, sfx] of [
+              [rightGrp, bridgeR, ancR, mR, rSign, 'r'],
+              [leftGrp, bridgeL, ancL, mL, lSign, 'l'],
+            ]) {
+              if (!Number.isFinite(m.pMinY)) continue;
+              if (m.isHanging) grp.position.y += Math.max(0.0, 160.2 - (anc.y + m.pMinY));
+              const wMinY = anc.y + grp.position.y + m.pMinY;
+              const wMaxY = anc.y + grp.position.y + m.pMaxY;
+              const wInnerX = sgn * (m.pInnerAbsX + anc.outOffset);
+              const hubZ = anc.z + m.hubLocalZ;
+              const hubY = m.isHanging ? Math.min(wMaxY - 3.0, Math.max(wMinY + 3.2, anc.y + grp.position.y + 4.8)) : (wMinY + 2.4);
+              const px = sgn * 36.5;
+              addWorldBox(bGrp, anc, px - 4.2, px + 4.2, 157.5, hubY + 1.8, hubZ - 4.4, hubZ + 4.4, `adapter_solid_pedestal_dark_${sfx}`);
+              addWorldBox(bGrp, anc, Math.min(px, wInnerX + sgn * 2.8), Math.max(px, wInnerX + sgn * 2.8), hubY - 2.6, hubY + 2.6, hubZ - 4.0, hubZ + 4.0, `adapter_solid_clevis_dark_${sfx}`);
+              addWorldRotaryDrum(bGrp, anc, wInnerX - sgn * 0.4, hubY, hubZ, 2.7, 9.6, `adapter_solid_drum_dark_${sfx}`, `adapter_solid_pin_gold_${sfx}`);
+            }
           } else if (state.activeUnitId === 'enemy_zaku') {
-            if (minYL < -5.0) leftGrp.position.y += (150.5 - minYL - 157.5);
-            if (minYR < -5.0) rightGrp.position.y += (159.8 - minYR - 157.5);
-            addPedestal(leftGrp, 8.5, 6.4, 8.2, 37.5, -3.3 - leftGrp.position.y, 2.3, 'adapter_rear_dome_pedestal_dark_l');
-            addPedestal(rightGrp, 8.5, 6.4, 8.2, -37.0, -3.3 - rightGrp.position.y, 0.0, 'adapter_top_cowl_pedestal_dark_r');
+            // Left (+X) spiky dome: horn-free rear-upper quadrant, solid dome plinth + clevis + rotary drum
+            if (Number.isFinite(mL.pMinY)) {
+              if (mL.isHanging) leftGrp.position.y += Math.max(0.0, 148.8 - (ancL.y + mL.pMinY));
+              const wMinY = ancL.y + leftGrp.position.y + mL.pMinY;
+              const wMaxY = ancL.y + leftGrp.position.y + mL.pMaxY;
+              const wInnerX = lSign * (mL.pInnerAbsX + ancL.outOffset);
+              const hubZ = ancL.z + mL.hubLocalZ;
+              const hubY = mL.isHanging ? Math.min(wMaxY - 3.0, Math.max(wMinY + 3.2, ancL.y + leftGrp.position.y + 4.5)) : (wMinY + 2.4);
+              addWorldBox(bridgeL, ancL, 32.5, 41.0, 151.5, hubY + 2.2, -13.0, -5.5, 'adapter_solid_dome_plinth_dark_l');
+              addWorldBox(bridgeL, ancL, Math.min(36.0, wInnerX + 2.8), Math.max(36.0, wInnerX + 2.8), hubY - 2.6, hubY + 2.6, Math.min(-11.0, hubZ - 4.0), Math.max(-6.0, hubZ + 4.0), 'adapter_solid_clevis_dark_l');
+              addWorldRotaryDrum(bridgeL, ancL, wInnerX - 0.4, hubY, hubZ, 2.7, 9.2, 'adapter_solid_drum_dark_l', 'adapter_solid_pin_gold_l');
+            }
+            // Right (-X) flat cowl + hanging shield: hanging wings sit outboard of shield at natural shoulder height!
+            if (Number.isFinite(mR.pMinY)) {
+              const hubZ = ancR.z + mR.hubLocalZ;
+              if (mR.isHanging) {
+                const targetInnerAbsX = 48.6;
+                rightGrp.position.x += rSign * (targetInnerAbsX - (mR.pInnerAbsX + ancR.outOffset));
+                rightGrp.position.y += (150.5 - ancR.y);
+                const wInnerX = rSign * targetInnerAbsX;
+                const hubY = 153.5;
+                addWorldBox(bridgeR, ancR, wInnerX - 2.8, -36.5, hubY - 3.0, hubY + 3.0, hubZ - 4.6, hubZ + 4.6, 'adapter_solid_shield_clevis_dark_r');
+                addWorldRotaryDrum(bridgeR, ancR, wInnerX + 0.5, hubY, hubZ, 2.8, 10.4, 'adapter_solid_drum_dark_r', 'adapter_solid_pin_gold_r');
+              } else {
+                if (ancR.y + mR.pMinY < 159.8) rightGrp.position.y += (159.8 - (ancR.y + mR.pMinY));
+                const wMinY = ancR.y + rightGrp.position.y + mR.pMinY;
+                const wInnerX = rSign * (mR.pInnerAbsX + ancR.outOffset);
+                const hubY = wMinY + 2.4;
+                addWorldBox(bridgeR, ancR, -38.8, -30.2, 151.5, hubY + 1.8, hubZ - 4.5, hubZ + 4.5, 'adapter_solid_cowl_pedestal_dark_r');
+                addWorldBox(bridgeR, ancR, Math.min(-34.0, wInnerX - 2.8), Math.max(-34.0, wInnerX - 2.8), hubY - 2.5, hubY + 2.5, hubZ - 4.0, hubZ + 4.0, 'adapter_solid_clevis_dark_r');
+              }
+            }
+          } else if (state.activeUnitId === 'rival_frame') {
+            // Left (-X) spiky pauldron: horn-free rear-upper quadrant, solid plinth + clevis + rotary drum
+            if (Number.isFinite(mL.pMinY)) {
+              if (mL.isHanging) leftGrp.position.y += Math.max(0.0, 149.0 - (ancL.y + mL.pMinY));
+              const wMinY = ancL.y + leftGrp.position.y + mL.pMinY;
+              const wMaxY = ancL.y + leftGrp.position.y + mL.pMaxY;
+              const wInnerX = lSign * (mL.pInnerAbsX + ancL.outOffset);
+              const hubZ = ancL.z + mL.hubLocalZ;
+              const hubY = mL.isHanging ? Math.min(wMaxY - 3.0, Math.max(wMinY + 3.2, ancL.y + leftGrp.position.y + 4.5)) : (wMinY + 2.4);
+              addWorldBox(bridgeL, ancL, -43.0, -34.0, 152.0, hubY + 2.2, -13.6, -5.8, 'adapter_solid_dome_plinth_dark_l');
+              addWorldBox(bridgeL, ancL, Math.min(-38.0, wInnerX - 2.8), Math.max(-38.0, wInnerX - 2.8), hubY - 2.6, hubY + 2.6, Math.min(-11.4, hubZ - 4.0), Math.max(-6.2, hubZ + 4.0), 'adapter_solid_clevis_dark_l');
+              addWorldRotaryDrum(bridgeL, ancL, wInnerX + 0.4, hubY, hubZ, 2.7, 9.2, 'adapter_solid_drum_dark_l', 'adapter_solid_pin_gold_l');
+            }
+            // Right (+X) subarm + curved tower shield: hanging wings sit cleanly outboard of tower shield!
+            if (Number.isFinite(mR.pMinY)) {
+              const hubZ = ancR.z + mR.hubLocalZ;
+              if (mR.isHanging) {
+                const targetInnerAbsX = 54.0;
+                rightGrp.position.x += rSign * (targetInnerAbsX - (mR.pInnerAbsX + ancR.outOffset));
+                rightGrp.position.y += (151.0 - ancR.y);
+                const wInnerX = rSign * targetInnerAbsX;
+                const hubY = 154.0;
+                addWorldBox(bridgeR, ancR, 44.0, wInnerX + 2.8, hubY - 3.0, hubY + 3.0, hubZ - 4.6, hubZ + 4.6, 'adapter_solid_shield_clevis_dark_r');
+                addWorldRotaryDrum(bridgeR, ancR, wInnerX - 0.5, hubY, hubZ, 2.8, 10.4, 'adapter_solid_drum_dark_r', 'adapter_solid_pin_gold_r');
+              } else {
+                if (ancR.y + mR.pMinY < 160.8) rightGrp.position.y += (160.8 - (ancR.y + mR.pMinY));
+                const wMinY = ancR.y + rightGrp.position.y + mR.pMinY;
+                const wInnerX = rSign * (mR.pInnerAbsX + ancR.outOffset);
+                const hubY = wMinY + 2.4;
+                addWorldBox(bridgeR, ancR, 31.5, 40.5, 154.5, hubY + 1.8, hubZ - 4.5, hubZ + 4.5, 'adapter_solid_cowl_pedestal_dark_r');
+                addWorldBox(bridgeR, ancR, Math.min(36.0, wInnerX + 2.8), Math.max(36.0, wInnerX + 2.8), hubY - 2.5, hubY + 2.5, hubZ - 4.0, hubZ + 4.0, 'adapter_solid_clevis_dark_r');
+              }
+            }
           }
+          socket.bilateralRightContainer.add(bridgeR);
+          socket.bilateralLeftContainer.add(bridgeL);
+          mountedModels.push(bridgeR, bridgeL);
         }
         socket.bilateralRightContainer.add(rightGrp);
         socket.bilateralLeftContainer.add(leftGrp);
