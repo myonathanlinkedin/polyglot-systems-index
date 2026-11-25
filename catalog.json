@@ -1,5 +1,16 @@
 [
   {
+    "topic": "PenGPT: A Generative Transformer for Handwriting and Sketches",
+    "language": "PHP",
+    "folder": "php",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "php-backend-core",
+    "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261125_050120_pengpt__a_generative_transform",
+    "source_file": "main",
+    "timestamp": "2026-11-25T05:01:32.860041+00:00",
+    "dir_name": "20261125_050120_pengpt__a_generative_transform"
+  },
+  {
     "topic": "Aether-Terminus Arbitrary Command Execution via Chronos-Viewport Image Protocol APC Response Injection",
     "language": "C#",
     "folder": "csharp",
