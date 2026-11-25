@@ -1,5 +1,38 @@
 [
   {
+    "topic": "High-Throughput Chronos-Buffer Ring Buffer Pattern",
+    "language": "Zig",
+    "folder": "zig",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "zig-systems-lab",
+    "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261125_070156_high-throughput_chronos-buffer",
+    "source_file": "main",
+    "timestamp": "2026-11-25T07:02:09.192230+00:00",
+    "dir_name": "20261125_070156_high-throughput_chronos-buffer"
+  },
+  {
+    "topic": "High-Throughput Disruptor Ring Buffer Pattern",
+    "language": "C#",
+    "folder": "csharp",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "csharp-enterprise-lab",
+    "source_link": "https://github.com/myonathanlinkedin/csharp-enterprise-lab/tree/main/algorithms/20261125_050319_high-throughput_disruptor_ring",
+    "source_file": "main",
+    "timestamp": "2026-11-25T05:03:46.147003+00:00",
+    "dir_name": "20261125_050319_high-throughput_disruptor_ring"
+  },
+  {
+    "topic": "PenGPT: A Generative Transformer for Handwriting and Sketches",
+    "language": "PHP",
+    "folder": "php",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "php-backend-core",
+    "source_link": "https://github.com/myonathanlinkedin/php-backend-core/tree/main/algorithms/20261125_050120_pengpt__a_generative_transform",
+    "source_file": "main",
+    "timestamp": "2026-11-25T05:01:32.860041+00:00",
+    "dir_name": "20261125_050120_pengpt__a_generative_transform"
+  },
+  {
     "topic": "Aether-Terminus Arbitrary Command Execution via Chronos-Viewport Image Protocol APC Response Injection",
     "language": "C#",
     "folder": "csharp",
@@ -2882,17 +2915,6 @@
     "dir_name": "20261022_050125_dynamically_optimal_weight-bal"
   },
   {
-    "topic": "High-Throughput Chronos-Buffer Ring Buffer Pattern",
-    "language": "C",
-    "folder": "c",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "c-lowlevel-systems",
-    "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261022_030138_high-throughput_chronos-buffer",
-    "source_file": "main",
-    "timestamp": "2026-10-22T03:01:38.602359+00:00",
-    "dir_name": "20261022_030138_high-throughput_chronos-buffer"
-  },
-  {
     "topic": "Why Windows 11 still ships with Windows 95 s memory manager hidden inside it",
     "language": "Ruby",
     "folder": "ruby",
@@ -3320,17 +3342,6 @@
     "source_file": "main",
     "timestamp": "2026-10-17T17:01:32.783361+00:00",
     "dir_name": "20261017_170132_cyk_parsing_algorithm_for_cont"
-  },
-  {
-    "topic": "High-Throughput Disruptor Ring Buffer Pattern",
-    "language": "Java",
-    "folder": "java",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "java-enterprise-patterns",
-    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261017_130144_high-throughput_disruptor_ring",
-    "source_file": "main",
-    "timestamp": "2026-10-17T13:01:44.860627+00:00",
-    "dir_name": "20261017_130144_high-throughput_disruptor_ring"
   },
   {
     "topic": "Red-Black Tree with Deterministic Balance Assertions",
