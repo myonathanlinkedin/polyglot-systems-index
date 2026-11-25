@@ -4498,8 +4498,10 @@
       }
       let color = 0xf0f2ec, roughness = 0.38, metalness = 0.08, emissive = 0x000000, emissiveIntensity = 0.0, useDetail = true, isEmissive = false, materialClass = 'armor_white';
       if (n.includes('twin_eyes')) {
-        color = 0xfef08a; emissive = 0xf59e0b; emissiveIntensity = 5.2; roughness = 0.12; metalness = 0.08; useDetail = false; isEmissive = true; materialClass = 'emissive';
-      } else if (n.includes('sensor_front') || n.includes('sensor_rear')) {
+        color = 0xfacc15; emissive = 0xf59e0b; emissiveIntensity = 1.9; roughness = 0.14; metalness = 0.08; useDetail = false; isEmissive = true; materialClass = 'emissive';
+      } else if (n.includes('sensor_front')) {
+        color = 0xef4444; emissive = 0xdc2626; emissiveIntensity = 1.8; roughness = 0.14; metalness = 0.10; useDetail = false; isEmissive = true; materialClass = 'emissive';
+      } else if (n.includes('sensor_rear')) {
         color = 0x7dd3fc; emissive = 0x0ea5e9; emissiveIntensity = 4.2; roughness = 0.12; metalness = 0.10; useDetail = false; isEmissive = true; materialClass = 'emissive';
       } else if (n.includes('thruster_glow')) {
         color = 0x38f8ff; emissive = 0x00e5ff; emissiveIntensity = 4.6; roughness = 0.12; metalness = 0.10; useDetail = false; isEmissive = true; materialClass = 'emissive';
@@ -4511,11 +4513,15 @@
         color = 0xeab308; roughness = 0.20; metalness = 0.90; useDetail = false; materialClass = 'metal_gold';
       } else if (n.includes('chest_armor_blue') || n.includes('cockpit_hatch_blue') || n.includes('subplate_blue_rg')) {
         color = 0x1b64c6; roughness = 0.28; metalness = 0.24; materialClass = 'armor_gloss';
+      } else if (n.includes('cockpit_hatch_navy')) {
+        color = 0x113a78; roughness = 0.34; metalness = 0.20; materialClass = 'armor_painted';
       } else if (n.includes('elbow_cap_white') || n.includes('knee_cap_disc_white') || n.includes('ankle_disc_white')) {
         color = 0xe6e9e3; roughness = 0.40; metalness = 0.08; materialClass = 'armor_white';
       } else if (n.includes('_rg_') || n.includes('rg_panel') || n.includes('rg_cuff') || n.includes('rg_subplate')) {
         color = 0x94a3b8; roughness = 0.40; metalness = 0.18; materialClass = 'armor_painted';
-      } else if (n.includes('face_slit_dark') || n.includes('cheek_vent_dark') || n.includes('visor_recess') || n.includes('vent_duct') || n.includes('_hub_dark') || n.includes('shoulder_vent_dark') || n.includes('collar_ribs_dark') || n.includes('ear_slot_dark')) {
+      } else if (n.includes('face_slit_dark') || n.includes('cheek_vent_dark') || n.includes('visor_recess')) {
+        color = 0x0b0f17; roughness = 0.78; metalness = 0.08; useDetail = false; materialClass = 'polymer_matte';
+      } else if (n.includes('vent_duct') || n.includes('flex_seam_dark') || n.includes('_hub_dark') || n.includes('shoulder_vent_dark') || n.includes('collar_ribs_dark') || n.includes('ear_slot_dark')) {
         color = 0x101824; roughness = 0.64; metalness = 0.22; useDetail = false; materialClass = 'polymer_matte';
       } else if (n.includes('foot_sole')) {
         color = 0x222c3a; roughness = 0.68; metalness = 0.16; useDetail = false; materialClass = 'polymer_matte';
@@ -4855,10 +4861,17 @@
         ) {
           rig.nativeLowerPropellantMeshes.push(mesh);
         }
-        // ZERO-DETACH HORN POLICY: ALL default head & shoulder horns/spikes (RX-78 V-fin & curved crest,
-        // Sazabi commander blade, Gouf head fin & 6 shoulder horns, Zaku-II 3 pauldron horns & shield, Rival blade)
-        // are ALWAYS preserved (`nativeShoulderShieldMeshes` & `nativeHeadHornMeshes` remain empty!).
-        // Modular head_sensor & shoulder_pods adapt their mounting offsets + structural bridges around native horns.
+        // Stock detachable shoulder-mounted shields (Zaku-II right olive shield & Rival right curved tower shield):
+        // automatically hidden when equipping shoulder_pods so modular shoulder pods/wings mount cleanly onto the
+        // right shoulder cowl instead of punching a bracket through the stock shield (restored immediately on unequip!).
+        // All default head & shoulder horns/spikes remain 100% preserved!
+        if (
+          n.includes('zaku_shoulder_shield') ||
+          n.includes('zaku_shield_hinge') ||
+          n.includes('right_curved_tower_shield')
+        ) {
+          rig.nativeShoulderShieldMeshes.push(mesh);
+        }
         if (n.includes('backpack_saber_hilt_r')) {
           rig.backpackSaberHilts.r = mesh;
         }
@@ -5126,7 +5139,7 @@
       // into the chestplate (0.0mm top-down & side air gap!) while outer Chobham plates stand cleanly proud!
       const chestFrontZ = isSazabi ? 15.8 : (isGouf ? 14.0 : (isZaku ? 13.0 : 12.6));
       const chestScale = isSazabi ? 1.10 : (isGouf ? 1.06 : (isZaku ? 1.04 : 1.0));
-      const dorsalBackZ = isSazabi ? -10.8 : (isGouf ? -10.4 : (isZaku ? -9.6 : -7.6));
+      const dorsalBackZ = isSazabi ? -10.8 : (isGouf ? -13.2 : (isZaku ? -9.6 : -7.6));
       const fistX = rSign * (isSazabi ? 37.6 : (isGouf ? 34.8 : (isZaku ? 34.5 : 36.2)));
       const fistY = isSazabi ? 88.0 : (spec.isZeonEnemy ? 88.5 : 88.8);
       const fistZ = isSazabi ? 9.5 : (spec.isZeonEnemy ? 9.6 : 8.2);
@@ -5831,7 +5844,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r25');
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r34');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         const onGltfReady = async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
@@ -6212,7 +6225,10 @@
         state.kinematicRig.nativeLowerPropellantMeshes.forEach(m => { m.visible = !hasDorsal; });
       }
       if (entry.slotGroup === 'shoulder_pods' && state.kinematicRig?.nativeShoulderShieldMeshes) {
-        state.kinematicRig.nativeShoulderShieldMeshes.forEach(m => { m.visible = true; });
+        state.kinematicRig.nativeShoulderShieldMeshes.forEach(m => {
+          m.userData.hiddenBySwap = false;
+          m.visible = true;
+        });
       }
       if (entry.slotGroup === 'head_sensor' && state.kinematicRig?.nativeHeadHornMeshes) {
         state.kinematicRig.nativeHeadHornMeshes.forEach(m => {
@@ -6330,9 +6346,18 @@
         if (state.kinematicRig?.nativeLowerPropellantMeshes) {
           state.kinematicRig.nativeLowerPropellantMeshes.forEach(m => { m.visible = false; });
         }
-      } else if (slotGroup === 'shoulder_pods' || slotGroup === 'head_sensor') {
-        // ZERO-DETACH HORN POLICY: Never hide/detach any stock shoulder or head horns!
-        // Adaptive mounting offsets & structural bridges below automatically clear every native horn.
+      } else if (slotGroup === 'shoulder_pods') {
+        // Detach/hide stock shoulder-mounted shield (Zaku-II right olive shield / Rival right tower shield)
+        // so modular shoulder pods & wing binders lock directly onto the right shoulder cowl cleanly (zero double-shield!).
+        // All native shoulder horns/spikes remain 100% preserved.
+        if (state.kinematicRig?.nativeShoulderShieldMeshes) {
+          state.kinematicRig.nativeShoulderShieldMeshes.forEach(m => {
+            m.userData.hiddenBySwap = true;
+            m.visible = false;
+          });
+        }
+      } else if (slotGroup === 'head_sensor') {
+        // ZERO-DETACH HORN POLICY: Never hide/detach any stock head horns/V-fins/blades!
       }
 
       const mountedModels = [];
@@ -6436,6 +6461,7 @@
             let pMinY = Infinity, pMaxY = -Infinity, pInnerAbsX = Infinity;
             const sx = Math.abs(grp.scale.x || 1);
             const sy = Math.abs(grp.scale.y || 1);
+            const payloadMeshes = [];
             grp.children.forEach(c => {
               if (!c.isMesh) return;
               const nm = (c.name || '').toLowerCase();
@@ -6448,9 +6474,27 @@
                 pMinY = Math.min(pMinY, bb.min.y * sy);
                 pMaxY = Math.max(pMaxY, bb.max.y * sy);
                 pInnerAbsX = Math.min(pInnerAbsX, Math.abs(bb.min.x) * sx, Math.abs(bb.max.x) * sx);
+                payloadMeshes.push(bb);
               }
             });
-            return { pMinY, pMaxY, pInnerAbsX, isHanging: pMinY < -5.0, hubLocalZ: -0.8 * Math.abs(grp.scale.z || 1) };
+            // Measure ACTUAL inner-wall X in the lower hub attachment band (bb.min.y <= pMinY + 7.0)
+            // so upper overhanging boxes (e.g. smoke_adapter_base) never pull the hinge drum into empty air!
+            let hubInnerAbsX = Infinity;
+            if (Number.isFinite(pMinY)) {
+              payloadMeshes.forEach(bb => {
+                if (bb.min.y * sy <= pMinY + 7.0) {
+                  hubInnerAbsX = Math.min(hubInnerAbsX, Math.abs(bb.min.x) * sx, Math.abs(bb.max.x) * sx);
+                }
+              });
+            }
+            if (!Number.isFinite(hubInnerAbsX)) hubInnerAbsX = pInnerAbsX;
+            return {
+              pMinY,
+              pMaxY,
+              pInnerAbsX: hubInnerAbsX,
+              isHanging: pMinY < -5.0,
+              hubLocalZ: -0.6 * Math.abs(grp.scale.z || 1)
+            };
           };
 
           const ancR = socket.bilateralRightContainer.userData.worldAnchor || { x: 0, y: 156, z: 0, outOffset: 0 };
@@ -6464,81 +6508,83 @@
               [leftGrp, bridgeL, ancL, mL, lSign, 'l'],
             ]) {
               if (!Number.isFinite(m.pMinY)) continue;
-              if (m.isHanging) grp.position.y += Math.max(0.0, 160.2 - (anc.y + m.pMinY));
+              // Seat EVERY Gouf shoulder pod snugly at exact clearance (+1.5mm above Y=162.1mm blue dome top,
+              // lowering high turrets/cannons down off stilts AND lifting hanging wing verniers clear of dome!)
+              const floorY = m.isHanging ? 163.8 : 163.5;
+              grp.position.y += (floorY - (anc.y + m.pMinY));
               const wMinY = anc.y + grp.position.y + m.pMinY;
-              const wMaxY = anc.y + grp.position.y + m.pMaxY;
               const wInnerX = sgn * (m.pInnerAbsX + anc.outOffset);
               const hubZ = anc.z + m.hubLocalZ;
-              const hubY = m.isHanging ? Math.min(wMaxY - 3.0, Math.max(wMinY + 3.2, anc.y + grp.position.y + 4.8)) : (wMinY + 2.4);
-              const px = sgn * 36.5;
-              addWorldBox(bGrp, anc, px - 4.2, px + 4.2, 157.5, hubY + 1.8, hubZ - 4.4, hubZ + 4.4, `adapter_solid_pedestal_dark_${sfx}`);
-              addWorldBox(bGrp, anc, Math.min(px, wInnerX + sgn * 2.8), Math.max(px, wInnerX + sgn * 2.8), hubY - 2.6, hubY + 2.6, hubZ - 4.0, hubZ + 4.0, `adapter_solid_clevis_dark_${sfx}`);
-              addWorldRotaryDrum(bGrp, anc, wInnerX - sgn * 0.4, hubY, hubZ, 2.7, 9.6, `adapter_solid_drum_dark_${sfx}`, `adapter_solid_pin_gold_${sfx}`);
+              const hubY = m.isHanging ? (wMinY + 5.2) : (wMinY + 2.8);
+              const px = sgn * 34.5;
+              addWorldBox(bGrp, anc, px - 3.2, px + 3.2, 157.5, hubY + 1.5, hubZ - 3.8, hubZ + 3.8, `adapter_solid_pedestal_dark_${sfx}`);
+              addWorldBox(bGrp, anc, Math.min(px, wInnerX + sgn * 2.8), Math.max(px, wInnerX + sgn * 2.8), hubY - 2.2, hubY + 2.2, hubZ - 3.6, hubZ + 3.6, `adapter_solid_clevis_dark_${sfx}`);
+              addWorldRotaryDrum(bGrp, anc, wInnerX - sgn * 0.2, hubY, hubZ, 2.4, 8.4, `adapter_solid_drum_dark_${sfx}`, `adapter_solid_pin_gold_${sfx}`);
             }
           } else if (state.activeUnitId === 'enemy_zaku') {
-            // Left (+X) spiky dome: horn-free rear-upper quadrant, solid dome plinth + clevis + rotary drum
+            // Left (+X) spiky dome: horn-free rear-upper quadrant, floor strictly above dome curve (Y>=154.8mm) + compact hinge
             if (Number.isFinite(mL.pMinY)) {
-              if (mL.isHanging) leftGrp.position.y += Math.max(0.0, 148.8 - (ancL.y + mL.pMinY));
+              const floorL = mL.isHanging ? 154.8 : 156.5;
+              if (ancL.y + mL.pMinY < floorL) leftGrp.position.y += (floorL - (ancL.y + mL.pMinY));
               const wMinY = ancL.y + leftGrp.position.y + mL.pMinY;
-              const wMaxY = ancL.y + leftGrp.position.y + mL.pMaxY;
               const wInnerX = lSign * (mL.pInnerAbsX + ancL.outOffset);
               const hubZ = ancL.z + mL.hubLocalZ;
-              const hubY = mL.isHanging ? Math.min(wMaxY - 3.0, Math.max(wMinY + 3.2, ancL.y + leftGrp.position.y + 4.5)) : (wMinY + 2.4);
-              addWorldBox(bridgeL, ancL, 32.5, 41.0, 151.5, hubY + 2.2, -13.0, -5.5, 'adapter_solid_dome_plinth_dark_l');
-              addWorldBox(bridgeL, ancL, Math.min(36.0, wInnerX + 2.8), Math.max(36.0, wInnerX + 2.8), hubY - 2.6, hubY + 2.6, Math.min(-11.0, hubZ - 4.0), Math.max(-6.0, hubZ + 4.0), 'adapter_solid_clevis_dark_l');
-              addWorldRotaryDrum(bridgeL, ancL, wInnerX - 0.4, hubY, hubZ, 2.7, 9.2, 'adapter_solid_drum_dark_l', 'adapter_solid_pin_gold_l');
+              const hubY = mL.isHanging ? (wMinY + 5.2) : (wMinY + 2.4);
+              addWorldBox(bridgeL, ancL, 32.5, 39.5, 150.5, hubY + 1.6, -13.0, -5.8, 'adapter_solid_dome_plinth_dark_l');
+              addWorldBox(bridgeL, ancL, Math.min(36.0, wInnerX + 2.4), Math.max(36.0, wInnerX + 2.4), hubY - 2.2, hubY + 2.2, Math.min(-11.0, hubZ - 3.6), Math.max(-6.2, hubZ + 3.6), 'adapter_solid_clevis_dark_l');
+              addWorldRotaryDrum(bridgeL, ancL, wInnerX - 0.3, hubY, hubZ, 2.5, 8.6, 'adapter_solid_drum_dark_l', 'adapter_solid_pin_gold_l');
             }
-            // Right (-X) flat cowl + hanging shield: hanging wings sit outboard of shield at natural shoulder height!
+            // Right (-X) flat cowl (stock olive shoulder shield detached!): mount wing/pod snugly onto cowl flank X=-39.5!
             if (Number.isFinite(mR.pMinY)) {
               const hubZ = ancR.z + mR.hubLocalZ;
               if (mR.isHanging) {
-                const targetInnerAbsX = 48.6;
+                const targetInnerAbsX = 40.4;
                 rightGrp.position.x += rSign * (targetInnerAbsX - (mR.pInnerAbsX + ancR.outOffset));
-                rightGrp.position.y += (150.5 - ancR.y);
+                rightGrp.position.y += (149.5 - ancR.y);
                 const wInnerX = rSign * targetInnerAbsX;
-                const hubY = 153.5;
-                addWorldBox(bridgeR, ancR, wInnerX - 2.8, -36.5, hubY - 3.0, hubY + 3.0, hubZ - 4.6, hubZ + 4.6, 'adapter_solid_shield_clevis_dark_r');
-                addWorldRotaryDrum(bridgeR, ancR, wInnerX + 0.5, hubY, hubZ, 2.8, 10.4, 'adapter_solid_drum_dark_r', 'adapter_solid_pin_gold_r');
+                const hubY = 149.5;
+                addWorldBox(bridgeR, ancR, wInnerX - 2.2, -33.5, hubY - 2.6, hubY + 2.6, hubZ - 4.0, hubZ + 4.0, 'adapter_solid_cowl_clevis_dark_r');
+                addWorldRotaryDrum(bridgeR, ancR, wInnerX + 0.4, hubY, hubZ, 2.6, 9.2, 'adapter_solid_drum_dark_r', 'adapter_solid_pin_gold_r');
               } else {
-                if (ancR.y + mR.pMinY < 159.8) rightGrp.position.y += (159.8 - (ancR.y + mR.pMinY));
+                if (ancR.y + mR.pMinY < 156.2) rightGrp.position.y += (156.2 - (ancR.y + mR.pMinY));
                 const wMinY = ancR.y + rightGrp.position.y + mR.pMinY;
                 const wInnerX = rSign * (mR.pInnerAbsX + ancR.outOffset);
                 const hubY = wMinY + 2.4;
-                addWorldBox(bridgeR, ancR, -38.8, -30.2, 151.5, hubY + 1.8, hubZ - 4.5, hubZ + 4.5, 'adapter_solid_cowl_pedestal_dark_r');
-                addWorldBox(bridgeR, ancR, Math.min(-34.0, wInnerX - 2.8), Math.max(-34.0, wInnerX - 2.8), hubY - 2.5, hubY + 2.5, hubZ - 4.0, hubZ + 4.0, 'adapter_solid_clevis_dark_r');
+                addWorldBox(bridgeR, ancR, -38.0, -30.5, 151.0, hubY + 1.6, hubZ - 4.2, hubZ + 4.2, 'adapter_solid_cowl_pedestal_dark_r');
+                addWorldBox(bridgeR, ancR, Math.min(-34.0, wInnerX - 2.4), Math.max(-34.0, wInnerX - 2.4), hubY - 2.2, hubY + 2.2, hubZ - 3.8, hubZ + 3.8, 'adapter_solid_clevis_dark_r');
               }
             }
           } else if (state.activeUnitId === 'rival_frame') {
-            // Left (-X) spiky pauldron: horn-free rear-upper quadrant, solid plinth + clevis + rotary drum
+            // Left (-X) spiky pauldron: horn-free rear-upper quadrant, floor strictly above dome curve (Y>=155.5mm) + compact hinge
             if (Number.isFinite(mL.pMinY)) {
-              if (mL.isHanging) leftGrp.position.y += Math.max(0.0, 149.0 - (ancL.y + mL.pMinY));
+              const floorL = mL.isHanging ? 155.5 : 157.0;
+              if (ancL.y + mL.pMinY < floorL) leftGrp.position.y += (floorL - (ancL.y + mL.pMinY));
               const wMinY = ancL.y + leftGrp.position.y + mL.pMinY;
-              const wMaxY = ancL.y + leftGrp.position.y + mL.pMaxY;
               const wInnerX = lSign * (mL.pInnerAbsX + ancL.outOffset);
               const hubZ = ancL.z + mL.hubLocalZ;
-              const hubY = mL.isHanging ? Math.min(wMaxY - 3.0, Math.max(wMinY + 3.2, ancL.y + leftGrp.position.y + 4.5)) : (wMinY + 2.4);
-              addWorldBox(bridgeL, ancL, -43.0, -34.0, 152.0, hubY + 2.2, -13.6, -5.8, 'adapter_solid_dome_plinth_dark_l');
-              addWorldBox(bridgeL, ancL, Math.min(-38.0, wInnerX - 2.8), Math.max(-38.0, wInnerX - 2.8), hubY - 2.6, hubY + 2.6, Math.min(-11.4, hubZ - 4.0), Math.max(-6.2, hubZ + 4.0), 'adapter_solid_clevis_dark_l');
-              addWorldRotaryDrum(bridgeL, ancL, wInnerX + 0.4, hubY, hubZ, 2.7, 9.2, 'adapter_solid_drum_dark_l', 'adapter_solid_pin_gold_l');
+              const hubY = mL.isHanging ? (wMinY + 5.2) : (wMinY + 2.4);
+              addWorldBox(bridgeL, ancL, -42.0, -34.5, 151.0, hubY + 1.6, -13.6, -6.0, 'adapter_solid_dome_plinth_dark_l');
+              addWorldBox(bridgeL, ancL, Math.min(-38.0, wInnerX - 2.4), Math.max(-38.0, wInnerX - 2.4), hubY - 2.2, hubY + 2.2, Math.min(-11.4, hubZ - 3.6), Math.max(-6.4, hubZ + 3.6), 'adapter_solid_clevis_dark_l');
+              addWorldRotaryDrum(bridgeL, ancL, wInnerX + 0.3, hubY, hubZ, 2.5, 8.6, 'adapter_solid_drum_dark_l', 'adapter_solid_pin_gold_l');
             }
-            // Right (+X) subarm + curved tower shield: hanging wings sit cleanly outboard of tower shield!
+            // Right (+X) shoulder subarm (stock curved tower shield detached!): mount wing/pod snugly onto subarm X=+43.5!
             if (Number.isFinite(mR.pMinY)) {
               const hubZ = ancR.z + mR.hubLocalZ;
               if (mR.isHanging) {
-                const targetInnerAbsX = 54.0;
+                const targetInnerAbsX = 44.2;
                 rightGrp.position.x += rSign * (targetInnerAbsX - (mR.pInnerAbsX + ancR.outOffset));
                 rightGrp.position.y += (151.0 - ancR.y);
                 const wInnerX = rSign * targetInnerAbsX;
-                const hubY = 154.0;
-                addWorldBox(bridgeR, ancR, 44.0, wInnerX + 2.8, hubY - 3.0, hubY + 3.0, hubZ - 4.6, hubZ + 4.6, 'adapter_solid_shield_clevis_dark_r');
-                addWorldRotaryDrum(bridgeR, ancR, wInnerX - 0.5, hubY, hubZ, 2.8, 10.4, 'adapter_solid_drum_dark_r', 'adapter_solid_pin_gold_r');
+                const hubY = 151.0;
+                addWorldBox(bridgeR, ancR, 36.5, wInnerX + 2.2, hubY - 2.6, hubY + 2.6, hubZ - 4.0, hubZ + 4.0, 'adapter_solid_cowl_clevis_dark_r');
+                addWorldRotaryDrum(bridgeR, ancR, wInnerX - 0.4, hubY, hubZ, 2.6, 9.2, 'adapter_solid_drum_dark_r', 'adapter_solid_pin_gold_r');
               } else {
-                if (ancR.y + mR.pMinY < 160.8) rightGrp.position.y += (160.8 - (ancR.y + mR.pMinY));
+                if (ancR.y + mR.pMinY < 159.2) rightGrp.position.y += (159.2 - (ancR.y + mR.pMinY));
                 const wMinY = ancR.y + rightGrp.position.y + mR.pMinY;
                 const wInnerX = rSign * (mR.pInnerAbsX + ancR.outOffset);
                 const hubY = wMinY + 2.4;
-                addWorldBox(bridgeR, ancR, 31.5, 40.5, 154.5, hubY + 1.8, hubZ - 4.5, hubZ + 4.5, 'adapter_solid_cowl_pedestal_dark_r');
-                addWorldBox(bridgeR, ancR, Math.min(36.0, wInnerX + 2.8), Math.max(36.0, wInnerX + 2.8), hubY - 2.5, hubY + 2.5, hubZ - 4.0, hubZ + 4.0, 'adapter_solid_clevis_dark_r');
+                addWorldBox(bridgeR, ancR, 32.0, 40.5, 154.5, hubY + 1.6, hubZ - 4.2, hubZ + 4.2, 'adapter_solid_cowl_pedestal_dark_r');
+                addWorldBox(bridgeR, ancR, Math.min(36.0, wInnerX + 2.4), Math.max(36.0, wInnerX + 2.4), hubY - 2.2, hubY + 2.2, hubZ - 3.8, hubZ + 3.8, 'adapter_solid_clevis_dark_r');
               }
             }
           }
@@ -6575,7 +6621,11 @@
             state.chassisParts.push(node);
             if (slotGroup === 'head_sensor') {
               const gc = node.userData.geomCenter;
-              if (Math.abs(gc.x) < 6.5 || gc.y > 5.0) {
+              const bb = node.geometry.boundingBox;
+              // STRICT crown vs ear separation: ear-mounted whips/blades/pods start below Y=4.5 at |X|>=7.5
+              // and MUST stay bolted on the ear pods (never pulled into crownMeshes to drag cMinY down!).
+              const isCrownPart = (bb.min.y >= 4.8) || (Math.abs(gc.x) < 6.5 && gc.y > 4.5);
+              if (isCrownPart) {
                 crownMeshes.push(node);
               }
             }
@@ -6689,17 +6739,46 @@
               sideGrp.add(sideInner);
               packModel.add(sideGrp);
 
-              // Flush machined lateral-crown mounting pylon linking helmet side dome directly into side-crown base!
-              const pylonW = Math.max(3.4, targetCxWorld - 2.4) / hs;
+              // Flush machined lateral-crown mounting pylon + rotary hinge drum + gold pivot axle + vertical ear strut!
+              // Eliminates ALL floating/unhinged appearance by mechanically locking: Helmet Dome <-> Pylon <-> Hinge <-> Ear Clamp <-> Side Crown!
+              const pylonInnerX = 1.6;
+              const pylonOuterX = targetCxWorld + 2.4;
+              const pylonW = Math.max(4.4, pylonOuterX - pylonInnerX) / hs;
+              const pylonY = (targetBotYWorld - 0.8) / hs;
+              const pylonZ = targetCzWorld / hs;
               addPart(
                 packModel,
-                new THREE.BoxGeometry(pylonW, 3.6 / hs, 6.2 / hs),
+                new THREE.BoxGeometry(pylonW, 4.4 / hs, 6.4 / hs),
                 bridgeMat,
-                (0.5 * (3.2 + targetCxWorld)) / hs,
-                (targetBotYWorld - 1.2) / hs,
-                targetCzWorld / hs,
+                (0.5 * (pylonInnerX + pylonOuterX)) / hs,
+                pylonY,
+                pylonZ,
                 'adapter_side_crown_pylon_dark'
               );
+              // Vertical diagonal gusset strut bolting side-crown pylon solidly down into the right ear clamp (X=+8.8, Y=1.2)!
+              const strutTopX = Math.min(8.6, targetCxWorld);
+              const strutBotX = 8.8;
+              const strutBotY = 1.2;
+              const strutH = Math.max(2.6, pylonY - strutBotY + 1.2);
+              const strutTiltDeg = THREE.MathUtils.radToDeg(Math.atan2(strutTopX / hs - strutBotX, Math.max(1.0, pylonY - strutBotY)));
+              addPart(
+                packModel,
+                new THREE.BoxGeometry(2.2 / hs, strutH, 4.6 / hs),
+                bridgeMat,
+                0.5 * (strutTopX / hs + strutBotX),
+                0.5 * (pylonY + strutBotY),
+                pylonZ,
+                'adapter_side_crown_strut_dark',
+                0, 0, -strutTiltDeg
+              );
+              // Exposed Bandai MG/PG Rotary Hinge Drum + Gold Pivot Lock-Axle right at the pylon-to-strut elbow!
+              const hingeX = strutTopX / hs;
+              const hingeDrumGeo = new THREE.CylinderGeometry(1.75 / hs, 1.75 / hs, 6.8 / hs, 16);
+              hingeDrumGeo.rotateX(Math.PI / 2);
+              addPart(packModel, hingeDrumGeo, bridgeMat, hingeX, pylonY - (0.3 / hs), pylonZ, 'adapter_side_crown_hinge_drum_dark');
+              const hingePinGeo = new THREE.CylinderGeometry(0.95 / hs, 0.95 / hs, 7.6 / hs, 14);
+              hingePinGeo.rotateX(Math.PI / 2);
+              addPart(packModel, hingePinGeo, goldBoltMat, hingeX, pylonY - (0.3 / hs), pylonZ, 'adapter_side_crown_hinge_pin_gold');
             }
           }
         }
