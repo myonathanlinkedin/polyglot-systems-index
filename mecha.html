@@ -1914,9 +1914,10 @@
     .callout-tag {
       position: absolute;
       transform: translate(-50%, -50%);
+      width: 236px;
       padding: 5px 9px;
       border-radius: 7px;
-      background: rgba(9, 15, 29, 0.88);
+      background: rgba(9, 15, 29, 0.90);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       border: 1px solid rgba(56, 189, 248, 0.50);
@@ -1925,18 +1926,43 @@
       font-family: var(--font-mono);
       font-size: 8.6px;
       font-weight: 700;
-      letter-spacing: 0.45px;
-      white-space: nowrap;
+      letter-spacing: 0.4px;
       line-height: 1.25;
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.42);
     }
 
+    .callout-tag.equipped {
+      border-left-color: #38bdf8;
+    }
+
+    .callout-tag .c-head {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .callout-tag .c-desc {
+      display: block;
+      font-family: var(--font-sans, system-ui, sans-serif);
+      font-size: 7.8px;
+      font-weight: 500;
+      color: #e2e8f0;
+      margin-top: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      letter-spacing: 0.1px;
+    }
+
     .callout-tag .c-sub {
       display: block;
-      font-size: 7.4px;
+      font-size: 7.2px;
       color: #94a3b8;
       font-weight: 600;
       margin-top: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .callout-tag .c-dot {
@@ -1948,6 +1974,25 @@
       margin-right: 5px;
       vertical-align: middle;
       box-shadow: 0 0 8px rgba(249, 115, 22, 0.7);
+    }
+
+    .callout-tag.equipped .c-dot {
+      background: #38bdf8;
+      box-shadow: 0 0 8px rgba(56, 189, 248, 0.75);
+    }
+
+    @media (max-width: 768px) {
+      .callout-tag {
+        width: 152px;
+        padding: 4px 6px;
+        font-size: 7.4px;
+      }
+      .callout-tag .c-desc {
+        font-size: 6.8px;
+      }
+      .callout-tag .c-sub {
+        font-size: 6.4px;
+      }
     }
 
     body.studio-light-mode .callout-tag {
@@ -4401,7 +4446,7 @@
         color = 0xe6e9e3; roughness = 0.40; metalness = 0.08; materialClass = 'armor_white';
       } else if (n.includes('_rg_') || n.includes('rg_panel') || n.includes('rg_cuff') || n.includes('rg_subplate')) {
         color = 0x94a3b8; roughness = 0.40; metalness = 0.18; materialClass = 'armor_painted';
-      } else if (n.includes('face_slit_dark') || n.includes('cheek_vent_dark') || n.includes('visor_recess') || n.includes('vent_duct') || n.includes('_hub_dark') || n.includes('shoulder_vent_dark')) {
+      } else if (n.includes('face_slit_dark') || n.includes('cheek_vent_dark') || n.includes('visor_recess') || n.includes('vent_duct') || n.includes('_hub_dark') || n.includes('shoulder_vent_dark') || n.includes('collar_ribs_dark') || n.includes('ear_slot_dark')) {
         color = 0x101824; roughness = 0.64; metalness = 0.22; useDetail = false; materialClass = 'polymer_matte';
       } else if (n.includes('foot_sole')) {
         color = 0x222c3a; roughness = 0.68; metalness = 0.16; useDetail = false; materialClass = 'polymer_matte';
@@ -4685,9 +4730,10 @@
         const isLeft = (gc.x * lSign) > 1.5;
 
         let targetGroup = torso;
-        if (n.includes('forearm') || n.includes('gauntlet') || n.includes('rg_cuff') || n.includes('fist') || n.includes('hand') || n.includes('wrist') || n.includes('elbow') || n.includes('mg_') || n.includes('hawk') || (!n.includes('backpack') && n.includes('saber')) || n.includes('rifle') || (n.includes('shield') && !n.includes('shoulder') && gc.y < 125.0)) {
+        const isHeatHawk = n.includes('zaku_hawk') || n.includes('heat_hawk');
+        if (n.includes('forearm') || n.includes('gauntlet') || n.includes('rg_cuff') || n.includes('fist') || n.includes('hand') || n.includes('wrist') || n.includes('elbow') || n.includes('mg_') || isHeatHawk || (!n.includes('backpack') && n.includes('saber')) || n.includes('rifle') || (n.includes('shield') && !n.includes('shoulder') && gc.y < 125.0)) {
           targetGroup = isRight ? forearmR : (isLeft ? forearmL : torso);
-        } else if (!n.includes('shield') && !n.includes('hawk') && (n.includes('head') || n.includes('helmet') || n.includes('jaw') || n.includes('v_fin') || n.includes('mono_eye') || n.includes('visor') || n.includes('snout') || n.includes('chin') || n.includes('cheek') || n.includes('crest') || n.includes('commander_fin') || n.includes('commander_blade') || n.includes('neck') || n.includes('vulcan_gold'))) {
+        } else if (!n.includes('shield') && !isHeatHawk && (n.includes('head') || n.includes('helmet') || n.includes('jaw') || n.includes('v_fin') || n.includes('mono_eye') || n.includes('visor') || n.includes('snout') || n.includes('chin') || n.includes('cheek') || n.includes('crest') || n.includes('commander_fin') || n.includes('commander_blade') || n.includes('neck') || n.includes('vulcan_gold'))) {
           targetGroup = head;
         } else if (n.includes('shoulder') || n.includes('pauldron') || n.includes('spike') || n.includes('horn') || n.includes('bicep') || n.includes('humerus') || n.includes('upper_arm') || n.includes('binder') || (n.includes('shield') && gc.y >= 125.0)) {
           targetGroup = isRight ? armR : (isLeft ? armL : torso);
@@ -4740,29 +4786,10 @@
         ) {
           rig.nativeLowerPropellantMeshes.push(mesh);
         }
-        // Detachable Zaku-II right shoulder shield & Gouf/Zaku shoulder spikes/horns:
-        // Visible in default MS-06 / MS-07 loadout, automatically hidden whenever custom shoulder_pods
-        // are equipped so spikes NEVER stab through shoulder pods and clamps seat 100% flush!
-        if (
-          n.includes('zaku_shoulder_shield') ||
-          n.includes('zaku_shield_hinge') ||
-          n.includes('zaku_pauldron_horn') ||
-          n.includes('gouf_horn_')
-        ) {
-          rig.nativeShoulderShieldMeshes.push(mesh);
-        }
-        // Detachable stock head horns / commander blades / V-fins across ALL units:
-        // Automatically hidden whenever a custom head_sensor part is equipped so stock cranial horns
-        // NEVER stab through or collide with custom head sensors/crowns (restored cleanly on unequip!).
-        if (
-          n.includes('sazabi_commander_blade') ||
-          n.includes('gouf_commander_fin') ||
-          n.includes('cranial_commander_blade') ||
-          n.includes('v_fin_antenna') ||
-          n.includes('head_v_fin_crest_gem')
-        ) {
-          rig.nativeHeadHornMeshes.push(mesh);
-        }
+        // ZERO-DETACH HORN POLICY: ALL default head & shoulder horns/spikes (RX-78 V-fin & curved crest,
+        // Sazabi commander blade, Gouf head fin & 6 shoulder horns, Zaku-II 3 pauldron horns & shield, Rival blade)
+        // are ALWAYS preserved (`nativeShoulderShieldMeshes` & `nativeHeadHornMeshes` remain empty!).
+        // Modular head_sensor & shoulder_pods adapt their mounting offsets + structural bridges around native horns.
         if (n.includes('backpack_saber_hilt_r')) {
           rig.backpackSaberHilts.r = mesh;
         }
@@ -5119,15 +5146,16 @@
           alwaysVisible: false
         }),
 
-        // 7. WAIST / HIP FOLDING RAILGUNS ZONE (HP-13/17 — seated 0.0mm flush directly ABOVE the rear waist skirt on ALL 5 units!)
-        // Calibrated per-unit rear skirt top Y: RX-78=110.0, Rival=109.0/pelvis=113.5, Zaku=111.3/belt=115.3, Gouf=111.6/belt=115.3, Sazabi=113.0/belt=115.3
+        // 7. WAIST / HIP FOLDING RAILGUNS ZONE (HP-13/17 — seated 0.0mm flush into the black rear abdomen directly ABOVE the rear waist skirt on ALL 5 units!)
+        // Calibrated exact embed_Z >= 2.1mm into black abdomen + seat_Y >= 1.0mm onto waist belt top:
+        // RX-78 (canonical): [0, 111.8, +2.2], Rival: [0, 115.2, +2.2], Zaku-II: [0, 117.0, +2.0], Gouf: [0, 117.0, +2.2], Sazabi: [0, 117.2, +2.4]
         waist_ordnance: createPhysicalAdapterSocket(rig.pelvis, {
           slotGroup: 'waist_ordnance',
           adapterId: 'ADP-HP13-WAIST',
           worldPos: [
             0.0,
-            isSazabi ? 117.6 : (isGouf ? 116.8 : (isZaku ? 116.6 : (spec.id === 'rival_frame' ? 112.4 : 111.8))),
-            isSazabi ? -2.2 : (isGouf ? -0.8 : (isZaku ? -0.6 : (spec.id === 'rival_frame' ? 1.0 : 2.2)))
+            isSazabi ? 117.2 : (isGouf ? 117.0 : (isZaku ? 117.0 : (spec.id === 'rival_frame' ? 115.2 : 111.8))),
+            isSazabi ? 2.4 : (isGouf ? 2.2 : (isZaku ? 2.0 : 2.2))
           ],
           rot: [0, 0, 0],
           scale: isSazabi ? 1.15 : (isGouf ? 1.08 : (isZaku ? 1.06 : 1.0)),
@@ -5152,16 +5180,21 @@
       };
 
       // Attach dedicated bilateral limb containers onto armR/armL and shinR/shinL so shoulder & leg pods articulate independently with each limb!
-      // Calibrated to exact measured outer pauldron X at clamp height (RX-78=40.6, Zaku R=39.5/L=45.8, Gouf=46.2, Sazabi=49.0) & outer calf X (RX-78=29.8, Zaku=33.0, Gouf=33.8, Sazabi=38.9)!
-      const shOutR = isSazabi ? 8.4 : (isGouf ? 5.6 : (isZaku ? 0.0 : 0.0));
-      const shOutL = isSazabi ? 8.4 : (isGouf ? 5.6 : (isZaku ? 5.2 : 0.0));
-      const shYR = isSazabi ? 151.5 : (isGouf ? 149.5 : (isZaku ? 146.5 : 148.0));
-      const shYL = isSazabi ? 151.5 : (isGouf ? 149.5 : (isZaku ? 149.5 : 148.0));
+      // Horn-Preserving Adaptive Shoulder Anchors (ZERO detached horns on Zaku-II & Gouf — 0.00mm horn overlap across all archetypes!):
+      // - RX-78 / Sazabi: standard pauldron flank saddle (RX-78 out=0 Y=148, Sazabi out=8.4 Y=151.5)
+      // - Gouf (ALL 6 shoulder horns preserved): top-deck pauldron crown (inward -9.0mm, Y=164.0 above all horns Y<=159.5)
+      // - Zaku-II (ALL 3 left pauldron horns + right shield preserved): left rear-upper flank (-3.0mm, Y=157.5, Z=-12.8); right top-cowl (-4.5mm, Y=157.5, Z=-2.0)
+      const shOutR = isSazabi ? 8.4 : (isGouf ? -9.0 : (isZaku ? -4.5 : 0.0));
+      const shOutL = isSazabi ? 8.4 : (isGouf ? -9.0 : (isZaku ? -3.0 : 0.0));
+      const shYR = isSazabi ? 151.5 : (isGouf ? 164.0 : (isZaku ? 157.5 : 148.0));
+      const shYL = isSazabi ? 151.5 : (isGouf ? 164.0 : (isZaku ? 157.5 : 148.0));
+      const shZR = isZaku ? -2.0 : 0.0;
+      const shZL = isZaku ? -12.8 : 0.0;
       const shR = new THREE.Group();
-      shR.position.set((rSign * shOutR) - rig.armR.userData.worldOrigin.x, shYR - rig.armR.userData.worldOrigin.y, 0.0 - rig.armR.userData.worldOrigin.z);
+      shR.position.set((rSign * shOutR) - rig.armR.userData.worldOrigin.x, shYR - rig.armR.userData.worldOrigin.y, shZR - rig.armR.userData.worldOrigin.z);
       rig.armR.add(shR);
       const shL = new THREE.Group();
-      shL.position.set((lSign * shOutL) - rig.armL.userData.worldOrigin.x, shYL - rig.armL.userData.worldOrigin.y, 0.0 - rig.armL.userData.worldOrigin.z);
+      shL.position.set((lSign * shOutL) - rig.armL.userData.worldOrigin.x, shYL - rig.armL.userData.worldOrigin.y, shZL - rig.armL.userData.worldOrigin.z);
       rig.armL.add(shL);
       sockets.shoulder_pods.bilateralRightContainer = shR;
       sockets.shoulder_pods.bilateralLeftContainer = shL;
@@ -5216,7 +5249,7 @@
       if (zoneKey === 'shoulder_pods') return n.includes('pauldron') || n.includes('shoulder');
       if (zoneKey === 'dorsal_pack') return n.includes('backpack') || n.includes('dorsal') || n.includes('wing') || n.includes('fin_binder') || n.includes('tank');
       if (zoneKey === 'aux_weapon') return n.includes('rifle') || n.includes('_mg_') || n.includes('saber') || n.includes('heat_rod') || n.includes('forearm_r');
-      if (zoneKey === 'aux_shield') return n.includes('shield') || n.includes('hawk') || n.includes('forearm_l');
+      if (zoneKey === 'aux_shield') return n.includes('shield') || n.includes('zaku_hawk') || n.includes('heat_hawk') || n.includes('forearm_l');
       if (zoneKey === 'waist_ordnance') return n.includes('pelvis') || n.includes('waist') || n.includes('skirt') || n.includes('hip') || n.includes('xiphias');
       if (zoneKey === 'leg_thrusters') return n.includes('calf') || n.includes('shin') || n.includes('knee') || n.includes('thigh') || n.includes('foot') || n.includes('boot');
       return false;
@@ -5725,7 +5758,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261124_r9');
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r21');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         const onGltfReady = async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
@@ -6224,19 +6257,9 @@
         if (state.kinematicRig?.nativeLowerPropellantMeshes) {
           state.kinematicRig.nativeLowerPropellantMeshes.forEach(m => { m.visible = false; });
         }
-      } else if (slotGroup === 'shoulder_pods') {
-        // Detach Zaku-II stock shoulder shield & Gouf/Zaku shoulder spikes so custom shoulder_pods clamp 100% flush!
-        if (state.kinematicRig?.nativeShoulderShieldMeshes) {
-          state.kinematicRig.nativeShoulderShieldMeshes.forEach(m => { m.visible = false; });
-        }
-      } else if (slotGroup === 'head_sensor') {
-        // Detach stock head horn / commander blade / V-fin across ALL units before snapping on head_sensor parts!
-        if (state.kinematicRig?.nativeHeadHornMeshes) {
-          state.kinematicRig.nativeHeadHornMeshes.forEach(m => {
-            m.userData.hiddenBySwap = true;
-            m.visible = false;
-          });
-        }
+      } else if (slotGroup === 'shoulder_pods' || slotGroup === 'head_sensor') {
+        // ZERO-DETACH HORN POLICY: Never hide/detach any stock shoulder or head horns!
+        // Adaptive mounting offsets & structural bridges below automatically clear every native horn.
       }
 
       const mountedModels = [];
@@ -6278,10 +6301,50 @@
             rightGrp.add(node);
           }
         });
+        // Horn-Preserving Adaptive Shoulder Clearance + Flush Machined Gunmetal Pedestals on Gouf & Zaku-II:
+        if (slotGroup === 'shoulder_pods' && (state.activeUnitId === 'enemy_gouf' || state.activeUnitId === 'enemy_zaku')) {
+          const pedMat = getSharedMechaMaterial({ color: 0x2c3442, roughness: 0.36, metalness: 0.72, materialClass: 'metal_gunmetal' });
+          const addPedestal = (grp, w, h, d, lx, ly, lz, nm) => {
+            const pMesh = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), pedMat);
+            pMesh.name = nm;
+            pMesh.position.set(lx, ly, lz);
+            pMesh.castShadow = true;
+            pMesh.receiveShadow = true;
+            pMesh.userData.origMaterial = pedMat;
+            pMesh.userData.initialPosition = pMesh.position.clone();
+            pMesh.userData.isModularPack = true;
+            grp.add(pMesh);
+            state.chassisParts.push(pMesh);
+          };
+          const computeMinY = (grp) => {
+            let minY = Infinity;
+            grp.children.forEach(c => {
+              if (c.isMesh && c.geometry?.boundingBox) {
+                minY = Math.min(minY, c.geometry.boundingBox.min.y * (grp.scale.y || 1));
+              }
+            });
+            return minY;
+          };
+          const minYR = computeMinY(rightGrp);
+          const minYL = computeMinY(leftGrp);
+          if (state.activeUnitId === 'enemy_gouf') {
+            // Clamp long hanging wings cleanly above Gouf main outer horn (Y<=159.5) while base sits on top deck (Y=164.0)
+            if (minYR < -5.0) rightGrp.position.y += (160.2 - minYR - 164.0);
+            if (minYL < -5.0) leftGrp.position.y += (160.2 - minYL - 164.0);
+            addPedestal(leftGrp, 9.0, 5.8, 8.8, 41.0, -3.2 - leftGrp.position.y, 0.0, 'adapter_top_deck_pedestal_dark_l');
+            addPedestal(rightGrp, 9.0, 5.8, 8.8, -41.0, -3.2 - rightGrp.position.y, 0.0, 'adapter_top_deck_pedestal_dark_r');
+          } else if (state.activeUnitId === 'enemy_zaku') {
+            if (minYL < -5.0) leftGrp.position.y += (150.5 - minYL - 157.5);
+            if (minYR < -5.0) rightGrp.position.y += (159.8 - minYR - 157.5);
+            addPedestal(leftGrp, 8.5, 6.4, 8.2, 37.5, -3.3 - leftGrp.position.y, 2.3, 'adapter_rear_dome_pedestal_dark_l');
+            addPedestal(rightGrp, 8.5, 6.4, 8.2, -37.0, -3.3 - rightGrp.position.y, 0.0, 'adapter_top_cowl_pedestal_dark_r');
+          }
+        }
         socket.bilateralRightContainer.add(rightGrp);
         socket.bilateralLeftContainer.add(leftGrp);
         mountedModels.push(rightGrp, leftGrp);
       } else {
+        const crownMeshes = [];
         packModel.traverse(node => {
           if (node.isMesh) {
             const nm = (node.name || '').toLowerCase();
@@ -6304,8 +6367,136 @@
             node.userData.initialPosition = node.position.clone();
             node.userData.isModularPack = true;
             state.chassisParts.push(node);
+            if (slotGroup === 'head_sensor') {
+              const gc = node.userData.geomCenter;
+              if (Math.abs(gc.x) < 6.5 || gc.y > 5.0) {
+                crownMeshes.push(node);
+              }
+            }
           }
         });
+        // Horn-AND-Dorsal-Pack-Safe Adaptive Cranial Mounting (ZERO detached horns, ZERO AWACS/dorsal clash!):
+        // - RX-78 Vanguard: Full-Wrap Bolted Cranial Headset Harness linking ear clamps -> curved over-temple arches
+        //   (with gold pivot lock-bolts) -> mohawk-straddling clamps -> snug crown cradle + rear occipital strap!
+        // - Sazabi / Gouf / Rival: Forward-Facing Tactical Side-Crown Mount (0.65x) cleanly flanking the tall center
+        //   commander blade (X >= +1.9mm, Z ~ -10..+5mm -> 100% clear of ALL AWACS/radome/wing dorsal packs!).
+        if (slotGroup === 'head_sensor' && crownMeshes.length > 0 && state.activeUnitId !== 'enemy_zaku') {
+          const bridgeMat = getSharedMechaMaterial({ color: 0x2c3442, roughness: 0.36, metalness: 0.72, materialClass: 'metal_gunmetal' });
+          const goldBoltMat = getSharedMechaMaterial({ color: 0xeab308, roughness: 0.22, metalness: 0.90, materialClass: 'metal_gold' });
+          const addPart = (parentGrp, geom, mat, lx, ly, lz, nm, rxDeg = 0, ryDeg = 0, rzDeg = 0) => {
+            const pMesh = new THREE.Mesh(geom, mat);
+            pMesh.name = nm;
+            pMesh.position.set(lx, ly, lz);
+            if (rxDeg || ryDeg || rzDeg) {
+              pMesh.rotation.set(
+                THREE.MathUtils.degToRad(rxDeg),
+                THREE.MathUtils.degToRad(ryDeg),
+                THREE.MathUtils.degToRad(rzDeg)
+              );
+            }
+            pMesh.castShadow = true;
+            pMesh.receiveShadow = true;
+            pMesh.userData.origMaterial = mat;
+            pMesh.userData.initialPosition = pMesh.position.clone();
+            pMesh.userData.isModularPack = true;
+            parentGrp.add(pMesh);
+            state.chassisParts.push(pMesh);
+            return pMesh;
+          };
+
+          if (state.activeUnitId === 'gundam_rx78') {
+            let cMinY = Infinity, cMinX = Infinity, cMaxX = -Infinity;
+            const activeCrown = [];
+            crownMeshes.forEach(m => {
+              if ((m.name || '').toLowerCase().includes('crown_riser')) {
+                m.visible = false;
+                return;
+              }
+              activeCrown.push(m);
+              if (m.geometry?.boundingBox) {
+                cMinY = Math.min(cMinY, m.geometry.boundingBox.min.y);
+                cMinX = Math.min(cMinX, m.geometry.boundingBox.min.x);
+                cMaxX = Math.max(cMaxX, m.geometry.boundingBox.max.x);
+              }
+            });
+            if (activeCrown.length > 0 && Number.isFinite(cMinY)) {
+              const crownGrp = new THREE.Group();
+              crownGrp.name = 'AdaptiveCrown_RX78_Harness';
+              const dy = 11.4 - cMinY; // Seats crown underside snugly at world Y=176.4 flush on curved mohawk top!
+              crownGrp.position.set(0.0, dy, -0.8);
+              activeCrown.forEach(m => crownGrp.add(m));
+              packModel.add(crownGrp);
+
+              const cradleHalfW = Math.max(5.2, Math.min(7.2, 0.5 * (cMaxX - cMinX) - 0.6));
+              for (const [sgn, sfx] of [[1.0, 'r'], [-1.0, 'l']]) {
+                // 1. Ear-to-Temple Vertical Collar Bridge (bolts directly into top of bilateral ear clamps!)
+                addPart(packModel, new THREE.BoxGeometry(1.6, 5.2, 4.4), bridgeMat, sgn * 8.45, 4.1, -2.0, `adapter_harness_low_${sfx}`, 0, 0, sgn * 18.0);
+                // 2. Curved Upper Over-Temple Arch Strut (hugs RX-78 white helmet temple dome into crown underside!)
+                addPart(packModel, new THREE.BoxGeometry(1.6, 6.0, 4.4), bridgeMat, sgn * 6.65, 8.3, -2.0, `adapter_harness_mid_${sfx}`, 0, 0, sgn * 42.0);
+                // 3. Upper Crown Mounting Lug Bracket (locks cleanly into crown underside!)
+                addPart(packModel, new THREE.BoxGeometry(3.2, 1.9, 5.8), bridgeMat, sgn * Math.max(3.6, cradleHalfW - 1.2), 11.0, -2.4, `adapter_harness_lug_${sfx}`);
+                // 4. Contoured Mohawk-Clamping Side Cheeks straddling RX-78 curved mohawk (|X|<=1.96mm)
+                addPart(packModel, new THREE.BoxGeometry(1.2, 4.2, 8.0), bridgeMat, sgn * 2.55, 9.8, -2.8, `adapter_harness_clamp_${sfx}`);
+                // 5. Gold Mechanical Temple Pivot Lock-Bolts
+                addPart(packModel, new THREE.CylinderGeometry(0.95, 0.95, 2.2, 12), goldBoltMat, sgn * 8.9, 6.2, -2.0, `adapter_harness_bolt_gold_${sfx}`, 0, 0, 90.0);
+                // 6. Rear-Temple Diagonal Stabilizer Rib linking temple arch -> rear occipital strap
+                addPart(packModel, new THREE.BoxGeometry(1.3, 2.0, 6.2), bridgeMat, sgn * 7.2, 6.8, -5.6, `adapter_harness_rear_rib_${sfx}`, 0, sgn * -24.0, 0);
+              }
+              // 7. Rear Occipital Stabilizer Crossbar wrapping cleanly behind RX-78 curved mohawk (Z=-8.5, >14mm clear of AWACS!)
+              addPart(packModel, new THREE.BoxGeometry(12.2, 2.2, 1.6), bridgeMat, 0.0, 6.8, -8.5, 'adapter_harness_occipital_dark');
+            }
+          } else if (state.activeUnitId === 'enemy_sazabi' || state.activeUnitId === 'enemy_gouf' || state.activeUnitId === 'rival_frame') {
+            const isSaz = state.activeUnitId === 'enemy_sazabi';
+            const isGouf = state.activeUnitId === 'enemy_gouf';
+            const hs = isSaz ? 1.15 : (isGouf ? 1.20 : 1.0);
+            const cs = 0.65; // Sleek tactical side-crown scale facing straight forward (+Z)!
+            let cMinX = Infinity, cMaxX = -Infinity, cMinY = Infinity, cMaxY = -Infinity, cMinZ = Infinity, cMaxZ = -Infinity;
+            crownMeshes.forEach(m => {
+              if (m.geometry?.boundingBox) {
+                const bb = m.geometry.boundingBox;
+                cMinX = Math.min(cMinX, bb.min.x); cMaxX = Math.max(cMaxX, bb.max.x);
+                cMinY = Math.min(cMinY, bb.min.y); cMaxY = Math.max(cMaxY, bb.max.y);
+                cMinZ = Math.min(cMinZ, bb.min.z); cMaxZ = Math.max(cMaxZ, bb.max.z);
+              }
+            });
+            if (Number.isFinite(cMinX)) {
+              const cx = 0.5 * (cMinX + cMaxX);
+              const cy = 0.5 * (cMinY + cMaxY);
+              const cz = 0.5 * (cMinZ + cMaxZ);
+              const halfWWorld = 0.5 * (cMaxX - cMinX) * hs * cs;
+              // Clears center commander blade (|X|<=1.0mm) by >= +0.9mm AND stays Z ~ -10..+5mm (100% clear of ALL AWACS/dorsal packs!)
+              const targetCxWorld = Math.max(5.6, 1.9 + halfWWorld);
+              const targetBotYWorld = isSaz ? 7.0 : (isGouf ? 7.8 : 6.8);
+              const targetCzWorld = -2.0;
+
+              const sideGrp = new THREE.Group();
+              sideGrp.name = `AdaptiveSideCrown_${state.activeUnitId}`;
+              sideGrp.position.set(
+                targetCxWorld / hs,
+                (targetBotYWorld / hs) - (cMinY - cy) * cs,
+                targetCzWorld / hs
+              );
+              sideGrp.scale.set(cs, cs, cs);
+              const sideInner = new THREE.Group();
+              sideInner.position.set(-cx, -cy, -cz);
+              crownMeshes.forEach(m => sideInner.add(m));
+              sideGrp.add(sideInner);
+              packModel.add(sideGrp);
+
+              // Flush machined lateral-crown mounting pylon linking helmet side dome directly into side-crown base!
+              const pylonW = Math.max(3.4, targetCxWorld - 2.4) / hs;
+              addPart(
+                packModel,
+                new THREE.BoxGeometry(pylonW, 3.6 / hs, 6.2 / hs),
+                bridgeMat,
+                (0.5 * (3.2 + targetCxWorld)) / hs,
+                (targetBotYWorld - 1.2) / hs,
+                targetCzWorld / hs,
+                'adapter_side_crown_pylon_dark'
+              );
+            }
+          }
+        }
         socket.adapterVis.visible = true;
         socket.payloadContainer.add(packModel);
         mountedModels.push(packModel);
@@ -7027,98 +7218,221 @@
     canvas.addEventListener('wheel', handoffToUser, { passive: true });
     window.addEventListener('keydown', (e) => { if (e.key !== 'Escape') handoffToUser(); });
 
-    function _shortCalloutName(partId) {
-      if (!partId || !state.catalog?.modular_parts) return '';
-      const p = state.catalog.modular_parts.find(x => x.part_id === partId);
-      if (!p || !p.name) return '';
-      const raw = String(p.name).trim();
-      return raw.length > 26 ? raw.slice(0, 25).trim() + '…' : raw;
+    function _getEquippedPartMeta(partId) {
+      if (!partId || !state.catalog?.modular_parts) return null;
+      return state.catalog.modular_parts.find(x => x.part_id === partId) || null;
     }
 
-    const CALLOUT_ANCHORS = [
+    function _shortText(txt, maxLen) {
+      const raw = String(txt || '').replace(/\s+/g, ' ').trim();
+      if (!raw) return '';
+      return raw.length > maxLen ? raw.slice(0, maxLen - 1).trim() + '…' : raw;
+    }
+
+    function _shortCalloutName(partId, maxLen = 28) {
+      const p = _getEquippedPartMeta(partId);
+      return p?.name ? _shortText(p.name, maxLen) : '';
+    }
+
+    function _equippedCalloutDesc(partId, fallbackHp, maxLen = 46) {
+      const p = _getEquippedPartMeta(partId);
+      if (!p) return `${fallbackHp} • LOCKED`;
+      const role = p.telemetry_and_lore?.operational_role || '';
+      if (role) return _shortText(role, maxLen);
+      return `${p.primary_hardpoint || fallbackHp} • ${p.serial_number || 'MODULAR'} • LOCKED`;
+    }
+
+    function _equippedCalloutSpecs(partId, fallbackHp) {
+      const p = _getEquippedPartMeta(partId);
+      if (!p) return `${fallbackHp} • LOCKED`;
+      const hp = p.primary_hardpoint || fallbackHp;
+      const serial = p.serial_number ? ` • ${p.serial_number}` : '';
+      const mass = Number(p.structural_specs?.mass_kg || 0);
+      const thrust = Number(p.telemetry_and_lore?.vernier_thrust_kgf || 0);
+      const power = Number(p.telemetry_and_lore?.reactor_power_draw_kw || 0);
+      const stat = thrust > 0
+        ? ` • ${(thrust / 1000).toFixed(0)}t THRUST`
+        : (mass > 0 ? ` • ${mass}kg` : (power > 0 ? ` • ${power}kW` : ''));
+      return `${hp}${serial}${stat}`;
+    }
+
+    // Complete 8-Zone UHIS Dynamic Modular Callout Anchors (tracks all 8 slots accurately across all 5 Mobile Suits!)
+    const EQUIPPED_ZONE_CALLOUTS = [
       {
-        id: 'c_optics',
+        id: 'c_head',
+        slotGroup: 'head_sensor',
+        zoneLabel: 'HEAD',
+        hp: 'HP-01/02',
+        preferredSide: -1,
         getWorld: (out) => {
+          const sock = state.socketRig?.head_sensor?.socketRoot;
+          if (sock) { out.set(0, 10, 2); sock.localToWorld(out); return out; }
           const rig = state.kinematicRig;
-          if (rig?.head) { out.set(0, 10, 9); rig.head.localToWorld(out); return out; }
-          return out.set(0, 165, 10);
-        },
-        screenDx: -155, screenDy: -34,
-        title: () => state.slotOccupancy.head_sensor ? `HEAD: ${_shortCalloutName(state.slotOccupancy.head_sensor)}` : 'OPTICAL SENSOR ARRAY',
-        sub: () => state.slotOccupancy.head_sensor
-          ? 'ADP-HP01 CRANIAL • LOCKED'
-          : (UNIT_REGISTRY[state.activeUnitId]?.isZeonEnemy ? 'RECESSED MONO-EYE • IR RIM' : 'DUAL GOLDEN CAM • TRACKING')
+          if (rig?.head) { out.set(0, 12, 4); rig.head.localToWorld(out); return out; }
+          return out.set(0, 174, 4);
+        }
       },
       {
-        id: 'c_reactor',
+        id: 'c_dorsal',
+        slotGroup: 'dorsal_pack',
+        zoneLabel: 'BACKPACK',
+        hp: 'HP-00',
+        preferredSide: 1,
         getWorld: (out) => {
+          const sock = state.socketRig?.dorsal_pack?.socketRoot;
+          if (sock) { out.set(0, 4, -14); sock.localToWorld(out); return out; }
           const rig = state.kinematicRig;
-          if (rig?.torso) { out.set(0, 24, 12); rig.torso.localToWorld(out); return out; }
-          return out.set(0, 138, 12);
-        },
-        screenDx: 160, screenDy: -28,
-        title: () => state.slotOccupancy.chest_armor
-          ? `CHEST: ${_shortCalloutName(state.slotOccupancy.chest_armor)}`
-          : (UNIT_REGISTRY[state.activeUnitId]?.isZeonEnemy ? 'ZEON REACTOR CORE' : 'MINOVSKY 3-GEAR CORE'),
-        sub: () => state.hatchOpen
-          ? (UNIT_REGISTRY[state.activeUnitId]?.isZeonEnemy ? 'HATCH OPEN • CORE EXPOSED' : 'HATCH OPEN • 20T/14T SPIN')
-          : (state.slotOccupancy.chest_armor ? 'ADP-HP09 PECTORAL • LOCKED' : (state.renderMode === 'glass' ? 'GLASS CUTAWAY • EXPOSED' : 'HATCH SEALED'))
+          if (rig?.torso) { out.set(0, 24, -22); rig.torso.localToWorld(out); return out; }
+          return out.set(0, 144, -24);
+        }
       },
       {
-        id: 'c_servo',
+        id: 'c_shoulder',
+        slotGroup: 'shoulder_pods',
+        zoneLabel: 'SHOULDER',
+        hp: 'HP-03/05',
+        preferredSide: 1,
         getWorld: (out) => {
           const rig = state.kinematicRig;
-          if (state.slotOccupancy.shoulder_pods && rig?.armR) {
-            out.set((rig.rSign || 1) * 4, 6, 0); rig.armR.localToWorld(out); return out;
-          }
-          if (rig?.forearmR) { out.set(0, 0, 0); rig.forearmR.localToWorld(out); return out; }
-          return out.set(34 * (rig?.rSign || 1), 116, 2);
-        },
-        screenDx: 155, screenDy: 14,
-        title: () => state.slotOccupancy.shoulder_pods ? `SHOULDER: ${_shortCalloutName(state.slotOccupancy.shoulder_pods)}` : 'ROTARY SERVO DRUM',
-        sub: () => state.slotOccupancy.shoulder_pods ? 'ADP-HP03 PAULDRON • LOCKED' : '6-BOLT ANODIZED COLLAR'
+          const rCont = state.socketRig?.shoulder_pods?.bilateralRightContainer;
+          if (rCont) { out.set((rig?.rSign || 1) * 48, 8, 0); rCont.localToWorld(out); return out; }
+          if (rig?.armR) { out.set((rig.rSign || 1) * 10, 6, 0); rig.armR.localToWorld(out); return out; }
+          return out.set(46 * (rig?.rSign || 1), 152, 0);
+        }
       },
       {
-        id: 'c_weapon',
+        id: 'c_chest',
+        slotGroup: 'chest_armor',
+        zoneLabel: 'CHEST',
+        hp: 'HP-09/10',
+        preferredSide: -1,
         getWorld: (out) => {
-          const sock = state.socketRig?.aux_weapon?.socketRoot;
-          if (sock) { sock.getWorldPosition(out); return out; }
+          const sock = state.socketRig?.chest_armor?.socketRoot;
+          if (sock) { out.set(0, 2, 10); sock.localToWorld(out); return out; }
           const rig = state.kinematicRig;
-          if (rig?.forearmR) { out.set(0, -26, 2); rig.forearmR.localToWorld(out); return out; }
-          return out.set(35 * (rig?.rSign || 1), 88, 4);
-        },
-        screenDx: 155, screenDy: 44,
-        title: () => state.slotOccupancy.aux_weapon ? `WEAPON: ${_shortCalloutName(state.slotOccupancy.aux_weapon)}` : 'ADP-HP11 PALM SOCKET',
-        sub: () => state.slotOccupancy.aux_weapon
-          ? (state.activeStance === 'RifleBurst' ? 'BEAM AIM • LOCKED' : 'PALM ADAPTER • LOCKED')
-          : 'STANDBY • NO WEAPON EQUIPPED'
+          if (rig?.torso) { out.set(0, 24, 18); rig.torso.localToWorld(out); return out; }
+          return out.set(0, 140, 18);
+        }
       },
       {
         id: 'c_shield',
+        slotGroup: 'aux_shield',
+        zoneLabel: 'SHIELD',
+        hp: 'HP-07',
+        preferredSide: -1,
         getWorld: (out) => {
           const sock = state.socketRig?.aux_shield?.socketRoot;
           if (sock) { sock.getWorldPosition(out); return out; }
           const rig = state.kinematicRig;
           if (rig?.forearmL) { out.set(0, -14, 0); rig.forearmL.localToWorld(out); return out; }
           return out.set(-38 * (rig?.rSign || 1), 102, 2);
-        },
-        screenDx: -160, screenDy: 24,
-        title: () => state.slotOccupancy.aux_shield ? `SHIELD: ${_shortCalloutName(state.slotOccupancy.aux_shield)}` : 'ADP-HP07 FOREARM MOUNT',
-        sub: () => state.slotOccupancy.aux_shield ? 'OUTWARD NORMAL • LOCKED' : 'STANDBY • NO SHIELD EQUIPPED'
+        }
       },
       {
-        id: 'c_knee',
+        id: 'c_weapon',
+        slotGroup: 'aux_weapon',
+        zoneLabel: 'WEAPON',
+        hp: 'HP-11',
+        preferredSide: 1,
+        getWorld: (out) => {
+          const sock = state.socketRig?.aux_weapon?.socketRoot;
+          if (sock) { sock.getWorldPosition(out); return out; }
+          const rig = state.kinematicRig;
+          if (rig?.forearmR) { out.set(0, -26, 2); rig.forearmR.localToWorld(out); return out; }
+          return out.set(35 * (rig?.rSign || 1), 88, 4);
+        }
+      },
+      {
+        id: 'c_waist',
+        slotGroup: 'waist_ordnance',
+        zoneLabel: 'WAIST',
+        hp: 'HP-13/17',
+        preferredSide: -1,
+        getWorld: (out) => {
+          const sock = state.socketRig?.waist_ordnance?.socketRoot;
+          if (sock) { out.set(-22, 0, -14); sock.localToWorld(out); return out; }
+          const rig = state.kinematicRig;
+          if (rig?.pelvis) { out.set(-22, 10, -14); rig.pelvis.localToWorld(out); return out; }
+          return out.set(-24, 114, -14);
+        }
+      },
+      {
+        id: 'c_legs',
+        slotGroup: 'leg_thrusters',
+        zoneLabel: 'LEGS',
+        hp: 'HP-24/26',
+        preferredSide: 1,
         getWorld: (out) => {
           const rig = state.kinematicRig;
-          if (state.slotOccupancy.leg_thrusters && rig?.shinL) {
-            out.set((rig.lSign || -1) * 8, -18, 0); rig.shinL.localToWorld(out); return out;
-          }
-          if (rig?.shinL) { out.set(0, 2, 6); rig.shinL.localToWorld(out); return out; }
-          return out.set(-16 * (rig?.rSign || 1), 62, 6);
+          const rCont = state.socketRig?.leg_thrusters?.bilateralRightContainer;
+          if (rCont) { out.set((rig?.rSign || 1) * 34, 0, -2); rCont.localToWorld(out); return out; }
+          if (rig?.shinR) { out.set((rig.rSign || 1) * 8, -16, 0); rig.shinR.localToWorld(out); return out; }
+          return out.set(30 * (rig?.rSign || 1), 46, -2);
+        }
+      }
+    ];
+
+    // Stock Mobile Suit baseline callouts shown cleanly ONLY when 0 modular parts are equipped
+    const BASELINE_STOCK_CALLOUTS = [
+      {
+        id: 'b_head',
+        preferredSide: -1,
+        getWorld: (out) => {
+          const rig = state.kinematicRig;
+          if (rig?.head) { out.set(0, 10, 9); rig.head.localToWorld(out); return out; }
+          return out.set(0, 168, 10);
         },
-        screenDx: -155, screenDy: 56,
-        title: () => state.slotOccupancy.leg_thrusters ? `LEGS: ${_shortCalloutName(state.slotOccupancy.leg_thrusters)}` : 'DOUBLE-PIVOT KNEE DRUM',
-        sub: () => state.slotOccupancy.leg_thrusters ? 'ADP-HP24 CALF POD • LOCKED' : 'TEARDOWN HYDRAULIC DAMPER'
+        title: () => UNIT_REGISTRY[state.activeUnitId]?.isZeonEnemy ? 'STOCK MONO-EYE SENSOR' : 'STOCK DUAL-CAM HEAD & V-FIN',
+        desc: () => UNIT_REGISTRY[state.activeUnitId]?.isZeonEnemy ? 'Recessed optical mono-eye tracking rail' : 'Dual golden eyes, 60mm Vulcans & compact V-fin',
+        sub: () => 'HP-01/02 STANDBY • READY FOR HEAD MODULE'
+      },
+      {
+        id: 'b_dorsal',
+        preferredSide: 1,
+        getWorld: (out) => {
+          const rig = state.kinematicRig;
+          if (rig?.torso) { out.set(0, 24, -20); rig.torso.localToWorld(out); return out; }
+          return out.set(0, 144, -20);
+        },
+        title: () => state.activeUnitId === 'sazabi_msn04' ? 'STOCK 12-NOZZLE FUNNEL PACK' : 'STOCK DORSAL THRUSTER PACK',
+        desc: () => state.activeUnitId === 'sazabi_msn04' ? 'Dual tall funnel racks & propellant boosters' : 'Standard propulsion backpack & saber mounts',
+        sub: () => 'HP-00 UHIS DOVETAIL • READY FOR BACKPACK'
+      },
+      {
+        id: 'b_chest',
+        preferredSide: -1,
+        getWorld: (out) => {
+          const rig = state.kinematicRig;
+          if (rig?.torso) { out.set(0, 22, 16); rig.torso.localToWorld(out); return out; }
+          return out.set(0, 140, 16);
+        },
+        title: () => UNIT_REGISTRY[state.activeUnitId]?.isZeonEnemy ? 'ZEON ULTRACOMPACT REACTOR' : 'MINOVSKY 3-GEAR CORE & VENTS',
+        desc: () => state.hatchOpen ? 'Cockpit hatch open — internal core exposed' : 'Armored sternum hatch & cooling intake vents',
+        sub: () => 'HP-09/10 STANDBY • READY FOR CHEST ARMOR'
+      },
+      {
+        id: 'b_arms',
+        preferredSide: 1,
+        getWorld: (out) => {
+          const rig = state.kinematicRig;
+          if (rig?.forearmR) { out.set(0, -18, 2); rig.forearmR.localToWorld(out); return out; }
+          return out.set(35, 96, 4);
+        },
+        title: () => 'STOCK MANIPULATOR & HARDPOINTS',
+        desc: () => 'Articulated 4-finger hand & forearm shield mount',
+        sub: () => 'HP-03/07/11 • READY FOR WEAPON / SHIELD / PODS'
+      },
+      {
+        id: 'b_legs',
+        preferredSide: -1,
+        getWorld: (out) => {
+          const rig = state.kinematicRig;
+          if (rig?.shinL) { out.set(0, -8, 6); rig.shinL.localToWorld(out); return out; }
+          return out.set(-18, 54, 6);
+        },
+        title: () => 'STOCK AMBAC LEG & WAIST FRAME',
+        desc: () => 'Double-pivot knee damper & articulated hip skirts',
+        sub: () => 'HP-13/24 • READY FOR WAIST / LEG MODULES'
       }
     ];
     const _projVec = new THREE.Vector3();
@@ -7136,34 +7450,125 @@
       _lastCalloutSig = sig;
       _lastCalloutFrameTs = nowTs;
       if (state.chassisModel) state.chassisModel.updateWorldMatrix(true, true);
-      let svgHtml = '';
-      let nodesHtml = '';
       const isStudio = state.activeEnv === 'studio';
+      const isMobile = w <= 768;
       const strokeCol = isStudio ? '#ea580c' : '#38bdf8';
       const dotCol = '#f97316';
       // Measure exact open side-drawer bounds + half-pill safety margin so NO callout card EVER clips!
       const leftRect = (state.menus.left && !state.menus.allHidden && leftDrawer) ? leftDrawer.getBoundingClientRect() : null;
       const rightRect = ((state.menus.right || state.menus.scene) && !state.menus.allHidden && rightStack) ? rightStack.getBoundingClientRect() : null;
-      const cardHalfW = 112;
-      const minX = (leftRect && w > 960 && leftRect.right > 40) ? (leftRect.right + cardHalfW + 16) : (cardHalfW + 12);
-      const maxX = (rightRect && w > 960 && rightRect.left < w - 40) ? (rightRect.left - cardHalfW - 16) : (w - cardHalfW - 12);
-      for (const a of CALLOUT_ANCHORS) {
-        a.getWorld(_projVec);
+      const cardHalfW = isMobile ? 76 : 118;
+      const minX = (leftRect && w > 960 && leftRect.right > 40) ? (leftRect.right + cardHalfW + 14) : (cardHalfW + 8);
+      const maxX = (rightRect && w > 960 && rightRect.left < w - 40) ? (rightRect.left - cardHalfW - 14) : (w - cardHalfW - 8);
+      const minY = isMobile ? 86 : 84;
+      const maxY = isMobile ? (h - 92) : (h - 96);
+
+      // Dynamic Mode: If >= 1 modular part is equipped, show ALL currently equipped parts (1..8) with full specs & roles;
+      // otherwise show stock baseline chassis callouts so the overlay is always meaningful!
+      const equippedEntries = EQUIPPED_ZONE_CALLOUTS.filter(z => Boolean(state.slotOccupancy[z.slotGroup]));
+      const activeList = equippedEntries.length > 0
+        ? equippedEntries.map(z => {
+            const pid = state.slotOccupancy[z.slotGroup];
+            return {
+              id: z.id,
+              preferredSide: z.preferredSide,
+              getWorld: z.getWorld,
+              title: `${z.zoneLabel}: ${_shortCalloutName(pid, isMobile ? 19 : 26)}`,
+              desc: _equippedCalloutDesc(pid, z.hp, isMobile ? 32 : 46),
+              sub: _equippedCalloutSpecs(pid, z.hp),
+              isEquipped: true
+            };
+          })
+        : BASELINE_STOCK_CALLOUTS.map(b => ({
+            id: b.id,
+            preferredSide: b.preferredSide,
+            getWorld: b.getWorld,
+            title: b.title(),
+            desc: b.desc(),
+            sub: b.sub(),
+            isEquipped: false
+          }));
+
+      // Project all active anchors to 2D screen coordinates & partition cleanly into Left vs Right columns
+      const leftCol = [];
+      const rightCol = [];
+      for (const item of activeList) {
+        item.getWorld(_projVec);
         _projVec.project(camera);
         if (_projVec.z > 1.0) continue;
         const sx = (_projVec.x * 0.5 + 0.5) * w;
         const sy = (-_projVec.y * 0.5 + 0.5) * h;
-        const dxSign = sx < (w * 0.5) ? -1 : 1;
-        const dx = Math.abs(a.screenDx) * dxSign;
-        const lx = Math.max(minX, Math.min(maxX, sx + dx));
-        const ly = Math.max(88, Math.min(h - 98, sy + a.screenDy));
-        // Precision CAD elbow leader line (anchor -> knee -> tag)
-        const kx = sx + (lx - sx) * 0.42;
-        const titleTxt = typeof a.title === 'function' ? a.title() : a.title;
-        svgHtml += `<polyline points="${sx.toFixed(1)},${sy.toFixed(1)} ${kx.toFixed(1)},${ly.toFixed(1)} ${lx.toFixed(1)},${ly.toFixed(1)}" fill="none" stroke="${strokeCol}" stroke-width="1.35" opacity="0.88" />`
-          + `<circle cx="${sx.toFixed(1)}" cy="${sy.toFixed(1)}" r="4.8" fill="none" stroke="${dotCol}" stroke-width="1.2" opacity="0.65" />`
-          + `<circle cx="${sx.toFixed(1)}" cy="${sy.toFixed(1)}" r="2.6" fill="${dotCol}" />`;
-        nodesHtml += `<div class="callout-tag" style="left:${lx.toFixed(1)}px;top:${ly.toFixed(1)}px;"><span class="c-dot"></span>${escapePresetHtml(titleTxt)}<span class="c-sub">${escapePresetHtml(a.sub())}</span></div>`;
+        const entry = { item, sx, sy, side: sx < (w * 0.5) ? -1 : 1 };
+        // When near horizontal center, honor preferredSide so 8 equipped tags balance cleanly 4 Left / 4 Right
+        if (Math.abs(sx - w * 0.5) < (isMobile ? 28 : 48)) {
+          entry.side = item.preferredSide;
+        }
+        (entry.side < 0 ? leftCol : rightCol).push(entry);
+      }
+
+      // Rebalance columns if one side has > 5 cards (e.g., all 8 parts visible from side angle)
+      while (leftCol.length > 4 && rightCol.length < 4) {
+        leftCol.sort((a, b) => b.sx - a.sx);
+        const moved = leftCol.shift();
+        moved.side = 1;
+        rightCol.push(moved);
+      }
+      while (rightCol.length > 4 && leftCol.length < 4) {
+        rightCol.sort((a, b) => a.sx - b.sx);
+        const moved = rightCol.shift();
+        moved.side = -1;
+        leftCol.push(moved);
+      }
+
+      // Vertical anti-overlap solver per column so ALL 8 callout cards stay crisp with ZERO overlaps!
+      const minGapY = isMobile ? 48 : 56;
+      const layoutColumn = (col) => {
+        col.sort((a, b) => a.sy - b.sy);
+        for (let i = 0; i < col.length; i++) {
+          col[i].ly = Math.max(minY, Math.min(maxY, col[i].sy));
+        }
+        // Downward pass
+        for (let i = 1; i < col.length; i++) {
+          if (col[i].ly < col[i - 1].ly + minGapY) {
+            col[i].ly = col[i - 1].ly + minGapY;
+          }
+        }
+        // Clamp bottom & upward pass
+        if (col.length > 0 && col[col.length - 1].ly > maxY) {
+          col[col.length - 1].ly = maxY;
+          for (let i = col.length - 2; i >= 0; i--) {
+            if (col[i].ly > col[i + 1].ly - minGapY) {
+              col[i].ly = col[i + 1].ly - minGapY;
+            }
+          }
+          if (col[0].ly < minY) {
+            const span = Math.max(1, maxY - minY);
+            const step = col.length > 1 ? span / (col.length - 1) : 0;
+            for (let i = 0; i < col.length; i++) col[i].ly = minY + i * step;
+          }
+        }
+      };
+      layoutColumn(leftCol);
+      layoutColumn(rightCol);
+
+      let svgHtml = '';
+      let nodesHtml = '';
+      const baseOffset = isMobile ? 102 : 178;
+      for (const entry of [...leftCol, ...rightCol]) {
+        const { item, sx, sy, side, ly } = entry;
+        const targetX = side < 0 ? Math.min(sx - baseOffset, minX + (isMobile ? 4 : 24)) : Math.max(sx + baseOffset, maxX - (isMobile ? 4 : 24));
+        const lx = Math.max(minX, Math.min(maxX, targetX));
+        const edgeX = lx + (side < 0 ? cardHalfW : -cardHalfW);
+        const kx = sx + (edgeX - sx) * 0.45;
+        const activeDotCol = item.isEquipped ? '#38bdf8' : dotCol;
+        svgHtml += `<polyline points="${sx.toFixed(1)},${sy.toFixed(1)} ${kx.toFixed(1)},${ly.toFixed(1)} ${edgeX.toFixed(1)},${ly.toFixed(1)}" fill="none" stroke="${strokeCol}" stroke-width="1.35" opacity="0.88" />`
+          + `<circle cx="${sx.toFixed(1)}" cy="${sy.toFixed(1)}" r="4.8" fill="none" stroke="${activeDotCol}" stroke-width="1.2" opacity="0.65" />`
+          + `<circle cx="${sx.toFixed(1)}" cy="${sy.toFixed(1)}" r="2.6" fill="${activeDotCol}" />`;
+        nodesHtml += `<div class="callout-tag${item.isEquipped ? ' equipped' : ''}" style="left:${lx.toFixed(1)}px;top:${ly.toFixed(1)}px;">`
+          + `<div class="c-head"><span class="c-dot"></span>${escapePresetHtml(item.title)}</div>`
+          + (item.desc ? `<span class="c-desc">${escapePresetHtml(item.desc)}</span>` : '')
+          + `<span class="c-sub">${escapePresetHtml(item.sub)}</span>`
+          + `</div>`;
       }
       calloutSvg.innerHTML = svgHtml;
       calloutNodesEl.innerHTML = nodesHtml;
