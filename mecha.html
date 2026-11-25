@@ -4810,7 +4810,7 @@
           targetGroup = isRight ? forearmR : (isLeft ? forearmL : torso);
         } else if (!n.includes('shield') && !isHeatHawk && (n.includes('head') || n.includes('helmet') || n.includes('jaw') || n.includes('v_fin') || n.includes('mono_eye') || n.includes('visor') || n.includes('snout') || n.includes('chin') || n.includes('cheek') || n.includes('crest') || n.includes('commander_fin') || n.includes('commander_blade') || n.includes('neck') || n.includes('vulcan_gold'))) {
           targetGroup = head;
-        } else if (n.includes('shoulder') || n.includes('pauldron') || n.includes('spike') || n.includes('horn') || n.includes('bicep') || n.includes('humerus') || n.includes('upper_arm') || n.includes('binder') || (n.includes('shield') && gc.y >= 125.0)) {
+        } else if ((!n.includes('shoulder_pin') && n.includes('shoulder')) || n.includes('pauldron') || n.includes('spike') || n.includes('horn') || n.includes('bicep') || n.includes('humerus') || n.includes('upper_arm') || n.includes('binder') || (n.includes('shield') && gc.y >= 125.0)) {
           targetGroup = isRight ? armR : (isLeft ? armL : torso);
         } else if (n.includes('shin') || n.includes('calf') || n.includes('tibia') || n.includes('knee') || n.includes('ankle') || n.includes('foot') || n.includes('boot') || n.includes('toe') || n.includes('heel') || n.includes('sole') || n.includes('instep') || n.includes('hover_jet') || n.includes('leg_hose') || n.includes('leg_thruster')) {
           targetGroup = isRight ? shinR : (isLeft ? shinL : pelvis);
@@ -5840,7 +5840,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r38');
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r39');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         const onGltfReady = async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
