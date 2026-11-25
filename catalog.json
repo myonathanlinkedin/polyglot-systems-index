@@ -1,16 +1,5 @@
 [
   {
-    "topic": "Bit-Parallel Levenshtein Distance Stratum-Matrix",
-    "language": "Rust",
-    "folder": "rust",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "rust-algorithms",
-    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261125_200119_bit-parallel_levenshtein_dista",
-    "source_file": "main",
-    "timestamp": "2026-11-25T20:01:37.096865+00:00",
-    "dir_name": "20261125_200119_bit-parallel_levenshtein_dista"
-  },
-  {
     "topic": "Merkle Tree Verification and Proof Generator",
     "language": "Haskell",
     "folder": "haskell",
