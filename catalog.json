@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Thread-Safe Bounded Blocking Queue with Condition Variables",
+    "language": "Zig",
+    "folder": "zig",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "zig-systems-lab",
+    "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261126_170421_thread-safe_bounded_blocking_q",
+    "source_file": "main",
+    "timestamp": "2026-11-26T17:04:37.278902+00:00",
+    "dir_name": "20261126_170421_thread-safe_bounded_blocking_q"
+  },
+  {
     "topic": "Lamport Logical Timestamp Synchronization Engine",
     "language": "Zig",
     "folder": "zig",
@@ -108,17 +119,6 @@
     "source_file": "main",
     "timestamp": "2026-11-26T05:02:40.319994+00:00",
     "dir_name": "20261126_050226_count-min_sketch_heavy_hitters"
-  },
-  {
-    "topic": "Thread-Safe Bounded Blocking Queue with Condition Variables",
-    "language": "Rust",
-    "folder": "rust",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "rust-algorithms",
-    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261126_050113_thread-safe_bounded_blocking_q",
-    "source_file": "main",
-    "timestamp": "2026-11-26T05:01:36.953986+00:00",
-    "dir_name": "20261126_050113_thread-safe_bounded_blocking_q"
   },
   {
     "topic": "Improved Quantum Algorithms for TSP and More",
@@ -2596,6 +2596,17 @@
     "dir_name": "20261025_130128_stop_guessing__let_the_algorit"
   },
   {
+    "topic": "Thread-Safe Bounded Blocking Queue with Condition Variables",
+    "language": "Rust",
+    "folder": "rust",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "rust-algorithms",
+    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261025_110128_thread-safe_bounded_blocking_q",
+    "source_file": "main",
+    "timestamp": "2026-10-25T11:01:28.359324+00:00",
+    "dir_name": "20261025_110128_thread-safe_bounded_blocking_q"
+  },
+  {
     "topic": "Almost tight distributed approximation for domination in sparse graph classes",
     "language": "C#",
     "folder": "csharp",
@@ -4706,17 +4717,6 @@
     "source_file": "main",
     "timestamp": "2026-10-10T21:11:11.501426+00:00",
     "dir_name": "20261010_211111_bipartite_balanced_partitioning"
-  },
-  {
-    "topic": "Thread-Safe Bounded Blocking Queue with Condition Variables",
-    "language": "Zig",
-    "folder": "zig",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "zig-systems-lab",
-    "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261010_200223_thread-safe_bounded_blocking_q",
-    "source_file": "main",
-    "timestamp": "2026-10-10T20:02:23.301358+00:00",
-    "dir_name": "20261010_200223_thread-safe_bounded_blocking_q"
   },
   {
     "topic": "Trie Prefix Tree for Auto-Completion with Frequency Ranking",
