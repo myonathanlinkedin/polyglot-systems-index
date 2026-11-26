@@ -1,5 +1,38 @@
 [
   {
+    "topic": "Cache-Oblivious Matrix Transposition Algorithm",
+    "language": "Python",
+    "folder": "python",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "python-advanced-lab",
+    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261126_130240_cache-oblivious_matrix_transpo",
+    "source_file": "main",
+    "timestamp": "2026-11-26T13:02:54.054487+00:00",
+    "dir_name": "20261126_130240_cache-oblivious_matrix_transpo"
+  },
+  {
+    "topic": "Lock-Free Concurrent Ring Buffer Data Structure",
+    "language": "C++",
+    "folder": "cpp",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "cpp-systems-core",
+    "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261126_110244_lock-free_concurrent_ring_buff",
+    "source_file": "main",
+    "timestamp": "2026-11-26T11:03:00.051201+00:00",
+    "dir_name": "20261126_110244_lock-free_concurrent_ring_buff"
+  },
+  {
+    "topic": "Safe Optimistic Lock Coupling",
+    "language": "Java",
+    "folder": "java",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "java-enterprise-patterns",
+    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261126_110112_safe_optimistic_lock_coupling",
+    "source_file": "main",
+    "timestamp": "2026-11-26T11:01:32.670468+00:00",
+    "dir_name": "20261126_110112_safe_optimistic_lock_coupling"
+  },
+  {
     "topic": "Abolish Lock Poisoning",
     "language": "Java",
     "folder": "java",
@@ -396,17 +429,6 @@
     "dir_name": "20261123_230111_compositional_temporal_specifi"
   },
   {
-    "topic": "Cache-Oblivious Matrix Transposition Algorithm",
-    "language": "Python",
-    "folder": "python",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "python-advanced-lab",
-    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261123_210216_cache-oblivious_matrix_transpo",
-    "source_file": "main",
-    "timestamp": "2026-11-23T21:02:33.079166+00:00",
-    "dir_name": "20261123_210216_cache-oblivious_matrix_transpo"
-  },
-  {
     "topic": "Red-Black Tree with Deterministic Balance Assertions",
     "language": "Haskell",
     "folder": "haskell",
@@ -592,17 +614,6 @@
     "source_file": "main",
     "timestamp": "2026-11-22T07:03:05.618205+00:00",
     "dir_name": "20261122_070253_from_skiplists_to_b__trees__ma"
-  },
-  {
-    "topic": "Safe Optimistic Lock Coupling",
-    "language": "Swift",
-    "folder": "swift",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "swift-systems-lab",
-    "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261122_050204_safe_optimistic_lock_coupling",
-    "source_file": "main",
-    "timestamp": "2026-11-22T05:02:21.255086+00:00",
-    "dir_name": "20261122_050204_safe_optimistic_lock_coupling"
   },
   {
     "topic": "Inkling-2-Mini in 5.4 GB Memory",
@@ -955,17 +966,6 @@
     "source_file": "main",
     "timestamp": "2026-11-18T11:01:55.184889+00:00",
     "dir_name": "20261118_110142_finite_state_machine_tokenizer"
-  },
-  {
-    "topic": "Lock-Free Concurrent Ring Buffer Data Structure",
-    "language": "Zig",
-    "folder": "zig",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "zig-systems-lab",
-    "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261118_050138_lock-free_concurrent_ring_buff",
-    "source_file": "main",
-    "timestamp": "2026-11-18T05:01:53.310140+00:00",
-    "dir_name": "20261118_050138_lock-free_concurrent_ring_buff"
   },
   {
     "topic": "Aether-Framework in the memory of other programs",
@@ -5157,6 +5157,17 @@
     "source_file": "main",
     "timestamp": "2026-10-09T12:50:14.609770+00:00",
     "dir_name": "20261009_125014_self-balancing_avl_tree_with_f"
+  },
+  {
+    "topic": "Lock-Free Concurrent Ring Buffer Data Structure",
+    "language": "Zig",
+    "folder": "zig",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "zig-systems-lab",
+    "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261009_124500_lock-free_concurrent_ring_buff",
+    "source_file": "main",
+    "timestamp": "2026-10-09T12:45:00.106086+00:00",
+    "dir_name": "20261009_124500_lock-free_concurrent_ring_buff"
   },
   {
     "topic": "Once: Cache CLI Commands",
