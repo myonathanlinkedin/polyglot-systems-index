@@ -2947,7 +2947,7 @@
     // =========================================================================
     const MECHA_ASSETS_CDN = 'https://raw.githubusercontent.com/myonathanlinkedin/mecha-assets/main';
     // Immutable commit-pinned baseline CDN bypasses Fastly raw.githubusercontent.com 300s /main/ edge cache!
-    const MECHA_BASELINE_CDN = 'https://raw.githubusercontent.com/myonathanlinkedin/mecha-assets/c979aa4116df05e99348073d9adfa8e568f81245';
+    const MECHA_BASELINE_CDN = 'https://raw.githubusercontent.com/myonathanlinkedin/mecha-assets/282991c77c99b1f495ff63261e4757a54bb74e2e';
 
     const HERO_RX78_SPEC = {
       id: 'vanguard_rx',
@@ -5857,7 +5857,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261126_r56');
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261126_r57');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         const onGltfReady = async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
