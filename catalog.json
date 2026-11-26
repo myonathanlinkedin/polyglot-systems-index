@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Kruskal Minimum Spanning Tree with Disjoint-Set Union",
+    "language": "C",
+    "folder": "c",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "c-lowlevel-systems",
+    "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261126_230220_kruskal_minimum_spanning_tree",
+    "source_file": "main",
+    "timestamp": "2026-11-26T23:02:32.584003+00:00",
+    "dir_name": "20261126_230220_kruskal_minimum_spanning_tree"
+  },
+  {
     "topic": "Hopcroft-Karp Bipartite Matching Algorithm",
     "language": "C",
     "folder": "c",
@@ -262,17 +273,6 @@
     "source_file": "main",
     "timestamp": "2026-11-25T13:03:10.256855+00:00",
     "dir_name": "20261125_130249_bytecode_virtual_machine_with"
-  },
-  {
-    "topic": "Kruskal Minimum Spanning Tree with Disjoint-Set Union",
-    "language": "Java",
-    "folder": "java",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "java-enterprise-patterns",
-    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261125_110137_kruskal_minimum_spanning_tree",
-    "source_file": "main",
-    "timestamp": "2026-11-25T11:01:55.884942+00:00",
-    "dir_name": "20261125_110137_kruskal_minimum_spanning_tree"
   },
   {
     "topic": "Conjugate Gradient Linear System Solver",
