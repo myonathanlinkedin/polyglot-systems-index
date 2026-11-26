@@ -1,5 +1,38 @@
 [
   {
+    "topic": "Merkle Tree Verification and Proof Generator",
+    "language": "Haskell",
+    "folder": "haskell",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "haskell-functional-core",
+    "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261126_010240_merkle_tree_verification_and_p",
+    "source_file": "main",
+    "timestamp": "2026-11-26T01:02:56.900403+00:00",
+    "dir_name": "20261126_010240_merkle_tree_verification_and_p"
+  },
+  {
+    "topic": "Custom Buddy Memory Allocation System",
+    "language": "Go",
+    "folder": "go",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "go-concurrency-lab",
+    "source_link": "https://github.com/myonathanlinkedin/go-concurrency-lab/tree/main/algorithms/20261125_230228_custom_buddy_memory_allocation",
+    "source_file": "main",
+    "timestamp": "2026-11-25T23:02:46.923525+00:00",
+    "dir_name": "20261125_230228_custom_buddy_memory_allocation"
+  },
+  {
+    "topic": "Tic-Tac-Toe Minimax Algorithm in Java",
+    "language": "Java",
+    "folder": "java",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "java-enterprise-patterns",
+    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261125_230114_tic-tac-toe_minimax_algorithm",
+    "source_file": "main",
+    "timestamp": "2026-11-25T23:01:33.469604+00:00",
+    "dir_name": "20261125_230114_tic-tac-toe_minimax_algorithm"
+  },
+  {
     "topic": "Bit-Parallel Levenshtein Distance Stratum-Matrix",
     "language": "Python",
     "folder": "python",
@@ -9,17 +42,6 @@
     "source_file": "main",
     "timestamp": "2026-11-25T21:03:36.518775+00:00",
     "dir_name": "20261125_210321_bit-parallel_levenshtein_dista"
-  },
-  {
-    "topic": "Merkle Tree Verification and Proof Generator",
-    "language": "Haskell",
-    "folder": "haskell",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "haskell-functional-core",
-    "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261125_190227_merkle_tree_verification_and_p",
-    "source_file": "main",
-    "timestamp": "2026-11-25T19:02:45.608704+00:00",
-    "dir_name": "20261125_190227_merkle_tree_verification_and_p"
   },
   {
     "topic": "Parallel Memory Management in Goose, C++, and Rust: An Experimental Study of Allocation",
@@ -273,17 +295,6 @@
     "source_file": "main",
     "timestamp": "2026-11-24T11:02:39.847231+00:00",
     "dir_name": "20261124_110221_conflict-free_replicated_data"
-  },
-  {
-    "topic": "Tic-Tac-Toe Minimax Algorithm in Java",
-    "language": "Java",
-    "folder": "java",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "java-enterprise-patterns",
-    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261124_110112_tic-tac-toe_minimax_algorithm",
-    "source_file": "main",
-    "timestamp": "2026-11-24T11:01:30.384122+00:00",
-    "dir_name": "20261124_110112_tic-tac-toe_minimax_algorithm"
   },
   {
     "topic": "Two-Phase Commit Protocol Coordinator and Participant State Machine",
@@ -933,17 +944,6 @@
     "source_file": "main",
     "timestamp": "2026-11-17T17:01:51.428337+00:00",
     "dir_name": "20261117_170132_lamport_logical_timestamp_sync"
-  },
-  {
-    "topic": "Custom Buddy Memory Allocation System",
-    "language": "Zig",
-    "folder": "zig",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "zig-systems-lab",
-    "source_link": "https://github.com/myonathanlinkedin/zig-systems-lab/tree/main/algorithms/20261117_150306_custom_buddy_memory_allocation",
-    "source_file": "main",
-    "timestamp": "2026-11-17T15:03:23.614646+00:00",
-    "dir_name": "20261117_150306_custom_buddy_memory_allocation"
   },
   {
     "topic": "An Optimal Online Algorithm for Single-machine Scheduling with Two Agents",
