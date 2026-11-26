@@ -5857,7 +5857,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r55');
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261126_r56');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         const onGltfReady = async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
@@ -6917,10 +6917,10 @@
             packModel.add(mesh);
             state.chassisParts.push(mesh);
           };
-          // Sleek -45.5 deg upper clavicle slope plates capping Vanguard's upper blue chest bevel cleanly!
-          addVanguardUpperPlate(10.2, 9.8, 2.2, sideArmorMat,  11.8, 7.6, 3.6, -45.5,  4.5, 'vanguard_upper_chest_slope_r');
-          addVanguardUpperPlate(10.2, 9.8, 2.2, sideArmorMat, -11.8, 7.6, 3.6, -45.5, -4.5, 'vanguard_upper_chest_slope_l');
-          addVanguardUpperPlate(10.4, 9.4, 2.4, centerArmorMat, 0.0, 7.3, 4.2, -45.5,  0.0, 'vanguard_upper_chest_center');
+          // Full-span -45.5 deg upper clavicle slope plates seamlessly capping Vanguard's upper blue chest (X=+-18.6mm) & hood!
+          addVanguardUpperPlate(13.4, 10.2, 2.4, sideArmorMat,  12.2, 7.6, 3.9, -45.5,  3.0, 'vanguard_upper_chest_slope_r');
+          addVanguardUpperPlate(13.4, 10.2, 2.4, sideArmorMat, -12.2, 7.6, 3.9, -45.5, -3.0, 'vanguard_upper_chest_slope_l');
+          addVanguardUpperPlate(12.2,  9.8, 2.6, centerArmorMat, 0.0, 7.4, 4.6, -45.5,  0.0, 'vanguard_upper_chest_center');
         }
         socket.adapterVis.visible = true;
         socket.payloadContainer.add(packModel);
