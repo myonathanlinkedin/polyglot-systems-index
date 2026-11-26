@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Safe Optimistic Lock Coupling",
+    "language": "Java",
+    "folder": "java",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "java-enterprise-patterns",
+    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261126_110112_safe_optimistic_lock_coupling",
+    "source_file": "main",
+    "timestamp": "2026-11-26T11:01:32.670468+00:00",
+    "dir_name": "20261126_110112_safe_optimistic_lock_coupling"
+  },
+  {
     "topic": "Abolish Lock Poisoning",
     "language": "Java",
     "folder": "java",
@@ -592,17 +603,6 @@
     "source_file": "main",
     "timestamp": "2026-11-22T07:03:05.618205+00:00",
     "dir_name": "20261122_070253_from_skiplists_to_b__trees__ma"
-  },
-  {
-    "topic": "Safe Optimistic Lock Coupling",
-    "language": "Swift",
-    "folder": "swift",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "swift-systems-lab",
-    "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261122_050204_safe_optimistic_lock_coupling",
-    "source_file": "main",
-    "timestamp": "2026-11-22T05:02:21.255086+00:00",
-    "dir_name": "20261122_050204_safe_optimistic_lock_coupling"
   },
   {
     "topic": "Inkling-2-Mini in 5.4 GB Memory",
