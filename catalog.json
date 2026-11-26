@@ -1,5 +1,16 @@
 [
   {
+    "topic": "R-Tree Spatial Index for Multidimensional Bounding Boxes",
+    "language": "C++",
+    "folder": "cpp",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "cpp-systems-core",
+    "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261126_200134_r-tree_spatial_index_for_multi",
+    "source_file": "main",
+    "timestamp": "2026-11-26T20:01:52.307272+00:00",
+    "dir_name": "20261126_200134_r-tree_spatial_index_for_multi"
+  },
+  {
     "topic": "Conflict-free Replicated Data Type (CRDT) PN-Counter",
     "language": "Go",
     "folder": "go",
@@ -1670,17 +1681,6 @@
     "source_file": "main",
     "timestamp": "2026-11-06T02:01:27.322137+00:00",
     "dir_name": "20261106_020116_stratum-analytics-tree_spatial"
-  },
-  {
-    "topic": "R-Tree Spatial Index for Multidimensional Bounding Boxes",
-    "language": "Python",
-    "folder": "python",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "python-advanced-lab",
-    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261105_190218_r-tree_spatial_index_for_multi",
-    "source_file": "main",
-    "timestamp": "2026-11-05T19:02:32.284459+00:00",
-    "dir_name": "20261105_190218_r-tree_spatial_index_for_multi"
   },
   {
     "topic": "Skip List Probabilistic Search and Insertion Engine",
@@ -3386,6 +3386,17 @@
     "source_file": "main",
     "timestamp": "2026-10-18T03:01:23.420073+00:00",
     "dir_name": "20261018_030123_custom_buddy_memory_allocation"
+  },
+  {
+    "topic": "R-Tree Spatial Index for Multidimensional Bounding Boxes",
+    "language": "Python",
+    "folder": "python",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "python-advanced-lab",
+    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261017_230127_r-tree_spatial_index_for_multi",
+    "source_file": "main",
+    "timestamp": "2026-10-17T23:01:27.808930+00:00",
+    "dir_name": "20261017_230127_r-tree_spatial_index_for_multi"
   },
   {
     "topic": "CYK Parsing Algorithm for Context-Free Grammars",
