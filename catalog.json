@@ -1,5 +1,16 @@
 [
   {
+    "topic": "In defense of lock poisoning in Rust",
+    "language": "Rust",
+    "folder": "rust",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "rust-algorithms",
+    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261126_150204_in_defense_of_lock_poisoning_i",
+    "source_file": "main",
+    "timestamp": "2026-11-26T15:02:26.629995+00:00",
+    "dir_name": "20261126_150204_in_defense_of_lock_poisoning_i"
+  },
+  {
     "topic": "Hopcroft-Karp Bipartite Matching Algorithm",
     "language": "Ruby",
     "folder": "ruby",
