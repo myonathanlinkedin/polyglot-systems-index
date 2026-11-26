@@ -1,10 +1,10 @@
 Index,Topic,Language,Domain Category,Spoke Repository,Source File,Timestamp UTC
-001,Conflict-free Replicated Data Type (CRDT) PN-Counter,Rust,🌐 Distributed Systems & Consensus,rust-algorithms,main,2026-11-26T21:02:41.498820+00:00
-002,R-Tree Spatial Index for Multidimensional Bounding Boxes,C++,🧠 Computational AI & Math Engines,cpp-systems-core,main,2026-11-26T20:01:52.307272+00:00
-003,Thread-Safe Bounded Blocking Queue with Condition Variables,Zig,⚡ Low-Latency & Memory Systems,zig-systems-lab,main,2026-11-26T17:04:37.278902+00:00
-004,Lamport Logical Timestamp Synchronization Engine,Zig,🧠 Computational AI & Math Engines,zig-systems-lab,main,2026-11-26T17:01:40.251166+00:00
-005,In defense of lock poisoning in Rust,Rust,⚡ Low-Latency & Memory Systems,rust-algorithms,main,2026-11-26T15:02:26.629995+00:00
-006,Hopcroft-Karp Bipartite Matching Algorithm,Ruby,🧠 Computational AI & Math Engines,ruby-algorithms-lab,main,2026-11-26T14:02:18.232948+00:00
+001,Hopcroft-Karp Bipartite Matching Algorithm,C,🧠 Computational AI & Math Engines,c-lowlevel-systems,main,2026-11-26T23:01:41.949243+00:00
+002,Conflict-free Replicated Data Type (CRDT) PN-Counter,Rust,🌐 Distributed Systems & Consensus,rust-algorithms,main,2026-11-26T21:02:41.498820+00:00
+003,R-Tree Spatial Index for Multidimensional Bounding Boxes,C++,🧠 Computational AI & Math Engines,cpp-systems-core,main,2026-11-26T20:01:52.307272+00:00
+004,Thread-Safe Bounded Blocking Queue with Condition Variables,Zig,⚡ Low-Latency & Memory Systems,zig-systems-lab,main,2026-11-26T17:04:37.278902+00:00
+005,Lamport Logical Timestamp Synchronization Engine,Zig,🧠 Computational AI & Math Engines,zig-systems-lab,main,2026-11-26T17:01:40.251166+00:00
+006,In defense of lock poisoning in Rust,Rust,⚡ Low-Latency & Memory Systems,rust-algorithms,main,2026-11-26T15:02:26.629995+00:00
 007,Cache-Oblivious Matrix Transposition Algorithm,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-11-26T13:02:54.054487+00:00
 008,Lock-Free Concurrent Ring Buffer Data Structure,C++,⚡ Low-Latency & Memory Systems,cpp-systems-core,main,2026-11-26T11:03:00.051201+00:00
 009,Safe Optimistic Lock Coupling,Java,⚡ Low-Latency & Memory Systems,java-enterprise-patterns,main,2026-11-26T11:01:32.670468+00:00
