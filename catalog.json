@@ -1,5 +1,16 @@
 [
   {
+    "topic": "HyperLogLog Cardinality Estimation Algorithm",
+    "language": "Kotlin",
+    "folder": "kotlin",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "kotlin-systems-core",
+    "source_link": "https://github.com/myonathanlinkedin/kotlin-systems-core/tree/main/algorithms/20261126_020106_hyperloglog_cardinality_estima",
+    "source_file": "main",
+    "timestamp": "2026-11-26T02:01:30.809948+00:00",
+    "dir_name": "20261126_020106_hyperloglog_cardinality_estima"
+  },
+  {
     "topic": "Merkle Tree Verification and Proof Generator",
     "language": "Haskell",
     "folder": "haskell",
@@ -372,17 +383,6 @@
     "source_file": "main",
     "timestamp": "2026-11-23T19:03:04.291811+00:00",
     "dir_name": "20261123_190248_zero-copy_byte_packet_ring_buf"
-  },
-  {
-    "topic": "HyperLogLog Cardinality Estimation Algorithm",
-    "language": "Swift",
-    "folder": "swift",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "swift-systems-lab",
-    "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261123_170247_hyperloglog_cardinality_estima",
-    "source_file": "main",
-    "timestamp": "2026-11-23T17:03:06.460312+00:00",
-    "dir_name": "20261123_170247_hyperloglog_cardinality_estima"
   },
   {
     "topic": "Raft Consensus Protocol Leader Election State Engine",
