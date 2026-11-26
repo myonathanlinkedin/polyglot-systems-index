@@ -1,5 +1,38 @@
 [
   {
+    "topic": "Gossip Protocol Node Failure Detector",
+    "language": "C++",
+    "folder": "cpp",
+    "category": "\ud83c\udf10 Distributed Systems & Consensus",
+    "spoke_repo": "cpp-systems-core",
+    "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261126_070202_gossip_protocol_node_failure_d",
+    "source_file": "main",
+    "timestamp": "2026-11-26T07:02:19.825946+00:00",
+    "dir_name": "20261126_070202_gossip_protocol_node_failure_d"
+  },
+  {
+    "topic": "Count-Min Sketch Heavy Hitters Frequency Estimator",
+    "language": "TypeScript",
+    "folder": "typescript",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "typescript-design-patterns",
+    "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261126_050226_count-min_sketch_heavy_hitters",
+    "source_file": "main",
+    "timestamp": "2026-11-26T05:02:40.319994+00:00",
+    "dir_name": "20261126_050226_count-min_sketch_heavy_hitters"
+  },
+  {
+    "topic": "Thread-Safe Bounded Blocking Queue with Condition Variables",
+    "language": "Rust",
+    "folder": "rust",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "rust-algorithms",
+    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261126_050113_thread-safe_bounded_blocking_q",
+    "source_file": "main",
+    "timestamp": "2026-11-26T05:01:36.953986+00:00",
+    "dir_name": "20261126_050113_thread-safe_bounded_blocking_q"
+  },
+  {
     "topic": "Improved Quantum Algorithms for TSP and More",
     "language": "C",
     "folder": "c",
@@ -198,17 +231,6 @@
     "dir_name": "20261125_020140_cop-win_edge_completion__hardn"
   },
   {
-    "topic": "Gossip Protocol Node Failure Detector",
-    "language": "Rust",
-    "folder": "rust",
-    "category": "\ud83c\udf10 Distributed Systems & Consensus",
-    "spoke_repo": "rust-algorithms",
-    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261125_010228_gossip_protocol_node_failure_d",
-    "source_file": "main",
-    "timestamp": "2026-11-25T01:02:49.460112+00:00",
-    "dir_name": "20261125_010228_gossip_protocol_node_failure_d"
-  },
-  {
     "topic": "Trie Prefix Tree for Auto-Completion with Frequency Ranking",
     "language": "Haskell",
     "folder": "haskell",
@@ -229,17 +251,6 @@
     "source_file": "main",
     "timestamp": "2026-11-24T23:02:07.708402+00:00",
     "dir_name": "20261124_230152_iterm2_arbitrary_command_execu"
-  },
-  {
-    "topic": "Count-Min Sketch Heavy Hitters Frequency Estimator",
-    "language": "Java",
-    "folder": "java",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "java-enterprise-patterns",
-    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261124_210234_count-min_sketch_heavy_hitters",
-    "source_file": "main",
-    "timestamp": "2026-11-24T21:02:56.517779+00:00",
-    "dir_name": "20261124_210234_count-min_sketch_heavy_hitters"
   },
   {
     "topic": "Fast Fourier Transform (Cooley-Tukey Radix-2) Signal Processing",
@@ -1142,17 +1153,6 @@
     "source_file": "main",
     "timestamp": "2026-11-15T05:03:05.006096+00:00",
     "dir_name": "20261115_050250_kildall_s_algorithm"
-  },
-  {
-    "topic": "Thread-Safe Bounded Blocking Queue with Condition Variables",
-    "language": "Rust",
-    "folder": "rust",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "rust-algorithms",
-    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261115_050130_thread-safe_bounded_blocking_q",
-    "source_file": "main",
-    "timestamp": "2026-11-15T05:01:44.054788+00:00",
-    "dir_name": "20261115_050130_thread-safe_bounded_blocking_q"
   },
   {
     "topic": "Least Recently Used (LRU) Cache with Doubly Linked List",
