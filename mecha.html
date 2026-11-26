@@ -5857,7 +5857,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261126_r57');
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261126_r61');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         const onGltfReady = async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
@@ -6855,12 +6855,15 @@
             }
           }
         }
-        // Vanguard-ONLY (RX-78) 2-Facet Full-Armor Chest Contour Adaptation:
+        // Vanguard-ONLY (RX-78) 2-Facet Full-Armor Chest Contour Adaptation (r61):
         // Keeps Zaku-II, Gouf, Sazabi & Rival 100% untouched (canonical pre-r45 geometry & sockets!),
-        // while wrapping Vanguard's chiseled 3-facet chest (-46.5 deg upper slope + +22.8 deg lower face)
-        // cleanly with -45.5 deg upper clavicle cowls + +19.5 deg lower pectoral armor + DEAD-LEVEL 0-deg +Z cannons!
+        // seats custom chest armor coplanar (+19.5 deg) onto Vanguard's chiseled lower chest,
+        // adds a beveled, V-tapered coplanar (-49/-51 deg) upper clavicle cowl + stepped armor layers +
+        // gunmetal/gold chest-ridge knuckle hinges + collar lock-clamps (ZERO flat pasted boxes!),
+        // and keeps genuine gun barrels/muzzles level forward (+Z).
         if (slotGroup === 'chest_armor' && (state.activeUnitId === 'vanguard_rx' || state.activeUnitId === 'gundam_rx78')) {
           const darkBridgeMat = getSharedMechaMaterial({ color: 0x2c3442, roughness: 0.36, metalness: 0.72, materialClass: 'metal_gunmetal' });
+          const goldPinMat = getSharedMechaMaterial({ color: 0xd99b16, roughness: 0.24, metalness: 0.88, materialClass: 'metal_gold' });
           let sideArmorMat = null;
           let centerArmorMat = null;
           const allChestMeshes = [];
@@ -6888,11 +6891,10 @@
 
           allChestMeshes.forEach(m => {
             const nm = (m.name || '').toLowerCase();
-            const isFwdWeapon = (
-              nm.includes('barrel') || nm.includes('muzzle') ||
-              nm.includes('emitter_bell') || nm.includes('emitter_lens') ||
-              nm.includes('reactor_core_orb') || nm.includes('reactor_gold_bezel')
-            );
+            // Strip material suffix `_barrel_metal` so ONLY genuine gun barrels/muzzles level out in `weaponGrp`;
+            // all armor plates, vent louvers, reactor cores & bezels stay 100% locked together in `lowerGrp`!
+            const baseNm = nm.replace(/_barrel_metal/g, '');
+            const isFwdWeapon = (baseNm.includes('barrel') || baseNm.includes('muzzle'));
             if (isFwdWeapon) {
               weaponGrp.add(m);
             } else {
@@ -6901,14 +6903,18 @@
           });
           packModel.add(lowerGrp, weaponGrp);
 
-          const addVanguardUpperPlate = (w, h, d, mat, lx, ly, lz, rxDeg, ryDeg, nm) => {
-            const geo = new THREE.BoxGeometry(w, h, d);
+          const addVanguardMesh = (geo, mat, lx, ly, lz, rxDeg, ryDeg, rzDeg, nm) => {
             ensureBoxProjectedUVs(geo, 0.078, true);
             ensureBakedMaskAttribute(geo);
             const mesh = new THREE.Mesh(geo, mat);
             mesh.name = nm;
+            mesh.rotation.order = 'YXZ';
             mesh.position.set(lx, ly, lz);
-            mesh.rotation.set(THREE.MathUtils.degToRad(rxDeg), THREE.MathUtils.degToRad(ryDeg), 0);
+            mesh.rotation.set(
+              THREE.MathUtils.degToRad(rxDeg),
+              THREE.MathUtils.degToRad(ryDeg),
+              THREE.MathUtils.degToRad(rzDeg)
+            );
             mesh.castShadow = true;
             mesh.receiveShadow = true;
             mesh.userData.origMaterial = mat;
@@ -6917,10 +6923,68 @@
             packModel.add(mesh);
             state.chassisParts.push(mesh);
           };
-          // Full-span -45.5 deg upper clavicle slope plates seamlessly capping Vanguard's upper blue chest (X=+-18.6mm) & hood!
-          addVanguardUpperPlate(13.4, 10.2, 2.4, sideArmorMat,  12.2, 7.6, 3.9, -45.5,  3.0, 'vanguard_upper_chest_slope_r');
-          addVanguardUpperPlate(13.4, 10.2, 2.4, sideArmorMat, -12.2, 7.6, 3.9, -45.5, -3.0, 'vanguard_upper_chest_slope_l');
-          addVanguardUpperPlate(12.2,  9.8, 2.6, centerArmorMat, 0.0, 7.4, 4.6, -45.5,  0.0, 'vanguard_upper_chest_center');
+
+          const makeBeveledPolyGeo = (pts, totalDepth, bevel) => {
+            // Inset 2D contour by `bevel` toward centroid so ExtrudeGeometry bevelSize lands on exact target bounds!
+            const cx = pts.reduce((a, p) => a + p[0], 0) / pts.length;
+            const cy = pts.reduce((a, p) => a + p[1], 0) / pts.length;
+            const shape = new THREE.Shape();
+            pts.forEach((p, idx) => {
+              const dx = p[0] - cx;
+              const dy = p[1] - cy;
+              const len = Math.hypot(dx, dy) || 1.0;
+              const shrink = Math.max(0.55, (len - bevel * 0.92) / len);
+              const px = cx + dx * shrink;
+              const py = cy + dy * shrink;
+              if (idx === 0) shape.moveTo(px, py);
+              else shape.lineTo(px, py);
+            });
+            shape.closePath();
+            const coreD = Math.max(0.25, totalDepth - 2.0 * bevel);
+            const geo = new THREE.ExtrudeGeometry(shape, {
+              depth: coreD,
+              bevelEnabled: true,
+              bevelThickness: bevel,
+              bevelSize: bevel,
+              bevelSegments: 2
+            });
+            geo.translate(0, 0, -coreD * 0.5);
+            geo.computeVertexNormals();
+            return geo;
+          };
+
+          const mirrorPtsX = (pts) => pts.map(p => [-p[0], p[1]]).reverse();
+
+          // 1. Recessed dark gunmetal inner clavicle backing harness (spans full upper slope -> ZERO blue gap!)
+          const harnessGeo = makeBeveledPolyGeo([[-16.6, -5.2], [16.6, -5.2], [16.6, 5.2], [-16.6, 5.2]], 1.8, 0.35);
+          addVanguardMesh(harnessGeo, darkBridgeMat, 0.0, 8.2, 2.0, -49.0, 0.0, 0.0, 'vanguard_upper_chest_harness_dark');
+
+          // 2. Center V-flared beveled upper hood cowl (-51.0 deg coplanar with RX-78 cockpit V-hood!) + stepped gunmetal crest
+          const centerPoly = [[-5.2, -5.2], [5.2, -5.2], [7.8, 5.2], [-7.8, 5.2]];
+          addVanguardMesh(makeBeveledPolyGeo(centerPoly, 2.4, 0.48), centerArmorMat, 0.0, 8.1, 5.3, -51.0, 0.0, 0.0, 'vanguard_upper_chest_center');
+
+          const centerRibPoly = [[-3.0, -2.6], [3.0, -2.6], [4.2, 2.6], [-4.2, 2.6]];
+          addVanguardMesh(makeBeveledPolyGeo(centerRibPoly, 1.1, 0.26), darkBridgeMat, 0.0, 8.6, 6.4, -51.0, 0.0, 0.0, 'vanguard_upper_center_rib_dark');
+
+          // 3. Left & Right counter-tapered beveled clavicle armor cowls (-49.0 deg coplanar!) + stepped secondary armor plates
+          const sidePolyR = [[5.9, -5.4], [17.6, -5.4], [17.9, 4.0], [16.4, 5.4], [8.5, 5.4]];
+          const subPolyR = [[7.8, -2.6], [15.6, -2.6], [15.8, 2.4], [9.5, 2.4]];
+          addVanguardMesh(makeBeveledPolyGeo(sidePolyR, 2.6, 0.50), sideArmorMat, 0.0, 8.2, 3.0, -49.0,  2.2, 0.0, 'vanguard_upper_chest_slope_r');
+          addVanguardMesh(makeBeveledPolyGeo(mirrorPtsX(sidePolyR), 2.6, 0.50), sideArmorMat, 0.0, 8.2, 3.0, -49.0, -2.2, 0.0, 'vanguard_upper_chest_slope_l');
+          addVanguardMesh(makeBeveledPolyGeo(subPolyR, 1.2, 0.28), sideArmorMat, 0.0, 8.8, 4.1, -49.0,  2.2, 0.0, 'vanguard_upper_subplate_r');
+          addVanguardMesh(makeBeveledPolyGeo(mirrorPtsX(subPolyR), 1.2, 0.28), sideArmorMat, 0.0, 8.8, 4.1, -49.0, -2.2, 0.0, 'vanguard_upper_subplate_l');
+
+          // 4. Machined gunmetal chest-ridge knuckle hinges + gold pivot lock-pins physically connecting LOWER <-> UPPER cowl + collar lock-clamps!
+          for (const [sgn, sfx] of [[1.0, 'r'], [-1.0, 'l']]) {
+            const hingeGeo = makeBeveledPolyGeo([[-2.9, -1.2], [2.9, -1.2], [2.9, 1.2], [-2.9, 1.2]], 3.4, 0.32);
+            addVanguardMesh(hingeGeo, darkBridgeMat, sgn * 11.4, 4.0, 7.2, -14.0, sgn * 2.2, 0.0, `vanguard_chest_ridge_hinge_dark_${sfx}`);
+
+            const pinGeo = new THREE.CylinderGeometry(0.85, 0.85, 6.6, 14);
+            addVanguardMesh(pinGeo, goldPinMat, sgn * 11.4, 4.0, 7.7, 0.0, sgn * 2.2, 90.0, `vanguard_chest_ridge_pin_gold_${sfx}`);
+
+            const latchGeo = makeBeveledPolyGeo([[-1.7, -1.1], [1.7, -1.1], [1.7, 1.1], [-1.7, 1.1]], 2.6, 0.28);
+            addVanguardMesh(latchGeo, darkBridgeMat, sgn * 12.8, 12.1, -0.4, -49.0, 0.0, 0.0, `vanguard_collar_latch_dark_${sfx}`);
+          }
         }
         socket.adapterVis.visible = true;
         socket.payloadContainer.add(packModel);
