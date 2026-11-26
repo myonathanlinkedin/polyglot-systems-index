@@ -1,6 +1,6 @@
 Index,Topic,Language,Domain Category,Spoke Repository,Source File,Timestamp UTC
-001,R-Tree Spatial Index for Multidimensional Bounding Boxes,C++,🧠 Computational AI & Math Engines,cpp-systems-core,main,2026-11-26T20:01:52.307272+00:00
-002,Conflict-free Replicated Data Type (CRDT) PN-Counter,Go,🌐 Distributed Systems & Consensus,go-concurrency-lab,main,2026-11-26T19:02:43.242273+00:00
+001,Conflict-free Replicated Data Type (CRDT) PN-Counter,Rust,🌐 Distributed Systems & Consensus,rust-algorithms,main,2026-11-26T21:02:41.498820+00:00
+002,R-Tree Spatial Index for Multidimensional Bounding Boxes,C++,🧠 Computational AI & Math Engines,cpp-systems-core,main,2026-11-26T20:01:52.307272+00:00
 003,Thread-Safe Bounded Blocking Queue with Condition Variables,Zig,⚡ Low-Latency & Memory Systems,zig-systems-lab,main,2026-11-26T17:04:37.278902+00:00
 004,Lamport Logical Timestamp Synchronization Engine,Zig,🧠 Computational AI & Math Engines,zig-systems-lab,main,2026-11-26T17:01:40.251166+00:00
 005,In defense of lock poisoning in Rust,Rust,⚡ Low-Latency & Memory Systems,rust-algorithms,main,2026-11-26T15:02:26.629995+00:00
