@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Thread-Safe Bounded Blocking Queue with Condition Variables",
+    "language": "Rust",
+    "folder": "rust",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "rust-algorithms",
+    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261126_050113_thread-safe_bounded_blocking_q",
+    "source_file": "main",
+    "timestamp": "2026-11-26T05:01:36.953986+00:00",
+    "dir_name": "20261126_050113_thread-safe_bounded_blocking_q"
+  },
+  {
     "topic": "Improved Quantum Algorithms for TSP and More",
     "language": "C",
     "folder": "c",
@@ -1142,17 +1153,6 @@
     "source_file": "main",
     "timestamp": "2026-11-15T05:03:05.006096+00:00",
     "dir_name": "20261115_050250_kildall_s_algorithm"
-  },
-  {
-    "topic": "Thread-Safe Bounded Blocking Queue with Condition Variables",
-    "language": "Rust",
-    "folder": "rust",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "rust-algorithms",
-    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261115_050130_thread-safe_bounded_blocking_q",
-    "source_file": "main",
-    "timestamp": "2026-11-15T05:01:44.054788+00:00",
-    "dir_name": "20261115_050130_thread-safe_bounded_blocking_q"
   },
   {
     "topic": "Least Recently Used (LRU) Cache with Doubly Linked List",
