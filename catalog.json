@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Tarjan Strongly Connected Components Search in Directed Graphs",
+    "language": "Swift",
+    "folder": "swift",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "swift-systems-lab",
+    "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261126_080117_tarjan_strongly_connected_comp",
+    "source_file": "main",
+    "timestamp": "2026-11-26T08:01:55.747675+00:00",
+    "dir_name": "20261126_080117_tarjan_strongly_connected_comp"
+  },
+  {
     "topic": "Gossip Protocol Node Failure Detector",
     "language": "C++",
     "folder": "cpp",
@@ -1252,17 +1263,6 @@
     "source_file": "main",
     "timestamp": "2026-11-13T23:01:46.558778+00:00",
     "dir_name": "20261113_230131_data_structures_in_aether-cont"
-  },
-  {
-    "topic": "Tarjan Strongly Connected Components Search in Directed Graphs",
-    "language": "Rust",
-    "folder": "rust",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "rust-algorithms",
-    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261113_200218_tarjan_strongly_connected_comp",
-    "source_file": "main",
-    "timestamp": "2026-11-13T20:02:33.460551+00:00",
-    "dir_name": "20261113_200218_tarjan_strongly_connected_comp"
   },
   {
     "topic": "Sharp Algorithms",
@@ -4233,17 +4233,6 @@
     "source_file": "main",
     "timestamp": "2026-10-11T10:45:45.851315+00:00",
     "dir_name": "20261011_104545_a__heuristic_pathfinding_with"
-  },
-  {
-    "topic": "Tarjan Strongly Connected Components Search in Directed Graphs",
-    "language": "Swift",
-    "folder": "swift",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "swift-systems-lab",
-    "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261011_103744_tarjan_strongly_connected_comp",
-    "source_file": "main",
-    "timestamp": "2026-10-11T10:37:44.609660+00:00",
-    "dir_name": "20261011_103744_tarjan_strongly_connected_comp"
   },
   {
     "topic": "Operating System Process Scheduling Simulator",
