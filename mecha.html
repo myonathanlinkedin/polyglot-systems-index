@@ -4668,6 +4668,7 @@
       }
       return (
         n.includes('_vernier') || n.includes('vernier_') || n.endsWith('vernier') ||
+        n.includes('venturi') ||
         n.includes('nozzle') || n.includes('_bell') || n.includes('bell_') ||
         n.includes('aero_thruster') || n.includes('thruster_bell') ||
         n.includes('main_thruster') || n.includes('boost_bell') ||
@@ -4719,81 +4720,149 @@
       );
     }
 
-    // Shared helper: injects the exact RX-78 default backpack plasma exhaust glow cone inside any hollow
-    // supersonic vernier bell (used for BOTH non-Vanguard stock default bells AND all modular pack bells!).
+    // Exact 3x3 symmetric Jacobi eigen-decomposition for coaxial PCA axis extraction (0.0000 deg error!)
+    function eigenDecomposeSymmetric3x3(cxx, cxy, cxz, cyy, cyz, czz) {
+      const a = [
+        [cxx, cxy, cxz],
+        [cxy, cyy, cyz],
+        [cxz, cyz, czz],
+      ];
+      const v = [
+        [1, 0, 0],
+        [0, 1, 0],
+        [0, 0, 1],
+      ];
+      for (let iter = 0; iter < 18; iter++) {
+        let p = 0, q = 1, maxOff = Math.abs(a[0][1]);
+        if (Math.abs(a[0][2]) > maxOff) { p = 0; q = 2; maxOff = Math.abs(a[0][2]); }
+        if (Math.abs(a[1][2]) > maxOff) { p = 1; q = 2; maxOff = Math.abs(a[1][2]); }
+        if (maxOff < 1e-12) break;
+        const app = a[p][p], aqq = a[q][q], apq = a[p][q];
+        const tau = (aqq - app) / (2 * apq);
+        const t = (tau >= 0 ? 1 : -1) / (Math.abs(tau) + Math.sqrt(1 + tau * tau));
+        const c = 1 / Math.sqrt(1 + t * t);
+        const s = t * c;
+        a[p][p] = app - t * apq;
+        a[q][q] = aqq + t * apq;
+        a[p][q] = a[q][p] = 0;
+        const r = 3 - p - q;
+        const arp = a[r][p], arq = a[r][q];
+        a[r][p] = a[p][r] = c * arp - s * arq;
+        a[r][q] = a[q][r] = s * arp + c * arq;
+        for (let i = 0; i < 3; i++) {
+          const vip = v[i][p], viq = v[i][q];
+          v[i][p] = c * vip - s * viq;
+          v[i][q] = s * vip + c * viq;
+        }
+      }
+      const pairs = [0, 1, 2].map(k => ({
+        val: a[k][k],
+        vec: new THREE.Vector3(v[0][k], v[1][k], v[2][k]).normalize(),
+      }));
+      pairs.sort((x, y) => x.val - y.val);
+      return pairs;
+    }
+
+    // Shared helper: injects the exact RX-78 default backpack plasma exhaust glow cone strictly coaxial
+    // and dead-centered inside any rotated hollow supersonic vernier bell (stock Zeon bells + all modular bells!).
     function attachThrusterBellInnerGlow(bellMesh, opts = {}) {
       if (!bellMesh || !bellMesh.isMesh || !bellMesh.geometry || bellMesh.userData.hasBellGlow) return;
       const posAttr = bellMesh.geometry.attributes?.position;
       if (!posAttr || posAttr.count < 12) return;
 
-      bellMesh.geometry.computeBoundingBox();
-      const bb = bellMesh.geometry.boundingBox;
-      const size = new THREE.Vector3();
-      const center = new THREE.Vector3();
-      bb.getSize(size);
-      bb.getCenter(center);
-
-      const axis = new THREE.Vector3(0, 1, 0);
-      let L = size.y;
-      if (size.z >= size.x && size.z >= size.y) { axis.set(0, 0, 1); L = size.z; }
-      else if (size.x >= size.y && size.x >= size.z) { axis.set(1, 0, 0); L = size.x; }
-      if (L < 2.2) return;
-
-      const p = new THREE.Vector3();
-      const posEnd = new THREE.Vector3(), negEnd = new THREE.Vector3();
-      let posCnt = 0, negCnt = 0;
-      const thresh = L * 0.28;
+      // 1. Deduplicate seam vertices (0.01mm quantization) so UV seams never skew the true axis of revolution!
+      const seen = new Set();
+      const uPts = [];
+      let mx = 0, my = 0, mz = 0;
       for (let i = 0; i < posAttr.count; i++) {
-        p.fromBufferAttribute(posAttr, i).sub(center);
-        const proj = p.dot(axis);
-        if (proj > thresh) { posEnd.add(p); posCnt++; }
-        else if (proj < -thresh) { negEnd.add(p); negCnt++; }
+        const vx = posAttr.getX(i), vy = posAttr.getY(i), vz = posAttr.getZ(i);
+        const key = `${Math.round(vx * 100)},${Math.round(vy * 100)},${Math.round(vz * 100)}`;
+        if (seen.has(key)) continue;
+        seen.add(key);
+        uPts.push(vx, vy, vz);
+        mx += vx; my += vy; mz += vz;
       }
-      if (posCnt > 3 && negCnt > 3) {
-        posEnd.divideScalar(posCnt);
-        negEnd.divideScalar(negCnt);
-        const refined = posEnd.clone().sub(negEnd);
-        if (refined.length() > 1.0) {
-          axis.copy(refined.normalize());
+      const nPts = uPts.length / 3;
+      if (nPts < 12) return;
+      mx /= nPts; my /= nPts; mz /= nPts;
+      const mean = new THREE.Vector3(mx, my, mz);
+
+      // 2. Exact 3D Covariance PCA: any axisymmetric bell has 2 equal cross-section eigenvalues and 1 unique
+      //    symmetry-axis eigenvalue (works identically for wide/short OR tall/narrow bells at ANY 3D tilt angle!).
+      let cxx = 0, cxy = 0, cxz = 0, cyy = 0, cyz = 0, czz = 0;
+      for (let i = 0; i < uPts.length; i += 3) {
+        const dx = uPts[i] - mx, dy = uPts[i + 1] - my, dz = uPts[i + 2] - mz;
+        cxx += dx * dx; cxy += dx * dy; cxz += dx * dz;
+        cyy += dy * dy; cyz += dy * dz; czz += dz * dz;
+      }
+      const invN = 1 / nPts;
+      const eig = eigenDecomposeSymmetric3x3(cxx * invN, cxy * invN, cxz * invN, cyy * invN, cyz * invN, czz * invN);
+      const gapLow = eig[1].val - eig[0].val;
+      const gapHigh = eig[2].val - eig[1].val;
+      const axis = (gapLow > gapHigh ? eig[0].vec : eig[2].vec).clone().normalize();
+
+      // 3. Identify open exhaust mouth direction (wider circular rim end) & exact rim circle center/radius!
+      let minP = Infinity, maxP = -Infinity;
+      const projs = new Float64Array(nPts);
+      const rads = new Float64Array(nPts);
+      for (let k = 0; k < nPts; k++) {
+        const dx = uPts[k * 3] - mx, dy = uPts[k * 3 + 1] - my, dz = uPts[k * 3 + 2] - mz;
+        const proj = dx * axis.x + dy * axis.y + dz * axis.z;
+        const rx = dx - proj * axis.x, ry = dy - proj * axis.y, rz = dz - proj * axis.z;
+        projs[k] = proj;
+        rads[k] = Math.hypot(rx, ry, rz);
+        if (proj < minP) minP = proj;
+        if (proj > maxP) maxP = proj;
+      }
+      const span = maxP - minP;
+      if (span < 2.0) return;
+
+      const hiCut = maxP - span * 0.18;
+      const loCut = minP + span * 0.18;
+      let maxRPos = 0, maxRNeg = 0;
+      for (let k = 0; k < nPts; k++) {
+        if (projs[k] >= hiCut && rads[k] > maxRPos) maxRPos = rads[k];
+        if (projs[k] <= loCut && rads[k] > maxRNeg) maxRNeg = rads[k];
+      }
+      const mouthIsPos = maxRPos >= maxRNeg;
+      const mouthDir = mouthIsPos ? axis.clone() : axis.clone().negate();
+      const mouthProj = mouthIsPos ? maxP : -minP;
+      const exitR = Math.max(1.2, mouthIsPos ? maxRPos : maxRNeg);
+
+      // Average exact circular rim ring vertices -> 0.000mm radial centering error!
+      let rcx = 0, rcy = 0, rcz = 0, rcCnt = 0;
+      const rimCut = mouthProj - span * 0.06;
+      const minRimR = exitR * 0.70;
+      for (let k = 0; k < nPts; k++) {
+        const mDot = mouthIsPos ? projs[k] : -projs[k];
+        if (mDot >= rimCut && rads[k] >= minRimR) {
+          rcx += uPts[k * 3]; rcy += uPts[k * 3 + 1]; rcz += uPts[k * 3 + 2];
+          rcCnt++;
         }
       }
+      const mouthCenter = rcCnt >= 3
+        ? new THREE.Vector3(rcx / rcCnt, rcy / rcCnt, rcz / rcCnt)
+        : mean.clone().addScaledVector(mouthDir, mouthProj);
 
-      let rPosSum = 0, rPosCnt = 0, rNegSum = 0, rNegCnt = 0;
-      let minProj = Infinity, maxProj = -Infinity;
-      for (let i = 0; i < posAttr.count; i++) {
-        p.fromBufferAttribute(posAttr, i).sub(center);
-        const proj = p.dot(axis);
-        if (proj < minProj) minProj = proj;
-        if (proj > maxProj) maxProj = proj;
-      }
-      const span = maxProj - minProj;
-      if (span < 2.0) return;
-      const hiCut = maxProj - span * 0.22;
-      const loCut = minProj + span * 0.22;
-      for (let i = 0; i < posAttr.count; i++) {
-        p.fromBufferAttribute(posAttr, i).sub(center);
-        const proj = p.dot(axis);
-        const radial = p.clone().addScaledVector(axis, -proj).length();
-        if (proj >= hiCut) { rPosSum += radial; rPosCnt++; }
-        else if (proj <= loCut) { rNegSum += radial; rNegCnt++; }
-      }
-      const rPos = rPosCnt ? (rPosSum / rPosCnt) : 0;
-      const rNeg = rNegCnt ? (rNegSum / rNegCnt) : 0;
-      const mouthDir = (rPos >= rNeg) ? axis.clone() : axis.clone().negate();
-      const mouthR = Math.max(1.1, Math.max(rPos, rNeg));
-      const mouthProj = (rPos >= rNeg) ? maxProj : -minProj;
-
-      // Exact RX-78 default `backpack_thruster_glow` electric plasma cone!
-      const glowH = Math.max(2.2, Math.min(5.0, span * 0.46));
-      const glowGeo = new THREE.CylinderGeometry(mouthR * 0.26, mouthR * 0.62, glowH, 16);
+      // 4. Exact RX-78 default `backpack_thruster_glow` proportions — recessed cleanly INSIDE the hollow bell!
+      // Bazooka / Artillery rear recoilless venturis use Blazing Solar Amber-Orange (distinct from propulsion rocket blue!)
+      const bellLower = (bellMesh.name || '').toLowerCase();
+      const isBazookaVenturi = bellLower.includes('venturi');
+      const glowColor = opts.glowColor !== undefined ? opts.glowColor : (isBazookaVenturi ? 0xffb74d : 0x38f8ff);
+      const glowEmissive = opts.glowEmissive !== undefined ? opts.glowEmissive : (isBazookaVenturi ? 0xff5500 : 0x00e5ff);
+      const glowIntensity = opts.glowIntensity !== undefined ? opts.glowIntensity : 4.8;
+      const bellLen = span / 1.26;
+      const glowH = Math.max(1.8, Math.min(4.4, bellLen * 0.44));
+      const recess = bellLen * 0.18;
+      const glowGeo = new THREE.CylinderGeometry(exitR * 0.22, exitR * 0.56, glowH, 18);
       const glowMat = getSharedMechaMaterial({
-        color: 0x38f8ff, emissive: 0x00e5ff, emissiveIntensity: 4.8,
+        color: glowColor, emissive: glowEmissive, emissiveIntensity: glowIntensity,
         roughness: 0.12, metalness: 0.10, useDetail: false, isEmissive: true, materialClass: 'emissive'
       });
       const glowMesh = new THREE.Mesh(glowGeo, glowMat);
       glowMesh.name = `${bellMesh.name}_thruster_glow`;
       glowMesh.quaternion.setFromUnitVectors(new THREE.Vector3(0, -1, 0), mouthDir);
-      const glowPos = center.clone().addScaledVector(mouthDir, mouthProj - glowH * 0.52);
+      const glowPos = mouthCenter.clone().addScaledVector(mouthDir, -(recess + glowH * 0.5));
       glowMesh.position.copy(glowPos);
       glowMesh.castShadow = false;
       glowMesh.receiveShadow = false;
@@ -4806,6 +4875,125 @@
       bellMesh.add(glowMesh);
       bellMesh.userData.hasBellGlow = true;
       bellMesh.userData.hasModularBellGlow = true;
+    }
+
+    // Detects forward-firing gun / railgun / bazooka / artillery hollow barrels (strips `_barrel_metal` suffix first!)
+    function isModularWeaponBarrelName(rawName) {
+      const n = (rawName || '').toLowerCase().replace(/_barrel_metal/g, '');
+      if (!n) return false;
+      if (
+        n.includes('adapter_') || n.includes('collar') || n.includes('clamp') ||
+        n.includes('shroud') || n.includes('jacket') || n.includes('cage') ||
+        n.includes('diffuser') || n.includes('glow') || n.includes('venturi') ||
+        n.includes('vernier') || n.includes('muzzle_crown') || n.includes('rail') ||
+        n.includes('cowl') || n.includes('conduit') || n.includes('hydraulic')
+      ) {
+        return false;
+      }
+      return (
+        n.includes('_barrel') || n.startsWith('barrel_') || n === 'barrel' ||
+        n.includes('beam_muzzle_tube')
+      );
+    }
+
+    // Coaxial PCA recessed inner muzzle glow for ALL guns & bazookas (NEVER propulsion rocket blue, 0% green!):
+    // - Bazooka / Dorsal Artillery / Rotary Autocannon: Blazing Solar Amber-Orange (#ffb74d / #ff5500)
+    // - Beam Rifle / Sniper Railgun / Beam Magnum / Pulse Scattergun: High-Output Crimson-Rose (#ff77aa / #ff1458)
+    function attachWeaponMuzzlePlasmaGlow(barrelMesh, partMeta = null) {
+      if (!barrelMesh || !barrelMesh.isMesh || !barrelMesh.geometry || barrelMesh.userData.hasMuzzleGlow) return;
+      if (!isModularWeaponBarrelName(barrelMesh.name)) return;
+      const posAttr = barrelMesh.geometry.attributes?.position;
+      if (!posAttr || posAttr.count < 12) return;
+
+      const seen = new Set();
+      const uPts = [];
+      let mx = 0, my = 0, mz = 0;
+      for (let i = 0; i < posAttr.count; i++) {
+        const vx = posAttr.getX(i), vy = posAttr.getY(i), vz = posAttr.getZ(i);
+        const key = `${Math.round(vx * 100)},${Math.round(vy * 100)},${Math.round(vz * 100)}`;
+        if (seen.has(key)) continue;
+        seen.add(key);
+        uPts.push(vx, vy, vz);
+        mx += vx; my += vy; mz += vz;
+      }
+      const nPts = uPts.length / 3;
+      if (nPts < 12) return;
+      mx /= nPts; my /= nPts; mz /= nPts;
+      const mean = new THREE.Vector3(mx, my, mz);
+
+      let cxx = 0, cxy = 0, cxz = 0, cyy = 0, cyz = 0, czz = 0;
+      for (let i = 0; i < uPts.length; i += 3) {
+        const dx = uPts[i] - mx, dy = uPts[i + 1] - my, dz = uPts[i + 2] - mz;
+        cxx += dx * dx; cxy += dx * dy; cxz += dx * dz;
+        cyy += dy * dy; cyz += dy * dz; czz += dz * dz;
+      }
+      const invN = 1 / nPts;
+      const eig = eigenDecomposeSymmetric3x3(cxx * invN, cxy * invN, cxz * invN, cyy * invN, cyz * invN, czz * invN);
+      // Barrel is elongated -> largest eigenvalue eigenvector is its exact bore axis!
+      const axis = eig[2].vec.clone().normalize();
+      // Point muzzleDir forward (+Z)
+      const muzzleDir = axis.z >= 0 ? axis : axis.clone().negate();
+
+      let minP = Infinity, maxP = -Infinity;
+      const projs = new Float64Array(nPts);
+      const rads = new Float64Array(nPts);
+      for (let k = 0; k < nPts; k++) {
+        const dx = uPts[k * 3] - mx, dy = uPts[k * 3 + 1] - my, dz = uPts[k * 3 + 2] - mz;
+        const proj = dx * muzzleDir.x + dy * muzzleDir.y + dz * muzzleDir.z;
+        const rx = dx - proj * muzzleDir.x, ry = dy - proj * muzzleDir.y, rz = dz - proj * muzzleDir.z;
+        projs[k] = proj;
+        rads[k] = Math.hypot(rx, ry, rz);
+        if (proj < minP) minP = proj;
+        if (proj > maxP) maxP = proj;
+      }
+      const span = maxP - minP;
+      if (span < 3.5) return;
+
+      const tipCut = maxP - Math.max(0.8, span * 0.04);
+      let rcx = 0, rcy = 0, rcz = 0, rcCnt = 0, maxTipR = 0;
+      for (let k = 0; k < nPts; k++) {
+        if (projs[k] >= tipCut) {
+          rcx += uPts[k * 3]; rcy += uPts[k * 3 + 1]; rcz += uPts[k * 3 + 2];
+          rcCnt++;
+          if (rads[k] > maxTipR) maxTipR = rads[k];
+        }
+      }
+      if (maxTipR < 0.7) return;
+      const muzzleCenter = rcCnt >= 3
+        ? new THREE.Vector3(rcx / rcCnt, rcy / rcCnt, rcz / rcCnt)
+        : mean.clone().addScaledVector(muzzleDir, maxP);
+
+      const bn = (barrelMesh.name || '').toLowerCase();
+      const pn = ((partMeta?.name || '') + ' ' + (partMeta?.part_id || '')).toLowerCase();
+      const isThermalBallistic = (
+        bn.includes('bazooka') || bn.includes('artillery') || bn.includes('mega_cannon') ||
+        bn.includes('barrel_top') || bn.includes('barrel_bl') || bn.includes('barrel_br') ||
+        bn.includes('ciws') || pn.includes('bazooka') || pn.includes('artillery') ||
+        pn.includes('rotary') || pn.includes('autocannon') || pn.includes('gatling')
+      );
+      const glowColor = isThermalBallistic ? 0xffb74d : 0xff77aa;
+      const glowEmissive = isThermalBallistic ? 0xff5500 : 0xff1458;
+      const glowIntensity = isThermalBallistic ? 4.8 : 4.6;
+
+      const glowH = Math.max(1.6, Math.min(4.0, maxTipR * 1.10));
+      const recess = Math.max(0.35, Math.min(1.6, maxTipR * 0.35));
+      const glowGeo = new THREE.CylinderGeometry(maxTipR * 0.22, maxTipR * 0.56, glowH, 16);
+      const glowMat = getSharedMechaMaterial({
+        color: glowColor, emissive: glowEmissive, emissiveIntensity: glowIntensity,
+        roughness: 0.12, metalness: 0.10, useDetail: false, isEmissive: true, materialClass: 'emissive'
+      });
+      const glowMesh = new THREE.Mesh(glowGeo, glowMat);
+      glowMesh.name = `${barrelMesh.name}_muzzle_glow`;
+      glowMesh.quaternion.setFromUnitVectors(new THREE.Vector3(0, -1, 0), muzzleDir);
+      glowMesh.position.copy(muzzleCenter).addScaledVector(muzzleDir, -(recess + glowH * 0.5));
+      glowMesh.castShadow = false;
+      glowMesh.receiveShadow = false;
+      glowMesh.userData.origMaterial = glowMat;
+      glowMesh.userData.initialPosition = glowMesh.position.clone();
+      glowMesh.userData.isModularPack = true;
+      glowMesh.userData.isBellGlowChild = true;
+      barrelMesh.add(glowMesh);
+      barrelMesh.userData.hasMuzzleGlow = true;
     }
 
     function buildPackPBRMaterial(node, unitId = state.activeUnitId) {
@@ -5486,14 +5674,29 @@
       sockets.shoulder_pods.bilateralRightContainer = shR;
       sockets.shoulder_pods.bilateralLeftContainer = shL;
 
-      const legOutX = isSazabi ? 8.8 : (isGouf ? 4.0 : (isZaku ? 3.2 : 0.0));
-      const legOutZ = isSazabi ? -6.0 : (isGouf ? -3.0 : (isZaku ? -2.2 : -1.0));
-      const legRCont = new THREE.Group();
-      legRCont.position.set((rSign * legOutX) - rig.shinR.userData.worldOrigin.x, 38.0 - rig.shinR.userData.worldOrigin.y, legOutZ - rig.shinR.userData.worldOrigin.z);
-      rig.shinR.add(legRCont);
-      const legLCont = new THREE.Group();
-      legLCont.position.set((lSign * legOutX) - rig.shinL.userData.worldOrigin.x, 38.0 - rig.shinL.userData.worldOrigin.y, legOutZ - rig.shinL.userData.worldOrigin.z);
-      rig.shinL.add(legLCont);
+      // Exact per-unit outer calf contour mounting (flare roll + A-stance yaw + pivot-compensated flush wall contact!):
+      // All leg_thrusters GLBs are sculpted at RX-78's +5.0 deg calf slope with inner clamp anchor at (xSign*31.0, 0.0, -1.5).
+      // Zeon flared bell-bottom calves (Sazabi 15.4 deg / 7.5 deg yaw, Gouf 12.0 deg / 7.0 deg yaw, Zaku 11.0 deg / 7.0 deg yaw)
+      // rotate right around the clamp contact point so EVERY calf thruster sits 0.0mm flush & parallel to the leg contour!
+      const legWallX = isSazabi ? 33.8 : (isGouf ? 30.6 : (isZaku ? 30.2 : 31.0));
+      const legWallZ = isSazabi ? -2.2 : (isGouf ? -2.0 : (isZaku ? -2.0 : -2.5));
+      const legFlareRad = THREE.MathUtils.degToRad(isSazabi ? 10.4 : (isGouf ? 7.0 : (isZaku ? 6.0 : 0.0)));
+      const legYawRad = THREE.MathUtils.degToRad(isSazabi ? 7.5 : ((isGouf || isZaku) ? 7.0 : 0.0));
+
+      const makeContourLegContainer = (shinBone, xSign) => {
+        const cont = new THREE.Group();
+        cont.rotation.set(0, xSign * legYawRad, xSign * legFlareRad, 'XYZ');
+        const pLocal = new THREE.Vector3(xSign * 31.0, 0.0, -1.5).applyEuler(cont.rotation);
+        cont.position.set(
+          (xSign * legWallX) - shinBone.userData.worldOrigin.x - pLocal.x,
+          38.0 - shinBone.userData.worldOrigin.y - pLocal.y,
+          legWallZ - shinBone.userData.worldOrigin.z - pLocal.z
+        );
+        shinBone.add(cont);
+        return cont;
+      };
+      const legRCont = makeContourLegContainer(rig.shinR, rSign);
+      const legLCont = makeContourLegContainer(rig.shinL, lSign);
       sockets.leg_thrusters.bilateralRightContainer = legRCont;
       sockets.leg_thrusters.bilateralLeftContainer = legLCont;
 
@@ -6045,7 +6248,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261127_r64');
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261127_r69');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         const onGltfReady = async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
@@ -6627,6 +6830,9 @@
           node.userData.initialPosition = node.position.clone();
           node.userData.isModularPack = true;
           attachModularBellInnerGlow(node);
+          if (typeof attachWeaponMuzzlePlasmaGlow === 'function') {
+            attachWeaponMuzzlePlasmaGlow(node, part);
+          }
           state.chassisParts.push(node);
 
           // Bind sub-mesh to whichever limb bone (armR/shinR vs armL/shinL) lies on the same side of X=0!
@@ -6899,6 +7105,9 @@
             node.userData.initialPosition = node.position.clone();
             node.userData.isModularPack = true;
             attachModularBellInnerGlow(node);
+            if (typeof attachWeaponMuzzlePlasmaGlow === 'function') {
+              attachWeaponMuzzlePlasmaGlow(node, part);
+            }
             state.chassisParts.push(node);
             if (slotGroup === 'head_sensor') {
               const gc = node.userData.geomCenter;
@@ -6912,15 +7121,21 @@
             }
           }
         });
-        // Horn-AND-Dorsal-Pack-Safe Adaptive Cranial Mounting (ZERO detached horns, ZERO AWACS/dorsal clash!):
-        // - RX-78 Vanguard: Full-Wrap Bolted Cranial Headset Harness linking ear clamps -> curved over-temple arches
-        //   (with gold pivot lock-bolts) -> mohawk-straddling clamps -> snug crown cradle + rear occipital strap!
-        // - Sazabi / Gouf / Rival: Forward-Facing Tactical Side-Crown Mount (0.65x) cleanly flanking the tall center
-        //   commander blade (X >= +1.9mm, Z ~ -10..+5mm -> 100% clear of ALL AWACS/radome/wing dorsal packs!).
-        if (slotGroup === 'head_sensor' && crownMeshes.length > 0 && state.activeUnitId !== 'enemy_zaku') {
-          const bridgeMat = getSharedMechaMaterial({ color: 0x2c3442, roughness: 0.36, metalness: 0.72, materialClass: 'metal_gunmetal' });
+        // Horn-Safe Bilateral Symmetric Flanking Cranial Mount (r68):
+        // - Vanguard & Zaku-II: 100% untouched (canonical centered crown).
+        // - Sazabi & Gouf (tall central commander horn at |X|<=0.98mm): NEVER collide with the center horn!
+        //   Hides the redundant center `crown_riser` box and mounts twin strictly X-symmetric flanking sensor pods
+        //   on BOTH +X and -X cleanly clear of the center horn (inner edge >= +2.0mm / <= -2.0mm), anchored flush
+        //   to the curved helmet temples via sleek low-profile bilateral rail cradles, angled dome straps & gold micro-pins!
+        if (slotGroup === 'head_sensor' && crownMeshes.length > 0 && (state.activeUnitId === 'enemy_sazabi' || state.activeUnitId === 'enemy_gouf' || state.activeUnitId === 'rival_frame')) {
+          const isSaz = state.activeUnitId === 'enemy_sazabi';
+          const isGouf = state.activeUnitId === 'enemy_gouf';
+          const hs = isSaz ? 1.15 : (isGouf ? 1.20 : 1.0);
+          const cs = 0.56; // Precision flanking scale so twin L+R pods sit sleekly on the helmet temples
+          const bridgeMat = getSharedMechaMaterial({ color: 0x262f3c, roughness: 0.34, metalness: 0.78, materialClass: 'metal_gunmetal' });
           const goldBoltMat = getSharedMechaMaterial({ color: 0xeab308, roughness: 0.22, metalness: 0.90, materialClass: 'metal_gold' });
-          const addPart = (parentGrp, geom, mat, lx, ly, lz, nm, rxDeg = 0, ryDeg = 0, rzDeg = 0) => {
+
+          const addSymPart = (parentGrp, geom, mat, lx, ly, lz, nm, rxDeg = 0, ryDeg = 0, rzDeg = 0) => {
             const pMesh = new THREE.Mesh(geom, mat);
             pMesh.name = nm;
             pMesh.position.set(lx, ly, lz);
@@ -6941,125 +7156,98 @@
             return pMesh;
           };
 
-          if (state.activeUnitId === 'gundam_rx78') {
-            let cMinY = Infinity, cMinX = Infinity, cMaxX = -Infinity;
-            const activeCrown = [];
-            crownMeshes.forEach(m => {
-              if ((m.name || '').toLowerCase().includes('crown_riser')) {
-                m.visible = false;
-                return;
-              }
-              activeCrown.push(m);
-              if (m.geometry?.boundingBox) {
-                cMinY = Math.min(cMinY, m.geometry.boundingBox.min.y);
-                cMinX = Math.min(cMinX, m.geometry.boundingBox.min.x);
-                cMaxX = Math.max(cMaxX, m.geometry.boundingBox.max.x);
-              }
-            });
-            if (activeCrown.length > 0 && Number.isFinite(cMinY)) {
-              const crownGrp = new THREE.Group();
-              crownGrp.name = 'AdaptiveCrown_RX78_Harness';
-              const dy = 11.4 - cMinY; // Seats crown underside snugly at world Y=176.4 flush on curved mohawk top!
-              crownGrp.position.set(0.0, dy, -0.8);
-              activeCrown.forEach(m => crownGrp.add(m));
-              packModel.add(crownGrp);
-
-              const cradleHalfW = Math.max(5.2, Math.min(7.2, 0.5 * (cMaxX - cMinX) - 0.6));
-              for (const [sgn, sfx] of [[1.0, 'r'], [-1.0, 'l']]) {
-                // 1. Ear-to-Temple Vertical Collar Bridge (bolts directly into top of bilateral ear clamps!)
-                addPart(packModel, new THREE.BoxGeometry(1.6, 5.2, 4.4), bridgeMat, sgn * 8.45, 4.1, -2.0, `adapter_harness_low_${sfx}`, 0, 0, sgn * 18.0);
-                // 2. Curved Upper Over-Temple Arch Strut (hugs RX-78 white helmet temple dome into crown underside!)
-                addPart(packModel, new THREE.BoxGeometry(1.6, 6.0, 4.4), bridgeMat, sgn * 6.65, 8.3, -2.0, `adapter_harness_mid_${sfx}`, 0, 0, sgn * 42.0);
-                // 3. Upper Crown Mounting Lug Bracket (locks cleanly into crown underside!)
-                addPart(packModel, new THREE.BoxGeometry(3.2, 1.9, 5.8), bridgeMat, sgn * Math.max(3.6, cradleHalfW - 1.2), 11.0, -2.4, `adapter_harness_lug_${sfx}`);
-                // 4. Contoured Mohawk-Clamping Side Cheeks straddling RX-78 curved mohawk (|X|<=1.96mm)
-                addPart(packModel, new THREE.BoxGeometry(1.2, 4.2, 8.0), bridgeMat, sgn * 2.55, 9.8, -2.8, `adapter_harness_clamp_${sfx}`);
-                // 5. Gold Mechanical Temple Pivot Lock-Bolts
-                addPart(packModel, new THREE.CylinderGeometry(0.95, 0.95, 2.2, 12), goldBoltMat, sgn * 8.9, 6.2, -2.0, `adapter_harness_bolt_gold_${sfx}`, 0, 0, 90.0);
-                // 6. Rear-Temple Diagonal Stabilizer Rib linking temple arch -> rear occipital strap
-                addPart(packModel, new THREE.BoxGeometry(1.3, 2.0, 6.2), bridgeMat, sgn * 7.2, 6.8, -5.6, `adapter_harness_rear_rib_${sfx}`, 0, sgn * -24.0, 0);
-              }
-              // 7. Rear Occipital Stabilizer Crossbar wrapping cleanly behind RX-78 curved mohawk (Z=-8.5, >14mm clear of AWACS!)
-              addPart(packModel, new THREE.BoxGeometry(12.2, 2.2, 1.6), bridgeMat, 0.0, 6.8, -8.5, 'adapter_harness_occipital_dark');
+          // Hide legacy center-mount `crown_riser` block so zero redundant dark brick stacks under the flanking pods!
+          const activeCrown = [];
+          let cMinX = Infinity, cMaxX = -Infinity, cMinY = Infinity, cMaxY = -Infinity, cMinZ = Infinity, cMaxZ = -Infinity;
+          crownMeshes.forEach(m => {
+            if ((m.name || '').toLowerCase().includes('crown_riser')) {
+              m.visible = false;
+              return;
             }
-          } else if (state.activeUnitId === 'enemy_sazabi' || state.activeUnitId === 'enemy_gouf' || state.activeUnitId === 'rival_frame') {
-            const isSaz = state.activeUnitId === 'enemy_sazabi';
-            const isGouf = state.activeUnitId === 'enemy_gouf';
-            const hs = isSaz ? 1.15 : (isGouf ? 1.20 : 1.0);
-            const cs = 0.65; // Sleek tactical side-crown scale facing straight forward (+Z)!
-            let cMinX = Infinity, cMaxX = -Infinity, cMinY = Infinity, cMaxY = -Infinity, cMinZ = Infinity, cMaxZ = -Infinity;
-            crownMeshes.forEach(m => {
-              if (m.geometry?.boundingBox) {
-                const bb = m.geometry.boundingBox;
-                cMinX = Math.min(cMinX, bb.min.x); cMaxX = Math.max(cMaxX, bb.max.x);
-                cMinY = Math.min(cMinY, bb.min.y); cMaxY = Math.max(cMaxY, bb.max.y);
-                cMinZ = Math.min(cMinZ, bb.min.z); cMaxZ = Math.max(cMaxZ, bb.max.z);
-              }
-            });
-            if (Number.isFinite(cMinX)) {
-              const cx = 0.5 * (cMinX + cMaxX);
-              const cy = 0.5 * (cMinY + cMaxY);
-              const cz = 0.5 * (cMinZ + cMaxZ);
-              const halfWWorld = 0.5 * (cMaxX - cMinX) * hs * cs;
-              // Clears center commander blade (|X|<=1.0mm) by >= +0.9mm AND stays Z ~ -10..+5mm (100% clear of ALL AWACS/dorsal packs!)
-              const targetCxWorld = Math.max(5.6, 1.9 + halfWWorld);
-              const targetBotYWorld = isSaz ? 7.0 : (isGouf ? 7.8 : 6.8);
-              const targetCzWorld = -2.0;
+            activeCrown.push(m);
+            if (m.geometry?.boundingBox) {
+              const bb = m.geometry.boundingBox;
+              cMinX = Math.min(cMinX, bb.min.x); cMaxX = Math.max(cMaxX, bb.max.x);
+              cMinY = Math.min(cMinY, bb.min.y); cMaxY = Math.max(cMaxY, bb.max.y);
+              cMinZ = Math.min(cMinZ, bb.min.z); cMaxZ = Math.max(cMaxZ, bb.max.z);
+            }
+          });
 
+          if (activeCrown.length > 0 && Number.isFinite(cMinX)) {
+            const cx = 0.5 * (cMinX + cMaxX);
+            const cy = 0.5 * (cMinY + cMaxY);
+            const cz = 0.5 * (cMinZ + cMaxZ);
+            const halfWWorld = 0.5 * (cMaxX - cMinX) * hs * cs;
+            // Strict >= 2.0mm horn clearance on BOTH sides (Sazabi horn |X|<=0.98mm, Gouf fin |X|<=0.87mm -> >=1.0mm air gap!)
+            const targetCxWorld = Math.max(4.6, 2.1 + halfWWorld);
+            const targetBotYWorld = isSaz ? 5.8 : (isGouf ? 6.8 : 6.0);
+            const targetCzWorld = -1.8;
+
+            for (const [sgn, sfx] of [[1.0, 'r'], [-1.0, 'l']]) {
               const sideGrp = new THREE.Group();
-              sideGrp.name = `AdaptiveSideCrown_${state.activeUnitId}`;
+              sideGrp.name = `HornSafeFlankCrown_${state.activeUnitId}_${sfx}`;
               sideGrp.position.set(
-                targetCxWorld / hs,
+                (sgn * targetCxWorld) / hs,
                 (targetBotYWorld / hs) - (cMinY - cy) * cs,
                 targetCzWorld / hs
               );
               sideGrp.scale.set(cs, cs, cs);
               const sideInner = new THREE.Group();
               sideInner.position.set(-cx, -cy, -cz);
-              crownMeshes.forEach(m => sideInner.add(m));
+              activeCrown.forEach(m => {
+                if (sgn > 0) {
+                  sideInner.add(m);
+                } else {
+                  const cl = m.clone(true);
+                  cl.name = `${m.name}_sym_l`;
+                  cl.userData = { ...m.userData, initialPosition: m.position.clone(), isModularPack: true };
+                  sideInner.add(cl);
+                  state.chassisParts.push(cl);
+                }
+              });
               sideGrp.add(sideInner);
               packModel.add(sideGrp);
 
-              // Flush machined lateral-crown mounting pylon + rotary hinge drum + gold pivot axle + vertical ear strut!
-              // Eliminates ALL floating/unhinged appearance by mechanically locking: Helmet Dome <-> Pylon <-> Hinge <-> Ear Clamp <-> Side Crown!
-              const pylonInnerX = 1.6;
-              const pylonOuterX = targetCxWorld + 2.4;
-              const pylonW = Math.max(4.4, pylonOuterX - pylonInnerX) / hs;
-              const pylonY = (targetBotYWorld - 0.8) / hs;
-              const pylonZ = targetCzWorld / hs;
-              addPart(
+              // Sleek low-profile contoured temple rail cradle (embedded flush into dome shoulder, strictly clear of horn |X|<=1.0mm!)
+              const railInnerX = Math.max(2.2, targetCxWorld - Math.max(2.0, halfWWorld * 0.75));
+              const railOuterX = Math.min(9.4, targetCxWorld + Math.max(1.8, halfWWorld * 0.65));
+              const railW = Math.max(3.2, railOuterX - railInnerX) / hs;
+              const railY = (targetBotYWorld - 0.55) / hs;
+              const railZ = targetCzWorld / hs;
+              addSymPart(
                 packModel,
-                new THREE.BoxGeometry(pylonW, 4.4 / hs, 6.4 / hs),
+                new THREE.BoxGeometry(railW, 1.5 / hs, 5.2 / hs),
                 bridgeMat,
-                (0.5 * (pylonInnerX + pylonOuterX)) / hs,
-                pylonY,
-                pylonZ,
-                'adapter_side_crown_pylon_dark'
+                (sgn * 0.5 * (railInnerX + railOuterX)) / hs,
+                railY,
+                railZ,
+                `adapter_flank_rail_dark_${sfx}`
               );
-              // Vertical diagonal gusset strut bolting side-crown pylon solidly down into the right ear clamp (X=+8.8, Y=1.2)!
-              const strutTopX = Math.min(8.6, targetCxWorld);
-              const strutBotX = 8.8;
-              const strutBotY = 1.2;
-              const strutH = Math.max(2.6, pylonY - strutBotY + 1.2);
-              const strutTiltDeg = THREE.MathUtils.radToDeg(Math.atan2(strutTopX / hs - strutBotX, Math.max(1.0, pylonY - strutBotY)));
-              addPart(
+
+              // Sleek contour-hugging temple arch linking rail outer lug cleanly down to bilateral ear clamp (X=+-8.8, Y=1.8)
+              const topX = (sgn * Math.min(8.6, railOuterX - 0.4)) / hs;
+              const botX = sgn * 8.8;
+              const topY = railY - (0.3 / hs);
+              const botY = 1.8;
+              const dx = topX - botX;
+              const dy = Math.max(1.0, topY - botY);
+              const archLen = Math.hypot(dx, dy) + (0.8 / hs);
+              const archTiltDeg = THREE.MathUtils.radToDeg(Math.atan2(dx, dy));
+              addSymPart(
                 packModel,
-                new THREE.BoxGeometry(2.2 / hs, strutH, 4.6 / hs),
+                new THREE.BoxGeometry(1.45 / hs, archLen, 3.8 / hs),
                 bridgeMat,
-                0.5 * (strutTopX / hs + strutBotX),
-                0.5 * (pylonY + strutBotY),
-                pylonZ,
-                'adapter_side_crown_strut_dark',
-                0, 0, -strutTiltDeg
+                0.5 * (topX + botX),
+                0.5 * (topY + botY),
+                railZ,
+                `adapter_flank_arch_dark_${sfx}`,
+                0, 0, -archTiltDeg
               );
-              // Exposed Bandai MG/PG Rotary Hinge Drum + Gold Pivot Lock-Axle right at the pylon-to-strut elbow!
-              const hingeX = strutTopX / hs;
-              const hingeDrumGeo = new THREE.CylinderGeometry(1.75 / hs, 1.75 / hs, 6.8 / hs, 16);
-              hingeDrumGeo.rotateX(Math.PI / 2);
-              addPart(packModel, hingeDrumGeo, bridgeMat, hingeX, pylonY - (0.3 / hs), pylonZ, 'adapter_side_crown_hinge_drum_dark');
-              const hingePinGeo = new THREE.CylinderGeometry(0.95 / hs, 0.95 / hs, 7.6 / hs, 14);
-              hingePinGeo.rotateX(Math.PI / 2);
-              addPart(packModel, hingePinGeo, goldBoltMat, hingeX, pylonY - (0.3 / hs), pylonZ, 'adapter_side_crown_hinge_pin_gold');
+
+              // Flush micro gold lock-bolt at the temple rail joint
+              const boltGeo = new THREE.CylinderGeometry(0.75 / hs, 0.75 / hs, 4.4 / hs, 14);
+              boltGeo.rotateX(Math.PI / 2);
+              addSymPart(packModel, boltGeo, goldBoltMat, topX, topY, railZ, `adapter_flank_bolt_gold_${sfx}`);
             }
           }
         }
