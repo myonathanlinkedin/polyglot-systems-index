@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Actor Model Concurrency Engine with Mailbox Processing",
+    "language": "C++",
+    "folder": "cpp",
+    "category": "\ud83c\udf10 Distributed Systems & Consensus",
+    "spoke_repo": "cpp-systems-core",
+    "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261127_230219_actor_model_concurrency_engine",
+    "source_file": "main",
+    "timestamp": "2026-11-27T23:02:35.499298+00:00",
+    "dir_name": "20261127_230219_actor_model_concurrency_engine"
+  },
+  {
     "topic": "A Local-Counting Approach for Distributed Induced Path Detection",
     "language": "Go",
     "folder": "go",
@@ -75,17 +86,6 @@
     "source_file": "main",
     "timestamp": "2026-11-27T14:01:33.939096+00:00",
     "dir_name": "20261127_140110_the_javascript_event_loop__cal"
-  },
-  {
-    "topic": "Actor Model Concurrency Engine with Mailbox Processing",
-    "language": "Rust",
-    "folder": "rust",
-    "category": "\ud83c\udf10 Distributed Systems & Consensus",
-    "spoke_repo": "rust-algorithms",
-    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261127_130251_actor_model_concurrency_engine",
-    "source_file": "main",
-    "timestamp": "2026-11-27T13:03:14.308276+00:00",
-    "dir_name": "20261127_130251_actor_model_concurrency_engine"
   },
   {
     "topic": "Aho-Corasick Multi-Pattern String Searching Automaton",
