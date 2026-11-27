@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Actor Model Concurrency Engine with Mailbox Processing",
+    "language": "Rust",
+    "folder": "rust",
+    "category": "\ud83c\udf10 Distributed Systems & Consensus",
+    "spoke_repo": "rust-algorithms",
+    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261127_130251_actor_model_concurrency_engine",
+    "source_file": "main",
+    "timestamp": "2026-11-27T13:03:14.308276+00:00",
+    "dir_name": "20261127_130251_actor_model_concurrency_engine"
+  },
+  {
     "topic": "Aho-Corasick Multi-Pattern String Searching Automaton",
     "language": "Rust",
     "folder": "rust",
@@ -614,17 +625,6 @@
     "source_file": "main",
     "timestamp": "2026-11-22T19:02:56.119440+00:00",
     "dir_name": "20261122_190241_improved_bounds_for_directed_s"
-  },
-  {
-    "topic": "Actor Model Concurrency Engine with Mailbox Processing",
-    "language": "C++",
-    "folder": "cpp",
-    "category": "\ud83c\udf10 Distributed Systems & Consensus",
-    "spoke_repo": "cpp-systems-core",
-    "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261122_170239_actor_model_concurrency_engine",
-    "source_file": "main",
-    "timestamp": "2026-11-22T17:02:53.908760+00:00",
-    "dir_name": "20261122_170239_actor_model_concurrency_engine"
   },
   {
     "topic": "Thinflow: Organizing HPC Benchmarking Campaigns as Rerunnable Directory Trees",
