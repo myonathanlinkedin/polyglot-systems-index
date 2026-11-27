@@ -1,5 +1,38 @@
 [
   {
+    "topic": "Custom Buddy Memory Allocation System",
+    "language": "Java",
+    "folder": "java",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "java-enterprise-patterns",
+    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261127_070211_custom_buddy_memory_allocation",
+    "source_file": "main",
+    "timestamp": "2026-11-27T07:02:27.207273+00:00",
+    "dir_name": "20261127_070211_custom_buddy_memory_allocation"
+  },
+  {
+    "topic": "Trie Prefix Tree for Auto-Completion with Frequency Ranking",
+    "language": "Java",
+    "folder": "java",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "java-enterprise-patterns",
+    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261127_050209_trie_prefix_tree_for_auto-comp",
+    "source_file": "main",
+    "timestamp": "2026-11-27T05:02:30.218793+00:00",
+    "dir_name": "20261127_050209_trie_prefix_tree_for_auto-comp"
+  },
+  {
+    "topic": "HyperLogLog Cardinality Estimation Algorithm",
+    "language": "Swift",
+    "folder": "swift",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "swift-systems-lab",
+    "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261127_050117_hyperloglog_cardinality_estima",
+    "source_file": "main",
+    "timestamp": "2026-11-27T05:01:55.390551+00:00",
+    "dir_name": "20261127_050117_hyperloglog_cardinality_estima"
+  },
+  {
     "topic": "Algorithms, Data Structures (Big-O), and Memory Management: Stack vs. Heap",
     "language": "Ruby",
     "folder": "ruby",
@@ -187,17 +220,6 @@
     "dir_name": "20261126_030235_improved_quantum_algorithms_fo"
   },
   {
-    "topic": "HyperLogLog Cardinality Estimation Algorithm",
-    "language": "Kotlin",
-    "folder": "kotlin",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "kotlin-systems-core",
-    "source_link": "https://github.com/myonathanlinkedin/kotlin-systems-core/tree/main/algorithms/20261126_020106_hyperloglog_cardinality_estima",
-    "source_file": "main",
-    "timestamp": "2026-11-26T02:01:30.809948+00:00",
-    "dir_name": "20261126_020106_hyperloglog_cardinality_estima"
-  },
-  {
     "topic": "Merkle Tree Verification and Proof Generator",
     "language": "Haskell",
     "folder": "haskell",
@@ -207,17 +229,6 @@
     "source_file": "main",
     "timestamp": "2026-11-26T01:02:56.900403+00:00",
     "dir_name": "20261126_010240_merkle_tree_verification_and_p"
-  },
-  {
-    "topic": "Custom Buddy Memory Allocation System",
-    "language": "Go",
-    "folder": "go",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "go-concurrency-lab",
-    "source_link": "https://github.com/myonathanlinkedin/go-concurrency-lab/tree/main/algorithms/20261125_230228_custom_buddy_memory_allocation",
-    "source_file": "main",
-    "timestamp": "2026-11-25T23:02:46.923525+00:00",
-    "dir_name": "20261125_230228_custom_buddy_memory_allocation"
   },
   {
     "topic": "Tic-Tac-Toe Minimax Algorithm in Java",
@@ -350,17 +361,6 @@
     "source_file": "main",
     "timestamp": "2026-11-25T02:01:57.464721+00:00",
     "dir_name": "20261125_020140_cop-win_edge_completion__hardn"
-  },
-  {
-    "topic": "Trie Prefix Tree for Auto-Completion with Frequency Ranking",
-    "language": "Haskell",
-    "folder": "haskell",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "haskell-functional-core",
-    "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261124_230221_trie_prefix_tree_for_auto-comp",
-    "source_file": "main",
-    "timestamp": "2026-11-24T23:02:37.521527+00:00",
-    "dir_name": "20261124_230221_trie_prefix_tree_for_auto-comp"
   },
   {
     "topic": "iTerm2 Arbitrary Command Execution via Kitty Image Protocol APC Response Injection",
