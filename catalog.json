@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Aho-Corasick Multi-Pattern String Searching Automaton",
+    "language": "Rust",
+    "folder": "rust",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "rust-algorithms",
+    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261127_110152_aho-corasick_multi-pattern_str",
+    "source_file": "main",
+    "timestamp": "2026-11-27T11:02:10.919376+00:00",
+    "dir_name": "20261127_110152_aho-corasick_multi-pattern_str"
+  },
+  {
     "topic": "Suffix Automaton for Linear-Time Substring Indexing",
     "language": "TypeScript",
     "folder": "typescript",
@@ -460,17 +471,6 @@
     "source_file": "main",
     "timestamp": "2026-11-24T09:03:02.371068+00:00",
     "dir_name": "20261124_090221_two-phase_commit_protocol_coor"
-  },
-  {
-    "topic": "Aho-Corasick Multi-Pattern String Searching Automaton",
-    "language": "C++",
-    "folder": "cpp",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "cpp-systems-core",
-    "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261124_030253_aho-corasick_multi-pattern_str",
-    "source_file": "main",
-    "timestamp": "2026-11-24T03:03:08.614440+00:00",
-    "dir_name": "20261124_030253_aho-corasick_multi-pattern_str"
   },
   {
     "topic": "A* Heuristic Pathfinding with Dynamic Obstacle Cost",
@@ -4926,17 +4926,6 @@
     "source_file": "main",
     "timestamp": "2026-10-10T09:07:10.478539+00:00",
     "dir_name": "20261010_090710_hopcroft-karp_bipartite_matchi"
-  },
-  {
-    "topic": "Aho-Corasick Multi-Pattern String Searching Automaton",
-    "language": "Rust",
-    "folder": "rust",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "rust-algorithms",
-    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261010_090212_aho-corasick_multi-pattern_str",
-    "source_file": "main",
-    "timestamp": "2026-10-10T09:02:12.656163+00:00",
-    "dir_name": "20261010_090212_aho-corasick_multi-pattern_str"
   },
   {
     "topic": "Adding Go s defer to the TypeScript Compiler",
