@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Asymptotic and Empirical Analysis of Stack and Heap Operations in Ruby: Complexity, Invariants, and Throughput | Mateus Yonathan</title>
+  <title>Comparative Asymptotic and Invariant Analysis of Stack and Heap Implementations for Sorting in Ruby | Mateus Yonathan</title>
 
   <!-- Google Scholar Highwire Press Meta Tags (Strict Standards) -->
-  <meta name="citation_title" content="Asymptotic and Empirical Analysis of Stack and Heap Operations in Ruby: Complexity, Invariants, and Throughput" />
+  <meta name="citation_title" content="Comparative Asymptotic and Invariant Analysis of Stack and Heap Implementations for Sorting in Ruby" />
   <meta name="citation_author" content="Mateus Yonathan" />
   <meta name="citation_publication_date" content="2026/11/27" />
   <meta name="citation_date" content="2026/11/27" />
@@ -19,7 +19,7 @@
   <meta name="citation_keywords" content="Ruby, Agentic Systems, Agentic AI, Autonomous Verification, Systems Programming, Algorithms, Data Structures, Research Paper" />
 
   <!-- Dublin Core Metadata Set -->
-  <meta name="DC.title" content="Asymptotic and Empirical Analysis of Stack and Heap Operations in Ruby: Complexity, Invariants, and Throughput" />
+  <meta name="DC.title" content="Comparative Asymptotic and Invariant Analysis of Stack and Heap Implementations for Sorting in Ruby" />
   <meta name="DC.creator" content="Mateus Yonathan" />
   <meta name="DC.issued" content="2026-11-27" />
   <meta name="DC.publisher" content="Polyglot Systems Lab" />
@@ -27,10 +27,10 @@
   <meta name="DC.language" content="en" />
   <meta name="DC.subject" content="Agentic Systems, Ruby, Algorithms, Autonomous Verification" />
   <meta name="DC.identifier" content="https://myonathanlinkedin.github.io/papers/2026-11-27_algorithms_data_structures_big_o_an/" />
-  <meta name="DC.description" content="We investigate the algorithmic behavior of stack and heap data structures implemented in Ruby, focusing on asymptotic complexity, invariant preservation, and empirical performance. The stack supports LIFO operations with constant-time push and pop, while the min-heap offers logarithmic-time extraction of the minimum element. We formalize the LIFO invariant and the heap property, proving that both structures maintain their respective orderings under arbitrary sequences of operations. An experimental campaign in our research evaluation environment,.94 µs and a throughput of 9 700 ops/s over 30 iterations. These results confirm the theoretical bounds and highlight Ruby&#x27;s runtime characteristics for memory-bound data structures." />
+  <meta name="DC.description" content="Sorting is a foundational operation in software systems, yet the choice of underlying data structures can significantly influence both asymptotic behavior and runtime characteristics. This work implements and evaluates two canonical Ruby data structures—an explicit stack and a binary min-heap—within a unified framework that supports both comparison-based and non-comparison sorting algorithms. We formally establish the asymptotic bounds of push, pop, and peek operations, and prove that the heap preserves total order while the stack preserves permutation invariants. Empirical measurements in our research evaluation environment,848.37 µs and a throughput of 9,723 ops/s for a 30-iteration benchmark." />
 
   <!-- SEO & Social Rich Cards -->
-  <meta name="description" content="Agentic autonomous systems research preprint: We investigate the algorithmic behavior of stack and heap data structures implemented in Ruby, focusing on asymptotic complexity, invariant" />
+  <meta name="description" content="Agentic autonomous systems research preprint: Sorting is a foundational operation in software systems, yet the choice of underlying data structures can significantly influence both asymp" />
   <meta name="keywords" content="Ruby, Agentic Systems, Agentic AI, Mateus Yonathan, Autonomous Systems Research, Algorithms, Polyglot Systems Lab" />
   <meta name="author" content="Mateus Yonathan" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
@@ -38,8 +38,8 @@
   <link rel="sitemap" type="application/xml" title="Sitemap" href="https://myonathanlinkedin.github.io/sitemap.xml" />
 
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="Asymptotic and Empirical Analysis of Stack and Heap Operations in Ruby: Complexity, Invariants, and Throughput" />
-  <meta property="og:description" content="Agentic autonomous systems research preprint: We investigate the algorithmic behavior of stack and heap data structures implemented in Ruby, focusing on asymptotic complexity, invariant preservation, and empirical performance." />
+  <meta property="og:title" content="Comparative Asymptotic and Invariant Analysis of Stack and Heap Implementations for Sorting in Ruby" />
+  <meta property="og:description" content="Agentic autonomous systems research preprint: Sorting is a foundational operation in software systems, yet the choice of underlying data structures can significantly influence both asymptotic behavior and runtime characteristi" />
   <meta property="og:url" content="https://myonathanlinkedin.github.io/papers/2026-11-27_algorithms_data_structures_big_o_an/" />
   <meta property="og:image" content="https://raw.githubusercontent.com/myonathanlinkedin/mini-papers/main/papers/2026-11-27_algorithms_data_structures_big_o_an/preview/page_1.png" />
   <meta property="og:site_name" content="Polyglot Systems Lab" />
@@ -47,8 +47,8 @@
   <meta property="article:author" content="Mateus Yonathan" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Asymptotic and Empirical Analysis of Stack and Heap Operations in Ruby: Complexity, Invariants, and Throughput" />
-  <meta name="twitter:description" content="Agentic autonomous systems research preprint: We investigate the algorithmic behavior of stack and heap data structures implemented in Ruby, focusing on asymptotic complexity, invariant preservation, and empirical performance." />
+  <meta name="twitter:title" content="Comparative Asymptotic and Invariant Analysis of Stack and Heap Implementations for Sorting in Ruby" />
+  <meta name="twitter:description" content="Agentic autonomous systems research preprint: Sorting is a foundational operation in software systems, yet the choice of underlying data structures can significantly influence both asymptotic behavior and runtime characteristi" />
   <meta name="twitter:image" content="https://raw.githubusercontent.com/myonathanlinkedin/mini-papers/main/papers/2026-11-27_algorithms_data_structures_big_o_an/preview/page_1.png" />
 
   <!-- Google Favicons -->
@@ -60,8 +60,8 @@
 {
   "@context": "https://schema.org",
   "@type": "ScholarlyArticle",
-  "headline": "Asymptotic and Empirical Analysis of Stack and Heap Operations in Ruby: Complexity, Invariants, and Throughput",
-  "name": "Asymptotic and Empirical Analysis of Stack and Heap Operations in Ruby: Complexity, Invariants, and Throughput",
+  "headline": "Comparative Asymptotic and Invariant Analysis of Stack and Heap Implementations for Sorting in Ruby",
+  "name": "Comparative Asymptotic and Invariant Analysis of Stack and Heap Implementations for Sorting in Ruby",
   "author": {
     "@type": "Person",
     "name": "Mateus Yonathan",
@@ -82,7 +82,7 @@
     "name": "Polyglot Systems Lab",
     "url": "https://myonathanlinkedin.github.io/"
   },
-  "description": "We investigate the algorithmic behavior of stack and heap data structures implemented in Ruby, focusing on asymptotic complexity, invariant preservation, and empirical performance. The stack supports LIFO operations with constant-time push and pop, while the min-heap offers logarithmic-time extraction of the minimum element. We formalize the LIFO invariant and the heap property, proving that both structures maintain their respective orderings under arbitrary sequences of operations. An experimental campaign in our research evaluation environment,.94 \u00b5s and a throughput of 9 700 ops/s over 30 iterations. These results confirm the theoretical bounds and highlight Ruby's runtime characteristics for memory-bound data structures.",
+  "description": "Sorting is a foundational operation in software systems, yet the choice of underlying data structures can significantly influence both asymptotic behavior and runtime characteristics. This work implements and evaluates two canonical Ruby data structures\u2014an explicit stack and a binary min-heap\u2014within a unified framework that supports both comparison-based and non-comparison sorting algorithms. We formally establish the asymptotic bounds of push, pop, and peek operations, and prove that the heap preserves total order while the stack preserves permutation invariants. Empirical measurements in our research evaluation environment,848.37 \u00b5s and a throughput of 9,723 ops/s for a 30-iteration benchmark.",
   "mainEntityOfPage": "https://myonathanlinkedin.github.io/papers/2026-11-27_algorithms_data_structures_big_o_an/",
   "url": "https://myonathanlinkedin.github.io/papers/2026-11-27_algorithms_data_structures_big_o_an/",
   "encoding": {
@@ -428,7 +428,7 @@
         <span class="badge badge-date">Published: 2026-11-27</span>
       </div>
 
-      <h1>Asymptotic and Empirical Analysis of Stack and Heap Operations in Ruby: Complexity, Invariants, and Throughput</h1>
+      <h1>Comparative Asymptotic and Invariant Analysis of Stack and Heap Implementations for Sorting in Ruby</h1>
 
       <div class="byline">
         Authored by <strong>Mateus Yonathan</strong> &middot; Principal Investigator &amp; Systems Engineer<br />
@@ -461,7 +461,7 @@
           </svg>
           Abstract
         </div>
-        <p class="abstract-text">We investigate the algorithmic behavior of stack and heap data structures implemented in Ruby, focusing on asymptotic complexity, invariant preservation, and empirical performance. The stack supports LIFO operations with constant-time push and pop, while the min-heap offers logarithmic-time extraction of the minimum element. We formalize the LIFO invariant and the heap property, proving that both structures maintain their respective orderings under arbitrary sequences of operations. An experimental campaign in our research evaluation environment,.94 µs and a throughput of 9 700 ops/s over 30 iterations. These results confirm the theoretical bounds and highlight Ruby&#x27;s runtime characteristics for memory-bound data structures.</p>
+        <p class="abstract-text">Sorting is a foundational operation in software systems, yet the choice of underlying data structures can significantly influence both asymptotic behavior and runtime characteristics. This work implements and evaluates two canonical Ruby data structures—an explicit stack and a binary min-heap—within a unified framework that supports both comparison-based and non-comparison sorting algorithms. We formally establish the asymptotic bounds of push, pop, and peek operations, and prove that the heap preserves total order while the stack preserves permutation invariants. Empirical measurements in our research evaluation environment,848.37 µs and a throughput of 9,723 ops/s for a 30-iteration benchmark.</p>
         
       </section>
       
@@ -474,7 +474,7 @@
           Manuscript Page 1 Preview
         </div>
         <div style="background:#ffffff;border-radius:0.5rem;padding:0.75rem;border:1px solid rgba(56,189,248,0.35);overflow:hidden;">
-          <img src="https://raw.githubusercontent.com/myonathanlinkedin/mini-papers/main/papers/2026-11-27_algorithms_data_structures_big_o_an/preview/page_1.png" alt="Asymptotic and Empirical Analysis of Stack and Heap Operations in Ruby: Complexity, Invariants, and Throughput Preview" style="width:100%;height:auto;display:block;" loading="lazy" />
+          <img src="https://raw.githubusercontent.com/myonathanlinkedin/mini-papers/main/papers/2026-11-27_algorithms_data_structures_big_o_an/preview/page_1.png" alt="Comparative Asymptotic and Invariant Analysis of Stack and Heap Implementations for Sorting in Ruby Preview" style="width:100%;height:auto;display:block;" loading="lazy" />
         </div>
       </section>
 
@@ -502,7 +502,7 @@
           Bibliographic Citation (BibTeX)
         </div>
         <pre class="bibtex" id="bibtex-block">@article{yonathan2026_2026_11_27_algorithms_data_structures_big_o_an,
-  title={Asymptotic and Empirical Analysis of Stack and Heap Operations in Ruby: Complexity, Invariants, and Throughput},
+  title={Comparative Asymptotic and Invariant Analysis of Stack and Heap Implementations for Sorting in Ruby},
   author={Yonathan, Mateus},
   journal={Polyglot Systems Lab Agentic Research Preprints},
   year={2026},
