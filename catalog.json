@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Topological Sort with Cycle Detection in Directed Graphs",
+    "language": "Haskell",
+    "folder": "haskell",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "haskell-functional-core",
+    "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261127_170209_topological_sort_with_cycle_de",
+    "source_file": "main",
+    "timestamp": "2026-11-27T17:02:25.651354+00:00",
+    "dir_name": "20261127_170209_topological_sort_with_cycle_de"
+  },
+  {
     "topic": "Low-degree hardness rules out eigenvalue tests but not eigenvector tests",
     "language": "Haskell",
     "folder": "haskell",
@@ -1892,17 +1903,6 @@
     "dir_name": "20261103_030247_actor_model_concurrency_engine"
   },
   {
-    "topic": "Topological Sort with Cycle Detection in Directed Graphs",
-    "language": "Python",
-    "folder": "python",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "python-advanced-lab",
-    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261102_130118_topological_sort_with_cycle_de",
-    "source_file": "main",
-    "timestamp": "2026-11-02T13:01:18.159699+00:00",
-    "dir_name": "20261102_130118_topological_sort_with_cycle_de"
-  },
-  {
     "topic": "Red-Black Tree with Deterministic Balance Assertions",
     "language": "Python",
     "folder": "python",
@@ -2484,6 +2484,17 @@
     "source_file": "main",
     "timestamp": "2026-10-27T05:01:33.099420+00:00",
     "dir_name": "20261027_050133_treap_randomized_binary_search"
+  },
+  {
+    "topic": "Topological Sort with Cycle Detection in Directed Graphs",
+    "language": "Python",
+    "folder": "python",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "python-advanced-lab",
+    "source_link": "https://github.com/myonathanlinkedin/python-advanced-lab/tree/main/algorithms/20261027_030128_topological_sort_with_cycle_de",
+    "source_file": "main",
+    "timestamp": "2026-10-27T03:01:28.841461+00:00",
+    "dir_name": "20261027_030128_topological_sort_with_cycle_de"
   },
   {
     "topic": "Kruskal Minimum Spanning Tree with Disjoint-Set Union",
