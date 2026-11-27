@@ -1,5 +1,27 @@
 [
   {
+    "topic": "A Local-Counting Approach for Distributed Induced Path Detection",
+    "language": "Go",
+    "folder": "go",
+    "category": "\ud83c\udf10 Distributed Systems & Consensus",
+    "spoke_repo": "go-concurrency-lab",
+    "source_link": "https://github.com/myonathanlinkedin/go-concurrency-lab/tree/main/algorithms/20261127_230127_a_local-counting_approach_for",
+    "source_file": "main",
+    "timestamp": "2026-11-27T23:01:54.474974+00:00",
+    "dir_name": "20261127_230127_a_local-counting_approach_for"
+  },
+  {
+    "topic": "Tarjan Strongly Connected Components Search in Directed Graphs",
+    "language": "Rust",
+    "folder": "rust",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "rust-algorithms",
+    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261127_210221_tarjan_strongly_connected_comp",
+    "source_file": "main",
+    "timestamp": "2026-11-27T21:02:34.391484+00:00",
+    "dir_name": "20261127_210221_tarjan_strongly_connected_comp"
+  },
+  {
     "topic": "The State of Allocators in 2026 - Finally Stabilised",
     "language": "C",
     "folder": "c",
@@ -9,17 +31,6 @@
     "source_file": "main",
     "timestamp": "2026-11-27T20:01:41.432820+00:00",
     "dir_name": "20261127_200127_the_state_of_allocators_in_202"
-  },
-  {
-    "topic": "A Local-Counting Approach for Distributed Induced Path Detection",
-    "language": "C#",
-    "folder": "csharp",
-    "category": "\ud83c\udf10 Distributed Systems & Consensus",
-    "spoke_repo": "csharp-enterprise-lab",
-    "source_link": "https://github.com/myonathanlinkedin/csharp-enterprise-lab/tree/main/algorithms/20261127_190246_a_local-counting_approach_for",
-    "source_file": "main",
-    "timestamp": "2026-11-27T19:03:15.663871+00:00",
-    "dir_name": "20261127_190246_a_local-counting_approach_for"
   },
   {
     "topic": "Topological Sort with Cycle Detection in Directed Graphs",
@@ -273,17 +284,6 @@
     "source_file": "main",
     "timestamp": "2026-11-26T09:03:01.916724+00:00",
     "dir_name": "20261126_090244_abolish_lock_poisoning"
-  },
-  {
-    "topic": "Tarjan Strongly Connected Components Search in Directed Graphs",
-    "language": "Swift",
-    "folder": "swift",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "swift-systems-lab",
-    "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261126_080117_tarjan_strongly_connected_comp",
-    "source_file": "main",
-    "timestamp": "2026-11-26T08:01:55.747675+00:00",
-    "dir_name": "20261126_080117_tarjan_strongly_connected_comp"
   },
   {
     "topic": "Gossip Protocol Node Failure Detector",
@@ -4365,6 +4365,17 @@
     "source_file": "main",
     "timestamp": "2026-10-11T10:45:45.851315+00:00",
     "dir_name": "20261011_104545_a__heuristic_pathfinding_with"
+  },
+  {
+    "topic": "Tarjan Strongly Connected Components Search in Directed Graphs",
+    "language": "Swift",
+    "folder": "swift",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "swift-systems-lab",
+    "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261011_103744_tarjan_strongly_connected_comp",
+    "source_file": "main",
+    "timestamp": "2026-10-11T10:37:44.609660+00:00",
+    "dir_name": "20261011_103744_tarjan_strongly_connected_comp"
   },
   {
     "topic": "Operating System Process Scheduling Simulator",
