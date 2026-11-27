@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Suffix Automaton for Linear-Time Substring Indexing",
+    "language": "TypeScript",
+    "folder": "typescript",
+    "category": "\u26a1 Low-Latency & Memory Systems",
+    "spoke_repo": "typescript-design-patterns",
+    "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261127_090228_suffix_automaton_for_linear-ti",
+    "source_file": "main",
+    "timestamp": "2026-11-27T09:02:43.256101+00:00",
+    "dir_name": "20261127_090228_suffix_automaton_for_linear-ti"
+  },
+  {
     "topic": "Simulated Annealing Optimization for Combinatorial Graphs",
     "language": "Rust",
     "folder": "rust",
@@ -636,17 +647,6 @@
     "source_file": "main",
     "timestamp": "2026-11-22T13:02:45.454437+00:00",
     "dir_name": "20261122_130232_bloom_filter_with_chronos-hash"
-  },
-  {
-    "topic": "Suffix Automaton for Linear-Time Substring Indexing",
-    "language": "C#",
-    "folder": "csharp",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "csharp-enterprise-lab",
-    "source_link": "https://github.com/myonathanlinkedin/csharp-enterprise-lab/tree/main/algorithms/20261122_110121_suffix_automaton_for_linear-ti",
-    "source_file": "main",
-    "timestamp": "2026-11-22T11:01:44.482619+00:00",
-    "dir_name": "20261122_110121_suffix_automaton_for_linear-ti"
   },
   {
     "topic": "Exact guarantees and faster algorithms for k-rollercoasters",
