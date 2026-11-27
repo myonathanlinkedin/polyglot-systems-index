@@ -1,15 +1,15 @@
 Index,Topic,Language,Domain Category,Spoke Repository,Source File,Timestamp UTC
-001,Conjugate Gradient Linear System Solver,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-11-27T01:02:17.416921+00:00
-002,Kruskal Minimum Spanning Tree with Disjoint-Set Union,C,🧠 Computational AI & Math Engines,c-lowlevel-systems,main,2026-11-26T23:02:32.584003+00:00
-003,Hopcroft-Karp Bipartite Matching Algorithm,C,🧠 Computational AI & Math Engines,c-lowlevel-systems,main,2026-11-26T23:01:41.949243+00:00
-004,Conflict-free Replicated Data Type (CRDT) PN-Counter,Rust,🌐 Distributed Systems & Consensus,rust-algorithms,main,2026-11-26T21:02:41.498820+00:00
-005,R-Tree Spatial Index for Multidimensional Bounding Boxes,C++,🧠 Computational AI & Math Engines,cpp-systems-core,main,2026-11-26T20:01:52.307272+00:00
-006,Thread-Safe Bounded Blocking Queue with Condition Variables,Zig,⚡ Low-Latency & Memory Systems,zig-systems-lab,main,2026-11-26T17:04:37.278902+00:00
-007,Lamport Logical Timestamp Synchronization Engine,Zig,🧠 Computational AI & Math Engines,zig-systems-lab,main,2026-11-26T17:01:40.251166+00:00
-008,In defense of lock poisoning in Rust,Rust,⚡ Low-Latency & Memory Systems,rust-algorithms,main,2026-11-26T15:02:26.629995+00:00
-009,Cache-Oblivious Matrix Transposition Algorithm,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-11-26T13:02:54.054487+00:00
-010,Lock-Free Concurrent Ring Buffer Data Structure,C++,⚡ Low-Latency & Memory Systems,cpp-systems-core,main,2026-11-26T11:03:00.051201+00:00
-011,Safe Optimistic Lock Coupling,Java,⚡ Low-Latency & Memory Systems,java-enterprise-patterns,main,2026-11-26T11:01:32.670468+00:00
+001,Safe Optimistic Lock Coupling,C#,⚡ Low-Latency & Memory Systems,csharp-enterprise-lab,main,2026-11-27T02:01:30.263238+00:00
+002,Conjugate Gradient Linear System Solver,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-11-27T01:02:17.416921+00:00
+003,Kruskal Minimum Spanning Tree with Disjoint-Set Union,C,🧠 Computational AI & Math Engines,c-lowlevel-systems,main,2026-11-26T23:02:32.584003+00:00
+004,Hopcroft-Karp Bipartite Matching Algorithm,C,🧠 Computational AI & Math Engines,c-lowlevel-systems,main,2026-11-26T23:01:41.949243+00:00
+005,Conflict-free Replicated Data Type (CRDT) PN-Counter,Rust,🌐 Distributed Systems & Consensus,rust-algorithms,main,2026-11-26T21:02:41.498820+00:00
+006,R-Tree Spatial Index for Multidimensional Bounding Boxes,C++,🧠 Computational AI & Math Engines,cpp-systems-core,main,2026-11-26T20:01:52.307272+00:00
+007,Thread-Safe Bounded Blocking Queue with Condition Variables,Zig,⚡ Low-Latency & Memory Systems,zig-systems-lab,main,2026-11-26T17:04:37.278902+00:00
+008,Lamport Logical Timestamp Synchronization Engine,Zig,🧠 Computational AI & Math Engines,zig-systems-lab,main,2026-11-26T17:01:40.251166+00:00
+009,In defense of lock poisoning in Rust,Rust,⚡ Low-Latency & Memory Systems,rust-algorithms,main,2026-11-26T15:02:26.629995+00:00
+010,Cache-Oblivious Matrix Transposition Algorithm,Python,⚡ Low-Latency & Memory Systems,python-advanced-lab,main,2026-11-26T13:02:54.054487+00:00
+011,Lock-Free Concurrent Ring Buffer Data Structure,C++,⚡ Low-Latency & Memory Systems,cpp-systems-core,main,2026-11-26T11:03:00.051201+00:00
 012,Abolish Lock Poisoning,Java,⚡ Low-Latency & Memory Systems,java-enterprise-patterns,main,2026-11-26T09:03:01.916724+00:00
 013,Tarjan Strongly Connected Components Search in Directed Graphs,Swift,🧠 Computational AI & Math Engines,swift-systems-lab,main,2026-11-26T08:01:55.747675+00:00
 014,Gossip Protocol Node Failure Detector,C++,🌐 Distributed Systems & Consensus,cpp-systems-core,main,2026-11-26T07:02:19.825946+00:00
