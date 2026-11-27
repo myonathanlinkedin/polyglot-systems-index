@@ -4650,6 +4650,164 @@
     const beamSaberMidMat = createBeamPlasmaShaderMaterial(0xffb3d6, 0xff175c, 0.82, 1.85, false);
     const beamSaberHaloMat = createBeamPlasmaShaderMaterial(0xff4d88, 0xd90445, 0.38, 2.20, false);
 
+    function isModularRocketBellName(rawName) {
+      const n = (rawName || '').toLowerCase();
+      if (!n) return false;
+      if (
+        n.includes('adapter_') || n.includes('dovetail') || n.includes('collar') ||
+        n.includes('gimbal') || n.includes('ring_gold') || n.includes('socket_dark') ||
+        n.includes('clamp') || n.includes('bracket') || n.includes('manifold') ||
+        n.includes('shroud') || n.includes('cowling') || n.includes('hull') ||
+        n.includes('bay') || n.includes('pod') || n.includes('rack') ||
+        n.includes('yoke') || n.includes('glow') || n.includes('core_laser') ||
+        n.includes('mid_laser') || n.includes('halo_laser') ||
+        n.includes('hover_bell_skirt') || n.includes('skirt') ||
+        n.includes('mega_emitter') || n.includes('emitter')
+      ) {
+        return false;
+      }
+      return (
+        n.includes('_vernier') || n.includes('vernier_') || n.endsWith('vernier') ||
+        n.includes('nozzle') || n.includes('_bell') || n.includes('bell_') ||
+        n.includes('aero_thruster') || n.includes('thruster_bell') ||
+        n.includes('main_thruster') || n.includes('boost_bell') ||
+        n.includes('vector_bell') || n.includes('surge_bell') ||
+        n.includes('hover_bell') || n.includes('flare_bell')
+      );
+    }
+
+    function isModularRocketGimbalName(rawName) {
+      const n = (rawName || '').toLowerCase();
+      if (!n) return false;
+      if (
+        n.includes('skirt') || n.includes('shroud') || n.includes('cowling') ||
+        n.includes('pod') || n.includes('manifold') || n.includes('mega_emitter') ||
+        n.includes('emitter') || n.includes('glow')
+      ) {
+        return false;
+      }
+      const isThrusterPart = (
+        n.includes('vernier') || n.includes('nozzle') || n.includes('bell') || n.includes('thruster')
+      );
+      const isMountRing = (
+        n.includes('gimbal') || n.includes('collar') || n.includes('ring_gold') || n.includes('socket_dark')
+      );
+      return isThrusterPart && isMountRing;
+    }
+
+    function isStockZeonThrusterBellName(rawName) {
+      const n = (rawName || '').toLowerCase();
+      if (!n) return false;
+      if (
+        n.includes('gimbal') || n.includes('collar') || n.includes('socket') ||
+        n.includes('ring') || n.includes('shroud') || n.includes('fairing') ||
+        n.includes('mount') || n.includes('glow') || n.includes('vane') ||
+        n.includes('vent') || n.includes('housing') || n.includes('port') ||
+        n.includes('tank') || n.includes('cowl') || n.includes('cannon') ||
+        n.includes('emitter')
+      ) {
+        return false;
+      }
+      return (
+        n.includes('zaku_thruster_') ||
+        n.includes('gouf_thruster_') ||
+        n.includes('sazabi_thruster_') ||
+        n.includes('sazabi_shoulder_thruster_') ||
+        n.includes('sazabi_calf_jet_') ||
+        n.includes('hover_jet_thruster_') ||
+        n.includes('rival_main_thruster_')
+      );
+    }
+
+    // Shared helper: injects the exact RX-78 default backpack plasma exhaust glow cone inside any hollow
+    // supersonic vernier bell (used for BOTH non-Vanguard stock default bells AND all modular pack bells!).
+    function attachThrusterBellInnerGlow(bellMesh, opts = {}) {
+      if (!bellMesh || !bellMesh.isMesh || !bellMesh.geometry || bellMesh.userData.hasBellGlow) return;
+      const posAttr = bellMesh.geometry.attributes?.position;
+      if (!posAttr || posAttr.count < 12) return;
+
+      bellMesh.geometry.computeBoundingBox();
+      const bb = bellMesh.geometry.boundingBox;
+      const size = new THREE.Vector3();
+      const center = new THREE.Vector3();
+      bb.getSize(size);
+      bb.getCenter(center);
+
+      const axis = new THREE.Vector3(0, 1, 0);
+      let L = size.y;
+      if (size.z >= size.x && size.z >= size.y) { axis.set(0, 0, 1); L = size.z; }
+      else if (size.x >= size.y && size.x >= size.z) { axis.set(1, 0, 0); L = size.x; }
+      if (L < 2.2) return;
+
+      const p = new THREE.Vector3();
+      const posEnd = new THREE.Vector3(), negEnd = new THREE.Vector3();
+      let posCnt = 0, negCnt = 0;
+      const thresh = L * 0.28;
+      for (let i = 0; i < posAttr.count; i++) {
+        p.fromBufferAttribute(posAttr, i).sub(center);
+        const proj = p.dot(axis);
+        if (proj > thresh) { posEnd.add(p); posCnt++; }
+        else if (proj < -thresh) { negEnd.add(p); negCnt++; }
+      }
+      if (posCnt > 3 && negCnt > 3) {
+        posEnd.divideScalar(posCnt);
+        negEnd.divideScalar(negCnt);
+        const refined = posEnd.clone().sub(negEnd);
+        if (refined.length() > 1.0) {
+          axis.copy(refined.normalize());
+        }
+      }
+
+      let rPosSum = 0, rPosCnt = 0, rNegSum = 0, rNegCnt = 0;
+      let minProj = Infinity, maxProj = -Infinity;
+      for (let i = 0; i < posAttr.count; i++) {
+        p.fromBufferAttribute(posAttr, i).sub(center);
+        const proj = p.dot(axis);
+        if (proj < minProj) minProj = proj;
+        if (proj > maxProj) maxProj = proj;
+      }
+      const span = maxProj - minProj;
+      if (span < 2.0) return;
+      const hiCut = maxProj - span * 0.22;
+      const loCut = minProj + span * 0.22;
+      for (let i = 0; i < posAttr.count; i++) {
+        p.fromBufferAttribute(posAttr, i).sub(center);
+        const proj = p.dot(axis);
+        const radial = p.clone().addScaledVector(axis, -proj).length();
+        if (proj >= hiCut) { rPosSum += radial; rPosCnt++; }
+        else if (proj <= loCut) { rNegSum += radial; rNegCnt++; }
+      }
+      const rPos = rPosCnt ? (rPosSum / rPosCnt) : 0;
+      const rNeg = rNegCnt ? (rNegSum / rNegCnt) : 0;
+      const mouthDir = (rPos >= rNeg) ? axis.clone() : axis.clone().negate();
+      const mouthR = Math.max(1.1, Math.max(rPos, rNeg));
+      const mouthProj = (rPos >= rNeg) ? maxProj : -minProj;
+
+      // Exact RX-78 default `backpack_thruster_glow` electric plasma cone!
+      const glowH = Math.max(2.2, Math.min(5.0, span * 0.46));
+      const glowGeo = new THREE.CylinderGeometry(mouthR * 0.26, mouthR * 0.62, glowH, 16);
+      const glowMat = getSharedMechaMaterial({
+        color: 0x38f8ff, emissive: 0x00e5ff, emissiveIntensity: 4.8,
+        roughness: 0.12, metalness: 0.10, useDetail: false, isEmissive: true, materialClass: 'emissive'
+      });
+      const glowMesh = new THREE.Mesh(glowGeo, glowMat);
+      glowMesh.name = `${bellMesh.name}_thruster_glow`;
+      glowMesh.quaternion.setFromUnitVectors(new THREE.Vector3(0, -1, 0), mouthDir);
+      const glowPos = center.clone().addScaledVector(mouthDir, mouthProj - glowH * 0.52);
+      glowMesh.position.copy(glowPos);
+      glowMesh.castShadow = false;
+      glowMesh.receiveShadow = false;
+      glowMesh.userData.origMaterial = glowMat;
+      glowMesh.userData.initialPosition = glowMesh.position.clone();
+      glowMesh.userData.isBellGlowChild = true;
+      if (opts.isModularPack) {
+        glowMesh.userData.isModularPack = true;
+      }
+      bellMesh.add(glowMesh);
+      bellMesh.userData.hasBellGlow = true;
+      bellMesh.userData.hasModularBellGlow = true;
+    }
+
     function buildPackPBRMaterial(node, unitId = state.activeUnitId) {
       const spec = UNIT_REGISTRY[unitId] || UNIT_REGISTRY.vanguard_rx;
       const pc = spec.packColors;
@@ -4663,6 +4821,26 @@
       if (n.includes('halo_laser')) {
         return beamSaberHaloMat;
       }
+      if (n.includes('thruster_glow') || n.includes('modular_bell_glow')) {
+        return getSharedMechaMaterial({
+          color: 0x38f8ff, emissive: 0x00e5ff, emissiveIntensity: 4.8,
+          roughness: 0.12, metalness: 0.10, useDetail: false, isEmissive: true, materialClass: 'emissive'
+        });
+      }
+      if (isModularRocketBellName(n) || isModularRocketGimbalName(n)) {
+        // Unified Bandai Ver.Ka rocket nozzle & coaxial mount finish (ZERO patchwork collars, ZERO green!):
+        // - Sazabi: 100% Pure Burnished Metallic Gold (all-gold rocket nozzle)
+        // - Vanguard / Zaku / Gouf: 100% Pure Satin-Gloss Obsidian Black (all-black rocket nozzle)
+        // Inner electric plasma exhaust glow matching RX-78 default backpack thruster is attached inside every hollow bell mouth.
+        if (unitId === 'enemy_sazabi') {
+          return getSharedMechaMaterial({
+            color: 0xeab308, roughness: 0.18, metalness: 0.92, useDetail: false, materialClass: 'metal_gold'
+          });
+        }
+        return getSharedMechaMaterial({
+          color: 0x11161e, roughness: 0.20, metalness: 0.90, useDetail: false, materialClass: 'metal_gunmetal'
+        });
+      }
       if (n.includes('hilt_white')) {
         return getSharedMechaMaterial({ color: 0xe8edf3, roughness: 0.34, metalness: 0.10, useDetail: true, materialClass: 'armor_white' });
       }
@@ -4674,11 +4852,15 @@
       }
       let color = pc.frame, roughness = 0.36, metalness = 0.74, emissive = 0x000000, emissiveIntensity = 0.0, useDetail = true, materialClass = 'metal_gunmetal';
       if (n.includes('psycho_emerald')) {
-        // Textured Anodized Metallic Emerald Armor (rich 2K panel lines & satin-gloss metallic depth — zero flat cartoon green!)
-        color = 0x059669; roughness = 0.30; metalness = 0.44; useDetail = true; materialClass = 'armor_gloss';
+        // ZERO-GREEN Bandai Ver.Ka 60-30-10 metallic harmony remap (eliminates clashing mint green on rockets/weapons/armor!)
+        if (unitId === 'enemy_sazabi') {
+          color = 0xeab308; roughness = 0.20; metalness = 0.90; useDetail = true; materialClass = 'metal_gold';
+        } else {
+          color = 0x94a3b8; roughness = 0.24; metalness = 0.86; useDetail = true; materialClass = 'metal_brushed';
+        }
       } else if (n.includes('amber_optic')) {
-        // Textured Anodized Copper-Amber Armor (rich 2K panel lines & metallic depth — zero flat cartoon orange!)
-        color = 0xc25e0a; roughness = 0.30; metalness = 0.46; useDetail = true; materialClass = 'armor_gloss';
+        // Burnished Titanium Champagne-Gold accent (Ver.Ka 10% metallic accent harmony)
+        color = 0xd4961a; roughness = 0.24; metalness = 0.84; useDetail = true; materialClass = 'metal_gold';
       } else if (n.includes('titanium_silver')) {
         color = 0xcbd5e1; roughness = 0.24; metalness = 0.86; useDetail = true; materialClass = 'metal_brushed';
       } else if (n.includes('crimson_gloss')) {
@@ -4686,10 +4868,11 @@
       } else if (n.includes('cobalt_anodized')) {
         color = 0x1d4ed8; roughness = 0.28; metalness = 0.48; useDetail = true; materialClass = 'armor_gloss';
       } else if (n.includes('zeon_olive_coat')) {
-        color = 0x556b45; roughness = 0.44; metalness = 0.18; useDetail = true; materialClass = 'armor_painted';
+        // ZERO-GREEN remap on modular parts -> Stealth Tactical Dark Gunmetal-Charcoal (harmonizes with all 4 mobile suits!)
+        color = 0x262f3c; roughness = 0.34; metalness = 0.68; useDetail = true; materialClass = 'metal_gunmetal';
       } else if (n.includes('optic_cyan') || n.includes('plasma_core_cyan') || n.includes('lens_emerald')) {
-        // Textured Anodized Sapphire-Cyan Optical Armor (glossy lens depth + 2K micro-detail — zero flat neon!)
-        color = 0x0284c7; emissive = 0x0369a1; emissiveIntensity = 0.22; roughness = 0.26; metalness = 0.44; useDetail = true; materialClass = 'armor_gloss';
+        // Pure Royal Sapphire Metallic Optical Trim (zero greenish/teal cast!)
+        color = 0x1d4ed8; emissive = 0x1e40af; emissiveIntensity = 0.28; roughness = 0.24; metalness = 0.48; useDetail = true; materialClass = 'armor_gloss';
       } else if (n.includes('gold') || n.includes('blade') || n.includes('intake') || n.includes('cross_gold') || n.includes('vane') || n.includes('pin_gold') || n.includes('lock_gold') || n.includes('drum_gold') || n.includes('coupling_gold')) {
         color = pc.gold; roughness = 0.24; metalness = 0.86; useDetail = true; materialClass = 'metal_gold';
       } else if (n.includes('grip') || n.includes('epac')) {
@@ -4703,7 +4886,12 @@
       } else if (n.includes('wing') || n.includes('disc') || n.includes('shield_frame') || n.includes('fin_binder') || n.includes('tower_shield') || n.includes('rudder') || n.includes('pectoral_armor') || n.includes('pod')) {
         color = pc.primary; roughness = 0.38; metalness = 0.12; useDetail = true; materialClass = (pc.primary === 0xf0f2ec || pc.primary === 0xeef2f6 || pc.primary === 0xc4cedb) ? 'armor_white' : 'armor_painted';
       } else if (n.includes('bell') || n.includes('thruster') || n.includes('vernier') || n.includes('nozzle')) {
-        color = 0x526072; roughness = 0.24; metalness = 0.88; emissive = pc.optic; emissiveIntensity = 0.14; useDetail = false; materialClass = 'metal_brushed';
+        // Fallback thruster shell also strictly Obsidian Black or Metallic Gold (NEVER green `pc.optic` emissive!)
+        if (unitId === 'enemy_sazabi') {
+          color = 0xeab308; roughness = 0.18; metalness = 0.92; useDetail = false; materialClass = 'metal_gold';
+        } else {
+          color = 0x11161e; roughness = 0.20; metalness = 0.90; useDetail = false; materialClass = 'metal_gunmetal';
+        }
       } else if (n.includes('barrel') || n.includes('receiver') || n.includes('sleeve') || n.includes('cylinder') || n.includes('stake') || n.includes('rail')) {
         color = 0x334155; roughness = 0.30; metalness = 0.84; useDetail = false; materialClass = 'metal_gunmetal';
       }
@@ -5857,7 +6045,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261126_r61');
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261127_r64');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         const onGltfReady = async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
@@ -5889,6 +6077,7 @@
 
           state.gearNodes = [];
           state.hingeNodes = [];
+          const zeonStockBellMeshes = [];
           model.traverse(node => {
             if (node.isMesh) {
               if (node.geometry) {
@@ -5912,6 +6101,9 @@
                 node.userData.rootGeomCenter = node.userData.geomCenter.clone();
                 node.userData.explodeMeta = classifyExplodeRole(node.name, node.userData.geomCenter.x);
               }
+              if (spec.isZeonEnemy && typeof isStockZeonThrusterBellName === 'function' && isStockZeonThrusterBellName(ln)) {
+                zeonStockBellMeshes.push(node);
+              }
               if (ln.includes('chest_gear_') || ln.includes('dorsal_gear_')) {
                 const gc = node.userData.geomCenter || new THREE.Vector3();
                 const dirSign = ln.includes('pinion') ? -1.42 : 1.0;
@@ -5931,6 +6123,10 @@
               state.chassisParts.push(node);
             }
           });
+          // Attach matching default-backpack plasma exhaust glow inside every stock Zaku / Gouf / Sazabi thruster bell!
+          if (zeonStockBellMeshes.length > 0 && typeof attachThrusterBellInnerGlow === 'function') {
+            zeonStockBellMeshes.forEach(bellNode => attachThrusterBellInnerGlow(bellNode, { isModularPack: false }));
+          }
 
           // Bind all meshes into the 11-Bone Hierarchical Kinematic Rig!
           state.kinematicRig = buildProceduralKinematicRig(model, spec);
@@ -5965,7 +6161,7 @@
               const byKey = new Map();
               const removable = [];
               for (const child of [...bone.children]) {
-                if (!child.isMesh || child.userData?.isDecal || keepIndividual.has(child) || !child.geometry) continue;
+                if (!child.isMesh || child.userData?.isDecal || child.userData?.hasBellGlow || (child.children && child.children.length > 0) || keepIndividual.has(child) || !child.geometry) continue;
                 const mat = child.material;
                 const exMeta = child.userData.explodeMeta || classifyExplodeRole(child.name, (child.userData.rootGeomCenter || child.userData.geomCenter || new THREE.Vector3()).x);
                 child.userData.explodeMeta = exMeta;
@@ -6390,6 +6586,16 @@
         // ZERO-DETACH HORN POLICY: Never hide/detach any stock head horns/V-fins/blades!
       }
 
+      // Attaches a default-backpack-style cyan inner plasma glow cone inside the open exhaust mouth
+      // of EVERY modular rocket bell (`vernier`/`nozzle`/`bell`/`aero_thruster`) using the shared helper!
+      const attachModularBellInnerGlow = (bellMesh) => {
+        if (!bellMesh || !bellMesh.isMesh || !bellMesh.geometry || bellMesh.userData.hasModularBellGlow) return;
+        if (typeof isModularRocketBellName !== 'function' || !isModularRocketBellName(bellMesh.name)) return;
+        if (typeof attachThrusterBellInnerGlow === 'function') {
+          attachThrusterBellInnerGlow(bellMesh, { isModularPack: true });
+        }
+      };
+
       const mountedModels = [];
 
       // For bilateral limb zones (shoulder_pods on armR/armL, leg_thrusters on shinR/shinL),
@@ -6420,6 +6626,7 @@
           node.geometry.boundingBox.getCenter(node.userData.geomCenter);
           node.userData.initialPosition = node.position.clone();
           node.userData.isModularPack = true;
+          attachModularBellInnerGlow(node);
           state.chassisParts.push(node);
 
           // Bind sub-mesh to whichever limb bone (armR/shinR vs armL/shinL) lies on the same side of X=0!
@@ -6691,6 +6898,7 @@
             node.geometry.boundingBox.getCenter(node.userData.geomCenter);
             node.userData.initialPosition = node.position.clone();
             node.userData.isModularPack = true;
+            attachModularBellInnerGlow(node);
             state.chassisParts.push(node);
             if (slotGroup === 'head_sensor') {
               const gc = node.userData.geomCenter;
