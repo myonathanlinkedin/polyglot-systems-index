@@ -1,16 +1,5 @@
 [
   {
-    "topic": "The State of Allocators in 2026 - Finally Stabilised",
-    "language": "C",
-    "folder": "c",
-    "category": "\u26a1 Low-Latency & Memory Systems",
-    "spoke_repo": "c-lowlevel-systems",
-    "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261127_200127_the_state_of_allocators_in_202",
-    "source_file": "main",
-    "timestamp": "2026-11-27T20:01:41.432820+00:00",
-    "dir_name": "20261127_200127_the_state_of_allocators_in_202"
-  },
-  {
     "topic": "A Local-Counting Approach for Distributed Induced Path Detection",
     "language": "C#",
     "folder": "csharp",
