@@ -1,12 +1,12 @@
 Index,Topic,Language,Domain Category,Spoke Repository,Source File,Timestamp UTC
-001,Actor Model Concurrency Engine with Mailbox Processing,C++,🌐 Distributed Systems & Consensus,cpp-systems-core,main,2026-11-27T23:02:35.499298+00:00
-002,A Local-Counting Approach for Distributed Induced Path Detection,Go,🌐 Distributed Systems & Consensus,go-concurrency-lab,main,2026-11-27T23:01:54.474974+00:00
-003,Tarjan Strongly Connected Components Search in Directed Graphs,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-11-27T21:02:34.391484+00:00
-004,The State of Allocators in 2026 - Finally Stabilised,C,⚡ Low-Latency & Memory Systems,c-lowlevel-systems,main,2026-11-27T20:01:41.432820+00:00
-005,Topological Sort with Cycle Detection in Directed Graphs,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main,2026-11-27T17:02:25.651354+00:00
-006,Low-degree hardness rules out eigenvalue tests but not eigenvector tests,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main,2026-11-27T17:01:28.335310+00:00
-007,Kruskal Minimum Spanning Tree with Disjoint-Set Union,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main,2026-11-27T15:02:46.598231+00:00
-008,"The JavaScript Event Loop: Call Stack, Task Queue & Microtasks",Go,⚡ Low-Latency & Memory Systems,go-concurrency-lab,main,2026-11-27T14:01:33.939096+00:00
+001,Tarjan Strongly Connected Components Search in Directed Graphs,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-11-27T21:02:34.391484+00:00
+002,The State of Allocators in 2026 - Finally Stabilised,C,⚡ Low-Latency & Memory Systems,c-lowlevel-systems,main,2026-11-27T20:01:41.432820+00:00
+003,A Local-Counting Approach for Distributed Induced Path Detection,C#,🌐 Distributed Systems & Consensus,csharp-enterprise-lab,main,2026-11-27T19:03:15.663871+00:00
+004,Topological Sort with Cycle Detection in Directed Graphs,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main,2026-11-27T17:02:25.651354+00:00
+005,Low-degree hardness rules out eigenvalue tests but not eigenvector tests,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main,2026-11-27T17:01:28.335310+00:00
+006,Kruskal Minimum Spanning Tree with Disjoint-Set Union,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main,2026-11-27T15:02:46.598231+00:00
+007,"The JavaScript Event Loop: Call Stack, Task Queue & Microtasks",Go,⚡ Low-Latency & Memory Systems,go-concurrency-lab,main,2026-11-27T14:01:33.939096+00:00
+008,Actor Model Concurrency Engine with Mailbox Processing,Rust,🌐 Distributed Systems & Consensus,rust-algorithms,main,2026-11-27T13:03:14.308276+00:00
 009,Aho-Corasick Multi-Pattern String Searching Automaton,Rust,⚡ Low-Latency & Memory Systems,rust-algorithms,main,2026-11-27T11:02:10.919376+00:00
 010,Suffix Automaton for Linear-Time Substring Indexing,TypeScript,⚡ Low-Latency & Memory Systems,typescript-design-patterns,main,2026-11-27T09:02:43.256101+00:00
 011,Simulated Annealing Optimization for Combinatorial Graphs,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-11-27T08:02:00.858970+00:00
