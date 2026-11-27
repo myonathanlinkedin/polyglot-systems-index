@@ -1,16 +1,16 @@
 Index,Topic,Language,Domain Category,Spoke Repository,Source File,Timestamp UTC
-001,"The JavaScript Event Loop: Call Stack, Task Queue & Microtasks",Go,⚡ Low-Latency & Memory Systems,go-concurrency-lab,main,2026-11-27T14:01:33.939096+00:00
-002,Actor Model Concurrency Engine with Mailbox Processing,Rust,🌐 Distributed Systems & Consensus,rust-algorithms,main,2026-11-27T13:03:14.308276+00:00
-003,Aho-Corasick Multi-Pattern String Searching Automaton,Rust,⚡ Low-Latency & Memory Systems,rust-algorithms,main,2026-11-27T11:02:10.919376+00:00
-004,Suffix Automaton for Linear-Time Substring Indexing,TypeScript,⚡ Low-Latency & Memory Systems,typescript-design-patterns,main,2026-11-27T09:02:43.256101+00:00
-005,Simulated Annealing Optimization for Combinatorial Graphs,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-11-27T08:02:00.858970+00:00
-006,Custom Buddy Memory Allocation System,Java,⚡ Low-Latency & Memory Systems,java-enterprise-patterns,main,2026-11-27T07:02:27.207273+00:00
-007,Trie Prefix Tree for Auto-Completion with Frequency Ranking,Java,🧠 Computational AI & Math Engines,java-enterprise-patterns,main,2026-11-27T05:02:30.218793+00:00
-008,HyperLogLog Cardinality Estimation Algorithm,Swift,🧠 Computational AI & Math Engines,swift-systems-lab,main,2026-11-27T05:01:55.390551+00:00
-009,"Algorithms, Data Structures (Big-O), and Memory Management: Stack vs. Heap",Ruby,⚡ Low-Latency & Memory Systems,ruby-algorithms-lab,main,2026-11-27T03:02:36.337786+00:00
-010,Safe Optimistic Lock Coupling,C#,⚡ Low-Latency & Memory Systems,csharp-enterprise-lab,main,2026-11-27T02:01:30.263238+00:00
-011,Conjugate Gradient Linear System Solver,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-11-27T01:02:17.416921+00:00
-012,Kruskal Minimum Spanning Tree with Disjoint-Set Union,C,🧠 Computational AI & Math Engines,c-lowlevel-systems,main,2026-11-26T23:02:32.584003+00:00
+001,Kruskal Minimum Spanning Tree with Disjoint-Set Union,Haskell,🧠 Computational AI & Math Engines,haskell-functional-core,main,2026-11-27T15:02:46.598231+00:00
+002,"The JavaScript Event Loop: Call Stack, Task Queue & Microtasks",Go,⚡ Low-Latency & Memory Systems,go-concurrency-lab,main,2026-11-27T14:01:33.939096+00:00
+003,Actor Model Concurrency Engine with Mailbox Processing,Rust,🌐 Distributed Systems & Consensus,rust-algorithms,main,2026-11-27T13:03:14.308276+00:00
+004,Aho-Corasick Multi-Pattern String Searching Automaton,Rust,⚡ Low-Latency & Memory Systems,rust-algorithms,main,2026-11-27T11:02:10.919376+00:00
+005,Suffix Automaton for Linear-Time Substring Indexing,TypeScript,⚡ Low-Latency & Memory Systems,typescript-design-patterns,main,2026-11-27T09:02:43.256101+00:00
+006,Simulated Annealing Optimization for Combinatorial Graphs,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-11-27T08:02:00.858970+00:00
+007,Custom Buddy Memory Allocation System,Java,⚡ Low-Latency & Memory Systems,java-enterprise-patterns,main,2026-11-27T07:02:27.207273+00:00
+008,Trie Prefix Tree for Auto-Completion with Frequency Ranking,Java,🧠 Computational AI & Math Engines,java-enterprise-patterns,main,2026-11-27T05:02:30.218793+00:00
+009,HyperLogLog Cardinality Estimation Algorithm,Swift,🧠 Computational AI & Math Engines,swift-systems-lab,main,2026-11-27T05:01:55.390551+00:00
+010,"Algorithms, Data Structures (Big-O), and Memory Management: Stack vs. Heap",Ruby,⚡ Low-Latency & Memory Systems,ruby-algorithms-lab,main,2026-11-27T03:02:36.337786+00:00
+011,Safe Optimistic Lock Coupling,C#,⚡ Low-Latency & Memory Systems,csharp-enterprise-lab,main,2026-11-27T02:01:30.263238+00:00
+012,Conjugate Gradient Linear System Solver,Rust,🧠 Computational AI & Math Engines,rust-algorithms,main,2026-11-27T01:02:17.416921+00:00
 013,Hopcroft-Karp Bipartite Matching Algorithm,C,🧠 Computational AI & Math Engines,c-lowlevel-systems,main,2026-11-26T23:01:41.949243+00:00
 014,Conflict-free Replicated Data Type (CRDT) PN-Counter,Rust,🌐 Distributed Systems & Consensus,rust-algorithms,main,2026-11-26T21:02:41.498820+00:00
 015,R-Tree Spatial Index for Multidimensional Bounding Boxes,C++,🧠 Computational AI & Math Engines,cpp-systems-core,main,2026-11-26T20:01:52.307272+00:00

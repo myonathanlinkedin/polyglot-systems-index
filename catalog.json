@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Kruskal Minimum Spanning Tree with Disjoint-Set Union",
+    "language": "Haskell",
+    "folder": "haskell",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "haskell-functional-core",
+    "source_link": "https://github.com/myonathanlinkedin/haskell-functional-core/tree/main/algorithms/20261127_150229_kruskal_minimum_spanning_tree",
+    "source_file": "main",
+    "timestamp": "2026-11-27T15:02:46.598231+00:00",
+    "dir_name": "20261127_150229_kruskal_minimum_spanning_tree"
+  },
+  {
     "topic": "The JavaScript Event Loop: Call Stack, Task Queue & Microtasks",
     "language": "Go",
     "folder": "go",
@@ -119,17 +130,6 @@
     "source_file": "main",
     "timestamp": "2026-11-27T01:02:17.416921+00:00",
     "dir_name": "20261127_010155_conjugate_gradient_linear_syst"
-  },
-  {
-    "topic": "Kruskal Minimum Spanning Tree with Disjoint-Set Union",
-    "language": "C",
-    "folder": "c",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "c-lowlevel-systems",
-    "source_link": "https://github.com/myonathanlinkedin/c-lowlevel-systems/tree/main/algorithms/20261126_230220_kruskal_minimum_spanning_tree",
-    "source_file": "main",
-    "timestamp": "2026-11-26T23:02:32.584003+00:00",
-    "dir_name": "20261126_230220_kruskal_minimum_spanning_tree"
   },
   {
     "topic": "Hopcroft-Karp Bipartite Matching Algorithm",
