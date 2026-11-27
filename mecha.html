@@ -4509,7 +4509,7 @@
         color = 0x38f8ff; emissive = 0x00e5ff; emissiveIntensity = 4.6; roughness = 0.12; metalness = 0.10; useDetail = false; isEmissive = true; materialClass = 'emissive';
       } else if (n.includes('v_fin_crest_gem') || n.includes('chin_guard') || n.includes('cheek_red_trim') || n.includes('abdomen_core') || n.includes('plaque_red') || n.includes('toe_plate') || n.includes('heel_block')) {
         color = 0xd62428; roughness = 0.30; metalness = 0.18; materialClass = 'armor_painted';
-      } else if (n.includes('_yellow') || n.includes('louvers') || n.includes('v_emblem')) {
+      } else if (n.includes('_yellow') || n.includes('louvers') || n.includes('v_emblem') || n.includes('v_fin_antenna')) {
         color = 0xf4b41a; roughness = 0.28; metalness = 0.32; materialClass = 'armor_painted';
       } else if (n.includes('v_fin_sub_gold') || n.includes('vulcan_gold') || n.includes('_gold')) {
         color = 0xeab308; roughness = 0.20; metalness = 0.90; useDetail = false; materialClass = 'metal_gold';
@@ -6248,7 +6248,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261127_r69');
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261127_r71');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         const onGltfReady = async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
@@ -7121,21 +7121,22 @@
             }
           }
         });
-        // Horn-Safe Bilateral Symmetric Flanking Cranial Mount (r68):
+        // Horn-Safe Clean SINGLE-SIDE Tactical Cranial Mount (r70):
         // - Vanguard & Zaku-II: 100% untouched (canonical centered crown).
         // - Sazabi & Gouf (tall central commander horn at |X|<=0.98mm): NEVER collide with the center horn!
-        //   Hides the redundant center `crown_riser` box and mounts twin strictly X-symmetric flanking sensor pods
-        //   on BOTH +X and -X cleanly clear of the center horn (inner edge >= +2.0mm / <= -2.0mm), anchored flush
-        //   to the curved helmet temples via sleek low-profile bilateral rail cradles, angled dome straps & gold micro-pins!
+        //   Hides the redundant center `crown_riser` box and mounts ONE sleek tactical crown sensor on the +X
+        //   side cleanly clear of the center horn (inner edge >= +2.2mm), anchored flush to the curved helmet
+        //   temple via a single low-profile rail cradle, contour-hugging dome strap to the right ear clamp &
+        //   micro gold lock-bolt (ZERO twin-pod doubling, ZERO stacked chunky bricks!).
         if (slotGroup === 'head_sensor' && crownMeshes.length > 0 && (state.activeUnitId === 'enemy_sazabi' || state.activeUnitId === 'enemy_gouf' || state.activeUnitId === 'rival_frame')) {
           const isSaz = state.activeUnitId === 'enemy_sazabi';
           const isGouf = state.activeUnitId === 'enemy_gouf';
           const hs = isSaz ? 1.15 : (isGouf ? 1.20 : 1.0);
-          const cs = 0.56; // Precision flanking scale so twin L+R pods sit sleekly on the helmet temples
+          const cs = 0.60; // Sleek single-side tactical scale sitting flush on the right helmet temple
           const bridgeMat = getSharedMechaMaterial({ color: 0x262f3c, roughness: 0.34, metalness: 0.78, materialClass: 'metal_gunmetal' });
           const goldBoltMat = getSharedMechaMaterial({ color: 0xeab308, roughness: 0.22, metalness: 0.90, materialClass: 'metal_gold' });
 
-          const addSymPart = (parentGrp, geom, mat, lx, ly, lz, nm, rxDeg = 0, ryDeg = 0, rzDeg = 0) => {
+          const addMountPart = (parentGrp, geom, mat, lx, ly, lz, nm, rxDeg = 0, ryDeg = 0, rzDeg = 0) => {
             const pMesh = new THREE.Mesh(geom, mat);
             pMesh.name = nm;
             pMesh.position.set(lx, ly, lz);
@@ -7156,7 +7157,7 @@
             return pMesh;
           };
 
-          // Hide legacy center-mount `crown_riser` block so zero redundant dark brick stacks under the flanking pods!
+          // Hide legacy center-mount `crown_riser` block so zero redundant dark brick stacks under the side pod!
           const activeCrown = [];
           let cMinX = Infinity, cMaxX = -Infinity, cMinY = Infinity, cMaxY = -Infinity, cMinZ = Infinity, cMaxZ = -Infinity;
           crownMeshes.forEach(m => {
@@ -7178,77 +7179,65 @@
             const cy = 0.5 * (cMinY + cMaxY);
             const cz = 0.5 * (cMinZ + cMaxZ);
             const halfWWorld = 0.5 * (cMaxX - cMinX) * hs * cs;
-            // Strict >= 2.0mm horn clearance on BOTH sides (Sazabi horn |X|<=0.98mm, Gouf fin |X|<=0.87mm -> >=1.0mm air gap!)
-            const targetCxWorld = Math.max(4.6, 2.1 + halfWWorld);
-            const targetBotYWorld = isSaz ? 5.8 : (isGouf ? 6.8 : 6.0);
-            const targetCzWorld = -1.8;
+            // Strict >= 2.2mm horn clearance on +X side (Sazabi horn |X|<=0.98mm, Gouf fin |X|<=0.87mm -> >1.2mm clean air gap!)
+            const targetCxWorld = Math.max(4.8, 2.2 + halfWWorld);
+            const targetBotYWorld = isSaz ? 5.6 : (isGouf ? 6.8 : 6.0);
+            const targetCzWorld = -2.0;
 
-            for (const [sgn, sfx] of [[1.0, 'r'], [-1.0, 'l']]) {
-              const sideGrp = new THREE.Group();
-              sideGrp.name = `HornSafeFlankCrown_${state.activeUnitId}_${sfx}`;
-              sideGrp.position.set(
-                (sgn * targetCxWorld) / hs,
-                (targetBotYWorld / hs) - (cMinY - cy) * cs,
-                targetCzWorld / hs
-              );
-              sideGrp.scale.set(cs, cs, cs);
-              const sideInner = new THREE.Group();
-              sideInner.position.set(-cx, -cy, -cz);
-              activeCrown.forEach(m => {
-                if (sgn > 0) {
-                  sideInner.add(m);
-                } else {
-                  const cl = m.clone(true);
-                  cl.name = `${m.name}_sym_l`;
-                  cl.userData = { ...m.userData, initialPosition: m.position.clone(), isModularPack: true };
-                  sideInner.add(cl);
-                  state.chassisParts.push(cl);
-                }
-              });
-              sideGrp.add(sideInner);
-              packModel.add(sideGrp);
+            const sideGrp = new THREE.Group();
+            sideGrp.name = `HornSafeSingleCrown_${state.activeUnitId}`;
+            sideGrp.position.set(
+              targetCxWorld / hs,
+              (targetBotYWorld / hs) - (cMinY - cy) * cs,
+              targetCzWorld / hs
+            );
+            sideGrp.scale.set(cs, cs, cs);
+            const sideInner = new THREE.Group();
+            sideInner.position.set(-cx, -cy, -cz);
+            activeCrown.forEach(m => sideInner.add(m));
+            sideGrp.add(sideInner);
+            packModel.add(sideGrp);
 
-              // Sleek low-profile contoured temple rail cradle (embedded flush into dome shoulder, strictly clear of horn |X|<=1.0mm!)
-              const railInnerX = Math.max(2.2, targetCxWorld - Math.max(2.0, halfWWorld * 0.75));
-              const railOuterX = Math.min(9.4, targetCxWorld + Math.max(1.8, halfWWorld * 0.65));
-              const railW = Math.max(3.2, railOuterX - railInnerX) / hs;
-              const railY = (targetBotYWorld - 0.55) / hs;
-              const railZ = targetCzWorld / hs;
-              addSymPart(
-                packModel,
-                new THREE.BoxGeometry(railW, 1.5 / hs, 5.2 / hs),
-                bridgeMat,
-                (sgn * 0.5 * (railInnerX + railOuterX)) / hs,
-                railY,
-                railZ,
-                `adapter_flank_rail_dark_${sfx}`
-              );
+            // Single sleek low-profile contoured temple rail cradle (embedded flush into dome shoulder, strictly clear of center horn!)
+            const railInnerX = Math.max(2.2, targetCxWorld - Math.max(2.2, halfWWorld * 0.78));
+            const railOuterX = Math.min(9.8, targetCxWorld + Math.max(1.8, halfWWorld * 0.65));
+            const railW = Math.max(3.4, railOuterX - railInnerX) / hs;
+            const railY = (targetBotYWorld - 0.55) / hs;
+            const railZ = targetCzWorld / hs;
+            addMountPart(
+              packModel,
+              new THREE.BoxGeometry(railW, 1.5 / hs, 5.6 / hs),
+              bridgeMat,
+              (0.5 * (railInnerX + railOuterX)) / hs,
+              railY,
+              railZ,
+              'adapter_single_rail_dark'
+            );
 
-              // Sleek contour-hugging temple arch linking rail outer lug cleanly down to bilateral ear clamp (X=+-8.8, Y=1.8)
-              const topX = (sgn * Math.min(8.6, railOuterX - 0.4)) / hs;
-              const botX = sgn * 8.8;
-              const topY = railY - (0.3 / hs);
-              const botY = 1.8;
-              const dx = topX - botX;
-              const dy = Math.max(1.0, topY - botY);
-              const archLen = Math.hypot(dx, dy) + (0.8 / hs);
-              const archTiltDeg = THREE.MathUtils.radToDeg(Math.atan2(dx, dy));
-              addSymPart(
-                packModel,
-                new THREE.BoxGeometry(1.45 / hs, archLen, 3.8 / hs),
-                bridgeMat,
-                0.5 * (topX + botX),
-                0.5 * (topY + botY),
-                railZ,
-                `adapter_flank_arch_dark_${sfx}`,
-                0, 0, -archTiltDeg
-              );
+            // Single contour-hugging temple strap linking rail outer lug cleanly down to right ear clamp (X=+8.8, Y=1.8)
+            const topX = Math.min(9.2, railOuterX - 0.4) / hs;
+            const botX = 8.8;
+            const topY = railY - (0.3 / hs);
+            const botY = 1.8;
+            const dx = topX - botX;
+            const dy = Math.max(1.0, topY - botY);
+            const archLen = Math.hypot(dx, dy) + (0.8 / hs);
+            const archTiltDeg = THREE.MathUtils.radToDeg(Math.atan2(dx, dy));
+            addMountPart(
+              packModel,
+              new THREE.BoxGeometry(1.5 / hs, archLen, 4.0 / hs),
+              bridgeMat,
+              0.5 * (topX + botX),
+              0.5 * (topY + botY),
+              railZ,
+              'adapter_single_arch_dark',
+              0, 0, -archTiltDeg
+            );
 
-              // Flush micro gold lock-bolt at the temple rail joint
-              const boltGeo = new THREE.CylinderGeometry(0.75 / hs, 0.75 / hs, 4.4 / hs, 14);
-              boltGeo.rotateX(Math.PI / 2);
-              addSymPart(packModel, boltGeo, goldBoltMat, topX, topY, railZ, `adapter_flank_bolt_gold_${sfx}`);
-            }
+            // Single flush micro gold lock-bolt at the temple rail joint
+            const boltGeo = new THREE.CylinderGeometry(0.8 / hs, 0.8 / hs, 4.6 / hs, 14);
+            boltGeo.rotateX(Math.PI / 2);
+            addMountPart(packModel, boltGeo, goldBoltMat, topX, topY, railZ, 'adapter_single_bolt_gold');
           }
         }
         // Vanguard-ONLY (RX-78) 2-Facet Full-Armor Chest Contour Adaptation (r61):
