@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Huffman Coding Lossless Compression and Decompression",
+    "language": "Java",
+    "folder": "java",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "java-enterprise-patterns",
+    "source_link": "https://github.com/myonathanlinkedin/java-enterprise-patterns/tree/main/algorithms/20261128_030316_huffman_coding_lossless_compre",
+    "source_file": "main",
+    "timestamp": "2026-11-28T03:03:30.645275+00:00",
+    "dir_name": "20261128_030316_huffman_coding_lossless_compre"
+  },
+  {
     "topic": "Libtt: A Compiler and Runtime for Tenstorrent Processors",
     "language": "Ruby",
     "folder": "ruby",
@@ -1593,17 +1604,6 @@
     "source_file": "main",
     "timestamp": "2026-11-08T21:02:58.867516+00:00",
     "dir_name": "20261108_210232_your_payment_webhook_is_not_a"
-  },
-  {
-    "topic": "Huffman Coding Lossless Compression and Decompression",
-    "language": "TypeScript",
-    "folder": "typescript",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "typescript-design-patterns",
-    "source_link": "https://github.com/myonathanlinkedin/typescript-design-patterns/tree/main/algorithms/20261108_200120_huffman_coding_lossless_compre",
-    "source_file": "main",
-    "timestamp": "2026-11-08T20:01:36.280701+00:00",
-    "dir_name": "20261108_200120_huffman_coding_lossless_compre"
   },
   {
     "topic": "JIT bitmap text rendering for microcontrollers",
