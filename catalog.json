@@ -1,5 +1,38 @@
 [
   {
+    "topic": "Runge-Kutta 4th Order Numerical ODE Integrator",
+    "language": "Swift",
+    "folder": "swift",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "swift-systems-lab",
+    "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261128_010255_runge-kutta_4th_order_numerica",
+    "source_file": "main",
+    "timestamp": "2026-11-28T01:03:11.226071+00:00",
+    "dir_name": "20261128_010255_runge-kutta_4th_order_numerica"
+  },
+  {
+    "topic": "Actor Model Concurrency Engine with Mailbox Processing",
+    "language": "C++",
+    "folder": "cpp",
+    "category": "\ud83c\udf10 Distributed Systems & Consensus",
+    "spoke_repo": "cpp-systems-core",
+    "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261127_230219_actor_model_concurrency_engine",
+    "source_file": "main",
+    "timestamp": "2026-11-27T23:02:35.499298+00:00",
+    "dir_name": "20261127_230219_actor_model_concurrency_engine"
+  },
+  {
+    "topic": "A Local-Counting Approach for Distributed Induced Path Detection",
+    "language": "Go",
+    "folder": "go",
+    "category": "\ud83c\udf10 Distributed Systems & Consensus",
+    "spoke_repo": "go-concurrency-lab",
+    "source_link": "https://github.com/myonathanlinkedin/go-concurrency-lab/tree/main/algorithms/20261127_230127_a_local-counting_approach_for",
+    "source_file": "main",
+    "timestamp": "2026-11-27T23:01:54.474974+00:00",
+    "dir_name": "20261127_230127_a_local-counting_approach_for"
+  },
+  {
     "topic": "Tarjan Strongly Connected Components Search in Directed Graphs",
     "language": "Rust",
     "folder": "rust",
@@ -20,17 +53,6 @@
     "source_file": "main",
     "timestamp": "2026-11-27T20:01:41.432820+00:00",
     "dir_name": "20261127_200127_the_state_of_allocators_in_202"
-  },
-  {
-    "topic": "A Local-Counting Approach for Distributed Induced Path Detection",
-    "language": "C#",
-    "folder": "csharp",
-    "category": "\ud83c\udf10 Distributed Systems & Consensus",
-    "spoke_repo": "csharp-enterprise-lab",
-    "source_link": "https://github.com/myonathanlinkedin/csharp-enterprise-lab/tree/main/algorithms/20261127_190246_a_local-counting_approach_for",
-    "source_file": "main",
-    "timestamp": "2026-11-27T19:03:15.663871+00:00",
-    "dir_name": "20261127_190246_a_local-counting_approach_for"
   },
   {
     "topic": "Topological Sort with Cycle Detection in Directed Graphs",
@@ -75,17 +97,6 @@
     "source_file": "main",
     "timestamp": "2026-11-27T14:01:33.939096+00:00",
     "dir_name": "20261127_140110_the_javascript_event_loop__cal"
-  },
-  {
-    "topic": "Actor Model Concurrency Engine with Mailbox Processing",
-    "language": "Rust",
-    "folder": "rust",
-    "category": "\ud83c\udf10 Distributed Systems & Consensus",
-    "spoke_repo": "rust-algorithms",
-    "source_link": "https://github.com/myonathanlinkedin/rust-algorithms/tree/main/algorithms/20261127_130251_actor_model_concurrency_engine",
-    "source_file": "main",
-    "timestamp": "2026-11-27T13:03:14.308276+00:00",
-    "dir_name": "20261127_130251_actor_model_concurrency_engine"
   },
   {
     "topic": "Aho-Corasick Multi-Pattern String Searching Automaton",
@@ -757,17 +768,6 @@
     "source_file": "main",
     "timestamp": "2026-11-22T01:02:28.723597+00:00",
     "dir_name": "20261122_010210_copy-on-write_vector_memory_bu"
-  },
-  {
-    "topic": "Runge-Kutta 4th Order Numerical ODE Integrator",
-    "language": "C#",
-    "folder": "csharp",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "csharp-enterprise-lab",
-    "source_link": "https://github.com/myonathanlinkedin/csharp-enterprise-lab/tree/main/algorithms/20261121_230114_runge-kutta_4th_order_numerica",
-    "source_file": "main",
-    "timestamp": "2026-11-21T23:01:36.318362+00:00",
-    "dir_name": "20261121_230114_runge-kutta_4th_order_numerica"
   },
   {
     "topic": "Aggron: Aggressive Compression of Agentic KV Caches during Head-of-Line Stalls in the",
