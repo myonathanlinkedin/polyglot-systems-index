@@ -1,5 +1,16 @@
 [
   {
+    "topic": "Treap Randomized Binary Search Tree with Heap Priorities",
+    "language": "C++",
+    "folder": "cpp",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "cpp-systems-core",
+    "source_link": "https://github.com/myonathanlinkedin/cpp-systems-core/tree/main/algorithms/20261128_110139_treap_randomized_binary_search",
+    "source_file": "main",
+    "timestamp": "2026-11-28T11:01:56.464465+00:00",
+    "dir_name": "20261128_110139_treap_randomized_binary_search"
+  },
+  {
     "topic": "Finite State Machine Tokenizer and Lexical Parser",
     "language": "TypeScript",
     "folder": "typescript",
@@ -581,17 +592,6 @@
     "source_file": "main",
     "timestamp": "2026-11-24T17:01:24.372067+00:00",
     "dir_name": "20261124_170107_build_your_own_stack-based_byt"
-  },
-  {
-    "topic": "Treap Randomized Binary Search Tree with Heap Priorities",
-    "language": "Swift",
-    "folder": "swift",
-    "category": "\ud83e\udde0 Computational AI & Math Engines",
-    "spoke_repo": "swift-systems-lab",
-    "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261124_150246_treap_randomized_binary_search",
-    "source_file": "main",
-    "timestamp": "2026-11-24T15:03:05.412198+00:00",
-    "dir_name": "20261124_150246_treap_randomized_binary_search"
   },
   {
     "topic": "Arctic: A Practical Lock-Free Adaptive Radix Tree",
@@ -3309,6 +3309,17 @@
     "source_file": "main",
     "timestamp": "2026-10-20T03:02:42.391639+00:00",
     "dir_name": "20261020_030242_treap_randomized_binary_search"
+  },
+  {
+    "topic": "Treap Randomized Binary Search Tree with Heap Priorities",
+    "language": "Swift",
+    "folder": "swift",
+    "category": "\ud83e\udde0 Computational AI & Math Engines",
+    "spoke_repo": "swift-systems-lab",
+    "source_link": "https://github.com/myonathanlinkedin/swift-systems-lab/tree/main/algorithms/20261020_010131_treap_randomized_binary_search",
+    "source_file": "main",
+    "timestamp": "2026-10-20T01:01:31.526662+00:00",
+    "dir_name": "20261020_010131_treap_randomized_binary_search"
   },
   {
     "topic": "Topological Sort with Cycle Detection in Directed Graphs",
